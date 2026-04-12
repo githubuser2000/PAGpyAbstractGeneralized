@@ -1,0 +1,263 @@
+# RETA als Datenbankmodell
+
+## Überblick
+
+Reta kann als Datenbank modelliert werden als:
+
+- Entitäten (Tabellen)
+- Relationen (Netzwerke)
+- Transformationen (Funktoren/Morphismen)
+- Constraints (Regeln)
+- Garben (lokal → global Konsistenz)
+
+**Wichtig:**  
+Die Datenbank ist eine *Projektion* der Semantik, nicht deren Ersatz.
+
+---
+
+## Meta-Ebene
+
+### Meta-Tabelle SemReta ↔ RelReta
+
+| semreta | relreta |
+|---------|---------|
+| Kategorie | Kategorie |
+
+Dies ist nur eine *Meta-Sicht*.
+
+---
+
+## A. SemReta Tabellen (semantischer Kern)
+
+### Kategorien
+
+| id | kind | label |
+
+### Unterkategorien
+
+| id | category_id | label |
+
+### Spalten
+
+| id | label | category_id | subtype_id |
+
+### Generatoren
+
+| id | name | family |
+
+### Generator → Spalten
+
+| generator_id | column_id |
+
+### Parameter
+
+| id | main_param | sub_param | value |
+
+### Requests
+
+| id | description |
+
+### Request → Parameter
+
+| request_id | parameter_id |
+
+### Spaltenmengen
+
+| id | request_id |
+
+### Spaltenmenge → Spalten
+
+| set_id | column_id |
+
+---
+
+## B. RelReta Tabellen (relationale Sicht)
+
+### OutputTable
+
+| row | col1 | col2 | col3 | ... |
+
+### InputTables
+
+| table_name | row_id | column_name | value |
+
+### MappingTable
+
+| sem_object | rel_table | rel_column |
+
+### FormatMetaTable
+
+| column_id | cli_text | html_class | doc_label |
+
+### SchemaTable
+
+| table_name | column_name | type |
+
+---
+
+## C. Netzwerk-Tabellen
+
+### Generisches Netzwerk
+
+| source | relation | target |
+
+**Beispiele:**
+
+| source | relation | target |
+|--------|----------|--------|
+| cat1 | belongs_to | cat0 |
+| gen1 | generates | col5 |
+| col5 | equivalent | col7 |
+| paramA | incompatible | paramB |
+
+---
+
+### Spezialisierte Netzwerke
+
+#### Kategorie-Netzwerk
+
+| parent | child |
+
+#### Generator-Netzwerk
+
+| generator | depends_on |
+
+#### Parameter-Netzwerk
+
+| param | allowed_with |
+
+#### Datenfluss-Netzwerk
+
+| from | to |
+
+---
+
+## D. Funktoren und Transformationen
+
+### Funktor Sem → Rel
+
+| sem_object_type | rel_table | rel_mapping |
+
+### Morphismen
+
+| morphism | input_type | output_type |
+
+### Komposition
+
+| morphism_a | morphism_b | result |
+
+### Natürliche Transformation
+
+| obj_type | cli_repr | html_repr |
+
+---
+
+## E. Garben als Tabellen
+
+### Lokale Daten
+
+| space | region | data |
+
+### Überlappungen
+
+| region_a | region_b | compatibility |
+
+### Globalisierung
+
+| local_set | global_result |
+
+---
+
+## F. Constraint-Tabellen
+
+### Regeln
+
+| rule_id | type | condition |
+
+### Verbotene Kombinationen
+
+| param_a | param_b |
+
+### Prioritäten
+
+| option | score |
+
+### Lösungen
+
+| problem | solution |
+
+---
+
+## G. Ereignis- und Datenstromtabellen
+
+### Events
+
+| event_id | type | payload |
+
+### Streams
+
+| from | to | data |
+
+---
+
+## Minimale Kernstruktur
+
+**Pflicht:**
+
+- categories
+- subcategories
+- columns
+- generators
+- generator_column
+- parameters
+- request
+- request_parameter
+- column_set
+- column_set_items
+- network_relations
+- output_table
+
+---
+
+**Optional:**
+
+- mapping_table
+- format_meta
+- constraint_rules
+- functor_mapping
+- doc_table
+
+---
+
+## Gesamtinterpretation
+
+Reta ist:
+
+- relationale Wissensbasis
+- Graphsystem (Netzwerke)
+- Transformationssystem (Funktoren)
+- Constraint-System
+- Garbenstruktur (lokal → global)
+
+---
+
+## Wichtigste Regel
+
+> Alles kann als Tabelle modelliert werden,  
+> aber nicht alles sollte primär Tabelle sein.
+
+---
+
+## Architekturprinzip
+
+- Tabellen → Struktur / Speicherung  
+- Funktionen → Transformation  
+- Constraints → Logik  
+- Kategorien → abstrakte Struktur  
+
+---
+
+## Schluss
+
+> Reta als Datenbank ist die Projektion eines kategorialen Systems,  
+> nicht dessen Ersatz.
