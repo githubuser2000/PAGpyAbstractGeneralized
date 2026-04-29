@@ -1,0 +1,554 @@
+# Statusökonomie: Eine hierarchische Märktewirtschaft
+
+Dieses Modell schafft Märkte **nicht** ab. Die Korrektur ist wichtig: Der Markt bleibt erhalten, aber er basiert nicht mehr nur auf flachem Geld. Der Markt selbst wird hierarchisch betrachtet, und Hierarchie wird zur eigentlichen Währung.
+
+In einem solchen System ist Geld nicht die tiefste ökonomische Einheit. Geld ist nur die zahlenförmige Projektion von Hierarchie. Die eigentliche Handelseinheit ist ein strukturiertes Hierarchiebündel: eine rangabhängige Kombination aus Rechten, Privilegien, Pflichten, Benachteiligungen, Zugriffsstufen, Produktansprüchen, Amtsansprüchen, Marktansprüchen und sozialer Position.
+
+Eine normale Währung sagt nur: **wie viel**.
+
+Eine Hierarchiewährung sagt: **wie viel, von welcher Art, auf welcher Höhe, mit welchen Rechten, mit welchen Pflichten, mit welchen Zugriffsbeschränkungen und mit welchem sozialen Rang**.
+
+Das System ist also nicht antimarktwirtschaftlich. Es ist eine **hierarchische Märktewirtschaft**: Alles kann gehandelt werden, aber alles wird als Hierarchie gehandelt.
+
+## 1. Der Grundgedanke
+
+Jede Person, jedes Unternehmen, jedes Produkt, jeder Markt, jede Institution, jedes Land, jede Kolonie und jedes strategische Gut hat eine Hierarchieposition. Diese Hierarchieposition kann in eine Zahl umgerechnet werden, aber die Zahl ist nur eine Kompression der vollständigen Hierarchie.
+
+Die Hierarchie enthält mehr Information als ein flacher Preis. Ein Preis kann sagen, dass etwas 100 Einheiten kostet. Eine Hierarchie sagt, ob diese 100 Einheiten Basiszugang zu Konsumgütern, Elitewohnzugang, militärische Befehlsgewalt, wissenschaftliche Autorität, Medienreichweite, rechtliches Privileg, Risikolast, Arbeitsverpflichtung, Markteintrittserlaubnis oder sonnensystemische strategische Kontrolle bedeuten.
+
+Das ist der entscheidende Unterschied.
+
+Das System hat weiterhin Handel. Es hat weiterhin Kaufen und Verkaufen. Es hat weiterhin Märkte. Aber statt nur Geld gegen Waren zu tauschen, handeln Akteure Hierarchie gegen Hierarchie.
+
+Eine Transaktion ist nicht einfach:
+
+```text
+Geld -> Produkt
+```
+
+Sie ist eher:
+
+```text
+Hierarchiebündel A -> Hierarchiebündel B
+```
+
+Zum Beispiel:
+
+```text
+Ingenieurleistung + Risikopflicht + Dienstzeit
+-> Wohnprivileg + Produktzugang + Statusgutschrift + zukünftiger Aufstiegsanspruch
+```
+
+Oder:
+
+```text
+Markteintrittsrecht + Lieferkettenprivileg + regionale Produktlizenz
+-> strategische Produktionspflicht + Steueranspruch + Hierarchiegutschrift
+```
+
+Der Markt wird also nicht entfernt. Er wird vertieft.
+
+## 2. Hierarchie als Währung
+
+Die Währung des Systems ist die Hierarchie selbst. Für Abrechnung, Buchhaltung und Vergleich kann Hierarchie aber jederzeit in eine Zahl umgerechnet werden.
+
+Eine einfache Darstellung ist:
+
+\[
+H(X) = \{(e_1,h_1,q_1), (e_2,h_2,q_2), ..., (e_n,h_n,q_n)\}
+\]
+
+Dabei gilt:
+
+| Symbol | Bedeutung |
+|---|---|
+| \(X\) | die Person, das Produkt, das Unternehmen, der Markt, das Privileg oder der Vermögenswert, der bewertet wird |
+| \(e_i\) | ein Hierarchieelement |
+| \(h_i\) | die Höhe oder Rangstufe dieses Elements |
+| \(q_i\) | die Menge, Intensität oder Stärke dieses Elements |
+
+Der numerische Wert kann dann berechnet werden als:
+
+\[
+N(X) = \sum_i q_i \cdot V(e_i) \cdot M(h_i)
+\]
+
+Dabei gilt:
+
+| Symbol | Bedeutung |
+|---|---|
+| \(N(X)\) | numerischer Hierarchiewert von \(X\) |
+| \(V(e_i)\) | Grundwert des Hierarchieelements |
+| \(M(h_i)\) | Multiplikator entsprechend der Hierarchiehöhe |
+
+In der einfachsten Version entsteht die Zahl durch **Addition der Hierarchieelemente** und **Multiplikation mit einem Höhenmultiplikator**.
+
+Das kann auch so geschrieben werden:
+
+\[
+N = \sum_k E_k \cdot M_k
+\]
+
+Dabei gilt:
+
+| Symbol | Bedeutung |
+|---|---|
+| \(E_k\) | Anzahl oder gewichtete Menge der Hierarchieelemente auf Stufe \(k\) |
+| \(M_k\) | Multiplikator für die Hierarchiestufe \(k\) |
+
+Beispiel:
+
+| Hierarchiestufe | Bedeutung | Multiplikator |
+|---|---|---:|
+| 1 | Grundzugang | 1 |
+| 2 | lokales Privileg | 5 |
+| 3 | regionale Befehlsgewalt oder knapper Zugang | 25 |
+| 4 | planetare strategische Bedeutung | 200 |
+| 5 | sonnensystemische Missionsbedeutung | 2.000 |
+
+Wenn ein Akteur 10 Hierarchieelemente auf Stufe 2 und 3 Hierarchieelemente auf Stufe 4 hat, dann gilt:
+
+\[
+N = 10 \cdot 5 + 3 \cdot 200 = 650
+\]
+
+Aber der Akteur hat nicht bloß „650 Einheiten“. Er hat:
+
+```text
+10 lokale Privilegienelemente + 3 planetare strategische Elemente
+```
+
+Das ist viel genauer als gewöhnliches Geld.
+
+## 3. Warum Hierarchie mehr sagt als Geld
+
+Flaches Geld ist sehr flexibel, aber semantisch arm. Es sagt dem System, dass zwei Dinge denselben Preis haben, aber nicht, ob sie dieselbe soziale Bedeutung, strategische Bedeutung, moralische Last, dasselbe Risiko oder dieselbe institutionelle Funktion haben.
+
+Hierarchie ist weniger flach, aber informationsreicher.
+
+Zwei Vermögenswerte können denselben numerischen Wert haben und trotzdem als Hierarchiebündel völlig verschieden sein.
+
+Beispiel:
+
+```text
+A = 500 Einheiten Elitewohnzugang
+B = 500 Einheiten militärische Risikopflicht
+C = 500 Einheiten Zugang zu wissenschaftlicher Infrastruktur
+D = 500 Einheiten Medienreichweite
+```
+
+In normalem Geld können alle vier auf denselben Betrag reduziert werden. In einer Hierarchiewirtschaft sind sie nicht wirklich identisch. Sie sind nur numerisch vergleichbar.
+
+Deshalb kann Hierarchie genauer sein als Geld. Sie bewahrt Typ, Höhe, Kontext, Berechtigung und Last.
+
+Die Zahl ist nützlich, um Geschäfte abzurechnen. Die Hierarchie ist nützlich, um zu verstehen, was tatsächlich gehandelt wird.
+
+## 4. Der Markt bleibt erhalten
+
+Der Markt verschwindet nicht. Er wird ein Hierarchiemarkt.
+
+Menschen, Firmen, Produkte und Institutionen tauschen weiterhin Wert. Aber sie tauschen strukturierten Wert statt bloß flacher Währung.
+
+Ein Arbeitnehmer verkauft nicht einfach Arbeit gegen Lohn. Er verkauft einen Hierarchiebeitrag: Fähigkeit, Zuverlässigkeit, Risiko, Loyalität, Zeit, Knappheit, soziale Nützlichkeit und mögliche zukünftige Führung.
+
+Ein Arbeitgeber bezahlt nicht einfach Geld. Er gibt Hierarchie: Einkommen, Produktzugang, Karriererang, Ausbildungszugang, Teamzugehörigkeit, institutionellen Schutz, Amtsrechte, Wohnrechte, Mobilitätsrechte und Aufstiegswege.
+
+Ein Unternehmen verkauft nicht einfach Produkte. Es verkauft eine Produkthierarchie: Nützlichkeit, Vertrauen, Reparierbarkeit, technischer Rang, strategische Bedeutung, Markenautorität, Servicegarantien und Kompatibilität mit anderen hierarchisch geordneten Produkten.
+
+Ein Land verkauft nicht einfach Exporte. Es handelt nationale Hierarchie: Sicherheitsgarantien, Marktzugang, Logistikrouten, militärischen Schutz, Ressourcenansprüche, demografisches Potenzial, wissenschaftliche Kapazität und geopolitischen Rang.
+
+Das System bleibt also ein Marktsystem. Aber das gehandelte Medium ist reicher.
+
+## 5. Sogar Märkte können gehandelt werden
+
+In diesem Modell können sogar Märkte selbst gehandelt werden.
+
+Ein Markt ist nicht nur ein Ort, an dem Handel stattfindet. Ein Markt ist selbst ein Hierarchieobjekt. Er hat:
+
+- Teilnehmer
+- Zugangsregeln
+- Torwächter
+- Liquidität
+- Reputation
+- rechtliche Erlaubnisse
+- Produktkategorien
+- Abrechnungsregeln
+- Steueransprüche
+- Informationsvorteile
+- Infrastruktur
+- strategische Bedeutung
+- territoriale oder orbitale Relevanz
+
+Ein Markt kann also eine eigene Hierarchieposition haben:
+
+\[
+H(Markt)
+\]
+
+Das bedeutet: Das Recht, einen Markt zu betreten, zu betreiben, zu besteuern, zu regulieren, Produkte darin zu listen, Geschäfte darüber abzurechnen oder ihn zu dominieren, kann selbst gekauft, verkauft, verpachtet, ranggeordnet und getauscht werden.
+
+Beispiele:
+
+- ein lokaler Lebensmittelmarkt
+- ein nationaler Wohnungsmarkt
+- ein militärischer Beschaffungsmarkt
+- ein planetarer Energiemarkt
+- ein orbitaler Frachtmarkt
+- ein Mond-Baumarkt
+- ein Mars-Agrarmarkt
+- ein Logistikmarkt des Sonnensystems
+
+Eine Börse ist zum Beispiel nicht bloß ein Unternehmen. Sie ist ein Hierarchieknoten. Sie kontrolliert Listing, Sichtbarkeit, Vertrauen, Zugang, Liquidität, Abrechnung und symbolische Legitimität.
+
+In einer Sonnensystemwirtschaft würden Märkte noch hierarchischer, weil Ort, Transportkosten, Überlebensrisiko und strategischer Wert zwischen Erde, Orbit, Mond, Mars, Asteroidenindustrien und Missionen des äußeren Systems radikal verschieden wären.
+
+## 6. Produkte sind ebenfalls hierarchisch
+
+Produkte haben nicht bloß Preise. Sie haben Hierarchiepositionen.
+
+Ein Produkt kann gerankt werden nach:
+
+- Nützlichkeit
+- Knappheit
+- Zuverlässigkeit
+- Reparierbarkeit
+- technologischem Niveau
+- strategischer Bedeutung
+- symbolischem Wert
+- Sicherheitsniveau
+- Integration mit anderen Produkten
+- militärischem Wert
+- Infrastrukturwert
+- ökologischer Wirkung
+- kultureller Wirkung
+
+Ein Produkt hat also ein Hierarchiebündel:
+
+\[
+H(Produkt)
+\]
+
+Ein hochrangiges Produkt erhält bessere Lieferketten, bessere Arbeiter, bessere Finanzierung, besseren Schutz, höhere Sichtbarkeit und leichtere Integration in andere Systeme.
+
+Das spart Zeit, weil Produkte nicht nur durch Werbung, Verhandlung und Preisfindung bewertet werden müssen. Ihre Hierarchieposition enthält bereits soziale und systemische Information.
+
+Ein medizinisches Gerät, ein militärisches Bauteil, eine Schulplattform, ein Mars-Sauerstoffgenerator und eine Luxusuhr können alle Marktwert haben. Aber ihre Hierarchiepositionen sind nicht gleich. Der Sauerstoffgenerator kann in einer Marskolonie deutlich höher rangieren, selbst wenn sein Erdmarktpreis niedriger ist als der eines Luxusguts.
+
+Genau hier ist Hierarchie stärker als flache Marktpreisbildung.
+
+## 7. Unterschiedliche Menschen erhalten Zugang zu unterschiedlichen Produkten
+
+In einer Hierarchiewirtschaft hat nicht jeder Mensch denselben Produktzugang. Verschiedenen Menschen stehen verschiedene Produkte zu, weil ihre Hierarchiepositionen verschieden sind.
+
+Das bedeutet nicht, dass es keinen Handel gibt. Es bedeutet, dass Handel Eignungs- und Zugangsregeln hat.
+
+Um ein Produkt zu erwerben, kann ein Akteur Folgendes brauchen:
+
+1. genügend numerischen Hierarchiewert,
+2. den richtigen Typ von Hierarchiegutschrift,
+3. die richtige Rangkategorie,
+4. den richtigen Alters- oder Lebensphasenstatus,
+5. die richtige berufliche oder institutionelle Rolle,
+6. den richtigen Ort oder die richtige Missionsrelevanz.
+
+Eine Person darf also militärische Werkzeuge erwerben, eine andere medizinische Werkzeuge, eine andere Medienreichweite, eine andere Elitewohnung, eine andere wissenschaftliche Rechenleistung, eine andere Mobilitätsprivilegien, eine andere kulturelle Autorität.
+
+Der Markt funktioniert weiterhin, aber der Zugang ist geschichtet.
+
+Das ist kein einfacher Konsumentenmarkt. Es ist ein gerankter Zugangsmarkt.
+
+## 8. Handel mit Privilegien und Benachteiligungen
+
+Privilegien können gehandelt werden. Benachteiligungen können ebenfalls gehandelt werden.
+
+Ein Privileg ist ein positiver Hierarchieanspruch, zum Beispiel:
+
+- bessere Wohnung
+- besserer Transport
+- Vorrangzugang
+- Elitebildung
+- bessere medizinische Optionen
+- höherer Rechenzugang
+- größere Medienreichweite
+- Markteintrittsrechte
+- Führungsbefugnis
+- Zugang zu knappen Gütern
+- symbolische Ehre
+- rechtlicher oder administrativer Vorrang
+
+Eine Benachteiligung ist eine negative oder belastende Hierarchieposition, zum Beispiel:
+
+- Risikopflicht
+- gefährliche Arbeit
+- abgelegener Ort
+- geringerer Komfort
+- Rationierung
+- soziale Last
+- Dienstpflicht
+- geringere Priorität
+- reduzierte Sichtbarkeit
+- härtere Arbeitsbedingungen
+- militärische Gefährdung
+- unattraktive, aber notwendige Arbeit
+
+In diesem System kann eine Person oder Organisation Benachteiligung gegen zukünftigen Vorteil handeln.
+
+Beispiel:
+
+```text
+5 Jahre Mars-Baurisiko übernehmen
+-> hoher zukünftiger Wohnstatus + Bildungsprivileg für die Familie + Aufstiegsgutschrift
+```
+
+Oder:
+
+```text
+gefährliche Rettungsarbeit übernehmen
+-> erhöhter Vertrauensstatus + medizinischer Vorrang + öffentliche Ehre + Karrierebeschleunigung
+```
+
+Dadurch werden Lasten ökonomisch sichtbar. Das System behandelt Opfer dann nicht als unsichtbar.
+
+Aber genau dieser Teil ist gefährlich. Wenn Benachteiligungen unbegrenzt handelbar sind, können Starke Vorteile kaufen, während Schwache ihre Zukunft verkaufen. Deshalb braucht eine stabile Hierarchiewirtschaft nicht handelbare Schutzbereiche.
+
+Nicht handelbar sein sollten:
+
+- menschlicher Grundstatus
+- körperliche Unversehrtheit
+- rechtliche Personenschaft
+- medizinische Grundversorgung
+- Grundzugang zu Nahrung
+- Grundunterkunft
+- Berufungsrecht
+- Recht auf Austritt aus missbräuchlichen Verträgen
+- Recht, nicht dauerhaft untergeordnet zu werden
+
+Benachteiligungen dürfen nur gehandelt werden, wenn sie zeitlich begrenzt, kompensiert, sichtbar und umkehrbar sind.
+
+Ohne diese Regel würde das System zu einem Markt für Herrschaft.
+
+## 9. Alter als Hierarchiemultiplikator
+
+Die Alterskurve entfernt den Markt nicht. Sie verändert Hierarchiezugang und Hierarchiemultiplikatoren.
+
+Eine gaußsche Alterskurve kann modellieren, dass verschiedene Lebensphasen unterschiedliche Arten von Leistung, Risiko, Fruchtbarkeit, Führung, Erfahrung, Abhängigkeit und sozialer Funktion tragen.
+
+Formal:
+
+\[
+A(t) = e^{-\frac{(Alter - \mu)^2}{2\sigma^2}}
+\]
+
+Dieser Altersfaktor kann den Hierarchiewert verändern:
+
+\[
+N(X,t) = A(t) \cdot \sum_i q_i \cdot V(e_i) \cdot M(h_i)
+\]
+
+In deinem Modell kann die Kurve für Frauen und Männer verschoben sein:
+
+- Frauen können früher hohen Status erhalten,
+- Männer können später hohen Status erhalten.
+
+Der tiefere Punkt ist: Status ist nicht nur individuelle Leistung. Status ist auch Lebensphasenposition innerhalb der Gesamthierarchie.
+
+Eine gute Umsetzung muss trotzdem vorsichtig sein. Wenn die Männer-/Frauenkurve zu starr ist, verschwendet das System außergewöhnliche Individuen. Eine stärkere Version erlaubt geschlechtsverschobene Standardkurven, aber auch individuelle Überschreibung durch nachgewiesene Leistung, Verantwortung oder Missionsbedarf.
+
+Die Alterskurve soll die Hierarchie führen. Sie darf nicht zur unzerbrechlichen Kastenregel werden.
+
+## 10. Menschen, Unternehmen, Länder und Kolonien haben Hierarchiepositionen
+
+Jeder Akteur hat eine Hierarchieposition.
+
+Eine Person hat Hierarchie nach:
+
+- Fähigkeit
+- Leistung
+- Verantwortung
+- Risiko
+- Zuverlässigkeit
+- Altersphase
+- sozialer Nützlichkeit
+- strategischem Wert
+- moralischem Vertrauen
+- institutioneller Rolle
+
+Ein Unternehmen hat Hierarchie nach:
+
+- Produktivität
+- Innovation
+- Lieferketten
+- technologischem Rang
+- Qualität der Belegschaft
+- strategischer Relevanz
+- Zuverlässigkeit
+- Marktkontrolle
+- Exportkraft
+- militärischer oder infrastruktureller Nützlichkeit
+
+Ein Land hat Hierarchie nach:
+
+- militärischer Stärke
+- wirtschaftlicher Stärke
+- Bevölkerungsqualität
+- wissenschaftlicher Leistung
+- Ressourcenkontrolle
+- institutioneller Stabilität
+- Bündniswert
+- industrieller Tiefe
+- kulturellem Einfluss
+- strategischer Geografie
+
+Eine Kolonie oder Weltraumsiedlung hat Hierarchie nach:
+
+- Überlebensschwierigkeit
+- Entfernung
+- Infrastruktur
+- Autonomie
+- Ressourcenproduktion
+- wissenschaftlichem Wert
+- militärischem Wert
+- logistischer Bedeutung
+- Expansionspotenzial
+
+Dadurch wird die Hierarchie skalierbar: vom individuellen Leben bis zur sonnensystemischen Zivilisation.
+
+## 11. Automatischer und manueller Aufstieg
+
+Einige Akteure steigen automatisch auf, weil ihre Stärke sichtbar ist.
+
+Beispiele:
+
+- militärisch starke Staaten
+- wirtschaftlich produktive Unternehmen
+- technisch überlegene Produkte
+- stark nachgefragte Arbeitnehmer
+- strategisch notwendige Kolonien
+- effiziente Logistiksysteme
+- starke Forschungseinrichtungen
+
+Sie steigen auf, weil die Hierarchie reale Macht anerkennen muss. Ein System, das reale Stärke nicht anerkennt, löst sich von der Wirklichkeit und verliert irgendwann Kontrolle.
+
+Aber nicht jeder Wert ist durch Stärke sichtbar.
+
+Einige Akteure müssen manuell gehoben werden:
+
+- Helfer
+- Pflegekräfte
+- Lehrer
+- soziale Stabilisierer
+- ehrliche Medienschaffende
+- Retter
+- moralische Vorbilder
+- langfristige Forscher
+- Menschen, die Schäden verhindern, bevor sie sichtbar werden
+- Menschen, die die Gesellschaft zusammenhalten, ohne reich oder mächtig zu werden
+
+Diese manuelle Erhöhung ist notwendig, weil rein messbare Stärke Fürsorge, Wahrheit, Sinn und Prävention unterbewertet.
+
+Aber manuelle Erhöhung ist gefährlich, weil sie in Günstlingswirtschaft, Propaganda oder ideologische Rangvergabe kippen kann. Deshalb braucht sie Transparenz, Berufung, Rotation, öffentliche Begründung und unabhängige Prüfung.
+
+## 12. Warum das stärker sein kann als flacher Marktkapitalismus
+
+Das System kann stärker sein als eine flache Geldwirtschaft, weil es mehr Information trägt.
+
+Ein normaler Preis komprimiert alles in eine Zahl. Das macht Handel leicht, zerstört aber Kontext.
+
+Hierarchie bewahrt den Kontext.
+
+Sie kann zeigen:
+
+- ob Wert aus Produktion oder Risiko kommt,
+- ob ein Privileg lokal, planetar oder sonnensystemisch ist,
+- ob eine Person Zugang verdient oder bloß geerbt hat,
+- ob ein Produkt luxuriös oder strategisch notwendig ist,
+- ob ein Unternehmen profitabel oder systemisch wichtig ist,
+- ob ein Markt gewöhnlich oder zivilisatorisch kritisch ist,
+- ob eine Benachteiligung ausbeuterisch oder ehrenvoll ist,
+- ob ein Handel die Gesamthierarchie stärkt oder beschädigt.
+
+Das macht die Wirtschaft genauer.
+
+Ein Hierarchiemarkt kann Karrieren, Produkte, Firmen, Institutionen und strategische Missionen schneller koordinieren als ein System, das nur Preise sieht.
+
+Karriere wird rationaler, weil Aufstieg direkt die Hierarchieposition verbessert. Produkte werden koordinierter, weil Produktrang Integration und Priorität bestimmt. Unternehmen werden lesbarer, weil sie nicht nur nach Gewinn, sondern nach systemischem Platz beurteilt werden. Märkte werden handelbar, weil ihr Zugang, ihre Regeln und ihre strategische Bedeutung selbst Hierarchieobjekte sind.
+
+## 13. Das Hauptrisiko: Hierarchiebetrug
+
+Das System steht und fällt mit der Integrität der Hierarchiemessung.
+
+Wenn Hierarchiepositionen falsch sind, wird die ganze Wirtschaft falsch.
+
+Menschen werden nicht nur versuchen, Status zu verdienen. Sie werden versuchen, die Hierarchiezahl zu manipulieren.
+
+Mögliche Verzerrungen:
+
+- Menschen leisten sichtbare Arbeit statt nützlicher Arbeit,
+- Unternehmen optimieren Hierarchiemetriken statt Produkte,
+- Medienschaffende werden zu Propagandisten, um manuell gehoben zu werden,
+- militärische Akteure erzeugen Bedrohungen, um ihren Status zu steigern,
+- Bürokraten schützen ihre Hierarchieposition,
+- alte Eliten blockieren junge Konkurrenten,
+- reiche Akteure kaufen Privilegien und verkaufen Benachteiligungen nach unten,
+- Menschen mit niedrigem Status werden in schlechte Trades gedrängt,
+- ganze Regionen werden dauerhaft untergeordnet.
+
+Deshalb muss Hierarchie überprüfbar sein.
+
+Eine ernsthafte Version des Systems braucht:
+
+- transparente Formeln,
+- verdeckte Anti-Gaming-Prüfungen,
+- öffentliche Begründungen für hochrangige Rangänderungen,
+- Berufungsgerichte,
+- unabhängige Prüfinstitutionen,
+- konkurrierende Hierarchiebewerter,
+- Befristungen für Privilegien,
+- Antikorruptionsregeln,
+- keinen dauerhaften Verkauf von Grundstatus,
+- Schutz gegen vererbte Kastenbildung.
+
+## 14. Die beste Formulierung
+
+Die korrigierte Formulierung lautet:
+
+> Eine Statusökonomie ist kein System ohne Märkte. Sie ist eine hierarchische Märktewirtschaft, in der Hierarchie die eigentliche Währung ist und numerisches Geld nur eine komprimierte Abrechnungsform von Hierarchie darstellt.
+
+Alles wird als Hierarchie gehandelt:
+
+- Arbeit,
+- Produkte,
+- Unternehmen,
+- Privilegien,
+- Benachteiligungen,
+- Zugangsrechte,
+- Marktpositionen,
+- Staaten,
+- Kolonien,
+- strategische Missionen,
+- Medienreichweite,
+- militärische Pflicht,
+- soziale Ehre,
+- zukünftige Aufstiegsansprüche.
+
+Die Zahl entsteht durch Addition von Hierarchieelementen und Multiplikation mit Hierarchiehöhen-Multiplikatoren.
+
+Aber die Zahl ist nicht die ganze Wahrheit. Das Hierarchiebündel ist die ganze Wahrheit.
+
+Eine flache Geldwirtschaft fragt:
+
+```text
+Was ist der Preis?
+```
+
+Eine Hierarchiewirtschaft fragt:
+
+```text
+Welchen Rang, welchen Typ, welche Höhe, welche Last, welches Privileg, welches Zugangsrecht und welche systemische Bedeutung hat das Gehandelte?
+```
+
+Deshalb kann dieses System weiterhin Märkte haben — und sogar genauere Märkte als eine flache Geldwirtschaft.
+
+## 15. Der Kern in einem Satz
+
+Der Markt bleibt erhalten, aber die gehandelte Währung ist Hierarchie: eine strukturierte, rangsensible, privilegien- und pflichtenhaltige Wertform, die in eine Zahl umgewandelt werden kann und dabei mehr Information bewahrt als Geld allein.
