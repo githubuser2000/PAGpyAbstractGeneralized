@@ -1,0 +1,400 @@
+Building network/category hierarchy-market simulation profile=demo seed=42
+Built: entities=4195 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 channels=2227 econ_morphisms=11251 net_morphisms=13703 parallel_processes=4 live_cap=2 parallel_enabled=True
+tick=1 volume=254.2kH product_sales=203 market_trades=51 packets(created/delivered/dropped)=2219/2219/0 queues=892 sem_blocked=0 sheaf_glued=3 parallel=on/4 accepted(p/m)=203/51
+================================================================================================
+SOLAR HIERARCHY MARKET — NETWORK / CATEGORY / SHEAF REPORT
+================================================================================================
+seed=42 profile=demo ticks=1
+Counts:
+  entities                       4360
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     92
+  burdens                        73
+Trade:
+  volume_H                       254152.1
+  product_sales                  203
+  market_ownership_changes       51
+  manual_lifts                   8
+Network:
+  nodes                          4360
+  channels                       2227
+  components                     2625
+  degree_min                     1
+  degree_mean                    2.564
+  degree_max                     130
+Parallel:
+  enabled                        1.0
+  processes                      4.0
+  phase_calls                    5.0
+  snapshot_writes                1.0
+  accepted_product               203.0
+  accepted_market_asset          51.0
+  accepted_privilege             84.0
+  accepted_burden                73.0
+Category:
+  economic_category              objects=4360 morphisms=11835 hom_sets=9826
+  network_category               objects=4360 morphisms=14287 hom_sets=12690
+  hierarchy_category             objects=12 morphisms=15175 hom_sets=126
+  topology_category              objects=7 morphisms=15 hom_sets=15
+Level distributions:
+  workers      {1: 720, 2: 1070, 3: 10}
+  companies    {8: 1, 9: 13, 10: 55, 11: 49, 12: 2}
+  countries    {12: 15}
+  products     {1: 73, 2: 271, 3: 276, 4: 180, 5: 48, 6: 2}
+  markets      {1: 79, 2: 121, 3: 140, 4: 149, 5: 192, 6: 227, 7: 225, 8: 207, 9: 52}
+
+Top countries
+  L12 Solar Apex       Mars Republic 004                                            8.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Moon Republic 003                                            8.3MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 008                                           7.7MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 003                                            7.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 002                                           6.2MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 001                                           6.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Moon Republic 001                                            5.9MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 005                                           5.3MH domain=governance body=Earth owner=United Nations of Earth
+
+Top companies
+  L12 Solar Apex       Research Networked Company 00110                             1.3MH domain=research body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Medicine Networked Company 00077                             1.1MH domain=medicine body=Mars owner=Mars Republic 003
+  L11 Systemic         Food Networked Company 00085                               834.2kH domain=food body=Moon owner=Moon Republic 003
+  L11 Systemic         Agriculture Networked Company 00094                        834.0kH domain=agriculture body=Mars owner=Mars Republic 003
+  L11 Systemic         Defense Networked Company 00067                            775.4kH domain=defense body=Mars owner=Mars Republic 004
+  L11 Systemic         Medicine Networked Company 00055                           742.5kH domain=medicine body=Earth owner=Earth Republic 001
+  L11 Systemic         Manufacturing Networked Company 00010                      740.1kH domain=manufacturing body=Mars owner=Mars Republic 004
+  L11 Systemic         Finance Networked Company 00025                            724.4kH domain=finance body=Mars owner=Mars Republic 003
+
+Top markets
+  L09 Planetary        Solar System L12 Water Market                               81.4kH domain=water body=Solar System owner=Solar System United Nations
+  L09 Planetary        Moon L12 Semaphore Permits Market                           81.2kH domain=semaphore_permits body=Moon owner=United Nations of Moon
+  L09 Planetary        Mars L12 Privilege Market                                   80.9kH domain=privilege body=Mars owner=United Nations of Mars
+  L09 Planetary        Solar System L12 Terraforming Market                        80.9kH domain=terraforming body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Defense Market                                     80.8kH domain=defense body=Mars owner=United Nations of Mars
+  L09 Planetary        Moon L12 Topology Rights Market                             80.7kH domain=topology_rights body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Semaphore Permits Market                   80.5kH domain=semaphore_permits body=Solar System owner=Solar System United Nations
+  L09 Planetary        Solar System L12 Care Market                                80.4kH domain=care body=Solar System owner=Solar System United Nations
+
+Top workers
+  L03 Local            Worker 0000237                                                655H domain=risk body=Mars owner=None
+  L03 Local            Worker 0001248                                                592H domain=governance body=Moon owner=None
+  L03 Local            Worker 0000072                                                556H domain=education body=Mars owner=None
+  L03 Local            Worker 0000217                                                526H domain=labor body=Moon owner=None
+  L03 Local            Worker 0001177                                                525H domain=medicine body=Earth owner=None
+  L03 Local            Worker 0000423                                                513H domain=trust body=Earth owner=None
+  L03 Local            Worker 0000593                                                502H domain=education body=Mars owner=None
+  L03 Local            Worker 0001105                                                492H domain=education body=Moon owner=None
+
+Recent trades / morphism events
+  - Solar System L02 Market Rights Market: MARKET Solar System L01 Shipbui control -> Manufacturing Networke [parallel-safe-parent]
+  - Earth L04 Market Rights Market: MARKET Moon L09 Burden Market control -> Earth Republic 007 [parallel-safe-parent]
+  - Earth L05 Terraforming Market: PRODUCT Terraforming Product 000 -> Orbital Slots Networke for 55.0H [parallel]
+  - Earth L12 Oxygen Market: PRODUCT Oxygen Product 000826 -> Earth Republic 002 for 475H [parallel]
+  - Earth L12 Agriculture Market: PRODUCT Agriculture Product 0000 -> Orbital Slots Networke for 137H [parallel]
+  - Moon L09 Housing Market: PRODUCT Housing Product 000407 -> Earth Republic 006 for 188H [parallel]
+  - Moon L12 Terraforming Market: PRODUCT Terraforming Product 000 -> Orbital Slots Networke for 60.7H [parallel]
+  - Moon L12 Market Rights Market: MARKET Solar System L04 Network control -> Medicine Networked Com [parallel-safe-parent]
+  - Mars L03 Housing Market: PRODUCT Housing Product 000045 -> Defense Networked Comp for 61.0H [parallel]
+  - Mars L05 Oxygen Market: PRODUCT Oxygen Product 000204 -> Manufacturing Networke for 302H [parallel]
+  - Mars L10 Agriculture Market: PRODUCT Agriculture Product 0005 -> Housing Networked Comp for 12.7H [parallel]
+
+########################## UTF-8 NETWORK / CATEGORY / SHEAF DASHBOARD ##########################
+══════════════════════════════ ORGANIZATIONAL / TOPOLOGICAL TREE ═══════════════════════════════
+Solar System Category Object
+├─ Solar System United Nations [terminal-like governance apex]
+├─ Solar System Defense Organization [half-duplex semaphore apex]
+├─ Earth: countries=8 companies=59 workers=873 markets=348
+│  ├─ UN: United Nations of Earth
+│  ├─ Defense: Earth Defense Organization
+│  ├─ Topologies: tree + star + ring + mesh + market-bipartite
+│  └─ Sheaf cover: high markets -> planetary UN -> solar UN
+├─ Moon: countries=3 companies=25 workers=362 markets=348
+│  ├─ UN: United Nations of Moon
+│  ├─ Defense: Moon Defense Organization
+│  ├─ Topologies: tree + star + ring + mesh + market-bipartite
+│  └─ Sheaf cover: high markets -> planetary UN -> solar UN
+└─ Mars: countries=4 companies=36 workers=565 markets=348
+   ├─ UN: United Nations of Mars
+   ├─ Defense: Mars Defense Organization
+   ├─ Topologies: tree + star + ring + mesh + market-bipartite
+   └─ Sheaf cover: high markets -> planetary UN -> solar UN
+
+════════════════════════════════════════ WORKER LEVELS ═════════════════════════════════════════
+L01 Survival         │████████████████████████░░░░░░░░░░░░│ 720
+L02 Basic            │████████████████████████████████████│ 1.1k
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.0
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════════════════ COMPANY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.00
+L09 Planetary        │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+L10 Interplanetary   │████████████████████████████████████│ 55.0
+L11 Systemic         │████████████████████████████████░░░░│ 49.0
+L12 Solar Apex       │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+
+════════════════════════════════════════ COUNTRY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │████████████████████████████████████│ 15.0
+
+════════════════════════════════════════ PRODUCT LEVELS ════════════════════════════════════════
+L01 Survival         │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 73.0
+L02 Basic            │███████████████████████████████████░│ 271
+L03 Local            │████████████████████████████████████│ 276
+L04 Skilled          │███████████████████████░░░░░░░░░░░░░│ 180
+L05 Professional     │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 48.0
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════════════════ MARKET LEVELS ═════════════════════════════════════════
+L01 Survival         │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 79.0
+L02 Basic            │███████████████████░░░░░░░░░░░░░░░░░│ 121
+L03 Local            │██████████████████████░░░░░░░░░░░░░░│ 140
+L04 Skilled          │███████████████████████░░░░░░░░░░░░░│ 149
+L05 Professional     │██████████████████████████████░░░░░░│ 192
+L06 Regional         │████████████████████████████████████│ 227
+L07 National         │███████████████████████████████████░│ 225
+L08 Alliance         │████████████████████████████████░░░░│ 207
+L09 Planetary        │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 52.0
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═══════════════════════════════════ WORKERS BY BODY × LEVEL ════════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth            ▒  █                               
+Moon             ·  ░                               
+Mars             ░  ▒                               
+Legend: · low  ░▒▓█ high
+
+══════════════════════════════════ COMPANIES BY BODY × LEVEL ═══════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth                                    ·  █  ▓    
+Moon                                        ░  ░    
+Mars                                        ░  ▒    
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════════════ MARKETS BY BODY × LEVEL ════════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth            ░  ░  ▒  ▒  ▓  █  ▓  ▓  ·          
+Moon             ·  ░  ▒  ▒  ▓  ▓  █  ▓  ·          
+Mars             ░  ░  ▒  ▒  ▒  █  █  ▓  ·          
+Solar System     ░  ░  ▒  ▒  ▓  ▓  ▓  ▓  ·          
+Legend: · low  ░▒▓█ high
+
+═════════════════════════════════════ CHANNELS BY TOPOLOGY ═════════════════════════════════════
+tree                   │██████████████████████████████████│ 1.1k
+star                   │███████████████░░░░░░░░░░░░░░░░░░░│ 495
+market-bipartite       │███████████░░░░░░░░░░░░░░░░░░░░░░░│ 350
+mesh                   │████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 285
+governance             │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+ring                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.00
+
+═══════════════════════════════════ CHANNELS BY DUPLEX MODE ════════════════════════════════════
+full                   │██████████████████████████████████│ 1.3k
+half                   │██████████████████████████░░░░░░░░│ 972
+
+══════════════════════════════════ CHANNEL QUEUE DISCIPLINES ═══════════════════════════════════
+fifo                   │██████████████████████████████████│ 1.7k
+priority               │██████████████████████████████░░░░│ 1.5k
+lifo                   │██████████████████████████░░░░░░░░│ 1.3k
+
+═══════════════════════════════════════ PACKETS BY KIND ════════════════════════════════════════
+governance_pulse       │██████████████████████████████████│ 328
+sheaf_patch            │█████████████████████████████████░│ 319
+topology_update        │████████████████████████████████░░│ 309
+semaphore_request      │█████████████████████████████░░░░░│ 288
+quote_stream           │█████████████████████████████░░░░░│ 285
+market_data            │████████████████████████████░░░░░░│ 271
+trade_product          │█████████████████████░░░░░░░░░░░░░│ 203
+privilege              │████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 84.0
+burden                 │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 73.0
+trade_market           │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 51.0
+manual_lift            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+
+═════════════════════════════ NETWORK DEGREE DISTRIBUTION (20=20+) ═════════════════════════════
+1                      │██████████████████████████████████│ 1.5k
+2                      │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 86.0
+3                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 38.0
+4                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11.0
+5                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.00
+6                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+7                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+9                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.00
+10                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+11                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+12                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.00
+13                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+14                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+15                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+16                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+17                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 22.0
+18                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 28.0
+19                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+20                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+
+══════════════════════════════════ HOT CHANNELS / SEMAPHORES ═══════════════════════════════════
+Channel                  | Mode   | Topology       | AB    | BA    | Fly   | Block   | Shape         
+-------------------------+--------+----------------+-------+-------+-------+---------+---------------
+Solar System Uni↔United  | full   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Solar System Def↔Earth D | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+United Nations o↔Earth R | full   | governance     | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Earth Alliance 1↔Earth R | half   | star           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Earth Republic 0↔Market  | full   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+
+════════════════════════════════════ CATEGORY SIZE DIAGRAM ═════════════════════════════════════
+Category                     | Objects    | Morphisms  | Hom-sets   | Shape           
+-----------------------------+------------+------------+------------+-----------------
+EconomicHierarchyCategory    | 4360       | 11835      | 9826       | ▁█▆             
+NetworkFlowCategory          | 4360       | 14287      | 12690      | ▁█▆             
+HierarchyLevelCategory       | 12         | 15175      | 126        | ▁█▁             
+TopologyCategory             | 7          | 15         | 15         | ▁██             
+
+══════════════════════════════ FUNCTORIALITY / NATURALITY CHECKS ═══════════════════════════════
+Functor/NT                 | Checked    | OK/Natural   | Identity/Viol 
+---------------------------+------------+--------------+---------------
+Economic→Network           | 600        | 300          | 300           
+Status functor             | 600        | 300          | 300           
+Access functor             | 600        | 300          | 300           
+Nat. transformation        | 300        | 300          | 0             
+
+═════════════════════════════════ UNIVERSAL PROPERTY WITNESSES ═════════════════════════════════
+Universal witness                  | Kind         | Checked   | Passed    | Ratio   
+-----------------------------------+--------------+-----------+-----------+---------
+Solar UN initial governance sour   | initial      | 200       | 190       | 0.95    
+Market as product-like access/go   | product      | 2         | 2         | 1.0     
+
+════════════════════════════════ PRESHEAF / SHEAF COVER GLUING ═════════════════════════════════
+Object                           | Cover size | Glued    | Shape               
+---------------------------------+------------+----------+---------------------
+Solar System United Nations      | 3          | no       | ▄▁█                 
+United Nations of Earth          | 80         | yes      | █▁▁                 
+United Nations of Mars           | 80         | yes      | █▁▁                 
+United Nations of Moon           | 80         | yes      | █▁▁                 
+
+════════════════════════════════════════ SHEAF METRICS ═════════════════════════════════════════
+Sheaf metric                   | Value         
+-------------------------------+---------------
+sections                       | 1632          
+objects_with_sections          | 1392          
+covers                         | 4             
+glued                          | 3             
+compatibility_checks           | 6             
+compatibility_passed           | 3             
+
+═══════════════════════════════════ MARKET VOLUME BY DOMAIN ════════════════════════════════════
+privilege              │████████████████████████████████████│ 99.3k
+market_rights          │██████████████████████░░░░░░░░░░░░░░│ 62.5k
+burden                 │████████████████████░░░░░░░░░░░░░░░░│ 55.6k
+manufacturing          │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.0k
+finance                │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.8k
+transport              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.6k
+data                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.6k
+medicine               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.5k
+oxygen                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.3k
+agriculture            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.1k
+defense                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.1k
+orbital_slots          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.9k
+education              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.7k
+research               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.5k
+terraforming           │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.5k
+energy                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.4k
+
+═══════════════════════════════════ MARKET TRADES BY DOMAIN ════════════════════════════════════
+privilege              │████████████████████████████████████│ 84.0
+burden                 │███████████████████████████████░░░░░│ 73.0
+market_rights          │██████████████████████████░░░░░░░░░░│ 62.0
+agriculture            │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+manufacturing          │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+transport              │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+research               │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+terraforming           │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 12.0
+medicine               │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11.0
+defense                │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.0
+education              │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.0
+orbital_slots          │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.0
+data                   │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 9.00
+energy                 │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+finance                │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+water                  │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.00
+
+════════════════════════════════ MARKET DOMAIN × LEVEL HEATMAP ═════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+privilege           ░     ·  █     ▓  ·  ▒          
+market_rights       ·  ·  ·  ·  ·  █                
+burden           ░     ·     ·  ▒     ·             
+manufacturing                                       
+finance                                             
+transport                                           
+data                                                
+medicine                                            
+oxygen                                              
+agriculture                                         
+defense                                             
+orbital_slots                                       
+education                                           
+research                                            
+Legend: · low  ░▒▓█ high
+
+═════════════════════════════════ SAFE SUBPROCESS PARALLELISM ══════════════════════════════════
+Parallel metric                | Value           
+-------------------------------+-----------------
+enabled                        | yes             
+processes                      | 4               
+phase_calls                    | 5               
+snapshot_writes                | 1               
+snapshot_MB                    | 0.06            
+accepted_product               | 203             
+accepted_market_asset          | 51              
+accepted_privilege             | 84              
+accepted_burden                | 73              
+packet_templates               | 1800            
+
+══════════════════════════════════ PARALLEL ATTEMPTS BY PHASE ══════════════════════════════════
+product                │██████████████████████████████████│ 2.6k
+packet                 │███████████████████████░░░░░░░░░░░│ 1.8k
+privilege              │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 160
+burden                 │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 120
+market_asset           │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 55.0
+
+═════════════════════════════════ PARALLEL PROPOSALS BY PHASE ══════════════════════════════════
+product                │██████████████████████████████████│ 2.6k

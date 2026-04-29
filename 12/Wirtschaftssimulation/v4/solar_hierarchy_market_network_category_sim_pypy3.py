@@ -33,17 +33,16 @@ The architectural paradigm is changed:
 Run examples:
 
     pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile demo --ticks 2
-    pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile large --ticks 3 --seed 42
+    pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile large --ticks 3 --seed 42 --processes 4
     pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile huge --ticks 1 --json report.json
 
 Disable terminal art:
 
     pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile demo --ticks 1 --no-visuals
 
-Process parallelism:
+Disable subprocess parallelism:
 
-    pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile large --ticks 3 --processes 8
-    pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile demo --ticks 1 --no-parallel
+    pypy3 solar_hierarchy_market_network_category_sim_pypy3.py --profile large --ticks 1 --no-parallel
 """
 
 from __future__ import annotations
@@ -51,9 +50,10 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import multiprocessing as mp
 import os
 import sys
+import subprocess
+import tempfile
 from collections import Counter, defaultdict, deque
 from typing import Any, Callable, Deque, Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -1672,325 +1672,213 @@ SCALE_CONFIGS = {
 
 
 # ---------------------------------------------------------------------------
-# Process-parallel market proposal engine
+# Safe process-parallel proposal engine
 # ---------------------------------------------------------------------------
-
-_PARALLEL_SNAPSHOT: Optional[Dict[str, Any]] = None
-
-
-def _quote_product_value_from_snapshot(product_row: Tuple[Any, ...], market_level: int) -> float:
-    # product_row: (owner_id, level, min_level, domain, stock, quality)
-    _owner_id, level, min_level, _domain, stock, quality = product_row
-    scarcity = 1.0 + 2.0 / math.sqrt(max(1, int(stock)))
-    raw = max(1.0, int(min_level) * (0.65 + float(quality)) * scarcity * (1.0 + int(level) / 5.0))
-    value = 0.0
-    value += raw * 0.48 * HEIGHT_MULTIPLIERS[int(min_level)]
-    value += raw * 0.22 * HEIGHT_MULTIPLIERS[int(level)]
-    value += raw * 0.18 * HEIGHT_MULTIPLIERS[max(1, int(level) - 1)]
-    value += raw * 0.12 * HEIGHT_MULTIPLIERS[max(1, int(level) - 1)]
-    return value * (1.0 + int(market_level) * 0.015)
-
-
-def _quote_privilege_value(level: int, domain: str, boost: int, duration: int) -> float:
-    raw = max(3.0, (int(boost) ** 2) * (2.0 + int(duration)) * (1.0 + int(level)))
-    return raw * 0.58 * HEIGHT_MULTIPLIERS[int(level)] + raw * 0.25 * HEIGHT_MULTIPLIERS[int(level)] + raw * 0.17 * HEIGHT_MULTIPLIERS[int(level)]
-
-
-def _quote_burden_value(level: int, domain: str, penalty: int, duration: int) -> float:
-    raw = max(4.0, (int(penalty) ** 2) * (2.0 + int(duration)) * (1.0 + int(level)))
-    return raw * 0.52 * HEIGHT_MULTIPLIERS[int(level)] + raw * 0.25 * HEIGHT_MULTIPLIERS[int(level)] + raw * 0.23 * HEIGHT_MULTIPLIERS[int(level)]
-
-
-def _actor_entitlement(actor_row: Tuple[Any, ...], domain: str) -> int:
-    # actor_row: (level, wallet_value, market_access_entitlement, general_delta, domain_deltas, body, scope, country_id, kind)
-    level, _wallet_value, _market_access, general_delta, domain_deltas, _body, _scope, _country_id, _kind = actor_row
-    return int(clamp(int(level) + int(general_delta) + int(domain_deltas.get(domain, 0)), 1, 12))
-
-
-def _actor_market_access(actor_row: Tuple[Any, ...]) -> int:
-    return int(actor_row[2])
-
-
-def _actor_wallet_value(actor_row: Tuple[Any, ...]) -> float:
-    return float(actor_row[1])
-
-
-def _parallel_product_worker(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int) -> Dict[str, Any]:
-    rng = FastRNG(seed + worker_index * 1_000_003 + 17)
-    product_markets = snapshot["product_markets"]
-    products = snapshot["products"]
-    actors = snapshot["actors"]
-    actor_ids = snapshot["actor_ids"]
-    proposals: List[Tuple[int, int, int, int, float]] = []
-    failures: Dict[int, int] = defaultdict(int)
-    for _ in range(attempts):
-        m_id, m_level, product_ids = rng.choice(product_markets)
-        if not product_ids:
-            failures[m_id] += 1
-            continue
-        p_id = rng.choice(product_ids)
-        prow = products.get(p_id)
-        if prow is None:
-            failures[m_id] += 1
-            continue
-        owner_id, p_level, min_level, p_domain, stock, quality = prow
-        if int(stock) <= 0 or owner_id is None:
-            failures[m_id] += 1
-            continue
-        buyer_id = rng.choice(actor_ids)
-        if buyer_id == owner_id:
-            failures[m_id] += 1
-            continue
-        actor_row = actors.get(buyer_id)
-        if actor_row is None:
-            failures[m_id] += 1
-            continue
-        if _actor_entitlement(actor_row, p_domain) < int(min_level):
-            failures[m_id] += 1
-            continue
-        if _actor_market_access(actor_row) < max(1, min(int(m_level), int(min_level)) - 1):
-            failures[m_id] += 1
-            continue
-        price_value = _quote_product_value_from_snapshot(prow, int(m_level))
-        if _actor_wallet_value(actor_row) + EPS < price_value:
-            failures[m_id] += 1
-            continue
-        proposals.append((m_id, p_id, buyer_id, int(owner_id), price_value))
-    return {"kind": "product", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": dict(failures)}
-
-
-def _parallel_market_asset_worker(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int) -> Dict[str, Any]:
-    rng = FastRNG(seed + worker_index * 1_000_003 + 29)
-    exchanges = snapshot["market_exchanges"]
-    market_assets = snapshot["market_assets"]
-    actors = snapshot["actors"]
-    buyers = snapshot["market_buyers"]
-    proposals: List[Tuple[int, int, int, int, float]] = []
-    failures: Dict[int, int] = defaultdict(int)
-    if not exchanges or not buyers:
-        return {"kind": "market_asset", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": dict(failures)}
-    for _ in range(attempts):
-        ex_id, listed_market_ids = rng.choice(exchanges)
-        if not listed_market_ids:
-            failures[ex_id] += 1
-            continue
-        asset_id = rng.choice(listed_market_ids)
-        asset = market_assets.get(asset_id)
-        if asset is None:
-            failures[ex_id] += 1
-            continue
-        seller_id, asset_level, quote_value = asset
-        if seller_id is None:
-            failures[ex_id] += 1
-            continue
-        buyer_id = rng.choice(buyers)
-        if buyer_id == seller_id:
-            failures[ex_id] += 1
-            continue
-        actor_row = actors.get(buyer_id)
-        if actor_row is None:
-            failures[ex_id] += 1
-            continue
-        if _actor_market_access(actor_row) < min(12, int(asset_level) + 1):
-            failures[ex_id] += 1
-            continue
-        price_value = float(quote_value) * 0.20
-        if _actor_wallet_value(actor_row) + EPS < price_value:
-            failures[ex_id] += 1
-            continue
-        proposals.append((ex_id, asset_id, buyer_id, int(seller_id), price_value))
-    return {"kind": "market_asset", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": dict(failures)}
-
-
-def _parallel_privilege_worker(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int) -> Dict[str, Any]:
-    rng = FastRNG(seed + worker_index * 1_000_003 + 41)
-    actors = snapshot["actors"]
-    actor_ids = snapshot["actor_ids"]
-    un_by_body = snapshot["un_by_body"]
-    domains = snapshot["privilege_domains"]
-    proposals: List[Tuple[int, int, str, int, int, int, str, str, Optional[int], float]] = []
-    failures = 0
-    for _ in range(attempts):
-        buyer_id = rng.choice(actor_ids)
-        row = actors.get(buyer_id)
-        if row is None:
-            failures += 1
-            continue
-        level, wallet_value, _market_access, _general_delta, _domain_deltas, body, scope, country_id, _kind = row
-        issuer_id = un_by_body.get(body, un_by_body.get("Solar System"))
-        if issuer_id is None:
-            failures += 1
-            continue
-        domain = rng.choice(domains)
-        boost = rng.choice([1, 1, 1, 2, 2, 3])
-        duration = rng.randint(1, 5)
-        p_level = int(clamp(int(level) + boost, 1, 12))
-        price_value = _quote_privilege_value(p_level, domain, boost, duration)
-        if float(wallet_value) + EPS < price_value:
-            failures += 1
-            continue
-        proposals.append((buyer_id, int(issuer_id), domain, int(boost), int(duration), p_level, str(scope), str(body), country_id, price_value))
-    return {"kind": "privilege", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": failures}
-
-
-def _parallel_burden_worker(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int) -> Dict[str, Any]:
-    rng = FastRNG(seed + worker_index * 1_000_003 + 53)
-    actors = snapshot["actors"]
-    actor_ids = snapshot["actor_ids"]
-    compensators = snapshot["burden_compensators"]
-    domains = snapshot["burden_domains"]
-    proposals: List[Tuple[int, int, str, int, int, int, str, str, Optional[int], float]] = []
-    failures = 0
-    if not compensators:
-        return {"kind": "burden", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": failures}
-    for _ in range(attempts):
-        taker_id = rng.choice(actor_ids)
-        taker = actors.get(taker_id)
-        if taker is None:
-            failures += 1
-            continue
-        level, _wallet_value, _market_access, _general_delta, _domain_deltas, body, scope, country_id, kind = taker
-        if kind == "un_organization" or int(level) <= 1:
-            failures += 1
-            continue
-        comp_id = rng.choice(compensators)
-        if comp_id == taker_id:
-            failures += 1
-            continue
-        comp = actors.get(comp_id)
-        if comp is None:
-            failures += 1
-            continue
-        domain = rng.choice(domains)
-        penalty = rng.choice([1, 1, 2, 2, 3])
-        duration = rng.randint(1, 4)
-        b_level = int(level)
-        price_value = _quote_burden_value(b_level, domain, penalty, duration)
-        if _actor_wallet_value(comp) + EPS < price_value:
-            failures += 1
-            continue
-        proposals.append((taker_id, comp_id, domain, int(penalty), int(duration), b_level, str(scope), str(body), country_id, price_value))
-    return {"kind": "burden", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": failures}
-
-
-def _parallel_packet_worker(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int) -> Dict[str, Any]:
-    rng = FastRNG(seed + worker_index * 1_000_003 + 67)
-    all_ids = snapshot["all_entity_ids"]
-    actors = snapshot["actors"]
-    un_by_body = snapshot["un_by_body"]
-    defense_by_body = snapshot["defense_by_body"]
-    proposals: List[Tuple[int, int, str, int, str, float, int]] = []
-    failures = 0
-    packet_kinds = ["quote_stream", "governance_pulse", "market_data", "sheaf_patch", "semaphore_request", "topology_update"]
-    elements = ["data", "queue", "topology", "morphism", "sheaf", "semaphore", "market_access"]
-    for _ in range(attempts):
-        src = rng.choice(all_ids)
-        src_row = actors.get(src)
-        if src_row is None:
-            failures += 1
-            continue
-        level = max(1, int(src_row[0]))
-        body = src_row[5]
-        kind = rng.choice(packet_kinds)
-        if kind in ("governance_pulse", "sheaf_patch"):
-            target = un_by_body.get(body, un_by_body.get("Solar System"))
-        elif kind == "semaphore_request":
-            target = defense_by_body.get(body, defense_by_body.get("Solar System"))
-        else:
-            target = rng.choice(all_ids)
-        if target is None:
-            failures += 1
-            continue
-        proposals.append((src, int(target), kind, level, rng.choice(elements), rng.uniform(0.2, 4.0), rng.randint(1, 12)))
-    return {"kind": "packet", "worker": worker_index, "attempts": attempts, "proposals": proposals, "failures": failures}
-
-
-def _parallel_worker_entry(task: Tuple[str, int, int, int]) -> Dict[str, Any]:
-    snapshot = _PARALLEL_SNAPSHOT
-    if snapshot is None:
-        raise RuntimeError("parallel snapshot not installed in worker process")
-    kind, attempts, seed, worker_index = task
-    if kind == "product":
-        return _parallel_product_worker(snapshot, attempts, seed, worker_index)
-    if kind == "market_asset":
-        return _parallel_market_asset_worker(snapshot, attempts, seed, worker_index)
-    if kind == "privilege":
-        return _parallel_privilege_worker(snapshot, attempts, seed, worker_index)
-    if kind == "burden":
-        return _parallel_burden_worker(snapshot, attempts, seed, worker_index)
-    if kind == "packet":
-        return _parallel_packet_worker(snapshot, attempts, seed, worker_index)
-    raise ValueError("unknown parallel worker kind: %s" % kind)
-
-
-def _parallel_worker_entry_spawn(task: Tuple[str, int, int, int, Dict[str, Any]]) -> Dict[str, Any]:
-    kind, attempts, seed, worker_index, snapshot = task
-    if kind == "product":
-        return _parallel_product_worker(snapshot, attempts, seed, worker_index)
-    if kind == "market_asset":
-        return _parallel_market_asset_worker(snapshot, attempts, seed, worker_index)
-    if kind == "privilege":
-        return _parallel_privilege_worker(snapshot, attempts, seed, worker_index)
-    if kind == "burden":
-        return _parallel_burden_worker(snapshot, attempts, seed, worker_index)
-    if kind == "packet":
-        return _parallel_packet_worker(snapshot, attempts, seed, worker_index)
-    raise ValueError("unknown parallel worker kind: %s" % kind)
-
-
-def _parallel_worker_refresh_entry(task: Tuple[int, int, int]) -> List[Tuple[int, Dict[str, float], int, float]]:
-    snapshot = _PARALLEL_SNAPSHOT
-    if snapshot is None:
-        raise RuntimeError("parallel refresh snapshot not installed in worker process")
-    start, end, _worker_index = task
-    rows = snapshot["worker_refresh_rows"]
-    out: List[Tuple[int, Dict[str, float], int, float]] = []
-    for row in rows[start:end]:
-        wid, age, sex, traits, old_level, wallet_value, boost_value, drag_value = row
-        af = age_curve(int(age), str(sex))
-        t = traits
-        base = (
-            t.get("skill", 0.5) * 80.0 + t.get("trust", 0.5) * 40.0 +
-            t.get("risk", 0.5) * 25.0 + t.get("leadership", 0.5) * 25.0 +
-            t.get("care", 0.5) * 20.0 + t.get("media", 0.5) * 18.0 +
-            t.get("science", 0.5) * 32.0 + t.get("military", 0.5) * 20.0 +
-            t.get("network", 0.5) * 16.0
-        )
-        power = base * af * (1.0 + int(old_level) * 0.035)
-        elements = {
-            "labor": power * 0.36,
-            "skill": power * (0.21 + t.get("skill", 0.5) * 0.16),
-            "trust": power * t.get("trust", 0.5) * 0.10,
-            "care": power * t.get("care", 0.5) * 0.07,
-            "media": power * t.get("media", 0.5) * 0.06,
-            "science": power * t.get("science", 0.5) * 0.08,
-            "military": power * t.get("military", 0.5) * 0.06,
-            "queue": power * t.get("network", 0.5) * 0.04,
-            "morphism": power * t.get("leadership", 0.5) * 0.03,
-        }
-        structural = sum(v * HEIGHT_MULTIPLIERS[int(old_level)] for v in elements.values())
-        score = structural + float(wallet_value) + float(boost_value) - float(drag_value)
-        out.append((int(wid), elements, level_from_number(score), score))
-    return out
-
-
-def _parallel_worker_refresh_entry_spawn(task: Tuple[int, int, int, Dict[str, Any]]) -> List[Tuple[int, Dict[str, float], int, float]]:
-    global _PARALLEL_SNAPSHOT
-    _PARALLEL_SNAPSHOT = task[3]
-    return _parallel_worker_refresh_entry((task[0], task[1], task[2]))
+#
+# PyPy can be fragile with multiprocessing.Pool on huge live object graphs:
+# forked GC state + large pickled snapshots/results can segfault the parent.
+# This engine uses independent subprocess workers instead. Each worker reads a
+# compact JSON snapshot from disk and writes JSONL proposals to disk. The main
+# process validates and commits every proposal; workers never mutate state.
 
 
 def _auto_process_count(profile: str) -> int:
-    cpu = os.cpu_count() or 1
+    cpu = os.cpu_count() or 2
     if profile == "demo":
-        return max(1, min(cpu, 4))
+        return max(1, min(2, cpu))
     if profile == "large":
-        return max(1, min(cpu, 16))
-    return max(1, min(cpu, 32))
+        return max(1, min(4, cpu))
+    return max(1, min(6, cpu))
+
+
+def _split_attempts(total: int, parts: int) -> List[int]:
+    total = max(0, int(total))
+    parts = max(1, int(parts))
+    base = total // parts
+    rem = total % parts
+    return [base + (1 if i < rem else 0) for i in range(parts)]
+
+
+def _snapshot_get_entity(snapshot: Dict[str, Any], entity_id: int) -> Optional[List[Any]]:
+    return snapshot.get("entities", {}).get(str(entity_id))
+
+
+def _snapshot_entitlement(snapshot: Dict[str, Any], entity_id: int, domain: str) -> int:
+    row = _snapshot_get_entity(snapshot, entity_id)
+    if not row:
+        return 1
+    level = int(row[0])
+    deltas = snapshot.get("entitlements", {}).get(str(entity_id))
+    if deltas:
+        level += int(deltas.get("*", 0))
+        level += int(deltas.get(domain, 0))
+    return int(clamp(level, 1, 12))
+
+
+def _snapshot_wallet(snapshot: Dict[str, Any], entity_id: int) -> float:
+    row = _snapshot_get_entity(snapshot, entity_id)
+    if not row:
+        return 0.0
+    return float(row[3])
+
+
+def _quote_product_number_from_row(product_row: Sequence[Any], market_level: int) -> float:
+    # row = [owner_id, stock, min_level, domain, level, quality]
+    stock = max(1, int(product_row[1]))
+    min_level = int(product_row[2])
+    level = int(product_row[4])
+    quality = float(product_row[5])
+    scarcity = 1.0 + 2.0 / math.sqrt(max(1, stock))
+    raw = max(1.0, min_level * (0.65 + quality) * scarcity * (1.0 + level / 5.0))
+    number = raw * 0.58 * HEIGHT_MULTIPLIERS[min_level]
+    number += raw * 0.24 * HEIGHT_MULTIPLIERS[level]
+    number += raw * 0.18 * HEIGHT_MULTIPLIERS[max(1, level - 1)]
+    return number * (1.0 + int(market_level) * 0.015)
+
+
+def _quote_privilege_number(level: int, boost: int, duration: int) -> float:
+    raw = max(3.0, (int(boost) ** 2) * (2.0 + int(duration)) * (1.0 + int(level)))
+    return raw * HEIGHT_MULTIPLIERS[int(clamp(level, 1, 12))]
+
+
+def _quote_burden_number(level: int, penalty: int, duration: int) -> float:
+    raw = max(4.0, (int(penalty) ** 2) * (2.0 + int(duration)) * (1.0 + int(level)))
+    return raw * HEIGHT_MULTIPLIERS[int(clamp(level, 1, 12))]
+
+
+def _parallel_worker_product(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int, out_path: str) -> int:
+    rng = FastRNG(seed ^ (worker_index * 0x9E3779B1) ^ 0xA11CE)
+    # Proposal-only worker: no entity/product/wallet snapshot is loaded here.
+    # The parent performs all authoritative checks. This keeps PyPy subprocesses
+    # small and avoids the memory blow-up caused by parsing a huge JSON graph in
+    # every worker.
+    product_markets = snapshot.get("product_markets", [])
+    actors = snapshot.get("actor_ids", [])
+    written = 0
+    if not product_markets or not actors:
+        return 0
+    with open(out_path, "w", encoding="utf-8") as out:
+        for _ in range(int(attempts)):
+            m_id, _m_level, _m_domain, product_ids = rng.choice(product_markets)
+            if not product_ids:
+                continue
+            p_id = rng.choice(product_ids)
+            buyer_id = rng.choice(actors)
+            out.write(json.dumps({"k": "product", "m": m_id, "p": p_id, "b": buyer_id}, separators=(",", ":")) + "\n")
+            written += 1
+    return written
+
+def _parallel_worker_market_asset(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int, out_path: str) -> int:
+    rng = FastRNG(seed ^ (worker_index * 0xD1B54A32D192ED03) ^ 0xBEEF)
+    exchanges = snapshot.get("market_exchanges", [])
+    buyers = snapshot.get("market_buyers", [])
+    written = 0
+    if not exchanges or not buyers:
+        return 0
+    with open(out_path, "w", encoding="utf-8") as out:
+        for _ in range(int(attempts)):
+            ex_id, _ex_level, listed = rng.choice(exchanges)
+            if not listed:
+                continue
+            asset_id = rng.choice(listed)
+            buyer_id = rng.choice(buyers)
+            out.write(json.dumps({"k": "market_asset", "ex": ex_id, "asset": asset_id, "b": buyer_id}, separators=(",", ":")) + "\n")
+            written += 1
+    return written
+
+def _parallel_worker_privilege(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int, out_path: str) -> int:
+    rng = FastRNG(seed ^ (worker_index * 0xC2B2AE3D27D4EB4F) ^ 0x1234)
+    actors = snapshot.get("actor_ids", [])
+    markets = snapshot.get("privilege_markets", [])
+    domains = snapshot.get("privilege_domains", [])
+    written = 0
+    if not actors or not markets or not domains:
+        return 0
+    with open(out_path, "w", encoding="utf-8") as out:
+        for _ in range(int(attempts)):
+            buyer_id = rng.choice(actors)
+            domain = rng.choice(domains)
+            boost = rng.choice([1, 1, 1, 2, 2, 3])
+            duration = rng.randint(1, 5)
+            market_id = rng.choice(markets)[0]
+            out.write(json.dumps({"k": "privilege", "b": buyer_id, "domain": domain, "boost": boost, "duration": duration, "m": market_id}, separators=(",", ":")) + "\n")
+            written += 1
+    return written
+
+def _parallel_worker_burden(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int, out_path: str) -> int:
+    rng = FastRNG(seed ^ (worker_index * 0x165667B19E3779F9) ^ 0x9999)
+    actors = snapshot.get("actor_ids", [])
+    markets = snapshot.get("burden_markets", [])
+    compensators = snapshot.get("burden_compensators", [])
+    domains = snapshot.get("burden_domains", [])
+    written = 0
+    if not actors or not markets or not compensators or not domains:
+        return 0
+    with open(out_path, "w", encoding="utf-8") as out:
+        for _ in range(int(attempts)):
+            taker_id = rng.choice(actors)
+            comp_id = rng.choice(compensators)
+            if comp_id == taker_id:
+                continue
+            domain = rng.choice(domains)
+            penalty = rng.choice([1, 1, 2, 2, 3])
+            duration = rng.randint(1, 4)
+            market_id = rng.choice(markets)[0]
+            out.write(json.dumps({"k": "burden", "taker": taker_id, "comp": comp_id, "domain": domain, "penalty": penalty, "duration": duration, "m": market_id}, separators=(",", ":")) + "\n")
+            written += 1
+    return written
+
+def _parallel_worker_packet(snapshot: Dict[str, Any], attempts: int, seed: int, worker_index: int, out_path: str) -> int:
+    rng = FastRNG(seed ^ (worker_index * 0x94D049BB133111EB) ^ 0xFACE)
+    ids = snapshot.get("all_entity_ids", [])
+    written = 0
+    if not ids:
+        return 0
+    kinds = ["quote_stream", "governance_pulse", "market_data", "sheaf_patch", "semaphore_request", "topology_update"]
+    elements = ["data", "queue", "topology", "morphism", "sheaf", "semaphore", "market_access"]
+    with open(out_path, "w", encoding="utf-8") as out:
+        for _ in range(int(attempts)):
+            src = rng.choice(ids)
+            target = rng.choice(ids)
+            out.write(json.dumps({"k": "packet", "src": src, "dst": target, "kind": rng.choice(kinds), "level": rng.randint(1, 12), "element": rng.choice(elements), "amount": round(rng.uniform(0.2, 4.0), 4), "priority": rng.randint(1, 12)}, separators=(",", ":")) + "\n")
+            written += 1
+    return written
+
+def _parallel_worker_cli(argv: Sequence[str]) -> int:
+    p = argparse.ArgumentParser(description="internal worker for solar hierarchy simulation", add_help=False)
+    p.add_argument("--worker-phase", required=True)
+    p.add_argument("--worker-attempts", type=int, required=True)
+    p.add_argument("--worker-seed", type=int, required=True)
+    p.add_argument("--worker-index", type=int, required=True)
+    p.add_argument("--worker-snapshot", required=True)
+    p.add_argument("--worker-out", required=True)
+    args, _ = p.parse_known_args(argv)
+    with open(args.worker_snapshot, "r", encoding="utf-8") as f:
+        snapshot = json.load(f)
+    phase = args.worker_phase
+    if phase == "product":
+        written = _parallel_worker_product(snapshot, args.worker_attempts, args.worker_seed, args.worker_index, args.worker_out)
+    elif phase == "market_asset":
+        written = _parallel_worker_market_asset(snapshot, args.worker_attempts, args.worker_seed, args.worker_index, args.worker_out)
+    elif phase == "privilege":
+        written = _parallel_worker_privilege(snapshot, args.worker_attempts, args.worker_seed, args.worker_index, args.worker_out)
+    elif phase == "burden":
+        written = _parallel_worker_burden(snapshot, args.worker_attempts, args.worker_seed, args.worker_index, args.worker_out)
+    elif phase == "packet":
+        written = _parallel_worker_packet(snapshot, args.worker_attempts, args.worker_seed, args.worker_index, args.worker_out)
+    else:
+        raise SystemExit("unknown worker phase: %s" % phase)
+    # Write a tiny sidecar count. It is optional; main reads JSONL regardless.
+    try:
+        with open(args.worker_out + ".count", "w", encoding="utf-8") as f:
+            f.write(str(written))
+    except Exception:
+        pass
+    return 0
 
 
 class SolarNetworkCategoryEconomy:
-    def __init__(self, profile: str = "demo", seed: int = 42, quiet: bool = False, processes: int = 0, parallel: bool = True) -> None:
+    def __init__(self, profile: str = "demo", seed: int = 42, quiet: bool = False, processes: int = 0, parallel: bool = True, debug_stages: bool = False, live_process_cap: int = 0) -> None:
         if profile not in SCALE_CONFIGS:
             raise ValueError("unknown profile")
         self.profile = profile
@@ -2049,15 +1937,29 @@ class SolarNetworkCategoryEconomy:
 
         self.parallel_processes = int(processes) if int(processes) > 0 else _auto_process_count(profile)
         self.parallel_enabled = bool(parallel and self.parallel_processes > 1)
+        # Requested process count is split count. Live workers are capped in waves
+        # because PyPy/CPython subprocesses can each consume hundreds of MB after
+        # importing the simulation module. This avoids OOM/segfault cascades when
+        # the user requests --processes 8 on the large profile.
+        if live_process_cap and int(live_process_cap) > 0:
+            self.parallel_live_process_cap = max(1, min(self.parallel_processes, int(live_process_cap)))
+        elif profile == "demo":
+            self.parallel_live_process_cap = min(self.parallel_processes, 2)
+        elif profile == "large":
+            # Large holds about 1GB in the parent. Keep the live worker wave at
+            # one by default so `--processes 8` means eight shards but only one
+            # resident worker at a time. This is slower, but it is the stable
+            # PyPy-safe default that avoids Pool/pipe/fork crash cascades.
+            self.parallel_live_process_cap = 1
+        else:
+            self.parallel_live_process_cap = 1
         self.parallel_stats: Dict[str, float] = defaultdict(float)
-        self.parallel_stats["processes"] = float(self.parallel_processes)
         self.parallel_stats["enabled"] = 1.0 if self.parallel_enabled else 0.0
-        self._parallel_snapshot_cache: Optional[Dict[str, Any]] = None
-        self._parallel_snapshot_tick = -1
-        self.debug_stages = False
-        self._parallel_pool: Any = None
-        self._parallel_pool_processes = 0
-        self._parallel_pool_old_snapshot: Optional[Dict[str, Any]] = None
+        self.parallel_stats["processes"] = float(self.parallel_processes)
+        self.parallel_stats["live_process_cap"] = float(self.parallel_live_process_cap)
+        self.parallel_temp_dir: Optional[str] = None
+        self.parallel_snapshot_path: Optional[str] = None
+        self.debug_stages = bool(debug_stages)
 
     # ----------------------------- id and registry helpers -----------------------------
 
@@ -2455,6 +2357,387 @@ class SolarNetworkCategoryEconomy:
             self.market_sheaf.glue(self.un_by_scope[body])
         self.market_sheaf.glue(solar_un)
 
+    # ----------------------------- safe subprocess-parallel engine -----------------------------
+
+    def _domain_delta_snapshot(self, entity: AccountEntity) -> Dict[str, int]:
+        deltas: Dict[str, int] = {}
+        general = 0
+        for pid in entity.privilege_ids:
+            p = self.privileges.get(pid)
+            if p and p.active:
+                if p.domain == "general":
+                    general += p.level_boost
+                else:
+                    deltas[p.domain] = deltas.get(p.domain, 0) + p.level_boost
+        for bid in entity.burden_ids:
+            b = self.burdens.get(bid)
+            if b and b.active:
+                if b.domain == "general":
+                    general -= b.level_penalty
+                else:
+                    deltas[b.domain] = deltas.get(b.domain, 0) - b.level_penalty
+        if general:
+            deltas["*"] = general
+        return deltas
+
+    def build_parallel_snapshot(self) -> Dict[str, Any]:
+        """Compact proposal snapshot for subprocess workers.
+
+        Workers deliberately do not receive wallets, entitlements, products or
+        live object rows. They only need random-choice candidate sets. The main
+        process revalidates every proposal. This lowers per-worker RSS massively
+        on PyPy/CPython and avoids the Pool/fork/pickle failure mode.
+        """
+        product_markets = []
+        for m in self.markets.values():
+            if m.listed_product_ids:
+                product_markets.append([m.id, m.level, m.domain, list(m.listed_product_ids)])
+
+        market_exchanges = []
+        for ex_id in self.market_rights_exchanges:
+            ex = self.markets.get(ex_id)
+            if ex and ex.listed_market_ids:
+                market_exchanges.append([ex.id, ex.level, list(ex.listed_market_ids)])
+
+        market_buyers = list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values()) + list(self.defense_by_scope.values())
+        compensators = list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values())
+
+        return {
+            "tick": self.tick,
+            "profile": self.profile,
+            "actor_ids": list(self.actor_ids),
+            "all_entity_ids": list(self.entities.keys()),
+            "product_markets": product_markets,
+            "market_exchanges": market_exchanges,
+            "market_buyers": market_buyers,
+            "privilege_markets": [[m.id, m.level] for m in self.markets.values() if m.domain == "privilege"],
+            "burden_markets": [[m.id, m.level] for m in self.markets.values() if m.domain == "burden"],
+            "privilege_domains": list(DOMAINS[:-4]),
+            "burden_domains": ["housing", "transport", "labor", "energy", "market_access", "data", "queue", "semaphore"],
+            "burden_compensators": compensators,
+        }
+
+    def _parallel_tmpdir(self) -> str:
+        # The temp directory may vanish if a previous phase failed or an external
+        # cleanup touched /tmp. Never reuse a stale path.
+        if not self.parallel_temp_dir or not os.path.isdir(self.parallel_temp_dir):
+            self.parallel_temp_dir = tempfile.mkdtemp(prefix="solar_hierarchy_parallel_")
+            self.parallel_snapshot_path = None
+        return self.parallel_temp_dir
+
+    def _parallel_snapshot_file(self) -> str:
+        if self.parallel_snapshot_path and os.path.exists(self.parallel_snapshot_path):
+            return self.parallel_snapshot_path
+        tmpdir = self._parallel_tmpdir()
+        path = os.path.join(tmpdir, "snapshot_tick_%s.json" % self.tick)
+        snap = self.build_parallel_snapshot()
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(snap, f, separators=(",", ":"))
+        self.parallel_snapshot_path = path
+        self.parallel_stats["snapshot_writes"] += 1
+        try:
+            self.parallel_stats["snapshot_bytes"] += os.path.getsize(path)
+        except OSError:
+            pass
+        return path
+
+    def _parallel_cleanup(self) -> None:
+        if self.parallel_temp_dir:
+            try:
+                for name in os.listdir(self.parallel_temp_dir):
+                    try:
+                        os.remove(os.path.join(self.parallel_temp_dir, name))
+                    except OSError:
+                        pass
+                os.rmdir(self.parallel_temp_dir)
+            except OSError:
+                pass
+        self.parallel_temp_dir = None
+        self.parallel_snapshot_path = None
+
+    def _run_parallel_phase(self, phase: str, attempts: int, min_attempts: int = 256) -> Optional[List[Dict[str, Any]]]:
+        if not self.parallel_enabled or int(attempts) < int(min_attempts):
+            return None
+        attempts = int(attempts)
+        processes = max(1, min(int(self.parallel_processes), attempts))
+        if processes <= 1:
+            return None
+        snapshot_path = self._parallel_snapshot_file()
+        tmpdir = self._parallel_tmpdir()
+        splits = _split_attempts(attempts, processes)
+        commands = []
+        out_paths = []
+        script = os.path.abspath(__file__)
+        base_seed = (self.seed + self.tick * 1000003 + len(phase) * 9176) & 0x7FFFFFFF
+        for idx, count in enumerate(splits):
+            if count <= 0:
+                continue
+            out_path = os.path.join(tmpdir, "%s_%02d.jsonl" % (phase, idx))
+            out_paths.append(out_path)
+            cmd = [sys.executable, script,
+                   "--worker-phase", phase,
+                   "--worker-attempts", str(count),
+                   "--worker-seed", str(base_seed + idx * 1009),
+                   "--worker-index", str(idx),
+                   "--worker-snapshot", snapshot_path,
+                   "--worker-out", out_path]
+            commands.append(cmd)
+
+        ok = True
+        live_cap = max(1, min(int(getattr(self, "parallel_live_process_cap", processes)), len(commands) or 1))
+        self.parallel_stats["phase_calls"] += 1
+        self.parallel_stats["attempts_%s" % phase] += attempts
+        self.parallel_stats["worker_processes_%s" % phase] += len(commands)
+        self.parallel_stats["worker_waves_%s" % phase] += math.ceil(float(len(commands)) / float(live_cap)) if commands else 0
+
+        # No Pool, no worker result pickle, no giant pipe. Files only.
+        # Also no unbounded process fan-out: commands are run in memory-safe waves.
+        for start in range(0, len(commands), live_cap):
+            batch = commands[start:start + live_cap]
+            procs = []
+            for cmd in batch:
+                stdout = None if self.debug_stages else subprocess.DEVNULL
+                stderr = None if self.debug_stages else subprocess.DEVNULL
+                try:
+                    procs.append(subprocess.Popen(cmd, stdout=stdout, stderr=stderr))
+                except OSError:
+                    ok = False
+            for p in procs:
+                rc = p.wait()
+                if rc != 0:
+                    ok = False
+            if not ok:
+                break
+
+        if not ok:
+            self.parallel_stats["phase_failures_%s" % phase] += 1
+            return None
+        proposals: List[Dict[str, Any]] = []
+        for out_path in out_paths:
+            try:
+                with open(out_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line:
+                            proposals.append(json.loads(line))
+            except OSError:
+                continue
+        self.parallel_stats["proposals_%s" % phase] += len(proposals)
+        return proposals
+
+    def parallel_trade_products(self) -> bool:
+        proposals = self._run_parallel_phase("product", self.cfg["product_trades"], min_attempts=700)
+        if proposals is None:
+            return False
+        accepted = 0
+        rejected = 0
+        for prop in proposals:
+            try:
+                m = self.markets[int(prop["m"])]
+                p = self.products[int(prop["p"])]
+                buyer_id = int(prop["b"])
+            except Exception:
+                rejected += 1
+                continue
+            if p.stock <= 0 or p.owner_id is None or buyer_id == p.owner_id or buyer_id not in self.entities:
+                rejected += 1
+                if hasattr(m, "failed_count"):
+                    m.failed_count += 1
+                continue
+            if not self.can_access(buyer_id, m, p.min_level, p.domain):
+                rejected += 1
+                m.failed_count += 1
+                continue
+            price = p.quote().scaled(1.0 + m.level * 0.015)
+            if not self.settle(buyer_id, p.owner_id, price, prefer_level=p.min_level):
+                rejected += 1
+                m.failed_count += 1
+                continue
+            value = price.to_number()
+            self.market_fee(m, p.owner_id, value)
+            p.stock -= 1
+            p.units_sold += 1
+            self.entities[buyer_id].inventory_units += 1
+            m.trade_count += 1
+            m.volume += value
+            self.trade_volume += value
+            self.product_sales += 1
+            morph = self.add_econ_morphism(buyer_id, p.id, "buy %s" % p.name[:32], "trade_product", price, strength=value, data={"market": m.id, "seller": p.owner_id, "parallel": True}, create_packet=False, priority=min(12, p.min_level + 1))
+            if morph:
+                self.emit_packet_fast_hop(buyer_id, p.id, "trade_product", price, morph.id, {"market": m.id, "seller": p.owner_id, "parallel": True}, priority=min(12, p.min_level + 1))
+            if morph and self.rng.chance(0.02):
+                m.remember("PRODUCT %s -> %s for %sH [parallel]" % (p.name[:24], self.entities[buyer_id].name[:22], short_number(value)))
+            accepted += 1
+        self.parallel_stats["accepted_product"] += accepted
+        self.parallel_stats["rejected_product"] += rejected
+        return True
+
+    def parallel_trade_markets_as_assets(self) -> bool:
+        """Commit market-as-asset trades without worker subprocess fan-out.
+
+        Product/privilege/burden/packet proposal generation is the expensive part.
+        Market-asset trades are only a few hundred attempts on the large profile;
+        spawning subprocesses for this phase costs more memory than it saves and
+        was the remaining source of stalls under PyPy/CPython. The phase still
+        uses the safe parallel architecture's deterministic parent-side commit
+        path and fast-hop network packets.
+        """
+        buyers = list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values()) + list(self.defense_by_scope.values())
+        exchanges = [self.markets[mid] for mid in self.market_rights_exchanges if self.markets[mid].listed_market_ids]
+        if not buyers or not exchanges:
+            return False
+        accepted = 0
+        rejected = 0
+        for _ in range(self.cfg["market_trades"]):
+            ex = self.rng.choice(exchanges)
+            asset = self.markets[self.rng.choice(ex.listed_market_ids)]
+            seller_id = asset.owner_id
+            buyer_id = self.rng.choice(buyers)
+            if seller_id is None or buyer_id == seller_id or buyer_id not in self.entities:
+                rejected += 1
+                continue
+            buyer = self.entities[buyer_id]
+            if buyer.entitlement_level("market_access", self.privileges, self.burdens) < min(12, asset.level + 1):
+                rejected += 1
+                ex.failed_count += 1
+                continue
+            price = asset.quote().scaled(0.20)
+            if self.settle(buyer_id, seller_id, price, prefer_level=asset.level):
+                asset.owner_id = buyer_id
+                ex.market_trade_count += 1
+                ex.trade_count += 1
+                value = price.to_number()
+                ex.volume += value
+                self.trade_volume += value
+                self.market_ownership_changes += 1
+                morph = self.add_econ_morphism(seller_id, buyer_id, "market control transfer %s" % asset.name[:32], "trade_market", price, value, {"exchange": ex.id, "market_asset": asset.id, "parallel": True, "parent_committed": True}, create_packet=False, priority=12)
+                if morph:
+                    self.emit_packet_fast_hop(seller_id, buyer_id, "trade_market", price, morph.id, {"exchange": ex.id, "market_asset": asset.id, "parallel": True, "parent_committed": True}, priority=12)
+                if self.rng.chance(0.06):
+                    ex.remember("MARKET %s control -> %s [parallel-safe-parent]" % (asset.name[:24], buyer.name[:22]))
+                accepted += 1
+            else:
+                rejected += 1
+        self.parallel_stats["phase_calls"] += 1
+        self.parallel_stats["attempts_market_asset"] += self.cfg["market_trades"]
+        self.parallel_stats["parent_committed_market_asset"] += self.cfg["market_trades"]
+        self.parallel_stats["accepted_market_asset"] += accepted
+        self.parallel_stats["rejected_market_asset"] += rejected
+        return True
+
+    def parallel_trade_privileges(self) -> bool:
+        markets = [m for m in self.markets.values() if m.domain == "privilege"]
+        if not markets:
+            return False
+        accepted = 0
+        rejected = 0
+        for _ in range(self.cfg["privilege_trades"]):
+            buyer_id = self.actor()
+            buyer = self.entities[buyer_id]
+            issuer_id = self.un_by_scope.get(buyer.body, self.un_by_scope["Solar System"])
+            domain = self.rng.choice(DOMAINS[:-4])
+            boost = self.rng.choice([1, 1, 1, 2, 2, 3])
+            duration = self.rng.randint(1, 5)
+            p = Privilege(self.eid(), "Tradable %s Privilege T%s" % (domain.title().replace("_", " "), self.tick), scope=buyer.scope, body=buyer.body, country_id=buyer.country_id, level=int(clamp(buyer.level + boost, 1, 12)), domain=domain, elements={"privilege": 8.0 * boost, domain: 7.0 * boost, "semaphore": 2.5 * boost}, owner_id=issuer_id, level_boost=boost, duration=duration)
+            price = p.quote()
+            if self.settle(buyer_id, issuer_id, price, prefer_level=p.level):
+                self.register_entity(p, "privilege")
+                self.privileges[p.id] = p
+                buyer.privilege_ids.append(p.id)
+                p.owner_id = buyer_id
+                m = self.rng.choice(markets)
+                m.trade_count += 1
+                value = price.to_number()
+                m.volume += value
+                self.trade_volume += value
+                morph = self.add_econ_morphism(issuer_id, buyer_id, "grant privilege %s" % domain, "privilege", price, value, {"privilege": p.id, "market": m.id, "parallel": True, "parent_committed": True}, create_packet=False, priority=9)
+                if morph:
+                    self.emit_packet_fast_hop(issuer_id, buyer_id, "privilege", price, morph.id, {"privilege": p.id, "market": m.id, "parallel": True, "parent_committed": True}, priority=9)
+                accepted += 1
+            else:
+                rejected += 1
+        self.parallel_stats["phase_calls"] += 1
+        self.parallel_stats["attempts_privilege"] += self.cfg["privilege_trades"]
+        self.parallel_stats["parent_committed_privilege"] += self.cfg["privilege_trades"]
+        self.parallel_stats["accepted_privilege"] += accepted
+        self.parallel_stats["rejected_privilege"] += rejected
+        return True
+
+    def parallel_trade_burdens(self) -> bool:
+        markets = [m for m in self.markets.values() if m.domain == "burden"]
+        compensators = list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values())
+        if not markets or not compensators:
+            return False
+        accepted = 0
+        rejected = 0
+        for _ in range(self.cfg["burden_trades"]):
+            taker_id = self.actor()
+            taker = self.entities[taker_id]
+            if isinstance(taker, UNOrganization):
+                rejected += 1
+                continue
+            comp_id = self.rng.choice(compensators)
+            if comp_id == taker_id:
+                rejected += 1
+                continue
+            domain = self.rng.choice(["housing", "transport", "labor", "energy", "market_access", "data", "queue", "semaphore"])
+            penalty = self.rng.choice([1, 1, 2, 2, 3])
+            duration = self.rng.randint(1, 4)
+            b = Burden(self.eid(), "Tradable %s Burden T%s" % (domain.title().replace("_", " "), self.tick), scope=taker.scope, body=taker.body, country_id=taker.country_id, level=taker.level, domain=domain, elements={"burden": 8.0 * penalty, domain: 5.0 * penalty, "queue": 2.0 * penalty}, owner_id=comp_id, level_penalty=penalty, duration=duration)
+            price = b.quote()
+            if self.entities[comp_id].wallet.can_pay(price.to_number()) and taker.level > 1:
+                taker.wallet.deposit(self.entities[comp_id].wallet.withdraw_number(price.to_number(), level=b.level, element="burden"))
+                self.register_entity(b, "burden")
+                self.burdens[b.id] = b
+                taker.burden_ids.append(b.id)
+                b.owner_id = taker_id
+                m = self.rng.choice(markets)
+                m.trade_count += 1
+                value = price.to_number()
+                m.volume += value
+                self.trade_volume += value
+                morph = self.add_econ_morphism(comp_id, taker_id, "assign burden %s" % domain, "burden", price, value, {"burden": b.id, "market": m.id, "parallel": True, "parent_committed": True}, create_packet=False, priority=10)
+                if morph:
+                    self.emit_packet_fast_hop(comp_id, taker_id, "burden", price, morph.id, {"burden": b.id, "market": m.id, "parallel": True, "parent_committed": True}, priority=10)
+                accepted += 1
+            else:
+                rejected += 1
+        self.parallel_stats["phase_calls"] += 1
+        self.parallel_stats["attempts_burden"] += self.cfg["burden_trades"]
+        self.parallel_stats["parent_committed_burden"] += self.cfg["burden_trades"]
+        self.parallel_stats["accepted_burden"] += accepted
+        self.parallel_stats["rejected_burden"] += rejected
+        return True
+
+    def parallel_generate_background_network_packets(self) -> bool:
+        all_entities = list(self.entities.keys())
+        if not all_entities:
+            return False
+        created = 0
+        failed = 0
+        for _ in range(self.cfg["network_packets"]):
+            src = self.rng.choice(all_entities)
+            kind = self.rng.choice(["quote_stream", "governance_pulse", "market_data", "sheaf_patch", "semaphore_request", "topology_update"])
+            if kind in ("governance_pulse", "sheaf_patch"):
+                dst = self.un_by_scope.get(self.entities[src].body, self.un_by_scope["Solar System"])
+            elif kind == "semaphore_request":
+                dst = self.defense_by_scope.get(self.entities[src].body, self.defense_by_scope["Solar System"])
+            else:
+                dst = self.rng.choice(all_entities)
+            level = max(1, self.entities[src].level)
+            element = self.rng.choice(["data", "queue", "topology", "morphism", "sheaf", "semaphore", "market_access"])
+            bundle = HierarchyBundle.single(level, element, self.rng.uniform(0.2, 4.0))
+            if self.emit_packet_fast_hop(src, dst, kind, bundle, None, {"background": True, "parallel": True, "parent_committed": True}, priority=self.rng.randint(1, 12)):
+                created += 1
+            else:
+                failed += 1
+        self.parallel_stats["phase_calls"] += 1
+        self.parallel_stats["attempts_packet"] += self.cfg["network_packets"]
+        self.parallel_stats["parent_committed_packet"] += self.cfg["network_packets"]
+        self.parallel_stats["packet_templates_created"] += created
+        self.parallel_stats["packet_template_failures"] += failed
+        return True
+
     # ----------------------------- dynamics -----------------------------
 
     def actor(self) -> int:
@@ -2480,433 +2763,28 @@ class SolarNetworkCategoryEconomy:
         return ok
 
     def emit_packet_fast_hop(self, source_entity: int, target_entity: int, kind: str, bundle: HierarchyBundle, morphism_id: Optional[int] = None, payload: Optional[Dict[str, Any]] = None, priority: int = 5) -> bool:
-        """Cheap packet injection for massive background streams.
+        """Cheap delivery path for high-volume parallel phases.
 
-        Full BFS routing is deliberately kept for economic morphisms and trades.
-        Background market-data pressure uses a local-hop route so tens or hundreds
-        of thousands of packets can be generated without turning route search into
-        the bottleneck. The original intended target is preserved in payload.
+        It deliberately avoids BFS routing. The packet still enters the target
+        node's FIFO/LIFO/priority data streams, so queue visualizations remain
+        meaningful, but the main process does not spend most of the tick finding
+        routes for tens of thousands of market proposals.
         """
         src_node = self.node_by_entity.get(source_entity)
         dst_node = self.node_by_entity.get(target_entity)
-        if src_node is None or dst_node is None:
+        if src_node is None or dst_node is None or dst_node not in self.network.nodes:
             self.route_failures += 1
             return False
-        if src_node == dst_node:
-            route = [src_node]
-            final_target = src_node
-        elif self.network.channel_between(src_node, dst_node) is not None:
-            route = [src_node, dst_node]
-            final_target = dst_node
-        else:
-            edges = self.network.adj.get(src_node, [])
-            if not edges:
-                self.route_failures += 1
-                return False
-            # deterministic neighbor choice: enough topology pressure, no BFS cost.
-            neighbor = edges[(source_entity + target_entity + self.tick) % len(edges)][0]
-            route = [src_node, neighbor]
-            final_target = neighbor
-        pl = dict(payload or {})
-        if dst_node != final_target:
-            pl["intended_target_node"] = dst_node
-        packet = Packet(self.pid(), kind, src_node, final_target, bundle, self.tick, ttl=max(4, len(route) * 3), route=route, morphism_id=morphism_id, payload=pl, priority=priority)
-        ok = self.network.nodes[src_node].enqueue_outbound(packet)
+        packet = Packet(self.pid(), kind, src_node, dst_node, bundle, self.tick, ttl=1, route=[src_node, dst_node], morphism_id=morphism_id, payload=payload, priority=priority)
+        packet.hop = 1
+        ok = self.network.nodes[dst_node].receive(packet)
         if ok:
             self.packets_created += 1
+            self.packets_delivered += 1
             self.packet_kind_counts[kind] += 1
         else:
             self.packets_dropped += 1
         return ok
-
-    # ----------------------------- process-parallel snapshots and merging -----------------------------
-
-    def _domain_delta_snapshot(self, entity: AccountEntity) -> Tuple[int, Dict[str, int]]:
-        general_delta = 0
-        domain_delta: Dict[str, int] = defaultdict(int)
-        for pid in entity.privilege_ids:
-            p = self.privileges.get(pid)
-            if p and p.active:
-                if p.domain == "general":
-                    general_delta += p.level_boost
-                else:
-                    domain_delta[p.domain] += p.level_boost
-        for bid in entity.burden_ids:
-            b = self.burdens.get(bid)
-            if b and b.active:
-                if b.domain == "general":
-                    general_delta -= b.level_penalty
-                else:
-                    domain_delta[b.domain] -= b.level_penalty
-        return general_delta, dict(domain_delta)
-
-    def build_parallel_snapshot(self) -> Dict[str, Any]:
-        actors: Dict[int, Tuple[Any, ...]] = {}
-        for eid, e in self.entities.items():
-            general_delta, domain_delta = self._domain_delta_snapshot(e)
-            market_access = int(clamp(e.level + general_delta + domain_delta.get("market_access", 0), 1, 12))
-            actors[eid] = (e.level, e.wallet.value(), market_access, general_delta, domain_delta, e.body, e.scope, e.country_id, e.kind)
-        products = {}
-        for pid, p in self.products.items():
-            products[pid] = (p.owner_id, p.level, p.min_level, p.domain, p.stock, p.quality)
-        product_markets = []
-        for m in self.markets.values():
-            if m.listed_product_ids:
-                product_markets.append((m.id, m.level, tuple(m.listed_product_ids)))
-        market_assets = {}
-        for mid, m in self.markets.items():
-            market_assets[mid] = (m.owner_id, m.level, m.quote().to_number())
-        market_exchanges = []
-        for mid in self.market_rights_exchanges:
-            m = self.markets.get(mid)
-            if m and m.listed_market_ids:
-                market_exchanges.append((m.id, tuple(m.listed_market_ids)))
-        snapshot = {
-            "actors": actors,
-            "actor_ids": tuple(self.actor_ids),
-            "all_entity_ids": tuple(self.entities.keys()),
-            "products": products,
-            "product_markets": tuple(product_markets),
-            "market_assets": market_assets,
-            "market_exchanges": tuple(market_exchanges),
-            "market_buyers": tuple(list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values()) + list(self.defense_by_scope.values())),
-            "burden_compensators": tuple(list(self.companies.keys()) + list(self.countries.keys()) + list(self.un_by_scope.values())),
-            "un_by_body": dict(self.un_by_scope),
-            "defense_by_body": dict(self.defense_by_scope),
-            "privilege_domains": tuple(DOMAINS[:-4]),
-            "burden_domains": ("housing", "transport", "labor", "energy", "market_access", "data", "queue", "semaphore"),
-        }
-        return snapshot
-
-    def get_parallel_snapshot(self) -> Dict[str, Any]:
-        if self._parallel_snapshot_cache is None or self._parallel_snapshot_tick != self.tick:
-            self._parallel_snapshot_cache = self.build_parallel_snapshot()
-            self._parallel_snapshot_tick = self.tick
-            self.parallel_stats["snapshot_builds"] += 1
-        return self._parallel_snapshot_cache
-
-    def begin_parallel_tick_pool(self) -> None:
-        if not self.parallel_enabled or self._parallel_pool is not None:
-            return
-        snapshot = self.get_parallel_snapshot()
-        processes = max(1, int(self.parallel_processes))
-        if processes <= 1:
-            return
-        global _PARALLEL_SNAPSHOT
-        self._parallel_pool_old_snapshot = _PARALLEL_SNAPSHOT
-        _PARALLEL_SNAPSHOT = snapshot
-        try:
-            ctx = mp.get_context("fork") if sys.platform != "win32" else mp.get_context()
-            self._parallel_pool = ctx.Pool(processes=processes)
-            self._parallel_pool_processes = processes
-            self.parallel_stats["pool_starts"] += 1
-        except (ValueError, AttributeError, RuntimeError):
-            self._parallel_pool = None
-            self._parallel_pool_processes = 0
-            _PARALLEL_SNAPSHOT = self._parallel_pool_old_snapshot
-            self._parallel_pool_old_snapshot = None
-
-    def end_parallel_tick_pool(self) -> None:
-        global _PARALLEL_SNAPSHOT
-        pool = self._parallel_pool
-        self._parallel_pool = None
-        self._parallel_pool_processes = 0
-        try:
-            if pool is not None:
-                pool.close()
-                pool.join()
-        finally:
-            if self._parallel_pool_old_snapshot is not None:
-                _PARALLEL_SNAPSHOT = self._parallel_pool_old_snapshot
-            else:
-                _PARALLEL_SNAPSHOT = None
-            self._parallel_pool_old_snapshot = None
-
-    def _parallel_results(self, kind: str, total_attempts: int, min_attempts: int = 512) -> Optional[List[Dict[str, Any]]]:
-        if not self.parallel_enabled or total_attempts < min_attempts:
-            return None
-        processes = max(1, min(int(self.parallel_processes), int(total_attempts)))
-        if processes <= 1:
-            return None
-        snapshot = self.get_parallel_snapshot()
-        counts = [total_attempts // processes] * processes
-        for i in range(total_attempts % processes):
-            counts[i] += 1
-        tasks = [(kind, counts[i], self.seed + self.tick * 100_000 + i * 7919, i) for i in range(processes) if counts[i] > 0]
-        if not tasks:
-            return []
-        self.parallel_stats["phase_calls"] += 1
-        self.parallel_stats["attempts_%s" % kind] += total_attempts
-        if self._parallel_pool is not None:
-            results = self._parallel_pool.map(_parallel_worker_entry, tasks)
-        else:
-            global _PARALLEL_SNAPSHOT
-            old_snapshot = _PARALLEL_SNAPSHOT
-            _PARALLEL_SNAPSHOT = snapshot
-            try:
-                try:
-                    ctx = mp.get_context("fork") if sys.platform != "win32" else mp.get_context()
-                    with ctx.Pool(processes=len(tasks)) as pool:
-                        results = pool.map(_parallel_worker_entry, tasks)
-                except (ValueError, AttributeError, RuntimeError):
-                    ctx = mp.get_context()
-                    spawn_tasks = [(kind, attempts, seed, idx, snapshot) for (kind, attempts, seed, idx) in tasks]
-                    with ctx.Pool(processes=len(spawn_tasks)) as pool:
-                        results = pool.map(_parallel_worker_entry_spawn, spawn_tasks)
-            finally:
-                _PARALLEL_SNAPSHOT = old_snapshot
-        self.parallel_stats["worker_batches_%s" % kind] += len(tasks)
-        self.parallel_stats["proposals_%s" % kind] += sum(len(r.get("proposals", [])) for r in results)
-        return results
-
-    def _add_market_failures(self, failures: Dict[int, int]) -> None:
-        for mid, count in failures.items():
-            m = self.markets.get(int(mid))
-            if m:
-                m.failed_count += int(count)
-
-    def parallel_trade_products(self) -> bool:
-        results = self._parallel_results("product", self.cfg["product_trades"], min_attempts=700)
-        if results is None:
-            return False
-        accepted = 0
-        rejected = 0
-        for result in results:
-            self._add_market_failures(result.get("failures", {}))
-            for m_id, p_id, buyer_id, _seller_id, _quoted_value in result.get("proposals", []):
-                m = self.markets.get(m_id)
-                p = self.products.get(p_id)
-                if m is None or p is None or p.stock <= 0 or p.owner_id is None or buyer_id not in self.entities:
-                    rejected += 1
-                    if m:
-                        m.failed_count += 1
-                    continue
-                if buyer_id == p.owner_id or not self.can_access(buyer_id, m, p.min_level, p.domain):
-                    rejected += 1
-                    m.failed_count += 1
-                    continue
-                price = p.quote().scaled(1.0 + m.level * 0.015)
-                if not self.settle(buyer_id, p.owner_id, price, prefer_level=p.min_level):
-                    rejected += 1
-                    m.failed_count += 1
-                    continue
-                value = price.to_number()
-                self.market_fee(m, p.owner_id, value)
-                p.stock -= 1
-                p.units_sold += 1
-                self.entities[buyer_id].inventory_units += 1
-                m.trade_count += 1
-                m.volume += value
-                self.trade_volume += value
-                self.product_sales += 1
-                accepted += 1
-                morph = self.add_econ_morphism(buyer_id, p.id, "buy %s" % p.name[:32], "trade_product", price, strength=value, data={"market": m.id, "seller": p.owner_id, "parallel": True}, create_packet=False, priority=min(12, p.min_level + 1))
-                if morph:
-                    self.emit_packet_fast_hop(buyer_id, p.id, "trade_product", price, morph.id, {"market": m.id, "seller": p.owner_id, "parallel": True}, priority=min(12, p.min_level + 1))
-                if morph and ((buyer_id + p_id + self.tick) % 37 == 0):
-                    m.remember("PRODUCT %s -> %s for %sH [parallel]" % (p.name[:24], self.entities[buyer_id].name[:22], short_number(value)))
-        self.parallel_stats["accepted_product"] += accepted
-        self.parallel_stats["rejected_product"] += rejected
-        return True
-
-    def parallel_trade_markets_as_assets(self) -> bool:
-        results = self._parallel_results("market_asset", self.cfg["market_trades"], min_attempts=1)
-        if results is None:
-            return False
-        accepted = 0
-        rejected = 0
-        for result in results:
-            self._add_market_failures(result.get("failures", {}))
-            for ex_id, asset_id, buyer_id, _seller_id, _quoted_value in result.get("proposals", []):
-                ex = self.markets.get(ex_id)
-                asset = self.markets.get(asset_id)
-                if ex is None or asset is None or asset.owner_id is None or buyer_id not in self.entities:
-                    rejected += 1
-                    if ex:
-                        ex.failed_count += 1
-                    continue
-                seller_id = asset.owner_id
-                if buyer_id == seller_id:
-                    rejected += 1
-                    ex.failed_count += 1
-                    continue
-                buyer = self.entities[buyer_id]
-                if buyer.entitlement_level("market_access", self.privileges, self.burdens) < min(12, asset.level + 1):
-                    rejected += 1
-                    ex.failed_count += 1
-                    continue
-                price = asset.quote().scaled(0.20)
-                if self.settle(buyer_id, seller_id, price, prefer_level=asset.level):
-                    asset.owner_id = buyer_id
-                    ex.market_trade_count += 1
-                    ex.trade_count += 1
-                    value = price.to_number()
-                    ex.volume += value
-                    self.trade_volume += value
-                    self.market_ownership_changes += 1
-                    accepted += 1
-                    morph = self.add_econ_morphism(seller_id, buyer_id, "market control transfer %s" % asset.name[:32], "trade_market", price, value, {"exchange": ex.id, "market_asset": asset.id, "parallel": True}, create_packet=False, priority=12)
-                    if morph:
-                        self.emit_packet_fast_hop(seller_id, buyer_id, "trade_market", price, morph.id, {"exchange": ex.id, "market_asset": asset.id, "parallel": True}, priority=12)
-                    if ((buyer_id + asset_id + self.tick) % 19 == 0):
-                        ex.remember("MARKET %s control -> %s [parallel]" % (asset.name[:24], buyer.name[:22]))
-                else:
-                    rejected += 1
-                    ex.failed_count += 1
-        self.parallel_stats["accepted_market_asset"] += accepted
-        self.parallel_stats["rejected_market_asset"] += rejected
-        return True
-
-    def parallel_trade_privileges(self) -> bool:
-        results = self._parallel_results("privilege", self.cfg["privilege_trades"], min_attempts=120)
-        if results is None:
-            return False
-        markets = [m for m in self.markets.values() if m.domain == "privilege"]
-        if not markets:
-            return True
-        accepted = 0
-        rejected = 0
-        for result in results:
-            self.parallel_stats["failed_prefilter_privilege"] += float(result.get("failures", 0))
-            for buyer_id, issuer_id, domain, boost, duration, p_level, scope, body, country_id, _price_value in result.get("proposals", []):
-                if buyer_id not in self.entities or issuer_id not in self.entities:
-                    rejected += 1
-                    continue
-                buyer = self.entities[buyer_id]
-                p = Privilege(self.eid(), "Tradable %s Privilege T%s" % (domain.title().replace("_", " "), self.tick), scope=scope, body=body, country_id=country_id, level=p_level, domain=domain, elements={"privilege": 8.0 * boost, domain: 7.0 * boost, "semaphore": 2.5 * boost}, owner_id=issuer_id, level_boost=boost, duration=duration)
-                price = p.quote()
-                if self.settle(buyer_id, issuer_id, price, prefer_level=p.level):
-                    self.register_entity(p, "privilege")
-                    self.privileges[p.id] = p
-                    buyer.privilege_ids.append(p.id)
-                    p.owner_id = buyer_id
-                    m = markets[(buyer_id + p.id + self.tick) % len(markets)]
-                    m.trade_count += 1
-                    value = price.to_number()
-                    m.volume += value
-                    self.trade_volume += value
-                    accepted += 1
-                    morph = self.add_econ_morphism(issuer_id, buyer_id, "grant privilege %s" % domain, "privilege", price, value, {"privilege": p.id, "market": m.id, "parallel": True}, create_packet=False, priority=9)
-                    if morph:
-                        self.emit_packet_fast_hop(issuer_id, buyer_id, "privilege", price, morph.id, {"privilege": p.id, "market": m.id, "parallel": True}, priority=9)
-                else:
-                    rejected += 1
-        self.parallel_stats["accepted_privilege"] += accepted
-        self.parallel_stats["rejected_privilege"] += rejected
-        return True
-
-    def parallel_trade_burdens(self) -> bool:
-        results = self._parallel_results("burden", self.cfg["burden_trades"], min_attempts=120)
-        if results is None:
-            return False
-        markets = [m for m in self.markets.values() if m.domain == "burden"]
-        if not markets:
-            return True
-        accepted = 0
-        rejected = 0
-        for result in results:
-            self.parallel_stats["failed_prefilter_burden"] += float(result.get("failures", 0))
-            for taker_id, comp_id, domain, penalty, duration, b_level, scope, body, country_id, _price_value in result.get("proposals", []):
-                if taker_id not in self.entities or comp_id not in self.entities:
-                    rejected += 1
-                    continue
-                taker = self.entities[taker_id]
-                if isinstance(taker, UNOrganization) or taker.level <= 1:
-                    rejected += 1
-                    continue
-                b = Burden(self.eid(), "Tradable %s Burden T%s" % (domain.title().replace("_", " "), self.tick), scope=scope, body=body, country_id=country_id, level=b_level, domain=domain, elements={"burden": 8.0 * penalty, domain: 5.0 * penalty, "queue": 2.0 * penalty}, owner_id=comp_id, level_penalty=penalty, duration=duration)
-                price = b.quote()
-                if self.entities[comp_id].wallet.can_pay(price.to_number()):
-                    taker.wallet.deposit(self.entities[comp_id].wallet.withdraw_number(price.to_number(), level=b.level, element="burden"))
-                    self.register_entity(b, "burden")
-                    self.burdens[b.id] = b
-                    taker.burden_ids.append(b.id)
-                    b.owner_id = taker_id
-                    m = markets[(taker_id + b.id + self.tick) % len(markets)]
-                    m.trade_count += 1
-                    value = price.to_number()
-                    m.volume += value
-                    self.trade_volume += value
-                    accepted += 1
-                    morph = self.add_econ_morphism(comp_id, taker_id, "assign burden %s" % domain, "burden", price, value, {"burden": b.id, "market": m.id, "parallel": True}, create_packet=False, priority=10)
-                    if morph:
-                        self.emit_packet_fast_hop(comp_id, taker_id, "burden", price, morph.id, {"burden": b.id, "market": m.id, "parallel": True}, priority=10)
-                else:
-                    rejected += 1
-        self.parallel_stats["accepted_burden"] += accepted
-        self.parallel_stats["rejected_burden"] += rejected
-        return True
-
-    def parallel_generate_background_network_packets(self) -> bool:
-        results = self._parallel_results("packet", self.cfg["network_packets"], min_attempts=1000)
-        if results is None:
-            return False
-        created = 0
-        failures = 0
-        for result in results:
-            failures += int(result.get("failures", 0))
-            for src, target, kind, level, element, amount, priority in result.get("proposals", []):
-                bundle = HierarchyBundle.single(level, element, amount)
-                if self.emit_packet_fast_hop(src, target, kind, bundle, None, {"background": True, "parallel": True}, priority=priority):
-                    created += 1
-        self.parallel_stats["packet_templates_created"] += created
-        self.parallel_stats["packet_template_failures"] += failures
-        return True
-
-    def parallel_refresh_workers(self) -> bool:
-        if not self.parallel_enabled or len(self.workers) < 2000:
-            return False
-        rows = []
-        for w in self.workers.values():
-            boost = 0.0
-            drag = 0.0
-            for pid in w.privilege_ids:
-                p = self.privileges.get(pid)
-                if p and p.active:
-                    boost += p.structural_number() * 0.15
-            for bid in w.burden_ids:
-                b = self.burdens.get(bid)
-                if b and b.active:
-                    drag += b.structural_number() * 0.15
-            rows.append((w.id, w.age, w.sex, dict(w.traits), w.level, w.wallet.value(), boost, drag))
-        processes = max(1, min(int(self.parallel_processes), len(rows)))
-        if processes <= 1:
-            return False
-        chunk = (len(rows) + processes - 1) // processes
-        tasks = []
-        for i in range(processes):
-            start = i * chunk
-            end = min(len(rows), start + chunk)
-            if start < end:
-                tasks.append((start, end, i))
-        snapshot = {"worker_refresh_rows": rows}
-        global _PARALLEL_SNAPSHOT
-        old_snapshot = _PARALLEL_SNAPSHOT
-        _PARALLEL_SNAPSHOT = snapshot
-        try:
-            try:
-                ctx = mp.get_context("fork") if sys.platform != "win32" else mp.get_context()
-                with ctx.Pool(processes=len(tasks)) as pool:
-                    chunks = pool.map(_parallel_worker_refresh_entry, tasks)
-            except (ValueError, AttributeError, RuntimeError):
-                ctx = mp.get_context()
-                spawn_tasks = [(a, b, i, snapshot) for (a, b, i) in tasks]
-                with ctx.Pool(processes=len(spawn_tasks)) as pool:
-                    chunks = pool.map(_parallel_worker_refresh_entry_spawn, spawn_tasks)
-        finally:
-            _PARALLEL_SNAPSHOT = old_snapshot
-        updated = 0
-        for chunk_rows in chunks:
-            for wid, elements, level, score in chunk_rows:
-                w = self.workers.get(wid)
-                if w:
-                    w.elements.update(elements)
-                    w.level = level
-                    w.last_score = score
-                    updated += 1
-        self.parallel_stats["worker_refresh_batches"] += len(tasks)
-        self.parallel_stats["worker_refresh_updated"] += updated
-        return True
 
     def settle(self, buyer_id: int, seller_id: int, price: HierarchyBundle, prefer_level: int = 5) -> bool:
         buyer = self.entities[buyer_id]
@@ -3073,7 +2951,10 @@ class SolarNetworkCategoryEconomy:
             p.owner_id = target_id
             target.privilege_ids.append(p.id)
             self.manual_lifts += 1
-            self.add_econ_morphism(issuer_id, target_id, "manual lift %s" % target.name[:32], "manual_lift", p.quote(), p.quote().to_number(), {"privilege": p.id}, create_packet=True, priority=11)
+            price = p.quote()
+            morph = self.add_econ_morphism(issuer_id, target_id, "manual lift %s" % target.name[:32], "manual_lift", price, price.to_number(), {"privilege": p.id}, create_packet=False, priority=11)
+            if morph:
+                self.emit_packet_fast_hop(issuer_id, target_id, "manual_lift", price, morph.id, {"privilege": p.id}, priority=11)
 
     def generate_background_network_packets(self) -> None:
         if self.parallel_generate_background_network_packets():
@@ -3142,10 +3023,9 @@ class SolarNetworkCategoryEconomy:
                     b.active = False
 
     def refresh_all_levels(self) -> None:
-        if not self.parallel_refresh_workers():
-            for w in self.workers.values():
-                w.recalc_elements()
-                w.refresh_level(self.privileges, self.burdens)
+        for w in self.workers.values():
+            w.recalc_elements()
+            w.refresh_level(self.privileges, self.burdens)
         for comp in self.companies.values():
             if comp.worker_ids:
                 sample = comp.worker_ids if len(comp.worker_ids) <= 120 else self.rng.sample(comp.worker_ids, 120)
@@ -3170,36 +3050,24 @@ class SolarNetworkCategoryEconomy:
             if e.node_id and e.node_id in self.network.nodes:
                 self.network.nodes[e.node_id].level = e.level
 
-    def _stage(self, name: str, fn: Callable[[], None]) -> None:
-        if not self.debug_stages:
-            fn()
-            return
-        import time as _time
-        start = _time.time()
-        print("[stage:start] %s" % name, flush=True)
-        fn()
-        print("[stage:end] %s %.3fs" % (name, _time.time() - start), flush=True)
-
     def tick_once(self) -> None:
         self.tick += 1
-        self._parallel_snapshot_cache = None
-        self._parallel_snapshot_tick = -1
+        self._parallel_cleanup()
         try:
-            self._stage("begin_parallel_tick_pool", self.begin_parallel_tick_pool)
-            self._stage("trade_products", self.trade_products)
-            self._stage("trade_privileges", self.trade_privileges)
-            self._stage("trade_burdens", self.trade_burdens)
-            self._stage("trade_markets_as_assets", self.trade_markets_as_assets)
-            self._stage("manual_lift_helpers_media", self.manual_lift_helpers_media)
-            self._stage("generate_background_network_packets", self.generate_background_network_packets)
+            self.trade_products()
+            self.trade_privileges()
+            self.trade_burdens()
+            self.trade_markets_as_assets()
+            self.manual_lift_helpers_media()
+            self.generate_background_network_packets()
+            # Several network microticks make duplex/semaphore queues visible.
+            for _ in range(3):
+                self.process_network()
+            self.update_sheaf_sections()
+            self.decay_privileges_and_burdens()
+            self.refresh_all_levels()
         finally:
-            self._stage("end_parallel_tick_pool", self.end_parallel_tick_pool)
-        # Several network microticks make duplex/semaphore queues visible.
-        for i in range(3):
-            self._stage("process_network_%d" % i, self.process_network)
-        self._stage("update_sheaf_sections", self.update_sheaf_sections)
-        self._stage("decay_privileges_and_burdens", self.decay_privileges_and_burdens)
-        self._stage("refresh_all_levels", self.refresh_all_levels)
+            self._parallel_cleanup()
         if not self.quiet:
             print(self.tick_report())
 
@@ -3210,8 +3078,8 @@ class SolarNetworkCategoryEconomy:
     # ----------------------------- reports and visualizations -----------------------------
 
     def build_report(self) -> str:
-        return "Built: entities=%d countries=%d alliances=%d companies=%d workers=%d products=%d markets=%d channels=%d econ_morphisms=%d net_morphisms=%d parallel_processes=%d parallel_enabled=%s" % (
-            len(self.entities), len(self.countries), len(self.alliances), len(self.companies), len(self.workers), len(self.products), len(self.markets), len(self.network.channels), len(self.econ_cat.morphisms), len(self.net_cat.morphisms), self.parallel_processes, self.parallel_enabled
+        return "Built: entities=%d countries=%d alliances=%d companies=%d workers=%d products=%d markets=%d channels=%d econ_morphisms=%d net_morphisms=%d parallel_processes=%d live_cap=%d parallel_enabled=%s" % (
+            len(self.entities), len(self.countries), len(self.alliances), len(self.companies), len(self.workers), len(self.products), len(self.markets), len(self.network.channels), len(self.econ_cat.morphisms), len(self.net_cat.morphisms), self.parallel_processes, self.parallel_live_process_cap, self.parallel_enabled
         )
 
     def tick_report(self) -> str:
@@ -3274,10 +3142,10 @@ class SolarNetworkCategoryEconomy:
             "seed": self.seed, "profile": self.profile, "ticks": self.tick,
             "counts": {"entities": len(self.entities), "countries": len(self.countries), "alliances": len(self.alliances), "companies": len(self.companies), "workers": len(self.workers), "products": len(self.products), "markets": len(self.markets), "privileges": len(self.privileges), "burdens": len(self.burdens)},
             "trade": {"volume_H": round(self.trade_volume, 2), "product_sales": self.product_sales, "market_ownership_changes": self.market_ownership_changes, "manual_lifts": self.manual_lifts},
-            "parallel": {k: (round(v, 3) if isinstance(v, float) else v) for k, v in sorted(self.parallel_stats.items())},
             "levels": {"workers": self.level_distribution(self.workers.values()), "companies": self.level_distribution(self.companies.values()), "countries": self.level_distribution(self.countries.values()), "products": self.level_distribution(self.products.values()), "markets": self.level_distribution(self.markets.values())},
             "network": self.network_report(),
             "category": self.category_report(),
+            "parallel": {k: (round(v, 3) if isinstance(v, float) else v) for k, v in sorted(self.parallel_stats.items())},
             "top_countries": [self.summary_entity(e) for e in self.top_entities(self.countries.values())],
             "top_companies": [self.summary_entity(e) for e in self.top_entities(self.companies.values())],
             "top_markets": [self.summary_entity(e) for e in self.top_entities(self.markets.values())],
@@ -3388,29 +3256,27 @@ class SolarNetworkCategoryEconomy:
             render_heatmap(hot_domains, list(range(1, 13)), heat, "MARKET DOMAIN × LEVEL HEATMAP"),
         ])
 
-
     def visual_parallel(self) -> str:
-        data = dict((k, float(v)) for k, v in self.parallel_stats.items() if isinstance(v, (int, float)))
-        selected = {}
-        for key in [
-            "attempts_product", "proposals_product", "accepted_product", "rejected_product",
-            "attempts_market_asset", "proposals_market_asset", "accepted_market_asset", "rejected_market_asset",
-            "attempts_privilege", "proposals_privilege", "accepted_privilege", "rejected_privilege",
-            "attempts_burden", "proposals_burden", "accepted_burden", "rejected_burden",
-            "packet_templates_created", "worker_refresh_updated"
-        ]:
-            if key in data:
-                selected[key] = data[key]
         rows = [
             ("enabled", "yes" if self.parallel_enabled else "no"),
             ("processes", self.parallel_processes),
             ("phase_calls", int(self.parallel_stats.get("phase_calls", 0))),
-            ("worker_batches", int(sum(v for k, v in self.parallel_stats.items() if k.startswith("worker_batches_")))),
+            ("snapshot_writes", int(self.parallel_stats.get("snapshot_writes", 0))),
+            ("snapshot_MB", "%.2f" % (self.parallel_stats.get("snapshot_bytes", 0.0) / (1024.0 * 1024.0))),
+            ("accepted_product", int(self.parallel_stats.get("accepted_product", 0))),
+            ("accepted_market_asset", int(self.parallel_stats.get("accepted_market_asset", 0))),
+            ("accepted_privilege", int(self.parallel_stats.get("accepted_privilege", 0))),
+            ("accepted_burden", int(self.parallel_stats.get("accepted_burden", 0))),
+            ("packet_templates", int(self.parallel_stats.get("packet_templates_created", 0))),
         ]
-        return "\n\n".join([
-            render_table(rows, ["Parallel metric", "Value"], "PROCESS PARALLELISM", [28, 18]),
-            render_histogram(selected, "PARALLEL PIPELINE COUNTERS", width=34),
-        ])
+        hist = {k.replace("attempts_", ""): v for k, v in self.parallel_stats.items() if k.startswith("attempts_")}
+        parts = [render_table(rows, ["Parallel metric", "Value"], "SAFE SUBPROCESS PARALLELISM", [30, 16])]
+        if hist:
+            parts.append(render_histogram(hist, "PARALLEL ATTEMPTS BY PHASE", width=34))
+        prop = {k.replace("proposals_", ""): v for k, v in self.parallel_stats.items() if k.startswith("proposals_")}
+        if prop:
+            parts.append(render_histogram(prop, "PARALLEL PROPOSALS BY PHASE", width=34))
+        return "\n\n".join(parts)
 
     def visual_report(self) -> str:
         return "\n\n".join([
@@ -3438,12 +3304,14 @@ class SolarNetworkCategoryEconomy:
         print("Trade:")
         for k, v in report["trade"].items():
             print("  %-30s %s" % (k, v))
-        print("Parallel:")
-        for k, v in report.get("parallel", {}).items():
-            print("  %-30s %s" % (k, v))
         print("Network:")
         for k in ["nodes", "channels", "components", "degree_min", "degree_mean", "degree_max"]:
             print("  %-30s %s" % (k, report["network"][k]))
+        if report.get("parallel"):
+            print("Parallel:")
+            for k in ["enabled", "processes", "phase_calls", "snapshot_writes", "accepted_product", "accepted_market_asset", "accepted_privilege", "accepted_burden"]:
+                if k in report["parallel"]:
+                    print("  %-30s %s" % (k, report["parallel"][k]))
         print("Category:")
         for key in ["economic_category", "network_category", "hierarchy_category", "topology_category"]:
             c = report["category"][key]
@@ -3475,16 +3343,18 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     p.add_argument("--quiet", action="store_true")
     p.add_argument("--json", default=None, help="optional JSON report output path")
     p.add_argument("--no-visuals", action="store_true", help="disable UTF-8 diagrams")
-    p.add_argument("--processes", type=int, default=0, help="number of worker processes; 0 = auto per profile")
-    p.add_argument("--no-parallel", action="store_true", help="force serial execution")
-    p.add_argument("--debug-stages", action="store_true", help="print per-stage timing for diagnostics")
+    p.add_argument("--processes", type=int, default=0, help="number of subprocess worker processes; 0 chooses a conservative default")
+    p.add_argument("--no-parallel", action="store_true", help="disable subprocess parallel proposal generation")
+    p.add_argument("--debug-stages", action="store_true", help="show worker subprocess stderr/stdout instead of suppressing it")
+    p.add_argument("--live-process-cap", type=int, default=0, help="maximum simultaneous live subprocess workers; default is conservative per profile")
     return p.parse_args(argv)
 
 
 def main(argv: Sequence[str]) -> int:
+    if "--worker-phase" in argv:
+        return _parallel_worker_cli(argv)
     args = parse_args(argv)
-    sim = SolarNetworkCategoryEconomy(profile=args.profile, seed=args.seed, quiet=args.quiet, processes=args.processes, parallel=not args.no_parallel)
-    sim.debug_stages = bool(args.debug_stages)
+    sim = SolarNetworkCategoryEconomy(profile=args.profile, seed=args.seed, quiet=args.quiet, processes=args.processes, parallel=not args.no_parallel, debug_stages=args.debug_stages, live_process_cap=args.live_process_cap)
     sim.build()
     sim.simulate(max(0, args.ticks))
     sim.print_report(args.json, include_visuals=not args.no_visuals)
