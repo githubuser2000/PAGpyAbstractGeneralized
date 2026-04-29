@@ -1,0 +1,533 @@
+Planetare Wirtschaftssimulation — OOP/UTF-8 Edition
+===================================================
+
+Monate: 24
+Länder: 6
+Unternehmen: 72
+Banken: 12
+Zentralbanken: 6
+Verteidigungsorganisationen: 2
+Transaktionen: 275
+Ereignisse: 198
+
+Welt-BIP: 41.21T
+Globaler WK-Score: 9183.80
+Globale WK-Lücke: 0.0488
+WK-Referenzpreis: 1125892.8136
+Ø Inflation: 4.55%
+Ø Stabilität: 0.6770
+
+Der folgende Anhang ist absichtlich UTF-8/Unicode-Art: Diagramme, Balken,
+Heatmaps, Klassenbaum, Zeitreihen und Wahrheitswert-Visualisierungen.
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                               PLANETARE WK-SIMULATION — UTF-8 ART APPENDIX                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Planet: Gaia-WK                                                                                          │
+│ Simulationsmonat: 24                                                                                     │
+│ Länder: 6 | Firmen: 72 | Banken: 12 | Verteidigungsorganisationen: 2                                     │
+│ Globale Wahrheitspreis-Referenz: 1,125,892.8136 REF/WK                                                   │
+│ Transaktionen: 275 | Ereignisse: 198                                                                     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 KLASSENVERERBUNG / CLASS INHERITANCE MAP                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SimNode                                                                                                  │
+│ ├─ Agent                                                                                                 │
+│ │  ├─ LegalEntity                                                                                        │
+│ │  │  ├─ InstitutionalEntity                                                                             │
+│ │  │  │  ├─ SovereignEntity                                                                              │
+│ │  │  │  │  └─ Country                                                                                   │
+│ │  │  │  ├─ FinancialInstitution                                                                         │
+│ │  │  │  │  ├─ CentralBank                                                                               │
+│ │  │  │  │  └─ CommercialBank ─┬─ DevelopmentBank                                                        │
+│ │  │  │  │                    └─ InvestmentBank                                                          │
+│ │  │  │  ├─ UnitedNations                                                                                │
+│ │  │  │  └─ DefenseOrganization ─┬─ MutualDefensePact                                                    │
+│ │  │  │                          ├─ MaritimeSecurityLeague                                               │
+│ │  │  │                          └─ CyberDefenseCompact                                                  │
+│ │  │  └─ EconomicEntity                                                                                  │
+│ │  │     ├─ Household                                                                                    │
+│ │  │     └─ Company                                                                                      │
+│ │  │        └─ ProductiveCompany                                                                         │
+│ │  │           ├─ CivilianCompany                                                                        │
+│ │  │           │  ├─ EssentialCompany ─┬─ FoodCompany ─ WaterCompany ─ HousingCompany                    │
+│ │  │           │  │                    └─ EnergyCompany ─ HealthCompany                                  │
+│ │  │           │  ├─ KnowledgeCompany ─┬─ EducationCompany ─ SoftwareCompany                             │
+│ │  │           │  │                    └─ ResearchCompany                                                │
+│ │  │           │  └─ ExperienceCompany ─┬─ MediaCompany ─ TourismCompany                                 │
+│ │  │           │                        └─ LuxuryCompany                                                 │
+│ │  │           ├─ IndustrialCompany ─┬─ ManufacturingCompany ─ ConstructionCompany                       │
+│ │  │           │                     ├─ LogisticsCompany ─ MiningCompany                                 │
+│ │  │           │                     └─ SpaceCompany                                                     │
+│ │  │           └─ StrategicCompany ─┬─ DefenseCompany ─ CyberSecurityCompany                             │
+│ │  │                                └─ InsuranceCompany ─ LegalCompany                                   │
+│ │                                                                                                        │
+│ EconomicObject                                                                                           │
+│ ├─ Asset ─┬─ RealAsset ─ InfrastructureAsset / HousingAsset / EnergyAsset                                │
+│ │         └─ IntangibleAsset ─ KnowledgeAsset / BrandAsset                                               │
+│ ├─ Claim ─ TruthClaim ─ PropertyClaim / TicketClaim / LaborClaim / InsuranceClaim / DebtClaim            │
+│ └─ Product ─┬─ Good ─ FoodProduct / HousingProduct                                                       │
+│             └─ Service ─ MobilityTicket / HealthService / EducationService / DefenseService / AttentionP │
+│ roduct / LuxuryExperience                                                                                │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       KLASSENZÄHLER / OOP-SURFACE                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Firmenklassen          │██████████████████████████████████████│ 20.00                                    │
+│ Ereignisklassen        │█████████████████░░░░░░░░░░░░░░░░░░░░░│ 9.00                                     │
+│ Marktklassen           │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 5.00                                     │
+│ Transaktionsklassen    │███████████████░░░░░░░░░░░░░░░░░░░░░░░│ 8.00                                     │
+│                                                                                                          │
+│ Firmenblätter:                                                                                           │
+│ FoodCompany, WaterCompany, HousingCompany, EnergyCompany, HealthCompany, EducationCompany, SoftwareCompa │
+│ ny, ResearchCompany, MediaCompany, TourismCompany, LuxuryCompany, ManufacturingCompany, ConstructionComp │
+│ any, LogisticsCompany, MiningCompany, SpaceCompany, DefenseCompany, CyberSecurityCompany, InsuranceCompa │
+│ ny, LegalCompany                                                                                         │
+│                                                                                                          │
+│ Ereignisblätter:                                                                                         │
+│ ClimateShock, PandemicEvent, EarthquakeEvent, WarEvent, SanctionEvent, TruthBubbleBurstEvent, BankRunEve │
+│ nt, TechBreakthroughEvent, CyberAttackEvent                                                              │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                             MAKRO-DASHBOARD                                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Welt-BIP REF           │████████████████████████████████████│ 41,211,675,633,576.16                      │
+│ Ø Stabilität           │████████████████████████░░░░░░░░░░░░│ 0.68                                       │
+│ Ø Inflation            │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.05                                       │
+│ Ø Arbeitslosigkeit     │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.11                                       │
+│                                                                                                          │
+│ Top-BIP-Länder:                                                                                          │
+│ Borealis Compact       │██████████████████████████████│ 18,804,266,379,548.18                            │
+│ Cyrenia League         │███████████████████████░░░░░░░│ 14,333,885,659,550.64                            │
+│ Elyria Kingdom         │███████░░░░░░░░░░░░░░░░░░░░░░░│ 4,299,683,490,228.59                             │
+│ Demeria Commonwealth   │████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2,525,889,541,513.93                             │
+│ Falken League          │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 942,233,598,365.46                               │
+│ Aurelia Union          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 305,716,964,369.36                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   GESTAPELTE WAHRHEITSWERT-WÄHRUNG WK                                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Aggregierter planetarer WK-Vektor: positive Wahrheit rechts, negative Wahrheit links                     │
+│                                                                                                          │
+│ infrastructure                               │██████████████████████ 1,613.11                            │
+│ sovereignty                                  │████████████░░░░░░░░░░ 847.12                              │
+│ potential                                    │███████████░░░░░░░░░░░ 828.86                              │
+│ legal                                        │███████████░░░░░░░░░░░ 821.08                              │
+│ health                                       │███████████░░░░░░░░░░░ 811.06                              │
+│ liquidity                                    │█████████░░░░░░░░░░░░░ 650.58                              │
+│ education                                    │████████░░░░░░░░░░░░░░ 622.06                              │
+│ temporal               ░░░░░░░░░░░░░░████████│                       -574.03                             │
+│ social                                       │███████░░░░░░░░░░░░░░░ 536.47                              │
+│ epistemic                                    │█████░░░░░░░░░░░░░░░░░ 345.83                              │
+│ security                                     │███░░░░░░░░░░░░░░░░░░░ 255.03                              │
+│ causal                                       │██░░░░░░░░░░░░░░░░░░░░ 117.27                              │
+│ existence                                    │█░░░░░░░░░░░░░░░░░░░░░ 90.82                               │
+│ memory                                       │█░░░░░░░░░░░░░░░░░░░░░ 40.47                               │
+│ risk_reduction                               │█░░░░░░░░░░░░░░░░░░░░░ 37.19                               │
+│ logistics                                    │░░░░░░░░░░░░░░░░░░░░░░ 33.88                               │
+│ comparative                                  │░░░░░░░░░░░░░░░░░░░░░░ 30.72                               │
+│ perception                                   │░░░░░░░░░░░░░░░░░░░░░░ 24.74                               │
+│ shelter                                      │░░░░░░░░░░░░░░░░░░░░░░ 21.44                               │
+│ attention                                    │░░░░░░░░░░░░░░░░░░░░░░ 19.91                               │
+│ energy                                       │░░░░░░░░░░░░░░░░░░░░░░ 12.04                               │
+│ ecological             ░░░░░░░░░░░░░░░░░░░░░░│                       -7.93                               │
+│ food                                         │░░░░░░░░░░░░░░░░░░░░░░ 6.80                                │
+│ ethical                                      │░░░░░░░░░░░░░░░░░░░░░░ 5.77                                │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                      ABGRUND DER NEGATIVEN WAHRHEIT                                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Negative WK = Schulden, Lügenlasten, Zukunftsverpflichtungen, uneingelöste Kausalität                    │
+│                                                                                                          │
+│ temporal               │██████████████████████████████████████████████│ 584.67                           │
+│ legal                  │████████████████████████████░░░░░░░░░░░░░░░░░░│ 358.52                           │
+│ ecological             │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.15                            │
+│ epistemic              │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.22                             │
+│ ethical                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 5.67                             │
+│ liquidity              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.64                             │
+│ social                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.88                             │
+│ causal                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.51                             │
+│ perception             │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.18                             │
+│ existence              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ risk_reduction         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ potential              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ comparative            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ security               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ infrastructure         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+│ health                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00                             │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 LÄNDER × WAHRHEITSDIMENSIONEN — HEATMAP                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Land                 LEG CAU EPI SEC INF HEA EDU SOV                                                     │
+│ ────────────────────────────────────────────────────                                                     │
+│ Borealis Compact      ·               █   ▒   ░   ·                                                      │
+│ Cyrenia League        ·               ▓   ░   ·   ·                                                      │
+│ Elyria Kingdom        ·               ·           ·                                                      │
+│ Demeria Commonwealth  ·               ·           ·                                                      │
+│ Falken League         ·                           ·                                                      │
+│ Aurelia Union         ·                           ·                                                      │
+│                                                                                                          │
+│ Spalten: LEG=Legalität, CAU=Kausalität, EPI=Epistemik, SEC=Sicherheit, INF=Infrastruktur, HEA=Gesundheit │
+│ , EDU=Bildung, SOV=Souveränität                                                                          │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                LÄNDERLIGA                                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Land                              BIP    Infl.    Stab.           WK Schulden/BIP                        │
+│ ─────────────────────────────────────────────────────────────────────────────────                        │
+│ Borealis Compact               18.80T   -0.38%    0.866      2198.35         1.69                        │
+│ Cyrenia League                 14.33T    4.61%    0.576      1735.77         0.86                        │
+│ Elyria Kingdom                  4.30T    4.62%    0.794       880.41         1.64                        │
+│ Demeria Commonwealth            2.53T    3.97%    0.789       739.72         0.97                        │
+│ Falken League                 942.23B    3.77%    0.478       603.62         1.01                        │
+│ Aurelia Union                 305.72B   10.70%    0.559       538.10         0.99                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                             SCHULDENPYRAMIDE                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Öffentliche Fiat-Schulden als negative Zukunftsbindung:                                                  │
+│                                                                                                          │
+│  Borealis Compact       │██████████████████████████████████████████│ 1.69                                │
+│   Elyria Kingdom         │█████████████████████████████████████████░│ 1.64                               │
+│    Falken League          │█████████████████████████░░░░░░░░░░░░░░░░░│ 1.01                              │
+│     Aurelia Union          │█████████████████████████░░░░░░░░░░░░░░░░░│ 0.99                             │
+│      Demeria Commonwealth   │████████████████████████░░░░░░░░░░░░░░░░░░│ 0.97                            │
+│       Cyrenia League         │█████████████████████░░░░░░░░░░░░░░░░░░░░░│ 0.86                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                             UNTERNEHMENSLIGA                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Firma                          Sektor           Land                     Umsatz  WK-Lücke                │
+│ ─────────────────────────────────────────────────────────────────────────────────────────                │
+│ Axiom Tourism BOC-1            tourism          Borealis Compact         16.53M     0.400                │
+│ Atlas Insurance CYL-1          insurance        Cyrenia League           13.19M     0.025                │
+│ Vivid Cybersecurity ELK-1      cybersecurity    Elyria Kingdom           12.77M     0.072                │
+│ Clear Software ELK-4           software         Elyria Kingdom           10.72M     0.218                │
+│ Argent Security CYL-5          security         Cyrenia League            9.61M     0.112                │
+│ Argent Materials ELK-3         materials        Elyria Kingdom            9.45M     0.374                │
+│ Solis Manufacturing BOC-10     manufacturing    Borealis Compact          9.35M     0.443                │
+│ Veritas Software CYL-6         software         Cyrenia League            8.92M     0.268                │
+│ Axiom Education ELK-5          education        Elyria Kingdom            8.91M     0.217                │
+│ Kappa Food DEC-12              food             Demeria Commonweal        8.76M     0.150                │
+│ Vivid Attention ELK-12         attention        Elyria Kingdom            8.71M     0.415                │
+│ Agora Tourism AUU-12           tourism          Aurelia Union             7.82M     0.104                │
+│ Solis Materials AUU-8          materials        Aurelia Union             7.43M     0.189                │
+│ Pioneer Shelter ELK-10         shelter          Elyria Kingdom            7.26M     0.289                │
+│ Agora Manufacturing CYL-11     manufacturing    Cyrenia League            7.20M     0.449                │
+│ Clear Software FAL-3           software         Falken League             7.13M     0.189                │
+│ Pulse Education CYL-9          education        Cyrenia League            6.66M     0.016                │
+│ Nexus Manufacturing BOC-3      manufacturing    Borealis Compact          6.63M     0.366                │
+│ Harbor Tourism DEC-1           tourism          Demeria Commonweal        6.38M     0.214                │
+│ Vivid Materials CYL-3          materials        Cyrenia League            6.13M     0.412                │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                             SEKTOR-GRAFIKEN                                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Umsatz nach Sektoren:                                                                                    │
+│                                                                                                          │
+│ manufacturing          │████████████████████████████████████████│ 48,244,529.40                          │
+│ software               │█████████████████████████████████░░░░░░░│ 39,703,347.00                          │
+│ tourism                │█████████████████████████████░░░░░░░░░░░│ 35,491,109.33                          │
+│ materials              │███████████████████████░░░░░░░░░░░░░░░░░│ 28,059,047.90                          │
+│ education              │██████████████████░░░░░░░░░░░░░░░░░░░░░░│ 21,633,701.06                          │
+│ cybersecurity          │██████████████████░░░░░░░░░░░░░░░░░░░░░░│ 21,299,988.52                          │
+│ attention              │█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15,803,377.81                          │
+│ security               │████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14,183,734.60                          │
+│ insurance              │███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13,194,646.27                          │
+│ legal                  │███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13,036,769.45                          │
+│ space                  │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11,721,649.83                          │
+│ mobility               │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11,658,955.08                          │
+│ infrastructure         │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10,723,765.23                          │
+│ food                   │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8,756,470.89                           │
+│ shelter                │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8,078,351.64                           │
+│ luxury                 │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4,841,394.15                           │
+│ research               │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4,623,260.66                           │
+│ health                 │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4,139,476.96                           │
+│ water                  │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2,493,522.85                           │
+│ energy                 │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1,014,671.92                           │
+│                                                                                                          │
+│ WK-Score nach Sektoren:                                                                                  │
+│ software                                   │████████████████████ 160.21                                  │
+│ manufacturing                              │███████████████████░ 150.16                                  │
+│ cybersecurity                              │██████████░░░░░░░░░░ 79.92                                   │
+│ security                                   │█████████░░░░░░░░░░░ 69.73                                   │
+│ education                                  │█████████░░░░░░░░░░░ 69.54                                   │
+│ tourism                                    │█████████░░░░░░░░░░░ 69.21                                   │
+│ infrastructure                             │███████░░░░░░░░░░░░░ 55.57                                   │
+│ space                                      │███████░░░░░░░░░░░░░ 53.19                                   │
+│ shelter                                    │█████░░░░░░░░░░░░░░░ 40.74                                   │
+│ materials                                  │█████░░░░░░░░░░░░░░░ 38.77                                   │
+│ legal                                      │████░░░░░░░░░░░░░░░░ 35.86                                   │
+│ health                                     │████░░░░░░░░░░░░░░░░ 31.19                                   │
+│ research                                   │███░░░░░░░░░░░░░░░░░ 27.41                                   │
+│ mobility                                   │███░░░░░░░░░░░░░░░░░ 25.62                                   │
+│ insurance                                  │███░░░░░░░░░░░░░░░░░ 21.35                                   │
+│ attention                                  │███░░░░░░░░░░░░░░░░░ 20.39                                   │
+│ food                                       │██░░░░░░░░░░░░░░░░░░ 18.99                                   │
+│ water                                      │██░░░░░░░░░░░░░░░░░░ 18.91                                   │
+│ luxury                                     │██░░░░░░░░░░░░░░░░░░ 14.30                                   │
+│ energy                                     │░░░░░░░░░░░░░░░░░░░░ 0.66                                    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                             TRANSAKTIONSMIX                                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ purchase               │██████████████████████████████████████████████│ 158.00                           │
+│ loan_origination       │███████████████████████████░░░░░░░░░░░░░░░░░░░│ 93.00                            │
+│ audit                  │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 24.00                            │
+│                                                                                                          │
+│ Jede Transaktion ist hier nicht nur Buchung, sondern ein Versuch, Realität anders wahr zu machen.        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       BANKSTRESS / KREDIT-WAHRHEIT                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ NPL = non-performing loans; hoher Wert erzeugt Liquiditäts- und Glaubwürdigkeits-Schulden                │
+│                                                                                                          │
+│ Cyrenia Development B  │███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.18                               │
+│ Veritas Bank BOC-1     │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.12                               │
+│ Lucent Bank CYL-2      │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.11                               │
+│ Demeria Investment Ba  │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.10                               │
+│ Demeria Development B  │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.09                               │
+│ Harbor Bank FAL-2      │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.06                               │
+│ Nexus Bank FAL-1       │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.05                               │
+│ Elyria Investment Ban  │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.05                               │
+│ Veritas Bank ELK-1     │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.05                               │
+│ Aurelia Investment Ba  │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.04                               │
+│ Aurelia Development B  │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.03                               │
+│ Veritas Bank BOC-2     │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.03                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          FIAT-WÄHRUNGS-HEATMAP                                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│        BOC  CYL  ELK  DEC  FAL  AUU                                                                      │
+│  BOC   █   █   █   █   █   █                                                                             │
+│  CYL                                                                                                     │
+│  ELK                                                                                                     │
+│  DEC   █   █   █   █   █   █                                                                             │
+│  FAL   ·   ·   ·   ·   ·   ·                                                                             │
+│  AUU   ▒   ▒   ▒   ▒   ▒   ▒                                                                             │
+│                                                                                                          │
+│ Legende: · schwach/klein  ░ mittel  ▒ stark  ▓ sehr stark  █ höchste Referenz                            │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                            WÄHRUNGSLANDKARTE                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Nationale Zahlenwährungen relativ zur Referenz; WK bleibt planetar und vektorwertig.                     │
+│                                                                                                          │
+│ DEC Demeria Commonwe   │██████████████████████████████████████████████│ 1.10                             │
+│ BOC Borealis Compact   │██████████████████████████████████████████████│ 1.09                             │
+│ AUU Aurelia Union      │█████████████████████████████████░░░░░░░░░░░░░│ 0.79                             │
+│ FAL Falken League      │████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.48                             │
+│ CYL Cyrenia League     │███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.35                             │
+│ ELK Elyria Kingdom     │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.25                             │
+│                                                                                                          │
+│ Planetare WK-Referenz: 1 WK-Score ≈ 1,125,892.81 REF                                                     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                            EREIGNIS-TIMELINE                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ M  20 TRUTH_DISTORTION       ●           Harbor Tourism DEC-1 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  20 TRUTH_DISTORTION       ●●          Harbor Manufacturing DEC-6 verkauft Wahrnehmung über gedeckte R │
+│ ealit                                                                                                    │
+│ M  20 TRUTH_DISTORTION       ●●          Agora Software FAL-8 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  20 AUDIT_REVEAL           ●●●         Audit deckt Wahrheitslücke bei Solis Space CYL-8 auf            │
+│ M  21 TRUTH_DISTORTION       ●           Axiom Tourism AUU-1 verkauft Wahrnehmung über gedeckte Realität │
+│ M  21 TRUTH_DISTORTION       ●●          Vivid Software AUU-2 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  21 TRUTH_DISTORTION       ●●          Agora Luxury AUU-7 verkauft Wahrnehmung über gedeckte Realität  │
+│ M  21 AUDIT_REVEAL           ●●●         Audit deckt Wahrheitslücke bei Solis Space CYL-8 auf            │
+│ M  22 TRUTH_DISTORTION       ●●          Solis Materials AUU-8 verkauft Wahrnehmung über gedeckte Realit │
+│ ät                                                                                                       │
+│ M  22 TRUTH_DISTORTION       ●           Solis Education AUU-9 verkauft Wahrnehmung über gedeckte Realit │
+│ ät                                                                                                       │
+│ M  22 TRUTH_DISTORTION       ●           Signal Legal BOC-5 verkauft Wahrnehmung über gedeckte Realität  │
+│ M  22 TRUTH_DISTORTION       ●           Argent Health DEC-2 verkauft Wahrnehmung über gedeckte Realität │
+│ M  22 TRUTH_DISTORTION       ●●          Praxis Luxury DEC-3 verkauft Wahrnehmung über gedeckte Realität │
+│ M  22 AUDIT_REVEAL           ●●●         Audit deckt Wahrheitslücke bei Solis Space CYL-8 auf            │
+│ M  23 TRUTH_DISTORTION       ●●          Vivid Software AUU-2 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  23 TRUTH_DISTORTION       ●           Solis Education AUU-9 verkauft Wahrnehmung über gedeckte Realit │
+│ ät                                                                                                       │
+│ M  23 TRUTH_DISTORTION       ●●          Pioneer Research AUU-11 verkauft Wahrnehmung über gedeckte Real │
+│ ität                                                                                                     │
+│ M  23 TRUTH_DISTORTION       ●●          Axiom Luxury BOC-9 verkauft Wahrnehmung über gedeckte Realität  │
+│ M  23 TRUTH_DISTORTION       ●●          Kappa Security FAL-4 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  23 TRUTH_DISTORTION       ●●          Agora Software FAL-8 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  23 AUDIT_REVEAL           ●●●         Audit deckt Wahrheitslücke bei Solis Space CYL-8 auf            │
+│ M  23 cyber_attack           ●●●         Cyberangriff gegen Aurelia Union, abgefedert: 0.00              │
+│ M  24 TRUTH_DISTORTION       ●●          Agora Tourism AUU-12 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  24 TRUTH_DISTORTION       ●           Atlas Insurance CYL-1 verkauft Wahrnehmung über gedeckte Realit │
+│ ät                                                                                                       │
+│ M  24 TRUTH_DISTORTION       ●●          Argent Security CYL-5 verkauft Wahrnehmung über gedeckte Realit │
+│ ät                                                                                                       │
+│ M  24 TRUTH_DISTORTION       ●●          Solis Space CYL-8 verkauft Wahrnehmung über gedeckte Realität   │
+│ M  24 TRUTH_DISTORTION       ●●          Agora Mobility DEC-4 verkauft Wahrnehmung über gedeckte Realitä │
+│ t                                                                                                        │
+│ M  24 AUDIT_REVEAL           ●●●         Audit deckt Wahrheitslücke bei Solis Space CYL-8 auf            │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                           EREIGNIS-HISTOGRAMM                                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Links Häufigkeit, rechts kumulierte Schwere:                                                             │
+│                                                                                                          │
+│ TRUTH_DISTORTION       │████████████████████████│ 173.00   severity               │█████████████████████ │
+│ █│ 18.83                                                                                                 │
+│ AUDIT_REVEAL           │███░░░░░░░░░░░░░░░░░░░░░│ 22.00   severity               │█████░░░░░░░░░░░░░░░░░ │
+│ │ 4.51                                                                                                   │
+│ truth_bubble_burst     │░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00   severity               │█░░░░░░░░░░░░░░░░░░░░░│ │
+│  0.89                                                                                                    │
+│ cyber_attack           │░░░░░░░░░░░░░░░░░░░░░░░░│ 1.00   severity               │░░░░░░░░░░░░░░░░░░░░░░│ │
+│  0.30                                                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                               ÖKONOMISCHER FLUSS: ZAHL → WAHRHEITSÜBERGANG                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌─────────────────────────────┐                                                                          │
+│                           │  WK = Wahrheitskapital      │                                                │
+│                           │  Vektor: Recht, Kausalität, │                                                │
+│                           │  Existenz, Zeit, Risiko ... │                                                │
+│                           └──────────────┬──────────────┘                                                │
+│                                          │                                                               │
+│       Fiat-Zahlung                       │ Wahrheits-Transfer / Realitätsänderung                        │
+│ ┌──────────────┐     Kauf / Kredit       ▼                                                               │
+│ │ Haushalte /  │ ─────────────────▶ ┌──────────────┐ ───────────────▶ Produkt / Dienst / Claim           │
+│ │ Staaten      │                    │ Unternehmen  │                  wird wahrer / nutzbarer            │
+│ └──────┬───────┘ ◀───────────────── └──────┬───────┘                                                     │
+│        │         Steuern, Löhne, Dividenden │                                                            │
+│        │                                    │ Kredite / Schulden                                         │
+│        ▼                                    ▼                                                            │
+│ ┌──────────────┐                    ┌──────────────┐                                                     │
+│ │ Zentralbank  │ ◀──── Reserven ─── │ Banken       │                                                     │
+│ │ Fiat-Stabil. │ ───── Liquidität ▶ │ Kreditmarkt  │                                                     │
+│ └──────┬───────┘                    └──────┬───────┘                                                     │
+│        │                                    │                                                            │
+│        ▼                                    ▼                                                            │
+│ ┌──────────────┐                    ┌──────────────┐                                                     │
+│ │ UN / Recht   │ ── Audits/Sank. ▶  │ Wahrheits-   │                                                     │
+│ │ Anerkennung  │ ◀─ Legitimität ──  │ schulden     │                                                     │
+│ └──────────────┘                    └──────────────┘                                                     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    LEBENSZYKLUS EINES WAHRHEITSWERTS                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Idee / Potenzial                                                                                         │
+│              │                                                                                           │
+│              ▼                                                                                           │
+│     ┌─────────────────┐                                                                                  │
+│     │  Versprechen    │  social/perception/potential steigen schnell                                     │
+│     └───────┬─────────┘                                                                                  │
+│             │ Prüfung, Arbeit, Kapital, Zeit                                                             │
+│             ▼                                                                                            │
+│     ┌─────────────────┐                                                                                  │
+│     │  gedeckte       │  existence/legal/causal/epistemic werden real                                    │
+│     │  Kausalität     │                                                                                  │
+│     └───────┬─────────┘                                                                                  │
+│             │ Nutzung / Kauf / Vertrag                                                                   │
+│             ▼                                                                                            │
+│     ┌─────────────────┐                                                                                  │
+│     │  Wahrheit als   │  WK zirkuliert: Anspruch auf spätere Wahrmachung                                 │
+│     │  Währung        │                                                                                  │
+│     └───────┬─────────┘                                                                                  │
+│             │ Alterung, Verschleiß, Erinnerung, Risiko                                                   │
+│             ▼                                                                                            │
+│     ┌─────────────────┐                                                                                  │
+│     │  Prüfung oder   │  Wahrheit bleibt gedeckt ODER kippt in Schuld                                    │
+│     │  Entlarvung     │                                                                                  │
+│     └───────┬─────────┘                                                                                  │
+│             │                                                                                            │
+│        ┌────┴────┐                                                                                       │
+│        ▼         ▼                                                                                       │
+│   Reinvestition  negative WK: Lüge, Kredit, nicht eingelöster Anspruch                                   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                        INSTITUTIONELLES NETZWERK                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ United Planetary Nations                                                                                 │
+│   ├─ Borealis Compact         Beitrag/Legitimität: stab=0.87 off=0.38                                    │
+│   ├─ Cyrenia League           Beitrag/Legitimität: stab=0.58 off=0.91                                    │
+│   ├─ Elyria Kingdom           Beitrag/Legitimität: stab=0.79 off=0.93                                    │
+│   ├─ Demeria Commonwealth     Beitrag/Legitimität: stab=0.79 off=0.63                                    │
+│   ├─ Falken League            Beitrag/Legitimität: stab=0.48 off=0.27                                    │
+│   ├─ Aurelia Union            Beitrag/Legitimität: stab=0.56 off=0.64                                    │
+│   └─ ...                                                                                                 │
+│                                                                                                          │
+│ Allianzen als soziale/legal-sicherheitliche Wahrheitsbrücken:                                            │
+│   North Security Accord        Borealis Com ⇄ Elyria Kingd ⇄ Cyrenia Leag                                │
+│   South Security Accord        Falken Leagu ⇄ Borealis Com                                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       VERTEIDIGUNGSORGANISATIONEN                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ North Security Accord [collective defense] det=0.42 interop=0.64                                         │
+│   ├─ Borealis Compact  ─  Elyria Kingdom  ─  Cyrenia League                                              │
+│   └─ Abschreckung           │█████████░░░░░░░░░░░░░░░░░░░░░░░│ 0.42                                      │
+│ South Security Accord [trade lane security] det=0.42 interop=0.54                                        │
+│   ├─ Falken League  ─  Borealis Compact                                                                  │
+│   └─ Abschreckung           │█████████░░░░░░░░░░░░░░░░░░░░░░░│ 0.42                                      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                        POTENZIAL-SCHULDEN-SCATTER                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Schulden/BIP ↑                                                                                           │
+│ ┌──────────────────────────────────────────────────────────────┐                                         │
+│ │●                                                             │                                         │
+│ │                           ●                                  │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │                                                              │                                         │
+│ │        ●                                                     │                                         │
+│ │               ●                           ●                  │                                         │
+│ │                                                              │                                         │
+│ │                                                             ●│                                         │
+│ └──────────────────────────────────────────────────────────────┘                                         │
+│                        Potenzial / Forschung →                                                           │
+│ Interpretation: rechts oben = viel Potenzial, aber stark vorweggenommene Zukunft; rechts unten = robuste │
+│ s Zukunftskapital.                                                                                       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          ZEITREIHEN-SPARKLINES                                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Welt-BIP         ▁▁▁▂▂▂▂▃▃▄▄▄▅▅▅▆▆▆▇▇▇███  min=3.88e+13 max=4.12e+13                                     │
+│ WK-Preis         ▁▁▁▂▃▃▃▃▃▄▅▅▆▆▆▆▇▇▇█████  min=1.01e+06 max=1.13e+06                                     │
+│ Ø Inflation      ▃▄▃▁▂▃▁▃▅▂▂▃▇▅▇▇▇██▇▃▂▂▃  min=0.0432 max=0.0512                                         │
+│ Ø Stabilität     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  min=0.677 max=0.677                                           │
+│ Globaler WK      ▁▁▁▁▁▃▃▃▃▃▃▅▅▅▅▄▄▇▇▇▆▆▆█  min=5.98e+03 max=9.18e+03                                     │
+│ WK-Lücke         ▁▁▁▂▂▂▂▃▃▃▄▄▄▅▅▅▆▆▆▇▇███  min=0.00149 max=0.051                                         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
