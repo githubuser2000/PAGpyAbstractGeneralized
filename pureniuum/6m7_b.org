@@ -1,0 +1,200 @@
+#+TITLE: Umgekehrte Universalität zwischen Winkel und Zahl
+#+LANGUAGE: de
+#+OPTIONS: toc:nil num:nil
+
+Ja — aber nicht sauber als „die Hälfte“ im arithmetischen Sinn.
+
+Besser:
+
+#+begin_quote
+Zwischen Winkel und Zahl gibt es zwei gegeneinander gerichtete Bewegungen:  
+*Linearisierung* und *Zyklisierung*.  
+Viele Eigenschaften treten deshalb paarweise auf: Eine Eigenschaft macht den Winkel zahlartig, die andere macht die Zahl winkelartig.
+#+end_quote
+
+Der Kern ist diese Beziehung:
+
+\[
+q : \mathbb{R} \to \mathbb{R}/2\pi\mathbb{Z}
+\]
+
+Eine reelle Zahl \(\theta\) wird zu einem Winkel modulo voller Umdrehung:
+
+\[
+\theta \mapsto [\theta]
+\]
+
+Das heißt:
+
+\[
+0,\quad 2\pi,\quad 4\pi,\quad -2\pi
+\]
+
+sind als Zahlen verschieden, aber als Richtung oder Winkel äquivalent.
+
+Oder trigonometrisch:
+
+\[
+\theta \mapsto e^{i\theta}
+\]
+
+beziehungsweise:
+
+\[
+\theta \mapsto (\cos\theta,\sin\theta)
+\]
+
+Diese Abbildung hat eine Art Umkehrung, aber keine perfekte globale Umkehrung:
+
+\[
+\arg(e^{i\theta}) = \theta \pmod{2\pi}
+\]
+
+Man bekommt also den Winkel zurück, aber nur *modulo voller Drehungen*.
+
+Das ist die entscheidende Asymmetrie.
+
+* Die eigentliche Paarung
+
+Man kann die Eigenschaften ungefähr so paaren:
+
+| Zahlartige Eigenschaft                 | Umgekehrte / winkelartige Eigenschaft |
+|----------------------------------------+---------------------------------------|
+| Messbarkeit                            | Mehrdeutigkeit der Darstellung |
+| Additivität                            | Periodizität |
+| Vergleichbarkeit                       | Verlust globaler Ordnung |
+| Verhältnis / Proportion                | Normierung auf eine volle Drehung |
+| Linearität                             | Kreisförmigkeit |
+| Zahl als Repräsentation                | Winkel als geometrische Invariante |
+| Trigonometrie: Winkel → Zahlen         | Arkusfunktionen: Zahlen → Winkel |
+| Radiant: \(\theta = s/r\)              | Bogenlänge: \(s = r\theta\) |
+
+Das sind keine perfekten Spiegelpaare, aber strukturell sehr starke Dualitäten.
+
+* 1. Messbarkeit ↔ Darstellungsmehrdeutigkeit
+
+Die zahlartige Richtung ist:
+
+\[
+\text{Winkel} \to \text{Zahl}
+\]
+
+Zum Beispiel:
+
+\[
+90^\circ,\quad \frac{\pi}{2},\quad 0{,}25 \text{ Umdrehungen}
+\]
+
+Alle drei Zahlen messen denselben Winkel.
+
+Die umgekehrte Eigenschaft ist:
+
+\[
+\text{Zahl} \to \text{Winkel}
+\]
+
+Aber diese Richtung ist nicht eindeutig, weil:
+
+\[
+\theta,\quad \theta + 2\pi,\quad \theta + 4\pi
+\]
+
+denselben gerichteten Winkel beschreiben.
+
+Also:
+
+#+begin_quote
+Messbarkeit macht den Winkel zur Zahl.  
+Periodische Mehrdeutigkeit macht die Zahl wieder zum Winkel.
+#+end_quote
+
+* 2. Additivität ↔ Periodizität
+
+Zahlartig ist:
+
+\[
+\alpha + \beta
+\]
+
+Winkel lassen sich addieren wie Zahlen:
+
+\[
+30^\circ + 60^\circ = 90^\circ
+\]
+
+Die Gegenbewegung ist Periodizität:
+
+\[
+\theta + 360^\circ = \theta
+\]
+
+oder:
+
+\[
+\theta + 2\pi = \theta
+\]
+
+Bei Zahlen bedeutet Addition normalerweise Fortschritt auf einer Linie.  
+Bei Winkeln kann Addition nach einer vollen Drehung wieder zum Anfang führen.
+
+Also:
+
+#+begin_quote
+Additivität ist die lineare Eigenschaft.  
+Periodizität ist die zyklische Gegen-Eigenschaft.
+#+end_quote
+
+Das ist vielleicht das stärkste Paar.
+
+* 3. Vergleichbarkeit ↔ Verlust globaler Ordnung
+
+Zahlartig ist:
+
+\[
+30^\circ < 60^\circ < 90^\circ
+\]
+
+Bei kleinen Winkeln funktioniert das gut.
+
+Aber auf dem Kreis wird Ordnung problematisch.
+
+Ist \(350^\circ\) größer als \(10^\circ\)?
+
+Als Zahl ja. Als Richtung liegen beide nahe beieinander:
+
+\[
+350^\circ \sim -10^\circ
+\]
+
+Der Abstand zu \(10^\circ\) ist nur:
+
+\[
+20^\circ
+\]
+
+nicht:
+
+\[
+340^\circ
+\]
+
+Also:
+
+#+begin_quote
+Zahlen haben eine globale lineare Ordnung.  
+Winkel haben eher eine zyklische Nachbarschaft.
+#+end_quote
+
+Die Gegen-Eigenschaft zur Vergleichbarkeit ist deshalb nicht „Unvergleichbarkeit“, sondern *kreisförmige Ordnung*.
+
+* 4. Verhältnis ↔ Normierung
+
+Ein Winkel kann als Anteil einer vollen Drehung verstanden werden:
+
+\[
+\frac14,\quad \frac12,\quad 1
+\]
+
+Das ist zahlartig: Der Winkel wird zu einem Verhältnis.
+
+Di
