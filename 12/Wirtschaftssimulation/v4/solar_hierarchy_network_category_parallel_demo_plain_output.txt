@@ -1,0 +1,119 @@
+Building network/category hierarchy-market simulation profile=demo seed=42
+Built: entities=4195 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 channels=2227 econ_morphisms=11251 net_morphisms=13703 parallel_processes=4 parallel_enabled=True
+tick=1 volume=321.2kH product_sales=173 market_trades=52 packets(created/delivered/dropped)=1176/0/0 queues=112 sem_blocked=0 sheaf_glued=3 parallel=on/4 accepted(p/m)=173/52
+================================================================================================
+SOLAR HIERARCHY MARKET — NETWORK / CATEGORY / SHEAF REPORT
+================================================================================================
+seed=42 profile=demo ticks=1
+Counts:
+  entities                       4376
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     105
+  burdens                        76
+Trade:
+  volume_H                       321154.57
+  product_sales                  173
+  market_ownership_changes       52
+  manual_lifts                   7
+Parallel:
+  accepted_burden                76.0
+  accepted_market_asset          52.0
+  accepted_privilege             98.0
+  accepted_product               173.0
+  attempts_burden                120.0
+  attempts_market_asset          55.0
+  attempts_packet                1800.0
+  attempts_privilege             160.0
+  attempts_product               2600.0
+  enabled                        1.0
+  failed_prefilter_burden        44.0
+  failed_prefilter_privilege     62.0
+  packet_template_failures       0.0
+  packet_templates_created       776.0
+  phase_calls                    5.0
+  pool_starts                    1.0
+  processes                      4.0
+  proposals_burden               76.0
+  proposals_market_asset         52.0
+  proposals_packet               1800.0
+  proposals_privilege            98.0
+  proposals_product              173.0
+  rejected_burden                0.0
+  rejected_market_asset          0.0
+  rejected_privilege             0.0
+  rejected_product               0.0
+  snapshot_builds                1.0
+  worker_batches_burden          4.0
+  worker_batches_market_asset    4.0
+  worker_batches_packet          4.0
+  worker_batches_privilege       4.0
+  worker_batches_product         4.0
+Network:
+  nodes                          4376
+  channels                       2227
+  components                     2641
+  degree_min                     1
+  degree_mean                    2.564
+  degree_max                     130
+Category:
+  economic_category              objects=4376 morphisms=11838 hom_sets=9827
+  network_category               objects=4376 morphisms=14290 hom_sets=12690
+  hierarchy_category             objects=12 morphisms=15149 hom_sets=127
+  topology_category              objects=7 morphisms=15 hom_sets=15
+Level distributions:
+  workers      {1: 726, 2: 1066, 3: 8}
+  companies    {8: 1, 9: 14, 10: 56, 11: 47, 12: 2}
+  countries    {12: 15}
+  products     {1: 73, 2: 271, 3: 276, 4: 180, 5: 48, 6: 2}
+  markets      {1: 79, 2: 121, 3: 140, 4: 149, 5: 192, 6: 227, 7: 225, 8: 207, 9: 52}
+
+Top countries
+  L12 Solar Apex       Mars Republic 004                                            8.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Moon Republic 003                                            8.3MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 008                                           7.7MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 003                                            7.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 002                                           6.1MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 001                                           6.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Moon Republic 001                                            5.9MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 005                                           5.3MH domain=governance body=Earth owner=United Nations of Earth
+
+Top companies
+  L12 Solar Apex       Research Networked Company 00110                             1.3MH domain=research body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Medicine Networked Company 00077                             1.1MH domain=medicine body=Mars owner=Mars Republic 003
+  L11 Systemic         Food Networked Company 00085                               835.6kH domain=food body=Moon owner=Moon Republic 003
+  L11 Systemic         Agriculture Networked Company 00094                        834.2kH domain=agriculture body=Mars owner=Mars Republic 003
+  L11 Systemic         Defense Networked Company 00067                            771.6kH domain=defense body=Mars owner=Mars Republic 004
+  L11 Systemic         Manufacturing Networked Company 00010                      765.6kH domain=manufacturing body=Mars owner=Mars Republic 004
+  L11 Systemic         Finance Networked Company 00025                            743.9kH domain=finance body=Mars owner=Mars Republic 003
+  L11 Systemic         Medicine Networked Company 00055                           742.8kH domain=medicine body=Earth owner=Earth Republic 001
+
+Top markets
+  L09 Planetary        Solar System L12 Water Market                               81.4kH domain=water body=Solar System owner=Solar System United Nations
+  L09 Planetary        Moon L12 Semaphore Permits Market                           81.2kH domain=semaphore_permits body=Moon owner=United Nations of Moon
+  L09 Planetary        Mars L12 Privilege Market                                   80.9kH domain=privilege body=Mars owner=United Nations of Mars
+  L09 Planetary        Solar System L12 Terraforming Market                        80.9kH domain=terraforming body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Defense Market                                     80.8kH domain=defense body=Mars owner=United Nations of Mars
+  L09 Planetary        Moon L12 Topology Rights Market                             80.7kH domain=topology_rights body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Semaphore Permits Market                   80.5kH domain=semaphore_permits body=Solar System owner=Solar System United Nations
+  L09 Planetary        Solar System L12 Care Market                                80.4kH domain=care body=Solar System owner=Solar System United Nations
+
+Top workers
+  L03 Local            Worker 0001282                                                667H domain=education body=Earth owner=None
+  L03 Local            Worker 0000938                                                549H domain=care body=Earth owner=None
+  L03 Local            Worker 0001569                                                508H domain=compute body=Earth owner=None
+  L03 Local            Worker 0001774                                                503H domain=skill body=Earth owner=None
+  L03 Local            Worker 0001028                                                495H domain=military body=Earth owner=None
+  L03 Local            Worker 0000061                                                486H domain=risk body=Mars owner=None
+  L03 Local            Worker 0000166                                                480H domain=care body=Mars owner=None
+  L03 Local            Worker 0001668                                                476H domain=labor body=Earth owner=None
+
+Recent trades / morphism events
+  - Solar System L12 Market Rights Market: MARKET Solar System L12 Privile control -> Moon Republic 002 [parallel]
+  - Earth L08 Research Market: PRODUCT Research Product 000285 -> Defense Networked Comp for 135H [parallel]
+  - Moon L02 Water Market: PRODUCT Water Product 000006 -> Finance Networked Comp for 85.5H [parallel]
+  - Mars L07 Market Rights Market: MARKET Mars L11 Energy Market control -> Market Rights Networke [parallel]
