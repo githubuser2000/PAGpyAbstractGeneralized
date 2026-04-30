@@ -1,0 +1,157 @@
+Building network/category hierarchy-market simulation profile=demo seed=42
+Built: entities=4195 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 channels=2227 econ_morphisms=11251 net_morphisms=13703
+tick=1 volume=302.3kH product_sales=188 market_trades=53 packets(created/delivered/dropped)=540/0/0 queues=68 sem_blocked=0 sheaf_glued=3
+================================================================================================
+SOLAR HIERARCHY MARKET — NETWORK / CATEGORY / SHEAF REPORT
+================================================================================================
+seed=42 profile=demo ticks=1
+
+GLOBAL EXPLANATION OF THE SIMULATION
+This simulation models a hierarchy-currency economy for the Solar System. It simulates Earth, Moon and Mars together with governance organizations, defense organizations, alliances, countries, companies, workers, products, privileges, burdens and markets. Hierarchy is the deep currency. The printed H number is only a compressed settlement value. The goal is to examine how concrete goods, market exchanges, network flows, category-theoretic structure and stochastic macro-events jointly shape who rises, who falls and which domains dominate a run.
+The present version especially emphasizes four things: first, a twelve-level hierarchy of goods and entitlements; second, career mobility of persons, companies, states and defense alliances; third, multiple UTF-8 diagrams that visualize the whole structure; and fourth, strong run-to-run diversity through stochastic macro-scenarios.
+
+WHAT ELSE CAN STILL BE SIMULATED
+  - demographic transitions across generations, including inheritance, education pipelines and retirement pressure
+  - banking, debt chains, insolvency cascades and lender-of-last-resort interventions
+  - elections, propaganda, censorship, institutional legitimacy and constitutional crises
+  - migration flows between Earth, Moon and Mars, including brain drain and labor shortages
+  - war, deterrence, arms races and negotiated disarmament between defense alliances
+  - innovation races across research clusters, patents and open-knowledge commons
+  - ecological constraints such as oxygen scarcity, water contamination and food crop failures
+  - criminal markets, corruption networks, smuggling and anti-corruption enforcement
+  - cultural prestige markets, reputational bubbles and symbolic capital
+  - infrastructure sabotage, cyber conflict, packet-routing failures and redundancy planning
+  - class conflict, strikes, union power, social insurance and redistributive reforms
+  - planetary catastrophes, emergency regimes and resilience under extreme shocks
+
+EXPLANATION OF ABBREVIATIONS AND KEY TERMS
+H = compressed hierarchy settlement number; L01-L12 = hierarchy levels from Survival to Solar Apex; AB/BA = queue lengths in both directions of a channel; Fly = packets in flight; Block = semaphore block count; NT = natural transformation; hom-set = the set of morphisms between two objects; Up/Down/Same = counts of career ascent, descent or stability relative to the initial built hierarchy.
+
+EXPLANATION OF THE NUMERIC SUMMARY BLOCKS
+The following numeric summaries state the realized size, activity and architecture of this run before the more detailed UTF-8 diagrams begin.
+
+Counts:
+  entities                       4374
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     95
+  burdens                        84
+Interpretation: these counts show the total size of the simulated world. A larger value means more possible interactions, more competition and more possible differentiation across hierarchy levels.
+
+Trade:
+  volume_H                       302320.48
+  product_sales                  188
+  market_ownership_changes       53
+  manual_lifts                   9
+Interpretation: these values indicate how active and transformative the economy was in this run. High trade volume suggests liquid exchange; high market ownership changes suggest strong structural rearrangement.
+
+Network:
+  nodes                          4374
+  channels                       2227
+  components                     2639
+  degree_min                     1
+  degree_mean                    2.564
+  degree_max                     130
+Interpretation: this block summarizes the communication and control graph. Higher degrees usually imply stronger connectedness; more components imply fragmentation or local clustering.
+
+Category:
+  economic_category              objects=4374 morphisms=11850 hom_sets=9844
+  network_category               objects=4374 morphisms=14302 hom_sets=12706
+  hierarchy_category             objects=12 morphisms=15177 hom_sets=126
+  topology_category              objects=7 morphisms=15 hom_sets=15
+Interpretation: category sizes show how rich the abstract architecture is. More morphisms mean more structured relations and transformations inside the model.
+
+Level distributions:
+  workers      {1: 721, 2: 1067, 3: 12}
+  companies    {8: 1, 9: 13, 10: 56, 11: 48, 12: 2}
+  countries    {12: 15}
+  products     {1: 73, 2: 271, 3: 276, 4: 180, 5: 48, 6: 2}
+  markets      {1: 79, 2: 120, 3: 141, 4: 150, 5: 191, 6: 227, 7: 226, 8: 206, 9: 52}
+Interpretation: this states how workers, companies, countries, products and markets are distributed over the twelve-level hierarchy.
+
+Mobility summary:
+  workers      up=12 down=1 same=1787
+  companies    up=94 down=0 same=26
+  countries    up=4 down=0 same=11
+  alliances    up=0 down=0 same=6
+Interpretation: this is the most direct numeric measure of whether the hierarchy is dynamic. If Up and Down are both non-trivial, the system allows real ascent and decline instead of merely preserving initial ranks.
+
+Scenario summary:
+  scenario drivers= media_polarization=1.34, supply_shock=0.69
+  volatility per tick= [2.028]
+Interpretation: scenario drivers explain why this run can differ strongly from another run with another seed. Volatility values indicate how large the macro disturbances were over time.
+
+Top countries
+Explanation of columns: Lxx = final hierarchy level; the following text is the level name; then comes the entity name; then the compressed status value in H; then domain, body and owner. Each row is one top-ranked entity in the corresponding group.
+  L12 Solar Apex       Mars Republic 004                                            8.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Moon Republic 003                                            8.3MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 008                                           7.7MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 003                                            7.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 002                                           6.2MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 001                                           6.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Moon Republic 001                                            5.9MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 005                                           5.3MH domain=governance body=Earth owner=United Nations of Earth
+Interpretation: these lists identify the winners of this specific run and show where status concentrated most strongly.
+
+Top companies
+Explanation of columns: Lxx = final hierarchy level; the following text is the level name; then comes the entity name; then the compressed status value in H; then domain, body and owner. Each row is one top-ranked entity in the corresponding group.
+  L12 Solar Apex       Research Networked Company 00110                             1.3MH domain=research body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Medicine Networked Company 00077                             1.1MH domain=medicine body=Mars owner=Mars Republic 003
+  L11 Systemic         Agriculture Networked Company 00094                        834.3kH domain=agriculture body=Mars owner=Mars Republic 003
+  L11 Systemic         Food Networked Company 00085                               828.2kH domain=food body=Moon owner=Moon Republic 003
+  L11 Systemic         Defense Networked Company 00067                            775.1kH domain=defense body=Mars owner=Mars Republic 004
+  L11 Systemic         Manufacturing Networked Company 00010                      760.6kH domain=manufacturing body=Mars owner=Mars Republic 004
+  L11 Systemic         Medicine Networked Company 00055                           738.0kH domain=medicine body=Earth owner=Earth Republic 001
+  L11 Systemic         Finance Networked Company 00025                            718.9kH domain=finance body=Mars owner=Mars Republic 003
+Interpretation: these lists identify the winners of this specific run and show where status concentrated most strongly.
+
+Top markets
+Explanation of columns: Lxx = final hierarchy level; the following text is the level name; then comes the entity name; then the compressed status value in H; then domain, body and owner. Each row is one top-ranked entity in the corresponding group.
+  L09 Planetary        Solar System L12 Water Market                               81.4kH domain=water body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Privilege Market                                   80.9kH domain=privilege body=Mars owner=United Nations of Mars
+  L09 Planetary        Solar System L12 Terraforming Market                        80.9kH domain=terraforming body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Defense Market                                     80.8kH domain=defense body=Mars owner=United Nations of Mars
+  L09 Planetary        Moon L12 Semaphore Permits Market                           80.8kH domain=semaphore_permits body=Moon owner=United Nations of Moon
+  L09 Planetary        Moon L12 Topology Rights Market                             80.7kH domain=topology_rights body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Semaphore Permits Market                   80.5kH domain=semaphore_permits body=Solar System owner=Solar System United Nations
+  L09 Planetary        Solar System L12 Care Market                                80.4kH domain=care body=Solar System owner=Solar System United Nations
+Interpretation: these lists identify the winners of this specific run and show where status concentrated most strongly.
+
+Top workers
+Explanation of columns: Lxx = final hierarchy level; the following text is the level name; then comes the entity name; then the compressed status value in H; then domain, body and owner. Each row is one top-ranked entity in the corresponding group.
+  L03 Local            Worker 0000067                                                621H domain=infrastructure body=Moon owner=None
+  L03 Local            Worker 0001036                                                546H domain=labor body=Mars owner=None
+  L03 Local            Worker 0000687                                                533H domain=infrastructure body=Moon owner=None
+  L03 Local            Worker 0001654                                                520H domain=infrastructure body=Earth owner=None
+  L03 Local            Worker 0001480                                                516H domain=education body=Earth owner=None
+  L03 Local            Worker 0000133                                                513H domain=medicine body=Earth owner=None
+  L03 Local            Worker 0000628                                                513H domain=logistics body=Mars owner=None
+  L03 Local            Worker 0000556                                                510H domain=trust body=Earth owner=None
+Interpretation: these lists identify the winners of this specific run and show where status concentrated most strongly.
+
+Recent trades / morphism events
+Explanation: each bullet below is a recent concrete event from a market, ownership transfer or morphism-induced interaction. This acts as a qualitative micro-log beneath the aggregate statistics.
+  - Solar System L04 Market Rights Market: MARKET Mars L06 Terraforming Ma control -> Solar System United Na
+  - Solar System L08 Market Rights Market: MARKET Moon L12 Finance Market control -> Manufacturing Networke
+  - Moon L04 Data Market: PRODUCT Data Product 000616 -> Research Networked Com for 77.9H
+  - Mars L01 Market Rights Market: MARKET Moon L12 Finance Market control -> Compute Networked Comp
+  - Mars L02 Manufacturing Market: PRODUCT Manufacturing Product 00 -> Research Networked Com for 344H
+  - Mars L09 Market Rights Market: MARKET Mars L01 Housing Market control -> Shipbuilding Networked
+  - Mars L12 Research Market: PRODUCT Research Product 000693 -> Shipbuilding Networked for 41.8H
+Interpretation: the event log gives tangible examples of the exchanges and control transfers that created the aggregate patterns above.
+
+FINAL BALANCED SUMMARY OF POSSIBLE OUTCOMES
+This run combined several stochastic macro-patterns. Dominant scenario drivers were: media_polarization=1.34, supply_shock=0.69.
+Average scenario volatility per tick was 2.03. Higher values mean the same structural model could have produced noticeably different winners and losers in another run.
+Possible alternative outcomes remain balanced: a more defense-heavy path would have lifted alliances and military states further; a stronger care-recognition path would have favored workers in care, education and trust-rich institutions; a harsher supply-shock path would have punished logistics-sensitive firms and markets; and a research-breakthrough path would have shifted value toward data, compute and science clusters.
+Therefore the present output should be read as one realized scenario among many nearby possibilities, not as a single inevitable equilibrium.
+
+GROUP-SPECIFIC MOBILITY INTERPRETATIONS
+  - Workers stayed comparatively stable. Most actors held their relative level, so the hierarchy behaved more like a slow-moving order than a turbulent tournament.
+  - Companies mostly experienced upward career movement. The simulated environment rewarded expansion, adaptation or favorable shocks.
+  - Countries stayed comparatively stable. Most actors held their relative level, so the hierarchy behaved more like a slow-moving order than a turbulent tournament.
+  - Alliances stayed comparatively stable. Most actors held their relative level, so the hierarchy behaved more like a slow-moving order than a turbulent tournament.
