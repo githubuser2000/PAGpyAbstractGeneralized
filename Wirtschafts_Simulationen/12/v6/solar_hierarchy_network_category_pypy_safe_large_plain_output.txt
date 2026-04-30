@@ -1,0 +1,206 @@
+================================================================================================
+SOLAR HIERARCHY MARKET — NETWORK / CATEGORY / SHEAF REPORT
+================================================================================================
+seed=42 profile=large ticks=1 safe_mode=True python=CPython
+
+--------------------------------------------------------------------------------
+ERKLÄRUNG VOR COUNTS
+--------------------------------------------------------------------------------
+Dieser Block zählt die Grundpopulation der Simulation. Wichtig ist die Trennung
+zwischen wirtschaftlicher Existenz und graphischer Materialisierung. workers und
+products zählen reale simulierte Akteure/Objekte. graph_nodes zählt nur diejenigen,
+die zusätzlich einen Live-Netzwerkknoten erhalten. virtual_graph_entities zeigt,
+wie viele Entitäten im PyPy-safe Modus wirtschaftlich existieren, aber graphisch
+nur virtuell repräsentiert werden.
+
+Counts:
+  entities                       49398
+  graph_nodes                    10798
+  virtual_graph_entities         38600
+  countries                      102
+  alliances                      6
+  companies                      1700
+  workers                        32000
+  products                       13000
+  markets                        1392
+  privileges                     659
+  burdens                        527
+
+AUSWERTUNG NACH COUNTS
+--------------------------------------------------------------------------------
+Die Simulation enthält 49398 Entitäten. Davon sind 10798 als Live-
+Netzwerkknoten materialisiert und 38600 graphisch virtuell. Daraus folgt:
+Die Makroökonomie bleibt groß, aber das Netzwerk wird als repräsentativer Skeleton-
+Graph geführt. Genau diese Entkopplung ist für PyPy wichtig, weil Millionen kleiner
+Queue-/Morphismen-/Identity-Objekte sonst nicht mehr stabil sind.
+
+
+--------------------------------------------------------------------------------
+ERKLÄRUNG VOR TRADE
+--------------------------------------------------------------------------------
+Dieser Block misst den simulierten Austausch. volume_H ist die Summe der in H
+komprimierten Hierarchie-Bündel. product_sales sind erfolgreiche Produktkäufe.
+market_ownership_changes zählt Märkte, die selbst als Assets gehandelt wurden.
+manual_lifts sind manuelle Statushebungen für schlecht messbare Helfer-, Medien-,
+Wissens- oder Vertrauensleistungen.
+
+Trade:
+  volume_H                       1441694.44
+  product_sales                  1284
+  market_ownership_changes       326
+  manual_lifts                   10
+
+AUSWERTUNG NACH TRADE
+--------------------------------------------------------------------------------
+Das Handelsvolumen beträgt 1441694.44 H. 1284 Produktverkäufe zeigen, dass die
+Märkte nicht nur symbolisch existieren. 326 Marktbesitzerwechsel zeigen den
+entscheidenden Paradigmenpunkt: Märkte sind selbst handelbare Hierarchie-Assets.
+10 manuelle Lifts zeigen, dass nicht nur rohe Kaufkraft zählt, sondern auch
+sozial schwer messbare Leistungen in die Hierarchie gehoben werden können.
+
+
+--------------------------------------------------------------------------------
+ERKLÄRUNG VOR NETWORK
+--------------------------------------------------------------------------------
+Der Netzwerkblock beschreibt die Datenstrom-Architektur. nodes sind Live-Knoten,
+channels sind Verbindungen, components sind getrennte Zusammenhangskomponenten.
+degree_min/mean/max zeigen, wie stark Knoten vernetzt sind. Viele Komponenten sind
+kein Fehler: ein großer Teil der Wirtschaft bleibt lokal oder virtuell, während
+UNs, Länder, Unternehmen und Märkte als Backbone agieren.
+
+Network:
+  nodes                          10798
+  channels                       9179
+  components                     4935
+  degree_min                     1
+  degree_mean                    3.13
+  degree_max                     219
+
+AUSWERTUNG NACH NETWORK
+--------------------------------------------------------------------------------
+Das Netzwerk hat 10798 Knoten, 9179 Channels und 4935
+Komponenten. Ein hoher Maximalgrad (219) bedeutet, dass einzelne Hubs wie UNs
+oder große Märkte stark zentral sind. Pakete created/delivered/dropped =
+2034/0/0. Daraus kann man ableiten, ob der
+Datenstrom tragfähig ist oder ob Queues, Routen und Semaphore zum Flaschenhals
+werden.
+
+
+--------------------------------------------------------------------------------
+ERKLÄRUNG VOR CATEGORY
+--------------------------------------------------------------------------------
+Kategorien fassen Struktur statt Einzelpreise. Objects sind Dinge wie Akteure,
+Netzwerkknoten, Hierarchiestufen oder Topologietypen. Morphisms sind gerichtete
+Beziehungen. materialized_morphisms sind live gespeicherte Beziehungen;
+virtual_morphisms werden gezählt, aber nicht als vollständiges Objekt gehalten.
+Das ist ein Kerntrick des PyPy-safe Modus.
+
+Category:
+  economic_category              objects=10798(+0 virtual) morphisms=32553(32553 materialized) hom_sets=24533
+  network_category               objects=10798(+0 virtual) morphisms=42909(42909 materialized) hom_sets=37199
+  hierarchy_category             objects=12(+0 virtual) morphisms=33540(14000 materialized) hom_sets=78
+  topology_category              objects=7(+0 virtual) morphisms=15(15 materialized) hom_sets=15
+
+AUSWERTUNG NACH CATEGORY
+--------------------------------------------------------------------------------
+Die ökonomische Kategorie enthält 10798 Objekte und 32553 Morphismen; die
+Netzwerkkategorie enthält 10798 Objekte und 42909 Morphismen. Wenn virtuelle
+Morphismen auftauchen, bedeutet das keine fehlende Simulation, sondern eine
+komprimierte Darstellung. Die Kategorie sagt: Welche Beziehungen existieren? Der
+Markt sagt: Welche davon werden real gehandelt? Das Netzwerk sagt: Welche davon
+können Daten transportieren?
+
+Level distributions:
+  workers      {1: 13292, 2: 18635, 3: 73}
+  companies    {8: 10, 9: 204, 10: 735, 11: 676, 12: 75}
+  countries    {12: 102}
+  products     {1: 961, 2: 3897, 3: 4314, 4: 2762, 5: 964, 6: 102}
+  markets      {1: 77, 2: 119, 3: 138, 4: 159, 5: 207, 6: 219, 7: 200, 8: 213, 9: 60}
+
+Top countries
+  L12 Solar Apex       Earth Republic 021                                          23.5MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 052                                          20.2MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 009                                          19.2MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 056                                          18.6MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 026                                          16.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 017                                          15.6MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 038                                          15.5MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 054                                          15.4MH domain=governance body=Earth owner=United Nations of Earth
+
+Top companies
+  L12 Solar Apex       Culture Networked Company 00469                              1.8MH domain=culture body=Moon owner=Moon Republic 001
+  L12 Solar Apex       Manufacturing Networked Company 00745                        1.7MH domain=manufacturing body=Earth owner=Earth Republic 040
+  L12 Solar Apex       Manufacturing Networked Company 01414                        1.6MH domain=manufacturing body=Moon owner=Moon Republic 008
+  L12 Solar Apex       Agriculture Networked Company 00876                          1.6MH domain=agriculture body=Earth owner=Earth Republic 057
+  L12 Solar Apex       Data Networked Company 00092                                 1.5MH domain=data body=Earth owner=Earth Republic 021
+  L12 Solar Apex       Agriculture Networked Company 01067                          1.5MH domain=agriculture body=Earth owner=Earth Republic 005
+  L12 Solar Apex       Finance Networked Company 00835                              1.5MH domain=finance body=Earth owner=Earth Republic 052
+  L12 Solar Apex       Oxygen Networked Company 00516                               1.5MH domain=oxygen body=Moon owner=Moon Republic 002
+
+Top markets
+  L09 Planetary        Moon L12 Transport Market                                   81.8kH domain=transport body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Agriculture Market                         81.7kH domain=agriculture body=Solar System owner=Media Networked Company 01262
+  L09 Planetary        Solar System L12 Energy Market                              81.4kH domain=energy body=Solar System owner=Solar System United Nations
+  L09 Planetary        Moon L12 Education Market                                   81.0kH domain=education body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Manufacturing Market                       80.5kH domain=manufacturing body=Solar System owner=Solar System United Nations
+  L09 Planetary        Earth L12 Energy Market                                     80.1kH domain=energy body=Earth owner=United Nations of Earth
+  L09 Planetary        Solar System L12 Shipbuilding Market                        79.6kH domain=shipbuilding body=Solar System owner=Solar System United Nations
+  L09 Planetary        Earth L12 Topology Rights Market                            79.3kH domain=topology_rights body=Earth owner=Data Networked Company 01354
+
+Top workers
+  L03 Local            Worker 0012579                                                616H domain=infrastructure body=Earth owner=None
+  L03 Local            Worker 0002230                                                593H domain=military body=Earth owner=None
+  L03 Local            Worker 0001401                                                591H domain=governance body=Moon owner=None
+  L03 Local            Worker 0009778                                                568H domain=science body=Mars owner=None
+  L03 Local            Worker 0020885                                                555H domain=labor body=Earth owner=None
+  L03 Local            Worker 0019042                                                546H domain=media body=Earth owner=None
+  L03 Local            Worker 0013171                                                542H domain=medicine body=Earth owner=None
+  L03 Local            Worker 0002060                                                537H domain=logistics body=Earth owner=None
+
+Recent trades / morphism events
+  - Mars L06 Market Rights Market: MARKET Solar System L06 Shipbui control -> Data Networked Company
+  - Mars L06 Market Rights Market: MARKET Moon L01 Manufacturing M control -> Earth Republic 033
+  - Earth L05 Market Rights Market: MARKET Mars L10 Compute Market control -> Earth Republic 028
+  - Earth L05 Market Rights Market: MARKET Solar System L02 Energy  control -> Earth Republic 032
+  - Moon L01 Market Rights Market: MARKET Solar System L04 Orbital control -> Oxygen Networked Compa
+  - Moon L01 Market Rights Market: MARKET Mars L10 Manufacturing M control -> Market Rights Networke
+  - Moon L07 Market Rights Market: MARKET Mars L06 Transport Marke control -> Research Networked Com
+  - Moon L07 Market Rights Market: MARKET Moon L09 Defense Market control -> Care Networked Company
+  - Moon L08 Market Rights Market: PRODUCT Market Rights Product 00 -> Finance Networked Comp for 294H
+  - Moon L08 Market Rights Market: MARKET Moon L06 Media Market control -> Shipbuilding Networked
+  - Moon L12 Market Rights Market: MARKET Earth L03 Orbital Slots  control -> Terraforming Networked
+  - Moon L12 Market Rights Market: MARKET Earth L01 Labor Market control -> Education Networked Co
+  - Solar System L02 Market Rights Market: MARKET Solar System L05 Shipbui control -> Medicine Networked Com
+  - Solar System L05 Market Rights Market: MARKET Earth L10 Research Marke control -> Compute Networked Comp
+  - Solar System L07 Market Rights Market: MARKET Moon L02 Oxygen Market control -> Water Networked Compan
+
+================================================================================
+ABSCHLUSS: MEHRERE MÖGLICHE AUSGÄNGE DER ZUFALLSSIMULATION
+================================================================================
+1. Konzentrationspfad: Zufallswerte können dazu führen, dass einige Länder,
+Unternehmen oder Märkte sehr früh viele erfolgreiche Trades erhalten. Dann steigen
+sie weiter, weil höhere Hierarchie besseren Zugang zu Märkten und Produkten gibt.
+Das System tendiert dann zu starken Hubs.
+
+2. Pluraler Marktpfad: Wenn Marktbesitzerwechsel und Produktkäufe breiter verteilt
+sind, entstehen mehrere konkurrierende Zentren. Das ist stabiler, aber weniger
+schnell koordiniert.
+
+3. Sozialer Korrekturpfad: Wenn manuelle Lifts viele Pflege-, Medien-, Bildungs-
+oder Vertrauensakteure treffen, wird reine Kapitaldominanz abgeschwächt. Das kann
+Gemeinwohl stabilisieren, birgt aber immer die Gefahr manueller Fehlbewertung.
+
+4. Netzengpasspfad: Wenn Semaphore blockieren, Queues wachsen oder viele Pakete
+fallen, ist nicht der Marktpreis das Problem, sondern die Kommunikations- und
+Topologiearchitektur. Dann braucht das System mehr Bandbreite, bessere Routing-
+Hubs oder andere Queue-Disziplinen.
+
+5. Virtueller-Skeleton-Pfad: Im PyPy-safe Modus ist die Auswertung bewusst zweistufig:
+wirtschaftlich existieren viele Akteure, graphisch wird nur ein repräsentativer
+Teil live geführt. Schlüsse über Marktvolumen und Hierarchiestufen bleiben stark;
+Schlüsse über einzelne Worker-zu-Worker-Netzwege sind dagegen als Sampling zu lesen.
+
+Ausgeglichen betrachtet ist ein guter Lauf nicht zwingend der mit maximalem
+Volumen. Ein guter Lauf ist einer, in dem Handel, Statusmobilität, Marktwechsel,
+Netzwerkdurchsatz und manuelle Korrekturen nicht auseinanderlaufen.
+
