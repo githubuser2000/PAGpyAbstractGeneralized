@@ -1,0 +1,723 @@
+{
+  "seed": 42,
+  "profile": "demo",
+  "ticks": 1,
+  "counts": {
+    "entities": 4355,
+    "countries": 15,
+    "alliances": 6,
+    "companies": 120,
+    "workers": 1800,
+    "products": 850,
+    "markets": 1392,
+    "privileges": 89,
+    "burdens": 71
+  },
+  "trade": {
+    "volume_H": 251340.25,
+    "product_sales": 186,
+    "market_ownership_changes": 53,
+    "manual_lifts": 8
+  },
+  "levels": {
+    "workers": {
+      "1": 721,
+      "2": 1068,
+      "3": 11
+    },
+    "companies": {
+      "8": 1,
+      "9": 13,
+      "10": 55,
+      "11": 49,
+      "12": 2
+    },
+    "countries": {
+      "12": 15
+    },
+    "products": {
+      "1": 73,
+      "2": 271,
+      "3": 276,
+      "4": 180,
+      "5": 48,
+      "6": 2
+    },
+    "markets": {
+      "1": 79,
+      "2": 121,
+      "3": 140,
+      "4": 149,
+      "5": 192,
+      "6": 227,
+      "7": 225,
+      "8": 207,
+      "9": 52
+    }
+  },
+  "network": {
+    "nodes": 4355,
+    "channels": 2227,
+    "components": 2620,
+    "topology_counts": {
+      "tree": 1078,
+      "governance": 15,
+      "star": 495,
+      "ring": 4,
+      "market-bipartite": 350,
+      "mesh": 285
+    },
+    "duplex_counts": {
+      "full": 1255,
+      "half": 972
+    },
+    "queue_discipline_counts": {
+      "fifo": 1666,
+      "priority": 1482,
+      "lifo": 1306
+    },
+    "degree_min": 1,
+    "degree_mean": 2.564,
+    "degree_max": 130,
+    "packets": {
+      "created": 2199,
+      "delivered": 2199,
+      "dropped": 0,
+      "route_failures": 0,
+      "moved": 0,
+      "channel_drops": 0,
+      "by_kind": {
+        "trade_product": 186,
+        "privilege": 81,
+        "burden": 71,
+        "trade_market": 53,
+        "manual_lift": 8,
+        "sheaf_patch": 323,
+        "quote_stream": 283,
+        "topology_update": 308,
+        "governance_pulse": 328,
+        "semaphore_request": 288,
+        "market_data": 270
+      }
+    },
+    "semaphores": {
+      "blocked": 0,
+      "acquired": 0,
+      "capacity": 20048
+    }
+  },
+  "category": {
+    "economic_category": {
+      "name": "EconomicHierarchyCategory",
+      "objects": 4355,
+      "morphisms": 11810,
+      "hom_sets": 9801,
+      "composition_attempts": 2000,
+      "composition_successes": 2000,
+      "kind_counts": {
+        "identity": 4355,
+        "governance": 18,
+        "defense": 9,
+        "alliance": 15,
+        "corporate_charter": 120,
+        "employment": 1800,
+        "production": 850,
+        "market_jurisdiction": 1392,
+        "listing": 850,
+        "projection": 2,
+        "composed:listing/identity": 336,
+        "composed:market_jurisdiction/identity": 550,
+        "composed:production/identity": 343,
+        "composed:employment/identity": 708,
+        "composed:corporate_charter/identity": 47,
+        "composed:governance/identity": 7,
+        "composed:defense/identity": 4,
+        "composed:market_jurisdiction/projection": 1,
+        "composed:alliance/identity": 3,
+        "composed:projection/composed:market_jurisdiction/projection": 1,
+        "trade_product": 186,
+        "privilege": 81,
+        "burden": 71,
+        "trade_market": 53,
+        "manual_lift": 8
+      }
+    },
+    "network_category": {
+      "name": "NetworkFlowCategory",
+      "objects": 4355,
+      "morphisms": 14262,
+      "hom_sets": 12665,
+      "composition_attempts": 0,
+      "composition_successes": 0,
+      "kind_counts": {
+        "identity": 4355,
+        "flow:governance": 18,
+        "flow:defense": 9,
+        "flow:alliance": 15,
+        "flow:corporate_charter": 120,
+        "flow:employment": 1800,
+        "flow:production": 850,
+        "flow:market_jurisdiction": 1392,
+        "flow:listing": 850,
+        "channel:tree:full": 246,
+        "channel:tree:half": 1910,
+        "channel:governance:full": 30,
+        "channel:star:half": 30,
+        "channel:ring:full": 4,
+        "channel:ring:half": 4,
+        "channel:star:full": 960,
+        "channel:market-bipartite:full": 700,
+        "channel:mesh:full": 570,
+        "flow:trade_product": 186,
+        "flow:privilege": 81,
+        "flow:burden": 71,
+        "flow:trade_market": 53,
+        "flow:manual_lift": 8
+      }
+    },
+    "hierarchy_category": {
+      "name": "HierarchyLevelCategory",
+      "objects": 12,
+      "morphisms": 15135,
+      "hom_sets": 126,
+      "composition_attempts": 0,
+      "composition_successes": 0,
+      "kind_counts": {
+        "identity": 12,
+        "ascent": 11,
+        "descent": 11,
+        "status_transition": 5453,
+        "access_transition": 5453,
+        "natural_component": 4195
+      }
+    },
+    "topology_category": {
+      "name": "TopologyCategory",
+      "objects": 7,
+      "morphisms": 15,
+      "hom_sets": 15,
+      "composition_attempts": 0,
+      "composition_successes": 0,
+      "kind_counts": {
+        "identity": 7,
+        "topology_morphism": 8
+      }
+    },
+    "economic_to_network_functor": {
+      "checked": 600,
+      "boundary_ok": 300,
+      "identity_ok": 300
+    },
+    "status_functor": {
+      "checked": 600,
+      "boundary_ok": 300,
+      "identity_ok": 300
+    },
+    "access_functor": {
+      "checked": 600,
+      "boundary_ok": 300,
+      "identity_ok": 300
+    },
+    "natural_transformation": {
+      "checked": 300,
+      "natural": 300,
+      "violated": 0
+    },
+    "associativity_sample": {
+      "checked": 62,
+      "passed": 62,
+      "failed": 0
+    },
+    "universal_witnesses": [
+      {
+        "name": "Solar UN initial governance source approximation",
+        "kind": "initial",
+        "checked": 200,
+        "passed": 191,
+        "ratio": 0.955
+      },
+      {
+        "name": "Market as product-like access/governance apex",
+        "kind": "product",
+        "checked": 2,
+        "passed": 2,
+        "ratio": 1.0
+      }
+    ],
+    "market_sheaf": {
+      "name": "MarketStateSheaf",
+      "objects_with_sections": 1392,
+      "sections": 1632,
+      "restrictions_applied": 0,
+      "covers": 4,
+      "glued": 3,
+      "compatibility_checks": 6,
+      "compatibility_passed": 3
+    }
+  },
+  "parallel": {
+    "accepted_burden": 71.0,
+    "accepted_market_asset": 53.0,
+    "accepted_privilege": 81.0,
+    "accepted_product": 186.0,
+    "attempts_burden": 120.0,
+    "attempts_market_asset": 55.0,
+    "attempts_packet": 1800.0,
+    "attempts_privilege": 160.0,
+    "attempts_product": 2600.0,
+    "enabled": 1.0,
+    "live_process_cap": 2.0,
+    "packet_template_failures": 0.0,
+    "packet_templates_created": 1800.0,
+    "parent_committed_burden": 120.0,
+    "parent_committed_market_asset": 55.0,
+    "parent_committed_packet": 1800.0,
+    "parent_committed_privilege": 160.0,
+    "phase_calls": 5.0,
+    "processes": 2.0,
+    "proposals_product": 2600.0,
+    "rejected_burden": 49.0,
+    "rejected_market_asset": 2.0,
+    "rejected_privilege": 79.0,
+    "rejected_product": 2414.0,
+    "snapshot_bytes": 68011.0,
+    "snapshot_writes": 1.0,
+    "worker_processes_product": 2.0,
+    "worker_waves_product": 1.0
+  },
+  "top_countries": [
+    {
+      "name": "Mars Republic 004",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "United Nations of Mars",
+      "status_number": 8458971.02,
+      "wallet": 303222.16,
+      "node": 33
+    },
+    {
+      "name": "Moon Republic 003",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "United Nations of Moon",
+      "status_number": 8323687.08,
+      "wallet": 288455.31,
+      "node": 27
+    },
+    {
+      "name": "Earth Republic 008",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": "United Nations of Earth",
+      "status_number": 7678443.55,
+      "wallet": 234613.11,
+      "node": 22
+    },
+    {
+      "name": "Mars Republic 003",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "United Nations of Mars",
+      "status_number": 7506647.26,
+      "wallet": 379537.27,
+      "node": 32
+    },
+    {
+      "name": "Earth Republic 002",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": "United Nations of Earth",
+      "status_number": 6168263.5,
+      "wallet": 997137.4,
+      "node": 16
+    },
+    {
+      "name": "Earth Republic 001",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": "United Nations of Earth",
+      "status_number": 5963185.41,
+      "wallet": 198271.66,
+      "node": 15
+    },
+    {
+      "name": "Moon Republic 001",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "United Nations of Moon",
+      "status_number": 5887380.81,
+      "wallet": 697197.67,
+      "node": 25
+    },
+    {
+      "name": "Earth Republic 005",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "governance",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": "United Nations of Earth",
+      "status_number": 5288293.36,
+      "wallet": 1044457.93,
+      "node": 19
+    }
+  ],
+  "top_companies": [
+    {
+      "name": "Research Networked Company 00110",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "research",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "Moon Republic 003",
+      "status_number": 1295353.22,
+      "wallet": 275535.09,
+      "node": 143
+    },
+    {
+      "name": "Medicine Networked Company 00077",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Solar Apex",
+      "domain": "medicine",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "Mars Republic 003",
+      "status_number": 1104534.07,
+      "wallet": 362035.05,
+      "node": 110
+    },
+    {
+      "name": "Agriculture Networked Company 00094",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "agriculture",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "Mars Republic 003",
+      "status_number": 834048.71,
+      "wallet": 249072.7,
+      "node": 127
+    },
+    {
+      "name": "Food Networked Company 00085",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "food",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "Moon Republic 003",
+      "status_number": 834040.44,
+      "wallet": 260779.51,
+      "node": 118
+    },
+    {
+      "name": "Defense Networked Company 00067",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "defense",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "Mars Republic 004",
+      "status_number": 775692.36,
+      "wallet": 231440.19,
+      "node": 100
+    },
+    {
+      "name": "Medicine Networked Company 00055",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "medicine",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": "Earth Republic 001",
+      "status_number": 742383.87,
+      "wallet": 314832.39,
+      "node": 88
+    },
+    {
+      "name": "Manufacturing Networked Company 00010",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "manufacturing",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "Mars Republic 004",
+      "status_number": 740507.34,
+      "wallet": 145964.25,
+      "node": 43
+    },
+    {
+      "name": "Finance Networked Company 00025",
+      "kind": "company",
+      "level": 11,
+      "level_name": "Systemic",
+      "domain": "finance",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "Mars Republic 003",
+      "status_number": 724159.37,
+      "wallet": 239256.45,
+      "node": 58
+    }
+  ],
+  "top_markets": [
+    {
+      "name": "Solar System L12 Water Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "water",
+      "scope": "Solar System",
+      "body": "Solar System",
+      "owner": "Solar System United Nations",
+      "status_number": 81371.96,
+      "wallet": 68588.36,
+      "node": 3124
+    },
+    {
+      "name": "Moon L12 Semaphore Permits Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "semaphore_permits",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "United Nations of Moon",
+      "status_number": 81234.92,
+      "wallet": 68451.32,
+      "node": 3845
+    },
+    {
+      "name": "Mars L12 Privilege Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "privilege",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "United Nations of Mars",
+      "status_number": 80915.43,
+      "wallet": 68131.83,
+      "node": 4190
+    },
+    {
+      "name": "Solar System L12 Terraforming Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "terraforming",
+      "scope": "Solar System",
+      "body": "Solar System",
+      "owner": "Solar System United Nations",
+      "status_number": 80856.81,
+      "wallet": 68073.21,
+      "node": 3143
+    },
+    {
+      "name": "Mars L12 Defense Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "defense",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": "United Nations of Mars",
+      "status_number": 80818.45,
+      "wallet": 68034.85,
+      "node": 4179
+    },
+    {
+      "name": "Moon L12 Topology Rights Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "topology_rights",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": "United Nations of Moon",
+      "status_number": 80672.33,
+      "wallet": 67888.73,
+      "node": 3846
+    },
+    {
+      "name": "Solar System L12 Semaphore Permits Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "semaphore_permits",
+      "scope": "Solar System",
+      "body": "Solar System",
+      "owner": "Solar System United Nations",
+      "status_number": 80546.0,
+      "wallet": 67762.4,
+      "node": 3149
+    },
+    {
+      "name": "Solar System L12 Care Market",
+      "kind": "market",
+      "level": 9,
+      "level_name": "Planetary",
+      "domain": "care",
+      "scope": "Solar System",
+      "body": "Solar System",
+      "owner": "Solar System United Nations",
+      "status_number": 80438.38,
+      "wallet": 67654.78,
+      "node": 3139
+    }
+  ],
+  "top_workers": [
+    {
+      "name": "Worker 0000237",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "risk",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": null,
+      "status_number": 655.1,
+      "wallet": 504.61,
+      "node": 390
+    },
+    {
+      "name": "Worker 0001248",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "governance",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": null,
+      "status_number": 592.42,
+      "wallet": 373.63,
+      "node": 1401
+    },
+    {
+      "name": "Worker 0000072",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "education",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": null,
+      "status_number": 556.13,
+      "wallet": 372.42,
+      "node": 225
+    },
+    {
+      "name": "Worker 0000217",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "labor",
+      "scope": "Moon",
+      "body": "Moon",
+      "owner": null,
+      "status_number": 525.54,
+      "wallet": 324.33,
+      "node": 370
+    },
+    {
+      "name": "Worker 0001177",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "medicine",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": null,
+      "status_number": 524.56,
+      "wallet": 273.06,
+      "node": 1330
+    },
+    {
+      "name": "Worker 0000794",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "trust",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": null,
+      "status_number": 515.66,
+      "wallet": 359.52,
+      "node": 947
+    },
+    {
+      "name": "Worker 0000423",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "trust",
+      "scope": "Earth",
+      "body": "Earth",
+      "owner": null,
+      "status_number": 512.77,
+      "wallet": 284.59,
+      "node": 576
+    },
+    {
+      "name": "Worker 0000593",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Local",
+      "domain": "education",
+      "scope": "Mars",
+      "body": "Mars",
+      "owner": null,
+      "status_number": 501.6,
+      "wallet": 301.86,
+      "node": 746
+    }
+  ],
+  "recent_trades": [
+    "Solar System L02 Market Rights Market: MARKET Solar System L01 Shipbui control -> Manufacturing Networke [parallel-safe-parent]",
+    "Earth L04 Market Rights Market: MARKET Moon L09 Burden Market control -> Earth Republic 007 [parallel-safe-parent]",
+    "Earth L08 Compute Market: PRODUCT Compute Product 000762 -> Housing Networked Comp for 50.8H [parallel]",
+    "Earth L12 Energy Market: PRODUCT Energy Product 000226 -> Housing Networked Comp for 177H [parallel]",
+    "Moon L02 Transport Market: PRODUCT Transport Product 000639 -> Market Rights Networke for 83.9H [parallel]",
+    "Moon L09 Agriculture Market: PRODUCT Agriculture Product 0003 -> Manufacturing Networke for 182H [parallel]",
+    "Mars L02 Finance Market: PRODUCT Finance Product 000468 -> Earth Republic 003 for 166H [parallel]",
+    "Mars L03 Housing Market: PRODUCT Housing Product 000045 -> Defense Networked Comp for 61.0H [parallel]",
+    "Mars L10 Agriculture Market: PRODUCT Agriculture Product 0005 -> Housing Networked Comp for 12.7H [parallel]"
+  ]
+}

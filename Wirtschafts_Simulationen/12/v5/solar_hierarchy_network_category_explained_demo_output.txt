@@ -1,0 +1,1666 @@
+═══════════════════════════ GESAMTERKLÄRUNG AM ANFANG DER SIMULATION ═══════════════════════════
+Diese Simulation modelliert eine hierarchische Märktewirtschaft für das
+Sonnensystem. Erde, Mond, Mars und eine Sonnensystem-Ebene enthalten
+UN-ähnliche Institutionen, Verteidigungsorganisationen, Bündnisse,
+Länder, Unternehmen, Arbeitnehmer, Produkte, Privilegien, Burdens und
+Märkte. Märkte sind dabei doppelt modelliert: Sie sind Orte, auf denen
+gehandelt wird, und zugleich selbst handelbare Assets, deren Kontrolle
+übertragen werden kann.
+
+Das Ziel ist nicht, eine realistische Prognose zu erzeugen, sondern eine
+große experimentelle Wirtschaftsmaschine zu bauen. Sie prüft, wie sich
+Hierarchie als Währung verhält, wenn sie durch Netzwerke, Queues,
+Duplex-Kanäle, Semaphore, Topologien, Kategorien, Funktoren,
+natürliche Transformationen sowie Prägarben/Garben strukturiert wird.
+Leistung, Status, Marktzugang, Privilegien, Lasten und Governance werden
+also nicht als isolierte Zahlen behandelt, sondern als transportierte,
+geroutete und morphologisch transformierte Strukturen.
+
+Der Zufallswert seed=42 erzeugt eine bestimmte Weltvariante. Das Profil
+demo bestimmt die Größe: Anzahl der Länder, Unternehmen, Worker, Produkte,
+Märkte und Handelsversuche. ticks=1 bedeutet, wie viele Simulationsrunden
+für diesen Start geplant sind. Mehr ticks erzeugen mehr Pfadabhängigkeit:
+frühe Markttransfers, Staus, manuelle Statushebungen oder
+Netzwerkblockaden können spätere Ergebnisse verstärken.
+
+Gemeinsame Kürzel und Begriffe der gesamten Ausgabe:
+H bedeutet Hierarchie-Abrechnungseinheit. Es ist kein gewöhnliches Geld,
+sondern die komprimierte Zahl eines Hierarchiebündels. Ein Bündel kann
+Arbeitsleistung, Marktzugang, Privileg, Last, Kapital, Vertrauen,
+Militär, Daten, Governance oder Infrastruktur enthalten. Für die
+Abrechnung werden die Elemente addiert und mit der Hierarchiehöhe
+multipliziert.
+
+L01 bis L12 sind die zwölf Hierarchiestufen. L01 steht für Survival,
+L02 für Basic, L03 für Local, L04 für Skilled, L05 für Professional,
+L06 für Regional, L07 für National, L08 für Alliance, L09 für Planetary,
+L10 für Interplanetary, L11 für Systemic und L12 für Solar Apex.
+
+entity bedeutet eine ökonomische oder politische Einheit im Modell:
+Arbeiter, Unternehmen, Land, Bündnis, UN-ähnliche Organisation,
+Verteidigungsorganisation, Produkt, Markt, Privileg oder Burden.
+node ist die Netzwerkdarstellung einer solchen Einheit. channel ist eine
+Leitung zwischen Nodes. Half-duplex bedeutet, dass ein Kanal pro Tick nur
+in eine Richtung sauber übertragen kann. Full-duplex bedeutet, dass beide
+Richtungen gleichzeitig möglich sind. FIFO bedeutet First-In-First-Out,
+LIFO bedeutet Last-In-First-Out. Semaphore begrenzen Durchsatz und
+erzeugen Blockaden, wenn zu viele Pakete gleichzeitig passieren wollen.
+
+Morphism/Morphismus bedeutet gerichtete Beziehung oder Transformation:
+Handel, Zugriff, Governance, Netzwerkweiterleitung oder strukturelle
+Abbildung. Hom-set ist die Menge aller Morphismen zwischen zwei Objekten.
+Functor/Funktor bedeutet Abbildung einer Kategorie in eine andere, zum
+Beispiel von ökonomischen Akteuren auf Netzwerkknoten oder von Status auf
+Zugang. NT bedeutet natürliche Transformation, also eine konsistente
+Umformung zwischen zwei Funktoren. Presheaf/Prägarbe sammelt lokale
+Marktzustände; Sheaf/Garbe versucht diese lokalen Zustände zu einem
+kompatiblen globalen Bild zu verkleben.
+
+AB und BA bezeichnen Kanalrichtungen von A nach B und von B nach A.
+Fly bedeutet Pakete im Flug. Block bedeutet durch Semaphore blockierte
+Übertragungen. p/m in kurzen Tickmeldungen bedeutet angenommene
+Produktvorschläge und angenommene Markt-als-Asset-Vorschläge.
+
+══════════════════════════════════ ERKLÄRUNG VOR: BUILD-START ══════════════════════════════════
+Der folgende Build-Start ist die erste konkrete Zahlenausgabe. Sie nennt
+das Profil und den seed. profile ist die Größenklasse der Welt, seed ist
+der deterministische Zufallsanfang. Dieselbe Kombination aus profile,
+seed, ticks und Prozessoptionen soll dieselbe Art von Welt erzeugen,
+solange die Runtime dieselbe Reihenfolge der deterministischen Schritte
+beibehält.
+
+───────────────────────────────────────── BUILD-START ──────────────────────────────────────────
+Building network/category hierarchy-market simulation profile=demo seed=42
+
+═════════════════════════════════ AUSWERTUNG NACH: BUILD-START ═════════════════════════════════
+Aus dieser Zeile folgt noch kein ökonomisches Ergebnis. Sie bestätigt nur,
+welche Welt gebaut wird. Wichtig ist: Der seed macht die Simulation
+reproduzierbar, aber nicht allgemein wahr. Ein anderer seed kann andere
+Gewinner, andere Engpässe, andere dominante Märkte und andere
+Statusverteilungen erzeugen.
+
+═════════════════════════════════ ERKLÄRUNG VOR: BUILD-REPORT ══════════════════════════════════
+Der Build-Report zählt die erzeugte Struktur vor den eigentlichen
+Handelsrunden. entities sind alle registrierten Akteure und handelbaren
+Objekte. countries, alliances, companies, workers, products und markets
+sind die wichtigsten ökonomischen Schichten. channels sind
+Netzwerkverbindungen. econ_morphisms und net_morphisms sind gerichtete
+Beziehungen in der ökonomischen Kategorie und in der Netzwerkkategorie.
+parallel_processes ist die Zahl der Prozess-Shards; live_cap ist die
+maximal gleichzeitig lebende Worker-Prozesszahl. parallel_enabled zeigt,
+ob parallele Vorschlagsgenerierung aktiv ist.
+
+───────────────────────────────────────── BUILD-REPORT ─────────────────────────────────────────
+Built: entities=4195 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 channels=2227 econ_morphisms=11251 net_morphisms=13703 parallel_processes=2 live_cap=2 parallel_enabled=True
+
+════════════════════════════════ AUSWERTUNG NACH: BUILD-REPORT ═════════════════════════════════
+Diese Zahlen sagen, wie dicht die Modellwelt gebaut wurde. Viele
+Morphismen im Verhältnis zu entities bedeuten eine stark vernetzte
+Wirtschaft: Handel, Zugriff, Governance und Routing hängen dann eng
+zusammen. Viele channels bedeuten, dass Markt- und Governance-Signale
+viele Wege haben, aber auch mehr mögliche Semaphore-Staus. Eine hohe
+Prozesszahl parallelisiert Vorschlagsgenerierung, aber die eigentlichen
+Besitz- und Wallet-Mutationen bleiben absichtlich zentral, damit keine
+doppelten Settlements entstehen.
+
+══════════════════════════════════ ERKLÄRUNG VOR: TICK-REPORT ══════════════════════════════════
+Der Tick-Report ist eine kompakte Momentaufnahme nach einer
+Simulationsrunde. tick ist die aktuelle Runde. volume ist das gesamte
+abgerechnete Handelsvolumen in H. product_sales zählt erfolgreiche
+Produktkäufe. market_trades zählt Übertragungen von Marktkontrolle.
+packets(created/delivered/dropped) zeigt Netzwerkverkehr: erzeugt,
+zugestellt, verworfen. queues zählt wartende Datenpakete. sem_blocked
+zählt Semaphore-Blockaden. sheaf_glued zählt erfolgreich verklebte
+Garbenobjekte. parallel=on/off und die Prozesszahl zeigen, ob
+Prozess-Shards Vorschläge erzeugt haben. accepted(p/m) bedeutet angenommene
+Produkt- und Markt-Asset-Vorschläge.
+
+───────────────────────────────────────── TICK-REPORT ──────────────────────────────────────────
+tick=1 volume=251.3kH product_sales=186 market_trades=53 packets(created/delivered/dropped)=2199/2199/0 queues=896 sem_blocked=0 sheaf_glued=3 parallel=on/2 accepted(p/m)=186/53
+
+═════════════════════════════════ AUSWERTUNG NACH: TICK-REPORT ═════════════════════════════════
+Ein hoher volume-Wert bei niedrigen drops spricht für flüssige Märkte und
+ausreichende Netzwerkpfade. Viele queues oder sem_blocked zeigen dagegen,
+dass Informations- oder Handelsflüsse stauen. Viele market_trades
+bedeuten, dass nicht nur Waren, sondern institutionelle Marktpositionen
+umverteilt wurden. Das ist in diesem Paradigma zentral, weil Märkte selbst
+eine Hierarchieposition und einen Eigentümer haben. sheaf_glued zeigt, wie
+gut lokale Marktzustände in globalere Sichtweisen integriert werden.
+
+================================== FINALER SIMULATIONSREPORT ===================================
+Der folgende Report ist bewusst erklärend aufgebaut. Vor jedem
+Zahlenblock und vor jedem UTF-8-Diagramm steht eine Legende: was die
+Kürzel bedeuten und welcher Teil der Wirtschaft simuliert wird. Nach
+jedem Block steht eine Auswertung: welche vorsichtigen Schlüsse aus den
+Werten gezogen werden können und wo die Grenzen der Interpretation liegen.
+
+═══════════════════════════════════ ERKLÄRUNG VOR: METADATEN ═══════════════════════════════════
+Dieser Block definiert die Simulationsvariante. seed ist der
+Zufallsanfang. profile ist die Größenklasse der gebauten Welt. ticks ist
+die Zahl der bereits ausgeführten Runden. Diese drei Werte sind wichtig,
+weil alle späteren Zahlen nur innerhalb dieser Variante sinnvoll
+interpretiert werden können.
+
+────────────────────────────────────────── METADATEN ───────────────────────────────────────────
+seed=42
+profile=demo
+ticks=1
+
+══════════════════════════════════ AUSWERTUNG NACH: METADATEN ══════════════════════════════════
+Die Auswertung gilt für seed=42, profile=demo und ticks=1. Bei gleichem
+seed können Unterschiede durch Runtime, Parallelisierungsoptionen oder
+Codeänderungen entstehen; bei anderem seed können sich Gewinner,
+Engpässe und Marktbesitz anders verteilen. Ein einzelner Lauf ist daher
+ein Szenario, keine endgültige Theorie.
+
+════════════════════════════════════ ERKLÄRUNG VOR: COUNTS ═════════════════════════════════════
+Counts zählt die Objektpopulation der Simulation. entities ist die
+Gesamtmenge aller registrierten Modellobjekte. countries sind politische
+Staaten oder staatsähnliche Einheiten. alliances sind Bündnisse.
+companies sind Arbeitgeber und Produktionsorganisationen. workers sind
+Arbeitnehmer. products sind handelbare Güter. markets sind Handelsplätze
+und zugleich handelbare Markt-Assets. privileges sind positive
+Statusrechte; burdens sind gehandelte Benachteiligungen oder Lasten.
+
+──────────────────────────────────────────── COUNTS ────────────────────────────────────────────
+  entities                       4355
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     89
+  burdens                        71
+
+═══════════════════════════════════ AUSWERTUNG NACH: COUNTS ════════════════════════════════════
+In diesem Lauf gibt es 15.00 Worker pro Unternehmen und 11.60 Märkte pro
+Unternehmen. Eine hohe Marktdichte bedeutet, dass Koordination nicht nur
+über wenige zentrale Börsen läuft, sondern über viele spezialisierte
+Hierarchie- und Domain-Märkte. Viele privileges und burdens zeigen, dass
+Status nicht nur durch Produktion, sondern auch durch Rechte und Lasten
+verschoben wird.
+
+═════════════════════════════════════ ERKLÄRUNG VOR: TRADE ═════════════════════════════════════
+Trade misst reale ökonomische Bewegung. volume_H ist das Volumen in H,
+also in komprimierter Hierarchiewährung. product_sales sind erfolgreiche
+Produktkäufe. market_ownership_changes sind Fälle, in denen Kontrolle
+über einen Markt selbst gehandelt wurde. manual_lifts sind manuelle
+Statushebungen für schwer messbare, aber systemrelevante Akteure wie
+Care-, Media-, Science- oder Trust-nahe Rollen.
+
+──────────────────────────────────────────── TRADE ─────────────────────────────────────────────
+  volume_H                       251340.25
+  product_sales                  186
+  market_ownership_changes       53
+  manual_lifts                   8
+
+════════════════════════════════════ AUSWERTUNG NACH: TRADE ════════════════════════════════════
+Das durchschnittliche abgerechnete Volumen pro Produktverkauf liegt bei
+ungefähr 1.4kH, wobei im Gesamtvolumen auch Markt-, Privilegien- und
+Burden-Bewegungen stecken können. Viele market_ownership_changes deuten
+auf eine Wirtschaft hin, in der Institutionen und Marktzugänge selbst zu
+strategischen Assets werden. manual_lifts zeigen den nicht-marktlichen
+Korrekturpfad: Das System versucht, Helfer, Medien, Wissenschaft und
+Vertrauen nicht vollständig der reinen Kaufkraft zu überlassen.
+
+════════════════════════════════════ ERKLÄRUNG VOR: NETWORK ════════════════════════════════════
+Network beschreibt die Infrastruktur der Wirtschaft als Datenstromsystem.
+nodes sind Knoten, channels sind Verbindungen. components zählt getrennte
+Netzkomponenten; 1 wäre vollständig zusammenhängend. degree_min,
+degree_mean und degree_max beschreiben, wie viele Nachbarn Knoten haben.
+packets_created/delivered/dropped messen Datenströme. route_failures sind
+gescheiterte Routing-Versuche. semaphore_blocked zeigt, wie oft Kanäle
+wegen Kapazitätsbegrenzung blockierten. semaphore_capacity ist die Summe
+der Kanal-Kapazitäten.
+
+─────────────────────────────────────────── NETWORK ────────────────────────────────────────────
+  nodes                          4355
+  channels                       2227
+  components                     2620
+  degree_min                     1
+  degree_mean                    2.564
+  degree_max                     130
+  packets_created                2199
+  packets_delivered              2199
+  packets_dropped                0
+  route_failures                 0
+  semaphore_blocked              0
+  semaphore_capacity             20048
+
+═══════════════════════════════════ AUSWERTUNG NACH: NETWORK ═══════════════════════════════════
+Die Lieferquote beträgt ungefähr 100.00%, die Drop-Quote ungefähr 0.00%.
+Eine hohe degree_mean und wenige components begünstigen schnellen
+Informationsfluss. Viele Drops oder Blockaden bedeuten, dass die Märkte
+nicht nur ökonomisch, sondern infrastrukturell begrenzt sind: Selbst wenn
+es Käufer und Verkäufer gibt, können Queue-Disziplin, Duplex-Modus und
+Semaphore den Austausch verzögern.
+
+═══════════════════════════════════ ERKLÄRUNG VOR: PARALLEL ════════════════════════════════════
+Parallel beschreibt die sichere PyPy3-Prozessarchitektur. enabled zeigt,
+ob parallele Vorschlagsgenerierung aktiv war. processes ist die Zahl der
+Shards. snapshot_writes und snapshot_bytes zeigen, wie oft und wie groß
+die kompakte JSON-Sicht für Worker-Prozesse war. accepted_product,
+accepted_market_asset, accepted_privilege und accepted_burden zählen
+Vorschläge, die der Hauptprozess nach Revalidierung wirklich committed
+hat. attempts_* und proposals_* zeigen Versuche und erzeugte Vorschläge
+je Phase.
+
+─────────────────────────────────────────── PARALLEL ───────────────────────────────────────────
+  enabled                        1.0
+  processes                      2.0
+  phase_calls                    5.0
+  snapshot_writes                1.0
+  snapshot_bytes                 0.06 MB
+  accepted_product               186.0
+  accepted_market_asset          53.0
+  accepted_privilege             81.0
+  accepted_burden                71.0
+  packet_templates_created       1800.0
+  attempts_burden                120.0
+  attempts_market_asset          55.0
+  attempts_packet                1800.0
+  attempts_privilege             160.0
+  attempts_product               2600.0
+  proposals_product              2600.0
+  worker_processes_product       2.0
+  worker_waves_product           1.0
+
+══════════════════════════════════ AUSWERTUNG NACH: PARALLEL ═══════════════════════════════════
+Die Akzeptanzquote der parallelen Vorschläge liegt grob bei 15.04%. Eine
+niedrige Quote ist nicht automatisch schlecht: Worker schlagen nur
+Kandidaten vor, der Hauptprozess prüft Besitz, Zugang, Wallets und
+Konflikte erneut. Das schützt die Konsistenz. Eine hohe Quote spricht für
+wenig Konflikt zwischen parallelen Shards und zentralem Settlement.
+
+═══════════════════════════════════ ERKLÄRUNG VOR: CATEGORY ════════════════════════════════════
+Category übersetzt die Wirtschaft in mathematische Kategorien. objects
+sind Dinge wie Akteure, Knoten, Level oder Topologien. morphisms sind
+gerichtete Beziehungen wie Handel, Zugriff, Routing oder Projektion.
+hom_sets zählt Objektpaare, zwischen denen Morphismen existieren.
+economic_category modelliert Handel und Status. network_category
+modelliert Datenflüsse. hierarchy_category modelliert Level-Aufstieg und
+Level-Beziehungen. topology_category modelliert Strukturformen wie Tree,
+Star, Ring, Mesh, Governance und Sheaf-Cover. associativity_sample prüft
+stichprobenartig, ob Morphismus-Kompositionen formal stabil wirken.
+
+─────────────────────────────────────────── CATEGORY ───────────────────────────────────────────
+  economic_category              objects=4355 morphisms=11810 hom_sets=9801
+  network_category               objects=4355 morphisms=14262 hom_sets=12665
+  hierarchy_category             objects=12 morphisms=15135 hom_sets=126
+  topology_category              objects=7 morphisms=15 hom_sets=15
+  associativity_sample           checked=62 passed=62
+
+══════════════════════════════════ AUSWERTUNG NACH: CATEGORY ═══════════════════════════════════
+Die ökonomische Kategorie hat 4355 Objekte und 11810 Morphismen; die
+Netzwerkkategorie hat 4355 Objekte und 14262 Morphismen. Wenn die
+Morphismuszahl stark wächst, wird die Wirtschaft nicht nur größer,
+sondern stärker relational: Entscheidend ist dann weniger isolierter
+Besitz, sondern Zugriff, Transformation und Verbindung. Funktoren und
+natürliche Transformationen prüfen, ob Status, Zugang und Netzwerk nicht
+auseinanderfallen.
+
+══════════════════════════════ ERKLÄRUNG VOR: LEVEL DISTRIBUTIONS ══════════════════════════════
+Level distributions zeigt, wie viele Worker, Unternehmen, Länder,
+Produkte und Märkte auf den Hierarchiestufen L01 bis L12 liegen. Die
+Zahlen in den Dictionaries haben Level als Schlüssel und Anzahl als Wert.
+Die Verteilung ist wichtig, weil die Hierarchiewährung nicht nur Menge,
+sondern Höhe bewertet: wenige L10-Objekte können strukturell wichtiger
+sein als viele L02-Objekte.
+
+───────────────────────────────────── LEVEL DISTRIBUTIONS ──────────────────────────────────────
+  workers      {1: 721, 2: 1068, 3: 11}
+  companies    {8: 1, 9: 13, 10: 55, 11: 49, 12: 2}
+  countries    {12: 15}
+  products     {1: 73, 2: 271, 3: 276, 4: 180, 5: 48, 6: 2}
+  markets      {1: 79, 2: 121, 3: 140, 4: 149, 5: 192, 6: 227, 7: 225, 8: 207, 9: 52}
+
+═════════════════════════════ AUSWERTUNG NACH: LEVEL DISTRIBUTIONS ═════════════════════════════
+Gewichtete Durchschnittsstufen: workers: average L1.61; companies: average L10.32; countries: average L12.00; products: average L2.84; markets: average L5.29. Eine gesunde Simulation muss nicht
+gleichverteilt sein. Worker können niedriger liegen als Unternehmen und
+Länder, weil Unternehmen aggregierte Arbeit, Kapital, Marktzugang und
+Produkte bündeln. Kritisch wäre eine völlig erstarrte Verteilung ohne
+Aufstiegskanal oder eine extreme Apex-Konzentration, in der fast alle
+relevanten Märkte von wenigen L12-Objekten kontrolliert werden.
+
+═════════════════════════════════ ERKLÄRUNG VOR: TOP COUNTRIES ═════════════════════════════════
+Dieser Rankingblock zeigt die höchsten Akteure dieses Typs nach
+status_number. status_number ist die strukturierte Hierarchieposition plus
+Wallet-Wert plus aktive Privilegien minus aktive Burdens. Lxx ist die
+diskrete Hierarchiestufe. domain zeigt die wichtigste Funktionsdomäne,
+body den Himmelskörper oder Systembereich, owner den Besitzer oder die
+zuständige Institution, falls das Objekt handelbar ist.
+
+──────────────────────────────────────── TOP COUNTRIES ─────────────────────────────────────────
+  L12 Solar Apex       Mars Republic 004                                            8.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Moon Republic 003                                            8.3MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 008                                           7.7MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 003                                            7.5MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 002                                           6.2MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 001                                           6.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Moon Republic 001                                            5.9MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 005                                           5.3MH domain=governance body=Earth owner=United Nations of Earth
+
+════════════════════════════════ AUSWERTUNG NACH: TOP COUNTRIES ════════════════════════════════
+Der stärkste Eintrag ist Mars Republic 004 auf Solar Apex mit 8.5MH. Das Verhältnis zwischen erstem
+und letztem angezeigten Eintrag beträgt ungefähr 1.60. Ein hoher Spread
+zeigt Elitekonzentration; ein niedriger Spread zeigt ein dichteres Feld.
+Bei Ländern zeigt ein hoher Top-Wert, dass Governance, Militär, Unternehmen und Marktzugänge politisch konzentriert sind.
+
+═════════════════════════════════ ERKLÄRUNG VOR: TOP COMPANIES ═════════════════════════════════
+Dieser Rankingblock zeigt die höchsten Akteure dieses Typs nach
+status_number. status_number ist die strukturierte Hierarchieposition plus
+Wallet-Wert plus aktive Privilegien minus aktive Burdens. Lxx ist die
+diskrete Hierarchiestufe. domain zeigt die wichtigste Funktionsdomäne,
+body den Himmelskörper oder Systembereich, owner den Besitzer oder die
+zuständige Institution, falls das Objekt handelbar ist.
+
+──────────────────────────────────────── TOP COMPANIES ─────────────────────────────────────────
+  L12 Solar Apex       Research Networked Company 00110                             1.3MH domain=research body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Medicine Networked Company 00077                             1.1MH domain=medicine body=Mars owner=Mars Republic 003
+  L11 Systemic         Agriculture Networked Company 00094                        834.0kH domain=agriculture body=Mars owner=Mars Republic 003
+  L11 Systemic         Food Networked Company 00085                               834.0kH domain=food body=Moon owner=Moon Republic 003
+  L11 Systemic         Defense Networked Company 00067                            775.7kH domain=defense body=Mars owner=Mars Republic 004
+  L11 Systemic         Medicine Networked Company 00055                           742.4kH domain=medicine body=Earth owner=Earth Republic 001
+  L11 Systemic         Manufacturing Networked Company 00010                      740.5kH domain=manufacturing body=Mars owner=Mars Republic 004
+  L11 Systemic         Finance Networked Company 00025                            724.2kH domain=finance body=Mars owner=Mars Republic 003
+
+════════════════════════════════ AUSWERTUNG NACH: TOP COMPANIES ════════════════════════════════
+Der stärkste Eintrag ist Research Networked Company 00110 auf Solar Apex mit 1.3MH. Das Verhältnis zwischen erstem
+und letztem angezeigten Eintrag beträgt ungefähr 1.79. Ein hoher Spread
+zeigt Elitekonzentration; ein niedriger Spread zeigt ein dichteres Feld.
+Bei Unternehmen zeigt ein hoher Top-Wert, dass aggregierte Arbeit, Produkte, Marktzugang und Kapital stark gebündelt wurden.
+
+══════════════════════════════════ ERKLÄRUNG VOR: TOP MARKETS ══════════════════════════════════
+Dieser Rankingblock zeigt die höchsten Akteure dieses Typs nach
+status_number. status_number ist die strukturierte Hierarchieposition plus
+Wallet-Wert plus aktive Privilegien minus aktive Burdens. Lxx ist die
+diskrete Hierarchiestufe. domain zeigt die wichtigste Funktionsdomäne,
+body den Himmelskörper oder Systembereich, owner den Besitzer oder die
+zuständige Institution, falls das Objekt handelbar ist.
+
+───────────────────────────────────────── TOP MARKETS ──────────────────────────────────────────
+  L09 Planetary        Solar System L12 Water Market                               81.4kH domain=water body=Solar System owner=Solar System United Nations
+  L09 Planetary        Moon L12 Semaphore Permits Market                           81.2kH domain=semaphore_permits body=Moon owner=United Nations of Moon
+  L09 Planetary        Mars L12 Privilege Market                                   80.9kH domain=privilege body=Mars owner=United Nations of Mars
+  L09 Planetary        Solar System L12 Terraforming Market                        80.9kH domain=terraforming body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Defense Market                                     80.8kH domain=defense body=Mars owner=United Nations of Mars
+  L09 Planetary        Moon L12 Topology Rights Market                             80.7kH domain=topology_rights body=Moon owner=United Nations of Moon
+  L09 Planetary        Solar System L12 Semaphore Permits Market                   80.5kH domain=semaphore_permits body=Solar System owner=Solar System United Nations
+  L09 Planetary        Solar System L12 Care Market                                80.4kH domain=care body=Solar System owner=Solar System United Nations
+
+═════════════════════════════════ AUSWERTUNG NACH: TOP MARKETS ═════════════════════════════════
+Der stärkste Eintrag ist Solar System L12 Water Market auf Planetary mit 81.4kH. Das Verhältnis zwischen erstem
+und letztem angezeigten Eintrag beträgt ungefähr 1.01. Ein hoher Spread
+zeigt Elitekonzentration; ein niedriger Spread zeigt ein dichteres Feld.
+Bei Märkten ist ein hoher Top-Wert besonders wichtig, weil Marktbesitz selbst zukünftige Koordination und Gebührenströme beeinflussen kann.
+
+══════════════════════════════════ ERKLÄRUNG VOR: TOP WORKERS ══════════════════════════════════
+Dieser Rankingblock zeigt die höchsten Akteure dieses Typs nach
+status_number. status_number ist die strukturierte Hierarchieposition plus
+Wallet-Wert plus aktive Privilegien minus aktive Burdens. Lxx ist die
+diskrete Hierarchiestufe. domain zeigt die wichtigste Funktionsdomäne,
+body den Himmelskörper oder Systembereich, owner den Besitzer oder die
+zuständige Institution, falls das Objekt handelbar ist.
+
+───────────────────────────────────────── TOP WORKERS ──────────────────────────────────────────
+  L03 Local            Worker 0000237                                                655H domain=risk body=Mars owner=None
+  L03 Local            Worker 0001248                                                592H domain=governance body=Moon owner=None
+  L03 Local            Worker 0000072                                                556H domain=education body=Mars owner=None
+  L03 Local            Worker 0000217                                                526H domain=labor body=Moon owner=None
+  L03 Local            Worker 0001177                                                525H domain=medicine body=Earth owner=None
+  L03 Local            Worker 0000794                                                516H domain=trust body=Mars owner=None
+  L03 Local            Worker 0000423                                                513H domain=trust body=Earth owner=None
+  L03 Local            Worker 0000593                                                502H domain=education body=Mars owner=None
+
+═════════════════════════════════ AUSWERTUNG NACH: TOP WORKERS ═════════════════════════════════
+Der stärkste Eintrag ist Worker 0000237 auf Local mit 655H. Das Verhältnis zwischen erstem
+und letztem angezeigten Eintrag beträgt ungefähr 1.31. Ein hoher Spread
+zeigt Elitekonzentration; ein niedriger Spread zeigt ein dichteres Feld.
+Bei Workern zeigt ein hoher Top-Wert einzelne Aufstiegskanäle; wenn alle Top-Worker niedrig bleiben, dominiert organisatorische Aggregation über individuelle Statusmacht.
+
+════════════════════════ ERKLÄRUNG VOR: RECENT TRADES / MORPHISM EVENTS ════════════════════════
+Recent trades / morphism events zeigt konkrete Ereignisse aus den
+Markt- und Morphismuslogs. Diese Liste ist kein vollständiges Ledger,
+sondern ein lesbarer Ausschnitt. Sie zeigt, welche Produkt-, Privilegien-,
+Burden- oder Markttransferereignisse zuletzt sichtbar gespeichert wurden.
+
+─────────────────────────────── RECENT TRADES / MORPHISM EVENTS ────────────────────────────────
+  - Solar System L02 Market Rights Market: MARKET Solar System L01 Shipbui control -> Manufacturing Networke [parallel-safe-parent]
+  - Earth L04 Market Rights Market: MARKET Moon L09 Burden Market control -> Earth Republic 007 [parallel-safe-parent]
+  - Earth L08 Compute Market: PRODUCT Compute Product 000762 -> Housing Networked Comp for 50.8H [parallel]
+  - Earth L12 Energy Market: PRODUCT Energy Product 000226 -> Housing Networked Comp for 177H [parallel]
+  - Moon L02 Transport Market: PRODUCT Transport Product 000639 -> Market Rights Networke for 83.9H [parallel]
+  - Moon L09 Agriculture Market: PRODUCT Agriculture Product 0003 -> Manufacturing Networke for 182H [parallel]
+  - Mars L02 Finance Market: PRODUCT Finance Product 000468 -> Earth Republic 003 for 166H [parallel]
+  - Mars L03 Housing Market: PRODUCT Housing Product 000045 -> Defense Networked Comp for 61.0H [parallel]
+  - Mars L10 Agriculture Market: PRODUCT Agriculture Product 0005 -> Housing Networked Comp for 12.7H [parallel]
+
+═══════════════════════ AUSWERTUNG NACH: RECENT TRADES / MORPHISM EVENTS ═══════════════════════
+Diese Ereignisse helfen, die Aggregatzahlen zu erden. Wenn viele Burdens
+auftauchen, wurden Lasten aktiv gehandelt. Wenn Markttransfers auftauchen,
+verschiebt sich institutionelle Kontrolle. Wenn Privilegien auftauchen,
+entstehen zeitlich befristete Statusvorteile. Die Liste ist bewusst
+qualitativ: Sie erklärt nicht die ganze Simulation, zeigt aber typische
+Mechanismen des aktuellen Laufs.
+
+########################## UTF-8 NETWORK / CATEGORY / SHEAF DASHBOARD ##########################
+
+══ ERKLÄRUNG VOR: ORGANIZATIONAL / TOPOLOGICAL TREE / 01 / ORGANIZATIONAL / TOPOLOGICAL TREE ═══
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: ORGANIZATIONAL / TOPOLOGICAL TREE.
+Interner Artefaktname: ORGANIZATIONAL / TOPOLOGICAL TREE. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Dieses UTF-8-Baumdiagramm zeigt die politische und topologische
+    Oberstruktur. Es verbindet Sonnensystem, planetare Ebenen,
+    UN-ähnliche Institutionen, Verteidigung, Länder, Unternehmen,
+    Worker und Märkte. Die Wörter tree, star, ring, mesh,
+    market-bipartite, governance und sheaf-cover bezeichnen verschiedene
+    Netzwerktopologien, nicht nur dekorative Formen.
+
+────────── ORGANIZATIONAL / TOPOLOGICAL TREE / 01 / ORGANIZATIONAL / TOPOLOGICAL TREE ──────────
+══════════════════════════════ ORGANIZATIONAL / TOPOLOGICAL TREE ═══════════════════════════════
+Solar System Category Object
+├─ Solar System United Nations [terminal-like governance apex]
+├─ Solar System Defense Organization [half-duplex semaphore apex]
+├─ Earth: countries=8 companies=59 workers=873 markets=348
+│  ├─ UN: United Nations of Earth
+│  ├─ Defense: Earth Defense Organization
+│  ├─ Topologies: tree + star + ring + mesh + market-bipartite
+│  └─ Sheaf cover: high markets -> planetary UN -> solar UN
+├─ Moon: countries=3 companies=25 workers=362 markets=348
+│  ├─ UN: United Nations of Moon
+│  ├─ Defense: Moon Defense Organization
+│  ├─ Topologies: tree + star + ring + mesh + market-bipartite
+│  └─ Sheaf cover: high markets -> planetary UN -> solar UN
+└─ Mars: countries=4 companies=36 workers=565 markets=348
+   ├─ UN: United Nations of Mars
+   ├─ Defense: Mars Defense Organization
+   ├─ Topologies: tree + star + ring + mesh + market-bipartite
+   └─ Sheaf cover: high markets -> planetary UN -> solar UN
+
+═ AUSWERTUNG NACH: ORGANIZATIONAL / TOPOLOGICAL TREE / 01 / ORGANIZATIONAL / TOPOLOGICAL TREE ══
+Auswertung dieses einzelnen Artefakts: ORGANIZATIONAL / TOPOLOGICAL TREE. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Wenn der Baum viele Ebenen und große Teilpopulationen zeigt, ist das
+    System stark föderiert. Erde, Mond und Mars können unterschiedliche
+    Markt- und Governance-Gewichte entwickeln. Die Baumform zeigt auch,
+    wo Hierarchie zentralisiert wird: Solar- und planetare UN-Objekte
+    fungieren als globale Klebepunkte für Governance und Garben.
+
+═════════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 01 / WORKER LEVELS ══════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: WORKER LEVELS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+───────────────────────── HIERARCHY LEVEL VISUALS / 01 / WORKER LEVELS ─────────────────────────
+════════════════════════════════════════ WORKER LEVELS ═════════════════════════════════════════
+L01 Survival         │████████████████████████░░░░░░░░░░░░│ 721
+L02 Basic            │████████████████████████████████████│ 1.1k
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11.0
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 01 / WORKER LEVELS ═════════════════
+Auswertung dieses einzelnen Artefakts: WORKER LEVELS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+═════════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 02 / COMPANY LEVELS ═════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: COMPANY LEVELS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+──────────────────────── HIERARCHY LEVEL VISUALS / 02 / COMPANY LEVELS ─────────────────────────
+════════════════════════════════════════ COMPANY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.00
+L09 Planetary        │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+L10 Interplanetary   │████████████████████████████████████│ 55.0
+L11 Systemic         │████████████████████████████████░░░░│ 49.0
+L12 Solar Apex       │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+
+════════════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 02 / COMPANY LEVELS ════════════════
+Auswertung dieses einzelnen Artefakts: COMPANY LEVELS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+═════════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 03 / COUNTRY LEVELS ═════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: COUNTRY LEVELS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+──────────────────────── HIERARCHY LEVEL VISUALS / 03 / COUNTRY LEVELS ─────────────────────────
+════════════════════════════════════════ COUNTRY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │████████████████████████████████████│ 15.0
+
+════════════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 03 / COUNTRY LEVELS ════════════════
+Auswertung dieses einzelnen Artefakts: COUNTRY LEVELS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+═════════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 04 / PRODUCT LEVELS ═════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: PRODUCT LEVELS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+──────────────────────── HIERARCHY LEVEL VISUALS / 04 / PRODUCT LEVELS ─────────────────────────
+════════════════════════════════════════ PRODUCT LEVELS ════════════════════════════════════════
+L01 Survival         │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 73.0
+L02 Basic            │███████████████████████████████████░│ 271
+L03 Local            │████████████████████████████████████│ 276
+L04 Skilled          │███████████████████████░░░░░░░░░░░░░│ 180
+L05 Professional     │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 48.0
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 04 / PRODUCT LEVELS ════════════════
+Auswertung dieses einzelnen Artefakts: PRODUCT LEVELS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+═════════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 05 / MARKET LEVELS ══════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: MARKET LEVELS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+───────────────────────── HIERARCHY LEVEL VISUALS / 05 / MARKET LEVELS ─────────────────────────
+════════════════════════════════════════ MARKET LEVELS ═════════════════════════════════════════
+L01 Survival         │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 79.0
+L02 Basic            │███████████████████░░░░░░░░░░░░░░░░░│ 121
+L03 Local            │██████████████████████░░░░░░░░░░░░░░│ 140
+L04 Skilled          │███████████████████████░░░░░░░░░░░░░│ 149
+L05 Professional     │██████████████████████████████░░░░░░│ 192
+L06 Regional         │████████████████████████████████████│ 227
+L07 National         │███████████████████████████████████░│ 225
+L08 Alliance         │████████████████████████████████░░░░│ 207
+L09 Planetary        │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 52.0
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 05 / MARKET LEVELS ═════════════════
+Auswertung dieses einzelnen Artefakts: MARKET LEVELS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 06 / WORKERS BY BODY × LEVEL ═════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: WORKERS BY BODY × LEVEL. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+──────────────────── HIERARCHY LEVEL VISUALS / 06 / WORKERS BY BODY × LEVEL ────────────────────
+═══════════════════════════════════ WORKERS BY BODY × LEVEL ════════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth            ▒  █                               
+Moon             ·  ░                               
+Mars             ░  ▒                               
+Legend: · low  ░▒▓█ high
+
+═══════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 06 / WORKERS BY BODY × LEVEL ════════════
+Auswertung dieses einzelnen Artefakts: WORKERS BY BODY × LEVEL. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+═══════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 07 / COMPANIES BY BODY × LEVEL ════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: COMPANIES BY BODY × LEVEL. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+─────────────────── HIERARCHY LEVEL VISUALS / 07 / COMPANIES BY BODY × LEVEL ───────────────────
+══════════════════════════════════ COMPANIES BY BODY × LEVEL ═══════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth                                    ·  █  ▓    
+Moon                                        ░  ░    
+Mars                                        ░  ▒    
+Legend: · low  ░▒▓█ high
+
+══════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 07 / COMPANIES BY BODY × LEVEL ═══════════
+Auswertung dieses einzelnen Artefakts: COMPANIES BY BODY × LEVEL. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+════════════ ERKLÄRUNG VOR: HIERARCHY LEVEL VISUALS / 08 / MARKETS BY BODY × LEVEL ═════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: HIERARCHY LEVEL VISUALS.
+Interner Artefaktname: MARKETS BY BODY × LEVEL. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Balken und Heatmaps zeigen alle Hierarchiestufen L01 bis
+    L12. Balken zeigen Mengen je Level. Heatmaps kreuzen Himmelskörper
+    mit Level. Die Zeichen ·░▒▓█ zeigen steigende Dichte. Damit sieht man,
+    ob Status breit verteilt oder stark konzentriert ist.
+
+──────────────────── HIERARCHY LEVEL VISUALS / 08 / MARKETS BY BODY × LEVEL ────────────────────
+═══════════════════════════════════ MARKETS BY BODY × LEVEL ════════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+Earth            ░  ░  ▒  ▒  ▓  █  ▓  ▓  ·          
+Moon             ·  ░  ▒  ▒  ▓  ▓  █  ▓  ·          
+Mars             ░  ░  ▒  ▒  ▒  █  █  ▓  ·          
+Solar System     ░  ░  ▒  ▒  ▓  ▓  ▓  ▓  ·          
+Legend: · low  ░▒▓█ high
+
+═══════════ AUSWERTUNG NACH: HIERARCHY LEVEL VISUALS / 08 / MARKETS BY BODY × LEVEL ════════════
+Auswertung dieses einzelnen Artefakts: MARKETS BY BODY × LEVEL. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Aus diesen Verteilungen lässt sich ablesen, wo Status akkumuliert.
+    Viele niedrige Worker-Level bei hohen Unternehmens- oder
+    Länder-Leveln bedeuten Aggregation: Organisationen bündeln viele
+    kleine Beiträge. Wenn Märkte sehr hoch liegen, kontrollieren
+    Marktpositionen große Koordination. Wenn Produkte niedriger liegen,
+    sind viele Güter breit zugänglich.
+
+══════════════════ ERKLÄRUNG VOR: NETWORK VISUALS / 01 / CHANNELS BY TOPOLOGY ══════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: CHANNELS BY TOPOLOGY. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+───────────────────────── NETWORK VISUALS / 01 / CHANNELS BY TOPOLOGY ──────────────────────────
+═════════════════════════════════════ CHANNELS BY TOPOLOGY ═════════════════════════════════════
+tree                   │██████████████████████████████████│ 1.1k
+star                   │███████████████░░░░░░░░░░░░░░░░░░░│ 495
+market-bipartite       │███████████░░░░░░░░░░░░░░░░░░░░░░░│ 350
+mesh                   │████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 285
+governance             │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+ring                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.00
+
+═════════════════ AUSWERTUNG NACH: NETWORK VISUALS / 01 / CHANNELS BY TOPOLOGY ═════════════════
+Auswertung dieses einzelnen Artefakts: CHANNELS BY TOPOLOGY. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+════════════════ ERKLÄRUNG VOR: NETWORK VISUALS / 02 / CHANNELS BY DUPLEX MODE ═════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: CHANNELS BY DUPLEX MODE. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+──────────────────────── NETWORK VISUALS / 02 / CHANNELS BY DUPLEX MODE ────────────────────────
+═══════════════════════════════════ CHANNELS BY DUPLEX MODE ════════════════════════════════════
+full                   │██████████████████████████████████│ 1.3k
+half                   │██████████████████████████░░░░░░░░│ 972
+
+═══════════════ AUSWERTUNG NACH: NETWORK VISUALS / 02 / CHANNELS BY DUPLEX MODE ════════════════
+Auswertung dieses einzelnen Artefakts: CHANNELS BY DUPLEX MODE. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+═══════════════ ERKLÄRUNG VOR: NETWORK VISUALS / 03 / CHANNEL QUEUE DISCIPLINES ════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: CHANNEL QUEUE DISCIPLINES. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+─────────────────────── NETWORK VISUALS / 03 / CHANNEL QUEUE DISCIPLINES ───────────────────────
+══════════════════════════════════ CHANNEL QUEUE DISCIPLINES ═══════════════════════════════════
+fifo                   │██████████████████████████████████│ 1.7k
+priority               │██████████████████████████████░░░░│ 1.5k
+lifo                   │██████████████████████████░░░░░░░░│ 1.3k
+
+══════════════ AUSWERTUNG NACH: NETWORK VISUALS / 03 / CHANNEL QUEUE DISCIPLINES ═══════════════
+Auswertung dieses einzelnen Artefakts: CHANNEL QUEUE DISCIPLINES. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+════════════════════ ERKLÄRUNG VOR: NETWORK VISUALS / 04 / PACKETS BY KIND ═════════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: PACKETS BY KIND. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+──────────────────────────── NETWORK VISUALS / 04 / PACKETS BY KIND ────────────────────────────
+═══════════════════════════════════════ PACKETS BY KIND ════════════════════════════════════════
+governance_pulse       │██████████████████████████████████│ 328
+sheaf_patch            │█████████████████████████████████░│ 323
+topology_update        │███████████████████████████████░░░│ 308
+semaphore_request      │█████████████████████████████░░░░░│ 288
+quote_stream           │█████████████████████████████░░░░░│ 283
+market_data            │███████████████████████████░░░░░░░│ 270
+trade_product          │███████████████████░░░░░░░░░░░░░░░│ 186
+privilege              │████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 81.0
+burden                 │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 71.0
+trade_market           │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 53.0
+manual_lift            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+
+═══════════════════ AUSWERTUNG NACH: NETWORK VISUALS / 04 / PACKETS BY KIND ════════════════════
+Auswertung dieses einzelnen Artefakts: PACKETS BY KIND. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+══════════ ERKLÄRUNG VOR: NETWORK VISUALS / 05 / NETWORK DEGREE DISTRIBUTION (20=20+) ══════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: NETWORK DEGREE DISTRIBUTION (20=20+). Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+───────────────── NETWORK VISUALS / 05 / NETWORK DEGREE DISTRIBUTION (20=20+) ──────────────────
+═════════════════════════════ NETWORK DEGREE DISTRIBUTION (20=20+) ═════════════════════════════
+1                      │██████████████████████████████████│ 1.5k
+2                      │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 86.0
+3                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 38.0
+4                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 11.0
+5                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.00
+6                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+7                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+9                      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.00
+10                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+11                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+12                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.00
+13                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+14                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+15                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+16                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+17                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 22.0
+18                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 28.0
+19                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+20                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+
+═════════ AUSWERTUNG NACH: NETWORK VISUALS / 05 / NETWORK DEGREE DISTRIBUTION (20=20+) ═════════
+Auswertung dieses einzelnen Artefakts: NETWORK DEGREE DISTRIBUTION (20=20+). Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+═══════════════ ERKLÄRUNG VOR: NETWORK VISUALS / 06 / HOT CHANNELS / SEMAPHORES ════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: NETWORK VISUALS.
+Interner Artefaktname: HOT CHANNELS / SEMAPHORES. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese UTF-8-Visualisierung beschreibt Datenstrom und Infrastruktur.
+    Topology zählt Kanaltypen. Duplex zeigt Half- und Full-Duplex.
+    Queue discipline zeigt FIFO, LIFO und Priority. Packets by kind zeigt
+    Datenstromarten. Hot channels zeigt AB/BA-Queues, Fly-Pakete und
+    Semaphore-Blocks.
+
+─────────────────────── NETWORK VISUALS / 06 / HOT CHANNELS / SEMAPHORES ───────────────────────
+══════════════════════════════════ HOT CHANNELS / SEMAPHORES ═══════════════════════════════════
+Channel                  | Mode   | Topology       | AB    | BA    | Fly   | Block   | Shape         
+-------------------------+--------+----------------+-------+-------+-------+---------+---------------
+Solar System Uni↔United  | full   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Solar System Def↔Earth D | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+United Nations o↔Earth R | full   | governance     | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Earth Alliance 1↔Earth R | half   | star           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Earth Republic 0↔Market  | full   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+Market Rights Ne↔Worker  | half   | tree           | 0     | 0     | 0     | 0       | ▁▁▁▁▁         
+
+══════════════ AUSWERTUNG NACH: NETWORK VISUALS / 06 / HOT CHANNELS / SEMAPHORES ═══════════════
+Auswertung dieses einzelnen Artefakts: HOT CHANNELS / SEMAPHORES. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Netzwerkvisualisierungen zeigen, ob die Wirtschaft reibungslos oder
+    staugefährdet ist. Viele Full-Duplex-Kanäle und geringe Blocks
+    begünstigen schnelle Preis-, Status- und Governance-Signale. Viele
+    LIFO/Priority-Queues können dringende Nachrichten bevorzugen, aber
+    alte Pakete verdrängen. Semaphore-Blockaden sind strukturelle
+    Engpässe, nicht bloß Zufallsrauschen.
+
+════════════ ERKLÄRUNG VOR: CATEGORY / FUNCTOR VISUALS / 01 / CATEGORY SIZE DIAGRAM ════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: CATEGORY / FUNCTOR VISUALS.
+Interner Artefaktname: CATEGORY SIZE DIAGRAM. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Tabellen visualisieren mathematische Kategorien, Funktoren,
+    natürliche Transformationen und universelle Eigenschaften. Objects
+    sind Objekte, Morphisms gerichtete Abbildungen, Hom-sets Objektpaare
+    mit Morphismen. Boundary/Identity/Natural prüfen, ob die
+    strukturellen Abbildungen konsistent bleiben.
+
+─────────────────── CATEGORY / FUNCTOR VISUALS / 01 / CATEGORY SIZE DIAGRAM ────────────────────
+════════════════════════════════════ CATEGORY SIZE DIAGRAM ═════════════════════════════════════
+Category                     | Objects    | Morphisms  | Hom-sets   | Shape           
+-----------------------------+------------+------------+------------+-----------------
+EconomicHierarchyCategory    | 4355       | 11810      | 9801       | ▁█▆             
+NetworkFlowCategory          | 4355       | 14262      | 12665      | ▁█▆             
+HierarchyLevelCategory       | 12         | 15135      | 126        | ▁█▁             
+TopologyCategory             | 7          | 15         | 15         | ▁██             
+
+═══════════ AUSWERTUNG NACH: CATEGORY / FUNCTOR VISUALS / 01 / CATEGORY SIZE DIAGRAM ═══════════
+Auswertung dieses einzelnen Artefakts: CATEGORY SIZE DIAGRAM. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Wenn Funktoren und natürliche Transformationen viele Checks bestehen,
+    bleiben Status, Zugang und Netzwerkabbildung formal kohärent. Wenn
+    Verletzungen auftreten, heißt das: Die Simulation erzeugt Stellen, an
+    denen ökonomische Macht, Netzwerkzugang und Hierarchie nicht sauber
+    zusammenpassen. Das kann als Krisen- oder Reformindikator gelesen
+    werden.
+
+══════ ERKLÄRUNG VOR: CATEGORY / FUNCTOR VISUALS / 02 / FUNCTORIALITY / NATURALITY CHECKS ══════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: CATEGORY / FUNCTOR VISUALS.
+Interner Artefaktname: FUNCTORIALITY / NATURALITY CHECKS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Tabellen visualisieren mathematische Kategorien, Funktoren,
+    natürliche Transformationen und universelle Eigenschaften. Objects
+    sind Objekte, Morphisms gerichtete Abbildungen, Hom-sets Objektpaare
+    mit Morphismen. Boundary/Identity/Natural prüfen, ob die
+    strukturellen Abbildungen konsistent bleiben.
+
+───────────── CATEGORY / FUNCTOR VISUALS / 02 / FUNCTORIALITY / NATURALITY CHECKS ──────────────
+══════════════════════════════ FUNCTORIALITY / NATURALITY CHECKS ═══════════════════════════════
+Functor/NT                 | Checked    | OK/Natural   | Identity/Viol 
+---------------------------+------------+--------------+---------------
+Economic→Network           | 600        | 300          | 300           
+Status functor             | 600        | 300          | 300           
+Access functor             | 600        | 300          | 300           
+Nat. transformation        | 300        | 300          | 0             
+
+═════ AUSWERTUNG NACH: CATEGORY / FUNCTOR VISUALS / 02 / FUNCTORIALITY / NATURALITY CHECKS ═════
+Auswertung dieses einzelnen Artefakts: FUNCTORIALITY / NATURALITY CHECKS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Wenn Funktoren und natürliche Transformationen viele Checks bestehen,
+    bleiben Status, Zugang und Netzwerkabbildung formal kohärent. Wenn
+    Verletzungen auftreten, heißt das: Die Simulation erzeugt Stellen, an
+    denen ökonomische Macht, Netzwerkzugang und Hierarchie nicht sauber
+    zusammenpassen. Das kann als Krisen- oder Reformindikator gelesen
+    werden.
+
+════════ ERKLÄRUNG VOR: CATEGORY / FUNCTOR VISUALS / 03 / UNIVERSAL PROPERTY WITNESSES ═════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: CATEGORY / FUNCTOR VISUALS.
+Interner Artefaktname: UNIVERSAL PROPERTY WITNESSES. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Tabellen visualisieren mathematische Kategorien, Funktoren,
+    natürliche Transformationen und universelle Eigenschaften. Objects
+    sind Objekte, Morphisms gerichtete Abbildungen, Hom-sets Objektpaare
+    mit Morphismen. Boundary/Identity/Natural prüfen, ob die
+    strukturellen Abbildungen konsistent bleiben.
+
+──────────────── CATEGORY / FUNCTOR VISUALS / 03 / UNIVERSAL PROPERTY WITNESSES ────────────────
+═════════════════════════════════ UNIVERSAL PROPERTY WITNESSES ═════════════════════════════════
+Universal witness                  | Kind         | Checked   | Passed    | Ratio   
+-----------------------------------+--------------+-----------+-----------+---------
+Solar UN initial governance sour   | initial      | 200       | 191       | 0.955   
+Market as product-like access/go   | product      | 2         | 2         | 1.0     
+
+═══════ AUSWERTUNG NACH: CATEGORY / FUNCTOR VISUALS / 03 / UNIVERSAL PROPERTY WITNESSES ════════
+Auswertung dieses einzelnen Artefakts: UNIVERSAL PROPERTY WITNESSES. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Wenn Funktoren und natürliche Transformationen viele Checks bestehen,
+    bleiben Status, Zugang und Netzwerkabbildung formal kohärent. Wenn
+    Verletzungen auftreten, heißt das: Die Simulation erzeugt Stellen, an
+    denen ökonomische Macht, Netzwerkzugang und Hierarchie nicht sauber
+    zusammenpassen. Das kann als Krisen- oder Reformindikator gelesen
+    werden.
+
+═════════ ERKLÄRUNG VOR: PRESHEAF / SHEAF VISUALS / 01 / PRESHEAF / SHEAF COVER GLUING ═════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: PRESHEAF / SHEAF VISUALS.
+Interner Artefaktname: PRESHEAF / SHEAF COVER GLUING. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Tabellen zeigen Prägarben und Garben. Lokale Marktzustände
+    werden als Sections gespeichert. Covers sind Überdeckungen lokaler
+    Märkte durch größere Governance-Objekte. Glued bedeutet, dass lokale
+    Zustände zu einer globaleren Sicht verklebt wurden.
+
+──────────────── PRESHEAF / SHEAF VISUALS / 01 / PRESHEAF / SHEAF COVER GLUING ─────────────────
+════════════════════════════════ PRESHEAF / SHEAF COVER GLUING ═════════════════════════════════
+Object                           | Cover size | Glued    | Shape               
+---------------------------------+------------+----------+---------------------
+Solar System United Nations      | 3          | no       | ▄▁█                 
+United Nations of Earth          | 80         | yes      | █▁▁                 
+United Nations of Mars           | 80         | yes      | █▁▁                 
+United Nations of Moon           | 80         | yes      | █▁▁                 
+
+════════ AUSWERTUNG NACH: PRESHEAF / SHEAF VISUALS / 01 / PRESHEAF / SHEAF COVER GLUING ════════
+Auswertung dieses einzelnen Artefakts: PRESHEAF / SHEAF COVER GLUING. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Gute Gluing-Werte bedeuten, dass lokale Märkte zu einer konsistenten
+    globaleren Sicht zusammengeführt werden können. Schlechte Werte
+    bedeuten lokale Fragmentierung: Märkte wissen lokal etwas, aber die
+    übergeordnete Governance kann daraus kein klares Gesamtbild bilden.
+
+═════════════════ ERKLÄRUNG VOR: PRESHEAF / SHEAF VISUALS / 02 / SHEAF METRICS ═════════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: PRESHEAF / SHEAF VISUALS.
+Interner Artefaktname: SHEAF METRICS. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Tabellen zeigen Prägarben und Garben. Lokale Marktzustände
+    werden als Sections gespeichert. Covers sind Überdeckungen lokaler
+    Märkte durch größere Governance-Objekte. Glued bedeutet, dass lokale
+    Zustände zu einer globaleren Sicht verklebt wurden.
+
+──────────────────────── PRESHEAF / SHEAF VISUALS / 02 / SHEAF METRICS ─────────────────────────
+════════════════════════════════════════ SHEAF METRICS ═════════════════════════════════════════
+Sheaf metric                   | Value         
+-------------------------------+---------------
+sections                       | 1632          
+objects_with_sections          | 1392          
+covers                         | 4             
+glued                          | 3             
+compatibility_checks           | 6             
+compatibility_passed           | 3             
+
+════════════════ AUSWERTUNG NACH: PRESHEAF / SHEAF VISUALS / 02 / SHEAF METRICS ════════════════
+Auswertung dieses einzelnen Artefakts: SHEAF METRICS. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Gute Gluing-Werte bedeuten, dass lokale Märkte zu einer konsistenten
+    globaleren Sicht zusammengeführt werden können. Schlechte Werte
+    bedeuten lokale Fragmentierung: Märkte wissen lokal etwas, aber die
+    übergeordnete Governance kann daraus kein klares Gesamtbild bilden.
+
+═════════════ ERKLÄRUNG VOR: MARKET DOMAIN VISUALS / 01 / MARKET VOLUME BY DOMAIN ══════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: MARKET DOMAIN VISUALS.
+Interner Artefaktname: MARKET VOLUME BY DOMAIN. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Diagramme zeigen Marktvolumen und Markttrades nach Domain sowie
+    eine Domain-Level-Heatmap. Domain ist der Marktbereich, etwa energy,
+    defense, market_rights, care, data oder burden. Die Heatmap zeigt,
+    auf welchen Hierarchiehöhen diese Domains aktiv sind.
+
+───────────────────── MARKET DOMAIN VISUALS / 01 / MARKET VOLUME BY DOMAIN ─────────────────────
+═══════════════════════════════════ MARKET VOLUME BY DOMAIN ════════════════════════════════════
+privilege              │████████████████████████████████████│ 99.1k
+market_rights          │██████████████████████░░░░░░░░░░░░░░│ 63.1k
+burden                 │████████████████████░░░░░░░░░░░░░░░░│ 55.6k
+data                   │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.7k
+defense                │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.7k
+manufacturing          │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 3.0k
+finance                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.7k
+terraforming           │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.1k
+transport              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.0k
+housing                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.8k
+oxygen                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.5k
+research               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.5k
+agriculture            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.4k
+education              │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.4k
+compute                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.4k
+energy                 │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.3k
+
+════════════ AUSWERTUNG NACH: MARKET DOMAIN VISUALS / 01 / MARKET VOLUME BY DOMAIN ═════════════
+Auswertung dieses einzelnen Artefakts: MARKET VOLUME BY DOMAIN. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Dominante Domains zeigen, wo Hierarchiewährung zirkuliert. Hohe
+    Aktivität in market_rights bedeutet institutioneller Wettbewerb um
+    Märkte selbst. Hohe burden-Aktivität bedeutet, dass Lasten und
+    Benachteiligungen als handelbare Struktur wirken. Hohe defense- oder
+    energy-Aktivität verschiebt die Simulation in strategische Richtung.
+
+═════════════ ERKLÄRUNG VOR: MARKET DOMAIN VISUALS / 02 / MARKET TRADES BY DOMAIN ══════════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: MARKET DOMAIN VISUALS.
+Interner Artefaktname: MARKET TRADES BY DOMAIN. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Diagramme zeigen Marktvolumen und Markttrades nach Domain sowie
+    eine Domain-Level-Heatmap. Domain ist der Marktbereich, etwa energy,
+    defense, market_rights, care, data oder burden. Die Heatmap zeigt,
+    auf welchen Hierarchiehöhen diese Domains aktiv sind.
+
+───────────────────── MARKET DOMAIN VISUALS / 02 / MARKET TRADES BY DOMAIN ─────────────────────
+═══════════════════════════════════ MARKET TRADES BY DOMAIN ════════════════════════════════════
+privilege              │████████████████████████████████████│ 81.0
+burden                 │███████████████████████████████░░░░░│ 71.0
+market_rights          │███████████████████████████░░░░░░░░░│ 61.0
+manufacturing          │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 17.0
+agriculture            │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 16.0
+defense                │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 16.0
+transport              │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+data                   │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+housing                │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 12.0
+terraforming           │█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 12.0
+research               │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 10.0
+education              │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 9.00
+energy                 │████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 9.00
+finance                │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.00
+media                  │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.00
+food                   │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 6.00
+
+════════════ AUSWERTUNG NACH: MARKET DOMAIN VISUALS / 02 / MARKET TRADES BY DOMAIN ═════════════
+Auswertung dieses einzelnen Artefakts: MARKET TRADES BY DOMAIN. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Dominante Domains zeigen, wo Hierarchiewährung zirkuliert. Hohe
+    Aktivität in market_rights bedeutet institutioneller Wettbewerb um
+    Märkte selbst. Hohe burden-Aktivität bedeutet, dass Lasten und
+    Benachteiligungen als handelbare Struktur wirken. Hohe defense- oder
+    energy-Aktivität verschiebt die Simulation in strategische Richtung.
+
+══════════ ERKLÄRUNG VOR: MARKET DOMAIN VISUALS / 03 / MARKET DOMAIN × LEVEL HEATMAP ═══════════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: MARKET DOMAIN VISUALS.
+Interner Artefaktname: MARKET DOMAIN × LEVEL HEATMAP. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Diagramme zeigen Marktvolumen und Markttrades nach Domain sowie
+    eine Domain-Level-Heatmap. Domain ist der Marktbereich, etwa energy,
+    defense, market_rights, care, data oder burden. Die Heatmap zeigt,
+    auf welchen Hierarchiehöhen diese Domains aktiv sind.
+
+────────────────── MARKET DOMAIN VISUALS / 03 / MARKET DOMAIN × LEVEL HEATMAP ──────────────────
+════════════════════════════════ MARKET DOMAIN × LEVEL HEATMAP ═════════════════════════════════
+                1   2   3   4   5   6   7   8   9   10  11  12 
+privilege           ░     ·  █     ▓  ·  ▒          
+market_rights    ·  ·  ·     ·  ·  █                
+burden           ░     ·     ·  ▒     ·             
+data                                                
+defense                                             
+manufacturing                                       
+finance                                             
+terraforming                                        
+transport                                           
+housing                                             
+oxygen                                              
+research                                            
+agriculture                                         
+education                                           
+Legend: · low  ░▒▓█ high
+
+═════════ AUSWERTUNG NACH: MARKET DOMAIN VISUALS / 03 / MARKET DOMAIN × LEVEL HEATMAP ══════════
+Auswertung dieses einzelnen Artefakts: MARKET DOMAIN × LEVEL HEATMAP. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Dominante Domains zeigen, wo Hierarchiewährung zirkuliert. Hohe
+    Aktivität in market_rights bedeutet institutioneller Wettbewerb um
+    Märkte selbst. Hohe burden-Aktivität bedeutet, dass Lasten und
+    Benachteiligungen als handelbare Struktur wirken. Hohe defense- oder
+    energy-Aktivität verschiebt die Simulation in strategische Richtung.
+
+════ ERKLÄRUNG VOR: SAFE SUBPROCESS PARALLELISM VISUALS / 01 / SAFE SUBPROCESS PARALLELISM ═════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: SAFE SUBPROCESS PARALLELISM VISUALS.
+Interner Artefaktname: SAFE SUBPROCESS PARALLELISM. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Visualisierung erklärt die Prozessparallelisierung. Sie zeigt
+    Shards, Snapshotgröße, akzeptierte Vorschläge, Versuche und erzeugte
+    Vorschläge je Phase. Es werden keine Threads benutzt; Worker-Prozesse
+    schreiben Vorschlagsdateien, der Hauptprozess committet zentral.
+
+──────────── SAFE SUBPROCESS PARALLELISM VISUALS / 01 / SAFE SUBPROCESS PARALLELISM ────────────
+═════════════════════════════════ SAFE SUBPROCESS PARALLELISM ══════════════════════════════════
+Parallel metric                | Value           
+-------------------------------+-----------------
+enabled                        | yes             
+processes                      | 2               
+phase_calls                    | 5               
+snapshot_writes                | 1               
+snapshot_MB                    | 0.06            
+accepted_product               | 186             
+accepted_market_asset          | 53              
+accepted_privilege             | 81              
+accepted_burden                | 71              
+packet_templates               | 1800            
+
+═══ AUSWERTUNG NACH: SAFE SUBPROCESS PARALLELISM VISUALS / 01 / SAFE SUBPROCESS PARALLELISM ════
+Auswertung dieses einzelnen Artefakts: SAFE SUBPROCESS PARALLELISM. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Diese Werte zeigen nicht nur Performance, sondern Architektur. Viele
+    Vorschläge bei moderater Akzeptanz bedeuten, dass parallele Worker
+    Möglichkeitsräume erkunden, der Hauptprozess aber Konflikte sauber
+    filtert. Dadurch bleibt die Simulation stabiler als eine direkte
+    Parallelmutation von Wallets und Besitzständen.
+
+═════ ERKLÄRUNG VOR: SAFE SUBPROCESS PARALLELISM VISUALS / 02 / PARALLEL ATTEMPTS BY PHASE ═════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: SAFE SUBPROCESS PARALLELISM VISUALS.
+Interner Artefaktname: PARALLEL ATTEMPTS BY PHASE. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Visualisierung erklärt die Prozessparallelisierung. Sie zeigt
+    Shards, Snapshotgröße, akzeptierte Vorschläge, Versuche und erzeugte
+    Vorschläge je Phase. Es werden keine Threads benutzt; Worker-Prozesse
+    schreiben Vorschlagsdateien, der Hauptprozess committet zentral.
+
+──────────── SAFE SUBPROCESS PARALLELISM VISUALS / 02 / PARALLEL ATTEMPTS BY PHASE ─────────────
+══════════════════════════════════ PARALLEL ATTEMPTS BY PHASE ══════════════════════════════════
+product                │██████████████████████████████████│ 2.6k
+packet                 │███████████████████████░░░░░░░░░░░│ 1.8k
+privilege              │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 160
+burden                 │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 120
+market_asset           │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 55.0
+
+════ AUSWERTUNG NACH: SAFE SUBPROCESS PARALLELISM VISUALS / 02 / PARALLEL ATTEMPTS BY PHASE ════
+Auswertung dieses einzelnen Artefakts: PARALLEL ATTEMPTS BY PHASE. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Diese Werte zeigen nicht nur Performance, sondern Architektur. Viele
+    Vorschläge bei moderater Akzeptanz bedeuten, dass parallele Worker
+    Möglichkeitsräume erkunden, der Hauptprozess aber Konflikte sauber
+    filtert. Dadurch bleibt die Simulation stabiler als eine direkte
+    Parallelmutation von Wallets und Besitzständen.
+
+════ ERKLÄRUNG VOR: SAFE SUBPROCESS PARALLELISM VISUALS / 03 / PARALLEL PROPOSALS BY PHASE ═════
+Dieses einzelne UTF-8-Artefakt gehört zur Gruppe: SAFE SUBPROCESS PARALLELISM VISUALS.
+Interner Artefaktname: PARALLEL PROPOSALS BY PHASE. Es wird nicht als Bilddatei erzeugt, sondern
+direkt als Terminalgrafik. Balken bestehen aus █ und ░. Heatmap-Zeichen
+verwenden ·░▒▓█ für steigende Dichte. Tabellen nutzen Spaltenbreiten,
+Sparklines nutzen ▁▂▃▄▅▆▇█. Wenn AB/BA vorkommt, geht es um
+Kanalrichtung; Fly bedeutet Pakete im Flug; Block bedeutet
+Semaphore-Blockade; Lxx bedeutet Hierarchiestufe; H bedeutet
+Hierarchie-Abrechnungseinheit.
+
+
+    Diese Visualisierung erklärt die Prozessparallelisierung. Sie zeigt
+    Shards, Snapshotgröße, akzeptierte Vorschläge, Versuche und erzeugte
+    Vorschläge je Phase. Es werden keine Threads benutzt; Worker-Prozesse
+    schreiben Vorschlagsdateien, der Hauptprozess committet zentral.
+
+──────────── SAFE SUBPROCESS PARALLELISM VISUALS / 03 / PARALLEL PROPOSALS BY PHASE ────────────
+═════════════════════════════════ PARALLEL PROPOSALS BY PHASE ══════════════════════════════════
+product                │██████████████████████████████████│ 2.6k
+
+═══ AUSWERTUNG NACH: SAFE SUBPROCESS PARALLELISM VISUALS / 03 / PARALLEL PROPOSALS BY PHASE ════
+Auswertung dieses einzelnen Artefakts: PARALLEL PROPOSALS BY PHASE. Lies es zuerst lokal und dann
+im Zusammenhang mit den Zahlenblöcken. Ein Balken zeigt relative Stärke,
+nicht automatisch moralische Qualität. Eine Heatmap zeigt Konzentration,
+nicht automatisch Effizienz. Eine Tabelle zeigt Struktur, aber nicht alle
+Einzelfälle. Wichtig ist, ob mehrere Artefakte dieselbe Richtung zeigen:
+zum Beispiel hohe Marktwerte, hohe Netzwerkblockaden und hohe
+Marktbesitzwechsel zusammen.
+
+
+    Diese Werte zeigen nicht nur Performance, sondern Architektur. Viele
+    Vorschläge bei moderater Akzeptanz bedeuten, dass parallele Worker
+    Möglichkeitsräume erkunden, der Hauptprozess aber Konflikte sauber
+    filtert. Dadurch bleibt die Simulation stabiler als eine direkte
+    Parallelmutation von Wallets und Besitzständen.
+
+═══════════════════════ ABSCHLUSS: AUSGEWOGENE SZENARIENZUSAMMENFASSUNG ════════════════════════
+Abschlusszusammenfassung und mehrere mögliche Zufallsausgänge:
+
+Dieser konkrete Lauf ist ein Szenario. Bei anderem seed kann dieselbe
+Architektur mehrere plausible Richtungen nehmen. Erstens kann ein
+Konzentrationsszenario entstehen: wenige Länder, Unternehmen oder Märkte
+gewinnen früh hohe Hierarchiestufen, kaufen Marktzugänge und verstärken
+ihre Position. Das ist effizient, kann aber Macht verkrusten.
+
+Zweitens kann ein föderiertes Ausgleichsszenario entstehen: viele Märkte
+bleiben mittelstark, lokale planetare Strukturen entwickeln eigene
+Schwerpunkte, und Privilegien/Burdens verteilen Chancen und Lasten
+breiter. Das ist stabiler und politisch robuster, kann aber langsamer
+koordinieren.
+
+Drittens kann ein Infrastruktur-Engpassszenario entstehen: Netzwerkqueues,
+Half-Duplex-Kanäle oder Semaphore blockieren viele Pakete. Dann ist nicht
+der Mangel an Produkten das Hauptproblem, sondern die begrenzte Fähigkeit,
+Status-, Preis-, Governance- und Marktdaten schnell genug zu bewegen.
+
+Viertens kann ein Garbenkohärenz-Szenario entstehen: lokale Märkte lassen
+sich gut verkleben, wodurch globale Institutionen sinnvolle Gesamtbilder
+erhalten. Im Gegenfall entsteht Fragmentierung: lokale Märkte sind aktiv,
+aber globale Governance sieht nur widersprüchliche Ausschnitte.
+
+Fünftens kann ein Korrekturszenario durch manual_lifts entstehen. Wenn
+Care-, Media-, Science- und Trust-Akteure häufig gehoben werden, gleicht
+das reine Marktstärke aus. Wenn diese Hebungen zu stark werden, droht
+politische Verzerrung; wenn sie zu schwach sind, gewinnen nur messbare
+Kapital- und Marktmacht.
+
+Ausgewogen gelesen zeigt die Simulation also nicht: „Hierarchie gewinnt
+immer“ oder „Märkte gewinnen immer“. Sie zeigt ein Spannungsfeld:
+Hierarchie macht Koordination expliziter, Märkte erzeugen Bewegung,
+Netzwerke begrenzen Durchsatz, Kategorien prüfen Strukturtreue, Garben
+prüfen lokale-globale Konsistenz, und Zufallswerte entscheiden, welche
+Dynamik in einem Lauf dominant wird.

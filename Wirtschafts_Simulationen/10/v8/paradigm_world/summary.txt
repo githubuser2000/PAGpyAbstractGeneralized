@@ -26,14 +26,14 @@ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pu
 Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neue Prädikat-Elemente in WK.
 
 KURZZUSAMMENFASSUNG DES AKTUELLEN LAUFS:
-Preset: tiny | Seed: 7 | Monate: 24
-Agenten: 88 | Länder: 6 | Events: 6
-Planet-GDP: 182.72B
-WK-Score: 120175.36 | WK-positiv: 136312.03 | Wahrheitsschuld: 16136.66
-Logikprädikate: Elemente=3375 | Verifikationen=3201 | Falsifikationen=174
-Morphismen: Economy=436 Truth=2486 Law=2487 Security=2193
+Preset: standard | Seed: 7 | Monate: 24
+Agenten: 492 | Länder: 18 | Events: 9
+Planet-GDP: 545.16B
+WK-Score: 335441.41 | WK-positiv: 418863.21 | Wahrheitsschuld: 83421.80
+Logikprädikate: Elemente=11450 | Verifikationen=10453 | Falsifikationen=997
+Morphismen: Economy=2446 Truth=2712 Law=2714 Security=2422
 Letzte Garben-Konsistenzlücke: 0.0000
-Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
+Parallel: Prozesse=6 Start=fork Batches=313 Tasks=41926 Fallback=0
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Dokumentation der Ausgabe                                                                                   ║
@@ -230,18 +230,18 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Netzwerk-Topologie, Queues, Half-/Full-Duplex                                                               ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ trade        topology=core-periphery  nodes=   66 edges=  539 density=0.2513 queue=    0 delivered=    398  ║
-║              duplex: HALF=   0 FULL= 539 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
-║ credit       topology=star            nodes=   38 edges=   40 density=0.0569 queue=    0 delivered=     21  ║
-║              duplex: HALF=   0 FULL=  40 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                ║
-║ governance   topology=star            nodes=   28 edges=   31 density=0.0820 queue=    1 delivered=     23  ║
-║              duplex: HALF=   0 FULL=  31 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁                         ║
-║ defense      topology=mesh            nodes=   20 edges=   36 density=0.1895 queue=    3 delivered=     17  ║
-║              duplex: HALF=  36 FULL=   0 load-spark=▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                    ║
-║ knowledge    topology=mesh            nodes=   76 edges=  236 density=0.0828 queue=    0 delivered=      0  ║
-║              duplex: HALF=   0 FULL= 236 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
-║ truth        topology=core-periphery  nodes=   76 edges=  463 density=0.1625 queue=    0 delivered=    288  ║
-║              duplex: HALF=   0 FULL= 463 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ trade        topology=core-periphery  nodes=  414 edges= 5431 density=0.0635 queue=    0 delivered=   2381  ║
+║              duplex: HALF=   0 FULL=5431 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ credit       topology=star            nodes=  131 edges=  128 density=0.0150 queue=    0 delivered=     45  ║
+║              duplex: HALF=   0 FULL= 128 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ governance   topology=star            nodes=   96 edges=  105 density=0.0230 queue=    0 delivered=     24  ║
+║              duplex: HALF=   0 FULL= 105 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ defense      topology=mesh            nodes=   81 edges=  302 density=0.0932 queue=    0 delivered=     20  ║
+║              duplex: HALF= 302 FULL=   0 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ knowledge    topology=mesh            nodes=  420 edges= 1406 density=0.0160 queue=    0 delivered=      0  ║
+║              duplex: HALF=   0 FULL=1406 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ truth        topology=core-periphery  nodes=  420 edges= 4437 density=0.0504 queue=    0 delivered=    288  ║
+║              duplex: HALF=   0 FULL=4437 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -301,54 +301,54 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Semaphore als Knappheits- und Durchleitungslogik                                                            ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ fullduplex:trade:plat↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 7/17                                                                                                        ║
-║ fullduplex:trade:plat↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 7/17                                                                                                        ║
-║ fullduplex:trade:plat↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 8/18                                                                                                        ║
-║ fullduplex:trade:plat↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 8/18                                                                                                        ║
-║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 2/22                                                                                                        ║
-║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 2/22                                                                                                        ║
-║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 1/11                                                                                                        ║
-║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 1/11                                                                                                        ║
-║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 4/24                                                                                                        ║
-║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 4/24                                                                                                        ║
-║ fullduplex:trade:plat↔coun:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ fullduplex:trade:hous↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
 ║ 7/27                                                                                                        ║
-║ fullduplex:trade:plat↔coun:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ fullduplex:trade:hous↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
 ║ 7/27                                                                                                        ║
-║ fullduplex:trade:plat↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 2/12                                                                                                        ║
-║ fullduplex:trade:plat↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 2/12                                                                                                        ║
-║ fullduplex:trade:plat↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 8/28                                                                                                        ║
-║ fullduplex:trade:plat↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
-║ 8/28                                                                                                        ║
-║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ fullduplex:trade:hous↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
 ║ 3/23                                                                                                        ║
-║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ fullduplex:trade:hous↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
 ║ 3/23                                                                                                        ║
-║ fullduplex:trade:rese↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 7/17                                                                                                        ║
-║ fullduplex:trade:rese↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 7/17                                                                                                        ║
-║ fullduplex:trade:rese↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ fullduplex:trade:hous↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 0/10                                                                                                        ║
+║ fullduplex:trade:hous↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 0/10                                                                                                        ║
+║ fullduplex:trade:hous↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 1/11                                                                                                        ║
+║ fullduplex:trade:hous↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 1/11                                                                                                        ║
+║ fullduplex:trade:hous↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 5/15                                                                                                        ║
+║ fullduplex:trade:hous↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 5/15                                                                                                        ║
+║ fullduplex:trade:hous↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
 ║ 2/12                                                                                                        ║
-║ fullduplex:trade:rese↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ fullduplex:trade:hous↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
 ║ 2/12                                                                                                        ║
-║ fullduplex:trade:rese↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 2/12                                                                                                        ║
-║ fullduplex:trade:rese↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
-║ 2/12                                                                                                        ║
+║ fullduplex:trade:hous↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:hous↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:hous↔plat:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 6/16                                                                                                        ║
+║ fullduplex:trade:hous↔plat:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 6/16                                                                                                        ║
+║ fullduplex:trade:hous↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:hous↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:hous↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 2/22                                                                                                        ║
+║ fullduplex:trade:hous↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 2/22                                                                                                        ║
+║ fullduplex:trade:hous↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 8/28                                                                                                        ║
+║ fullduplex:trade:hous↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 8/28                                                                                                        ║
+║ fullduplex:trade:hous↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 6/16                                                                                                        ║
+║ fullduplex:trade:hous↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 6/16                                                                                                        ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -408,10 +408,10 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Kategorie, Morphismus, Funktor, natürliche Transformation                                                   ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ 𝓔 Economy            Objekte=    88 Morphismen=     436 id-law-gap=0.0000                                   ║
-║ 𝓣 Truth              Objekte=    88 Morphismen=    2486 id-law-gap=0.0000                                   ║
-║ 𝓛 Law                Objekte=    88 Morphismen=    2487 id-law-gap=0.0000                                   ║
-║ 𝓢 Security           Objekte=    88 Morphismen=    2193 id-law-gap=0.0000                                   ║
+║ 𝓔 Economy            Objekte=   492 Morphismen=    2446 id-law-gap=0.0000                                   ║
+║ 𝓣 Truth              Objekte=   492 Morphismen=    2712 id-law-gap=0.0000                                   ║
+║ 𝓛 Law                Objekte=   492 Morphismen=    2714 id-law-gap=0.0000                                   ║
+║ 𝓢 Security           Objekte=   492 Morphismen=    2422 id-law-gap=0.0000                                   ║
 ║                                                                                                             ║
 ║ Diagramm:                                                                                                   ║
 ║    Fiat/Trade-Morphismus ──F──▶ Truth-Morphismus                                                            ║
@@ -421,12 +421,12 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ║      Legal-Morphismus ──S──▶ Security-Morphismus                                                            ║
 ║                                                                                                             ║
 ║ UniversalProperty Terminalobjekt                     gap=1.0000                                             ║
-║ UniversalProperty Produktobjekt Fiat×WK              gap=3.2350                                             ║
+║ UniversalProperty Produktobjekt Fiat×WK              gap=3.2042                                             ║
 ║ UniversalProperty Pullback Vertrag×Lieferung         gap=1.0000                                             ║
 ║ UniversalProperty Pushout Konflikt→Resolution        gap=1.0000                                             ║
-║ UniversalProperty Equalizer sozial=epistemisch       gap=2.3521                                             ║
-║ NaturalTransformation η: F⇒L                         naturality_gap=23.3242 components=88                   ║
-║ NaturalTransformation η: F⇒S                         naturality_gap=24.1990 components=88                   ║
+║ UniversalProperty Equalizer sozial=epistemisch       gap=2.2848                                             ║
+║ NaturalTransformation η: F⇒L                         naturality_gap=23.2591 components=492                  ║
+║ NaturalTransformation η: F⇒S                         naturality_gap=24.5957 components=492                  ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -486,17 +486,18 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Prägarben, Garben, Topologie und Klebeeigenschaft                                                           ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Topologischer Raum: Planetary Grothendieck Site | offene Mengen=145                                         ║
+║ Topologischer Raum: Planetary Grothendieck Site | offene Mengen=411                                         ║
 ║ Globale Garben-Konsistenzlücke: 0.0000                                                                      ║
 ║                                                                                                             ║
 ║ Covering-Family für Planet:                                                                                 ║
-║   U=Currency:KAI0            |U|=  14 section-score=   1640.62                                              ║
-║   U=Currency:BOR1            |U|=  14 section-score=   1575.99                                              ║
-║   U=Currency:UMB2            |U|=  14 section-score=   1510.70                                              ║
-║   U=Currency:JUN3            |U|=  14 section-score=   1232.52                                              ║
-║   U=Currency:TET4            |U|=  14 section-score=   1194.37                                              ║
-║   U=Currency:ZEN5            |U|=  14 section-score=    940.26                                              ║
-║   U=Currency:WK              |U|=   4 section-score=   1713.25                                              ║
+║   U=Currency:KAI0            |U|=  27 section-score=    770.30                                              ║
+║   U=Currency:BOR1            |U|=  27 section-score=    733.21                                              ║
+║   U=Currency:UMB2            |U|=  27 section-score=    818.48                                              ║
+║   U=Currency:JUN3            |U|=  27 section-score=    603.74                                              ║
+║   U=Currency:TET4            |U|=  27 section-score=    719.45                                              ║
+║   U=Currency:ZEN5            |U|=  27 section-score=    760.09                                              ║
+║   U=Currency:CIV6            |U|=  27 section-score=    988.11                                              ║
+║   U=Currency:RHE7            |U|=  27 section-score=    592.99                                              ║
 ║                                                                                                             ║
 ║ Garben-Kleben:                                                                                              ║
 ║   lokale Sektionen s_i ∈ F(U_i)                                                                             ║
@@ -561,43 +562,43 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Gestapelte Wahrheit als planetare Vektorwährung WK                                                          ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Globaler WK-Score=120175.36 | Positiv=136312.03 | Wahrheitsschuld=16136.66                                  ║
+║ Globaler WK-Score=335441.41 | Positiv=418863.21 | Wahrheitsschuld=83421.80                                  ║
 ║                                                                                                             ║
-║ epistemic                + ████████████████████████████████████   35025.75                                  ║
-║ legal                    + █████████████████░░░░░░░░░░░░░░░░░░░   16766.83                                  ║
-║ category_coherence       + ████████████████░░░░░░░░░░░░░░░░░░░░   16338.12                                  ║
-║ social                   + █████████████░░░░░░░░░░░░░░░░░░░░░░░   12775.20                                  ║
-║ temporal                 - ███████████░░░░░░░░░░░░░░░░░░░░░░░░░  -10856.78                                  ║
-║ sheaf_consistency        + ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░    9905.67                                  ║
-║ liquidity                - ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   -6908.40                                  ║
-║ network_reachability     + ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    4642.75                                  ║
-║ infrastructure           + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2868.88                                  ║
-║ health                   + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1543.38                                  ║
-║ causal                   + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1350.92                                  ║
-║ security                 + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1345.34                                  ║
-║ existence                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1249.22                                  ║
-║ sovereignty              + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1150.66                                  ║
-║ education                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1116.11                                  ║
-║ potential                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     909.37                                  ║
-║ memory                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     828.68                                  ║
-║ shelter                  + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     801.77                                  ║
-║ risk_reduction           + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     604.81                                  ║
-║ attention                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     479.54                                  ║
-║ logistics                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     396.83                                  ║
-║ food                     + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     343.88                                  ║
-║ perception               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     241.92                                  ║
-║ ecological               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     218.49                                  ║
-║ comparative              + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     173.83                                  ║
-║ energy                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      93.32                                  ║
+║ epistemic                + ████████████████████████████████████   90727.21                                  ║
+║ temporal                 - ██████████████████████░░░░░░░░░░░░░░  -55922.87                                  ║
+║ legal                    + █████████████████████░░░░░░░░░░░░░░░   53863.49                                  ║
+║ category_coherence       + ██████████████████░░░░░░░░░░░░░░░░░░   47434.88                                  ║
+║ social                   + ███████████████░░░░░░░░░░░░░░░░░░░░░   40096.74                                  ║
+║ liquidity                - ██████████████░░░░░░░░░░░░░░░░░░░░░░  -35887.36                                  ║
+║ sheaf_consistency        + ███████████░░░░░░░░░░░░░░░░░░░░░░░░░   29686.82                                  ║
+║ network_reachability     + ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   16220.25                                  ║
+║ infrastructure           + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    8605.06                                  ║
+║ existence                + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    7263.85                                  ║
+║ causal                   + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    6119.31                                  ║
+║ security                 + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    5767.72                                  ║
+║ health                   + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    5736.25                                  ║
+║ memory                   + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    4749.34                                  ║
+║ sovereignty              + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    4674.52                                  ║
+║ potential                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    3851.45                                  ║
+║ education                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    3672.70                                  ║
+║ shelter                  + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2893.55                                  ║
+║ risk_reduction           + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2710.36                                  ║
+║ perception               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2226.35                                  ║
+║ attention                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2209.81                                  ║
+║ food                     + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2032.48                                  ║
+║ logistics                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1992.99                                  ║
+║ ecological               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1549.90                                  ║
+║ comparative              + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1062.30                                  ║
+║ energy                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     792.97                                  ║
 ║ ethical                  + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       0.00                                  ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Interpretation nach TruthVectorRenderer                                                                     ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Interpretation: Der globale WK-Score beträgt 120175.36. Die stärksten positiven Schichten sind epistemic=35 ║
-║ 025.8, legal=16766.8, category_coherence=16338.1, social=12775.2, sheaf_consistency=9905.7. Die stärksten n ║
-║ egativen Schichten bzw. Wahrheitsschulden sind temporal=-10856.8, liquidity=-6908.4.                        ║
+║ Interpretation: Der globale WK-Score beträgt 335441.41. Die stärksten positiven Schichten sind epistemic=90 ║
+║ 727.2, legal=53863.5, category_coherence=47434.9, social=40096.7, sheaf_consistency=29686.8. Die stärksten  ║
+║ negativen Schichten bzw. Wahrheitsschulden sind temporal=-55922.9, liquidity=-35887.4.                      ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -650,63 +651,63 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Logikprädikate der Wahrheitswährung: Verifikation/Falsifikation                                             ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Logikprädikat-Elemente gesamt=3375 | Verifikationen=3201 | Falsifikationen=174                              ║
+║ Logikprädikat-Elemente gesamt=11450 | Verifikationen=10453 | Falsifikationen=997                            ║
 ║                                                                                                             ║
-║ M0024 VER company→company    Construction Fou → Media Guild Juno s= 6.0 transaction/purcha                  ║
-║       verified(verifier=construction_foundry_kairounion_4, subject=media_guild_junokron_1, context          ║
-║ M0024 VER company→company    Media Guild Juno → Construction Fou s= 6.0 transaction/purcha                  ║
-║       verified(verifier=media_guild_junokron_1, subject=construction_foundry_kairounion_4, context          ║
-║ M0024 VER country→company    Kairounion       → Media Guild Juno s= 6.0 transaction/purcha                  ║
-║       verified(verifier=kairounion, subject=media_guild_junokron_1, context=transaction_purchase_c          ║
-║ M0024 VER country→company    Junokron         → Construction Fou s= 6.0 transaction/purcha                  ║
-║       verified(verifier=junokron, subject=construction_foundry_kairounion_4, context=transaction_p          ║
-║ M0024 VER bank→company       Central Bank of  → Culture Arc Teth s= 6.0 transaction/audit                   ║
-║       verified(verifier=central_bank_of_junokron, subject=culture_arc_tethysstaat_4, context=trans          ║
-║ M0024 VER company→bank       Culture Arc Teth → Central Bank of  s= 6.0 transaction/audit                   ║
-║       verified(verifier=culture_arc_tethysstaat_4, subject=central_bank_of_junokron, context=trans          ║
-║ M0024 VER country→company    Junokron         → Culture Arc Teth s= 6.0 transaction/audit/                  ║
-║       verified(verifier=junokron, subject=culture_arc_tethysstaat_4, context=transaction_audit_cou          ║
+║ M0024 VER country→company    Elioskron        → Food Labs Ferrom s= 6.0 transaction/purcha                  ║
+║       verified(verifier=elioskron, subject=food_labs_ferromark_15, context=transaction_purchase_co          ║
+║ M0024 VER company→company    Food Guild Miral → Law Arc Kairouni s= 6.0 transaction/purcha                  ║
+║       verified(verifier=food_guild_miraland_11, subject=law_arc_kairounion_6, context=transaction_          ║
+║ M0024 VER company→company    Law Arc Kairouni → Food Guild Miral s= 6.0 transaction/purcha                  ║
+║       verified(verifier=law_arc_kairounion_6, subject=food_guild_miraland_11, context=transaction_          ║
+║ M0024 VER country→company    Miraland         → Law Arc Kairouni s= 6.0 transaction/purcha                  ║
+║       verified(verifier=miraland, subject=law_arc_kairounion_6, context=transaction_purchase_count          ║
+║ M0024 VER country→company    Kairounion       → Food Guild Miral s= 6.0 transaction/purcha                  ║
+║       verified(verifier=kairounion, subject=food_guild_miraland_11, context=transaction_purchase_c          ║
+║ M0024 VER company→company    Tourism Systems  → Logistics System s= 6.0 transaction/purcha                  ║
+║       verified(verifier=tourism_systems_borealreich_15, subject=logistics_systems_borealreich_13,           ║
+║ M0024 FAL company→company    Logistics System → Tourism Systems  s= 6.0 transaction/purcha                  ║
+║       falsified(verifier=logistics_systems_borealreich_13, subject=tourism_systems_borealreich_15,          ║
+║ M0024 VER country→company    Borealreich      → Logistics System s= 6.0 transaction/purcha                  ║
+║       verified(verifier=borealreich, subject=logistics_systems_borealreich_13, context=transaction          ║
+║ M0024 FAL country→company    Borealreich      → Tourism Systems  s= 6.0 transaction/purcha                  ║
+║       falsified(verifier=borealreich, subject=tourism_systems_borealreich_15, context=transaction_          ║
+║ M0024 VER institution→country Aegis Compact 4  → Junokron         s= 6.0 transaction/defens                 ║
+║       verified(verifier=aegis_compact_4, subject=junokron, context=transaction_defense, market=def          ║
+║ M0024 VER country→institution Junokron         → Aegis Compact 4  s= 6.0 transaction/defens                 ║
+║       verified(verifier=junokron, subject=aegis_compact_4, context=transaction_defense, market=def          ║
+║ M0024 VER country→institution Junokron         → Aegis Compact 4  s= 6.0 transaction/defens                 ║
+║       verified(verifier=junokron, subject=aegis_compact_4, context=transaction_defense_country_ove          ║
+║ M0024 VER bank→company       Central Bank of  → Biotech Guild Te s= 6.0 transaction/audit                   ║
+║       verified(verifier=central_bank_of_praxareich, subject=biotech_guild_tethysstaat_18, context=          ║
+║ M0024 VER company→bank       Biotech Guild Te → Central Bank of  s= 6.0 transaction/audit                   ║
+║       verified(verifier=biotech_guild_tethysstaat_18, subject=central_bank_of_praxareich, context=          ║
+║ M0024 VER country→company    Praxareich       → Biotech Guild Te s= 6.0 transaction/audit/                  ║
+║       verified(verifier=praxareich, subject=biotech_guild_tethysstaat_18, context=transaction_audi          ║
 ║ M0024 VER country→bank       Tethysstaat      → Central Bank of  s= 6.0 transaction/audit/                  ║
-║       verified(verifier=tethysstaat, subject=central_bank_of_junokron, context=transaction_audit_c          ║
-║ M0024 VER bank→company       Union Bank Umbra → Luxury Systems Z s= 6.0 transaction/audit                   ║
-║       verified(verifier=union_bank_umbramark_1, subject=luxury_systems_zenitunion_8, context=trans          ║
-║ M0024 VER company→bank       Luxury Systems Z → Union Bank Umbra s= 6.0 transaction/audit                   ║
-║       verified(verifier=luxury_systems_zenitunion_8, subject=union_bank_umbramark_1, context=trans          ║
-║ M0024 VER country→company    Umbramark        → Luxury Systems Z s= 6.0 transaction/audit/                  ║
-║       verified(verifier=umbramark, subject=luxury_systems_zenitunion_8, context=transaction_audit_          ║
-║ M0024 VER country→bank       Zenitunion       → Union Bank Umbra s= 6.0 transaction/audit/                  ║
-║       verified(verifier=zenitunion, subject=union_bank_umbramark_1, context=transaction_audit_coun          ║
-║ M0024 VER bank→company       Meridian Bank Ju → Luxury Systems Z s= 6.0 transaction/audit                   ║
-║       verified(verifier=meridian_bank_junokron_2, subject=luxury_systems_zenitunion_8, context=tra          ║
-║ M0024 VER company→bank       Luxury Systems Z → Meridian Bank Ju s= 6.0 transaction/audit                   ║
-║       verified(verifier=luxury_systems_zenitunion_8, subject=meridian_bank_junokron_2, context=tra          ║
-║ M0024 VER country→company    Junokron         → Luxury Systems Z s= 6.0 transaction/audit/                  ║
-║       verified(verifier=junokron, subject=luxury_systems_zenitunion_8, context=transaction_audit_c          ║
-║ M0024 VER country→bank       Zenitunion       → Meridian Bank Ju s= 6.0 transaction/audit/                  ║
-║       verified(verifier=zenitunion, subject=meridian_bank_junokron_2, context=transaction_audit_co          ║
-║ M0024 VER bank→company       Nova Bank Tethys → Finance Guild Te s= 6.0 transaction/audit                   ║
-║       verified(verifier=nova_bank_tethysstaat_1, subject=finance_guild_tethysstaat_2, context=tran          ║
-║ M0024 VER company→bank       Finance Guild Te → Nova Bank Tethys s= 6.0 transaction/audit                   ║
-║       verified(verifier=finance_guild_tethysstaat_2, subject=nova_bank_tethysstaat_1, context=tran          ║
-║ M0024 VER country→company    Tethysstaat      → Finance Guild Te s= 6.0 transaction/audit/                  ║
-║       verified(verifier=tethysstaat, subject=finance_guild_tethysstaat_2, context=transaction_audi          ║
-║ M0024 VER country→bank       Tethysstaat      → Nova Bank Tethys s= 6.0 transaction/audit/                  ║
-║       verified(verifier=tethysstaat, subject=nova_bank_tethysstaat_1, context=transaction_audit_co          ║
-║ M0024 FAL bank→company       Nova Bank Junokr → Defense Arc Juno s= 6.0 transaction/audit                   ║
-║       falsified(verifier=nova_bank_junokron_1, subject=defense_arc_junokron_4, context=transaction          ║
-║ M0024 VER company→bank       Defense Arc Juno → Nova Bank Junokr s= 6.0 transaction/audit                   ║
-║       verified(verifier=defense_arc_junokron_4, subject=nova_bank_junokron_1, context=transaction_          ║
-║ M0024 FAL country→company    Junokron         → Defense Arc Juno s= 6.0 transaction/audit/                  ║
-║       falsified(verifier=junokron, subject=defense_arc_junokron_4, context=transaction_audit_count          ║
-║ M0024 VER country→bank       Junokron         → Nova Bank Junokr s= 6.0 transaction/audit/                  ║
-║       verified(verifier=junokron, subject=nova_bank_junokron_1, context=transaction_audit_country_          ║
+║       verified(verifier=tethysstaat, subject=central_bank_of_praxareich, context=transaction_audit          ║
+║ M0024 FAL bank→company       Civic Bank Tethy → Culture Foundry  s= 6.0 transaction/audit                   ║
+║       falsified(verifier=civic_bank_tethysstaat_1, subject=culture_foundry_wegarepublik_1, context          ║
+║ M0024 VER company→bank       Culture Foundry  → Civic Bank Tethy s= 6.0 transaction/audit                   ║
+║       verified(verifier=culture_foundry_wegarepublik_1, subject=civic_bank_tethysstaat_1, context=          ║
+║ M0024 FAL country→company    Tethysstaat      → Culture Foundry  s= 6.0 transaction/audit/                  ║
+║       falsified(verifier=tethysstaat, subject=culture_foundry_wegarepublik_1, context=transaction_          ║
+║ M0024 VER country→bank       Wegarepublik     → Civic Bank Tethy s= 6.0 transaction/audit/                  ║
+║       verified(verifier=wegarepublik, subject=civic_bank_tethysstaat_1, context=transaction_audit_          ║
+║ M0024 VER bank→company       Trust Bank Rheam → Luxury Systems U s= 1.4 transaction/audit                   ║
+║       verified(verifier=trust_bank_rheamark_2, subject=luxury_systems_umbramark_2, context=transac          ║
+║ M0024 VER company→bank       Luxury Systems U → Trust Bank Rheam s= 6.0 transaction/audit                   ║
+║       verified(verifier=luxury_systems_umbramark_2, subject=trust_bank_rheamark_2, context=transac          ║
+║ M0024 VER country→company    Rheamark         → Luxury Systems U s= 6.0 transaction/audit/                  ║
+║       verified(verifier=rheamark, subject=luxury_systems_umbramark_2, context=transaction_audit_co          ║
+║ M0024 VER country→bank       Umbramark        → Trust Bank Rheam s= 6.0 transaction/audit/                  ║
+║       verified(verifier=umbramark, subject=trust_bank_rheamark_2, context=transaction_audit_countr          ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Interpretation nach PredicateLedgerRenderer                                                                 ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Interpretation: Die Simulation hat bisher 3201 Verifikationen und 174 Falsifikationen erzeugt. Jedes dieser ║
-║  Ereignisse erweitert das Logikprädikat der planetaren Wahrheitswährung um ein weiteres Element.            ║
+║ Interpretation: Die Simulation hat bisher 10453 Verifikationen und 997 Falsifikationen erzeugt. Jedes diese ║
+║ r Ereignisse erweitert das Logikprädikat der planetaren Wahrheitswährung um ein weiteres Element.           ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -760,42 +761,43 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ║ Verifikations-Matrix zwischen Ländern und Unternehmen                                                       ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Relation               total   verif   falsif   verif-rate                                                  ║
-║ country→country           200     200        0     100.00%                                                  ║
-║ company→company           722     666       56      92.24%                                                  ║
-║ country→company          1179    1088       91      92.28%                                                  ║
-║ company→country           212     212        0     100.00%                                                  ║
+║ country→country           278     278        0     100.00%                                                  ║
+║ company→company          3858    3427      431      88.83%                                                  ║
+║ country→company          4837    4338      499      89.68%                                                  ║
+║ company→country           275     275        0     100.00%                                                  ║
 ║                                                                                                             ║
 ║ Markt-Totals:                                                                                               ║
-║ audit              ██████████████████████████████████████████ 1172                                          ║
-║ defense            ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 231                                           ║
-║ construction       ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 188                                           ║
-║ insurance          ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 120                                           ║
-║ space              ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 120                                           ║
-║ biotech            ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 116                                           ║
+║ audit              ██████████████████████████████████████████ 1204                                          ║
+║ defense            ██████████████████████████░░░░░░░░░░░░░░░░ 755                                           ║
+║ culture            ██████████████████████░░░░░░░░░░░░░░░░░░░░ 632                                           ║
+║ finance            ██████████████████░░░░░░░░░░░░░░░░░░░░░░░░ 520                                           ║
+║ law                █████████████████░░░░░░░░░░░░░░░░░░░░░░░░░ 488                                           ║
+║ insurance          █████████████████░░░░░░░░░░░░░░░░░░░░░░░░░ 488                                           ║
+║ water              ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░ 444                                           ║
+║ cybersecurity      ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░ 444                                           ║
+║ luxury             ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░ 440                                           ║
+║ mobility           ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 428                                           ║
+║ agriculture        ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 420                                           ║
+║ housing            ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 416                                           ║
+║ construction       ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 412                                           ║
+║ software           ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 404                                           ║
+║ food               █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 400                                           ║
+║ media              █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 396                                           ║
+║ tourism            ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 352                                           ║
+║ health             ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 336                                           ║
+║ energy             ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 331                                           ║
+║ logistics          ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 324                                           ║
+║ research           ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 323                                           ║
+║ biotech            ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 300                                           ║
+║ education          ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 299                                           ║
+║ loan               ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 178                                           ║
+║ semiconductors     █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 164                                           ║
+║ space              █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 160                                           ║
 ║ goods              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 96                                            ║
 ║ credit             ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 96                                            ║
 ║ labor              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 96                                            ║
 ║ truth              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 96                                            ║
-║ health             ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 84                                            ║
-║ logistics          ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 80                                            ║
-║ loan               ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 79                                            ║
-║ culture            ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 76                                            ║
-║ cybersecurity      ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 76                                            ║
-║ luxury             ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 76                                            ║
-║ finance            ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 71                                            ║
-║ agriculture        ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 63                                            ║
-║ water              ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 56                                            ║
-║ housing            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 44                                            ║
-║ law                █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 44                                            ║
-║ software           █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 44                                            ║
-║ semiconductors     █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 44                                            ║
-║ energy             █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 40                                            ║
-║ food               █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 39                                            ║
-║ research           █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 36                                            ║
-║ media              █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 36                                            ║
-║ tourism            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 32                                            ║
-║ education          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 20                                            ║
-║ sanction           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                             ║
+║ sanction           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                             ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -856,7 +858,7 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Monate=24                                                                                                   ║
 ║ Verifikationen        ▁▁▁▂▂▂▃▃▃▄▄▄▅▅▅▆▆▆▇▇▇███                                                              ║
-║ Falsifikationen       ▁▁▁▂▂▂▂▃▃▃▄▅▅▅▆▆▆▆▇▇▇███                                                              ║
+║ Falsifikationen       ▁▁▁▁▁▂▂▂▃▃▃▄▄▄▅▅▆▆▆▇▇███                                                              ║
 ║ Prädikat-Elemente     ▁▁▁▂▂▂▃▃▃▄▄▄▅▅▅▆▆▆▇▇▇███                                                              ║
 ║ Transaktions-Prüf.    ▁▁▁▂▂▂▃▃▃▄▄▄▅▅▅▆▆▆▇▇▇███                                                              ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
@@ -919,19 +921,31 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ║ Länder × Wahrheitsdimensionen Heatmap                                                                       ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Land                       EPI LEG CAU SEC LIQ SHE CAT  score        debt      fiat                         ║
-║ Umbramark                  ▓  ░           ·  ░     4880.9      15.8     7.97B                               ║
-║ Kairounion                 ▓  ·           ·  ·     4489.7      -0.0     3.66B                               ║
-║ Junokron                   ▓  ░           ·  ·     4479.0      -0.0     1.85B                               ║
-║ Zenitunion                 ▓  ·           ·  ·     4330.0      12.2     3.37B                               ║
-║ Borealreich                ▓  ·           ·  ·     4280.4     118.1     3.71B                               ║
-║ Tethysstaat                ▓  ·           ·  ·     4253.1      57.1     1.54B                               ║
+║ Ioniabund                  ▓  ·           ·  ·     3059.3      -0.0     1.89B                               ║
+║ Borealreich                ▓  ░           ·  ·     3039.5      -0.0     3.74B                               ║
+║ Mirastaat                  ▓  ░           ·  ·     3023.4      -0.0     2.20B                               ║
+║ Dorianbund                 ▓  ·           ·  ·     3006.8      -0.0     7.39B                               ║
+║ Civitasreich               ▓  ·           ·  ·     2909.0      -0.0    12.52B                               ║
+║ Junokron                   ▓  ·           ·  ·     2869.2      -0.0     1.83B                               ║
+║ Rheamark                   ▓  ·           ·  ·     2829.1      -0.0     3.34B                               ║
+║ Wegakron                   ▓  ·           ·  ·     2668.2     112.4     3.98B                               ║
+║ Elioskron                  ▒  ·           ·  ·     2657.6      -0.0     1.87B                               ║
+║ Zenitunion                 ▒  ·              ·     2512.4      -0.0     3.34B                               ║
+║ Ferromark                  ▒  ·              ·     2507.7      -0.0   839.33M                               ║
+║ Tethysstaat                ▒  ·              ·     2483.4      -0.0     1.55B                               ║
+║ Praxareich                 ▒  ·              ·     2469.5      -0.0     8.05B                               ║
+║ Gaiakron                   ▒  ·              ·     2440.1      -0.0   609.12M                               ║
+║ Miraland                   ▓  ·              ·     2432.5      -0.0     1.45B                               ║
+║ Wegarepublik               ▒  ·              ·     2417.1      -0.0     1.19B                               ║
+║ Kairounion                 ▒  ·              ·     2409.9      16.8     3.72B                               ║
+║ Umbramark                  ▒  ·              ·     2385.3      -0.0     8.11B                               ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Interpretation nach CountryHeatmapRenderer                                                                  ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Interpretation: Die Heatmap zeigt führende und schwächere Länder. Die derzeit stärksten Länder nach Truth-S ║
-║ core sind Umbramark(4880.9), Kairounion(4489.7), Junokron(4479.0).                                          ║
+║ core sind Ioniabund(3059.3), Borealreich(3039.5), Mirastaat(3023.4).                                        ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -1042,11 +1056,11 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ Makro-Zeitreihen als UTF-8 Sparklines                                                                       ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Monate=24  Agenten=88  Länder=6  Events=6                                                                   ║
-║ GDP       ▁▁▁▁▁▂▂▃▄▄▄▅▅▅▇▇█▆▆▇████                                                                          ║
-║ WK-Score  ▁▁▁▂▂▂▃▃▄▄▄▅▅▅▆▆▆▇▇▇████                                                                          ║
+║ Monate=24  Agenten=492  Länder=18  Events=9                                                                 ║
+║ GDP       ▁▁▁▂▃▃▄▄▄▄▄▄▄▅▅▅▅▆▇▇▇▇██                                                                          ║
+║ WK-Score  ▁▁▁▂▂▃▃▃▄▄▅▅▅▆▆▆▇▇▇▇████                                                                          ║
 ║ WK-Debt   ▁▁▁▁▁▁▁▁▂▂▂▃▃▃▄▄▅▅▆▆▇▇██                                                                          ║
-║ η-Gap     ▂█▇█▄▅▇▇▆▆▆▅▄▄▅▃▂▂▁▁▂▁▁▁                                                                          ║
+║ η-Gap     █▇▅▄▂▂▂▄▅▄▁▁▁▂▅▇█▄▂▄▅██▅                                                                          ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -1107,24 +1121,30 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ║ Welt-Ereignisse, Krisen, Durchbrüche                                                                        ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Ereignis-Histogramm:                                                                                        ║
-║ NaturalEvent           ████████████████████████████████████████ 2                                           ║
-║ SecurityEvent          ████████████████████████████████████████ 2                                           ║
-║ PoliticalEvent         ████████████████████░░░░░░░░░░░░░░░░░░░░ 1                                           ║
-║ TechnologicalEvent     ████████████████████░░░░░░░░░░░░░░░░░░░░ 1                                           ║
+║ SecurityEvent          ████████████████████████████████████████ 3                                           ║
+║ NaturalEvent           ██████████████████████████░░░░░░░░░░░░░░ 2                                           ║
+║ PoliticalEvent         ██████████████████████████░░░░░░░░░░░░░░ 2                                           ║
+║ FinancialEvent         ██████████████████████████░░░░░░░░░░░░░░ 2                                           ║
 ║                                                                                                             ║
 ║ Letzte Ereignisse:                                                                                          ║
-║ M0002 PoliticalEvent         border dispute / sanctions spiral {"source": "Umbramark", "target": "Junokron" ║
-║ , "severity": 0.385202910171326}                                                                            ║
-║ M0004 NaturalEvent           climate/flood/earthquake shock   {"country": "Zenitunion", "severity": 0.83977 ║
-║ 16890345004}                                                                                                ║
-║ M0005 SecurityEvent          cyber or hybrid security incident {"target": "Cybersecurity Trust Borealreich- ║
-║ 1", "severity": 0.4511858200881276}                                                                         ║
-║ M0010 TechnologicalEvent     technological breakthrough       {"company": "Biotech Works Junokron-6", "gain ║
-║ ": 10.798545318300551}                                                                                      ║
-║ M0012 SecurityEvent          cyber or hybrid security incident {"target": "Kairounion", "severity": 0.89950 ║
-║ 93736097675}                                                                                                ║
-║ M0018 NaturalEvent           climate/flood/earthquake shock   {"country": "Umbramark", "severity": 0.868831 ║
-║ 7764125957}                                                                                                 ║
+║ M0002 NaturalEvent           climate/flood/earthquake shock   {"country": "Miraland", "severity": 1.1749289 ║
+║ 134649872}                                                                                                  ║
+║ M0004 PoliticalEvent         border dispute / sanctions spiral {"source": "Zenitunion", "target": "Dorianbu ║
+║ nd", "severity": 0.3522457415545317}                                                                        ║
+║ M0008 SecurityEvent          cyber or hybrid security incident {"target": "Logistics Foundry Mirastaat-16", ║
+║  "severity": 1.2793849628864147}                                                                            ║
+║ M0010 SecurityEvent          cyber or hybrid security incident {"target": "Health Systems Ioniabund-9", "se ║
+║ verity": 0.6074680568345427}                                                                                ║
+║ M0016 FinancialEvent         bank liquidity truth-crack       {"bank": "Central Bank of Elioskron", "loss": ║
+║  6797.727433581287}                                                                                         ║
+║ M0017 NaturalEvent           climate/flood/earthquake shock   {"country": "Ferromark", "severity": 0.738026 ║
+║ 8248812467}                                                                                                 ║
+║ M0021 PoliticalEvent         border dispute / sanctions spiral {"source": "Wegakron", "target": "Mirastaat" ║
+║ , "severity": 1.2655276267790567}                                                                           ║
+║ M0022 SecurityEvent          cyber or hybrid security incident {"target": "Household Bloc Wegarepublik-2",  ║
+║ "severity": 1.07120212924471}                                                                               ║
+║ M0024 FinancialEvent         bank liquidity truth-crack       {"bank": "Central Bank of Borealreich", "loss ║
+║ ": 55464.46405933801}                                                                                       ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -1186,9 +1206,9 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Ökonomische Morphismen im aktuellen Fenster:                                                                ║
 ║                                                                                                             ║
-║ purchase           ████████████████████████████████████████████ 398                                         ║
-║ loan               ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 21                                          ║
-║ defense            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 17                                          ║
+║ purchase           ████████████████████████████████████████████ 2381                                        ║
+║ loan               ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 45                                          ║
+║ defense            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 20                                          ║
 ║                                                                                                             ║
 ║ Morphismus-Lebenszyklus:                                                                                    ║
 ║   Claim/Intent ─▶ Queue ─▶ Channel(HALF/FULL) ─▶ Transaction ─▶ Category                                    ║
@@ -1257,16 +1277,30 @@ Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18236 Fallback=0
 ║ UN, Zentralbanken und Verteidigungsorganisationen                                                           ║
 ╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
 ║ Institutionelles Netzwerk:                                                                                  ║
-║ UnitedNations            United Nations / Planetary Truth Council   degree=  35 WK=    2374.4               ║
-║ MutualDefensePact        Shield Compact 1                           degree=  24 WK=    1588.1               ║
-║ MaritimeSecurityLeague   Harbor Compact 2                           degree=  17 WK=    1568.3               ║
-║ CyberDefenseCompact      Cipher Compact 3                           degree=  49 WK=    1322.2               ║
-║ CentralBank              Central Bank of Junokron                   degree=  19 WK=     979.1               ║
-║ CentralBank              Central Bank of Zenitunion                 degree=  20 WK=     874.2               ║
-║ CentralBank              Central Bank of Tethysstaat                degree=  19 WK=     796.0               ║
-║ CentralBank              Central Bank of Borealreich                degree=  33 WK=     792.7               ║
-║ CentralBank              Central Bank of Kairounion                 degree=  17 WK=     610.6               ║
-║ CentralBank              Central Bank of Umbramark                  degree=  11 WK=     311.9               ║
+║ UnitedNations            United Nations / Planetary Truth Council   degree=  38 WK=    2465.1               ║
+║ MaritimeSecurityLeague   Harbor Compact 2                           degree=  18 WK=     898.7               ║
+║ MutualDefensePact        Aegis Compact 4                            degree=  18 WK=     828.6               ║
+║ MaritimeSecurityLeague   Sentinel Compact 5                         degree=  18 WK=     810.5               ║
+║ CyberDefenseCompact      Cipher Compact 3                           degree= 107 WK=     654.0               ║
+║ CentralBank              Central Bank of Praxareich                 degree=  14 WK=     601.9               ║
+║ CentralBank              Central Bank of Ioniabund                  degree=  12 WK=     552.1               ║
+║ CentralBank              Central Bank of Mirastaat                  degree=  97 WK=     376.0               ║
+║ CentralBank              Central Bank of Wegakron                   degree=  10 WK=     369.2               ║
+║ CentralBank              Central Bank of Borealreich                degree=  50 WK=     344.8               ║
+║ MutualDefensePact        Shield Compact 1                           degree=  20 WK=     317.1               ║
+║ CentralBank              Central Bank of Junokron                   degree=  46 WK=     282.6               ║
+║ CentralBank              Central Bank of Miraland                   degree=  10 WK=     279.9               ║
+║ CentralBank              Central Bank of Gaiakron                   degree=  10 WK=     279.3               ║
+║ CentralBank              Central Bank of Dorianbund                 degree=   9 WK=     233.9               ║
+║ CentralBank              Central Bank of Elioskron                  degree=  10 WK=     225.7               ║
+║ CentralBank              Central Bank of Wegarepublik               degree=  12 WK=     206.9               ║
+║ CentralBank              Central Bank of Tethysstaat                degree=  40 WK=     187.9               ║
+║ CentralBank              Central Bank of Kairounion                 degree=  38 WK=     186.7               ║
+║ CentralBank              Central Bank of Ferromark                  degree=  94 WK=     144.5               ║
+║ CentralBank              Central Bank of Civitasreich               degree=  37 WK=     131.1               ║
+║ CentralBank              Central Bank of Rheamark                   degree=  12 WK=     122.0               ║
+║ CentralBank              Central Bank of Zenitunion                 degree=  32 WK=     114.5               ║
+║ CentralBank              Central Bank of Umbramark                  degree= 127 WK=      59.4               ║
 ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
