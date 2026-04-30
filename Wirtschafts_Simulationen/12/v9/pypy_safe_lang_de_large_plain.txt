@@ -1,0 +1,178 @@
+================================================================================================
+SOLARER HIERARCHIE-MARKT — PYPY-SICHERER DATENORIENTIERTER BERICHT
+================================================================================================
+Seed=42 Profil=large Ticks=2 Prozessargument=1 Sprache=de
+
+GESAMTERKLÄRUNG DER SIMULATION
+Die Simulation modelliert eine Hierarchie-Währungsökonomie über Erde, Mond und Mars. Sie enthält Steuerungsorgane, Verteidigungsorganisationen, Bündnisse, Staaten, Unternehmen, Arbeitnehmer, Produkte, handelbare Märkte, Privilegien und Belastungen. Die Hierarchie ist die eigentliche Währung; H ist nur die komprimierte Abrechnungszahl.
+Ziel ist zu beobachten, wie Güterzugang, Markttausch, Netzwerkfluss, kategorienartige Struktur, garbenartige Verklebung und stochastische Makroereignisse Status, Karrieremobilität und verschiedene mögliche Ausgänge formen.
+
+WAS ALLES NOCH SIMULIERT WERDEN KANN
+  - demografische Übergänge über Generationen, Erbschaft, Schulbildung, Ruhestand und Kohortenwechsel
+  - Banken, Schuldenketten, Insolvenz-Kaskaden, Sicherheiten und Zentralbank-ähnliche Hierarchie-Liquidität
+  - Wahlen, Propaganda, Zensur, Legitimität, Verfassungsreformen und Krisenregierungen
+  - Migration zwischen Erde, Mond und Mars, inklusive Brain Drain, Arbeitskräftemangel und Kolonie-Anziehung
+  - Krieg, Abschreckung, Mobilisierung, Wettrüsten, Abrüstungsverhandlungen und Zerfall von Verteidigungsbündnissen
+  - Innovationsrennen, Patente, Forschungsallmenden, Geheimprojekte und Wissensdiffusion
+  - ökologische Grenzen: Sauerstoffknappheit, Wasserverunreinigung, Ernteausfälle und Terraforming-Risiken
+  - kriminelle Märkte, Korruption, Schmuggel, Anti-Korruptionsgerichte und Statusbetrug
+  - kulturelle Prestigemärkte, Prominentenhierarchie, symbolisches Kapital und Reputationsblasen
+  - Cyberkonflikte, Sabotage, Netzwerkpartitionierung, Redundanz und Notfall-Rerouting
+  - Klassenkonflikt, Streiks, Gewerkschaften, Sozialversicherung und Umverteilungsreformen
+  - planetare Katastrophen, Evakuierungsmärkte, Kontinuitätsarchive und Notstands-Kommandoregime
+
+ERKLÄRUNG DER ABKÜRZUNGEN
+H = komprimierter Hierarchie-Abrechnungswert; L01-L12 = Hierarchiestufen von Überleben bis Sonnen-Apex; Aufstieg/Abstieg/Gleich = Bewegung relativ zur Anfangsstufe; NT = natürliche Transformation; Hom-Menge = Morphismen zwischen zwei Kategorieobjekten; FIFO/LIFO/Priorität = Warteschlangenregel; Halb/Voll = Duplexmodus; Semaphor_blockiert = simulierte blockierte Kanalerlaubnisse.
+
+ERKLÄRUNG DER ZAHLENBLÖCKE
+Die nächsten Blöcke zeigen den Makrozustand dieses Laufs vor den UTF-8-Diagrammen. Jeder Block hat direkt darunter eine Interpretation.
+
+Zählwerte:
+  Entitäten                      48208
+  Staaten                        102
+  Bündnisse                      6
+  Unternehmen                    1700
+  Arbeitnehmer                   32000
+  Produkte                       13000
+  Märkte                         1392
+  Privilegien                    4415
+  Belastungen                    2036
+Auswertung: Diese Zählwerte definieren die Größe der simulierten Gesellschaft und des Marktsystems.
+
+Handel:
+  Volumen_H                      6209358.9
+  Produktverkäufe                13216
+  Marktbesitzwechsel             1299
+  manuelle_Anhebungen            384
+Auswertung: Handelsvolumen, Produktverkäufe und Marktbesitzwechsel zeigen, wie liquide und strukturell verändernd dieser Lauf wurde.
+
+Netzwerk:
+  Knoten                         48208
+  Kanäle                         23718
+  Komponenten                    22175
+  Grad_min                       1
+  Grad_Mittel                    2.19880517756389
+  Grad_max                       260
+  Pakete_erzeugt                 52000
+  Pakete_zugestellt              42983
+  Pakete_verworfen               773
+  Semaphor_blockiert             796
+Auswertung: Diese aggregierten Netzwerkzahlen ersetzen den alten gefährlichen Live-Graphen. Sie zeigen weiterhin Flussdruck, Konnektivität und Semaphor-Konkurrenz, ohne PyPy-Heap-Instabilität zu erzeugen.
+
+Kategorie:
+  ökonomische_Kategorie          Objekte=48208 Morphismen=90329 Hom-Mengen=39489
+  Netzwerk_Kategorie             Objekte=48208 Morphismen=106182 Hom-Mengen=79779
+  Hierarchie_Kategorie           Objekte=12 Morphismen=18905 Hom-Mengen=126
+  Topologie_Kategorie            Objekte=7 Morphismen=15 Hom-Mengen=15
+Auswertung: Diese Zahlen fassen die kategorientheoretische Architektur als Aggregatstruktur zusammen: Objekte sind Entitäten oder Stufen; Morphismen sind Beziehungen, Tauschakte und Transformationen; Hom-Mengen gruppieren Morphismen nach Quell- und Zieltyp.
+
+Stufenverteilungen:
+  Arbeitnehmer {1: 13814, 2: 17732, 3: 380, 4: 74}
+  Unternehmen  {9: 1, 10: 227, 11: 1424, 12: 48}
+  Staaten      {12: 102}
+  Bündnisse    {11: 1, 12: 5}
+  Produkte     {3: 9, 4: 419, 5: 2928, 6: 6734, 7: 2910}
+  Märkte       {4: 11, 5: 82, 6: 334, 7: 555, 8: 410}
+Auswertung: Diese Verteilungen zeigen, wo jeder Entitätstyp in der zwölfstufigen Hierarchie sitzt.
+
+Mobilitätsübersicht:
+  Arbeitnehmer Aufstieg=1441 Abstieg=1283 Gleich=29276
+  Unternehmen  Aufstieg=16 Abstieg=9 Gleich=1675
+  Staaten      Aufstieg=0 Abstieg=0 Gleich=102
+  Bündnisse    Aufstieg=0 Abstieg=0 Gleich=6
+Auswertung: Diese Zahlen zeigen, ob Personen, Unternehmen, Staaten und Verteidigungsbündnisse tatsächlich durch die Hierarchie gewandert sind.
+
+Szenarioübersicht:
+  Szenario-Treiber= Verteidigungsalarm=2.71, interplanetare Expansion=1.56, Anerkennung der Fürsorge=0.79, Governance-Reform=0.73
+  Volatilität pro Tick= [3.86, 1.933]
+Auswertung: Szenario-Treiber und Volatilität erklären, warum wiederholte Läufe stark auseinanderlaufen können.
+
+Top-Staaten
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Mond Republik 002                                            6.7MH Domäne=Steuerung Körper=Mond Eigentümer=Vereinte Nationen von Mond
+  L12 Sonnen-Apex      Mond Republik 009                                            6.6MH Domäne=Steuerung Körper=Mond Eigentümer=Vereinte Nationen von Mond
+  L12 Sonnen-Apex      Erde Republik 015                                            6.6MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Mars Republik 012                                            6.6MH Domäne=Steuerung Körper=Mars Eigentümer=Vereinte Nationen von Mars
+  L12 Sonnen-Apex      Erde Republik 002                                            6.4MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Erde Republik 016                                            6.3MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Erde Republik 050                                            6.3MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Mond Republik 007                                            6.1MH Domäne=Steuerung Körper=Mond Eigentümer=Vereinte Nationen von Mond
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Unternehmen
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Verteidigung Unternehmen 00389                               1.2MH Domäne=Verteidigung Körper=Erde Eigentümer=Erde Republik 024
+  L12 Sonnen-Apex      Verteidigung Unternehmen 01129                               1.1MH Domäne=Verteidigung Körper=Mars Eigentümer=Mars Republik 001
+  L12 Sonnen-Apex      Daten Unternehmen 01065                                      1.1MH Domäne=Daten Körper=Erde Eigentümer=Erde Republik 026
+  L12 Sonnen-Apex      Bildung Unternehmen 01161                                    1.1MH Domäne=Bildung Körper=Erde Eigentümer=Erde Republik 008
+  L12 Sonnen-Apex      Forschung Unternehmen 00485                                  1.0MH Domäne=Forschung Körper=Erde Eigentümer=Erde Republik 015
+  L12 Sonnen-Apex      Daten Unternehmen 00122                                      1.0MH Domäne=Daten Körper=Erde Eigentümer=Erde Republik 048
+  L12 Sonnen-Apex      Terraforming Unternehmen 00587                             984.1kH Domäne=Terraforming Körper=Mars Eigentümer=Mars Republik 001
+  L12 Sonnen-Apex      Bildung Unternehmen 00299                                  978.2kH Domäne=Bildung Körper=Mond Eigentümer=Mond Republik 010
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Bündnisse
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Erde Verteidigungsbündnis 2                                  2.5MH Domäne=Verteidigung Körper=Erde Eigentümer=Erde Verteidigungsorganisation
+  L12 Sonnen-Apex      Erde Verteidigungsbündnis 1                                  2.0MH Domäne=Verteidigung Körper=Erde Eigentümer=Erde Verteidigungsorganisation
+  L12 Sonnen-Apex      Mond Verteidigungsbündnis 1                                  1.9MH Domäne=Verteidigung Körper=Mond Eigentümer=Mond Verteidigungsorganisation
+  L12 Sonnen-Apex      Mars Verteidigungsbündnis 1                                  1.1MH Domäne=Verteidigung Körper=Mars Eigentümer=Mars Verteidigungsorganisation
+  L12 Sonnen-Apex      Mars Verteidigungsbündnis 2                                  1.1MH Domäne=Verteidigung Körper=Mars Eigentümer=Mars Verteidigungsorganisation
+  L11 Systemisch       Mond Verteidigungsbündnis 2                                843.6kH Domäne=Verteidigung Körper=Mond Eigentümer=Mond Verteidigungsorganisation
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Märkte
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L08 Bündnis          Erde L12 Wohnen Markt                                       54.3kH Domäne=Wohnen Körper=Erde Eigentümer=Verteidigung Unternehmen 01549
+  L08 Bündnis          Mond L11 Landwirtschaft Markt                               50.8kH Domäne=Landwirtschaft Körper=Mond Eigentümer=Landwirtschaft Unternehmen 00207
+  L08 Bündnis          Erde L12 Finanzen Markt                                     50.2kH Domäne=Finanzen Körper=Erde Eigentümer=Sauerstoff Unternehmen 00591
+  L08 Bündnis          Sonnensystem L12 Markt Rights Markt                         47.8kH Domäne=Marktrechte Körper=Sonnensystem Eigentümer=Bildung Unternehmen 01444
+  L08 Bündnis          Mars L10 Fürsorge Markt                                     47.6kH Domäne=Fürsorge Körper=Mars Eigentümer=Finanzen Unternehmen 01695
+  L08 Bündnis          Sonnensystem L12 Orbitalplätze Markt                        47.5kH Domäne=Orbitalplätze Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+  L08 Bündnis          Mond L10 Fürsorge Markt                                     47.3kH Domäne=Fürsorge Körper=Mond Eigentümer=Landwirtschaft Unternehmen 01467
+  L08 Bündnis          Sonnensystem L11 Terraforming Markt                         47.3kH Domäne=Terraforming Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Arbeitnehmer
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L04 Fachkraft        Arbeitnehmer 0007098                                         2.0kH Domäne=Vertrauen Körper=Mond Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0013072                                         1.8kH Domäne=Medien Körper=Mars Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0025961                                         1.8kH Domäne=Medizin Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0011180                                         1.3kH Domäne=Medien Körper=Mars Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0008692                                         1.3kH Domäne=Medizin Körper=Mars Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0026515                                         1.3kH Domäne=Medizin Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0028845                                         1.3kH Domäne=Bildung Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0016025                                         1.3kH Domäne=Medien Körper=Erde Eigentümer=kein Eigentümer
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Aktuelle Trades / Marktereignisse
+Erklärung: Jeder Punkt ist ein konkretes aktuelles Ereignis aus Produkt-, Privilegien-, Belastungs- oder Marktbesitztausch.
+  - BELASTUNG angenommen von Arbeitnehmer 0014185 compensated by Fürsorge Unternehmen 00697
+  - BELASTUNG angenommen von Arbeitnehmer 0015507 compensated by Fertigung Unternehmen 01617
+  - BELASTUNG angenommen von Arbeitnehmer 0001845 compensated by Terraforming Unternehmen 00557
+  - MARKT Erde L03 Nahrung Markt Kontrolle -> Bildung Unternehmen 01014 für 104H
+  - MARKT Mars L10 Markt Rights Marke Kontrolle -> Kultur Unternehmen 00746 für 288H
+  - MARKT Mars L03 Privileg Markt Kontrolle -> Transport Unternehmen 01562 für 90.0H
+  - MARKT Mond L10 Wasser Markt Kontrolle -> Landwirtschaft Unternehmen 00207 für 556H
+  - MARKT Mond L01 Wohnen Markt Kontrolle -> Terraforming Unternehmen 00046 für 90.0H
+  - MARKT Erde L01 Nahrung Markt Kontrolle -> Fertigung Unternehmen 01383 für 230H
+  - MARKT Erde L11 Belastung Markt Kontrolle -> Orbitalplätze Unternehmen 00721 für 188H
+  - MARKT Erde L01 Kultur Markt Kontrolle -> Wohnen Unternehmen 00683 für 222H
+  - MARKT Mars L06 Finanzen Markt Kontrolle -> Nahrung Unternehmen 00254 für 198H
+  - MARKT Mond L02 Landwirtschaft Markt Kontrolle -> Erde Republik 010 für 232H
+  - MARKT Mond L12 Sauerstoff Markt Kontrolle -> Erde Republik 064 für 267H
+  - MARKT Sonnensystem L08 Forschung Ma Kontrolle -> Medien Unternehmen 00933 für 194H
+Auswertung: Diese Ereignisse sind die Mikrospuren hinter den aggregierten Ergebnissen oben.
+
+ABSCHLIESSENDE AUSGEWOGENE ZUSAMMENFASSUNG MÖGLICHER AUSGÄNGE
+Dieser Lauf ist ein realisierter Pfad durch eine stochastische Hierarchieökonomie. Dominante Szenario-Treiber waren: Verteidigungsalarm=2.71, interplanetare Expansion=1.56, Anerkennung der Fürsorge=0.79, Governance-Reform=0.73.
+Die durchschnittliche Volatilität pro Tick lag bei 2.90. Ein höherer Wert bedeutet, dass ein anderer Seed sichtbar andere Gewinner, Verlierer und Domänen erzeugen könnte.
+Die aktivste Marktdomäne in diesem Lauf war Marktrechte.
+Alternative plausible Ausgänge bleiben ausgewogen: Ein stärkerer Verteidigungsalarm würde Bündnisse und militärische Staaten begünstigen; ein stärkerer Forschungsdurchbruch würde Rechenleistung, Daten und Wissenschaft heben; ein härterer Versorgungsschock würde mehr Unternehmen und Märkte nach unten drücken; Anerkennung der Fürsorge würde Pflege, Medizin, Bildung und Vertrauensarbeit stärken.
+Die Ausgabe ist deshalb kein unvermeidliches Gleichgewicht, sondern eine Szenario-Probe aus einem breiten Raum möglicher Hierarchie-Markt-Zukünfte.
+
+GRUPPENSPEZIFISCHE MOBILITÄTSDEUTUNGEN
+  - Arbeitnehmer bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Unternehmen bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Staaten bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Bündnisse bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.

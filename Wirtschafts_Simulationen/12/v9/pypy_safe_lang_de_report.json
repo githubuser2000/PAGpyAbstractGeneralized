@@ -1,0 +1,685 @@
+{
+  "seed": 42,
+  "profile": "demo",
+  "ticks": 1,
+  "counts": {
+    "entities": 4191,
+    "countries": 15,
+    "alliances": 6,
+    "companies": 120,
+    "workers": 1800,
+    "products": 850,
+    "markets": 1392,
+    "privileges": 143,
+    "burdens": 69
+  },
+  "trade": {
+    "volume_H": 263669.76,
+    "product_sales": 323,
+    "market_ownership_changes": 55,
+    "manual_lifts": 10
+  },
+  "levels": {
+    "workers": {
+      "1": 627,
+      "2": 1136,
+      "3": 30,
+      "4": 7
+    },
+    "companies": {
+      "10": 24,
+      "11": 88,
+      "12": 8
+    },
+    "countries": {
+      "12": 15
+    },
+    "alliances": {
+      "11": 1,
+      "12": 5
+    },
+    "products": {
+      "3": 2,
+      "4": 33,
+      "5": 205,
+      "6": 403,
+      "7": 207
+    },
+    "markets": {
+      "4": 14,
+      "5": 136,
+      "6": 291,
+      "7": 608,
+      "8": 343
+    }
+  },
+  "mobility": {
+    "workers": {
+      "up": 173,
+      "down": 18,
+      "same": 1609
+    },
+    "companies": {
+      "up": 2,
+      "down": 0,
+      "same": 118
+    },
+    "countries": {
+      "up": 0,
+      "down": 0,
+      "same": 15
+    },
+    "alliances": {
+      "up": 0,
+      "down": 0,
+      "same": 6
+    }
+  },
+  "network": {
+    "nodes": 4191,
+    "channels": 4323,
+    "components": 2430,
+    "degree_min": 1,
+    "degree_mean": 2.778811739441661,
+    "degree_max": 102,
+    "topology_counts": {
+      "star": 197,
+      "tree": 206,
+      "market-bipartite": 233,
+      "mesh": 217,
+      "sheaf-cover": 221,
+      "ring": 208,
+      "governance": 222
+    },
+    "duplex_counts": {
+      "simplex": 263,
+      "full": 265,
+      "half": 272
+    },
+    "queue_counts": {
+      "fifo": 267,
+      "lifo": 251,
+      "priority": 282
+    },
+    "packets_created": 1800,
+    "packets_delivered": 1538,
+    "packets_dropped": 49,
+    "semaphore_blocked": 10
+  },
+  "category": {
+    "economic_category": {
+      "objects": 4191,
+      "morphisms": 8021,
+      "hom_sets": 5271
+    },
+    "network_category": {
+      "objects": 4191,
+      "morphisms": 16057,
+      "hom_sets": 12454
+    },
+    "hierarchy_category": {
+      "objects": 12,
+      "morphisms": 2104,
+      "hom_sets": 126
+    },
+    "topology_category": {
+      "objects": 7,
+      "morphisms": 15,
+      "hom_sets": 15
+    },
+    "functor_checks": {
+      "checked": 300,
+      "boundary_ok": 300,
+      "identity_ok": 300,
+      "natural": 300,
+      "violated": 0
+    }
+  },
+  "sheaf": {
+    "sections": 1572,
+    "covers": 4,
+    "glued": 4,
+    "compatibility_checks": 500,
+    "compatibility_passed": 500
+  },
+  "scenario": {
+    "events": [
+      {
+        "tick": 1,
+        "name": "research_breakthrough",
+        "description": "Research, data and compute become more valuable.",
+        "strength": 1.152
+      },
+      {
+        "tick": 1,
+        "name": "supply_shock",
+        "description": "Supply disruption punishes logistics-sensitive actors and creates losers.",
+        "strength": 0.868
+      },
+      {
+        "tick": 1,
+        "name": "media_polarization",
+        "description": "Media power rises but trust becomes unstable.",
+        "strength": 0.944
+      },
+      {
+        "tick": 1,
+        "name": "resource_boom",
+        "description": "A resource boom increases capital, logistics and production capacity.",
+        "strength": 0.93
+      }
+    ],
+    "scores": {
+      "research_breakthrough": 1.1523002145168837,
+      "supply_shock": 0.8684178032313272,
+      "media_polarization": 0.9436056082630803,
+      "resource_boom": 0.9295733862741324
+    },
+    "volatility": [
+      3.894
+    ]
+  },
+  "goods_hierarchy": {
+    "1": [
+      "Basis-Wasserration",
+      "Notfallkalorien",
+      "geteilter Schutzplatz",
+      "Minimal-Luftfilter"
+    ],
+    "2": [
+      "Hygieneset",
+      "einfache Kleidung",
+      "Basis-Kommunikationsterminal",
+      "ÖPNV-Gutschein"
+    ],
+    "3": [
+      "Reparaturwerkzeuge",
+      "private Schlafkapsel",
+      "Standard-Ernährungsplan",
+      "lokaler Marktzugang"
+    ],
+    "4": [
+      "Lehrwerkstatt-Zugang",
+      "Bildungspaket",
+      "Klinikpriorität",
+      "kleines Datenkontingent"
+    ],
+    "5": [
+      "professionelles Wohnen",
+      "Fahrzeugnutzungsrechte",
+      "Forschungsterminal",
+      "Familienverbrauchspaket"
+    ],
+    "6": [
+      "regionale Logistikkapazität",
+      "fortgeschrittene Medizin",
+      "Team-Büroraum",
+      "mittlere Rechenkapazität"
+    ],
+    "7": [
+      "nationaler Reisepass",
+      "Fabrikanteil",
+      "strategische Lagerrechte",
+      "Sicherheitsbegleitung"
+    ],
+    "8": [
+      "Bündnis-Beschaffungsrechte",
+      "verteidigungstauglicher Transport",
+      "grenzüberschreitende Marktfranchise",
+      "Koalitionslagebild"
+    ],
+    "9": [
+      "planetarer Medien-Einflussplatz",
+      "großer Industriecampus",
+      "planetare Kapitallinie",
+      "Quote für seltene Materialien"
+    ],
+    "10": [
+      "interplanetare Frachtroute",
+      "Orbital-Dockingpriorität",
+      "Mehrplanet-Liefervertrag",
+      "interplanetarer Datenrücken"
+    ],
+    "11": [
+      "systemische Notfall-Kommandobandbreite",
+      "Zugriffsrechte auf Solarreserven",
+      "Anhörung in Systemregierung",
+      "hohe strategische Abschreckungsressourcen"
+    ],
+    "12": [
+      "Solar-Apex-Koordinationsrechte",
+      "Zivilisations-Kontinuitätsarchiv",
+      "oberstes Missions-Zuteilungsfenster",
+      "Apex-Mobilitätskorridor"
+    ]
+  },
+  "top_countries": [
+    {
+      "name": "Erde Republik 002",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 6263693.89,
+      "wallet": 599608.26
+    },
+    {
+      "name": "Mond Republik 002",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Mond",
+      "owner": "Vereinte Nationen von Mond",
+      "status_number": 5911609.5,
+      "wallet": 612290.24
+    },
+    {
+      "name": "Erde Republik 008",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 5406359.94,
+      "wallet": 221865.91
+    },
+    {
+      "name": "Mars Republik 003",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Mars",
+      "owner": "Vereinte Nationen von Mars",
+      "status_number": 5310993.34,
+      "wallet": 296798.14
+    },
+    {
+      "name": "Erde Republik 004",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 4962082.22,
+      "wallet": 361081.37
+    },
+    {
+      "name": "Erde Republik 003",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 4954645.53,
+      "wallet": 431153.52
+    },
+    {
+      "name": "Mars Republik 004",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Mars",
+      "owner": "Vereinte Nationen von Mars",
+      "status_number": 4806274.86,
+      "wallet": 377071.46
+    },
+    {
+      "name": "Mond Republik 003",
+      "kind": "country",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Steuerung",
+      "body": "Mond",
+      "owner": "Vereinte Nationen von Mond",
+      "status_number": 4802218.42,
+      "wallet": 561463.86
+    }
+  ],
+  "top_companies": [
+    {
+      "name": "Forschung Unternehmen 00018",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Forschung",
+      "body": "Erde",
+      "owner": "Erde Republik 002",
+      "status_number": 1035704.2,
+      "wallet": 138191.5
+    },
+    {
+      "name": "Finanzen Unternehmen 00019",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Finanzen",
+      "body": "Erde",
+      "owner": "Erde Republik 005",
+      "status_number": 1009704.98,
+      "wallet": 260246.46
+    },
+    {
+      "name": "Wohnen Unternehmen 00038",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Wohnen",
+      "body": "Erde",
+      "owner": "Erde Republik 002",
+      "status_number": 1003982.16,
+      "wallet": 147934.44
+    },
+    {
+      "name": "Rechenleistung Unternehmen 00041",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Rechenleistung",
+      "body": "Mond",
+      "owner": "Mond Republik 003",
+      "status_number": 955186.5,
+      "wallet": 158580.68
+    },
+    {
+      "name": "Wohnen Unternehmen 00046",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Wohnen",
+      "body": "Mond",
+      "owner": "Mond Republik 003",
+      "status_number": 936144.52,
+      "wallet": 163974.49
+    },
+    {
+      "name": "Daten Unternehmen 00109",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Daten",
+      "body": "Erde",
+      "owner": "Erde Republik 008",
+      "status_number": 876684.02,
+      "wallet": 144338.48
+    },
+    {
+      "name": "Wohnen Unternehmen 00024",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Wohnen",
+      "body": "Erde",
+      "owner": "Erde Republik 005",
+      "status_number": 856335.55,
+      "wallet": 220043.26
+    },
+    {
+      "name": "Transport Unternehmen 00051",
+      "kind": "company",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Transport",
+      "body": "Mond",
+      "owner": "Mond Republik 003",
+      "status_number": 850646.19,
+      "wallet": 129254.04
+    }
+  ],
+  "top_alliances": [
+    {
+      "name": "Mars Verteidigungsbündnis 1",
+      "kind": "alliance",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Verteidigung",
+      "body": "Mars",
+      "owner": "Mars Verteidigungsorganisation",
+      "status_number": 1599172.36,
+      "wallet": 43202.92
+    },
+    {
+      "name": "Erde Verteidigungsbündnis 2",
+      "kind": "alliance",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Verteidigung",
+      "body": "Erde",
+      "owner": "Erde Verteidigungsorganisation",
+      "status_number": 1434291.81,
+      "wallet": 90569.22
+    },
+    {
+      "name": "Erde Verteidigungsbündnis 1",
+      "kind": "alliance",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Verteidigung",
+      "body": "Erde",
+      "owner": "Erde Verteidigungsorganisation",
+      "status_number": 1170926.94,
+      "wallet": 74564.17
+    },
+    {
+      "name": "Mond Verteidigungsbündnis 2",
+      "kind": "alliance",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Verteidigung",
+      "body": "Mond",
+      "owner": "Mond Verteidigungsorganisation",
+      "status_number": 1152395.43,
+      "wallet": 96030.46
+    },
+    {
+      "name": "Mond Verteidigungsbündnis 1",
+      "kind": "alliance",
+      "level": 12,
+      "level_name": "Sonnen-Apex",
+      "domain": "Verteidigung",
+      "body": "Mond",
+      "owner": "Mond Verteidigungsorganisation",
+      "status_number": 1020821.49,
+      "wallet": 150349.44
+    },
+    {
+      "name": "Mars Verteidigungsbündnis 2",
+      "kind": "alliance",
+      "level": 11,
+      "level_name": "Systemisch",
+      "domain": "Verteidigung",
+      "body": "Mars",
+      "owner": "Mars Verteidigungsorganisation",
+      "status_number": 584636.97,
+      "wallet": 110195.2
+    }
+  ],
+  "top_markets": [
+    {
+      "name": "Sonnensystem L12 Terraforming Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Terraforming",
+      "body": "Sonnensystem",
+      "owner": "Vereinte Nationen des Sonnensystems",
+      "status_number": 48184.25,
+      "wallet": 6910.62
+    },
+    {
+      "name": "Sonnensystem L12 Orbitalplätze Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Orbitalplätze",
+      "body": "Sonnensystem",
+      "owner": "Vereinte Nationen des Sonnensystems",
+      "status_number": 47100.93,
+      "wallet": 7035.42
+    },
+    {
+      "name": "Mars L12 Bildung Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Bildung",
+      "body": "Mars",
+      "owner": "Vereinte Nationen von Mars",
+      "status_number": 46860.04,
+      "wallet": 4940.33
+    },
+    {
+      "name": "Sonnensystem L12 Medien Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Medien",
+      "body": "Sonnensystem",
+      "owner": "Vereinte Nationen des Sonnensystems",
+      "status_number": 44365.71,
+      "wallet": 1320.18
+    },
+    {
+      "name": "Sonnensystem L12 Energie Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Energie",
+      "body": "Sonnensystem",
+      "owner": "Vereinte Nationen des Sonnensystems",
+      "status_number": 44227.27,
+      "wallet": 4538.99
+    },
+    {
+      "name": "Erde L12 Arbeit Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Arbeit",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 43455.2,
+      "wallet": 6449.67
+    },
+    {
+      "name": "Erde L12 Privileg Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Privileg",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 43115.28,
+      "wallet": 7135.93
+    },
+    {
+      "name": "Erde L11 Wohnen Markt",
+      "kind": "market",
+      "level": 8,
+      "level_name": "Bündnis",
+      "domain": "Wohnen",
+      "body": "Erde",
+      "owner": "Vereinte Nationen von Erde",
+      "status_number": 42457.36,
+      "wallet": 3812.06
+    }
+  ],
+  "top_workers": [
+    {
+      "name": "Arbeitnehmer 0000383",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Fürsorge",
+      "body": "Mond",
+      "owner": "kein Eigentümer",
+      "status_number": 1705.72,
+      "wallet": 1533.73
+    },
+    {
+      "name": "Arbeitnehmer 0001266",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Medizin",
+      "body": "Erde",
+      "owner": "kein Eigentümer",
+      "status_number": 1496.6,
+      "wallet": 1326.34
+    },
+    {
+      "name": "Arbeitnehmer 0000002",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Infrastruktur",
+      "body": "Erde",
+      "owner": "kein Eigentümer",
+      "status_number": 1475.66,
+      "wallet": 1332.67
+    },
+    {
+      "name": "Arbeitnehmer 0001753",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Logistik",
+      "body": "Mars",
+      "owner": "kein Eigentümer",
+      "status_number": 1395.51,
+      "wallet": 1240.86
+    },
+    {
+      "name": "Arbeitnehmer 0000119",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Arbeit",
+      "body": "Mond",
+      "owner": "kein Eigentümer",
+      "status_number": 1217.72,
+      "wallet": 1064.79
+    },
+    {
+      "name": "Arbeitnehmer 0000048",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Fähigkeit",
+      "body": "Erde",
+      "owner": "kein Eigentümer",
+      "status_number": 1199.07,
+      "wallet": 1132.45
+    },
+    {
+      "name": "Arbeitnehmer 0001147",
+      "kind": "worker",
+      "level": 4,
+      "level_name": "Fachkraft",
+      "domain": "Militär",
+      "body": "Erde",
+      "owner": "kein Eigentümer",
+      "status_number": 1189.34,
+      "wallet": 1132.98
+    },
+    {
+      "name": "Arbeitnehmer 0000690",
+      "kind": "worker",
+      "level": 3,
+      "level_name": "Lokal",
+      "domain": "Vertrauen",
+      "body": "Erde",
+      "owner": "kein Eigentümer",
+      "status_number": 865.3,
+      "wallet": 596.31
+    }
+  ],
+  "recent_trades": []
+}

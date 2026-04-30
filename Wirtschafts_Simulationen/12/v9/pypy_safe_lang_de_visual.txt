@@ -1,0 +1,545 @@
+Baue PyPy-sichere Hierarchie-Markt-Simulation Profil=demo Seed=42
+Gebaut: Entitäten=4191 Staaten=15 Bündnisse=6 Unternehmen=120 Arbeitnehmer=1800 Produkte=850 Märkte=1392 Kanäle=4323 ökonomische_Morphismen=7321 Netzwerk_Morphismen=15967 pypy_sicher_datenorientiert=True
+Tick=1 Volumen=263.7kH Produktverkäufe=323 Markttransfers=55 Pakete(erzeugt/zugestellt/verworfen)=1800/1538/49 Semaphor_blockiert=10 Garben_verklebungen=4
+================================================================================================
+SOLARER HIERARCHIE-MARKT — PYPY-SICHERER DATENORIENTIERTER BERICHT
+================================================================================================
+Seed=42 Profil=demo Ticks=1 Prozessargument=1 Sprache=de
+
+GESAMTERKLÄRUNG DER SIMULATION
+Die Simulation modelliert eine Hierarchie-Währungsökonomie über Erde, Mond und Mars. Sie enthält Steuerungsorgane, Verteidigungsorganisationen, Bündnisse, Staaten, Unternehmen, Arbeitnehmer, Produkte, handelbare Märkte, Privilegien und Belastungen. Die Hierarchie ist die eigentliche Währung; H ist nur die komprimierte Abrechnungszahl.
+Ziel ist zu beobachten, wie Güterzugang, Markttausch, Netzwerkfluss, kategorienartige Struktur, garbenartige Verklebung und stochastische Makroereignisse Status, Karrieremobilität und verschiedene mögliche Ausgänge formen.
+
+WAS ALLES NOCH SIMULIERT WERDEN KANN
+  - demografische Übergänge über Generationen, Erbschaft, Schulbildung, Ruhestand und Kohortenwechsel
+  - Banken, Schuldenketten, Insolvenz-Kaskaden, Sicherheiten und Zentralbank-ähnliche Hierarchie-Liquidität
+  - Wahlen, Propaganda, Zensur, Legitimität, Verfassungsreformen und Krisenregierungen
+  - Migration zwischen Erde, Mond und Mars, inklusive Brain Drain, Arbeitskräftemangel und Kolonie-Anziehung
+  - Krieg, Abschreckung, Mobilisierung, Wettrüsten, Abrüstungsverhandlungen und Zerfall von Verteidigungsbündnissen
+  - Innovationsrennen, Patente, Forschungsallmenden, Geheimprojekte und Wissensdiffusion
+  - ökologische Grenzen: Sauerstoffknappheit, Wasserverunreinigung, Ernteausfälle und Terraforming-Risiken
+  - kriminelle Märkte, Korruption, Schmuggel, Anti-Korruptionsgerichte und Statusbetrug
+  - kulturelle Prestigemärkte, Prominentenhierarchie, symbolisches Kapital und Reputationsblasen
+  - Cyberkonflikte, Sabotage, Netzwerkpartitionierung, Redundanz und Notfall-Rerouting
+  - Klassenkonflikt, Streiks, Gewerkschaften, Sozialversicherung und Umverteilungsreformen
+  - planetare Katastrophen, Evakuierungsmärkte, Kontinuitätsarchive und Notstands-Kommandoregime
+
+ERKLÄRUNG DER ABKÜRZUNGEN
+H = komprimierter Hierarchie-Abrechnungswert; L01-L12 = Hierarchiestufen von Überleben bis Sonnen-Apex; Aufstieg/Abstieg/Gleich = Bewegung relativ zur Anfangsstufe; NT = natürliche Transformation; Hom-Menge = Morphismen zwischen zwei Kategorieobjekten; FIFO/LIFO/Priorität = Warteschlangenregel; Halb/Voll = Duplexmodus; Semaphor_blockiert = simulierte blockierte Kanalerlaubnisse.
+
+ERKLÄRUNG DER ZAHLENBLÖCKE
+Die nächsten Blöcke zeigen den Makrozustand dieses Laufs vor den UTF-8-Diagrammen. Jeder Block hat direkt darunter eine Interpretation.
+
+Zählwerte:
+  Entitäten                      4191
+  Staaten                        15
+  Bündnisse                      6
+  Unternehmen                    120
+  Arbeitnehmer                   1800
+  Produkte                       850
+  Märkte                         1392
+  Privilegien                    143
+  Belastungen                    69
+Auswertung: Diese Zählwerte definieren die Größe der simulierten Gesellschaft und des Marktsystems.
+
+Handel:
+  Volumen_H                      263669.76
+  Produktverkäufe                323
+  Marktbesitzwechsel             55
+  manuelle_Anhebungen            10
+Auswertung: Handelsvolumen, Produktverkäufe und Marktbesitzwechsel zeigen, wie liquide und strukturell verändernd dieser Lauf wurde.
+
+Netzwerk:
+  Knoten                         4191
+  Kanäle                         4323
+  Komponenten                    2430
+  Grad_min                       1
+  Grad_Mittel                    2.778811739441661
+  Grad_max                       102
+  Pakete_erzeugt                 1800
+  Pakete_zugestellt              1538
+  Pakete_verworfen               49
+  Semaphor_blockiert             10
+Auswertung: Diese aggregierten Netzwerkzahlen ersetzen den alten gefährlichen Live-Graphen. Sie zeigen weiterhin Flussdruck, Konnektivität und Semaphor-Konkurrenz, ohne PyPy-Heap-Instabilität zu erzeugen.
+
+Kategorie:
+  ökonomische_Kategorie          Objekte=4191 Morphismen=8021 Hom-Mengen=5271
+  Netzwerk_Kategorie             Objekte=4191 Morphismen=16057 Hom-Mengen=12454
+  Hierarchie_Kategorie           Objekte=12 Morphismen=2104 Hom-Mengen=126
+  Topologie_Kategorie            Objekte=7 Morphismen=15 Hom-Mengen=15
+Auswertung: Diese Zahlen fassen die kategorientheoretische Architektur als Aggregatstruktur zusammen: Objekte sind Entitäten oder Stufen; Morphismen sind Beziehungen, Tauschakte und Transformationen; Hom-Mengen gruppieren Morphismen nach Quell- und Zieltyp.
+
+Stufenverteilungen:
+  Arbeitnehmer {1: 627, 2: 1136, 3: 30, 4: 7}
+  Unternehmen  {10: 24, 11: 88, 12: 8}
+  Staaten      {12: 15}
+  Bündnisse    {11: 1, 12: 5}
+  Produkte     {3: 2, 4: 33, 5: 205, 6: 403, 7: 207}
+  Märkte       {4: 14, 5: 136, 6: 291, 7: 608, 8: 343}
+Auswertung: Diese Verteilungen zeigen, wo jeder Entitätstyp in der zwölfstufigen Hierarchie sitzt.
+
+Mobilitätsübersicht:
+  Arbeitnehmer Aufstieg=173 Abstieg=18 Gleich=1609
+  Unternehmen  Aufstieg=2 Abstieg=0 Gleich=118
+  Staaten      Aufstieg=0 Abstieg=0 Gleich=15
+  Bündnisse    Aufstieg=0 Abstieg=0 Gleich=6
+Auswertung: Diese Zahlen zeigen, ob Personen, Unternehmen, Staaten und Verteidigungsbündnisse tatsächlich durch die Hierarchie gewandert sind.
+
+Szenarioübersicht:
+  Szenario-Treiber= Forschungsdurchbruch=1.15, Medienpolarisierung=0.94, Ressourcenboom=0.93, Versorgungsschock=0.87
+  Volatilität pro Tick= [3.894]
+Auswertung: Szenario-Treiber und Volatilität erklären, warum wiederholte Läufe stark auseinanderlaufen können.
+
+Top-Staaten
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Erde Republik 002                                            6.3MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Mond Republik 002                                            5.9MH Domäne=Steuerung Körper=Mond Eigentümer=Vereinte Nationen von Mond
+  L12 Sonnen-Apex      Erde Republik 008                                            5.4MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Mars Republik 003                                            5.3MH Domäne=Steuerung Körper=Mars Eigentümer=Vereinte Nationen von Mars
+  L12 Sonnen-Apex      Erde Republik 004                                            5.0MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Erde Republik 003                                            5.0MH Domäne=Steuerung Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L12 Sonnen-Apex      Mars Republik 004                                            4.8MH Domäne=Steuerung Körper=Mars Eigentümer=Vereinte Nationen von Mars
+  L12 Sonnen-Apex      Mond Republik 003                                            4.8MH Domäne=Steuerung Körper=Mond Eigentümer=Vereinte Nationen von Mond
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Unternehmen
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Forschung Unternehmen 00018                                  1.0MH Domäne=Forschung Körper=Erde Eigentümer=Erde Republik 002
+  L12 Sonnen-Apex      Finanzen Unternehmen 00019                                   1.0MH Domäne=Finanzen Körper=Erde Eigentümer=Erde Republik 005
+  L12 Sonnen-Apex      Wohnen Unternehmen 00038                                     1.0MH Domäne=Wohnen Körper=Erde Eigentümer=Erde Republik 002
+  L12 Sonnen-Apex      Rechenleistung Unternehmen 00041                           955.2kH Domäne=Rechenleistung Körper=Mond Eigentümer=Mond Republik 003
+  L12 Sonnen-Apex      Wohnen Unternehmen 00046                                   936.1kH Domäne=Wohnen Körper=Mond Eigentümer=Mond Republik 003
+  L12 Sonnen-Apex      Daten Unternehmen 00109                                    876.7kH Domäne=Daten Körper=Erde Eigentümer=Erde Republik 008
+  L12 Sonnen-Apex      Wohnen Unternehmen 00024                                   856.3kH Domäne=Wohnen Körper=Erde Eigentümer=Erde Republik 005
+  L12 Sonnen-Apex      Transport Unternehmen 00051                                850.6kH Domäne=Transport Körper=Mond Eigentümer=Mond Republik 003
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Bündnisse
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L12 Sonnen-Apex      Mars Verteidigungsbündnis 1                                  1.6MH Domäne=Verteidigung Körper=Mars Eigentümer=Mars Verteidigungsorganisation
+  L12 Sonnen-Apex      Erde Verteidigungsbündnis 2                                  1.4MH Domäne=Verteidigung Körper=Erde Eigentümer=Erde Verteidigungsorganisation
+  L12 Sonnen-Apex      Erde Verteidigungsbündnis 1                                  1.2MH Domäne=Verteidigung Körper=Erde Eigentümer=Erde Verteidigungsorganisation
+  L12 Sonnen-Apex      Mond Verteidigungsbündnis 2                                  1.2MH Domäne=Verteidigung Körper=Mond Eigentümer=Mond Verteidigungsorganisation
+  L12 Sonnen-Apex      Mond Verteidigungsbündnis 1                                  1.0MH Domäne=Verteidigung Körper=Mond Eigentümer=Mond Verteidigungsorganisation
+  L11 Systemisch       Mars Verteidigungsbündnis 2                                584.6kH Domäne=Verteidigung Körper=Mars Eigentümer=Mars Verteidigungsorganisation
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Märkte
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L08 Bündnis          Sonnensystem L12 Terraforming Markt                         48.2kH Domäne=Terraforming Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+  L08 Bündnis          Sonnensystem L12 Orbitalplätze Markt                        47.1kH Domäne=Orbitalplätze Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+  L08 Bündnis          Mars L12 Bildung Markt                                      46.9kH Domäne=Bildung Körper=Mars Eigentümer=Vereinte Nationen von Mars
+  L08 Bündnis          Sonnensystem L12 Medien Markt                               44.4kH Domäne=Medien Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+  L08 Bündnis          Sonnensystem L12 Energie Markt                              44.2kH Domäne=Energie Körper=Sonnensystem Eigentümer=Vereinte Nationen des Sonnensystems
+  L08 Bündnis          Erde L12 Arbeit Markt                                       43.5kH Domäne=Arbeit Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L08 Bündnis          Erde L12 Privileg Markt                                     43.1kH Domäne=Privileg Körper=Erde Eigentümer=Vereinte Nationen von Erde
+  L08 Bündnis          Erde L11 Wohnen Markt                                       42.5kH Domäne=Wohnen Körper=Erde Eigentümer=Vereinte Nationen von Erde
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Top-Arbeitnehmer
+Spaltenerklärung: Lxx ist die finale Hierarchiestufe; danach folgt der Stufenname, dann der Entitätsname, dann der komprimierte Status in H, dann Domäne, Himmelskörper und aktueller Eigentümer.
+  L04 Fachkraft        Arbeitnehmer 0000383                                         1.7kH Domäne=Fürsorge Körper=Mond Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0001266                                         1.5kH Domäne=Medizin Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0000002                                         1.5kH Domäne=Infrastruktur Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0001753                                         1.4kH Domäne=Logistik Körper=Mars Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0000119                                         1.2kH Domäne=Arbeit Körper=Mond Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0000048                                         1.2kH Domäne=Fähigkeit Körper=Erde Eigentümer=kein Eigentümer
+  L04 Fachkraft        Arbeitnehmer 0001147                                         1.2kH Domäne=Militär Körper=Erde Eigentümer=kein Eigentümer
+  L03 Lokal            Arbeitnehmer 0000690                                          865H Domäne=Vertrauen Körper=Erde Eigentümer=kein Eigentümer
+Auswertung: Diese Topliste zeigt die Gewinner dieses Laufs in dieser Entitätsgruppe.
+
+Aktuelle Trades / Marktereignisse
+Erklärung: Jeder Punkt ist ein konkretes aktuelles Ereignis aus Produkt-, Privilegien-, Belastungs- oder Marktbesitztausch.
+Auswertung: Diese Ereignisse sind die Mikrospuren hinter den aggregierten Ergebnissen oben.
+
+####################################### UTF-8-DASHBOARD ########################################
+
+################################ GÜTERHIERARCHIE AUF 12 STUFEN #################################
+ERKLÄRUNG VOR DER AUSGABE:
+Die folgende UTF-8-Ausgabe definiert, welche Güter und Rechte zu welcher Hierarchiestufe gehören. Zeilen L01-L12 sind Hierarchiestufen. Die Spalten zeigen die Stufe, ihren Namen, die Anzahl der Beispielgüter und konkrete Beispiele. Die Berechtigungsmatrix verwendet Akteursstufen als Zeilen und Güterstufen als Spalten; █ bedeutet Zugang zu dieser Güterstufe.
+═══════════════════════════════════ GÜTERHIERARCHIE-TABELLE ════════════════════════════════════
+Stufe    | Hierarchiestufe    | Güter   | Beispiele A                        | Beispiele B                       
+---------+--------------------+---------+------------------------------------+-----------------------------------
+L01      | Überleben          | 4       | Basis-Wasserration; Notfallkalori… | geteilter Schutzplatz; Minimal-Lu…
+L02      | Basis              | 4       | Hygieneset; einfache Kleidung      | Basis-Kommunikationsterminal; ÖPN…
+L03      | Lokal              | 4       | Reparaturwerkzeuge; private Schla… | Standard-Ernährungsplan; lokaler …
+L04      | Fachkraft          | 4       | Lehrwerkstatt-Zugang; Bildungspak… | Klinikpriorität; kleines Datenkon…
+L05      | Professionell      | 4       | professionelles Wohnen; Fahrzeugn… | Forschungsterminal; Familienverbr…
+L06      | Regional           | 4       | regionale Logistikkapazität; fort… | Team-Büroraum; mittlere Rechenkap…
+L07      | National           | 4       | nationaler Reisepass; Fabrikanteil | strategische Lagerrechte; Sicherh…
+L08      | Bündnis            | 4       | Bündnis-Beschaffungsrechte; verte… | grenzüberschreitende Marktfranchi…
+L09      | Planetar           | 4       | planetarer Medien-Einflussplatz; … | planetare Kapitallinie; Quote für…
+L10      | Interplanetar      | 4       | interplanetare Frachtroute; Orbit… | Mehrplanet-Liefervertrag; interpl…
+L11      | Systemisch         | 4       | systemische Notfall-Kommandobandb… | Anhörung in Systemregierung; hohe…
+L12      | Sonnen-Apex        | 4       | Solar-Apex-Koordinationsrechte; Z… | oberstes Missions-Zuteilungsfenst…
+
+══════════════════════════════ ANZAHL DER BEISPIELGÜTER PRO STUFE ══════════════════════════════
+L01                    │██████████████████████████████████│ 4.00
+L02                    │██████████████████████████████████│ 4.00
+L03                    │██████████████████████████████████│ 4.00
+L04                    │██████████████████████████████████│ 4.00
+L05                    │██████████████████████████████████│ 4.00
+L06                    │██████████████████████████████████│ 4.00
+L07                    │██████████████████████████████████│ 4.00
+L08                    │██████████████████████████████████│ 4.00
+L09                    │██████████████████████████████████│ 4.00
+L10                    │██████████████████████████████████│ 4.00
+L11                    │██████████████████████████████████│ 4.00
+L12                    │██████████████████████████████████│ 4.00
+
+══════════════════════════════ GÜTERLEITER / BERECHTIGUNGSSTUFEN ═══════════════════════════════
+L12 Sonnen-Apex      │ Solar-Apex-Koordinationsrechte ; Zivilisations-Kontinuitätsarchiv ; oberstes Missions-Zuteilungsfenster
+L11 Systemisch       │ systemische Notfall-Kommandobandbreite ; Zugriffsrechte auf Solarreserven ; Anhörung in Systemregierung
+L10 Interplanetar    │ interplanetare Frachtroute ; Orbital-Dockingpriorität ; Mehrplanet-Liefervertrag
+L09 Planetar         │ planetarer Medien-Einflussplatz ; großer Industriecampus ; planetare Kapitallinie
+L08 Bündnis          │ Bündnis-Beschaffungsrechte ; verteidigungstauglicher Transport ; grenzüberschreitende Marktfranchise
+L07 National         │ nationaler Reisepass ; Fabrikanteil ; strategische Lagerrechte
+L06 Regional         │ regionale Logistikkapazität ; fortgeschrittene Medizin ; Team-Büroraum
+L05 Professionell    │ professionelles Wohnen ; Fahrzeugnutzungsrechte ; Forschungsterminal
+L04 Fachkraft        │ Lehrwerkstatt-Zugang ; Bildungspaket ; Klinikpriorität
+L03 Lokal            │ Reparaturwerkzeuge ; private Schlafkapsel ; Standard-Ernährungsplan
+L02 Basis            │ Hygieneset ; einfache Kleidung ; Basis-Kommunikationsterminal
+L01 Überleben        │ Basis-Wasserration ; Notfallkalorien ; geteilter Schutzplatz
+
+════════════════════════════════ WER BEKOMMT WELCHE GÜTERSTUFEN ════════════════════════════════
+Zeilen sind Akteursstufen; Spalten sind Güterstufen. █ bedeutet: diese Akteursstufe enthält Zugang zu dieser Güterstufe.
+        G01 G02 G03 G04 G05 G06 G07 G08 G09 G10 G11 G12
+Akteur-L01  █   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   · 
+Akteur-L02  █   █   ·   ·   ·   ·   ·   ·   ·   ·   ·   · 
+Akteur-L03  █   █   █   ·   ·   ·   ·   ·   ·   ·   ·   · 
+Akteur-L04  █   █   █   █   ·   ·   ·   ·   ·   ·   ·   · 
+Akteur-L05  █   █   █   █   █   ·   ·   ·   ·   ·   ·   · 
+Akteur-L06  █   █   █   █   █   █   ·   ·   ·   ·   ·   · 
+Akteur-L07  █   █   █   █   █   █   █   ·   ·   ·   ·   · 
+Akteur-L08  █   █   █   █   █   █   █   █   ·   ·   ·   · 
+Akteur-L09  █   █   █   █   █   █   █   █   █   ·   ·   · 
+Akteur-L10  █   █   █   █   █   █   █   █   █   █   ·   · 
+Akteur-L11  █   █   █   █   █   █   █   █   █   █   █   · 
+Akteur-L12  █   █   █   █   █   █   █   █   █   █   █   █ 
+AUSWERTUNG NACH DER AUSGABE:
+Hier wird sichtbar, wie abstrakte Hierarchie in konkrete Zugänge übersetzt wird. Unten liegen Überlebens- und Basisgüter, in der Mitte berufliche und regionale Operationsrechte, oben interplanetare, systemische und Solar-Apex-Rechte.
+
+################################ HIERARCHIE-STUFENVERTEILUNGEN #################################
+ERKLÄRUNG VOR DER AUSGABE:
+Diese Diagramme zeigen, wie viele Entitäten in L01-L12 liegen. In den Heatmaps sind die Zeilen Erde, Mond, Mars oder Sonnensystem; die Spalten sind Hierarchiestufen. Dunklere Zellen bedeuten mehr Entitäten in dieser Kombination.
+═════════════════════════════════════ ARBEITNEHMER-STUFEN ══════════════════════════════════════
+L01 Überleben        │███████████████████░░░░░░░░░░░░░░░░░│ 627
+L02 Basis            │████████████████████████████████████│ 1.1k
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 30.0
+L04 Fachkraft        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.00
+L05 Professionell    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Bündnis          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemisch       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Sonnen-Apex      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════════════════ UNTERNEHMENS-STUFEN ══════════════════════════════════════
+L01 Überleben        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basis            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Fachkraft        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professionell    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Bündnis          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 24.0
+L11 Systemisch       │████████████████████████████████████│ 88.0
+L12 Sonnen-Apex      │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+
+════════════════════════════════════════ STAATS-STUFEN ═════════════════════════════════════════
+L01 Überleben        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basis            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Fachkraft        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professionell    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Bündnis          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemisch       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Sonnen-Apex      │████████████████████████████████████│ 15.0
+
+═════════════════════════════════ VERTEIDIGUNGSBÜNDNIS-STUFEN ══════════════════════════════════
+L01 Überleben        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basis            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Fachkraft        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professionell    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Bündnis          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemisch       │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.00
+L12 Sonnen-Apex      │████████████████████████████████████│ 5.00
+
+════════════════════════════════════════ PRODUKT-STUFEN ════════════════════════════════════════
+L01 Überleben        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basis            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+L04 Fachkraft        │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 33.0
+L05 Professionell    │██████████████████░░░░░░░░░░░░░░░░░░│ 205
+L06 Regional         │████████████████████████████████████│ 403
+L07 National         │██████████████████░░░░░░░░░░░░░░░░░░│ 207
+L08 Bündnis          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemisch       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Sonnen-Apex      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════════════════════ MARKT-STUFEN ═════════════════════════════════════════
+L01 Überleben        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basis            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Lokal            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Fachkraft        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+L05 Professionell    │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 136
+L06 Regional         │█████████████████░░░░░░░░░░░░░░░░░░░│ 291
+L07 National         │████████████████████████████████████│ 608
+L08 Bündnis          │████████████████████░░░░░░░░░░░░░░░░│ 343
+L09 Planetar         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetar    │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemisch       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Sonnen-Apex      │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═══════════════════════════ ARBEITNEHMER NACH HIMMELSKÖRPER × STUFE ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Erde         ▒  █                               
+Mond         ·  ░                               
+Mars         ·  ░                               
+Legend: · low  ░▒▓█ high
+
+════════════════════════════ UNTERNEHMEN NACH HIMMELSKÖRPER × STUFE ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Erde                                       █    
+Mond                                       ░    
+Mars                                    ·  ·    
+Legend: · low  ░▒▓█ high
+
+══════════════════════════════ STAATEN NACH HIMMELSKÖRPER × STUFE ══════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Erde                                          █ 
+Mond                                          ░ 
+Mars                                          ░ 
+Legend: · low  ░▒▓█ high
+
+══════════════════════════════ MÄRKTE NACH HIMMELSKÖRPER × STUFE ═══════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Erde                     ·  ▒  █  ▒             
+Mond                     ·  ░  █  ▒             
+Mars                     ·  ░  █  ▒             
+Sonnensyst…              ·  ░  █  ▒             
+Legend: · low  ░▒▓█ high
+AUSWERTUNG NACH DER AUSGABE:
+Die Verteilung zeigt, ob der Lauf untenlastig, mittellastig oder apexlastig ist und ob sich Erde, Mond und Mars unterschiedlich konzentrieren.
+
+############################ KARRIEREMOBILITÄT UND AUFSTIEG/ABSTIEG ############################
+ERKLÄRUNG VOR DER AUSGABE:
+Diese Tabellen und Heatmaps messen Karrierebewegung. Aufstieg bedeutet über der Anfangsstufe, Abstieg unter der Anfangsstufe, Gleich bedeutet unverändert. In Übergangs-Heatmaps sind die Zeilen Anfangsstufen und die Spalten aktuelle Stufen.
+══════════════════════════════════════ KARRIERE-MOBILITÄT ══════════════════════════════════════
+Gruppe         | Aufstieg   | Abstieg    | Gleich     | Form            
+---------------+------------+------------+------------+-----------------
+Arbeitnehmer   | 173        | 18         | 1609       | ▁▁█             
+Unternehmen    | 2          | 0          | 118        | ▁▁█             
+Staaten        | 0          | 0          | 15         | ▁▁█             
+Bündnisse      | 0          | 0          | 6          | ▁▁█             
+
+══════════════════════════ ARBEITNEHMER: AUFSTIEG / ABSTIEG / GLEICH ═══════════════════════════
+Gleich                 │██████████████████████████████████│ 1.6k
+Aufstieg               │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 173
+Abstieg                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 18.0
+
+═══════════════════════════ UNTERNEHMEN: AUFSTIEG / ABSTIEG / GLEICH ═══════════════════════════
+Gleich                 │██████████████████████████████████│ 118
+Aufstieg               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+Abstieg                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════════ STAATEN: AUFSTIEG / ABSTIEG / GLEICH ═════════════════════════════
+Gleich                 │██████████████████████████████████│ 15.0
+Abstieg                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+Aufstieg               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════ BÜNDNISSE: AUFSTIEG / ABSTIEG / GLEICH ════════════════════════════
+Gleich                 │██████████████████████████████████│ 6.00
+Abstieg                │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+Aufstieg               │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════ ARBEITNEHMER AUSGANGSSTUFE → AKTUELLE STUFE ══════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+1            ▒  ·                               
+2               █                               
+Legend: · low  ░▒▓█ high
+
+══════════════════════════ UNTERNEHMEN AUSGANGSSTUFE → AKTUELLE STUFE ══════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+10                                      ·       
+11                                         █    
+12                                              
+Legend: · low  ░▒▓█ high
+
+════════════════════════════ STAATEN AUSGANGSSTUFE → AKTUELLE STUFE ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+12                                            █ 
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════ BÜNDNISSE AUSGANGSSTUFE → AKTUELLE STUFE ═══════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+11                                         ·    
+12                                            █ 
+Legend: · low  ░▒▓█ high
+AUSWERTUNG NACH DER AUSGABE:
+Das ist der direkte Test, ob die Hierarchie mobil ist. Masse oberhalb der Diagonale bedeutet Aufstieg, unterhalb Abstieg, auf der Diagonale Stabilität.
+
+###################################### MÄRKTE UND DOMÄNEN ######################################
+ERKLÄRUNG VOR DER AUSGABE:
+Diese Diagramme gruppieren Marktaktivität nach Domäne. Histogramme vergleichen Volumen und Anzahl der Transaktionen. Die Heatmap verwendet Marktdomänen als Zeilen und Hierarchiestufen als Spalten.
+═══════════════════════════════════ MARKTVOLUMEN NACH DOMÄNE ═══════════════════════════════════
+Landwirtschaft         │████████████████████████████████████│ 18.5k
+Forschung              │█████████████████████████████████░░░│ 17.1k
+Wasser                 │██████████████████████████████░░░░░░│ 15.9k
+Energie                │██████████████████████████████░░░░░░│ 15.6k
+Transport              │███████████████████████████░░░░░░░░░│ 14.1k
+Orbitalplätze          │████████████████████████░░░░░░░░░░░░│ 12.8k
+Fertigung              │███████████████████████░░░░░░░░░░░░░│ 12.0k
+Daten                  │██████████████████░░░░░░░░░░░░░░░░░░│ 9.5k
+Terraforming           │████████████████░░░░░░░░░░░░░░░░░░░░│ 8.6k
+Sauerstoff             │███████████████░░░░░░░░░░░░░░░░░░░░░│ 8.1k
+Marktrechte            │███████████████░░░░░░░░░░░░░░░░░░░░░│ 8.0k
+Finanzen               │██████████████░░░░░░░░░░░░░░░░░░░░░░│ 7.4k
+Verteidigung           │█████████████░░░░░░░░░░░░░░░░░░░░░░░│ 6.9k
+Nahrung                │█████████████░░░░░░░░░░░░░░░░░░░░░░░│ 6.9k
+Bildung                │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 5.2k
+Wohnen                 │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.9k
+
+════════════════════════════════ MARKTTRANSAKTIONEN NACH DOMÄNE ════════════════════════════════
+Marktrechte            │████████████████████████████████████│ 57.0
+Daten                  │█████████████████████████████░░░░░░░│ 47.0
+Fertigung              │██████████████████░░░░░░░░░░░░░░░░░░│ 30.0
+Nahrung                │██████████████████░░░░░░░░░░░░░░░░░░│ 29.0
+Wasser                 │██████████████████░░░░░░░░░░░░░░░░░░│ 29.0
+Forschung              │██████████████░░░░░░░░░░░░░░░░░░░░░░│ 23.0
+Energie                │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+Sauerstoff             │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+Transport              │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+Landwirtschaft         │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+Orbitalplätze          │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+Terraforming           │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+Verteidigung           │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+Fürsorge               │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+Kultur                 │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+Medizin                │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 12.0
+
+═════════════════════════════════ MARKTDOMÄNE × STUFE HEATMAP ══════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Landwirtsc…                    ░  █             
+Forschung                      █  ·             
+Wasser                         ░  ▒             
+Energie                        ▒  ▒             
+Transport                      ▓  ·             
+Orbitalplä…                    ·  ▒             
+Fertigung                      ▒  ·             
+Daten                          ·  ░             
+Terraformi…                    ░  ·             
+Sauerstoff                     ·  ░             
+Marktrechte                 ·  ░  ·             
+Finanzen                       ░  ·             
+Verteidigu…                    ·  ·             
+Nahrung                        ░                
+Legend: · low  ░▒▓█ high
+AUSWERTUNG NACH DER AUSGABE:
+Das zeigt, welche Domänen den Lauf dominierten und ob Handel auf niedrigen, professionellen, planetaren oder Apex-Stufen konzentriert war.
+
+###################### NETZWERK, QUEUES, DUPLEXING, KATEGORIEN UND GARBEN ######################
+ERKLÄRUNG VOR DER AUSGABE:
+Dieser Abschnitt fasst Topologien, Halb-/Vollduplex, FIFO/LIFO/Priorität, aggregierten Paketfluss, Semaphore, Kategorien, Funktoren, natürliche Transformationen und Garbenverklebung zusammen. Es bleibt aggregiert, damit große PyPy-Läufe stabil sind.
+════════════════════════════════════ KANÄLE NACH TOPOLOGIE ═════════════════════════════════════
+market-bipartite       │██████████████████████████████████│ 233
+Steuerung              │████████████████████████████████░░│ 222
+sheaf-cover            │████████████████████████████████░░│ 221
+mesh                   │███████████████████████████████░░░│ 217
+ring                   │██████████████████████████████░░░░│ 208
+tree                   │██████████████████████████████░░░░│ 206
+star                   │████████████████████████████░░░░░░│ 197
+
+═══════════════════════════════════ KANÄLE NACH DUPLEX-MODUS ═══════════════════════════════════
+Halbduplex             │██████████████████████████████████│ 272
+Vollduplex             │█████████████████████████████████░│ 265
+Simplex                │████████████████████████████████░░│ 263
+
+═════════════════════════════════════ KANAL-WARTESCHLANGEN ═════════════════════════════════════
+Priorität              │██████████████████████████████████│ 282
+FIFO                   │████████████████████████████████░░│ 267
+LIFO                   │██████████████████████████████░░░░│ 251
+
+══════════════════════════ AGGREGIERTE DATENSTROM-/SEMAPHOR-METRIKEN ═══════════════════════════
+Paket-/Semaphor-Metrik         | Wert          
+-------------------------------+---------------
+erzeugt                        | 1800          
+zugestellt                     | 1538          
+verworfen                      | 49            
+Semaphor_blockiert             | 10            
+
+══════════════════════════════════ KATEGORIE-GRÖSSENDIAGRAMM ═══════════════════════════════════
+Kategorie                    | Objekte    | Morphismen | Hom-Mengen | Form            
+-----------------------------+------------+------------+------------+-----------------
+ökonomische_Kategorie        | 4191       | 8021       | 5271       | ▁█▂             
+Netzwerk_Kategorie           | 4191       | 16057      | 12454      | ▁█▅             
+Hierarchie_Kategorie         | 12         | 2104       | 126        | ▁█▁             
+Topologie_Kategorie          | 7          | 15         | 15         | ▁██             
+
+═══════════════════════════ FUNKORIALITÄT / NATÜRLICHKEITS-PRÜFUNGEN ═══════════════════════════
+Funktor/NT                 | Geprüft    | OK/Natürlich | Identität/Ver…
+---------------------------+------------+--------------+---------------
+Status-Funktor             | 300        | 300          | 300           
+Zugangs-Funktor            | 300        | 300          | 300           
+Natürliche Transformation  | 300        | 300          | 0             
+
+═════════════════════════════════ PRÄGARBEN-/GARBEN-VERKLEBUNG ═════════════════════════════════
+Garbenmetrik                   | Wert          
+-------------------------------+---------------
+sections                       | 1572          
+covers                         | 4             
+glued                          | 4             
+compatibility_checks           | 500           
+compatibility_passed           | 500           
+AUSWERTUNG NACH DER AUSGABE:
+Die Ausgabe zeigt, ob die abstrakte Architektur kohärent blieb, ohne einen gefährlichen Live-Graphen zu materialisieren. Paket- und Semaphorwerte zeigen Flussdruck; Kategorie- und Garbenwerte zeigen strukturelle Konsistenz.
+
+########################### SZENARIO-DIVERSITÄT UND ZUFALLSAUSGÄNGE ############################
+ERKLÄRUNG VOR DER AUSGABE:
+Dieser Abschnitt listet die stochastischen Makroereignisse des Laufs. Stärke ist die Ereignisintensität. Die Histogramme aggregieren, wie stark jeder Ereignistyp den Lauf geprägt hat. Volatilität zeigt die gesamte Schockintensität pro Tick.
+══════════════════════════════════ MAKRO-SZENARIO-EREIGNISLOG ══════════════════════════════════
+Tick     | Ereignis                 | Stärke     | Bedeutung                                           
+---------+--------------------------+------------+-----------------------------------------------------
+1        | Forschungsdurchbruch     | 1.15       | Forschung und Rechenleistung beschleunigen Aufstieg.
+1        | Versorgungsschock        | 0.87       | Versorgungsschock belastet Logistik und Marktzugang.
+1        | Medienpolarisierung      | 0.94       | Medien- und Vertrauenslage wird instabil.           
+1        | Ressourcenboom           | 0.93       | Ressourcenboom hebt Kapital, Logistik und Industrie.
+
+═════════════════════════════════ STÄRKE DER SZENARIO-TREIBER ══════════════════════════════════
+Forschungsdurchbruch   │██████████████████████████████████│ 1.15
+Medienpolarisierung    │███████████████████████████░░░░░░░│ 0.94
+Ressourcenboom         │███████████████████████████░░░░░░░│ 0.93
+Versorgungsschock      │█████████████████████████░░░░░░░░░│ 0.87
+
+═════════════════════════════════════ VOLATILITÄT PRO TICK ═════════════════════════════════════
+Tick01                 │██████████████████████████████████│ 3.89
+AUSWERTUNG NACH DER AUSGABE:
+Das erklärt, warum Läufe unterschiedlich enden können. Verteidigungslastige Läufe heben Bündnisse, forschungslastige Läufe heben Wissenschaft und Daten, Versorgungsschocks erzeugen mehr Verlierer, Anerkennung der Fürsorge hebt Pflege-, Bildungs- und Vertrauensarbeit.
+
+ABSCHLIESSENDE AUSGEWOGENE ZUSAMMENFASSUNG MÖGLICHER AUSGÄNGE
+Dieser Lauf ist ein realisierter Pfad durch eine stochastische Hierarchieökonomie. Dominante Szenario-Treiber waren: Forschungsdurchbruch=1.15, Medienpolarisierung=0.94, Ressourcenboom=0.93, Versorgungsschock=0.87.
+Die durchschnittliche Volatilität pro Tick lag bei 3.89. Ein höherer Wert bedeutet, dass ein anderer Seed sichtbar andere Gewinner, Verlierer und Domänen erzeugen könnte.
+Die aktivste Marktdomäne in diesem Lauf war Landwirtschaft.
+Alternative plausible Ausgänge bleiben ausgewogen: Ein stärkerer Verteidigungsalarm würde Bündnisse und militärische Staaten begünstigen; ein stärkerer Forschungsdurchbruch würde Rechenleistung, Daten und Wissenschaft heben; ein härterer Versorgungsschock würde mehr Unternehmen und Märkte nach unten drücken; Anerkennung der Fürsorge würde Pflege, Medizin, Bildung und Vertrauensarbeit stärken.
+Die Ausgabe ist deshalb kein unvermeidliches Gleichgewicht, sondern eine Szenario-Probe aus einem breiten Raum möglicher Hierarchie-Markt-Zukünfte.
+
+GRUPPENSPEZIFISCHE MOBILITÄTSDEUTUNGEN
+  - Arbeitnehmer bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Unternehmen bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Staaten bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.
+  - Bündnisse bleiben vergleichsweise stabil; Hierarchie-Persistenz dominiert diese Gruppe.

@@ -1,0 +1,545 @@
+Building PyPy-safe hierarchy-market simulation profile=demo seed=42
+Built: entities=4191 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 channels=4323 econ_morphisms=7321 net_morphisms=15967 safe_data_oriented=True
+tick=1 volume=263.7kH product_sales=323 market_trades=55 packets(created/delivered/dropped)=1800/1538/49 sem_blocked=10 sheaf_glued=4
+================================================================================================
+SOLAR HIERARCHY MARKET — PYPY-SAFE DATA-ORIENTED REPORT
+================================================================================================
+seed=42 profile=demo ticks=1 processes_argument=1 lang=en
+
+GLOBAL EXPLANATION OF THE SIMULATION
+The simulation models a hierarchy-currency economy across Earth, Moon and Mars. The economy contains governance bodies, defense organizations, alliances, countries, companies, workers, products, tradable markets, privileges and burdens. Hierarchy is the meaningful currency; H is only the compressed settlement number used for accounting.
+The goal is to observe how goods access, market exchange, network flow, category-like structure, sheaf-like gluing and stochastic macro-events shape status, career mobility and different possible outcomes.
+
+WHAT ELSE CAN STILL BE SIMULATED
+  - demographic transitions across generations, inheritance, schooling, retirement and age-cohort replacement
+  - banking, debt chains, insolvency cascades, collateral, central-bank-style hierarchy liquidity
+  - elections, propaganda, censorship, legitimacy, constitutional reforms and crisis governments
+  - migration between Earth, Moon and Mars, including brain drain, labor shortages and colony attraction
+  - war, deterrence, mobilization, arms races, negotiated disarmament and defense-alliance fragmentation
+  - innovation races, patents, research commons, secret projects and knowledge diffusion
+  - ecological constraints: oxygen scarcity, water contamination, crop failures and terraforming risk
+  - criminal markets, corruption, smuggling, anti-corruption courts and status fraud
+  - cultural prestige markets, celebrity hierarchy, symbolic capital and reputation bubbles
+  - cyber conflict, sabotage, network partitioning, redundancy and emergency rerouting
+  - class conflict, strikes, unions, social insurance and redistributive reforms
+  - planetary catastrophes, evacuation markets, continuity archives and emergency command regimes
+
+EXPLANATION OF ABBREVIATIONS
+H = compressed hierarchy accounting value; L01-L12 = hierarchy stages from Survival to Solar Apex; Up/Down/Same = movement relative to initial hierarchy level; NT = natural transformation; hom-set = morphisms between two category objects; FIFO/LIFO/priority = queue discipline; half/full = duplex mode; semaphore_blocked = simulated blocked channel permits.
+
+EXPLANATION OF NUMERIC SUMMARY BLOCKS
+The next blocks give the macro state of this run before the UTF-8 diagrams. Each block has an interpretation directly below it.
+
+Counts:
+  entities                       4191
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     143
+  burdens                        69
+Interpretation: these counts define the scale of the simulated society and market system.
+
+Trade:
+  volume_H                       263669.76
+  product_sales                  323
+  market_ownership_changes       55
+  manual_lifts                   10
+Interpretation: trade volume, product sales and market ownership changes show how liquid and structurally transformative this run became.
+
+Network:
+  nodes                          4191
+  channels                       4323
+  components                     2430
+  degree_min                     1
+  degree_mean                    2.778811739441661
+  degree_max                     102
+  packets_created                1800
+  packets_delivered              1538
+  packets_dropped                49
+  semaphore_blocked              10
+Interpretation: these aggregate network numbers replace the old dangerous live graph. They still show flow pressure, connectivity and semaphore contention without causing PyPy heap instability.
+
+Category:
+  economic_category              objects=4191 morphisms=8021 hom_sets=5271
+  network_category               objects=4191 morphisms=16057 hom_sets=12454
+  hierarchy_category             objects=12 morphisms=2104 hom_sets=126
+  topology_category              objects=7 morphisms=15 hom_sets=15
+Interpretation: these counts summarize the category-theoretic architecture as aggregate structure: objects are entities or levels; morphisms are relations, trades and transformations; hom-sets group morphisms by source and target type.
+
+Level distributions:
+  workers      {1: 627, 2: 1136, 3: 30, 4: 7}
+  companies    {10: 24, 11: 88, 12: 8}
+  countries    {12: 15}
+  alliances    {11: 1, 12: 5}
+  products     {3: 2, 4: 33, 5: 205, 6: 403, 7: 207}
+  markets      {4: 14, 5: 136, 6: 291, 7: 608, 8: 343}
+Interpretation: these distributions show where each entity type sits in the twelve-level hierarchy.
+
+Mobility summary:
+  workers      up=173 down=18 same=1609
+  companies    up=2 down=0 same=118
+  countries    up=0 down=0 same=15
+  alliances    up=0 down=0 same=6
+Interpretation: these numbers show whether people, companies, states and defense alliances actually moved through the hierarchy.
+
+Scenario summary:
+  scenario drivers= research_breakthrough=1.15, media_polarization=0.94, resource_boom=0.93, supply_shock=0.87
+  volatility per tick= [3.894]
+Interpretation: scenario drivers and volatility explain why repeated runs can diverge sharply.
+
+Top countries
+Explanation of columns: Lxx is the final hierarchy level; the next field is the level name; then entity name; then compressed status in H; then domain, body and current owner.
+  L12 Solar Apex       Earth Republic 002                                           6.3MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Moon Republic 002                                            5.9MH domain=governance body=Moon owner=United Nations of Moon
+  L12 Solar Apex       Earth Republic 008                                           5.4MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 003                                            5.3MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 004                                           5.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 003                                           5.0MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 004                                            4.8MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Moon Republic 003                                            4.8MH domain=governance body=Moon owner=United Nations of Moon
+Interpretation: this top list identifies the winners of this run in that entity group.
+
+Top companies
+Explanation of columns: Lxx is the final hierarchy level; the next field is the level name; then entity name; then compressed status in H; then domain, body and current owner.
+  L12 Solar Apex       Research Company 00018                                       1.0MH domain=research body=Earth owner=Earth Republic 002
+  L12 Solar Apex       Finance Company 00019                                        1.0MH domain=finance body=Earth owner=Earth Republic 005
+  L12 Solar Apex       Housing Company 00038                                        1.0MH domain=housing body=Earth owner=Earth Republic 002
+  L12 Solar Apex       Compute Company 00041                                      955.2kH domain=compute body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Housing Company 00046                                      936.1kH domain=housing body=Moon owner=Moon Republic 003
+  L12 Solar Apex       Data Company 00109                                         876.7kH domain=data body=Earth owner=Earth Republic 008
+  L12 Solar Apex       Housing Company 00024                                      856.3kH domain=housing body=Earth owner=Earth Republic 005
+  L12 Solar Apex       Transport Company 00051                                    850.6kH domain=transport body=Moon owner=Moon Republic 003
+Interpretation: this top list identifies the winners of this run in that entity group.
+
+Top alliances
+Explanation of columns: Lxx is the final hierarchy level; the next field is the level name; then entity name; then compressed status in H; then domain, body and current owner.
+  L12 Solar Apex       Mars Defense Alliance 1                                      1.6MH domain=defense body=Mars owner=Mars Defense Organization
+  L12 Solar Apex       Earth Defense Alliance 2                                     1.4MH domain=defense body=Earth owner=Earth Defense Organization
+  L12 Solar Apex       Earth Defense Alliance 1                                     1.2MH domain=defense body=Earth owner=Earth Defense Organization
+  L12 Solar Apex       Moon Defense Alliance 2                                      1.2MH domain=defense body=Moon owner=Moon Defense Organization
+  L12 Solar Apex       Moon Defense Alliance 1                                      1.0MH domain=defense body=Moon owner=Moon Defense Organization
+  L11 Systemic         Mars Defense Alliance 2                                    584.6kH domain=defense body=Mars owner=Mars Defense Organization
+Interpretation: this top list identifies the winners of this run in that entity group.
+
+Top markets
+Explanation of columns: Lxx is the final hierarchy level; the next field is the level name; then entity name; then compressed status in H; then domain, body and current owner.
+  L08 Alliance         Solar System L12 Terraforming Market                        48.2kH domain=terraforming body=Solar System owner=Solar System United Nations
+  L08 Alliance         Solar System L12 Orbital Slots Market                       47.1kH domain=orbital_slots body=Solar System owner=Solar System United Nations
+  L08 Alliance         Mars L12 Education Market                                   46.9kH domain=education body=Mars owner=United Nations of Mars
+  L08 Alliance         Solar System L12 Media Market                               44.4kH domain=media body=Solar System owner=Solar System United Nations
+  L08 Alliance         Solar System L12 Energy Market                              44.2kH domain=energy body=Solar System owner=Solar System United Nations
+  L08 Alliance         Earth L12 Labor Market                                      43.5kH domain=labor body=Earth owner=United Nations of Earth
+  L08 Alliance         Earth L12 Privilege Market                                  43.1kH domain=privilege body=Earth owner=United Nations of Earth
+  L08 Alliance         Earth L11 Housing Market                                    42.5kH domain=housing body=Earth owner=United Nations of Earth
+Interpretation: this top list identifies the winners of this run in that entity group.
+
+Top workers
+Explanation of columns: Lxx is the final hierarchy level; the next field is the level name; then entity name; then compressed status in H; then domain, body and current owner.
+  L04 Skilled          Worker 0000383                                               1.7kH domain=care body=Moon owner=None
+  L04 Skilled          Worker 0001266                                               1.5kH domain=medicine body=Earth owner=None
+  L04 Skilled          Worker 0000002                                               1.5kH domain=infrastructure body=Earth owner=None
+  L04 Skilled          Worker 0001753                                               1.4kH domain=logistics body=Mars owner=None
+  L04 Skilled          Worker 0000119                                               1.2kH domain=labor body=Moon owner=None
+  L04 Skilled          Worker 0000048                                               1.2kH domain=skill body=Earth owner=None
+  L04 Skilled          Worker 0001147                                               1.2kH domain=military body=Earth owner=None
+  L03 Local            Worker 0000690                                                865H domain=trust body=Earth owner=None
+Interpretation: this top list identifies the winners of this run in that entity group.
+
+Recent trades / market events
+Explanation: each bullet is a recent concrete event from product exchange, privilege exchange, burden exchange or market ownership transfer.
+Interpretation: these events are the micro-level traces behind the aggregate results above.
+
+####################################### UTF-8 DASHBOARD ########################################
+
+################################# GOODS HIERARCHY ON 12 LEVELS #################################
+EXPLANATION BEFORE OUTPUT:
+The next UTF-8 output defines what goods and rights correspond to each hierarchy level. Rows L01-L12 are hierarchy levels. The table columns show the level, its name, how many example goods are listed and examples of goods or rights. The entitlement matrix uses actor levels as rows and goods levels as columns; █ means an actor at that level has access to that goods tier.
+════════════════════════════════════ GOODS HIERARCHY TABLE ═════════════════════════════════════
+Level    | Hierarchy stage    | Goods   | Examples A                         | Examples B                        
+---------+--------------------+---------+------------------------------------+-----------------------------------
+L01      | Survival           | 4       | basic water ration; emergency cal… | shared shelter slot; minimum air …
+L02      | Basic              | 4       | personal hygiene kit; simple clot… | basic comm terminal; public trans…
+L03      | Local              | 4       | repair tools; private sleeping pod | standard nutrition plan; local ma…
+L04      | Skilled            | 4       | apprentice workshop access; educa… | clinic priority; small data quota 
+L05      | Professional       | 4       | professional housing; vehicle usa… | research terminal; family consump…
+L06      | Regional           | 4       | regional logistics capacity; adva… | team office space; mid-tier compu…
+L07      | National           | 4       | national travel permit; factory s… | strategic storage rights; securit…
+L08      | Alliance           | 4       | alliance procurement rights; defe… | cross-border market franchise; co…
+L09      | Planetary          | 4       | planetary influence media slot; l… | planetary capital line; rare mate…
+L10      | Interplanetary     | 4       | interplanetary shipping lane; orb… | multi-planet supply contract; int…
+L11      | Systemic           | 4       | systemic emergency command bandwi… | system governance audience; high …
+L12      | Solar Apex         | 4       | solar apex coordination rights; c… | supreme mission allocation window…
+
+══════════════════════════════ NUMBER OF EXAMPLE GOODS PER LEVEL ═══════════════════════════════
+L01                    │██████████████████████████████████│ 4.00
+L02                    │██████████████████████████████████│ 4.00
+L03                    │██████████████████████████████████│ 4.00
+L04                    │██████████████████████████████████│ 4.00
+L05                    │██████████████████████████████████│ 4.00
+L06                    │██████████████████████████████████│ 4.00
+L07                    │██████████████████████████████████│ 4.00
+L08                    │██████████████████████████████████│ 4.00
+L09                    │██████████████████████████████████│ 4.00
+L10                    │██████████████████████████████████│ 4.00
+L11                    │██████████████████████████████████│ 4.00
+L12                    │██████████████████████████████████│ 4.00
+
+═════════════════════════════ GOODS LADDER / ENTITLEMENT STAIRCASE ═════════════════════════════
+L12 Solar Apex       │ solar apex coordination rights ; civilizational continuity archive ; supreme mission allocation window
+L11 Systemic         │ systemic emergency command bandwidth ; solar reserve draw rights ; system governance audience
+L10 Interplanetary   │ interplanetary shipping lane ; orbital docking priority ; multi-planet supply contract
+L09 Planetary        │ planetary influence media slot ; large industrial campus ; planetary capital line
+L08 Alliance         │ alliance procurement rights ; defense-grade transport ; cross-border market franchise
+L07 National         │ national travel permit ; factory share ; strategic storage rights
+L06 Regional         │ regional logistics capacity ; advanced medicine ; team office space
+L05 Professional     │ professional housing ; vehicle usage rights ; research terminal
+L04 Skilled          │ apprentice workshop access ; education package ; clinic priority
+L03 Local            │ repair tools ; private sleeping pod ; standard nutrition plan
+L02 Basic            │ personal hygiene kit ; simple clothing ; basic comm terminal
+L01 Survival         │ basic water ration ; emergency calories ; shared shelter slot
+
+═════════════════════════════════ WHO GETS WHICH GOODS LEVELS ══════════════════════════════════
+Rows are actor level; columns are goods levels. █ means the actor level includes access to that goods level.
+        G01 G02 G03 G04 G05 G06 G07 G08 G09 G10 G11 G12
+A-L01     █   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   · 
+A-L02     █   █   ·   ·   ·   ·   ·   ·   ·   ·   ·   · 
+A-L03     █   █   █   ·   ·   ·   ·   ·   ·   ·   ·   · 
+A-L04     █   █   █   █   ·   ·   ·   ·   ·   ·   ·   · 
+A-L05     █   █   █   █   █   ·   ·   ·   ·   ·   ·   · 
+A-L06     █   █   █   █   █   █   ·   ·   ·   ·   ·   · 
+A-L07     █   █   █   █   █   █   █   ·   ·   ·   ·   · 
+A-L08     █   █   █   █   █   █   █   █   ·   ·   ·   · 
+A-L09     █   █   █   █   █   █   █   █   █   ·   ·   · 
+A-L10     █   █   █   █   █   █   █   █   █   █   ·   · 
+A-L11     █   █   █   █   █   █   █   █   █   █   █   · 
+A-L12     █   █   █   █   █   █   █   █   █   █   █   █ 
+INTERPRETATION AFTER OUTPUT:
+This shows how abstract hierarchy becomes concrete access. Low levels receive survival and basic goods. Middle levels receive professional, regional and national operating rights. Top levels receive interplanetary, systemic and solar-apex coordination rights.
+
+################################ HIERARCHY LEVEL DISTRIBUTIONS #################################
+EXPLANATION BEFORE OUTPUT:
+These diagrams show how many entities sit in each level L01-L12. Rows in heatmaps are Earth, Moon, Mars or Solar System. Columns are hierarchy levels. Darker cells mean more entities in that body-level cell.
+════════════════════════════════════════ WORKER LEVELS ═════════════════════════════════════════
+L01 Survival         │███████████████████░░░░░░░░░░░░░░░░░│ 627
+L02 Basic            │████████████████████████████████████│ 1.1k
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 30.0
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 7.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════════════════ COMPANY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 24.0
+L11 Systemic         │████████████████████████████████████│ 88.0
+L12 Solar Apex       │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 8.00
+
+════════════════════════════════════════ COUNTRY LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │████████████████████████████████████│ 15.0
+
+═══════════════════════════════════ DEFENSE ALLIANCE LEVELS ════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L05 Professional     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L06 Regional         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L07 National         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 1.00
+L12 Solar Apex       │████████████████████████████████████│ 5.00
+
+════════════════════════════════════════ PRODUCT LEVELS ════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+L04 Skilled          │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 33.0
+L05 Professional     │██████████████████░░░░░░░░░░░░░░░░░░│ 205
+L06 Regional         │████████████████████████████████████│ 403
+L07 National         │██████████████████░░░░░░░░░░░░░░░░░░│ 207
+L08 Alliance         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════════════════ MARKET LEVELS ═════════════════════════════════════════
+L01 Survival         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L02 Basic            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L03 Local            │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L04 Skilled          │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+L05 Professional     │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 136
+L06 Regional         │█████████████████░░░░░░░░░░░░░░░░░░░│ 291
+L07 National         │████████████████████████████████████│ 608
+L08 Alliance         │████████████████████░░░░░░░░░░░░░░░░│ 343
+L09 Planetary        │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L10 Interplanetary   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L11 Systemic         │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+L12 Solar Apex       │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═══════════════════════════════════ WORKERS BY BODY × LEVEL ════════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Earth        ▒  █                               
+Moon         ·  ░                               
+Mars         ·  ░                               
+Legend: · low  ░▒▓█ high
+
+══════════════════════════════════ COMPANIES BY BODY × LEVEL ═══════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Earth                                      █    
+Moon                                       ░    
+Mars                                    ·  ·    
+Legend: · low  ░▒▓█ high
+
+══════════════════════════════════ COUNTRIES BY BODY × LEVEL ═══════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Earth                                         █ 
+Moon                                          ░ 
+Mars                                          ░ 
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════════════ MARKETS BY BODY × LEVEL ════════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+Earth                    ·  ▒  █  ▒             
+Moon                     ·  ░  █  ▒             
+Mars                     ·  ░  █  ▒             
+Solar Syst…              ·  ░  █  ▒             
+Legend: · low  ░▒▓█ high
+INTERPRETATION AFTER OUTPUT:
+This reveals whether the run is bottom-heavy, middle-heavy or apex-heavy, and whether hierarchy concentration differs across Earth, Moon and Mars.
+
+############################## CAREER MOBILITY AND ASCENT/DESCENT ##############################
+EXPLANATION BEFORE OUTPUT:
+These tables and heatmaps measure career movement. Up means the entity is above its initial level; Down means below initial level; Same means unchanged. In transition heatmaps, rows are starting levels and columns are current levels.
+═══════════════════════════════════ CAREER MOBILITY SUMMARY ════════════════════════════════════
+Group          | Up         | Down       | Same       | Shape           
+---------------+------------+------------+------------+-----------------
+workers        | 173        | 18         | 1609       | ▁▁█             
+companies      | 2          | 0          | 118        | ▁▁█             
+countries      | 0          | 0          | 15         | ▁▁█             
+alliances      | 0          | 0          | 6          | ▁▁█             
+
+══════════════════════════════════ WORKERS: UP / DOWN / SAME ═══════════════════════════════════
+same                   │██████████████████████████████████│ 1.6k
+up                     │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 173
+down                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 18.0
+
+═════════════════════════════════ COMPANIES: UP / DOWN / SAME ══════════════════════════════════
+same                   │██████████████████████████████████│ 118
+up                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 2.00
+down                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════════════ COUNTRIES: UP / DOWN / SAME ══════════════════════════════════
+same                   │██████████████████████████████████│ 15.0
+down                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+up                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+═════════════════════════════════ ALLIANCES: UP / DOWN / SAME ══════════════════════════════════
+same                   │██████████████████████████████████│ 6.00
+down                   │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+up                     │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 0.00
+
+════════════════════════════ WORKERS INITIAL LEVEL → CURRENT LEVEL ═════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+1            ▒  ·                               
+2               █                               
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════ COMPANIES INITIAL LEVEL → CURRENT LEVEL ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+10                                      ·       
+11                                         █    
+12                                              
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════ COUNTRIES INITIAL LEVEL → CURRENT LEVEL ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+12                                            █ 
+Legend: · low  ░▒▓█ high
+
+═══════════════════════════ ALLIANCES INITIAL LEVEL → CURRENT LEVEL ════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+11                                         ·    
+12                                            █ 
+Legend: · low  ░▒▓█ high
+INTERPRETATION AFTER OUTPUT:
+This is the direct test of whether the simulated hierarchy is mobile. Above-diagonal mass means ascent; below-diagonal mass means decline; diagonal mass means stability.
+
+##################################### MARKETS AND DOMAINS ######################################
+EXPLANATION BEFORE OUTPUT:
+These diagrams group all market activity by domain. The histograms compare trade volume and trade count. The heatmap uses market domain as rows and hierarchy levels as columns.
+═══════════════════════════════════ MARKET VOLUME BY DOMAIN ════════════════════════════════════
+agriculture            │████████████████████████████████████│ 18.5k
+research               │█████████████████████████████████░░░│ 17.1k
+water                  │██████████████████████████████░░░░░░│ 15.9k
+energy                 │██████████████████████████████░░░░░░│ 15.6k
+transport              │███████████████████████████░░░░░░░░░│ 14.1k
+orbital_slots          │████████████████████████░░░░░░░░░░░░│ 12.8k
+manufacturing          │███████████████████████░░░░░░░░░░░░░│ 12.0k
+data                   │██████████████████░░░░░░░░░░░░░░░░░░│ 9.5k
+terraforming           │████████████████░░░░░░░░░░░░░░░░░░░░│ 8.6k
+oxygen                 │███████████████░░░░░░░░░░░░░░░░░░░░░│ 8.1k
+market_rights          │███████████████░░░░░░░░░░░░░░░░░░░░░│ 8.0k
+finance                │██████████████░░░░░░░░░░░░░░░░░░░░░░│ 7.4k
+defense                │█████████████░░░░░░░░░░░░░░░░░░░░░░░│ 6.9k
+food                   │█████████████░░░░░░░░░░░░░░░░░░░░░░░│ 6.9k
+education              │██████████░░░░░░░░░░░░░░░░░░░░░░░░░░│ 5.2k
+housing                │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 4.9k
+
+═══════════════════════════════════ MARKET TRADES BY DOMAIN ════════════════════════════════════
+market_rights          │████████████████████████████████████│ 57.0
+data                   │█████████████████████████████░░░░░░░│ 47.0
+manufacturing          │██████████████████░░░░░░░░░░░░░░░░░░│ 30.0
+food                   │██████████████████░░░░░░░░░░░░░░░░░░│ 29.0
+water                  │██████████████████░░░░░░░░░░░░░░░░░░│ 29.0
+research               │██████████████░░░░░░░░░░░░░░░░░░░░░░│ 23.0
+energy                 │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+oxygen                 │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+transport              │████████████░░░░░░░░░░░░░░░░░░░░░░░░│ 19.0
+agriculture            │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+orbital_slots          │█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 15.0
+defense                │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+terraforming           │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 14.0
+care                   │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+culture                │████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 13.0
+medicine               │███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ 12.0
+
+════════════════════════════════ MARKET DOMAIN × LEVEL HEATMAP ═════════════════════════════════
+            1   2   3   4   5   6   7   8   9   10  11  12 
+agriculture                    ░  █             
+research                       █  ·             
+water                          ░  ▒             
+energy                         ▒  ▒             
+transport                      ▓  ·             
+orbital_sl…                    ·  ▒             
+manufactur…                    ▒  ·             
+data                           ·  ░             
+terraformi…                    ░  ·             
+oxygen                         ·  ░             
+market_rig…                 ·  ░  ·             
+finance                        ░  ·             
+defense                        ·  ·             
+food                           ░                
+Legend: · low  ░▒▓█ high
+INTERPRETATION AFTER OUTPUT:
+This tells which domains dominated the run and whether trade concentrated in low access levels, professional levels, planetary levels or apex levels.
+
+###################### NETWORK, QUEUES, DUPLEXING, CATEGORIES AND SHEAVES ######################
+EXPLANATION BEFORE OUTPUT:
+This section summarizes network topology, half/full-duplexing, FIFO/LIFO/priority queues, aggregate packet flow, semaphores, category sizes, functor checks, natural transformation checks and sheaf gluing. It is aggregate by design to stay PyPy-safe at large scale.
+═════════════════════════════════════ CHANNELS BY TOPOLOGY ═════════════════════════════════════
+market-bipartite       │██████████████████████████████████│ 233
+governance             │████████████████████████████████░░│ 222
+sheaf-cover            │████████████████████████████████░░│ 221
+mesh                   │███████████████████████████████░░░│ 217
+ring                   │██████████████████████████████░░░░│ 208
+tree                   │██████████████████████████████░░░░│ 206
+star                   │████████████████████████████░░░░░░│ 197
+
+═══════════════════════════════════ CHANNELS BY DUPLEX MODE ════════════════════════════════════
+half                   │██████████████████████████████████│ 272
+full                   │█████████████████████████████████░│ 265
+simplex                │████████████████████████████████░░│ 263
+
+══════════════════════════════════ CHANNEL QUEUE DISCIPLINES ═══════════════════════════════════
+priority               │██████████████████████████████████│ 282
+fifo                   │████████████████████████████████░░│ 267
+lifo                   │██████████████████████████████░░░░│ 251
+
+═══════════════════════════ AGGREGATE DATASTREAM / SEMAPHORE METRICS ═══════════════════════════
+Packet/Semaphore metric        | Value         
+-------------------------------+---------------
+created                        | 1800          
+delivered                      | 1538          
+dropped                        | 49            
+semaphore_blocked              | 10            
+
+════════════════════════════════════ CATEGORY SIZE DIAGRAM ═════════════════════════════════════
+Category                     | Objects    | Morphisms  | Hom-sets   | Shape           
+-----------------------------+------------+------------+------------+-----------------
+economic_category            | 4191       | 8021       | 5271       | ▁█▂             
+network_category             | 4191       | 16057      | 12454      | ▁█▅             
+hierarchy_category           | 12         | 2104       | 126        | ▁█▁             
+topology_category            | 7          | 15         | 15         | ▁██             
+
+══════════════════════════════ FUNCTORIALITY / NATURALITY CHECKS ═══════════════════════════════
+Functor/NT                 | Checked    | OK/Natural   | Identity/Viol 
+---------------------------+------------+--------------+---------------
+Status functor             | 300        | 300          | 300           
+Access functor             | 300        | 300          | 300           
+Natural transformation     | 300        | 300          | 0             
+
+═══════════════════════════════ PRESHEAF / SHEAF GLUING SUMMARY ════════════════════════════════
+Sheaf metric                   | Value         
+-------------------------------+---------------
+sections                       | 1572          
+covers                         | 4             
+glued                          | 4             
+compatibility_checks           | 500           
+compatibility_passed           | 500           
+INTERPRETATION AFTER OUTPUT:
+The output shows whether the abstract architecture stayed coherent without materializing a dangerous live graph. Packet and semaphore numbers show flow pressure; category and sheaf numbers show structural consistency.
+
+############################ SCENARIO DIVERSITY AND RANDOM OUTCOMES ############################
+EXPLANATION BEFORE OUTPUT:
+This section lists the stochastic macro-events applied during the run. Strength is the event intensity. Scenario driver histograms aggregate how strongly each event type shaped the run. Volatility shows total shock intensity per tick.
+═══════════════════════════════════ MACRO SCENARIO EVENT LOG ═══════════════════════════════════
+Tick     | Event                    | Strength   | Meaning                                             
+---------+--------------------------+------------+-----------------------------------------------------
+1        | research_breakthrough    | 1.15       | Research, data and compute become more valuable.    
+1        | supply_shock             | 0.87       | Supply disruption punishes logistics-sensitive actor
+1        | media_polarization       | 0.94       | Media power rises but trust becomes unstable.       
+1        | resource_boom            | 0.93       | A resource boom increases capital, logistics and pro
+
+══════════════════════════════════ SCENARIO DRIVER STRENGTHS ═══════════════════════════════════
+research_breakthrough  │██████████████████████████████████│ 1.15
+media_polarization     │███████████████████████████░░░░░░░│ 0.94
+resource_boom          │███████████████████████████░░░░░░░│ 0.93
+supply_shock           │█████████████████████████░░░░░░░░░│ 0.87
+
+══════════════════════════════════════ VOLATILITY BY TICK ══════════════════════════════════════
+tick01                 │██████████████████████████████████│ 3.89
+INTERPRETATION AFTER OUTPUT:
+This explains why runs can end differently. A defense-heavy run lifts alliances; a research-heavy run lifts science/data firms; a supply-shock run creates more losers; care-recognition lifts care and trust workers.
+
+FINAL BALANCED SUMMARY OF POSSIBLE OUTCOMES
+This run is one realized path through a stochastic hierarchy economy. Dominant scenario drivers were: research_breakthrough=1.15, media_polarization=0.94, resource_boom=0.93, supply_shock=0.87.
+Average volatility per tick was 3.89. A higher value means another seed could have produced visibly different winners, losers and dominant domains.
+The most active market domain in this realized run was agriculture.
+Alternative plausible outcomes remain balanced: a stronger defense-alert path would favor alliances and military states; a stronger research-breakthrough path would favor compute, data and science; a harsher supply shock would push more firms and markets downward; and a care-recognition path would raise care, medicine, education and trust workers.
+Therefore the output should not be read as an inevitable equilibrium. It is a scenario sample from a broad space of possible hierarchy-market futures.
+
+GROUP-SPECIFIC MOBILITY INTERPRETATIONS
+  - Workers were comparatively stable; hierarchy persistence dominated this group.
+  - Companies were comparatively stable; hierarchy persistence dominated this group.
+  - Countries were comparatively stable; hierarchy persistence dominated this group.
+  - Alliances were comparatively stable; hierarchy persistence dominated this group.
