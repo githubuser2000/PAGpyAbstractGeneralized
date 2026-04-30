@@ -1,0 +1,292 @@
+Planetare Wirtschaftssimulation — Paradigma-Architektur-Edition
+========================================================================
+Preset: tiny | Seed: 7 | Monate: 24
+Agenten: 88 | Länder: 6 | Events: 5
+Planet-GDP: 179.46B
+WK-Score: 7371.26 | WK-positiv: 24083.17 | Wahrheitsschuld: 16711.91
+Morphismen: Economy=453 Truth=2499 Law=2500 Security=2208
+Letzte Garben-Konsistenzlücke: 0.0000
+Parallel: Prozesse=2 Start=fork Batches=250 Tasks=18353 Fallback=0
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Klassenvererbung und Paradigma-Architektur                                                             ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ SimNode                                                                                                ║
+║ ├─ Agent = TruthBearer + FiatBearer + QueueOwner + NetworkParticipant                                  ║
+║ │  ├─ LegalEntity                                                                                      ║
+║ │  │  ├─ InstitutionalEntity                                                                           ║
+║ │  │  │  ├─ SovereignEntity                                                                            ║
+║ │  │  │  │  └─ Country                                                                                 ║
+║ │  │  │  ├─ FinancialInstitution                                                                       ║
+║ │  │  │  │  ├─ CentralBank                                                                             ║
+║ │  │  │  │  └─ CommercialBank                                                                          ║
+║ │  │  │  │     ├─ DevelopmentBank                                                                      ║
+║ │  │  │  │     └─ InvestmentBank                                                                       ║
+║ │  │  │  ├─ UnitedNations                                                                              ║
+║ │  │  │  └─ DefenseOrganization                                                                        ║
+║ │  │  │     ├─ MutualDefensePact                                                                       ║
+║ │  │  │     ├─ MaritimeSecurityLeague                                                                  ║
+║ │  │  │     └─ CyberDefenseCompact                                                                     ║
+║ │  │  └─ EconomicEntity                                                                                ║
+║ │  │     ├─ Household                                                                                  ║
+║ │  │     └─ Company                                                                                    ║
+║ │  │        └─ ProductiveCompany                                                                       ║
+║ │  │           ├─ CivilianCompany ─┬─ PlatformCompany                                                  ║
+║ │  │           │                   ├─ MediaCompany                                                     ║
+║ │  │           │                   └─ ResearchCompany                                                  ║
+║ │  │           ├─ IndustrialCompany                                                                    ║
+║ │  │           └─ StrategicCompany                                                                     ║
+║ │  └─ Queues: FIFOQueue, LIFOQueue, PriorityMessageQueue                                               ║
+║ ├─ EconomicObject                                                                                      ║
+║ │  ├─ Asset                                                                                            ║
+║ │  ├─ Claim                                                                                            ║
+║ │  └─ Product                                                                                          ║
+║ ├─ Channel                                                                                             ║
+║ │  ├─ HalfDuplexChannel                                                                                ║
+║ │  └─ FullDuplexChannel                                                                                ║
+║ │     └─ SecureFullDuplexChannel                                                                       ║
+║ ├─ Network                                                                                             ║
+║ │  ├─ TradeNetwork, CreditNetwork, GovernanceNetwork                                                   ║
+║ │  └─ DefenseNetwork, KnowledgeNetwork, TruthNetwork                                                   ║
+║ ├─ Category                                                                                            ║
+║ │  ├─ EconomicCategory, TruthCategory, LegalCategory, SecurityCategory                                 ║
+║ │  └─ Morphism / Transaction / UniversalProperty / Functor / NaturalTransformation                     ║
+║ └─ Presheaf                                                                                            ║
+║    └─ LocalTruthPresheaf                                                                               ║
+║       └─ Sheaf                                                                                         ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Netzwerk-Topologie, Queues, Half-/Full-Duplex                                                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ trade        topology=core-periphery  nodes=   66 edges=  537 density=0.2503 queue=    2 delivered=    422     ║
+║              duplex: HALF=   0 FULL= 537 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁         ║
+║ credit       topology=star            nodes=   35 edges=   36 density=0.0605 queue=    0 delivered=     14     ║
+║              duplex: HALF=   0 FULL=  36 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                       ║
+║ governance   topology=star            nodes=   28 edges=   31 density=0.0820 queue=    0 delivered=     24     ║
+║              duplex: HALF=   0 FULL=  31 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                            ║
+║ defense      topology=mesh            nodes=   20 edges=   36 density=0.1895 queue=    1 delivered=     17     ║
+║              duplex: HALF=  36 FULL=   0 load-spark=▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                       ║
+║ knowledge    topology=mesh            nodes=   76 edges=  236 density=0.0828 queue=    0 delivered=      0     ║
+║              duplex: HALF=   0 FULL= 236 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁         ║
+║ truth        topology=core-periphery  nodes=   76 edges=  454 density=0.1593 queue=    3 delivered=    285     ║
+║              duplex: HALF=   0 FULL= 454 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁         ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Semaphore als Knappheits- und Durchleitungslogik                                                               ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ fullduplex:trade:plat↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/1 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:plat↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/1 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:plat↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 18/1 ║
+║ 8                                                                                                              ║
+║ fullduplex:trade:plat↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 18/1 ║
+║ 8                                                                                                              ║
+║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 22/2 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 22/2 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 11/1 ║
+║ 1                                                                                                              ║
+║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 11/1 ║
+║ 1                                                                                                              ║
+║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 24/2 ║
+║ 4                                                                                                              ║
+║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 24/2 ║
+║ 4                                                                                                              ║
+║ fullduplex:trade:plat↔coun:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 27/2 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:plat↔coun:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 27/2 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:plat↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:plat↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:plat↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 28/2 ║
+║ 8                                                                                                              ║
+║ fullduplex:trade:plat↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 28/2 ║
+║ 8                                                                                                              ║
+║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 23/2 ║
+║ 3                                                                                                              ║
+║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 23/2 ║
+║ 3                                                                                                              ║
+║ fullduplex:trade:rese↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/1 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:rese↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/1 ║
+║ 7                                                                                                              ║
+║ fullduplex:trade:rese↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:rese↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:rese↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+║ fullduplex:trade:rese↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/1 ║
+║ 2                                                                                                              ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Kategorie, Morphismus, Funktor, natürliche Transformation                                                      ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ 𝓔 Economy            Objekte=    88 Morphismen=     453 id-law-gap=0.0000                                      ║
+║ 𝓣 Truth              Objekte=    88 Morphismen=    2499 id-law-gap=0.0000                                      ║
+║ 𝓛 Law                Objekte=    88 Morphismen=    2500 id-law-gap=0.0000                                      ║
+║ 𝓢 Security           Objekte=    88 Morphismen=    2208 id-law-gap=0.0000                                      ║
+║                                                                                                                ║
+║ Diagramm:                                                                                                      ║
+║    Fiat/Trade-Morphismus ──F──▶ Truth-Morphismus                                                               ║
+║            │                         │                                                                         ║
+║            L                         η: F⇒L / F⇒S                                                              ║
+║            ▼                         ▼                                                                         ║
+║      Legal-Morphismus ──S──▶ Security-Morphismus                                                               ║
+║                                                                                                                ║
+║ UniversalProperty Terminalobjekt                     gap=1.0000                                                ║
+║ UniversalProperty Produktobjekt Fiat×WK              gap=3.2468                                                ║
+║ UniversalProperty Pullback Vertrag×Lieferung         gap=1.0000                                                ║
+║ UniversalProperty Pushout Konflikt→Resolution        gap=1.0000                                                ║
+║ UniversalProperty Equalizer sozial=epistemisch       gap=2.4335                                                ║
+║ NaturalTransformation η: F⇒L                         naturality_gap=23.8079 components=88                      ║
+║ NaturalTransformation η: F⇒S                         naturality_gap=23.8250 components=88                      ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Prägarben, Garben, Topologie und Klebeeigenschaft                                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Topologischer Raum: Planetary Grothendieck Site | offene Mengen=145                                            ║
+║ Globale Garben-Konsistenzlücke: 0.0000                                                                         ║
+║                                                                                                                ║
+║ Covering-Family für Planet:                                                                                    ║
+║   U=Currency:KAI0            |U|=  14 section-score=    119.84                                                 ║
+║   U=Currency:BOR1            |U|=  14 section-score=     75.83                                                 ║
+║   U=Currency:UMB2            |U|=  14 section-score=    150.47                                                 ║
+║   U=Currency:JUN3            |U|=  14 section-score=     38.31                                                 ║
+║   U=Currency:TET4            |U|=  14 section-score=     47.94                                                 ║
+║   U=Currency:ZEN5            |U|=  14 section-score=     66.85                                                 ║
+║   U=Currency:WK              |U|=   4 section-score=     95.49                                                 ║
+║                                                                                                                ║
+║ Garben-Kleben:                                                                                                 ║
+║   lokale Sektionen s_i ∈ F(U_i)                                                                                ║
+║   kompatibel auf U_i∩U_j  ⇒  eindeutige globale Sektion s ∈ F(Planet)                                          ║
+║   ökonomisch: lokale Wahrheiten müssen auf Handels-/Rechts-/Sicherheitsüberschneidungen passen                 ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Gestapelte Wahrheit als planetare Vektorwährung WK                                                             ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Globaler WK-Score=7371.26 | Positiv=24083.17 | Wahrheitsschuld=16711.91                                        ║
+║                                                                                                                ║
+║ temporal                 - ████████████████████████████████████  -10772.54                                     ║
+║ liquidity                - █████████████████████████░░░░░░░░░░░   -7555.25                                     ║
+║ infrastructure           + █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░    2828.24                                     ║
+║ epistemic                + ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2533.85                                     ║
+║ health                   + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1626.70                                     ║
+║ existence                + ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1365.54                                     ║
+║ legal                    + ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1315.18                                     ║
+║ education                + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1116.02                                     ║
+║ category_coherence       + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1011.85                                     ║
+║ causal                   + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     982.92                                     ║
+║ shelter                  + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     855.07                                     ║
+║ potential                + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     807.31                                     ║
+║ network_reachability     + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     805.30                                     ║
+║ risk_reduction           + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     658.51                                     ║
+║ social                   + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     651.40                                     ║
+║ sovereignty              + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     577.54                                     ║
+║ security                 + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     522.59                                     ║
+║ food                     + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     399.34                                     ║
+║ memory                   + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     304.31                                     ║
+║ ecological               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     277.23                                     ║
+║ perception               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     234.68                                     ║
+║ logistics                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     216.17                                     ║
+║ comparative              + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     158.86                                     ║
+║ sheaf_consistency        + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     154.75                                     ║
+║ energy                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      95.33                                     ║
+║ attention                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      68.87                                     ║
+║ ethical                  + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       0.00                                     ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Länder × Wahrheitsdimensionen Heatmap                                                                          ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Land                       EPI LEG CAU SEC LIQ SHE CAT  score        debt      fiat                            ║
+║ Tethysstaat                ·  ·           ·        1130.4      -0.0     1.56B                                  ║
+║ Umbramark                     ·        ·  ·        1125.6      74.1     8.05B                                  ║
+║ Borealreich                   ·                    1120.5      -0.0     3.73B                                  ║
+║ Kairounion                 ░  ·           ·  ·     1115.0      -0.0     3.68B                                  ║
+║ Junokron                      ·     ╳     ·        1095.7       3.4     1.85B                                  ║
+║ Zenitunion                 ▓  ·           ·  ░     1089.3     156.7     3.32B                                  ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ FIFO/LIFO/Priority Queues pro Agent                                                                        ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Alle Agent-Queues leer; Netzwerkkanäle tragen die Last.                                                    ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Makro-Zeitreihen als UTF-8 Sparklines                                                                          ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Monate=24  Agenten=88  Länder=6  Events=5                                                                      ║
+║ GDP       ▁▂▂▃▃▂▁▂▂▃▄▄▃▂▃▄▄▄▆▇▇▆▇█                                                                             ║
+║ WK-Score  ▁▂▃▄▅▆▇▇█████████▇▇▆▆▅▄▄                                                                             ║
+║ WK-Debt   ▁▁▁▁▁▁▁▁▂▂▂▃▃▃▄▄▅▅▆▆▇▇██                                                                             ║
+║ η-Gap     ▄█▂▁▇█▅▄▃▄▅▆▅▇█▅▃▄▅▆▇▄▃▂                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Welt-Ereignisse, Krisen, Durchbrüche                                                                           ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ereignis-Histogramm:                                                                                           ║
+║ NaturalEvent           ████████████████████████████████████████ 1                                              ║
+║ SecurityEvent          ████████████████████████████████████████ 1                                              ║
+║ TechnologicalEvent     ████████████████████████████████████████ 1                                              ║
+║ FinancialEvent         ████████████████████████████████████████ 1                                              ║
+║ PoliticalEvent         ████████████████████████████████████████ 1                                              ║
+║                                                                                                                ║
+║ Letzte Ereignisse:                                                                                             ║
+║ M0007 NaturalEvent           climate/flood/earthquake shock   {"country": "Borealreich", "severity": 0.8799082 ║
+║ 567996453}                                                                                                     ║
+║ M0011 SecurityEvent          cyber or hybrid security incident {"target": "Central Bank of Tethysstaat", "seve ║
+║ rity": 1.4554133318456106}                                                                                     ║
+║ M0018 TechnologicalEvent     technological breakthrough       {"company": "Finance Systems Junokron-7", "gain" ║
+║ : 10.45950692645518}                                                                                           ║
+║ M0023 FinancialEvent         bank liquidity truth-crack       {"bank": "Nova Bank Junokron-1", "loss": 57232.9 ║
+║ 7527012702}                                                                                                    ║
+║ M0024 PoliticalEvent         border dispute / sanctions spiral {"source": "Zenitunion", "target": "Junokron",  ║
+║ "severity": 0.8484552024577099}                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Morphismenfluss: Netzwerk → Kategorie → WK                                                                     ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ökonomische Morphismen im aktuellen Fenster:                                                                   ║
+║                                                                                                                ║
+║ purchase           ████████████████████████████████████████████ 422                                            ║
+║ defense            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 17                                             ║
+║ loan               █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 14                                             ║
+║                                                                                                                ║
+║ Morphismus-Lebenszyklus:                                                                                       ║
+║   Claim/Intent ─▶ Queue ─▶ Channel(HALF/FULL) ─▶ Transaction ─▶ Category                                       ║
+║         │             │                │                 │                                                     ║
+║         ▼             ▼                ▼                 ▼                                                     ║
+║   TruthVector    Semaphore       Topology          Functor F/L/S                                               ║
+║                                                         │                                                      ║
+║                                                         ▼                                                      ║
+║                                                 Natürliche Transformation η                                    ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ UN, Zentralbanken und Verteidigungsorganisationen                                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Institutionelles Netzwerk:                                                                                     ║
+║ UnitedNations            United Nations / Planetary Truth Council   degree=  40 WK=     125.7                  ║
+║ CyberDefenseCompact      Cipher Compact 3                           degree=  52 WK=     109.8                  ║
+║ MaritimeSecurityLeague   Harbor Compact 2                           degree=  19 WK=      82.7                  ║
+║ MutualDefensePact        Shield Compact 1                           degree=  22 WK=      63.7                  ║
+║ CentralBank              Central Bank of Kairounion                 degree=  23 WK=      59.4                  ║
+║ CentralBank              Central Bank of Borealreich                degree=  35 WK=      59.4                  ║
+║ CentralBank              Central Bank of Umbramark                  degree=  18 WK=      59.4                  ║
+║ CentralBank              Central Bank of Junokron                   degree=  22 WK=      59.4                  ║
+║ CentralBank              Central Bank of Zenitunion                 degree=  19 WK=      59.4                  ║
+║ CentralBank              Central Bank of Tethysstaat                degree=  18 WK=      14.4                  ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
