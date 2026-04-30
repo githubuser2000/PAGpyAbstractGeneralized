@@ -1,0 +1,987 @@
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT DIE SOFTWAREARCHITEKTUR. Es zeigt, warum Klassenvererbung hier sinnvoll ist: Länder,  ║
+║ Unternehmen, Banken, Kanäle, Netzwerke, Kategorien, Funktoren und Garben sind keine losen Skripte, sondern  ║
+║ verwandte Objektfamilien. Das Bild ist wichtig, weil die Wirtschaft als Verhalten modelliert wird, das über ║
+║  geerbte Fähigkeiten verteilt ist: Fiat halten, WK tragen, Netzwerken beitreten, Nachrichten empfangen und  ║
+║ Quelle oder Ziel eines Morphismus werden.                                                                   ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Klassenvererbung und Paradigma-Architektur                                                          ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ SimNode                                                                                             ║
+║ ├─ Agent = TruthBearer + FiatBearer + QueueOwner + NetworkParticipant                               ║
+║ │  ├─ LegalEntity                                                                                   ║
+║ │  │  ├─ InstitutionalEntity                                                                        ║
+║ │  │  │  ├─ SovereignEntity                                                                         ║
+║ │  │  │  │  └─ Country                                                                              ║
+║ │  │  │  ├─ FinancialInstitution                                                                    ║
+║ │  │  │  │  ├─ CentralBank                                                                          ║
+║ │  │  │  │  └─ CommercialBank                                                                       ║
+║ │  │  │  │     ├─ DevelopmentBank                                                                   ║
+║ │  │  │  │     └─ InvestmentBank                                                                    ║
+║ │  │  │  ├─ UnitedNations                                                                           ║
+║ │  │  │  └─ DefenseOrganization                                                                     ║
+║ │  │  │     ├─ MutualDefensePact                                                                    ║
+║ │  │  │     ├─ MaritimeSecurityLeague                                                               ║
+║ │  │  │     └─ CyberDefenseCompact                                                                  ║
+║ │  │  └─ EconomicEntity                                                                             ║
+║ │  │     ├─ Household                                                                               ║
+║ │  │     └─ Company                                                                                 ║
+║ │  │        └─ ProductiveCompany                                                                    ║
+║ │  │           ├─ CivilianCompany ─┬─ PlatformCompany                                               ║
+║ │  │           │                   ├─ MediaCompany                                                  ║
+║ │  │           │                   └─ ResearchCompany                                               ║
+║ │  │           ├─ IndustrialCompany                                                                 ║
+║ │  │           └─ StrategicCompany                                                                  ║
+║ │  └─ Queues: FIFOQueue, LIFOQueue, PriorityMessageQueue                                            ║
+║ ├─ EconomicObject                                                                                   ║
+║ │  ├─ Asset                                                                                         ║
+║ │  ├─ Claim                                                                                         ║
+║ │  └─ Product                                                                                       ║
+║ ├─ Channel                                                                                          ║
+║ │  ├─ HalfDuplexChannel                                                                             ║
+║ │  └─ FullDuplexChannel                                                                             ║
+║ │     └─ SecureFullDuplexChannel                                                                    ║
+║ ├─ Network                                                                                          ║
+║ │  ├─ TradeNetwork, CreditNetwork, GovernanceNetwork                                                ║
+║ │  └─ DefenseNetwork, KnowledgeNetwork, TruthNetwork                                                ║
+║ ├─ Category                                                                                         ║
+║ │  ├─ EconomicCategory, TruthCategory, LegalCategory, SecurityCategory                              ║
+║ │  └─ Morphism / Transaction / UniversalProperty / Functor / NaturalTransformation                  ║
+║ └─ Presheaf                                                                                         ║
+║    └─ LocalTruthPresheaf                                                                            ║
+║       └─ Sheaf                                                                                      ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Die Architektur ist breit genug, ökonomische Einheiten als wiederverwendbare Verhaltensträger auszudrücken. ║
+║  Konsequenz: Neue Akteurstypen sind leicht ergänzbar, aber geerbtes Verhalten muss kohärent bleiben, sonst  ║
+║ entstehen Kategorie- und Garben-Lücken als Designschuld.                                                    ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT KOMMUNIKATIONSSTRUKTUR. Ein Markt kann nicht räumen, wenn Nachrichten nicht laufen. T ║
+║ opologie zeigt, wer wen erreichen kann; Queues zeigen Stau; HALF/FULL Duplex zeigt, ob Kommunikation nur na ║
+║ cheinander oder gleichzeitig möglich ist. Das wird simuliert, weil ökonomische Kausalität von Durchleitungs ║
+║ kapazität abhängt und nicht nur von Handelswillen.                                                          ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Netzwerk-Topologie, Queues, Half-/Full-Duplex                                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ trade        topology=core-periphery  nodes=   66 edges=  304 density=0.1417 queue=    4 delivered=    102  ║
+║              duplex: HALF=   0 FULL= 304 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ credit       topology=star            nodes=   24 edges=   22 density=0.0797 queue=    0 delivered=      0  ║
+║              duplex: HALF=   0 FULL=  22 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                                  ║
+║ governance   topology=star            nodes=   28 edges=   29 density=0.0767 queue=    1 delivered=      5  ║
+║              duplex: HALF=   0 FULL=  29 load-spark=▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                           ║
+║ defense      topology=mesh            nodes=   20 edges=   26 density=0.1368 queue=    0 delivered=      4  ║
+║              duplex: HALF=  26 FULL=   0 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                              ║
+║ knowledge    topology=mesh            nodes=   76 edges=  232 density=0.0814 queue=    0 delivered=      0  ║
+║              duplex: HALF=   0 FULL= 232 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁      ║
+║ truth        topology=core-periphery  nodes=   76 edges=  293 density=0.1028 queue=    4 delivered=     68  ║
+║              duplex: HALF=   0 FULL= 293 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█      ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Die Netzwerkschicht zeigt, ob die Wirtschaft kommunikationsreich oder bottleneck-lastig ist. Konsequenz: We ║
+║ nn Queue-Tiefe schneller wächst als Zustellungen, sammeln sich Ansprüche, bevor sie reale Effekte werden.   ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT KNAPPEN ZUGRIFF. Eine Semaphore ist ein Token-Zähler. Wenn Tokens frei sind, darf ein ║
+║  Kanal übertragen; wenn nicht, warten Nachrichten. Das wird simuliert, weil echte Ökonomien Engpässe haben: ║
+║  Rechtsdurchsatz, Liquiditätsfenster, Hafenkapazität, Bankabwicklung, diplomatische Bandbreite und Sicherhe ║
+║ itskoordination.                                                                                            ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Semaphore als Knappheits- und Durchleitungslogik                                                            ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ fullduplex:trade:rese↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:rese↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:rese↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 7/27                                                                                                        ║
+║ fullduplex:trade:rese↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 7/27                                                                                                        ║
+║ fullduplex:trade:rese↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 9/19                                                                                                        ║
+║ fullduplex:trade:rese↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 9/19                                                                                                        ║
+║ fullduplex:trade:rese↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:rese↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:rese↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:rese↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 3/23                                                                                                        ║
+║ fullduplex:trade:rese↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 8/18                                                                                                        ║
+║ fullduplex:trade:rese↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 8/18                                                                                                        ║
+║ fullduplex:trade:rese↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 0/10                                                                                                        ║
+║ fullduplex:trade:rese↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 0/10                                                                                                        ║
+║ fullduplex:trade:rese↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 6/26                                                                                                        ║
+║ fullduplex:trade:rese↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 6/26                                                                                                        ║
+║ fullduplex:trade:rese↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 0/20                                                                                                        ║
+║ fullduplex:trade:rese↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 0/20                                                                                                        ║
+║ fullduplex:trade:hous↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 0/20                                                                                                        ║
+║ fullduplex:trade:hous↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 0/20                                                                                                        ║
+║ fullduplex:trade:hous↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:hous↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 2 ║
+║ 1/21                                                                                                        ║
+║ fullduplex:trade:hous↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 8/18                                                                                                        ║
+║ fullduplex:trade:hous↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 1 ║
+║ 8/18                                                                                                        ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Semaphore-Druck zeigt harte Engpässe. Konsequenz: Viele Waits bedeuten, dass zusätzliche Nachfrage nicht au ║
+║ tomatisch mehr Realität erzeugt; zuerst muss der knappe Kanal oder die Institution erweitert werden.        ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT MATHEMATISCHE KONSISTENZ. Ein Morphismus ist ein strukturierter Übergang, hier oft ei ║
+║ ne Transaktion. Ein Funktor bildet ökonomische Übergänge in Wahrheit, Recht oder Sicherheit ab. Eine natürl ║
+║ iche Transformation vergleicht solche Abbildungen. Das wird simuliert, um zu erkennen, wann Ökonomie, Recht ║
+║ , Sicherheit und Wahrheit auseinanderlaufen.                                                                ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Kategorie, Morphismus, Funktor, natürliche Transformation                                                   ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ 𝓔 Economy            Objekte=    88 Morphismen=     106 id-law-gap=0.0000                                   ║
+║ 𝓣 Truth              Objekte=    88 Morphismen=     421 id-law-gap=0.0000                                   ║
+║ 𝓛 Law                Objekte=    88 Morphismen=     421 id-law-gap=0.0000                                   ║
+║ 𝓢 Security           Objekte=    88 Morphismen=     352 id-law-gap=0.0000                                   ║
+║                                                                                                             ║
+║ Diagramm:                                                                                                   ║
+║    Fiat/Trade-Morphismus ──F──▶ Truth-Morphismus                                                            ║
+║            │                         │                                                                      ║
+║            L                         η: F⇒L / F⇒S                                                           ║
+║            ▼                         ▼                                                                      ║
+║      Legal-Morphismus ──S──▶ Security-Morphismus                                                            ║
+║                                                                                                             ║
+║ UniversalProperty Terminalobjekt                     gap=1.0000                                             ║
+║ UniversalProperty Produktobjekt Fiat×WK              gap=3.2737                                             ║
+║ UniversalProperty Pullback Vertrag×Lieferung         gap=1.0000                                             ║
+║ UniversalProperty Pushout Konflikt→Resolution        gap=1.0000                                             ║
+║ UniversalProperty Equalizer sozial=epistemisch       gap=2.6881                                             ║
+║ NaturalTransformation η: F⇒L                         naturality_gap=23.3865 components=88                   ║
+║ NaturalTransformation η: F⇒S                         naturality_gap=24.9214 components=88                   ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Ökonomische Morphismen werden derzeit von purchase dominiert (102 aktuelle Fälle). Konsequenz: Der dominant ║
+║ e Morphismus-Typ bestimmt, welche Realitätsschicht am stärksten belastet wird.                              ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT LOKALE UND GLOBALE WAHRHEIT. Eine Prägarbe ordnet lokalen Bereichen Wahrheitszustände ║
+║  zu. Eine Garbe fragt, ob diese lokalen Wahrheiten zu einer kohärenten planetaren Sektion verklebt werden k ║
+║ önnen. Das ist wichtig, weil globales Vertrauen zerfällt, wenn lokale Tatsachen nicht zusammenpassen.       ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Prägarben, Garben, Topologie und Klebeeigenschaft                                                           ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Topologischer Raum: Planetary Grothendieck Site | offene Mengen=145                                         ║
+║ Globale Garben-Konsistenzlücke: 0.0000                                                                      ║
+║                                                                                                             ║
+║ Covering-Family für Planet:                                                                                 ║
+║   U=Currency:KAI0            |U|=  14 section-score=    103.92                                              ║
+║   U=Currency:BOR1            |U|=  14 section-score=    109.08                                              ║
+║   U=Currency:UMB2            |U|=  14 section-score=    120.76                                              ║
+║   U=Currency:JUN3            |U|=  14 section-score=     98.99                                              ║
+║   U=Currency:TET4            |U|=  14 section-score=     78.10                                              ║
+║   U=Currency:ZEN5            |U|=  14 section-score=     85.02                                              ║
+║   U=Currency:WK              |U|=   4 section-score=    101.93                                              ║
+║                                                                                                             ║
+║ Garben-Kleben:                                                                                              ║
+║   lokale Sektionen s_i ∈ F(U_i)                                                                             ║
+║   kompatibel auf U_i∩U_j  ⇒  eindeutige globale Sektion s ∈ F(Planet)                                       ║
+║   ökonomisch: lokale Wahrheiten müssen auf Handels-/Rechts-/Sicherheitsüberschneidungen passen              ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Die Garben-Lücke beträgt 0.0000. Konsequenz: Eine niedrige Lücke bedeutet, dass lokale Wahrheiten verklebba ║
+║ r sind; eine hohe Lücke würde regionale Widersprüche und sinkendes globales Vertrauen anzeigen.             ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT WK SELBST. WK ist ein gestapelter Wahrheitsvektor, keine einzelne Münze. Jede Zeile i ║
+║ st eine Wahrheitsschicht: Recht, Kausalität, Soziales, Liquidität, Sicherheit, Ökologie, Epistemik und mehr ║
+║ . Das wird simuliert, um zu sehen, welche Realität erzeugt wird und welche zur Schuld wird.                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Gestapelte Wahrheit als planetare Vektorwährung WK                                                          ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Globaler WK-Score=8749.92 | Positiv=9573.90 | Wahrheitsschuld=823.97                                        ║
+║                                                                                                             ║
+║ legal                    + ████████████████████████████████████    1150.31                                  ║
+║ infrastructure           + ████████████████████████████████░░░░    1023.34                                  ║
+║ epistemic                + ████████████████████████░░░░░░░░░░░░     792.95                                  ║
+║ temporal                 - █████████████████████░░░░░░░░░░░░░░░    -700.19                                  ║
+║ existence                + ████████████████░░░░░░░░░░░░░░░░░░░░     533.00                                  ║
+║ causal                   + ████████████████░░░░░░░░░░░░░░░░░░░░     528.30                                  ║
+║ health                   + ████████████████░░░░░░░░░░░░░░░░░░░░     519.35                                  ║
+║ shelter                  + ██████████████░░░░░░░░░░░░░░░░░░░░░░     464.86                                  ║
+║ social                   + ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░     344.41                                  ║
+║ sovereignty              + ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░     324.32                                  ║
+║ education                + █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░     315.28                                  ║
+║ category_coherence       + ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░     283.23                                  ║
+║ food                     + ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     232.82                                  ║
+║ liquidity                - ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    -227.56                                  ║
+║ potential                + ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     217.25                                  ║
+║ risk_reduction           + ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     206.02                                  ║
+║ security                 + ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     205.15                                  ║
+║ network_reachability     + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     187.16                                  ║
+║ memory                   + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     101.20                                  ║
+║ perception               + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      80.34                                  ║
+║ sheaf_consistency        + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      65.04                                  ║
+║ energy                   + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      46.83                                  ║
+║ logistics                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      44.98                                  ║
+║ ecological               + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      43.92                                  ║
+║ attention                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      37.89                                  ║
+║ comparative              + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      12.97                                  ║
+║ ethical                  - ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      -1.26                                  ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ WK ist derzeit netto-positiv. Konsequenz: Positives WK verbilligt zukünftige Koordination; Wahrheitsschuld  ║
+║ verteuert sie.                                                                                              ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT WAHRHEITSPROFILE VON LÄNDERN. Es verdichtet viele Wahrheitsschichten in einer Länderm ║
+║ atrix. Das ist nützlich, weil zwei Länder mit ähnlichem GDP völlig verschiedene Wahrheitsstrukturen haben k ║
+║ önnen: eines rechtlich stabil, aber kausal schwach; ein anderes liquide, aber unsicher.                     ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Länder × Wahrheitsdimensionen Heatmap                                                                       ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Land                       EPI LEG CAU SEC LIQ SHE CAT  score        debt      fiat                         ║
+║ Tethysstaat                   ░     ╳               566.7       0.6     1.62B                               ║
+║ Umbramark                     ░                     561.9       0.4     9.12B                               ║
+║ Zenitunion                    ░     ╳               536.2       1.2     2.83B                               ║
+║ Junokron                   ▓  ░              ░      518.4       0.5     1.96B                               ║
+║ Borealreich                ░  ▒                     502.1       0.3     3.45B                               ║
+║ Kairounion                    ▒           ·  ╳      481.2       1.1     3.82B                               ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Führendes Land ist Tethysstaat. Konsequenz: Länderstärke ist nicht nur GDP, sondern Kombination aus Recht,  ║
+║ Kausalität, Sicherheit, Liquidität und anerkannter Realität.                                                ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT OPERATIVES WARTEN. FIFO bedeutet älteste Nachricht zuerst, LIFO neueste zuerst, PRIO  ║
+║ wichtigste zuerst. Queue-Stau zeigt Ansprüche, die darauf warten, Wirklichkeit zu werden. Das wird simulier ║
+║ t, weil verzögerte Ansprüche zeitliche Wahrheitsschuld erzeugen.                                            ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ FIFO/LIFO/Priority Queues pro Agent                                                                     ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Alle Agent-Queues leer; Netzwerkkanäle tragen die Last.                                                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Queue-Druck liegt bei 9. Konsequenz: Jede wartende Nachricht ist ein ungelöster Anspruch; dauerhafte Queues ║
+║  werden zu zeitlicher Wahrheitsschuld.                                                                      ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT PLANETARE ZEITDYNAMIK. Sparklines verdichten die Historie von GDP, WK-Score, Wahrheit ║
+║ sschuld und Natürlichkeitslücken. Das wird simuliert, weil die Bedeutung der Wirtschaft nicht in einem einz ║
+║ elnen Monat liegt, sondern in Trajektorien und Regimewechseln.                                              ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Makro-Zeitreihen als UTF-8 Sparklines                                                                       ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Monate=6  Agenten=88  Länder=6  Events=2                                                                    ║
+║ GDP       ▁▁▂▄▅█                                                                                            ║
+║ WK-Score  ▁▂▄▆▇█                                                                                            ║
+║ WK-Debt   ▁▁▂▃▅█                                                                                            ║
+║ η-Gap     █▁▁▄▄▄                                                                                            ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Seit dem ersten aufgezeichneten Monat hat sich GDP um 1.05% und WK um 3427.56 verändert. Konsequenz: Wachst ║
+║ um und Wahrheit können auseinanderlaufen; wertvoll ist Wachstum mit steigendem WK und kontrollierter Schuld ║
+║ .                                                                                                           ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT SCHOCKS. Klimaereignisse, Sanktionen, Bankrisse, technologische Durchbrüche und Siche ║
+║ rheitsvorfälle verändern die Welt außerhalb normaler Markträumung. Das wird simuliert, weil Wahrheitskapita ║
+║ l gegen Störungen getestet werden muss.                                                                     ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Welt-Ereignisse, Krisen, Durchbrüche                                                                        ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ereignis-Histogramm:                                                                                        ║
+║ NaturalEvent           ████████████████████████████████████████ 1                                           ║
+║ SecurityEvent          ████████████████████████████████████████ 1                                           ║
+║                                                                                                             ║
+║ Letzte Ereignisse:                                                                                          ║
+║ M0002 NaturalEvent           climate/flood/earthquake shock   {"country": "Kairounion", "severity": 0.44180 ║
+║ 53013595517}                                                                                                ║
+║ M0005 SecurityEvent          cyber or hybrid security incident {"target": "Agriculture Systems Umbramark-7" ║
+║ , "severity": 0.5795299271772731}                                                                           ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Häufigster Ereignistyp ist NaturalEvent (1). Konsequenz: Wenn ein Schocktyp dominiert, sollte der Planet in ║
+║  die passende Resilienzschicht investieren.                                                                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT DAS LEBEN EINES ÖKONOMISCHEN ANSPRUCHS. Ein Claim geht in eine Queue, überquert einen ║
+║  Kanal, wird Transaktion, tritt in eine Kategorie ein und wird durch Funktoren als Wahrheit, Recht oder Sic ║
+║ herheit neu gelesen. Das wird simuliert, um Kaufen als Pipeline der Realitätsänderung sichtbar zu machen.   ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Morphismenfluss: Netzwerk → Kategorie → WK                                                                  ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ökonomische Morphismen im aktuellen Fenster:                                                                ║
+║                                                                                                             ║
+║ purchase           ████████████████████████████████████████████ 102                                         ║
+║ defense            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                           ║
+║                                                                                                             ║
+║ Morphismus-Lebenszyklus:                                                                                    ║
+║   Claim/Intent ─▶ Queue ─▶ Channel(HALF/FULL) ─▶ Transaction ─▶ Category                                    ║
+║         │             │                │                 │                                                  ║
+║         ▼             ▼                ▼                 ▼                                                  ║
+║   TruthVector    Semaphore       Topology          Functor F/L/S                                            ║
+║                                                         │                                                   ║
+║                                                         ▼                                                   ║
+║                                                 Natürliche Transformation η                                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Häufigster Morphismus-Typ ist purchase (102). Konsequenz: Die Kausalpipeline wird durch diese Transaktionsk ║
+║ lasse geprägt; Risikokontrolle sollte dort beginnen.                                                        ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Vor dieser UTF-8-Grafik: Erklärung, Einheiten und Farblegende                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS DIE GESAMTE SIMULATION MACHT:                                                                           ║
+║ Das Programm simuliert eine planetare Wirtschaft. Länder geben gewöhnliche numerische Fiat-Währungen aus, w ║
+║ ährend der gesamte Planet zusätzlich WK nutzt, eine gestapelte Wahrheitswährung.                            ║
+║ WK ist nicht bloß Geld. WK ist ein Vektor von Aussagen über Realität: rechtliche Gültigkeit, soziale Anerke ║
+║ nnung, Kausalität, Liquidität, Sicherheit, epistemische Korrektheit, Topologie-/Garben-Konsistenz und kateg ║
+║ oriale Kohärenz.                                                                                            ║
+║ Jedes Diagramm ist deshalb kein Schmuckbild. Es zeigt eine Schicht davon, wie Geld, Wahrheit, Institutionen ║
+║ , Netzwerke, Queues, Morphismen und globale Konsistenz zusammenspielen.                                     ║
+║ WARUM DAS SIMULIERT WIRD:                                                                                   ║
+║ Ziel ist, sichtbar zu machen, was gewöhnliche Preise verdecken: Eine Transaktion ist gleichzeitig Zahlung,  ║
+║ Kausalitätsanspruch, Rechtsanspruch, Reputationsupdate, Netzwerkereignis und Wahrheitsvektor-Update.        ║
+║ Durch eine Erklärung vor jeder Grafik und eine Auswertung danach wird die Ausgabe zu einem erzählten Audit- ║
+║ Bericht statt zu bloßem Debug-Text.                                                                         ║
+║ FARB- UND EINHEITENLEGENDE FÜR DIE TERMINALAUSGABE:                                                         ║
+║ Länder-Einheit, Beispiel: Kairounion. Länder sind souveräne Wahrheitsträger: Sie besitzen nationale Fiat-Wä ║
+║ hrungen, erheben Steuern, tragen Rechtsautorität und beeinflussen globale Garben-Konsistenz.                ║
+║ Unternehmens-Einheit, Beispiel: Insurance Works Kairounion-1. Unternehmen verwandeln Kapital, Arbeit, Wisse ║
+║ n und WK in Produkte, Nachrichten, Kausalitätsversprechen und Transaktionen.                                ║
+║ Haushalts-Einheit, Beispiel: Household Bloc Kairounion-1. Haushalte repräsentieren Nachfrage, Arbeit, Konsu ║
+║ m und soziale Realität innerhalb eines Landes.                                                              ║
+║ Bank-Einheit, Beispiel: Meridian Bank Kairounion-1. Geschäfts-, Entwicklungs- und Investmentbanken vergeben ║
+║  Kredit, erzeugen Schulden und verstärken Liquidität oder Fragilität.                                       ║
+║ Zentralbank-Einheit, Beispiel: Central Bank of Kairounion. Zentralbanken stabilisieren nationales Fiat-Geld ║
+║ , beeinflussen Inflation und Zinsdruck und verändern indirekt Wahrheitsschuld über Liquidität.              ║
+║ UN-Einheit, Beispiel: United Nations / Planetary Truth Council. Die UN-ähnliche Institution koordiniert Gov ║
+║ ernance, repariert Garben-Lücken und repräsentiert globale institutionelle Anerkennung.                     ║
+║ Verteidigungs-Einheit, Beispiel: Shield Compact 1. Verteidigungsorganisationen modellieren Sicherheitspakte ║
+║ , Abschreckung, Allianzkommunikation und Souveränitätsschutz.                                               ║
+║ Währungseinheiten: BOR1, JUN3, KAI0, TET4, UMB2, WK, ZEN5. Das sind nationale numerische Fiat-Währungen. WK ║
+║  ist die planetare Wahrheitswährung und wird separat hervorgehoben.                                         ║
+║ Visuelle Einheiten: Gefüllte Balken zeigen Größe, leere Blöcke Schwäche oder Abwesenheit, Sparklines zeigen ║
+║  Zeitdynamik, Boxränder markieren ein Konzeptfeld.                                                          ║
+║ Leseregel: Farben identifizieren die Art der Einheit; Zahlen und Symbole zeigen, ob diese Einheit die simul ║
+║ ierte Welt stabilisiert oder destabilisiert.                                                                ║
+║                                                                                                             ║
+║ WARUM GENAU DIESE UTF-8-ART EXISTIERT:                                                                      ║
+║ DIESES BILD SIMULIERT INSTITUTIONELLE MACHT. UN, Zentralbanken und Verteidigungsorganisationen erscheinen a ║
+║ ls Knoten mit Netzwerkgrad und WK-Stärke. Das wird simuliert, weil Institutionen nicht bloß Agenten sind; s ║
+║ ie stabilisieren oder verzerren den geteilten Wahrheitsraum.                                                ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ UN, Zentralbanken und Verteidigungsorganisationen                                                           ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Institutionelles Netzwerk:                                                                                  ║
+║ UnitedNations            United Nations / Planetary Truth Council   degree=  15 WK=     134.1               ║
+║ CyberDefenseCompact      Cipher Compact 3                           degree=  16 WK=     117.4               ║
+║ MaritimeSecurityLeague   Harbor Compact 2                           degree=  33 WK=      89.4               ║
+║ CentralBank              Central Bank of Junokron                   degree=   9 WK=      68.0               ║
+║ CentralBank              Central Bank of Kairounion                 degree=  11 WK=      68.0               ║
+║ MutualDefensePact        Shield Compact 1                           degree=  15 WK=      66.8               ║
+║ CentralBank              Central Bank of Umbramark                  degree=  14 WK=      66.4               ║
+║ CentralBank              Central Bank of Borealreich                degree=  13 WK=      63.3               ║
+║ CentralBank              Central Bank of Tethysstaat                degree=  11 WK=      61.3               ║
+║ CentralBank              Central Bank of Zenitunion                 degree=  10 WK=      51.0               ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Nach dieser UTF-8-Grafik: Ergebnisauswertung und Konsequenzen                                               ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ FESTSTELLUNG UND KONSEQUENZEN:                                                                              ║
+║ Der aktuelle Lauf enthält 88 Agenten, 6 Länder, 48 Unternehmen, 18 Finanzinstitutionen, 2 Ereignisse und 10 ║
+║ 6 ökonomische Morphismen.                                                                                   ║
+║ Planet-GDP liegt bei 176.59B. Der globale WK-Score beträgt 8749.92, positives WK 9573.90, Wahrheitsschuld 8 ║
+║ 23.97.                                                                                                      ║
+║ Die gesamte Netzwerk-Queue-Tiefe beträgt 9. Das aktivste Netzwerk ist trade mit delivered=102 und queue=4.  ║
+║ Stärkstes Land nach WK ist Tethysstaat; Land mit höchster Wahrheitsschuld ist Zenitunion; stärkstes Unterne ║
+║ hmen nach WK ist Health Trust Kairounion-8.                                                                 ║
+║ Institutionelle Knoten zeigen, wo Stabilisierung ins System eintreten kann. Konsequenz: Schwache Institutio ║
+║ nen lassen Garben-Lücken und Sicherheitsschocks durch Märkte wandern, statt sie früh zu absorbieren.        ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
