@@ -1,0 +1,145 @@
+Building simulation profile=demo seed=42 volatility=1 wealth=1 hierarchy_shift=1
+Built: entities=4195 countries=15 alliances=6 companies=120 workers=1800 products=850 markets=1392 aggregate_channels=3570
+tick=1 volume=802.5kH product_sales=1214 market_trades=51 packets(created/delivered/dropped)=6003/4382/1141 queue_pressure=660 sem_blocked=330 sheaf_glued=2
+========================================================================================================
+SOLAR HIERARCHY MARKET — PARAMETERIZED REPORT
+========================================================================================================
+seed=42 explicit_seed=True profile=demo ticks=1 lang=en volatility=1 wealth=1 hierarchy_shift=1 up_shift=1 down_shift=1
+
+WHAT IS SIMULATED
+The simulation models a hierarchy-currency economy across Earth, Moon and Mars. Celestial bodies, UN-like organizations, defense organizations, alliances, countries, companies, workers, products and markets all receive hierarchy positions. Markets trade goods, privileges, burdens and even markets themselves.
+
+FORMULA FOR HIERARCHY VALUE
+Formula: A hierarchy bundle B contains amounts x(l,e) at hierarchy level l and element e. The compressed value is H(B)=Σ_l Σ_e x(l,e)·M_l·w_e. M_l is the height multiplier of level l; w_e is the element weight, e.g. governance, trust, capital, labor or market access. For an entity: Status_H = H(structure) + Wallet_H + 0.15·Privilege_H − 0.15·Burden_H. The level is obtained from thresholds on Status_H. --wealth scales initial endowments and flows; --volatility scales shocks, price noise and trade intensity; --hierarchy-shift makes ascent/descent faster or slower.
+
+WHAT SEED 42 MEANS
+Seed explanation: the seed is the starting value of the deterministic random generator. Seed 42 is not 'true' or 'better'; it is just a fixed starting point that makes a run reproducible. Same seed + same parameters = same trajectory. Different seed = different macro-shocks, trades, winners and losers. Without --seed, the program chooses a fresh seed from time and process ID.
+
+NUMERIC SUMMARY
+Counts:
+  entities                       4195
+  celestial_bodies               4
+  un_orgs                        4
+  defense_orgs                   4
+  countries                      15
+  alliances                      6
+  companies                      120
+  workers                        1800
+  products                       850
+  markets                        1392
+  privileges                     160
+  burdens                        119
+Interpretation: counts show the scale of the realized world.
+
+Trade:
+  volume_H                       802485.63
+  product_sales                  1214
+  market_ownership_changes       51
+  manual_lifts                   11
+Interpretation: higher volume and ownership changes mean a more transformative run.
+
+Network/category/sheaf aggregates:
+  nodes                          4195
+  channels                       3570
+  components                     10
+  degree_mean                    1.702
+  degree_max                     83
+  packets_created                6003
+  packets_delivered              4382
+  packets_dropped                1141
+  semaphore_blocked              330
+Interpretation: these are aggregate proxies for topology, data streams, queues, semaphores and coherence.
+
+Level distributions:
+  celestial_bodies       {11: 2, 12: 2}
+  un_orgs                {11: 2, 12: 2}
+  defense_orgs           {11: 2, 12: 2}
+  alliances              {8: 1, 9: 5}
+  countries              {11: 7, 12: 8}
+  companies              {9: 21, 10: 53, 11: 39, 12: 7}
+  workers                {1: 21, 2: 143, 3: 316, 4: 696, 5: 544, 6: 80}
+  products               {1: 18, 2: 174, 3: 360, 4: 220, 5: 73, 6: 5}
+  markets                {3: 11, 4: 61, 5: 194, 6: 382, 7: 335, 8: 253, 9: 156}
+Interpretation: this shows where every instance type sits in the twelve-level hierarchy.
+
+Mobility summary:
+  celestial_bodies       up=0 down=0 same=4
+  un_orgs                up=0 down=0 same=4
+  defense_orgs           up=0 down=0 same=4
+  alliances              up=0 down=0 same=6
+  countries              up=1 down=0 same=14
+  companies              up=12 down=0 same=108
+  workers                up=22 down=4 same=1774
+  products               up=0 down=106 same=744
+  markets                up=11 down=63 same=1318
+Interpretation: Up/Down/Same measures whether careers and institutional rank changes actually happened.
+
+Top countries
+Columns: Lxx = final level; level name; entity name; H = compressed status value; domain; body; owner.
+  L12 Solar Apex       Earth Republic 002                                           4.4MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 004                                           3.8MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 005                                           3.7MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Earth Republic 003                                           3.5MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 004                                            3.4MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Earth Republic 006                                           3.4MH domain=governance body=Earth owner=United Nations of Earth
+  L12 Solar Apex       Mars Republic 001                                            3.1MH domain=governance body=Mars owner=United Nations of Mars
+  L12 Solar Apex       Mars Republic 003                                            2.2MH domain=governance body=Mars owner=United Nations of Mars
+
+Top companies
+Columns: Lxx = final level; level name; entity name; H = compressed status value; domain; body; owner.
+  L12 Solar Apex       Manufacturing Networked Company 00040                        1.8MH domain=manufacturing body=Earth owner=Earth Republic 005
+  L12 Solar Apex       Oxygen Networked Company 00089                               1.8MH domain=oxygen body=Earth owner=Earth Republic 002
+  L12 Solar Apex       Care Networked Company 00023                                 1.8MH domain=care body=Earth owner=Earth Republic 005
+  L12 Solar Apex       Media Networked Company 00115                                1.6MH domain=media body=Earth owner=Earth Republic 003
+  L12 Solar Apex       Market Rights Networked Company 00014                        1.5MH domain=market_rights body=Earth owner=Earth Republic 002
+  L12 Solar Apex       Defense Networked Company 00092                              1.5MH domain=defense body=Earth owner=Earth Republic 002
+  L12 Solar Apex       Food Networked Company 00002                                 1.4MH domain=food body=Earth owner=Earth Republic 002
+  L11 Systemic         Market Rights Networked Company 00102                        1.2MH domain=market_rights body=Earth owner=Earth Republic 005
+
+Top markets
+Columns: Lxx = final level; level name; entity name; H = compressed status value; domain; body; owner.
+  L09 Planetary        Mars L12 Terraforming Market                                47.0kH domain=terraforming body=Mars owner=United Nations of Mars
+  L09 Planetary        Earth L12 Terraforming Market                               45.6kH domain=terraforming body=Earth owner=United Nations of Earth
+  L09 Planetary        Earth L12 Medicine Market                                   45.4kH domain=medicine body=Earth owner=United Nations of Earth
+  L09 Planetary        Mars L12 Orbital Slots Market                               45.1kH domain=orbital_slots body=Mars owner=United Nations of Mars
+  L09 Planetary        Solar System L12 Media Market                               44.8kH domain=media body=Solar System owner=Solar System United Nations
+  L09 Planetary        Mars L12 Semaphore Permits Market                           44.5kH domain=semaphore_permits body=Mars owner=United Nations of Mars
+  L09 Planetary        Earth L12 Manufacturing Market                              44.1kH domain=manufacturing body=Earth owner=United Nations of Earth
+  L09 Planetary        Mars L12 Sheaf Coherence Market                             43.8kH domain=sheaf_coherence body=Mars owner=United Nations of Mars
+
+Top workers
+Columns: Lxx = final level; level name; entity name; H = compressed status value; domain; body; owner.
+  L06 Regional         Worker 0000987                                               7.5kH domain=logistics body=Moon owner=None
+  L06 Regional         Worker 0000422                                               7.5kH domain=science body=Earth owner=None
+  L06 Regional         Worker 0001315                                               7.3kH domain=infrastructure body=Moon owner=None
+  L06 Regional         Worker 0000264                                               6.8kH domain=media body=Mars owner=None
+  L06 Regional         Worker 0000445                                               6.8kH domain=skill body=Earth owner=None
+  L06 Regional         Worker 0001458                                               6.6kH domain=trust body=Earth owner=None
+  L06 Regional         Worker 0001664                                               6.6kH domain=labor body=Earth owner=None
+  L06 Regional         Worker 0001584                                               6.5kH domain=media body=Earth owner=None
+
+Recent trades / events
+  - Solar System L01 Shipbuilding Market: PRODUCT Shipbuilding Product 000 -> Worker 0000969 for 153H
+  - Solar System L10 Data Market: PRODUCT Data Product 000540 -> Worker 0000159 for 105H
+  - Earth L01 Energy Market: PRODUCT Energy Product 000132 -> Worker 0001157 for 35.2H
+  - Earth L08 Manufacturing Market: PRODUCT Manufacturing Product 00 -> Worker 0001225 for 24.6H
+  - Moon L09 Compute Market: PRODUCT Compute Product 000024 -> Worker 0001609 for 45.0H
+  - Moon L08 Transport Market: PRODUCT Transport Product 000309 -> Energy Networked Company for 222H
+  - Moon L08 Defense Market: PRODUCT Defense Product 000842 -> Worker 0000616 for 55.0H
+  - Moon L07 Data Market: PRODUCT Data Product 000339 -> Worker 0000870 for 29.7H
+  - Moon L10 Terraforming Market: PRODUCT Terraforming Product 000 -> Worker 0000499 for 27.1H
+  - Mars L11 Compute Market: PRODUCT Compute Product 000555 -> Worker 0001471 for 18.7H
+
+FINAL BALANCED SUMMARY
+This run was mainly shaped by these drivers: defense_alert=0.84, media_polarization=0.68. Average scenario volatility per tick was 1.52. Higher --volatility would create stronger shocks, more price noise and more ascent/descent. Higher --wealth raises initial endowments, purchasing power and trade volume. Higher --hierarchy-shift converts status differences into level changes faster; a lower value makes the order more inert. Different seeds can therefore plausibly produce defense dominance, research boom, care recognition, supply crisis or interplanetary expansion.
+
+Group-specific mobility interpretations:
+  - celestial_bodies remained relatively stable; this part of the order was inert.
+  - un_orgs remained relatively stable; this part of the order was inert.
+  - defense_orgs remained relatively stable; this part of the order was inert.
+  - alliances remained relatively stable; this part of the order was inert.
+  - countries remained relatively stable; this part of the order was inert.
+  - companies remained relatively stable; this part of the order was inert.
+  - workers remained relatively stable; this part of the order was inert.
+  - products remained relatively stable; this part of the order was inert.
+  - markets remained relatively stable; this part of the order was inert.

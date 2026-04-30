@@ -1,0 +1,147 @@
+========================================================================================================
+SOLARE HIERARCHIE-MARKTWIRTSCHAFT — PARAMETERISIERTER REPORT
+========================================================================================================
+seed=42 explicit_seed=True profile=large ticks=2 lang=de volatility=1.4 wealth=1.2 hierarchy_shift=1.3 up_shift=1 down_shift=1
+
+WAS SIMULIERT WIRD
+Die Simulation modelliert eine Hierarchie-Währung über Erde, Mond und Mars. Himmelskörper, UN-artige Organisationen, Verteidigungsorganisationen, Bündnisse, Staaten, Unternehmen, Arbeitnehmer, Produkte und Märkte erhalten alle Hierarchiepositionen. Märkte handeln Güter, Privilegien, Belastungen und sogar Märkte selbst.
+
+FORMEL FÜR HIERARCHIEWERT
+Formel: Ein Hierarchiebündel B enthält Beträge x(l,e) auf Hierarchiestufe l und Element e. Der komprimierte Wert ist H(B)=Σ_l Σ_e x(l,e)·M_l·w_e. M_l ist der Höhenmultiplikator der Stufe l; w_e ist das Elementgewicht, z. B. Governance, Vertrauen, Kapital, Arbeit, Markt-Zugang. Für eine Entität gilt: Status_H = H(Struktur) + Wallet_H + 0.15·Privileg_H − 0.15·Belastung_H. Die Stufe ergibt sich aus Schwellenwerten auf Status_H. Der Parameter --wealth skaliert Anfangsausstattung und Geldflüsse; --volatility skaliert Schocks, Preisrauschen und Handelsintensität; --hierarchy-shift macht Auf-/Abstieg schneller oder langsamer.
+
+WAS SEED 42 BEDEUTET
+Seed-Erklärung: Der Seed ist der Startwert des deterministischen Zufallsgenerators. Seed 42 bedeutet nicht 'wahr' oder 'besser'; er ist nur ein fester Startpunkt, damit derselbe Lauf reproduzierbar wird. Gleicher Seed + gleiche Parameter = gleicher Verlauf. Anderer Seed = andere Makro-Schocks, andere Trades, andere Gewinner und Verlierer. Ohne --seed wählt das Programm einen neuen Seed aus Zeit und Prozess-ID.
+
+ZAHLENZUSAMMENFASSUNG
+Zählwerte:
+  Entitäten                      48212
+  Himmelskörper                  4
+  UN-Organisationen              4
+  Verteidigungsorganisationen    4
+  Staaten                        102
+  Bündnisse                      6
+  Unternehmen                    1700
+  Arbeitnehmer                   32000
+  Produkte                       13000
+  Märkte                         1392
+  Privilegien                    6050
+  Belastungen                    4753
+Auswertung: Die Zählwerte zeigen die Größe der realisierten Welt.
+
+Handel:
+  volume_H                       41183284.98
+  product_sales                  65695
+  market_ownership_changes       1783
+  manual_lifts                   44
+Auswertung: Höheres Volumen und mehr Besitzwechsel bedeuten einen transformativeren Lauf.
+
+Netzwerk-/Kategorie-/Garbenaggregate:
+  nodes                          48212
+  channels                       10586
+  components                     40
+  degree_mean                    0.439
+  degree_max                     148
+  packets_created                339777
+  packets_delivered              235416
+  packets_dropped                77179
+  semaphore_blocked              23444
+Auswertung: Das sind aggregierte Stellvertreter für Topologie, Datenströme, Queues, Semaphoren und Kohärenz.
+
+Stufenverteilungen:
+  Himmelskörper          {12: 4}
+  UN-Organisationen      {12: 4}
+  Verteidigungsorganisationen {12: 4}
+  Bündnisse              {9: 3, 10: 3}
+  Staaten                {11: 15, 12: 87}
+  Unternehmen            {8: 2, 9: 74, 10: 413, 11: 799, 12: 412}
+  Arbeitnehmer           {1: 150, 2: 2027, 3: 4981, 4: 10910, 5: 11378, 6: 2553, 7: 1}
+  Produkte               {1: 403, 2: 2481, 3: 4895, 4: 4033, 5: 1097, 6: 91}
+  Märkte                 {3: 3, 4: 34, 5: 118, 6: 382, 7: 367, 8: 359, 9: 129}
+Auswertung: Das zeigt, wo jede Instanzart in der zwölfstufigen Hierarchie liegt.
+
+Mobilitätszusammenfassung:
+  Himmelskörper          up=0 down=0 same=4
+  UN-Organisationen      up=0 down=0 same=4
+  Verteidigungsorganisationen up=0 down=0 same=4
+  Bündnisse              up=1 down=0 same=5
+  Staaten                up=20 down=0 same=82
+  Unternehmen            up=766 down=0 same=934
+  Arbeitnehmer           up=1808 down=790 same=29402
+  Produkte               up=0 down=4275 same=8725
+  Märkte                 up=74 down=135 same=1183
+Auswertung: Auf/Ab/Gleich misst, ob Karriere und institutionelle Rangwechsel tatsächlich stattgefunden haben.
+
+Top-Staaten
+Spalten: Lxx = Endstufe; Stufenname; Entitätsname; H = komprimierter Statuswert; Domäne; Körper; Besitzer.
+  L12 Sonnen-Apex      Earth Republic 027                                           8.0MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Earth Republic 020                                           7.9MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Earth Republic 014                                           7.9MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Earth Republic 059                                           7.9MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Moon Republic 008                                            6.9MH domain=Steuerung body=Mond owner=United Nations of Moon
+  L12 Sonnen-Apex      Earth Republic 058                                           6.7MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Earth Republic 065                                           6.3MH domain=Steuerung body=Erde owner=United Nations of Earth
+  L12 Sonnen-Apex      Earth Republic 070                                           6.2MH domain=Steuerung body=Erde owner=United Nations of Earth
+
+Top-Unternehmen
+Spalten: Lxx = Endstufe; Stufenname; Entitätsname; H = komprimierter Statuswert; Domäne; Körper; Besitzer.
+  L12 Sonnen-Apex      Energy Networked Company 00176                               2.6MH domain=Energie body=Mars owner=Mars Republic 001
+  L12 Sonnen-Apex      Market Rights Networked Company 01134                        2.5MH domain=Marktrechte body=Erde owner=Earth Republic 046
+  L12 Sonnen-Apex      Market Rights Networked Company 00470                        2.5MH domain=Marktrechte body=Erde owner=Earth Republic 045
+  L12 Sonnen-Apex      Finance Networked Company 01114                              2.4MH domain=Finanzen body=Erde owner=Earth Republic 014
+  L12 Sonnen-Apex      Terraforming Networked Company 00400                         2.4MH domain=Terraforming body=Erde owner=Earth Republic 064
+  L12 Sonnen-Apex      Market Rights Networked Company 01339                        2.4MH domain=Marktrechte body=Mond owner=Moon Republic 008
+  L12 Sonnen-Apex      Manufacturing Networked Company 00409                        2.3MH domain=Fertigung body=Mars owner=Mars Republic 003
+  L12 Sonnen-Apex      Agriculture Networked Company 00815                          2.3MH domain=Landwirtschaft body=Erde owner=Earth Republic 027
+
+Top-Märkte
+Spalten: Lxx = Endstufe; Stufenname; Entitätsname; H = komprimierter Statuswert; Domäne; Körper; Besitzer.
+  L09 Planetar         Mars L12 Market Rights Market                               63.1kH domain=Marktrechte body=Mars owner=Care Networked Company 00680
+  L09 Planetar         Earth L12 Semaphore Permits Market                          62.9kH domain=Semaphor-Erlaubnisse body=Erde owner=Agriculture Networked Company 01103
+  L09 Planetar         Earth L12 Sheaf Coherence Market                            61.9kH domain=Garbkohärenz body=Erde owner=Medicine Networked Company 00948
+  L09 Planetar         Moon L12 Water Market                                       61.4kH domain=Wasser body=Mond owner=United Nations of Moon
+  L09 Planetar         Solar System L12 Housing Market                             60.4kH domain=Wohnen body=Sonnensystem owner=Agriculture Networked Company 00815
+  L09 Planetar         Moon L12 Defense Market                                     59.2kH domain=Verteidigung body=Mond owner=Market Rights Networked Company 01546
+  L09 Planetar         Earth L12 Labor Market                                      58.7kH domain=Arbeit body=Erde owner=Agriculture Networked Company 00091
+  L09 Planetar         Solar System L11 Medicine Market                            57.8kH domain=Medizin body=Sonnensystem owner=Care Networked Company 01659
+
+Top-Arbeitnehmer
+Spalten: Lxx = Endstufe; Stufenname; Entitätsname; H = komprimierter Statuswert; Domäne; Körper; Besitzer.
+  L07 National         Worker 0030244                                              14.0kH domain=Medizin body=Erde owner=None
+  L06 Regional         Worker 0014225                                              11.1kH domain=Steuerung body=Erde owner=None
+  L06 Regional         Worker 0016958                                              10.8kH domain=Vertrauen body=Erde owner=None
+  L06 Regional         Worker 0027678                                              10.4kH domain=Fürsorge body=Erde owner=None
+  L06 Regional         Worker 0021710                                              10.3kH domain=Steuerung body=Erde owner=None
+  L06 Regional         Worker 0018657                                              10.1kH domain=Militär body=Mars owner=None
+  L06 Regional         Worker 0000693                                              10.0kH domain=Logistik body=Erde owner=None
+  L06 Regional         Worker 0008414                                               9.9kH domain=Arbeit body=Mond owner=None
+
+Neueste Trades / Ereignisse
+  - Solar System L04 Housing Market: PRODUCT Housing Product 003779 -> Worker 0026121 for 48.8H
+  - Solar System L04 Housing Market: PRODUCT Housing Product 000454 -> Worker 0007631 for 52.7H
+  - Solar System L12 Housing Market: PRODUCT Housing Product 003221 -> Worker 0016390 for 70.5H
+  - Solar System L12 Housing Market: PRODUCT Housing Product 004190 -> Worker 0015685 for 40.3H
+  - Earth L09 Food Market: PRODUCT Food Product 009631 -> Worker 0009948 for 83.8H
+  - Earth L09 Food Market: PRODUCT Food Product 003534 -> Worker 0017315 for 103H
+  - Moon L07 Energy Market: PRODUCT Energy Product 008687 -> Worker 0009347 for 146H
+  - Moon L07 Energy Market: PRODUCT Energy Product 005878 -> Worker 0007505 for 74.2H
+  - Solar System L05 Orbital Slots Market: PRODUCT Orbital Slots Product 01 -> Worker 0030701 for 135H
+  - Solar System L05 Orbital Slots Market: PRODUCT Orbital Slots Product 00 -> Worker 0030916 for 40.4H
+  - Solar System L04 Market Rights Market: PRODUCT Market Rights Product 00 -> Worker 0025822 for 22.9H
+  - Solar System L04 Market Rights Market: PRODUCT Market Rights Product 00 -> Worker 0021098 for 67.3H
+  - Earth L06 Finance Market: PRODUCT Finance Product 010578 -> Worker 0023186 for 68.1H
+  - Earth L06 Finance Market: PRODUCT Finance Product 010393 -> Worker 0006160 for 108H
+  - Moon L04 Housing Market: PRODUCT Housing Product 004521 -> Worker 0016787 for 44.7H
+
+ABSCHLIESSENDE AUSGEWOGENE ZUSAMMENFASSUNG
+Dieser Lauf wurde vor allem durch folgende Treiber geprägt: interplanetare Expansion=2.20, Ressourcenboom=1.49, Versorgungsschock=0.97. Die mittlere Szenario-Volatilität pro Tick lag bei 2.33. Mit höherem --volatility wären stärkere Ausschläge, mehr Trade-Rauschen und mehr Auf-/Abstieg möglich. Mit höherem --wealth steigen Anfangsausstattung, Kaufkraft und Handelsvolumen. Mit höherem --hierarchy-shift werden Unterschiede schneller in Stufenwechsel übersetzt; mit niedrigem Wert bleibt die Ordnung träger. Andere Seeds können deshalb glaubwürdig zu Verteidigungsdominanz, Forschungsboom, Fürsorge-Aufwertung, Versorgungskrise oder interplanetarer Expansion führen.
+
+Gruppenspezifische Mobilitätsdeutungen:
+  - Himmelskörper blieben relativ stabil; die Ordnung war hier eher träge.
+  - UN-Organisationen blieben relativ stabil; die Ordnung war hier eher träge.
+  - Verteidigungsorganisationen blieben relativ stabil; die Ordnung war hier eher träge.
+  - Bündnisse blieben relativ stabil; die Ordnung war hier eher träge.
+  - Staaten blieben relativ stabil; die Ordnung war hier eher träge.
+  - Unternehmen sind überwiegend aufgestiegen; dieser Lauf belohnte Expansion oder günstige Schocks.
+  - Arbeitnehmer blieben relativ stabil; die Ordnung war hier eher träge.
+  - Produkte sind spürbar gefallen; Konkurrenz oder Schocks haben schwächere Positionen bestraft.
+  - Märkte blieben relativ stabil; die Ordnung war hier eher träge.
