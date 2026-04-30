@@ -1,0 +1,1258 @@
+Planetare Wirtschaftssimulation — Paradigma-Architektur-Edition
+========================================================================
+WAS HIER SIMULIERT WIRD:
+Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Verteidigungsorganisationen und Märkten.
+Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert, sondern ein Vektor aus Schichten
+wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidität, Garben-Konsistenz und kategorialer Kohärenz.
+Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.
+
+ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:
+WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.
+TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.
+GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.
+FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.
+FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.
+LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-artige Strukturen.
+PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.
+HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal.
+FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.
+SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht sind, entsteht Warten.
+Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion oder institutionelle Abbildung ein Morphismus.
+Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B. von Ökonomie zu Wahrheit oder Recht.
+Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertungsweisen auseinanderlaufen.
+Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeigenschaft für globale Konsistenz.
+Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammengehören.
+Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalizer.
+Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neue Prädikat-Elemente in WK.
+
+KURZZUSAMMENFASSUNG DES AKTUELLEN LAUFS:
+Preset: tiny | Seed: 7 | Monate: 2
+Agenten: 88 | Länder: 6 | Events: 1
+Planet-GDP: 174.61B
+WK-Score: 14301.62 | WK-positiv: 14320.00 | Wahrheitsschuld: 18.38
+Logikprädikate: Elemente=274 | Verifikationen=269 | Falsifikationen=5
+Morphismen: Economy=38 Truth=77 Law=77 Security=57
+Letzte Garben-Konsistenzlücke: 0.0000
+Parallel: Prozesse=1 Start=fork Batches=0 Tasks=0 Fallback=0
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Dokumentation der Ausgabe                                                                                     ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor ClassTreeRenderer                                                                              ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt den Vererbungsbaum der Klassen. Sie erklärt, welche OOP-Objekte existieren und wie sie in  ║
+║ die Paradigma-Architektur eingebettet sind.                                                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Klassenvererbung und Paradigma-Architektur                                                          ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ SimNode                                                                                             ║
+║ ├─ Agent = TruthBearer + FiatBearer + QueueOwner + NetworkParticipant                               ║
+║ │  ├─ LegalEntity                                                                                   ║
+║ │  │  ├─ InstitutionalEntity                                                                        ║
+║ │  │  │  ├─ SovereignEntity                                                                         ║
+║ │  │  │  │  └─ Country                                                                              ║
+║ │  │  │  ├─ FinancialInstitution                                                                    ║
+║ │  │  │  │  ├─ CentralBank                                                                          ║
+║ │  │  │  │  └─ CommercialBank                                                                       ║
+║ │  │  │  │     ├─ DevelopmentBank                                                                   ║
+║ │  │  │  │     └─ InvestmentBank                                                                    ║
+║ │  │  │  ├─ UnitedNations                                                                           ║
+║ │  │  │  └─ DefenseOrganization                                                                     ║
+║ │  │  │     ├─ MutualDefensePact                                                                    ║
+║ │  │  │     ├─ MaritimeSecurityLeague                                                               ║
+║ │  │  │     └─ CyberDefenseCompact                                                                  ║
+║ │  │  └─ EconomicEntity                                                                             ║
+║ │  │     ├─ Household                                                                               ║
+║ │  │     └─ Company                                                                                 ║
+║ │  │        └─ ProductiveCompany                                                                    ║
+║ │  │           ├─ CivilianCompany ─┬─ PlatformCompany                                               ║
+║ │  │           │                   ├─ MediaCompany                                                  ║
+║ │  │           │                   └─ ResearchCompany                                               ║
+║ │  │           ├─ IndustrialCompany                                                                 ║
+║ │  │           └─ StrategicCompany                                                                  ║
+║ │  └─ Queues: FIFOQueue, LIFOQueue, PriorityMessageQueue                                            ║
+║ ├─ EconomicObject                                                                                   ║
+║ │  ├─ Asset                                                                                         ║
+║ │  ├─ Claim                                                                                         ║
+║ │  └─ Product                                                                                       ║
+║ ├─ Channel                                                                                          ║
+║ │  ├─ HalfDuplexChannel                                                                             ║
+║ │  └─ FullDuplexChannel                                                                             ║
+║ │     └─ SecureFullDuplexChannel                                                                    ║
+║ ├─ Network                                                                                          ║
+║ │  ├─ TradeNetwork, CreditNetwork, GovernanceNetwork                                                ║
+║ │  └─ DefenseNetwork, KnowledgeNetwork, TruthNetwork                                                ║
+║ ├─ Category                                                                                         ║
+║ │  ├─ EconomicCategory, TruthCategory, LegalCategory, SecurityCategory                              ║
+║ │  └─ Morphism / Transaction / UniversalProperty / Functor / NaturalTransformation                  ║
+║ └─ Presheaf                                                                                         ║
+║    └─ LocalTruthPresheaf                                                                            ║
+║       └─ Sheaf                                                                                      ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach ClassTreeRenderer                                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Diese Grafik beschreibt einen Ausschnitt der simulierten Welt und sollte zusammen mit den and ║
+║ eren Grafiken gelesen werden.                                                                                 ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor NetworkTopologyRenderer                                                                        ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Netzwerke, ihre Topologien, Knoten, Kanten, Queue-Tiefen und Duplex-Typen. So sieht man, w ║
+║ ie Transport und Kommunikation organisiert sind.                                                              ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Netzwerk-Topologie, Queues, Half-/Full-Duplex                                                                   ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ trade        topology=core-periphery  nodes=   66 edges=  246 density=0.1147 queue=    3 delivered=     34      ║
+║              duplex: HALF=   0 FULL= 246 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁          ║
+║ credit       topology=star            nodes=   25 edges=   23 density=0.0767 queue=    0 delivered=      1      ║
+║              duplex: HALF=   0 FULL=  23 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                                     ║
+║ governance   topology=star            nodes=   28 edges=   28 density=0.0741 queue=    0 delivered=      2      ║
+║              duplex: HALF=   0 FULL=  28 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                                ║
+║ defense      topology=mesh            nodes=   20 edges=   30 density=0.1579 queue=    0 delivered=      3      ║
+║              duplex: HALF=  30 FULL=   0 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁                              ║
+║ knowledge    topology=mesh            nodes=   76 edges=  236 density=0.0828 queue=    0 delivered=      0      ║
+║              duplex: HALF=   0 FULL= 236 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁          ║
+║ truth        topology=core-periphery  nodes=   76 edges=  249 density=0.0874 queue=    3 delivered=     21      ║
+║              duplex: HALF=   0 FULL= 249 load-spark=▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██          ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach NetworkTopologyRenderer                                                                   ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Dichte, Queue-Tiefe und Duplex-Typ zeigen, wo Netzwerke robust sind und wo Engpässe entstehen ║
+║ . Ein volles Netzwerk mit hoher Queue-Tiefe deutet auf operative Komplexität oder Stau hin.                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor SemaphoreRenderer                                                                              ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Semaphoren als Engpass-Indikatoren. Hohe Auslastung oder viele Waits bedeuten knappe Resso ║
+║ urcen und Stau im System.                                                                                     ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Semaphore als Knappheits- und Durchleitungslogik                                                              ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ fullduplex:trade:plat↔rese:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/ ║
+║ 17                                                                                                            ║
+║ fullduplex:trade:plat↔rese:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/ ║
+║ 17                                                                                                            ║
+║ fullduplex:trade:plat↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 18/ ║
+║ 18                                                                                                            ║
+║ fullduplex:trade:plat↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 18/ ║
+║ 18                                                                                                            ║
+║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 22/ ║
+║ 22                                                                                                            ║
+║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 22/ ║
+║ 22                                                                                                            ║
+║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 11/ ║
+║ 11                                                                                                            ║
+║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 11/ ║
+║ 11                                                                                                            ║
+║ fullduplex:trade:plat↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 24/ ║
+║ 24                                                                                                            ║
+║ fullduplex:trade:plat↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 24/ ║
+║ 24                                                                                                            ║
+║ fullduplex:trade:plat↔coun:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 27/ ║
+║ 27                                                                                                            ║
+║ fullduplex:trade:plat↔coun:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 27/ ║
+║ 27                                                                                                            ║
+║ fullduplex:trade:plat↔indu:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+║ fullduplex:trade:plat↔indu:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+║ fullduplex:trade:plat↔hous:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 28/ ║
+║ 28                                                                                                            ║
+║ fullduplex:trade:plat↔hous:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 28/ ║
+║ 28                                                                                                            ║
+║ fullduplex:trade:plat↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 23/ ║
+║ 23                                                                                                            ║
+║ fullduplex:trade:plat↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 23/ ║
+║ 23                                                                                                            ║
+║ fullduplex:trade:rese↔medi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/ ║
+║ 17                                                                                                            ║
+║ fullduplex:trade:rese↔medi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 17/ ║
+║ 17                                                                                                            ║
+║ fullduplex:trade:rese↔civi:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+║ fullduplex:trade:rese↔civi:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+║ fullduplex:trade:rese↔stra:AB                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+║ fullduplex:trade:rese↔stra:BA                    [░░░░░░░░░░░░░░░░░░░░░░░░] util= 0.0% waits=   0 tokens= 12/ ║
+║ 12                                                                                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach SemaphoreRenderer                                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Semaphoren mit hoher Nutzung und vielen Waits sind Flaschenhälse. Dort entsteht knappe Durchl ║
+║ eitung, also eine operative Grenze des Systems.                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor CategoryRenderer                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Kategorien, Morphismen, Funktoren und natürliche Transformationen. Sie ist die mathematisc ║
+║ he Struktursicht auf die Ökonomie.                                                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Kategorie, Morphismus, Funktor, natürliche Transformation                                                   ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ 𝓔 Economy            Objekte=    88 Morphismen=      38 id-law-gap=0.0000                                   ║
+║ 𝓣 Truth              Objekte=    88 Morphismen=      77 id-law-gap=0.0000                                   ║
+║ 𝓛 Law                Objekte=    88 Morphismen=      77 id-law-gap=0.0000                                   ║
+║ 𝓢 Security           Objekte=    88 Morphismen=      57 id-law-gap=0.0000                                   ║
+║                                                                                                             ║
+║ Diagramm:                                                                                                   ║
+║    Fiat/Trade-Morphismus ──F──▶ Truth-Morphismus                                                            ║
+║            │                         │                                                                      ║
+║            L                         η: F⇒L / F⇒S                                                           ║
+║            ▼                         ▼                                                                      ║
+║      Legal-Morphismus ──S──▶ Security-Morphismus                                                            ║
+║                                                                                                             ║
+║ UniversalProperty Terminalobjekt                     gap=1.0000                                             ║
+║ UniversalProperty Produktobjekt Fiat×WK              gap=3.1883                                             ║
+║ UniversalProperty Pullback Vertrag×Lieferung         gap=1.0000                                             ║
+║ UniversalProperty Pushout Konflikt→Resolution        gap=1.0000                                             ║
+║ UniversalProperty Equalizer sozial=epistemisch       gap=2.1978                                             ║
+║ NaturalTransformation η: F⇒L                         naturality_gap=21.4231 components=88                   ║
+║ NaturalTransformation η: F⇒S                         naturality_gap=22.3498 components=88                   ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach CategoryRenderer                                                                          ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Kleine id-law-gaps und kleine η-gaps sprechen für kategoriale Kohärenz. Große Werte deuten an ║
+║ , dass Ökonomie, Recht, Sicherheit und Wahrheit auseinanderlaufen.                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor SheafRenderer                                                                                  ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Prägarben und Garben. Sie erklärt, wie lokale Wahrheiten zu einer global konsistenten plan ║
+║ etaren Wahrheit zusammengeklebt werden.                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Prägarben, Garben, Topologie und Klebeeigenschaft                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Topologischer Raum: Planetary Grothendieck Site | offene Mengen=145                                           ║
+║ Globale Garben-Konsistenzlücke: 0.0000                                                                        ║
+║                                                                                                               ║
+║ Covering-Family für Planet:                                                                                   ║
+║   U=Currency:KAI0            |U|=  14 section-score=    157.89                                                ║
+║   U=Currency:BOR1            |U|=  14 section-score=    147.79                                                ║
+║   U=Currency:UMB2            |U|=  14 section-score=    145.54                                                ║
+║   U=Currency:JUN3            |U|=  14 section-score=    211.25                                                ║
+║   U=Currency:TET4            |U|=  14 section-score=    123.41                                                ║
+║   U=Currency:ZEN5            |U|=  14 section-score=    154.51                                                ║
+║   U=Currency:WK              |U|=   4 section-score=    284.03                                                ║
+║                                                                                                               ║
+║ Garben-Kleben:                                                                                                ║
+║   lokale Sektionen s_i ∈ F(U_i)                                                                               ║
+║   kompatibel auf U_i∩U_j  ⇒  eindeutige globale Sektion s ∈ F(Planet)                                         ║
+║   ökonomisch: lokale Wahrheiten müssen auf Handels-/Rechts-/Sicherheitsüberschneidungen passen                ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach SheafRenderer                                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die letzte globale Garben-Konsistenzlücke beträgt 0.0000. Je kleiner dieser Wert, desto besse ║
+║ r passen lokale Wahrheiten zusammen.                                                                          ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor TruthVectorRenderer                                                                            ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt den planetaren WK-Vektor. Jede Zeile ist eine Wahrheitsdimension und ihr aktueller positiv ║
+║ er oder negativer Beitrag.                                                                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Gestapelte Wahrheit als planetare Vektorwährung WK                                                            ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Globaler WK-Score=14301.62 | Positiv=14320.00 | Wahrheitsschuld=18.38                                         ║
+║                                                                                                               ║
+║ epistemic                + ████████████████████████████████████    2613.33                                    ║
+║ legal                    + █████████████████████████████░░░░░░░    2167.90                                    ║
+║ category_coherence       + ███████████████░░░░░░░░░░░░░░░░░░░░░    1156.55                                    ║
+║ social                   + ███████████████░░░░░░░░░░░░░░░░░░░░░    1137.02                                    ║
+║ sheaf_consistency        + ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░     728.93                                    ║
+║ infrastructure           + ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     566.50                                    ║
+║ causal                   + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     435.44                                    ║
+║ existence                + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     413.25                                    ║
+║ liquidity                + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     401.02                                    ║
+║ shelter                  + █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     365.18                                    ║
+║ network_reachability     + ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     351.47                                    ║
+║ sovereignty              + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     273.85                                    ║
+║ food                     + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     237.21                                    ║
+║ security                 + ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     230.32                                    ║
+║ health                   + ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     215.24                                    ║
+║ education                + █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      89.44                                    ║
+║ memory                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      65.82                                    ║
+║ potential                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      64.95                                    ║
+║ attention                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      61.56                                    ║
+║ risk_reduction           + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      59.50                                    ║
+║ logistics                + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      36.38                                    ║
+║ ecological               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      36.33                                    ║
+║ perception               + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      34.79                                    ║
+║ temporal                 - ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     -21.63                                    ║
+║ comparative              + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       9.57                                    ║
+║ energy                   + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       0.58                                    ║
+║ ethical                  + ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       0.00                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach TruthVectorRenderer                                                                       ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Der globale WK-Score beträgt 14301.62. Die stärksten positiven Schichten sind epistemic=2613. ║
+║ 3, legal=2167.9, category_coherence=1156.6, social=1137.0, sheaf_consistency=728.9. Die stärksten negativen S ║
+║ chichten bzw. Wahrheitsschulden sind temporal=-21.6.                                                          ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor PredicateLedgerRenderer                                                                        ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt die neu hinzugekommenen Logikprädikat-Elemente. Jede Verifikation oder Falsifikation erwei ║
+║ tert das formale Prädikat-System der Wahrheitswährung.                                                        ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Logikprädikate der Wahrheitswährung: Verifikation/Falsifikation                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Logikprädikat-Elemente gesamt=274 | Verifikationen=269 | Falsifikationen=5                                    ║
+║                                                                                                               ║
+║ M0002 VER institution→country United Nations / → Kairounion       s= 6.0 transaction/audit                    ║
+║       verified(verifier=united_nations_planetary_truth_council, subject=kairounion, context=transa            ║
+║ M0002 VER country→institution Kairounion       → United Nations / s= 6.0 transaction/audit                    ║
+║       verified(verifier=kairounion, subject=united_nations_planetary_truth_council, context=transa            ║
+║ M0002 VER country→institution Kairounion       → United Nations / s= 6.0 transaction/audit/                   ║
+║       verified(verifier=kairounion, subject=united_nations_planetary_truth_council, context=transa            ║
+║ M0002 VER institution→country Shield Compact 1 → Zenitunion       s= 6.0 transaction/defens                   ║
+║       verified(verifier=shield_compact_1, subject=zenitunion, context=transaction_defense, market=            ║
+║ M0002 VER country→institution Zenitunion       → Shield Compact 1 s= 6.0 transaction/defens                   ║
+║       verified(verifier=zenitunion, subject=shield_compact_1, context=transaction_defense, market=            ║
+║ M0002 VER country→institution Zenitunion       → Shield Compact 1 s= 6.0 transaction/defens                   ║
+║       verified(verifier=zenitunion, subject=shield_compact_1, context=transaction_defense_country_            ║
+║ M0002 VER bank→company       Civic Bank Umbra → Biotech Foundry  s= 6.0 transaction/audit                     ║
+║       verified(verifier=civic_bank_umbramark_2, subject=biotech_foundry_tethysstaat_8, context=tra            ║
+║ M0002 VER company→bank       Biotech Foundry  → Civic Bank Umbra s= 6.0 transaction/audit                     ║
+║       verified(verifier=biotech_foundry_tethysstaat_8, subject=civic_bank_umbramark_2, context=tra            ║
+║ M0002 VER country→company    Umbramark        → Biotech Foundry  s= 6.0 transaction/audit/                    ║
+║       verified(verifier=umbramark, subject=biotech_foundry_tethysstaat_8, context=transaction_audi            ║
+║ M0002 VER country→bank       Tethysstaat      → Civic Bank Umbra s= 6.0 transaction/audit/                    ║
+║       verified(verifier=tethysstaat, subject=civic_bank_umbramark_2, context=transaction_audit_cou            ║
+║ M0002 VER institution→company Harbor Compact 2 → Construction Arc s= 6.0 transaction/audit                    ║
+║       verified(verifier=harbor_compact_2, subject=construction_arc_junokron_8, context=transaction            ║
+║ M0002 VER company→institution Construction Arc → Harbor Compact 2 s= 5.1 transaction/audit                    ║
+║       verified(verifier=construction_arc_junokron_8, subject=harbor_compact_2, context=transaction            ║
+║ M0002 VER country→institution Junokron         → Harbor Compact 2 s= 6.0 transaction/audit/                   ║
+║       verified(verifier=junokron, subject=harbor_compact_2, context=transaction_audit_country_over            ║
+║ M0002 VER bank→company       Union Bank Kairo → Media Guild Juno s= 6.0 transaction/audit                     ║
+║       verified(verifier=union_bank_kairounion_2, subject=media_guild_junokron_1, context=transacti            ║
+║ M0002 VER company→bank       Media Guild Juno → Union Bank Kairo s= 2.8 transaction/audit                     ║
+║       verified(verifier=media_guild_junokron_1, subject=union_bank_kairounion_2, context=transacti            ║
+║ M0002 VER country→company    Kairounion       → Media Guild Juno s= 6.0 transaction/audit/                    ║
+║       verified(verifier=kairounion, subject=media_guild_junokron_1, context=transaction_audit_coun            ║
+║ M0002 VER country→bank       Junokron         → Union Bank Kairo s= 5.2 transaction/audit/                    ║
+║       verified(verifier=junokron, subject=union_bank_kairounion_2, context=transaction_audit_count            ║
+║ M0002 VER bank→company       Central Bank of  → Education Works  s= 0.9 transaction/audit                     ║
+║       verified(verifier=central_bank_of_kairounion, subject=education_works_zenitunion_1, context=            ║
+║ M0002 VER company→bank       Education Works  → Central Bank of  s= 2.5 transaction/audit                     ║
+║       verified(verifier=education_works_zenitunion_1, subject=central_bank_of_kairounion, context=            ║
+║ M0002 VER country→company    Kairounion       → Education Works  s= 2.4 transaction/audit/                    ║
+║       verified(verifier=kairounion, subject=education_works_zenitunion_1, context=transaction_audi            ║
+║ M0002 VER country→bank       Zenitunion       → Central Bank of  s= 5.5 transaction/audit/                    ║
+║       verified(verifier=zenitunion, subject=central_bank_of_kairounion, context=transaction_audit_            ║
+║ M0002 VER institution→company Harbor Compact 2 → Space Foundry Bo s= 4.5 transaction/audit                    ║
+║       verified(verifier=harbor_compact_2, subject=space_foundry_borealreich_3, context=transaction            ║
+║ M0002 VER company→institution Space Foundry Bo → Harbor Compact 2 s= 6.0 transaction/audit                    ║
+║       verified(verifier=space_foundry_borealreich_3, subject=harbor_compact_2, context=transaction            ║
+║ M0002 VER country→institution Borealreich      → Harbor Compact 2 s= 6.0 transaction/audit/                   ║
+║       verified(verifier=borealreich, subject=harbor_compact_2, context=transaction_audit_country_o            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach PredicateLedgerRenderer                                                                   ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die Simulation hat bisher 269 Verifikationen und 5 Falsifikationen erzeugt. Jedes dieser Erei ║
+║ gnisse erweitert das Logikprädikat der planetaren Wahrheitswährung um ein weiteres Element.                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor VerificationMatrixRenderer                                                                     ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt, wer wen überprüft: Länder andere Länder, Unternehmen andere Unternehmen, Länder Unternehm ║
+║ en und Unternehmen Länder.                                                                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Verifikations-Matrix zwischen Ländern und Unternehmen                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Relation               total   verif   falsif   verif-rate                                                    ║
+║ country→country            11      11        0     100.00%                                                    ║
+║ company→company            64      61        3      95.31%                                                    ║
+║ country→company            93      91        2      97.85%                                                    ║
+║ company→country            13      13        0     100.00%                                                    ║
+║                                                                                                               ║
+║ Markt-Totals:                                                                                                 ║
+║ audit              ██████████████████████████████████████████ 86                                              ║
+║ defense            ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 21                                              ║
+║ agriculture        █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 12                                              ║
+║ insurance          █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 12                                              ║
+║ biotech            █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 12                                              ║
+║ food               █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 12                                              ║
+║ health             █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 12                                              ║
+║ goods              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ credit             ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ labor              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ truth              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ space              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ finance            ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ housing            ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ water              ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ cybersecurity      ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 8                                               ║
+║ law                ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 7                                               ║
+║ semiconductors     █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ media              █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ loan               █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ luxury             █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ construction       █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ culture            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+║ tourism            █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach VerificationMatrixRenderer                                                                ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die Verifikationsaktivität ist marktlich verteilt. Der derzeit aktivste Prüfkontext ist audit ║
+║ . Die Zeilen zeigen, welche Relationen besonders oft oder selten überprüft werden.                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor VerificationTimelineRenderer                                                                   ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt die Zeitentwicklung von Verifikationen, Falsifikationen und der Größe des Prädikat-Logs.   ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Zeitreihe der Verifikations- und Falsifikationsdynamik                                                        ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Monate=2                                                                                                      ║
+║ Verifikationen        ▁█                                                                                      ║
+║ Falsifikationen       ▁█                                                                                      ║
+║ Prädikat-Elemente     ▁█                                                                                      ║
+║ Transaktions-Prüf.    ▁█                                                                                      ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach VerificationTimelineRenderer                                                              ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die Sparklines zeigen, ob das System in Richtung zunehmender Bestätigung, zunehmender Widerle ║
+║ gung oder wachsender logischer Komplexität driftet. Steigende Prädikat-Elemente bedeuten ein dichteres Beweis ║
+║ - und Gegenbeweisnetz.                                                                                        ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor CountryHeatmapRenderer                                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt die wichtigsten Länder und wie stark ihre Wahrheitsdimensionen ausgeprägt sind.            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Länder × Wahrheitsdimensionen Heatmap                                                                       ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Land                       EPI LEG CAU SEC LIQ SHE CAT  score        debt      fiat                         ║
+║ Junokron                   ▓  ░           ·  ·      710.5      -0.0     2.17B                               ║
+║ Zenitunion                 ▒  ░           ·  ·      700.3      -0.0     3.89B                               ║
+║ Umbramark                  ▒  ░           ·  ·      656.5      -0.0     9.33B                               ║
+║ Borealreich                ▒  ░           ·  ·      650.5      -0.0     4.31B                               ║
+║ Kairounion                 ·  ·                     471.1      -0.0     4.33B                               ║
+║ Tethysstaat                                         425.4      -0.0     1.81B                               ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach CountryHeatmapRenderer                                                                    ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die Heatmap zeigt führende und schwächere Länder. Die derzeit stärksten Länder nach Truth-Sco ║
+║ re sind Junokron(710.5), Zenitunion(700.3), Umbramark(656.5).                                                 ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor QueueRenderer                                                                                  ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Warteschlangen pro Agent. So erkennt man operative Last, Rückstau und Prioritätsdruck.     ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ FIFO/LIFO/Priority Queues pro Agent                                                                     ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Alle Agent-Queues leer; Netzwerkkanäle tragen die Last.                                                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach QueueRenderer                                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Diese Grafik beschreibt einen Ausschnitt der simulierten Welt und sollte zusammen mit den and ║
+║ eren Grafiken gelesen werden.                                                                                 ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor MacroRenderer                                                                                  ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Zeitreihen der Makroökonomie: GDP, WK-Score, Wahrheitsschuld und η-Gap.                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Makro-Zeitreihen als UTF-8 Sparklines                                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Monate=2  Agenten=88  Länder=6  Events=1                                                                      ║
+║ GDP       █▁                                                                                                  ║
+║ WK-Score  ▁█                                                                                                  ║
+║ WK-Debt   ▁█                                                                                                  ║
+║ η-Gap     ▁█                                                                                                  ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach MacroRenderer                                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Die Zeitreihen zeigen, ob Wirtschaftswachstum und Wahrheitskapital gemeinsam steigen oder ob  ║
+║ Wachstum auf Kosten von Kohärenz und Wahrheitsschuld erkauft wurde.                                           ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor EventRenderer                                                                                  ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt Krisen, Schocks und Durchbrüche. Sie ordnet ein, welche externen Ereignisse die Welt verän ║
+║ dert haben.                                                                                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Welt-Ereignisse, Krisen, Durchbrüche                                                                          ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ereignis-Histogramm:                                                                                          ║
+║ FinancialEvent         ████████████████████████████████████████ 1                                             ║
+║                                                                                                               ║
+║ Letzte Ereignisse:                                                                                            ║
+║ M0001 FinancialEvent         bank liquidity truth-crack       {"bank": "Central Bank of Tethysstaat", "loss": ║
+║  65882.5453634085}                                                                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach EventRenderer                                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Ereignisse liefern Schocks, die in den anderen Diagrammen als Brüche, Staus oder Kohärenzlück ║
+║ en erscheinen können.                                                                                         ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor MorphismFlowRenderer                                                                           ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt den Weg eines ökonomischen Vorgangs vom Intent über Queue und Kanal bis zur kategorialen A ║
+║ uswertung.                                                                                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Morphismenfluss: Netzwerk → Kategorie → WK                                                                  ║
+╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ökonomische Morphismen im aktuellen Fenster:                                                                ║
+║                                                                                                             ║
+║ purchase           ████████████████████████████████████████████ 34                                          ║
+║ defense            ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3                                           ║
+║ loan               █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 1                                           ║
+║                                                                                                             ║
+║ Morphismus-Lebenszyklus:                                                                                    ║
+║   Claim/Intent ─▶ Queue ─▶ Channel(HALF/FULL) ─▶ Transaction ─▶ Category                                    ║
+║         │             │                │                 │                                                  ║
+║         ▼             ▼                ▼                 ▼                                                  ║
+║   TruthVector    Semaphore       Topology          Functor F/L/S                                            ║
+║                                                         │                                                   ║
+║                                                         ▼                                                   ║
+║                                                 Natürliche Transformation η                                 ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach MorphismFlowRenderer                                                                      ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Der Fluss zeigt, dass ökonomische Prozesse nicht nur Zahlungen sind, sondern strukturierte Üb ║
+║ ergänge durch Queues, Kanäle, Kategorien und Funktoren.                                                       ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Einführung vor InstitutionalRenderer                                                                          ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ WAS HIER SIMULIERT WIRD:                                                                                      ║
+║ Diese Simulation modelliert eine planetare Wirtschaft mit Staaten, Unternehmen, Banken, Zentralbanken, UN, Ve ║
+║ rteidigungsorganisationen und Märkten.                                                                        ║
+║ Neben gewöhnlichen Fiat-Währungen gibt es die planetare Wahrheitswährung WK. WK ist kein einzelner Zahlenwert ║
+║ , sondern ein Vektor aus Schichten                                                                            ║
+║ wie epistemischer Korrektheit, rechtlicher Gültigkeit, sozialer Anerkennung, Kausalität, Sicherheit, Liquidit ║
+║ ät, Garben-Konsistenz und kategorialer Kohärenz.                                                              ║
+║ Jede Verifikation oder Falsifikation erzeugt ein neues Logikprädikat-Element. Das planetare Wahrheitskapital  ║
+║ wächst dadurch nicht nur numerisch, sondern auch logisch-strukturell.                                         ║
+║                                                                                                               ║
+║ ABKÜRZUNGEN UND MATHE-/ARCHITEKTURBEGRIFFE:                                                                   ║
+║ WK = Wahrheitskapital, also die planetare Wahrheitswährung als gestapelter Wahrheitsvektor.                   ║
+║ TV = Truth Vector, die konkrete Vektorform von WK über viele Wahrheitsdimensionen.                            ║
+║ GDP = Gross Domestic Product / Bruttoinlandsprodukt, hier die aggregierte Wirtschaftsleistung der Länder.     ║
+║ FX = Foreign Exchange / Wechselkurse bzw. Fremdwährungsraum. Fiat = gewöhnliche nationale Zahlenwährung.      ║
+║ FIFO = First In First Out. Die älteste Nachricht verlässt die Queue zuerst. Gut für faire Abarbeitung.        ║
+║ LIFO = Last In First Out. Die zuletzt eingelegte Nachricht wird zuerst genommen. Gut für Stack- oder Audit-ar ║
+║ tige Strukturen.                                                                                              ║
+║ PRIO = Priority Queue. Nachrichten mit höherer Priorität werden bevorzugt bearbeitet.                         ║
+║ HALF = Half Duplex. Kommunikation in zwei Richtungen ist möglich, aber nicht gleichzeitig auf demselben Kanal ║
+║ .                                                                                                             ║
+║ FULL = Full Duplex. Kommunikation kann gleichzeitig in beide Richtungen laufen.                               ║
+║ SEM = Semaphore. Ein Zählmechanismus für knappe Ressourcen oder Zugriffsrechte. Wenn alle Tokens verbraucht s ║
+║ ind, entsteht Warten.                                                                                         ║
+║ Morphismus = ein strukturverträglicher Übergang in einer Kategorie. In dieser Simulation ist eine Transaktion ║
+║  oder institutionelle Abbildung ein Morphismus.                                                               ║
+║ Funktor = eine Abbildung zwischen Kategorien, die Objekte und Morphismen strukturverträglich übersetzt, z.B.  ║
+║ von Ökonomie zu Wahrheit oder Recht.                                                                          ║
+║ Natürliche Transformation η = ein Vergleich zwischen zwei Funktoren. Ein η-Gap misst, wie stark zwei Bewertun ║
+║ gsweisen auseinanderlaufen.                                                                                   ║
+║ Prägarbe = lokale Datenzuordnung auf offenen Mengen eines topologischen Raums. Garbe = Prägarbe plus Klebeeig ║
+║ enschaft für globale Konsistenz.                                                                              ║
+║ Topologie = Struktur von offenen Mengen und Nachbarschaften. Sie bestimmt, welche lokalen Bereiche zusammenge ║
+║ hören.                                                                                                        ║
+║ Universal Property = ein universelles Charakterisierungsmuster, z.B. Produkt, Pullback, Pushout oder Equalize ║
+║ r.                                                                                                            ║
+║ Verifikation = Bestätigung einer Behauptung. Falsifikation = Widerlegung einer Behauptung. Beide erzeugen neu ║
+║ e Prädikat-Elemente in WK.                                                                                    ║
+║                                                                                                               ║
+║ BESONDERE ERKLÄRUNG ZU DIESER GRAFIK:                                                                         ║
+║ Diese Grafik zeigt das institutionelle Netzwerk aus UN, Zentralbanken und Verteidigungsorganisationen.        ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ UN, Zentralbanken und Verteidigungsorganisationen                                                             ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Institutionelles Netzwerk:                                                                                    ║
+║ MutualDefensePact        Shield Compact 1                           degree=  12 WK=     333.9                 ║
+║ UnitedNations            United Nations / Planetary Truth Council   degree=  30 WK=     316.4                 ║
+║ MaritimeSecurityLeague   Harbor Compact 2                           degree=  11 WK=     266.7                 ║
+║ CyberDefenseCompact      Cipher Compact 3                           degree=  41 WK=     219.1                 ║
+║ CentralBank              Central Bank of Junokron                   degree=  13 WK=     215.6                 ║
+║ CentralBank              Central Bank of Umbramark                  degree=   9 WK=     135.1                 ║
+║ CentralBank              Central Bank of Kairounion                 degree=  12 WK=     131.2                 ║
+║ CentralBank              Central Bank of Tethysstaat                degree=  12 WK=     103.9                 ║
+║ CentralBank              Central Bank of Borealreich                degree=  28 WK=      67.8                 ║
+║ CentralBank              Central Bank of Zenitunion                 degree=  10 WK=      67.8                 ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Interpretation nach InstitutionalRenderer                                                                     ║
+╠═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Interpretation: Hier erkennt man, welche Institutionen im Netzwerk besonders stark verknüpft oder wahrheitsst ║
+║ ark sind.                                                                                                     ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
