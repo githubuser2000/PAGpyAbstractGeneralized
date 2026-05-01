@@ -1,0 +1,477 @@
+
+╔════════════════════════════════════╗
+║ 🌌 TGW UTF‑8 Wirtschaftsbericht ║
+╚════════════════════════════════════╝
+Dieser Bericht wertet eine Simulation der Topologischen Gruppenwirtschaft aus. Es gibt genau eine
+Währung: LZ, die Lösungszahl.
+LZ ist eine additive Gruppen-Zahl: Konten können positiv und negativ sein, Zahlungen sind
+Subtraktion bei einem Akteur und Addition
+bei einem anderen Akteur. Die Topologie bestimmt, ob Problemräume, Märkte, Assets, Staaten und
+Lösungen zueinander passen.
+
+Simuliert werden Haushalte/Arbeitnehmer, Unternehmen/Arbeitgeber, Banken, Staaten/Länder,
+Reparaturfonds, Auditoren, Märkte,
+Kredite, Steuern, öffentliche Probleme, externe Schäden, Betrug, Audits, kalte und heiße Konflikte
+sowie intergalaktische Escrows
+mit Verzögerung. Es gibt keine zweite Währung. Auch Kredit, Escrow, Steuern, Löhne, Strafen und
+Problemlösungen werden ausschließlich
+in LZ gebucht.
+
+📌 Kurzdiagnose: 🟡 Kaltkonflikt-Druck
+   Es gibt keine dominierende heiße Eskalation, aber hohe Spannungen erzeugen Sicherheits-, Vertrauens- und Governance-Kosten.
+
+Szenario: Intergalaktische Verzögerung | Seed: 555 | Ticks: 110 | Akteure: 203 | Galaxien: 5
+Gesamtbilanz Σ aller Konten: 0.000000003 LZ | offene Problemschwere: -179.06k LZ | gelöster Wert: +165.45k LZ
+
+
+╔══════════════════════════════════════════════╗
+║ 🧮 UTF‑8 Art 1: Mathematischer Stack-Kern ║
+╚══════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  τ       = Topologie: Struktur der offenen Problem- und Lösungsbereiche
+  X       = Problemraum, auf dem die Topologie liegt
+  U∈τ     = offene Menge; Kontext, in dem eine Lösung oder ein Problem gilt
+  G       = additive Gruppe der LZ-Werte; hier ℝ mit +, 0 und Inversen
+  g       = ein konkreter Gruppenwert in LZ
+  S,T     = Stacks aus mehreren Schichten (U,g)
+  Z(S)    = Zahlenwert des Stacks: Summe aller gᵢ
+  D(S)    = Anwendungsbereich des Stacks: Schnitt der offenen Mengen
+  ⊕       = Fusion/Kombination von Stacks
+
+Diese Grafik zeigt den mathematischen Kern: Eine Währungseinheit ist nicht nur ein nackter
+Kontowert, sondern ein Stack aus
+topologischem Kontext und additivem Gruppenwert. Die Gruppe macht positive und negative LZ möglich.
+Die Topologie entscheidet,
+ob zwei Lösungen, Assets oder Problemräume sinnvoll zusammenpassen.
+
+        ┌──────────────────────┐                         ┌──────────────────────┐
+        │  Topologie τ auf X   │                         │  Gruppe G=(ℝ,+,0,-) │
+        │  offene Menge U∈τ   │                         │  Gruppenwert g∈G    │
+        └──────────┬───────────┘                         └──────────┬───────────┘
+                   │                                                │
+                   └─────────────── Stack-Schicht (U,g) ────────────┘
+                                           │
+                              ┌────────────▼────────────┐
+                              │ Stack S=((U₁,g₁),...)   │
+                              │ Z(S)=Σgᵢ                │
+                              │ D(S)=U₁∩U₂∩...          │
+                              └────────────┬────────────┘
+                                           │
+                 Fusion: S⊕T  ⇒  Z(S⊕T)=Z(S)+Z(T),  D(S⊕T)=D(S)∩D(T)
+    
+
+Auswertung: In dieser Simulation blieb die Summe aller Konten nahe Null, weil jede LZ-Bewegung als
+Gruppenoperation gebucht wird.
+Neue positive Zahlungsfähigkeit entsteht immer mit einer Gegenposition: Schuld, Problemfonds,
+Kredit, Reparaturpflicht oder
+formalisierter Schaden. Dadurch wird die Ökonomie rechnerisch konservativ, aber nicht wertneutral:
+Wer Probleme erzeugt, wird negativ.
+
+
+╔═════════════════════════════════════════════╗
+║ 🔁 UTF‑8 Art 2: Markt- und Zahlungsfluss ║
+╚═════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  🏠       = Haushalte/Arbeitnehmer
+  🏭       = Unternehmen/Arbeitgeber/Solver
+  🏦       = Banken, Kreditgeber und Kontoführer
+  🏛       = Staaten/Länder/öffentliche Haushalte
+  🛠       = Reparaturfonds; finanziert die Reduktion negativer Problemstacks
+  🧪       = Auditoren/Prüfer
+  🧊       = Escrow; gesperrte LZ für verzögerte/remote Projekte
+  [n]     = Anzahl der Transaktionen dieser Art im bisherigen Lauf
+
+Diese Grafik zeigt die wichtigsten Marktflüsse der Simulation. Haushalte arbeiten für Unternehmen,
+Unternehmen zahlen Löhne,
+Haushalte konsumieren, Staaten erheben Steuern, Banken vergeben Kredite, Reparaturfonds finanzieren
+Problemlösungen und Auditoren
+korrigieren falsche oder unterperformende Lösungen. Alle Pfeile sind LZ-Bewegungen; es gibt keine
+zweite Währung.
+
+      🏦 Banken ── Kredit[    0] ──▶ 🏭 Unternehmen ── Lohn[ 7199] ──▶ 🏠 Haushalte
+          ▲                            │  ▲                              │
+          │                            │  │ Konsum[13200]                  │
+          │ Kreditrückzahlung[    0]     │  └───────────────◀──────────────┘
+          │                            │
+      🧪 Auditoren ◀─ Auditgebühr[ 1200] │
+          │                            ▼
+          └─ Korrektur/Strafe[   50] ◀ 🛠 Reparaturfonds ◀─ Problem[ 9003] ── 🏭/🏛/Akteure
+                                      │
+                                      └─ Projektzahlung[ 1270] ──▶ 🏭 Solver
+
+      🏛 Staaten ◀─ Steuern[ 8843] ── 🏠/🏭/🏦        🧊 Escrow: Lock[   17] → Release[    0]
+
+Auswertung: Es wurden mehr Problem-/Wachstumsbuchungen als Projektzahlungen gezählt; das spricht für
+hohen Reparaturdruck. Audit-Korrekturen traten auf; inverse Buchungen sind also nicht nur Theorie,
+sondern Teil des Laufs.
+
+
+╔════════════════════════════════════════════════════════╗
+║ 🗺 UTF‑8 Art 3: Intergalaktische Kausalzellen-Karte ║
+╚════════════════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  G       = Galaxie
+  P       = Planet innerhalb einer Galaxie
+  S       = Staat/Land/öffentliche Kausalzelle auf einem Planet
+  ·░▒▓█   = Heat-Skala für offene Problemschwere; · niedrig, █ sehr hoch
+  LZ      = Lösungszahl; negative Anzeige bedeutet offener Problemwert
+
+Diese Karte zeigt keine echte Astronomie, sondern die topologisch-wirtschaftlichen Kausalzellen der
+Simulation: Galaxie, Planet,
+Staat/Land. Je dunkler das UTF‑8-Feld, desto größer ist die noch offene negative Problemschwere in
+dieser Zelle.
+🌌 G0  ════════════════════════════════════════════════════════════════════════
+   🪐 P0  │ S0▒ -6.94k  │  S1░ -5.44k
+   🪐 P1  │ S0░ -4.53k  │  S1▒ -8.35k
+🌌 G1  ════════════════════════════════════════════════════════════════════════
+   🪐 P0  │ S0▓ -13.78k  │  S1▒ -10.23k
+   🪐 P1  │ S0▓ -14.02k  │  S1█ -18.30k
+🌌 G2  ════════════════════════════════════════════════════════════════════════
+   🪐 P0  │ S0░ -6.59k  │  S1▒ -8.77k
+   🪐 P1  │ S0▒ -8.32k  │  S1░ -5.33k
+🌌 G3  ════════════════════════════════════════════════════════════════════════
+   🪐 P0  │ S0▒ -7.33k  │  S1░ -6.73k
+   🪐 P1  │ S0▒ -8.71k  │  S1▒ -9.17k
+🌌 G4  ════════════════════════════════════════════════════════════════════════
+   🪐 P0  │ S0▒ -7.87k  │  S1▒ -10.48k
+   🪐 P1  │ S0▒ -10.15k  │  S1▒ -8.01k
+
+Auswertung: Die gesamte offene Problemschwere über alle Kausalzellen beträgt -179.06k LZ. Die
+größten Schwerpunkte liegen bei: G1:P1:S1=-18.30k LZ; G1:P1:S0=-14.02k LZ; G1:P0:S0=-13.78k LZ.
+Das ist wichtig, weil Solver, Banken und Staaten lokal final handeln können, während
+intergalaktische Synchronisierung verzögert ist.
+
+
+╔═══════════════════════════════════════════════╗
+║ 🏙 UTF‑8 Art 4: Bilanz-Skyline der Akteure ║
+╚═══════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  🟢       = positive LZ-Bilanz
+  🔴       = negative LZ-Bilanz
+  rep     = Reputation; steigt durch Lösungen, sinkt durch Schäden, Betrug, Ausfälle
+  │█░│    = Balken relativ zum größten Betrag in dieser Grafik
+  🏠/🏭/🏦/🏛 = Haushalt, Unternehmen, Bank, Staat
+
+Diese Grafik zeigt die stärksten positiven und negativen Akteure. Positive LZ sind Ansprüche oder
+erwirtschafteter Lösungswert.
+Negative LZ sind offene Verpflichtungen, Kreditlasten, verursachte Probleme, öffentliche Ausgaben
+oder Korrekturen. Ein negativer
+Stand ist kein Menschenwert-Urteil, sondern eine ökonomische Bilanzposition.
+🟢 Positive Konten / Lösungsansprüche
+  🏦 Bank-G1P1S0                    +114.98k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G2P1S1                    +107.99k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G1P1S1                    +107.93k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G2P0S1                    +102.84k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G0P0S1                     +98.03k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G3P1S0                     +85.12k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G2P0S0                     +84.51k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏦 Bank-G4P0S1                     +82.81k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+
+🔴 Negative Konten / Verpflichtungen, Schäden oder Schulden
+  ⚖ Universal Clearinghouse          -3.18M LZ │██████████████████████████████│ rep=   0.00
+  🛠 Universal Repair Reserve          +0.00 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-037                    +54.72 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-035                    +56.54 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-025                    +96.60 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-114                   +110.09 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-010                   +110.68 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+  🏠 Household-064                   +110.70 LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ rep=   0.00
+
+Auswertung: 1 von 203 Akteuren sind negativ. Entscheidend ist nicht, dass Negativität existiert —
+Kredite und Reparaturpflichten
+sind normal — sondern ob negative Positionen durch echte Problemlösung, Steuern, Rückzahlung oder
+Sanierung wieder abgebaut werden.
+
+
+╔══════════════════════════════════════════╗
+║ 📈 UTF‑8 Art 5: Zeitreihen-Sparklines ║
+╚══════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  OP      = Open Problems: aktuelle offene Problemschwere
+  SOL     = Solved Value: kumulierte Problemlösung
+  DMG     = Damage: kumulierter formalisierter Schaden/Problemwert
+  NEG     = Anzahl negativer Akteure
+  TMAX    = höchste Spannung zwischen Staaten/Ländern
+  FRD     = entdeckte Betrugsfälle
+  ▁…█     = Sparkline: niedrig bis hoch innerhalb dieser Zeitreihe
+
+Diese Sparkline-Grafik verdichtet den gesamten Zeitverlauf. Jeder kleine Block steht für einen
+Abschnitt der Simulation.
+Steigende Linien bei SOL sind gut, steigende Linien bei DMG/OP/TMAX/FRD sind Warnsignale, je nach
+Kontext.
+  OP   offene Problemschwere         -179.06k LZ  █████▇▇▇▇▇▇▆▆▆▆▅▅▅▅▅▅▅▅▅▅▄▅▅▄▄▄▄▄▄▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+  SOL  kumulierte Problemlösung      +165.45k LZ  ▁▁▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▅▆▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇███████
+  DMG  kumulierter Schaden           -344.51k LZ  ▁▁▁▁▁▁▁▁▂▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▅▅▅▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇█████
+  NEG  negative Akteure                        1  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+  TMAX maximale Spannung                    2.17  ▁▁▁▁▁▂▂▂▂▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▅▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇█████
+  FRD  entdeckter Betrug                       2  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅██████
+
+Auswertung: Die Reparaturquote SOL/DMG liegt bei 48.0%. Der offene Rückstand OP/DMG liegt bei 52.0%.
+Eine starke TGW-Ökonomie zeigt
+wachsende SOL-Linien, während OP langfristig flacher wird. Wenn DMG schneller wächst als SOL,
+erzeugt das System mehr negative
+Stacks, als es abbaut.
+
+
+╔═════════════════════════════════════════════════╗
+║ 🧭 UTF‑8 Art 6: Topologische Problem-Heatmap ║
+╚═════════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  LAW     = Problem-Domäne: law
+  GOV     = Problem-Domäne: governance
+  INF     = Problem-Domäne: infrastructure
+  FIN     = Problem-Domäne: finance
+  SEC     = Problem-Domäne: security
+  WAT     = Problem-Domäne: water
+  ENE     = Problem-Domäne: energy
+  HLT     = Problem-Domäne: health
+  ENV     = Problem-Domäne: environment
+  EDU     = Problem-Domäne: education
+  IND     = Problem-Domäne: industry
+  COM     = Problem-Domäne: communication
+  TRN     = Problem-Domäne: transport
+  LAB     = Problem-Domäne: labor
+  n       = Anzahl offener Probleme, in denen diese Domäne vorkommt
+  sev     = anteilige offene Problemschwere in LZ
+  ·░▒▓█   = Heat-Skala: wenig bis viel offene Schwere
+
+Diese Heatmap verteilt offene Problemstacks auf topologische Domänen. Ein Problem kann mehrere Tags
+tragen; seine Schwere wird
+dann anteilig gezählt. Das zeigt, wo die Wirtschaft Solver-Kapazität, Kredite, Arbeitskräfte und
+staatliche Aufmerksamkeit braucht.
+  LAW █ n=134 sev=  -25.21k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│
+  GOV ▓ n=100 sev=  -19.49k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░│
+  INF ▒ n=110 sev=  -15.54k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░│
+  FIN ▒ n= 74 sev=  -11.96k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░│
+  SEC ▒ n= 53 sev=  -11.18k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░│
+  WAT ▒ n= 80 sev=  -10.99k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░│
+  ENE ▒ n= 75 sev=  -10.05k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░│
+  HLT ▒ n= 70 sev=   -9.93k LZ │▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░│
+  ENV ░ n= 60 sev=   -9.01k LZ │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░│
+  EDU ░ n= 65 sev=   -8.90k LZ │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░│
+  IND ░ n= 64 sev=   -8.66k LZ │▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░│
+  COM ░ n= 53 sev=   -8.15k LZ │▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░│
+  TRN ░ n= 46 sev=   -7.54k LZ │▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░│
+  LAB ░ n= 44 sev=   -5.24k LZ │▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+
+Auswertung: Die stärkste Domäne ist law. In TGW heißt das nicht automatisch, dass diese Branche
+schlecht ist, sondern dass dort
+der größte noch offene Lösungsbedarf liegt. Gute Firmen in angrenzenden offenen Mengen können hier
+durch topologischen Fit oder
+Adapterarbeit positiven LZ-Wert erzeugen.
+
+
+╔════════════════════════════════════════════════════╗
+║ 🧩 UTF‑8 Art 7: Topologie-Fit und Adapterarbeit ║
+╚════════════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  FIT     = topologische Kompatibilität zwischen Solver-Sektor und Problem-Domäne, 0 bis 1
+  n       = Anzahl Projekte in diesem Fit-Intervall
+  REM     = Remote/intergalaktisch oder nicht lokal gelöste Projekte
+  FRD     = Fraud-risk: Projekt wurde intern als betrugsgefährdet simuliert
+  ADA     = Adapter-/Brückenwert durch Verbindung eigentlich ferner offener Mengen
+  │█░│    = Balken relativ zum größten Intervall
+
+Diese Grafik zeigt, wie gut Unternehmen und Problemräume topologisch zusammenpassen. Ein hoher FIT
+bedeutet direkte Überlappung
+der offenen Mengen. Niedriger FIT kann trotzdem lösbar sein, braucht aber Adapter, Forschung oder
+Spezialisten.
+  FIT 0.0–0.2  n= 341 │████████████████░░░░░░░░░░░░░░░░░░░░│
+  FIT 0.2–0.4  n= 758 │████████████████████████████████████│
+  FIT 0.4–0.6  n= 133 │██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  FIT 0.6–0.8  n=  32 │██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  FIT 0.8–1.0  n=  56 │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+
+  REM-Projekte: 17   FRD-risk-Projekte: 2   ADA-Wert: +27.38k LZ
+
+Auswertung: Der durchschnittliche FIT liegt bei 0.308. Ein niedriger Durchschnitt bedeutet nicht
+automatisch Scheitern, aber höhere
+Integrationskosten und mehr Risiko für Unterleistung. Der bisher erzeugte Adapter-/Brückenwert
+beträgt +27.38k LZ.
+
+
+╔═══════════════════════════════════════════════════╗
+║ 🧊 UTF‑8 Art 8: Intergalaktischer Escrow-Kanal ║
+╚═══════════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  Gᵢ/Gⱼ   = sendende und empfangende Galaxie
+  Lock    = LZ wird im Escrow gesperrt
+  Release = LZ wird nach Abschluss an Solver freigegeben
+  Δt      = Zeitverzögerung durch Entfernung; keine Sofort-Finalität
+  Remote  = Projekt außerhalb der lokalen/galaktischen Standardnähe
+
+Diese Grafik zeigt, wie intergalaktische Projekte ohne magische Echtzeit-Kommunikation
+funktionieren. LZ wird zuerst in Escrow
+gesperrt. Wegen Lichtgeschwindigkeitsgrenzen und Distanz wird später freigegeben, geprüft oder
+korrigiert.
+
+      🌌 Gᵢ / lokaler Fonds
+             │
+             │ 1) Lock: LZ wird gesperrt   [   17]
+             ▼
+          🧊 Intergalactic Escrow  ── Δt: keine magische Sofort-Finalität ──▶  🌌 Gⱼ / Solver
+             ▲                                                                │
+             │ 3) Streit/Audit/Korrektur möglich                              │ 2) Release nach Abschluss [    0]
+             └────────────────────────────────────────────────────────────────┘
+
+      Aktive Remote-Projekte: 17        abgeschlossene Remote-Projekte: 0
+
+Auswertung: Es gibt mehr Locks als Releases; ein Teil der Remote-Projekte befindet sich noch in
+Verzögerung oder aktiver Ausführung.
+
+
+╔═══════════════════════════════════╗
+║ 🛡 UTF‑8 Art 9: Konfliktleiter ║
+╚═══════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  maxT    = höchster Spannungswert zwischen zwei Staaten/Ländern
+  avgT    = durchschnittlicher Spannungswert
+  WAR     = Anzahl heißer Konfliktereignisse
+  WDMG    = Kriegsschaden als negative LZ
+  ▲       = aktuelle Position des höchsten Spannungswerts
+
+Diese Leiter zeigt die höchste und durchschnittliche Spannung zwischen Staaten/Ländern. Kalte
+Konflikte erzeugen Kosten; heiße
+Konflikte erzeugen massive negative Stacks. Diplomatie-, Sicherheits- und Governance-Lösungen können
+Spannung reduzieren.
+
+      0.0 Frieden        🟢 ├────────────────────────────────────────────────┤
+      1.0 Kalter Druck   🟡 ├────────────────────────────────────────────────┤
+      2.0 Heiße Gefahr   🟠 ├────────────────────────────────────────────────┤
+      3.0 Kriegsspirale  🔴 ├────────────────────────────────────────────────┤
+                              ───────────────────────────────────▲─────────────
+                              maxT=2.167   avgT=0.834   WAR=0   WDMG=+0.00 LZ
+
+Auswertung: Es gab erhöhten kalten Druck, aber keine heißen Konflikte. Die Wirtschaft trägt
+Sicherheits- und Vertrauenskosten.
+
+
+╔═══════════════════════════════════════════════════════╗
+║ 🧪 UTF‑8 Art 10: Betrug, Audit und inverse Buchung ║
+╚═══════════════════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  Promise = versprochene Problemlösung
+  Actual  = tatsächlich simulierte Problemreduktion
+  Audited = bereits geprüfte Projekte
+  FRD     = betrugsgefährdete Projekte
+  Penalty = negative Korrektur-/Strafzahlung in LZ
+  ACT/PROM = Verhältnis realer Reduktion zu versprochener Reduktion
+  −LZ     = inverse Gruppenbuchung: falscher positiver Wert wird negativ korrigiert
+
+Diese Grafik zeigt die Differenz zwischen versprochener und realer Problemlösung. Betrug oder starke
+Unterleistung wird nicht
+gelöscht, sondern durch inverse LZ-Buchungen korrigiert. Auditoren sind selbst Akteure und können
+Reputation verlieren, wenn sie
+falsch prüfen.
+
+      Behauptung / Promise       +245.48k LZ  │██████████████████████████████████│
+                    │
+                    ▼
+      Reale Reduktion / Actual   +175.87k LZ  │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░│
+                    │
+                    ▼
+      🧪 Audit ── entdeckt/Korrektur ──▶ inverser Stack: −LZ
+
+      Audited=1200   FRD-risk=2   Detected=2   Penalty=-4.73k LZ   ACT/PROM=71.6%
+
+Auswertung: Es gab Korrekturzahlungen; das Protokoll machte falsche Lösungsbehauptungen sichtbar und
+teilweise rückabwickelbar.
+
+
+╔══════════════════════════════════════════╗
+║ 🏛 UTF‑8 Art 11: Institutionen-Bilanz ║
+╚══════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  count   = Anzahl Akteure dieser Art
+  neg     = Anzahl Akteure dieser Art mit negativem Konto
+  Σ       = Summe der LZ-Konten innerhalb dieser Akteursart
+  │█░│    = Balken relativ zur größten Aggregatsumme
+  Icons   = 🏠 Haushalt, 🏭 Firma, 🏦 Bank, 🏛 Staat, 🛠 Fonds, 🧪 Prüfer
+
+Diese Tabelle aggregiert die Akteursarten. Sie zeigt, ob LZ vor allem bei Haushalten, Unternehmen,
+Banken, Staaten, Fonds oder
+Spezialinstitutionen liegt. Die Summen sind keine neue Währung, sondern zusammengefasste LZ-
+Kontostände.
+  🧪 auditor        count=   5 neg=   0 Σ=  +29.18k LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  🏦 bank           count=  20 neg=   0 Σ=   +1.51M LZ │███████████████░░░░░░░░░░░░░░░░░│
+  ⚖ clearinghouse  count=   1 neg=   1 Σ=   -3.18M LZ │████████████████████████████████│
+  🧊 escrow         count=   1 neg=   0 Σ=   +6.29k LZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  🏭 firm           count=  15 neg=   0 Σ= +328.53k LZ │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  🏠 household      count= 120 neg=   0 Σ=  +77.59k LZ │█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  🛠 repair_fund    count=  21 neg=   0 Σ= +290.27k LZ │███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+  🏛 state          count=  20 neg=   0 Σ= +940.28k LZ │█████████░░░░░░░░░░░░░░░░░░░░░░░│
+
+Auswertung: Staaten stehen aggregiert bei +940.28k LZ, Unternehmen bei +328.53k LZ, Banken bei
++1.51M LZ. Negative öffentliche Positionen können Investitionen
+oder Krieg/Schäden bedeuten; negative Unternehmenspositionen können Kreditstress, Betrugskorrekturen
+oder echte Reparaturpflichten sein.
+
+
+╔════════════════════════════════════════╗
+║ ✅ UTF‑8 Art 12: Ergebnis-Scorecard ║
+╚════════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  REP     = Reparaturquote: kumulierte Lösung geteilt durch kumulierten Schaden
+  BKL     = Backlog: noch offene Problemschwere geteilt durch kumulierten Schaden
+  FRS     = Betrugsstress: Korrekturzahlungen geteilt durch gelösten Wert
+  CFS     = Konfliktstress aus max. Spannung und Kriegsevents
+  UNM     = Arbeitslosenquote der Haushalte
+  BAL     = Fehler der Gesamtbilanz Σ aller Konten; sollte nahe 0 sein
+
+Diese Scorecard ist keine zweite Währung und kein moralischer Absolutwert. Sie fasst nur die
+wichtigsten Ergebnisverhältnisse
+des Simulationslaufs zusammen: Reparatur, Rückstand, Betrug, Konflikt, Arbeitsmarkt und
+Gruppenbilanz.
+  REP Reparaturquote SOL/DMG           48.0% │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░│ hoch ist gut
+  BKL Backlog OP/DMG                   52.0% │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░│ niedrig ist gut
+  FRS Betrugsstress Penalty/SOL         2.9% │▓░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│ niedrig ist gut
+  CFS Konfliktstress                   72.2% │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░│ niedrig ist gut
+  UNM Arbeitslosigkeit                 43.3% │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░│ niedrig ist gut
+  BAL Gruppenbilanzfehler        0.000000003 LZ  ✓ nahe 0
+
+Auswertung: 🟡 Kaltkonflikt-Druck — Es gibt keine dominierende heiße Eskalation, aber hohe Spannungen
+erzeugen Sicherheits-, Vertrauens- und Governance-Kosten. Die Gruppenbilanz ist 0.000000003 LZ; das
+bestätigt, dass der Lauf rechnerisch über additive Transfers und inverse
+Buchungen funktioniert hat. Entscheidend für die Qualität des Ausgangs ist daher nicht
+Geldschöpfung, sondern ob negative Stacks
+schneller entstehen als echte Lösungen.
+
+
+╔════════════════════════════════════╗
+║ 🧾 UTF‑8 Art 13: Ereignisleiste ║
+╚════════════════════════════════════╝
+🔤 Abkürzungen dieser UTF‑8‑Art:
+  t       = Tick/Simulationszeitpunkt
+  kind    = Ereignistyp
+  LZ-Wert = positiv bei Lösung/Zufluss, negativ bei Schaden/Korrektur
+  🚀✅🧪🔥    = Projektstart, Projektabschluss, Audit/Korrektur, heißer Konflikt
+
+Diese Ereignisleiste zeigt die letzten wichtigen diskreten Vorgänge: neue Probleme, Projektstarts,
+Abschlüsse, Konflikte,
+Insolvenzen, Kreditausfälle oder Auditkorrekturen. Sie hilft, den Endzustand nicht nur als Zahl,
+sondern als Verlauf zu lesen.
+  🚀 t= 110 project_start      P81->Firm-001-logistics              +145.05 LZ local
+  🚀 t= 110 project_start      P147->Firm-014-health                +141.76 LZ local
+  🚀 t= 110 project_start      P256->Firm-001-logistics              +93.93 LZ local
+  🚀 t= 110 project_start      P37->Firm-011-labor                  +514.49 LZ local
+  🚀 t= 110 project_start      P20->Firm-012-environment            +378.53 LZ local
+  🚀 t= 110 project_start      P263->Firm-011-labor                 +340.12 LZ local
+  🚀 t= 110 project_start      P226->Firm-005-transport             +187.11 LZ local
+  🚀 t= 110 project_start      P15->Firm-012-environment            +154.43 LZ local
+  ✅ t= 110 project_done       P8 by Firm-012-environment            +90.36 LZ ok
+  ✅ t= 110 project_done       P47 by Firm-014-health               +433.41 LZ ok
+  ✅ t= 110 project_done       P74 by Firm-009-labor                 +52.48 LZ ok
+  ✅ t= 110 project_done       P94 by Firm-001-logistics             +34.33 LZ ok
+  ✅ t= 110 project_done       P90 by Firm-001-logistics             +69.26 LZ ok
+  ✅ t= 110 project_done       P50 by Firm-014-health                +48.83 LZ ok
+  ✅ t= 110 project_done       P34 by Firm-011-labor                +212.39 LZ ok
+  ✅ t= 110 project_done       P231 by Firm-002-environment         +523.52 LZ ok
+  ✅ t= 110 project_done       P100 by Firm-001-logistics            +42.57 LZ ok
+  ✅ t= 110 project_done       P43 by Firm-014-health                +59.16 LZ ok
+  ✅ t= 110 project_done       P97 by Firm-001-logistics             +39.87 LZ ok
+  ✅ t= 110 project_done       P65 by Firm-009-labor                 +59.62 LZ ok
+
+Auswertung: Die letzten Ereignisse zeigen, welche Mechanik unmittelbar vor dem Ende dominierte.
+Viele Problemereignisse bedeuten
+neuen Druck; viele Projektabschlüsse bedeuten aktive Reparatur; Audit- oder Konfliktereignisse
+zeigen Vertrauens- bzw. Sicherheitsstress.
