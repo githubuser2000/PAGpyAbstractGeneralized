@@ -1,0 +1,592 @@
+   ██████╗ ███╗   ███╗ ██████╗ ███████╗      METRIC OPERATOR ECONOMY
+  ██╔════╝ ████╗ ████║██╔═══██╗██╔════╝      Geld = Operation + Metrik + Δ∈K+
+  ██║  ███╗██╔████╔██║██║   ██║█████╗        Galaktische Transformationsökonomie
+  ██║   ██║██║╚██╔╝██║██║   ██║██╔══╝        UTF-8 Visual Report
+  ╚██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗      f: Ω → Ω
+   ╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝    
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                 Feste Farben für Währungen, Fonds und Instrumente                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Diese Legende fixiert die Farben. Jede Einheit behält in allen Diagrammen dieselbe Farbe, damit die Ausgabe lesbar ║
+║  bleibt.                                                                                                           ║
+║                                                                                                                    ║
+║ OMK           Operation-Metrik-Kredit. Zählbares Wurzelgeld aus Operation + Metrik + zertifiziertem Δ ∈ K+.        ║
+║ FIAT          Normales Skalar-Geld. In der Baseline kann es privaten Profit auch bei schädlichen Operationen räume ║
+║ nen räumen.                                                                                                        ║
+║ TRUTH         Wahrheitszertifikat. Auszahlung für verifizierte Wahrheit, nicht Kauf der Wahrheit selbst.           ║
+║ CAUSE         Kausalitätszertifikat. Zahlung für belastbar attribuierte Ursache-Wirkungs-Verbesserung.             ║
+║ NORM          Normdistanzgeld. Zahlung für Verringerung des Abstands zu gültigen Normen.                           ║
+║ BEHAV         Verhaltensgeld. Zahlung für freiwillige, transparente, widerrufbare Verhaltensänderung.              ║
+║ HIER          Hierarchiegeld. Rechte für legitime Inversion, Reparatur, Rotation oder Delegation von Hierarchie.   ║
+║ REPAIR        Reparaturfonds. Gemeinsamer Fonds für Schadenreduktion und Agency-Wiederherstellung.                 ║
+║ GOV           Governance-Fonds. Mittel für Audit, Gerichte, Metrikregister und Red-Line-Durchsetzung.              ║
+║ INS           Versicherung. Schutz gegen negative Metrikbewegung; Eigenverursachung ist ungültig.                  ║
+║ STOCK         Aktie/Wertpapier. Anspruch auf künftige metrische Produktivität eines Operatorbündels.               ║
+║ BRIDGE        Interregionale Bridge-Credits. Latenz- und Vertrauensabhängiger Austausch zwischen Regionen.         ║
+║ DEBT          Schuld/Haftung. Entsteht durch nicht gelieferte Verbesserung oder schädliche Δ-Bewegung.             ║
+║ RISK          Risikoaufschlag. Preisanteil für Unsicherheit, Irreversibilität und Latenz.                          ║
+║ REP           Reputation. Nicht direkt Geld, aber vertrauensbildendes Kapital für künftige Operatorrechte.         ║
+║ K+            Positiver Kegel. Menge der erlaubten Verbesserungsrichtungen im Metrikraum.                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Kürzel, Einheiten und Metriken                                           ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ω: gesamter Weltzustand. Eine unäre Operation ist f: Ω → Ω.                                                        ║
+║ Δ: gemessene Metrikänderung durch eine Operation. Positiv heißt: Abstand zum Ziel wurde kleiner.                   ║
+║ K+: positiver Kegel; Menge aller zulässigen Verbesserungsrichtungen im Metrikraum.                                 ║
+║ NI: Nobility Index; gewichteter Durchschnitt aller Metriken auf Skala 0..100.                                      ║
+║ DIST: gewichtete Distanz zum Zielzustand 100. Niedriger ist besser.                                                ║
+║ Pq: Proof Quality; Qualität des Nachweises einer Wirkung, 0..1.                                                    ║
+║ Cs: Causal Share; kausal attribuierter Anteil einer Verbesserung, 0..1.                                            ║
+║ Gini: Ungleichheitsmaß der Geldverteilung, 0 = gleich, 1 = extrem ungleich.                                        ║
+║ Einheit der Metriken: abstrakte Simulationspunkte von 0 bis 100.                                                   ║
+║ Einheit des Geldes: skalarisierte OMK-Punkte = gewichtete, zertifizierte positive Metrikbewegung.                  ║
+║                                                                                                                    ║
+║ AGY (agency)  Handlungsfähigkeit: Fähigkeit zu handeln, zu widersprechen, auszusteigen und zu reparieren.          ║
+║ SAFE (freedom_from_harm)  Schadensfreiheit: Abwesenheit von Schaden, Zwang, Degradation und Hilflosmachung.        ║
+║ TRU (truth)  Wahrheitsnähe: Verlässlichkeit von Behauptungen, Beweisen und Prognosen.                              ║
+║ CAUS (causal_integrity)  Kausale Integrität: Wie gut Ursachen, Wirkungen und Verantwortlichkeiten nachvollziehbar  ║
+║ lziehbar sind.                                                                                                     ║
+║ NORM (norm_alignment)  Normabstand: Nähe zu gültigen Normen statt privaten Tyrannenmetriken.                       ║
+║ HIER (hierarchy_legitimacy)  Legitime Hierarchie: Macht ist überprüfbar, anfechtbar, delegierbar und nicht bloß Do ║
+║ t bloß Dominanz.                                                                                                   ║
+║ BEHV (behavior_cooperation)  Kooperatives Verhalten: freiwillige, transparente Verhaltensanpassung ohne Zwang.     ║
+║ REPR (repair_capacity)  Reparaturfähigkeit: Fähigkeit, Schaden rückgängig zu machen, zu kompensieren oder zu entsc ║
+║  zu entschärfen.                                                                                                   ║
+║ HELP (help_potential)  Hilfspotenzial: Fähigkeit künftiger hilfreicher Zustandsverbesserungen.                     ║
+║ RES (resource_resilience)  Ressourcenresilienz: Stabilität von Energie, Gütern, Infrastruktur und Reserven.        ║
+║ OUT (material_output)  Materieller Output: reale Produktion, aber mit niedrigem Moralgewicht.                      ║
+║ LIQ (liquidity)  Liquidität: Handelbarkeit und Umlaufgeschwindigkeit von gültigen Ansprüchen.                      ║
+║ FAIR (fairness)  Fairness: gerechte Verteilung von Rechten, Lasten, Chancen und Vorteilen.                         ║
+║ CONS (consent_quality)  Zustimmungsqualität: freiwillig, informiert, widerrufbar, ohne versteckten Zwang.          ║
+║ REV (reversibility)  Reversibilität: Eingriffe sind rücknehmbar oder wenigstens reparierbar.                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Operator-Metrik-Zahlungsfluss                                            ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Das folgende Bild zeigt die Buchungslogik der GMOE-Währung. Der Markt räumt nicht bloß private Zahlung, sondern pr ║
+║ üft eine Zustandsoperation.                                                                                        ║
+║                                                                                                                    ║
+║         ω_t  ────────  f: Ω→Ω  ────────  ω_{t+1}                                                                   ║
+║                     │                                                                                              ║
+║                     ▼                                                                                              ║
+║             Metrikvektor d⃗ misst:  Δ = d(ω_t,ω*) - d(f(ω_t),ω*)                                                   ║
+║                     │                                                                                              ║
+║                     ▼                                                                                              ║
+║         Δ ∈ K+ ?  ── ja ──►  OMK prägen  ──►  Handel / Dividende / Kredit                                          ║
+║             │                                                                                                      ║
+║             nein                                                                                                   ║
+║             ▼                                                                                                      ║
+║         keine Wurzelzahlung: Ablehnung, Slashing, Haftung oder Reparaturpflicht                                    ║
+║                                                                                                                    ║
+║ Warum das wichtig ist: Im GMOE-Modus kann akzeptiertes Wurzelgeld nur aus positiver Metrikbewegung entstehen. Dadu ║
+║ rch wird Handel zur Komposition positiver unärer Operationen.                                                      ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                             Kernzahlen der Simulation                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Modus                              : gmoe                                                                          ║
+║ Seed                               : 7                                                                             ║
+║ Schritte                           : 180                                                                           ║
+║ Agenten                            : 60                                                                            ║
+║ Regionen                           : 5                                                                             ║
+║ NI Start                           : 49.263                                                                        ║
+║ NI Ende                            : 99.742                                                                        ║
+║ NI Änderung                        : +50.479                                                                       ║
+║ DIST Ende                          : 0.258                                                                         ║
+║ akzeptierte Transaktionen          : 1549                                                                          ║
+║ abgelehnte Transaktionen           : 5107                                                                          ║
+║ akzeptierte schädliche Ops         : 0                                                                             ║
+║ K+-Verletzungen akzeptiert         : 0                                                                             ║
+║ kumulativer Δ-Score                : +4980.292                                                                     ║
+║ Money-Gini                         : 0.870                                                                         ║
+║ corr(Geld, Reputation)             : 0.044                                                                         ║
+║ corr(Geld, gültiger Beitrag)       : 0.084                                                                         ║
+║                                                                                                                    ║
+║ Auswertung: NI ist die verdichtete Zielgröße. Entscheidend ist aber nicht nur NI, sondern ob akzeptierter Handel d ║
+║ en K+-Test verletzt. Im GMOE-Modus soll dieser Wert 0 sein.                                                        ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                      Zeitverlauf: Nobility Index und Distanz                                       ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ NI-Verlauf   : ▁▁▂▃▃▄▄▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█  min=51.16 max=99.74   ║
+║ DIST-Verlauf : █▇▆▅▅▄▄▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  min=0.26 max=48.84    ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Jede kleine Säule ist ein Simulationszeitpunkt. Höhere NI-Säulen bedeuten mehr Agency, Wahrh ║
+║ eit, Fairness, Reparaturfähigkeit usw. Niedrigere DIST bedeutet geringerer Abstand zum Zielzustand.                ║
+║ Warum es nützlich ist: Tabellen zeigen Endwerte; die Sparkline zeigt, ob die Verbesserung stetig, sprunghaft oder  ║
+║ durch Schocks unterbrochen war.                                                                                    ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                             Globales Metrik-Dashboard                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Jeder Balken hat Skala 0..100. Je voller der Balken, desto näher ist die Metrik am Zielzustand.                    ║
+║                                                                                                                    ║
+║ AGY      100.00  ██████████████████████████████████  Gewicht 2.20                                                  ║
+║ SAFE      99.99  ██████████████████████████████████  Gewicht 2.25                                                  ║
+║ TRU      100.00  ██████████████████████████████████  Gewicht 1.75                                                  ║
+║ CAUS     100.00  ██████████████████████████████████  Gewicht 1.45                                                  ║
+║ NORM     100.00  ██████████████████████████████████  Gewicht 1.15                                                  ║
+║ HIER      97.67  █████████████████████████████████░  Gewicht 1.05                                                  ║
+║ BEHV     100.00  ██████████████████████████████████  Gewicht 0.90                                                  ║
+║ REPR     100.00  ██████████████████████████████████  Gewicht 1.45                                                  ║
+║ HELP     100.00  ██████████████████████████████████  Gewicht 1.30                                                  ║
+║ RES       99.92  ██████████████████████████████████  Gewicht 0.95                                                  ║
+║ OUT      100.00  ██████████████████████████████████  Gewicht 0.50                                                  ║
+║ LIQ       93.00  ████████████████████████████████░░  Gewicht 0.35                                                  ║
+║ FAIR     100.00  ██████████████████████████████████  Gewicht 1.60                                                  ║
+║ CONS      99.99  ██████████████████████████████████  Gewicht 1.70                                                  ║
+║ REV       99.98  ██████████████████████████████████  Gewicht 1.00                                                  ║
+║                                                                                                                    ║
+║ Auswertung: Hohe Werte bei AGY, SAFE, TRU, FAIR und CONS sind besonders wichtig, weil sie geschützte Metriken sind ║
+║ . OUT und LIQ sind bewusst niedriger gewichtet, damit bloße Produktion oder Liquidität Schaden nicht überdecken ka ║
+║ nn.                                                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                 Regionale Heatmap                                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Region  NI     AGY   SAFE  TRU   CAUS  NORM  HIER  BEHV  REPR  HELP  RES   OUT   LIQ   FAIR  CONS  REV             ║
+║ --------------------------------------------------------------------------------------------------------           ║
+║ R00     99.8 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║ R01     99.4 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║ R02    100.0 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║ R03     99.6 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ▓▓  ██  ██  ██                                            ║
+║ R04     99.9 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║                                                                                                                    ║
+║ Legende: ██ sehr gut  ▓▓ gut  ▒▒ mittel  ░░ schwach  !! kritisch                                                   ║
+║ Was dargestellt wird: Regionen sind lokale galaktische Wirtschaftszonen mit eigener Latenz, Ledgergröße und Metrik ║
+║ lage. Die Heatmap zeigt, wo Reparaturfonds oder Interventionsrechte besonders wertvoll sind.                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                  Operationsmatrix: Algebra der unären Operationen                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Operation                          Einheit   akzept.  abgel.   minted     ΔScore     pGain      Schutzverlust      ║
+║ ------------------------------------------------------------------------------------------------------------       ║
+║ produce_goods                      STOCK        103     589    136.75     320.13    2074.36          0.00          ║
+║ repair_harm                        REPAIR       195     372    668.53     965.35     729.03          0.00          ║
+║ infrastructure_maintenance         REPAIR       167     358    205.56     375.46     769.22          0.00          ║
+║ truth_audit                        TRUTH        161     312    311.02     517.60     476.95          0.00          ║
+║ education                          TRUTH        146     293    351.21     545.05     542.19          0.00          ║
+║ causal_intervention                CAUSE        123     281    229.31     400.69     715.49          0.00          ║
+║ interregional_bridge               BRIDGE       119     251     38.15      99.51     185.00          0.00          ║
+║ fair_exchange                      OMK          111     256    109.90     264.13     383.94          0.00          ║
+║ exploit_labor                      DEBT           0     360      0.00   -5981.23    2232.30       5281.39          ║
+║ norm_reform                        NORM         130     214    294.90     480.51     311.77          0.00          ║
+║ voluntary_behavior_contract        BEHAV         87     244    220.95     386.24     340.02          0.00          ║
+║ restore_agency                     OMK           85     169    345.13     522.10     291.89          0.00          ║
+║ metric_hack                        DEBT           0     243      0.00   -2096.71     912.23       1980.54          ║
+║ fake_truth_certificate             DEBT           0     236      0.00   -2189.40    1183.11       1995.78          ║
+║ insurance_underwrite               INS           78     147     89.50     155.34     217.33          0.00          ║
+║ coercive_behavior_purchase         DEBT           0     206      0.00   -4058.79     952.29       3743.20          ║
+║ sabotage_competitor                DEBT           0     181      0.00   -2539.91     810.71       1968.35          ║
+║ tyrant_hierarchy_inversion         DEBT           0     168      0.00   -3027.68     814.71       2098.97          ║
+║ self_created_need                  DEBT           0     144      0.00   -1814.83     411.19       1413.23          ║
+║ hierarchy_inversion_repair         HIER          44      83    146.54     222.81     160.69          0.00          ║
+║ external_shock                     RISK           4       0      0.00     -33.31       0.00         22.35          ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Jede Zeile ist eine Operationsfamilie f: Ω→Ω. 'minted' ist geprägtes OMK-Geld. ΔScore ist ge ║
+║ wichtete Metrikbewegung. pGain ist privater Profitanreiz. Schutzverlust misst negative Bewegung in geschützten Met ║
+║ riken.                                                                                                             ║
+║ Warum es wichtig ist: Der Kernvergleich ist, ob private hohe pGain-Werte trotz Schutzverlusten akzeptiert werden.  ║
+║ GMOE blockiert rote Linien; Baseline kann sie räumen.                                                              ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                        Zählbarer Geldstapel nach Einheiten                                         ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Jede Farbe ist eine andere Währungs-/Instrumentklasse. Die Länge zeigt den Anteil am Gesamtbestand.                ║
+║                                                                                                                    ║
+║ OMK            430.47  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.4%                                           ║
+║ TRUTH          642.46  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  18.5%                                           ║
+║ CAUSE          261.79  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  7.6%                                            ║
+║ NORM           290.81  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  8.4%                                            ║
+║ BEHAV          229.13  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  6.6%                                            ║
+║ HIER           120.16  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  3.5%                                            ║
+║ REPAIR        1056.72  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  30.5%                                           ║
+║ GOV            220.32  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  6.4%                                            ║
+║ INS             73.39  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  2.1%                                            ║
+║ STOCK          110.32  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  3.2%                                            ║
+║ BRIDGE          31.28  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  0.9%                                            ║
+║                                                                                                                    ║
+║ Größter Wallet-Stapel: Noble_auditor_014                                                                           ║
+║   REPAIR   ◉◉◉◉◉◉◉◉◉ 288.76                                                                                        ║
+║   TRUTH    ◉◉◉◉◉ 181.30                                                                                            ║
+║   OMK      ◉◉◉ 98.27                                                                                               ║
+║   NORM     ◉◉◉ 96.88                                                                                               ║
+║   CAUSE    ◉◉ 84.84                                                                                                ║
+║   BEHAV    ◉◉ 69.43                                                                                                ║
+║   HIER     ◉◉ 65.10                                                                                                ║
+║   STOCK    ◉ 34.19                                                                                                 ║
+║   INS      ◉ 13.63                                                                                                 ║
+║   BRIDGE   ◉ 9.37                                                                                                  ║
+║                                                                                                                    ║
+║ Interpretation: Das Wallet ist kein bloßer Kontostand. Es ist ein Stapel historischer positiver Transformationen m ║
+║ it Operation, Metrik, Beweisqualität und Kausalanteil.                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                   Marktpanorama                                                    ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Markt                         Einheit  Events  Erfolg  Fehler   Betrag     Aktivität                               ║
+║ ----------------------------------------------------------------------------------------------------               ║
+║ dividend                       STOCK     24187   24187       0   2440.75  ████████████████████████                 ║
+║ securities_market              STOCK      2123     403    1720  57129.81  ██░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ interregional_bridge           BRIDGE      540     540       0    736.62  █░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ interregional_settlement       BRIDGE      519     370     149    705.77  █░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ credit_market                  DEBT        507       0       0   1749.99  █░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ credit_settlement              DEBT        487     468      19   1847.99  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ goods_market                   OMK         248       9     239    966.57  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ repair_fund                    REPAIR      165     165       0    344.84  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ causality_market               CAUSE       116     116       0     75.93  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ truth_market                   TRUTH       100     100       0     81.73  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ norm_market                    NORM         69      69       0     51.41  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ behavior_market                BEHAV        62      62       0     48.72  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ insurance_market               INS          45      45       0     62.03  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ insurance_payout               INS           6       6       0     22.97  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ shock                          RISK          4       0       0      9.93  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ energy_market                  OMK           3       3       0      6.75  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Die Marktpanorama-Grafik macht sichtbar, welche Teilmärkte die meiste Transaktionsaktivität  ║
+║ erzeugen: Güter, Wertpapiere, Wahrheit, Kausalität, Verhalten, Normen, Versicherungen, Bridge-Handel.              ║
+║ Warum es wichtig ist: Ein Wirtschaftssystem ist nicht nur eine Metrikregel. Es braucht Liquidität, Kredit, Risiko, ║
+║  Wertpapiere, Versicherung und regionale Synchronisation.                                                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                            Akteursgruppen nach Absicht                                             ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Intent     Anzahl   ØGeld     ØRep      ØStake   Øgültiger Δ   Øschädl. Δ   RedLines                               ║
+║ ----------------------------------------------------------------------------------------------------               ║
+║ harmful         15      4.02      1.75      0.00         5.69         0.00      1399                               ║
+║ neutral         26     73.63     39.67      3.69        89.62         0.00       139                               ║
+║ noble           19     66.87     63.24      5.73       134.99         0.00         0                               ║
+║                                                                                                                    ║
+║ Auswertung: Diese Tabelle fragt, ob sich Geld und Reputation in Richtung gültiger Beiträge verschieben. Im GMOE-Mo ║
+║ dus sollten noble und neutrale Akteure durch echte Verbesserung Zahlungsfähigkeit erzeugen können; schädliche Akte ║
+║ ure werden durch rote Linien gebremst.                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                         Zertifikate, Verträge und Bridges                                          ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Instrument                    Einheit   erstellt  erledigt   Auszahlung/Betrag                                     ║
+║ ------------------------------------------------------------------------------------------                         ║
+║ Wahrheitszertifikate           TRUTH          50       50            81.73                                         ║
+║ Kausalitätszertifikate         CAUSE          58       58            75.93                                         ║
+║ Verhaltensverträge             BEHAV          31       31            48.72                                         ║
+║ Normdistanzverträge            NORM           35       34            51.41                                         ║
+║ Kreditverträge                 DEBT          507      487             0.00                                         ║
+║ Versicherungen                 INS            45        6            22.97                                         ║
+║ Interregionale Pakete          BRIDGE        540      519           736.62                                         ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Diese Übersicht zeigt die nichttrivialen Marktinstrumente jenseits einfachen Kaufs: Wahrheit ║
+║ , Kausalität, Normdistanz, Verhalten, Kredit, Versicherung und Galaxie-Bridges.                                    ║
+║ Warum es wichtig ist: Die Theorie behauptet, dass diese Instrumente alle Spezialfälle derselben Grundstruktur sind ║
+║ : zustandsabhängige Operationen mit Metrik und Beweis.                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Ausführliche Schlussauswertung                                           ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Maschinenprüfung bestanden: Alle akzeptierten GMOE-Wurzeltransaktionen lagen im positiven Kegel K+.                ║
+║ Damit zeigt die Simulation den postulierten Automatismus im Modell: Wenn Geld nur aus gültiger positiver Zustandsb ║
+║ ewegung entsteht, dann ist akzeptierter Handel selbst eine Kette positiver Operatoren.                             ║
+║                                                                                                                    ║
+║ Vergleich zu baseline: NI-Differenz = +35.765                                                                      ║
+║ Akzeptierte schädliche Operationen: gmoe=0, baseline=1496                                                          ║
+║                                                                                                                    ║
+║ Grenze der Aussage: Das Skript beweist nicht, dass reale Märkte automatisch edel sind. Es demonstriert, dass der p ║
+║ ostulierte Mechanismus diese Richtung erzwingt, sobald 'Zahlung' definitionsgemäß eine auditierte positive Operato ║
+║ r-Metrik-Kontraktion ist.                                                                                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+   ██████╗ ███╗   ███╗ ██████╗ ███████╗      METRIC OPERATOR ECONOMY
+  ██╔════╝ ████╗ ████║██╔═══██╗██╔════╝      Geld = Operation + Metrik + Δ∈K+
+  ██║  ███╗██╔████╔██║██║   ██║█████╗        Galaktische Transformationsökonomie
+  ██║   ██║██║╚██╔╝██║██║   ██║██╔══╝        UTF-8 Visual Report
+  ╚██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗      f: Ω → Ω
+   ╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝    
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                 Feste Farben für Währungen, Fonds und Instrumente                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Diese Legende fixiert die Farben. Jede Einheit behält in allen Diagrammen dieselbe Farbe, damit die Ausgabe lesbar ║
+║  bleibt.                                                                                                           ║
+║                                                                                                                    ║
+║ OMK           Operation-Metrik-Kredit. Zählbares Wurzelgeld aus Operation + Metrik + zertifiziertem Δ ∈ K+.        ║
+║ FIAT          Normales Skalar-Geld. In der Baseline kann es privaten Profit auch bei schädlichen Operationen räume ║
+║ nen räumen.                                                                                                        ║
+║ TRUTH         Wahrheitszertifikat. Auszahlung für verifizierte Wahrheit, nicht Kauf der Wahrheit selbst.           ║
+║ CAUSE         Kausalitätszertifikat. Zahlung für belastbar attribuierte Ursache-Wirkungs-Verbesserung.             ║
+║ NORM          Normdistanzgeld. Zahlung für Verringerung des Abstands zu gültigen Normen.                           ║
+║ BEHAV         Verhaltensgeld. Zahlung für freiwillige, transparente, widerrufbare Verhaltensänderung.              ║
+║ HIER          Hierarchiegeld. Rechte für legitime Inversion, Reparatur, Rotation oder Delegation von Hierarchie.   ║
+║ REPAIR        Reparaturfonds. Gemeinsamer Fonds für Schadenreduktion und Agency-Wiederherstellung.                 ║
+║ GOV           Governance-Fonds. Mittel für Audit, Gerichte, Metrikregister und Red-Line-Durchsetzung.              ║
+║ INS           Versicherung. Schutz gegen negative Metrikbewegung; Eigenverursachung ist ungültig.                  ║
+║ STOCK         Aktie/Wertpapier. Anspruch auf künftige metrische Produktivität eines Operatorbündels.               ║
+║ BRIDGE        Interregionale Bridge-Credits. Latenz- und Vertrauensabhängiger Austausch zwischen Regionen.         ║
+║ DEBT          Schuld/Haftung. Entsteht durch nicht gelieferte Verbesserung oder schädliche Δ-Bewegung.             ║
+║ RISK          Risikoaufschlag. Preisanteil für Unsicherheit, Irreversibilität und Latenz.                          ║
+║ REP           Reputation. Nicht direkt Geld, aber vertrauensbildendes Kapital für künftige Operatorrechte.         ║
+║ K+            Positiver Kegel. Menge der erlaubten Verbesserungsrichtungen im Metrikraum.                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Kürzel, Einheiten und Metriken                                           ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Ω: gesamter Weltzustand. Eine unäre Operation ist f: Ω → Ω.                                                        ║
+║ Δ: gemessene Metrikänderung durch eine Operation. Positiv heißt: Abstand zum Ziel wurde kleiner.                   ║
+║ K+: positiver Kegel; Menge aller zulässigen Verbesserungsrichtungen im Metrikraum.                                 ║
+║ NI: Nobility Index; gewichteter Durchschnitt aller Metriken auf Skala 0..100.                                      ║
+║ DIST: gewichtete Distanz zum Zielzustand 100. Niedriger ist besser.                                                ║
+║ Pq: Proof Quality; Qualität des Nachweises einer Wirkung, 0..1.                                                    ║
+║ Cs: Causal Share; kausal attribuierter Anteil einer Verbesserung, 0..1.                                            ║
+║ Gini: Ungleichheitsmaß der Geldverteilung, 0 = gleich, 1 = extrem ungleich.                                        ║
+║ Einheit der Metriken: abstrakte Simulationspunkte von 0 bis 100.                                                   ║
+║ Einheit des Geldes: skalarisierte OMK-Punkte = gewichtete, zertifizierte positive Metrikbewegung.                  ║
+║                                                                                                                    ║
+║ AGY (agency)  Handlungsfähigkeit: Fähigkeit zu handeln, zu widersprechen, auszusteigen und zu reparieren.          ║
+║ SAFE (freedom_from_harm)  Schadensfreiheit: Abwesenheit von Schaden, Zwang, Degradation und Hilflosmachung.        ║
+║ TRU (truth)  Wahrheitsnähe: Verlässlichkeit von Behauptungen, Beweisen und Prognosen.                              ║
+║ CAUS (causal_integrity)  Kausale Integrität: Wie gut Ursachen, Wirkungen und Verantwortlichkeiten nachvollziehbar  ║
+║ lziehbar sind.                                                                                                     ║
+║ NORM (norm_alignment)  Normabstand: Nähe zu gültigen Normen statt privaten Tyrannenmetriken.                       ║
+║ HIER (hierarchy_legitimacy)  Legitime Hierarchie: Macht ist überprüfbar, anfechtbar, delegierbar und nicht bloß Do ║
+║ t bloß Dominanz.                                                                                                   ║
+║ BEHV (behavior_cooperation)  Kooperatives Verhalten: freiwillige, transparente Verhaltensanpassung ohne Zwang.     ║
+║ REPR (repair_capacity)  Reparaturfähigkeit: Fähigkeit, Schaden rückgängig zu machen, zu kompensieren oder zu entsc ║
+║  zu entschärfen.                                                                                                   ║
+║ HELP (help_potential)  Hilfspotenzial: Fähigkeit künftiger hilfreicher Zustandsverbesserungen.                     ║
+║ RES (resource_resilience)  Ressourcenresilienz: Stabilität von Energie, Gütern, Infrastruktur und Reserven.        ║
+║ OUT (material_output)  Materieller Output: reale Produktion, aber mit niedrigem Moralgewicht.                      ║
+║ LIQ (liquidity)  Liquidität: Handelbarkeit und Umlaufgeschwindigkeit von gültigen Ansprüchen.                      ║
+║ FAIR (fairness)  Fairness: gerechte Verteilung von Rechten, Lasten, Chancen und Vorteilen.                         ║
+║ CONS (consent_quality)  Zustimmungsqualität: freiwillig, informiert, widerrufbar, ohne versteckten Zwang.          ║
+║ REV (reversibility)  Reversibilität: Eingriffe sind rücknehmbar oder wenigstens reparierbar.                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Operator-Metrik-Zahlungsfluss                                            ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Das folgende Bild zeigt die Buchungslogik der GMOE-Währung. Der Markt räumt nicht bloß private Zahlung, sondern pr ║
+║ üft eine Zustandsoperation.                                                                                        ║
+║                                                                                                                    ║
+║         ω_t  ────────  f: Ω→Ω  ────────  ω_{t+1}                                                                   ║
+║                     │                                                                                              ║
+║                     ▼                                                                                              ║
+║             Metrikvektor d⃗ misst:  Δ = d(ω_t,ω*) - d(f(ω_t),ω*)                                                   ║
+║                     │                                                                                              ║
+║                     ▼                                                                                              ║
+║         Δ ∈ K+ ?  ── ja ──►  OMK prägen  ──►  Handel / Dividende / Kredit                                          ║
+║             │                                                                                                      ║
+║             nein                                                                                                   ║
+║             ▼                                                                                                      ║
+║         keine Wurzelzahlung: Ablehnung, Slashing, Haftung oder Reparaturpflicht                                    ║
+║                                                                                                                    ║
+║ Warum das wichtig ist: Im GMOE-Modus kann akzeptiertes Wurzelgeld nur aus positiver Metrikbewegung entstehen. Dadu ║
+║ rch wird Handel zur Komposition positiver unärer Operationen.                                                      ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                             Kernzahlen der Simulation                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Modus                              : baseline                                                                      ║
+║ Seed                               : 7                                                                             ║
+║ Schritte                           : 180                                                                           ║
+║ Agenten                            : 60                                                                            ║
+║ Regionen                           : 5                                                                             ║
+║ NI Start                           : 49.263                                                                        ║
+║ NI Ende                            : 63.977                                                                        ║
+║ NI Änderung                        : +14.714                                                                       ║
+║ DIST Ende                          : 36.023                                                                        ║
+║ akzeptierte Transaktionen          : 6120                                                                          ║
+║ abgelehnte Transaktionen           : 0                                                                             ║
+║ akzeptierte schädliche Ops         : 1496                                                                          ║
+║ K+-Verletzungen akzeptiert         : 1581                                                                          ║
+║ kumulativer Δ-Score                : +1480.346                                                                     ║
+║ Money-Gini                         : 0.884                                                                         ║
+║ corr(Geld, Reputation)             : 0.245                                                                         ║
+║ corr(Geld, gültiger Beitrag)       : 0.000                                                                         ║
+║                                                                                                                    ║
+║ Auswertung: NI ist die verdichtete Zielgröße. Entscheidend ist aber nicht nur NI, sondern ob akzeptierter Handel d ║
+║ en K+-Test verletzt. Im GMOE-Modus soll dieser Wert 0 sein.                                                        ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                      Zeitverlauf: Nobility Index und Distanz                                       ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ NI-Verlauf   : ▁▁▂▂▃▃▃▃▄▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇█▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▆▇  min=49.42 max=66.20   ║
+║ DIST-Verlauf : █▇▆▆▅▅▅▅▄▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁  min=33.80 max=50.58   ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Jede kleine Säule ist ein Simulationszeitpunkt. Höhere NI-Säulen bedeuten mehr Agency, Wahrh ║
+║ eit, Fairness, Reparaturfähigkeit usw. Niedrigere DIST bedeutet geringerer Abstand zum Zielzustand.                ║
+║ Warum es nützlich ist: Tabellen zeigen Endwerte; die Sparkline zeigt, ob die Verbesserung stetig, sprunghaft oder  ║
+║ durch Schocks unterbrochen war.                                                                                    ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                             Globales Metrik-Dashboard                                              ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Jeder Balken hat Skala 0..100. Je voller der Balken, desto näher ist die Metrik am Zielzustand.                    ║
+║                                                                                                                    ║
+║ AGY       58.48  ████████████████████░░░░░░░░░░░░░░  Gewicht 2.20                                                  ║
+║ SAFE      41.21  ██████████████░░░░░░░░░░░░░░░░░░░░  Gewicht 2.25                                                  ║
+║ TRU       52.32  ██████████████████░░░░░░░░░░░░░░░░  Gewicht 1.75                                                  ║
+║ CAUS      60.20  ████████████████████░░░░░░░░░░░░░░  Gewicht 1.45                                                  ║
+║ NORM      40.48  ██████████████░░░░░░░░░░░░░░░░░░░░  Gewicht 1.15                                                  ║
+║ HIER      58.39  ████████████████████░░░░░░░░░░░░░░  Gewicht 1.05                                                  ║
+║ BEHV      99.77  ██████████████████████████████████  Gewicht 0.90                                                  ║
+║ REPR      99.52  ██████████████████████████████████  Gewicht 1.45                                                  ║
+║ HELP     100.00  ██████████████████████████████████  Gewicht 1.30                                                  ║
+║ RES      100.00  ██████████████████████████████████  Gewicht 0.95                                                  ║
+║ OUT       99.39  ██████████████████████████████████  Gewicht 0.50                                                  ║
+║ LIQ      100.00  ██████████████████████████████████  Gewicht 0.35                                                  ║
+║ FAIR      41.10  ██████████████░░░░░░░░░░░░░░░░░░░░  Gewicht 1.60                                                  ║
+║ CONS      41.13  ██████████████░░░░░░░░░░░░░░░░░░░░  Gewicht 1.70                                                  ║
+║ REV       66.37  ███████████████████████░░░░░░░░░░░  Gewicht 1.00                                                  ║
+║                                                                                                                    ║
+║ Auswertung: Hohe Werte bei AGY, SAFE, TRU, FAIR und CONS sind besonders wichtig, weil sie geschützte Metriken sind ║
+║ . OUT und LIQ sind bewusst niedriger gewichtet, damit bloße Produktion oder Liquidität Schaden nicht überdecken ka ║
+║ nn.                                                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                 Regionale Heatmap                                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Region  NI     AGY   SAFE  TRU   CAUS  NORM  HIER  BEHV  REPR  HELP  RES   OUT   LIQ   FAIR  CONS  REV             ║
+║ --------------------------------------------------------------------------------------------------------           ║
+║ R00     99.2 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║ R01     29.3 !!  !!  !!  !!  !!  !!  ██  ██  ██  ██  ██  ██  !!  !!  !!                                            ║
+║ R02     42.8 ▒▒  !!  !!  !!  !!  ░░  ██  ██  ██  ██  ██  ██  !!  !!  ▒▒                                            ║
+║ R03     99.9 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██                                            ║
+║ R04     48.8 !!  !!  ░░  ██  !!  ░░  ██  ██  ██  ██  ██  ██  !!  !!  ▓▓                                            ║
+║                                                                                                                    ║
+║ Legende: ██ sehr gut  ▓▓ gut  ▒▒ mittel  ░░ schwach  !! kritisch                                                   ║
+║ Was dargestellt wird: Regionen sind lokale galaktische Wirtschaftszonen mit eigener Latenz, Ledgergröße und Metrik ║
+║ lage. Die Heatmap zeigt, wo Reparaturfonds oder Interventionsrechte besonders wertvoll sind.                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                  Operationsmatrix: Algebra der unären Operationen                                  ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Operation                          Einheit   akzept.  abgel.   minted     ΔScore     pGain      Schutzverlust      ║
+║ ------------------------------------------------------------------------------------------------------------       ║
+║ produce_goods                      STOCK        763       0      0.00     448.12    2270.53          0.00          ║
+║ infrastructure_maintenance         REPAIR       545       0      0.00    1150.39     812.72          0.00          ║
+║ truth_audit                        TRUTH        482       0      0.00    2436.34     480.46          0.00          ║
+║ causal_intervention                CAUSE        417       0      0.00    1223.33     760.35          0.00          ║
+║ education                          TRUTH        393       0      0.00    2249.78     496.53          0.00          ║
+║ repair_harm                        REPAIR       381       0      0.00    3064.20     537.46          0.00          ║
+║ fair_exchange                      OMK          365       0      0.00     611.54     372.23          0.00          ║
+║ voluntary_behavior_contract        BEHAV        337       0      0.00    1221.69     345.98          0.00          ║
+║ norm_reform                        NORM         334       0      0.00    1794.64     290.79          0.00          ║
+║ exploit_labor                      DEBT         329       0      0.00   -4182.02    2026.68       3688.02          ║
+║ restore_agency                     OMK          274       0      0.00    2188.42     320.42          0.00          ║
+║ fake_truth_certificate             DEBT         245       0      0.00   -1859.05    1236.95       1729.70          ║
+║ metric_hack                        DEBT         228       0      0.00   -1552.18     857.27       1498.76          ║
+║ insurance_underwrite               INS          203       0      0.00     507.85     196.83          0.00          ║
+║ coercive_behavior_purchase         DEBT         194       0      0.00   -2865.67     894.11       2711.21          ║
+║ sabotage_competitor                DEBT         187       0      0.00   -1940.85     829.93       1463.37          ║
+║ tyrant_hierarchy_inversion         DEBT         180       0      0.00   -2597.86     927.07       1795.82          ║
+║ self_created_need                  DEBT         133       0      0.00   -1261.46     409.43        948.17          ║
+║ hierarchy_inversion_repair         HIER         130       0      0.00     843.13     172.35          0.00          ║
+║ external_shock                     RISK           7       0      0.00     -38.34       0.00         21.24          ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Jede Zeile ist eine Operationsfamilie f: Ω→Ω. 'minted' ist geprägtes OMK-Geld. ΔScore ist ge ║
+║ wichtete Metrikbewegung. pGain ist privater Profitanreiz. Schutzverlust misst negative Bewegung in geschützten Met ║
+║ riken.                                                                                                             ║
+║ Warum es wichtig ist: Der Kernvergleich ist, ob private hohe pGain-Werte trotz Schutzverlusten akzeptiert werden.  ║
+║ GMOE blockiert rote Linien; Baseline kann sie räumen.                                                              ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                        Zählbarer Geldstapel nach Einheiten                                         ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Jede Farbe ist eine andere Währungs-/Instrumentklasse. Die Länge zeigt den Anteil am Gesamtbestand.                ║
+║                                                                                                                    ║
+║ FIAT         21878.68  ██████████████████████████████████████████  100.0%                                          ║
+║                                                                                                                    ║
+║ Interpretation: In der Baseline ist Geld ein skalares Fiatguthaben. Es trägt keine interne Information darüber, ob ║
+║  es durch Hilfe, Wahrheit oder Schaden entstand.                                                                   ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                   Marktpanorama                                                    ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Markt                         Einheit  Events  Erfolg  Fehler   Betrag     Aktivität                               ║
+║ ----------------------------------------------------------------------------------------------------               ║
+║ dividend                       STOCK     44288   44288       0   2806.98  ████████████████████████                 ║
+║ securities_market              FIAT       2125    1098    1027  63307.70  █░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ credit_market                  DEBT        704       0       0   8448.00  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ credit_settlement              DEBT        684     622      62   9521.28  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ truth_market                   TRUTH       493     493       0    451.79  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ causality_market               CAUSE       339     339       0    159.09  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ norm_market                    NORM        203     203       0     70.99  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ behavior_market                BEHAV       185     185       0    130.00  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ insurance_market               FIAT         46      45       1     62.14  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ goods_market                   FIAT         11      11       0     67.67  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ shock                          RISK          7       0       0      9.44  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ energy_market                  FIAT          2       2       0      4.50  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║ insurance_payout               FIAT          1       1       0      1.41  ░░░░░░░░░░░░░░░░░░░░░░░░                 ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Die Marktpanorama-Grafik macht sichtbar, welche Teilmärkte die meiste Transaktionsaktivität  ║
+║ erzeugen: Güter, Wertpapiere, Wahrheit, Kausalität, Verhalten, Normen, Versicherungen, Bridge-Handel.              ║
+║ Warum es wichtig ist: Ein Wirtschaftssystem ist nicht nur eine Metrikregel. Es braucht Liquidität, Kredit, Risiko, ║
+║  Wertpapiere, Versicherung und regionale Synchronisation.                                                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                            Akteursgruppen nach Absicht                                             ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Intent     Anzahl   ØGeld     ØRep      ØStake   Øgültiger Δ   Øschädl. Δ   RedLines                               ║
+║ ----------------------------------------------------------------------------------------------------               ║
+║ harmful         15     41.30      6.62     59.27         0.00      1030.01         0                               ║
+║ neutral         26    484.03     67.20     53.98         0.00        31.12         0                               ║
+║ noble           19    456.54     71.80     38.18         0.00         0.00         0                               ║
+║                                                                                                                    ║
+║ Auswertung: Diese Tabelle fragt, ob sich Geld und Reputation in Richtung gültiger Beiträge verschieben. Im GMOE-Mo ║
+║ dus sollten noble und neutrale Akteure durch echte Verbesserung Zahlungsfähigkeit erzeugen können; schädliche Akte ║
+║ ure werden durch rote Linien gebremst.                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                         Zertifikate, Verträge und Bridges                                          ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Instrument                    Einheit   erstellt  erledigt   Auszahlung/Betrag                                     ║
+║ ------------------------------------------------------------------------------------------                         ║
+║ Wahrheitszertifikate           TRUTH         253      240           451.79                                         ║
+║ Kausalitätszertifikate         CAUSE         171      168           159.09                                         ║
+║ Verhaltensverträge             BEHAV          95       90           130.00                                         ║
+║ Normdistanzverträge            NORM          102      101            70.99                                         ║
+║ Kreditverträge                 DEBT          704      684             0.00                                         ║
+║ Versicherungen                 INS            45        1             1.41                                         ║
+║ Interregionale Pakete          BRIDGE          0        0             0.00                                         ║
+║                                                                                                                    ║
+║ Was dargestellt wird: Diese Übersicht zeigt die nichttrivialen Marktinstrumente jenseits einfachen Kaufs: Wahrheit ║
+║ , Kausalität, Normdistanz, Verhalten, Kredit, Versicherung und Galaxie-Bridges.                                    ║
+║ Warum es wichtig ist: Die Theorie behauptet, dass diese Instrumente alle Spezialfälle derselben Grundstruktur sind ║
+║ : zustandsabhängige Operationen mit Metrik und Beweis.                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                           Ausführliche Schlussauswertung                                           ║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Baseline-Auswertung: Hier räumt privater Profit. Ein akzeptierter Handel kann also auch negative Metrikbewegung be ║
+║ sitzen, solange er privat rentabel ist.                                                                            ║
+║                                                                                                                    ║
+║ Vergleich zu gmoe: NI-Differenz = -35.765                                                                          ║
+║ Akzeptierte schädliche Operationen: baseline=1496, gmoe=0                                                          ║
+║                                                                                                                    ║
+║ Grenze der Aussage: Das Skript beweist nicht, dass reale Märkte automatisch edel sind. Es demonstriert, dass der p ║
+║ ostulierte Mechanismus diese Richtung erzwingt, sobald 'Zahlung' definitionsgemäß eine auditierte positive Operato ║
+║ r-Metrik-Kontraktion ist.                                                                                          ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝

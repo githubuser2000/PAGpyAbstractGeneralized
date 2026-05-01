@@ -1,0 +1,592 @@
+[96m   ██████╗ ███╗   ███╗ ██████╗ ███████╗    [0m[92m  METRIC OPERATOR ECONOMY[0m
+[96m  ██╔════╝ ████╗ ████║██╔═══██╗██╔════╝    [0m[93m  Geld = Operation + Metrik + Δ∈K+[0m
+[96m  ██║  ███╗██╔████╔██║██║   ██║█████╗      [0m[95m  Galaktische Transformationsökonomie[0m
+[96m  ██║   ██║██║╚██╔╝██║██║   ██║██╔══╝      [0m[94m  UTF-8 Visual Report[0m
+[96m  ╚██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗    [0m[92m  f: Ω → Ω[0m
+[96m   ╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝    [0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                [96m Feste Farben für Währungen, Fonds und Instrumente [0m                                 ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mDiese Legende fixiert die Farben. Jede Einheit behält in allen Diagrammen dieselbe Farbe, damit die Ausgabe lesbar[96m ║[0m
+[96m║ [0m bleibt.                                                                                                          [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0m[36mOMK[0m           Operation-Metrik-Kredit. Zählbares Wurzelgeld aus Operation + Metrik + zertifiziertem Δ ∈ K+.       [96m ║[0m
+[96m║ [0m[90mFIAT[0m          Normales Skalar-Geld. In der Baseline kann es privaten Profit auch bei schädlichen Operationen räume[96m ║[0m
+[96m║ [0mnen räumen.                                                                                                       [96m ║[0m
+[96m║ [0m[92mTRUTH[0m         Wahrheitszertifikat. Auszahlung für verifizierte Wahrheit, nicht Kauf der Wahrheit selbst.          [96m ║[0m
+[96m║ [0m[95mCAUSE[0m         Kausalitätszertifikat. Zahlung für belastbar attribuierte Ursache-Wirkungs-Verbesserung.            [96m ║[0m
+[96m║ [0m[94mNORM[0m          Normdistanzgeld. Zahlung für Verringerung des Abstands zu gültigen Normen.                          [96m ║[0m
+[96m║ [0m[93mBEHAV[0m         Verhaltensgeld. Zahlung für freiwillige, transparente, widerrufbare Verhaltensänderung.             [96m ║[0m
+[96m║ [0m[91mHIER[0m          Hierarchiegeld. Rechte für legitime Inversion, Reparatur, Rotation oder Delegation von Hierarchie.  [96m ║[0m
+[96m║ [0m[32mREPAIR[0m        Reparaturfonds. Gemeinsamer Fonds für Schadenreduktion und Agency-Wiederherstellung.                [96m ║[0m
+[96m║ [0m[96mGOV[0m           Governance-Fonds. Mittel für Audit, Gerichte, Metrikregister und Red-Line-Durchsetzung.             [96m ║[0m
+[96m║ [0m[91mINS[0m           Versicherung. Schutz gegen negative Metrikbewegung; Eigenverursachung ist ungültig.                 [96m ║[0m
+[96m║ [0m[33mSTOCK[0m         Aktie/Wertpapier. Anspruch auf künftige metrische Produktivität eines Operatorbündels.              [96m ║[0m
+[96m║ [0m[34mBRIDGE[0m        Interregionale Bridge-Credits. Latenz- und Vertrauensabhängiger Austausch zwischen Regionen.        [96m ║[0m
+[96m║ [0m[31mDEBT[0m          Schuld/Haftung. Entsteht durch nicht gelieferte Verbesserung oder schädliche Δ-Bewegung.            [96m ║[0m
+[96m║ [0m[35mRISK[0m          Risikoaufschlag. Preisanteil für Unsicherheit, Irreversibilität und Latenz.                         [96m ║[0m
+[96m║ [0m[37mREP[0m           Reputation. Nicht direkt Geld, aber vertrauensbildendes Kapital für künftige Operatorrechte.        [96m ║[0m
+[96m║ [0m[92mK+[0m            Positiver Kegel. Menge der erlaubten Verbesserungsrichtungen im Metrikraum.                         [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[94m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [94m Kürzel, Einheiten und Metriken [0m                                          ║
+[94m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[94m║ [0mΩ: gesamter Weltzustand. Eine unäre Operation ist f: Ω → Ω.                                                       [94m ║[0m
+[94m║ [0mΔ: gemessene Metrikänderung durch eine Operation. Positiv heißt: Abstand zum Ziel wurde kleiner.                  [94m ║[0m
+[94m║ [0mK+: positiver Kegel; Menge aller zulässigen Verbesserungsrichtungen im Metrikraum.                                [94m ║[0m
+[94m║ [0mNI: Nobility Index; gewichteter Durchschnitt aller Metriken auf Skala 0..100.                                     [94m ║[0m
+[94m║ [0mDIST: gewichtete Distanz zum Zielzustand 100. Niedriger ist besser.                                               [94m ║[0m
+[94m║ [0mPq: Proof Quality; Qualität des Nachweises einer Wirkung, 0..1.                                                   [94m ║[0m
+[94m║ [0mCs: Causal Share; kausal attribuierter Anteil einer Verbesserung, 0..1.                                           [94m ║[0m
+[94m║ [0mGini: Ungleichheitsmaß der Geldverteilung, 0 = gleich, 1 = extrem ungleich.                                       [94m ║[0m
+[94m║ [0mEinheit der Metriken: abstrakte Simulationspunkte von 0 bis 100.                                                  [94m ║[0m
+[94m║ [0mEinheit des Geldes: skalarisierte OMK-Punkte = gewichtete, zertifizierte positive Metrikbewegung.                 [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0m[96mAGY[0m (agency)  Handlungsfähigkeit: Fähigkeit zu handeln, zu widersprechen, auszusteigen und zu reparieren.         [94m ║[0m
+[94m║ [0m[92mSAFE[0m (freedom_from_harm)  Schadensfreiheit: Abwesenheit von Schaden, Zwang, Degradation und Hilflosmachung.       [94m ║[0m
+[94m║ [0m[92mTRU[0m (truth)  Wahrheitsnähe: Verlässlichkeit von Behauptungen, Beweisen und Prognosen.                             [94m ║[0m
+[94m║ [0m[95mCAUS[0m (causal_integrity)  Kausale Integrität: Wie gut Ursachen, Wirkungen und Verantwortlichkeiten nachvollziehbar [94m ║[0m
+[94m║ [0mlziehbar sind.                                                                                                    [94m ║[0m
+[94m║ [0m[94mNORM[0m (norm_alignment)  Normabstand: Nähe zu gültigen Normen statt privaten Tyrannenmetriken.                      [94m ║[0m
+[94m║ [0m[91mHIER[0m (hierarchy_legitimacy)  Legitime Hierarchie: Macht ist überprüfbar, anfechtbar, delegierbar und nicht bloß Do[94m ║[0m
+[94m║ [0mt bloß Dominanz.                                                                                                  [94m ║[0m
+[94m║ [0m[93mBEHV[0m (behavior_cooperation)  Kooperatives Verhalten: freiwillige, transparente Verhaltensanpassung ohne Zwang.    [94m ║[0m
+[94m║ [0m[32mREPR[0m (repair_capacity)  Reparaturfähigkeit: Fähigkeit, Schaden rückgängig zu machen, zu kompensieren oder zu entsc[94m ║[0m
+[94m║ [0m zu entschärfen.                                                                                                  [94m ║[0m
+[94m║ [0m[36mHELP[0m (help_potential)  Hilfspotenzial: Fähigkeit künftiger hilfreicher Zustandsverbesserungen.                    [94m ║[0m
+[94m║ [0m[34mRES[0m (resource_resilience)  Ressourcenresilienz: Stabilität von Energie, Gütern, Infrastruktur und Reserven.       [94m ║[0m
+[94m║ [0m[33mOUT[0m (material_output)  Materieller Output: reale Produktion, aber mit niedrigem Moralgewicht.                     [94m ║[0m
+[94m║ [0m[36mLIQ[0m (liquidity)  Liquidität: Handelbarkeit und Umlaufgeschwindigkeit von gültigen Ansprüchen.                     [94m ║[0m
+[94m║ [0m[37mFAIR[0m (fairness)  Fairness: gerechte Verteilung von Rechten, Lasten, Chancen und Vorteilen.                        [94m ║[0m
+[94m║ [0m[93mCONS[0m (consent_quality)  Zustimmungsqualität: freiwillig, informiert, widerrufbar, ohne versteckten Zwang.         [94m ║[0m
+[94m║ [0m[35mREV[0m (reversibility)  Reversibilität: Eingriffe sind rücknehmbar oder wenigstens reparierbar.                      [94m ║[0m
+[94m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [95m Operator-Metrik-Zahlungsfluss [0m                                           ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mDas folgende Bild zeigt die Buchungslogik der GMOE-Währung. Der Markt räumt nicht bloß private Zahlung, sondern pr[95m ║[0m
+[95m║ [0müft eine Zustandsoperation.                                                                                       [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0m        [97mω_t[0m  [90m────────[0m  [36mf: Ω→Ω[0m  [90m────────[0m  [97mω_{t+1}[0m                                                                  [95m ║[0m
+[95m║ [0m                    │                                                                                             [95m ║[0m
+[95m║ [0m                    ▼                                                                                             [95m ║[0m
+[95m║ [0m            [92mMetrikvektor d⃗[0m misst:  Δ = d(ω_t,ω*) - d(f(ω_t),ω*)                                                  [95m ║[0m
+[95m║ [0m                    │                                                                                             [95m ║[0m
+[95m║ [0m                    ▼                                                                                             [95m ║[0m
+[95m║ [0m        [92mΔ ∈ K+[0m ?  ── ja ──►  [36mOMK prägen[0m  ──►  Handel / Dividende / Kredit                                         [95m ║[0m
+[95m║ [0m            │                                                                                                     [95m ║[0m
+[95m║ [0m            nein                                                                                                  [95m ║[0m
+[95m║ [0m            ▼                                                                                                     [95m ║[0m
+[95m║ [0m        [31mkeine Wurzelzahlung: Ablehnung, Slashing, Haftung oder Reparaturpflicht[0m                                   [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mWarum das wichtig ist: Im GMOE-Modus kann akzeptiertes Wurzelgeld nur aus positiver Metrikbewegung entstehen. Dadu[95m ║[0m
+[95m║ [0mrch wird Handel zur Komposition positiver unärer Operationen.                                                     [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[92m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                            [92m Kernzahlen der Simulation [0m                                             ║
+[92m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[92m║ [0m[97mModus[0m                              : gmoe                                                                         [92m ║[0m
+[92m║ [0m[97mSeed[0m                               : 7                                                                            [92m ║[0m
+[92m║ [0m[97mSchritte[0m                           : 180                                                                          [92m ║[0m
+[92m║ [0m[97mAgenten[0m                            : 60                                                                           [92m ║[0m
+[92m║ [0m[97mRegionen[0m                           : 5                                                                            [92m ║[0m
+[92m║ [0m[97mNI Start[0m                           : 49.263                                                                       [92m ║[0m
+[92m║ [0m[97mNI Ende[0m                            : 99.742                                                                       [92m ║[0m
+[92m║ [0m[97mNI Änderung[0m                        : +50.479                                                                      [92m ║[0m
+[92m║ [0m[97mDIST Ende[0m                          : 0.258                                                                        [92m ║[0m
+[92m║ [0m[97makzeptierte Transaktionen[0m          : 1549                                                                         [92m ║[0m
+[92m║ [0m[97mabgelehnte Transaktionen[0m           : 5107                                                                         [92m ║[0m
+[92m║ [0m[97makzeptierte schädliche Ops[0m         : [92m0[0m                                                                            [92m ║[0m
+[92m║ [0m[97mK+-Verletzungen akzeptiert[0m         : [92m0[0m                                                                            [92m ║[0m
+[92m║ [0m[97mkumulativer Δ-Score[0m                : +4980.292                                                                    [92m ║[0m
+[92m║ [0m[97mMoney-Gini[0m                         : 0.870                                                                        [92m ║[0m
+[92m║ [0m[97mcorr(Geld, Reputation)[0m             : 0.044                                                                        [92m ║[0m
+[92m║ [0m[97mcorr(Geld, gültiger Beitrag)[0m       : 0.084                                                                        [92m ║[0m
+[92m║ [0m                                                                                                                  [92m ║[0m
+[92m║ [0mAuswertung: NI ist die verdichtete Zielgröße. Entscheidend ist aber nicht nur NI, sondern ob akzeptierter Handel d[92m ║[0m
+[92m║ [0men K+-Test verletzt. Im GMOE-Modus soll dieser Wert 0 sein.                                                       [92m ║[0m
+[92m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                     [96m Zeitverlauf: Nobility Index und Distanz [0m                                      ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mNI-Verlauf   : [96m▁▁▂▃▃▄▄▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█[0m  min=51.16 max=99.74  [96m ║[0m
+[96m║ [0mDIST-Verlauf : [93m█▇▆▅▅▄▄▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁[0m  min=0.26 max=48.84   [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0mWas dargestellt wird: Jede kleine Säule ist ein Simulationszeitpunkt. Höhere NI-Säulen bedeuten mehr Agency, Wahrh[96m ║[0m
+[96m║ [0meit, Fairness, Reparaturfähigkeit usw. Niedrigere DIST bedeutet geringerer Abstand zum Zielzustand.               [96m ║[0m
+[96m║ [0mWarum es nützlich ist: Tabellen zeigen Endwerte; die Sparkline zeigt, ob die Verbesserung stetig, sprunghaft oder [96m ║[0m
+[96m║ [0mdurch Schocks unterbrochen war.                                                                                   [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[94m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                            [94m Globales Metrik-Dashboard [0m                                             ║
+[94m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[94m║ [0mJeder Balken hat Skala 0..100. Je voller der Balken, desto näher ist die Metrik am Zielzustand.                   [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0m[96mAGY[0m      100.00  [96m██████████████████████████████████[0m  Gewicht 2.20                                                 [94m ║[0m
+[94m║ [0m[92mSAFE[0m      99.99  [92m██████████████████████████████████[0m  Gewicht 2.25                                                 [94m ║[0m
+[94m║ [0m[92mTRU[0m      100.00  [92m██████████████████████████████████[0m  Gewicht 1.75                                                 [94m ║[0m
+[94m║ [0m[95mCAUS[0m     100.00  [95m██████████████████████████████████[0m  Gewicht 1.45                                                 [94m ║[0m
+[94m║ [0m[94mNORM[0m     100.00  [94m██████████████████████████████████[0m  Gewicht 1.15                                                 [94m ║[0m
+[94m║ [0m[91mHIER[0m      97.67  [91m█████████████████████████████████░[0m  Gewicht 1.05                                                 [94m ║[0m
+[94m║ [0m[93mBEHV[0m     100.00  [93m██████████████████████████████████[0m  Gewicht 0.90                                                 [94m ║[0m
+[94m║ [0m[32mREPR[0m     100.00  [32m██████████████████████████████████[0m  Gewicht 1.45                                                 [94m ║[0m
+[94m║ [0m[36mHELP[0m     100.00  [36m██████████████████████████████████[0m  Gewicht 1.30                                                 [94m ║[0m
+[94m║ [0m[34mRES[0m       99.92  [34m██████████████████████████████████[0m  Gewicht 0.95                                                 [94m ║[0m
+[94m║ [0m[33mOUT[0m      100.00  [33m██████████████████████████████████[0m  Gewicht 0.50                                                 [94m ║[0m
+[94m║ [0m[36mLIQ[0m       93.00  [36m████████████████████████████████░░[0m  Gewicht 0.35                                                 [94m ║[0m
+[94m║ [0m[37mFAIR[0m     100.00  [37m██████████████████████████████████[0m  Gewicht 1.60                                                 [94m ║[0m
+[94m║ [0m[93mCONS[0m      99.99  [93m██████████████████████████████████[0m  Gewicht 1.70                                                 [94m ║[0m
+[94m║ [0m[35mREV[0m       99.98  [35m██████████████████████████████████[0m  Gewicht 1.00                                                 [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0mAuswertung: Hohe Werte bei AGY, SAFE, TRU, FAIR und CONS sind besonders wichtig, weil sie geschützte Metriken sind[94m ║[0m
+[94m║ [0m. OUT und LIQ sind bewusst niedriger gewichtet, damit bloße Produktion oder Liquidität Schaden nicht überdecken ka[94m ║[0m
+[94m║ [0mnn.                                                                                                               [94m ║[0m
+[94m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                                [95m Regionale Heatmap [0m                                                 ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mRegion  NI     [96mAGY[0m   [92mSAFE[0m  [92mTRU[0m   [95mCAUS[0m  [94mNORM[0m  [91mHIER[0m  [93mBEHV[0m  [32mREPR[0m  [36mHELP[0m  [34mRES[0m   [33mOUT[0m   [36mLIQ[0m   [37mFAIR[0m  [93mCONS[0m  [35mREV[0m            [95m ║[0m
+[95m║ [0m--------------------------------------------------------------------------------------------------------          [95m ║[0m
+[95m║ [0mR00     99.8 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR01     99.4 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR02    100.0 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR03     99.6 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [32m▓▓[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR04     99.9 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mLegende: [92m██ sehr gut[0m  [32m▓▓ gut[0m  [93m▒▒ mittel[0m  [91m░░ schwach[0m  [91m!! kritisch[0m                                                  [95m ║[0m
+[95m║ [0mWas dargestellt wird: Regionen sind lokale galaktische Wirtschaftszonen mit eigener Latenz, Ledgergröße und Metrik[95m ║[0m
+[95m║ [0mlage. Die Heatmap zeigt, wo Reparaturfonds oder Interventionsrechte besonders wertvoll sind.                      [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[92m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                 [92m Operationsmatrix: Algebra der unären Operationen [0m                                 ║
+[92m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[92m║ [0mOperation                          Einheit   akzept.  abgel.   minted     ΔScore     pGain      Schutzverlust     [92m ║[0m
+[92m║ [0m------------------------------------------------------------------------------------------------------------      [92m ║[0m
+[92m║ [0m[92mproduce_goods[0m                      [33mSTOCK[0m        103     589    136.75     320.13    2074.36          0.00         [92m ║[0m
+[92m║ [0m[92mrepair_harm[0m                        [32mREPAIR[0m       195     372    668.53     965.35     729.03          0.00         [92m ║[0m
+[92m║ [0m[92minfrastructure_maintenance[0m         [32mREPAIR[0m       167     358    205.56     375.46     769.22          0.00         [92m ║[0m
+[92m║ [0m[92mtruth_audit[0m                        [92mTRUTH[0m        161     312    311.02     517.60     476.95          0.00         [92m ║[0m
+[92m║ [0m[92meducation[0m                          [92mTRUTH[0m        146     293    351.21     545.05     542.19          0.00         [92m ║[0m
+[92m║ [0m[92mcausal_intervention[0m                [95mCAUSE[0m        123     281    229.31     400.69     715.49          0.00         [92m ║[0m
+[92m║ [0m[92minterregional_bridge[0m               [34mBRIDGE[0m       119     251     38.15      99.51     185.00          0.00         [92m ║[0m
+[92m║ [0m[92mfair_exchange[0m                      [36mOMK[0m          111     256    109.90     264.13     383.94          0.00         [92m ║[0m
+[92m║ [0m[91mexploit_labor[0m                      [31mDEBT[0m           0     360      0.00   -5981.23    2232.30       5281.39         [92m ║[0m
+[92m║ [0m[92mnorm_reform[0m                        [94mNORM[0m         130     214    294.90     480.51     311.77          0.00         [92m ║[0m
+[92m║ [0m[92mvoluntary_behavior_contract[0m        [93mBEHAV[0m         87     244    220.95     386.24     340.02          0.00         [92m ║[0m
+[92m║ [0m[92mrestore_agency[0m                     [36mOMK[0m           85     169    345.13     522.10     291.89          0.00         [92m ║[0m
+[92m║ [0m[91mmetric_hack[0m                        [31mDEBT[0m           0     243      0.00   -2096.71     912.23       1980.54         [92m ║[0m
+[92m║ [0m[91mfake_truth_certificate[0m             [31mDEBT[0m           0     236      0.00   -2189.40    1183.11       1995.78         [92m ║[0m
+[92m║ [0m[92minsurance_underwrite[0m               [91mINS[0m           78     147     89.50     155.34     217.33          0.00         [92m ║[0m
+[92m║ [0m[91mcoercive_behavior_purchase[0m         [31mDEBT[0m           0     206      0.00   -4058.79     952.29       3743.20         [92m ║[0m
+[92m║ [0m[91msabotage_competitor[0m                [31mDEBT[0m           0     181      0.00   -2539.91     810.71       1968.35         [92m ║[0m
+[92m║ [0m[91mtyrant_hierarchy_inversion[0m         [31mDEBT[0m           0     168      0.00   -3027.68     814.71       2098.97         [92m ║[0m
+[92m║ [0m[91mself_created_need[0m                  [31mDEBT[0m           0     144      0.00   -1814.83     411.19       1413.23         [92m ║[0m
+[92m║ [0m[92mhierarchy_inversion_repair[0m         [91mHIER[0m          44      83    146.54     222.81     160.69          0.00         [92m ║[0m
+[92m║ [0m[92mexternal_shock[0m                     [35mRISK[0m           4       0      0.00     -33.31       0.00         22.35         [92m ║[0m
+[92m║ [0m                                                                                                                  [92m ║[0m
+[92m║ [0mWas dargestellt wird: Jede Zeile ist eine Operationsfamilie f: Ω→Ω. 'minted' ist geprägtes OMK-Geld. ΔScore ist ge[92m ║[0m
+[92m║ [0mwichtete Metrikbewegung. pGain ist privater Profitanreiz. Schutzverlust misst negative Bewegung in geschützten Met[92m ║[0m
+[92m║ [0mriken.                                                                                                            [92m ║[0m
+[92m║ [0mWarum es wichtig ist: Der Kernvergleich ist, ob private hohe pGain-Werte trotz Schutzverlusten akzeptiert werden. [92m ║[0m
+[92m║ [0mGMOE blockiert rote Linien; Baseline kann sie räumen.                                                             [92m ║[0m
+[92m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                       [96m Zählbarer Geldstapel nach Einheiten [0m                                        ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mJede Farbe ist eine andere Währungs-/Instrumentklasse. Die Länge zeigt den Anteil am Gesamtbestand.               [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0m[36mOMK[0m            430.47  [36m█████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  12.4%                                          [96m ║[0m
+[96m║ [0m[92mTRUTH[0m          642.46  [92m████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  18.5%                                          [96m ║[0m
+[96m║ [0m[95mCAUSE[0m          261.79  [95m███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  7.6%                                           [96m ║[0m
+[96m║ [0m[94mNORM[0m           290.81  [94m████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  8.4%                                           [96m ║[0m
+[96m║ [0m[93mBEHAV[0m          229.13  [93m███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  6.6%                                           [96m ║[0m
+[96m║ [0m[91mHIER[0m           120.16  [91m█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  3.5%                                           [96m ║[0m
+[96m║ [0m[32mREPAIR[0m        1056.72  [32m█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  30.5%                                          [96m ║[0m
+[96m║ [0m[96mGOV[0m            220.32  [96m███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  6.4%                                           [96m ║[0m
+[96m║ [0m[91mINS[0m             73.39  [91m█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  2.1%                                           [96m ║[0m
+[96m║ [0m[33mSTOCK[0m          110.32  [33m█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  3.2%                                           [96m ║[0m
+[96m║ [0m[34mBRIDGE[0m          31.28  [34m░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  0.9%                                           [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0mGrößter Wallet-Stapel: [97mNoble_auditor_014[0m                                                                          [96m ║[0m
+[96m║ [0m  [32mREPAIR[0m   [32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m[32m◉[0m 288.76                                                                                       [96m ║[0m
+[96m║ [0m  [92mTRUTH[0m    [92m◉[0m[92m◉[0m[92m◉[0m[92m◉[0m[92m◉[0m 181.30                                                                                           [96m ║[0m
+[96m║ [0m  [36mOMK[0m      [36m◉[0m[36m◉[0m[36m◉[0m 98.27                                                                                              [96m ║[0m
+[96m║ [0m  [94mNORM[0m     [94m◉[0m[94m◉[0m[94m◉[0m 96.88                                                                                              [96m ║[0m
+[96m║ [0m  [95mCAUSE[0m    [95m◉[0m[95m◉[0m 84.84                                                                                               [96m ║[0m
+[96m║ [0m  [93mBEHAV[0m    [93m◉[0m[93m◉[0m 69.43                                                                                               [96m ║[0m
+[96m║ [0m  [91mHIER[0m     [91m◉[0m[91m◉[0m 65.10                                                                                               [96m ║[0m
+[96m║ [0m  [33mSTOCK[0m    [33m◉[0m 34.19                                                                                                [96m ║[0m
+[96m║ [0m  [91mINS[0m      [91m◉[0m 13.63                                                                                                [96m ║[0m
+[96m║ [0m  [34mBRIDGE[0m   [34m◉[0m 9.37                                                                                                 [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0mInterpretation: Das Wallet ist kein bloßer Kontostand. Es ist ein Stapel historischer positiver Transformationen m[96m ║[0m
+[96m║ [0mit Operation, Metrik, Beweisqualität und Kausalanteil.                                                            [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[93m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                                  [93m Marktpanorama [0m                                                   ║
+[93m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[93m║ [0mMarkt                         Einheit  Events  Erfolg  Fehler   Betrag     Aktivität                              [93m ║[0m
+[93m║ [0m----------------------------------------------------------------------------------------------------              [93m ║[0m
+[93m║ [0mdividend                       [33mSTOCK[0m     24187   24187       0   2440.75  [33m████████████████████████[0m                [93m ║[0m
+[93m║ [0msecurities_market              [33mSTOCK[0m      2123     403    1720  57129.81  [33m██░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minterregional_bridge           [34mBRIDGE[0m      540     540       0    736.62  [34m█░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minterregional_settlement       [34mBRIDGE[0m      519     370     149    705.77  [34m█░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcredit_market                  [31mDEBT[0m        507       0       0   1749.99  [31m█░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcredit_settlement              [31mDEBT[0m        487     468      19   1847.99  [31m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mgoods_market                   [36mOMK[0m         248       9     239    966.57  [36m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mrepair_fund                    [32mREPAIR[0m      165     165       0    344.84  [32m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcausality_market               [95mCAUSE[0m       116     116       0     75.93  [95m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mtruth_market                   [92mTRUTH[0m       100     100       0     81.73  [92m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mnorm_market                    [94mNORM[0m         69      69       0     51.41  [94m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mbehavior_market                [93mBEHAV[0m        62      62       0     48.72  [93m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minsurance_market               [91mINS[0m          45      45       0     62.03  [91m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minsurance_payout               [91mINS[0m           6       6       0     22.97  [91m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mshock                          [35mRISK[0m          4       0       0      9.93  [35m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0menergy_market                  [36mOMK[0m           3       3       0      6.75  [36m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0m                                                                                                                  [93m ║[0m
+[93m║ [0mWas dargestellt wird: Die Marktpanorama-Grafik macht sichtbar, welche Teilmärkte die meiste Transaktionsaktivität [93m ║[0m
+[93m║ [0merzeugen: Güter, Wertpapiere, Wahrheit, Kausalität, Verhalten, Normen, Versicherungen, Bridge-Handel.             [93m ║[0m
+[93m║ [0mWarum es wichtig ist: Ein Wirtschaftssystem ist nicht nur eine Metrikregel. Es braucht Liquidität, Kredit, Risiko,[93m ║[0m
+[93m║ [0m Wertpapiere, Versicherung und regionale Synchronisation.                                                         [93m ║[0m
+[93m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[97m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                           [97m Akteursgruppen nach Absicht [0m                                            ║
+[97m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[97m║ [0mIntent     Anzahl   ØGeld     ØRep      ØStake   Øgültiger Δ   Øschädl. Δ   RedLines                              [97m ║[0m
+[97m║ [0m----------------------------------------------------------------------------------------------------              [97m ║[0m
+[97m║ [0m[91mharmful[0m         15      4.02      1.75      0.00         5.69         0.00      1399                              [97m ║[0m
+[97m║ [0m[93mneutral[0m         26     73.63     39.67      3.69        89.62         0.00       139                              [97m ║[0m
+[97m║ [0m[92mnoble[0m           19     66.87     63.24      5.73       134.99         0.00         0                              [97m ║[0m
+[97m║ [0m                                                                                                                  [97m ║[0m
+[97m║ [0mAuswertung: Diese Tabelle fragt, ob sich Geld und Reputation in Richtung gültiger Beiträge verschieben. Im GMOE-Mo[97m ║[0m
+[97m║ [0mdus sollten noble und neutrale Akteure durch echte Verbesserung Zahlungsfähigkeit erzeugen können; schädliche Akte[97m ║[0m
+[97m║ [0mure werden durch rote Linien gebremst.                                                                            [97m ║[0m
+[97m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                        [95m Zertifikate, Verträge und Bridges [0m                                         ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mInstrument                    Einheit   erstellt  erledigt   Auszahlung/Betrag                                    [95m ║[0m
+[95m║ [0m------------------------------------------------------------------------------------------                        [95m ║[0m
+[95m║ [0mWahrheitszertifikate           [92mTRUTH[0m          50       50            81.73                                        [95m ║[0m
+[95m║ [0mKausalitätszertifikate         [95mCAUSE[0m          58       58            75.93                                        [95m ║[0m
+[95m║ [0mVerhaltensverträge             [93mBEHAV[0m          31       31            48.72                                        [95m ║[0m
+[95m║ [0mNormdistanzverträge            [94mNORM[0m           35       34            51.41                                        [95m ║[0m
+[95m║ [0mKreditverträge                 [31mDEBT[0m          507      487             0.00                                        [95m ║[0m
+[95m║ [0mVersicherungen                 [91mINS[0m            45        6            22.97                                        [95m ║[0m
+[95m║ [0mInterregionale Pakete          [34mBRIDGE[0m        540      519           736.62                                        [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mWas dargestellt wird: Diese Übersicht zeigt die nichttrivialen Marktinstrumente jenseits einfachen Kaufs: Wahrheit[95m ║[0m
+[95m║ [0m, Kausalität, Normdistanz, Verhalten, Kredit, Versicherung und Galaxie-Bridges.                                   [95m ║[0m
+[95m║ [0mWarum es wichtig ist: Die Theorie behauptet, dass diese Instrumente alle Spezialfälle derselben Grundstruktur sind[95m ║[0m
+[95m║ [0m: zustandsabhängige Operationen mit Metrik und Beweis.                                                            [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[92m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [92m Ausführliche Schlussauswertung [0m                                          ║
+[92m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[92m║ [0m[92mMaschinenprüfung bestanden: Alle akzeptierten GMOE-Wurzeltransaktionen lagen im positiven Kegel K+.[0m               [92m ║[0m
+[92m║ [0mDamit zeigt die Simulation den postulierten Automatismus im Modell: Wenn Geld nur aus gültiger positiver Zustandsb[92m ║[0m
+[92m║ [0mewegung entsteht, dann ist akzeptierter Handel selbst eine Kette positiver Operatoren.                            [92m ║[0m
+[92m║ [0m                                                                                                                  [92m ║[0m
+[92m║ [0mVergleich zu baseline: NI-Differenz = +35.765                                                                     [92m ║[0m
+[92m║ [0mAkzeptierte schädliche Operationen: gmoe=0, baseline=1496                                                         [92m ║[0m
+[92m║ [0m                                                                                                                  [92m ║[0m
+[92m║ [0mGrenze der Aussage: Das Skript beweist nicht, dass reale Märkte automatisch edel sind. Es demonstriert, dass der p[92m ║[0m
+[92m║ [0mostulierte Mechanismus diese Richtung erzwingt, sobald 'Zahlung' definitionsgemäß eine auditierte positive Operato[92m ║[0m
+[92m║ [0mr-Metrik-Kontraktion ist.                                                                                         [92m ║[0m
+[92m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[96m   ██████╗ ███╗   ███╗ ██████╗ ███████╗    [0m[92m  METRIC OPERATOR ECONOMY[0m
+[96m  ██╔════╝ ████╗ ████║██╔═══██╗██╔════╝    [0m[93m  Geld = Operation + Metrik + Δ∈K+[0m
+[96m  ██║  ███╗██╔████╔██║██║   ██║█████╗      [0m[95m  Galaktische Transformationsökonomie[0m
+[96m  ██║   ██║██║╚██╔╝██║██║   ██║██╔══╝      [0m[94m  UTF-8 Visual Report[0m
+[96m  ╚██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗    [0m[92m  f: Ω → Ω[0m
+[96m   ╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝    [0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                [96m Feste Farben für Währungen, Fonds und Instrumente [0m                                 ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mDiese Legende fixiert die Farben. Jede Einheit behält in allen Diagrammen dieselbe Farbe, damit die Ausgabe lesbar[96m ║[0m
+[96m║ [0m bleibt.                                                                                                          [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0m[36mOMK[0m           Operation-Metrik-Kredit. Zählbares Wurzelgeld aus Operation + Metrik + zertifiziertem Δ ∈ K+.       [96m ║[0m
+[96m║ [0m[90mFIAT[0m          Normales Skalar-Geld. In der Baseline kann es privaten Profit auch bei schädlichen Operationen räume[96m ║[0m
+[96m║ [0mnen räumen.                                                                                                       [96m ║[0m
+[96m║ [0m[92mTRUTH[0m         Wahrheitszertifikat. Auszahlung für verifizierte Wahrheit, nicht Kauf der Wahrheit selbst.          [96m ║[0m
+[96m║ [0m[95mCAUSE[0m         Kausalitätszertifikat. Zahlung für belastbar attribuierte Ursache-Wirkungs-Verbesserung.            [96m ║[0m
+[96m║ [0m[94mNORM[0m          Normdistanzgeld. Zahlung für Verringerung des Abstands zu gültigen Normen.                          [96m ║[0m
+[96m║ [0m[93mBEHAV[0m         Verhaltensgeld. Zahlung für freiwillige, transparente, widerrufbare Verhaltensänderung.             [96m ║[0m
+[96m║ [0m[91mHIER[0m          Hierarchiegeld. Rechte für legitime Inversion, Reparatur, Rotation oder Delegation von Hierarchie.  [96m ║[0m
+[96m║ [0m[32mREPAIR[0m        Reparaturfonds. Gemeinsamer Fonds für Schadenreduktion und Agency-Wiederherstellung.                [96m ║[0m
+[96m║ [0m[96mGOV[0m           Governance-Fonds. Mittel für Audit, Gerichte, Metrikregister und Red-Line-Durchsetzung.             [96m ║[0m
+[96m║ [0m[91mINS[0m           Versicherung. Schutz gegen negative Metrikbewegung; Eigenverursachung ist ungültig.                 [96m ║[0m
+[96m║ [0m[33mSTOCK[0m         Aktie/Wertpapier. Anspruch auf künftige metrische Produktivität eines Operatorbündels.              [96m ║[0m
+[96m║ [0m[34mBRIDGE[0m        Interregionale Bridge-Credits. Latenz- und Vertrauensabhängiger Austausch zwischen Regionen.        [96m ║[0m
+[96m║ [0m[31mDEBT[0m          Schuld/Haftung. Entsteht durch nicht gelieferte Verbesserung oder schädliche Δ-Bewegung.            [96m ║[0m
+[96m║ [0m[35mRISK[0m          Risikoaufschlag. Preisanteil für Unsicherheit, Irreversibilität und Latenz.                         [96m ║[0m
+[96m║ [0m[37mREP[0m           Reputation. Nicht direkt Geld, aber vertrauensbildendes Kapital für künftige Operatorrechte.        [96m ║[0m
+[96m║ [0m[92mK+[0m            Positiver Kegel. Menge der erlaubten Verbesserungsrichtungen im Metrikraum.                         [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[94m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [94m Kürzel, Einheiten und Metriken [0m                                          ║
+[94m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[94m║ [0mΩ: gesamter Weltzustand. Eine unäre Operation ist f: Ω → Ω.                                                       [94m ║[0m
+[94m║ [0mΔ: gemessene Metrikänderung durch eine Operation. Positiv heißt: Abstand zum Ziel wurde kleiner.                  [94m ║[0m
+[94m║ [0mK+: positiver Kegel; Menge aller zulässigen Verbesserungsrichtungen im Metrikraum.                                [94m ║[0m
+[94m║ [0mNI: Nobility Index; gewichteter Durchschnitt aller Metriken auf Skala 0..100.                                     [94m ║[0m
+[94m║ [0mDIST: gewichtete Distanz zum Zielzustand 100. Niedriger ist besser.                                               [94m ║[0m
+[94m║ [0mPq: Proof Quality; Qualität des Nachweises einer Wirkung, 0..1.                                                   [94m ║[0m
+[94m║ [0mCs: Causal Share; kausal attribuierter Anteil einer Verbesserung, 0..1.                                           [94m ║[0m
+[94m║ [0mGini: Ungleichheitsmaß der Geldverteilung, 0 = gleich, 1 = extrem ungleich.                                       [94m ║[0m
+[94m║ [0mEinheit der Metriken: abstrakte Simulationspunkte von 0 bis 100.                                                  [94m ║[0m
+[94m║ [0mEinheit des Geldes: skalarisierte OMK-Punkte = gewichtete, zertifizierte positive Metrikbewegung.                 [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0m[96mAGY[0m (agency)  Handlungsfähigkeit: Fähigkeit zu handeln, zu widersprechen, auszusteigen und zu reparieren.         [94m ║[0m
+[94m║ [0m[92mSAFE[0m (freedom_from_harm)  Schadensfreiheit: Abwesenheit von Schaden, Zwang, Degradation und Hilflosmachung.       [94m ║[0m
+[94m║ [0m[92mTRU[0m (truth)  Wahrheitsnähe: Verlässlichkeit von Behauptungen, Beweisen und Prognosen.                             [94m ║[0m
+[94m║ [0m[95mCAUS[0m (causal_integrity)  Kausale Integrität: Wie gut Ursachen, Wirkungen und Verantwortlichkeiten nachvollziehbar [94m ║[0m
+[94m║ [0mlziehbar sind.                                                                                                    [94m ║[0m
+[94m║ [0m[94mNORM[0m (norm_alignment)  Normabstand: Nähe zu gültigen Normen statt privaten Tyrannenmetriken.                      [94m ║[0m
+[94m║ [0m[91mHIER[0m (hierarchy_legitimacy)  Legitime Hierarchie: Macht ist überprüfbar, anfechtbar, delegierbar und nicht bloß Do[94m ║[0m
+[94m║ [0mt bloß Dominanz.                                                                                                  [94m ║[0m
+[94m║ [0m[93mBEHV[0m (behavior_cooperation)  Kooperatives Verhalten: freiwillige, transparente Verhaltensanpassung ohne Zwang.    [94m ║[0m
+[94m║ [0m[32mREPR[0m (repair_capacity)  Reparaturfähigkeit: Fähigkeit, Schaden rückgängig zu machen, zu kompensieren oder zu entsc[94m ║[0m
+[94m║ [0m zu entschärfen.                                                                                                  [94m ║[0m
+[94m║ [0m[36mHELP[0m (help_potential)  Hilfspotenzial: Fähigkeit künftiger hilfreicher Zustandsverbesserungen.                    [94m ║[0m
+[94m║ [0m[34mRES[0m (resource_resilience)  Ressourcenresilienz: Stabilität von Energie, Gütern, Infrastruktur und Reserven.       [94m ║[0m
+[94m║ [0m[33mOUT[0m (material_output)  Materieller Output: reale Produktion, aber mit niedrigem Moralgewicht.                     [94m ║[0m
+[94m║ [0m[36mLIQ[0m (liquidity)  Liquidität: Handelbarkeit und Umlaufgeschwindigkeit von gültigen Ansprüchen.                     [94m ║[0m
+[94m║ [0m[37mFAIR[0m (fairness)  Fairness: gerechte Verteilung von Rechten, Lasten, Chancen und Vorteilen.                        [94m ║[0m
+[94m║ [0m[93mCONS[0m (consent_quality)  Zustimmungsqualität: freiwillig, informiert, widerrufbar, ohne versteckten Zwang.         [94m ║[0m
+[94m║ [0m[35mREV[0m (reversibility)  Reversibilität: Eingriffe sind rücknehmbar oder wenigstens reparierbar.                      [94m ║[0m
+[94m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [95m Operator-Metrik-Zahlungsfluss [0m                                           ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mDas folgende Bild zeigt die Buchungslogik der GMOE-Währung. Der Markt räumt nicht bloß private Zahlung, sondern pr[95m ║[0m
+[95m║ [0müft eine Zustandsoperation.                                                                                       [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0m        [97mω_t[0m  [90m────────[0m  [36mf: Ω→Ω[0m  [90m────────[0m  [97mω_{t+1}[0m                                                                  [95m ║[0m
+[95m║ [0m                    │                                                                                             [95m ║[0m
+[95m║ [0m                    ▼                                                                                             [95m ║[0m
+[95m║ [0m            [92mMetrikvektor d⃗[0m misst:  Δ = d(ω_t,ω*) - d(f(ω_t),ω*)                                                  [95m ║[0m
+[95m║ [0m                    │                                                                                             [95m ║[0m
+[95m║ [0m                    ▼                                                                                             [95m ║[0m
+[95m║ [0m        [92mΔ ∈ K+[0m ?  ── ja ──►  [36mOMK prägen[0m  ──►  Handel / Dividende / Kredit                                         [95m ║[0m
+[95m║ [0m            │                                                                                                     [95m ║[0m
+[95m║ [0m            nein                                                                                                  [95m ║[0m
+[95m║ [0m            ▼                                                                                                     [95m ║[0m
+[95m║ [0m        [31mkeine Wurzelzahlung: Ablehnung, Slashing, Haftung oder Reparaturpflicht[0m                                   [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mWarum das wichtig ist: Im GMOE-Modus kann akzeptiertes Wurzelgeld nur aus positiver Metrikbewegung entstehen. Dadu[95m ║[0m
+[95m║ [0mrch wird Handel zur Komposition positiver unärer Operationen.                                                     [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[90m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                            [90m Kernzahlen der Simulation [0m                                             ║
+[90m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[90m║ [0m[97mModus[0m                              : baseline                                                                     [90m ║[0m
+[90m║ [0m[97mSeed[0m                               : 7                                                                            [90m ║[0m
+[90m║ [0m[97mSchritte[0m                           : 180                                                                          [90m ║[0m
+[90m║ [0m[97mAgenten[0m                            : 60                                                                           [90m ║[0m
+[90m║ [0m[97mRegionen[0m                           : 5                                                                            [90m ║[0m
+[90m║ [0m[97mNI Start[0m                           : 49.263                                                                       [90m ║[0m
+[90m║ [0m[97mNI Ende[0m                            : 63.977                                                                       [90m ║[0m
+[90m║ [0m[97mNI Änderung[0m                        : +14.714                                                                      [90m ║[0m
+[90m║ [0m[97mDIST Ende[0m                          : 36.023                                                                       [90m ║[0m
+[90m║ [0m[97makzeptierte Transaktionen[0m          : 6120                                                                         [90m ║[0m
+[90m║ [0m[97mabgelehnte Transaktionen[0m           : 0                                                                            [90m ║[0m
+[90m║ [0m[97makzeptierte schädliche Ops[0m         : [91m1496[0m                                                                         [90m ║[0m
+[90m║ [0m[97mK+-Verletzungen akzeptiert[0m         : [91m1581[0m                                                                         [90m ║[0m
+[90m║ [0m[97mkumulativer Δ-Score[0m                : +1480.346                                                                    [90m ║[0m
+[90m║ [0m[97mMoney-Gini[0m                         : 0.884                                                                        [90m ║[0m
+[90m║ [0m[97mcorr(Geld, Reputation)[0m             : 0.245                                                                        [90m ║[0m
+[90m║ [0m[97mcorr(Geld, gültiger Beitrag)[0m       : 0.000                                                                        [90m ║[0m
+[90m║ [0m                                                                                                                  [90m ║[0m
+[90m║ [0mAuswertung: NI ist die verdichtete Zielgröße. Entscheidend ist aber nicht nur NI, sondern ob akzeptierter Handel d[90m ║[0m
+[90m║ [0men K+-Test verletzt. Im GMOE-Modus soll dieser Wert 0 sein.                                                       [90m ║[0m
+[90m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                     [96m Zeitverlauf: Nobility Index und Distanz [0m                                      ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mNI-Verlauf   : [96m▁▁▂▂▃▃▃▃▄▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇█▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▆▇[0m  min=49.42 max=66.20  [96m ║[0m
+[96m║ [0mDIST-Verlauf : [93m█▇▆▆▅▅▅▅▄▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁[0m  min=33.80 max=50.58  [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0mWas dargestellt wird: Jede kleine Säule ist ein Simulationszeitpunkt. Höhere NI-Säulen bedeuten mehr Agency, Wahrh[96m ║[0m
+[96m║ [0meit, Fairness, Reparaturfähigkeit usw. Niedrigere DIST bedeutet geringerer Abstand zum Zielzustand.               [96m ║[0m
+[96m║ [0mWarum es nützlich ist: Tabellen zeigen Endwerte; die Sparkline zeigt, ob die Verbesserung stetig, sprunghaft oder [96m ║[0m
+[96m║ [0mdurch Schocks unterbrochen war.                                                                                   [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[94m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                            [94m Globales Metrik-Dashboard [0m                                             ║
+[94m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[94m║ [0mJeder Balken hat Skala 0..100. Je voller der Balken, desto näher ist die Metrik am Zielzustand.                   [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0m[96mAGY[0m       58.48  [96m████████████████████░░░░░░░░░░░░░░[0m  Gewicht 2.20                                                 [94m ║[0m
+[94m║ [0m[92mSAFE[0m      41.21  [92m██████████████░░░░░░░░░░░░░░░░░░░░[0m  Gewicht 2.25                                                 [94m ║[0m
+[94m║ [0m[92mTRU[0m       52.32  [92m██████████████████░░░░░░░░░░░░░░░░[0m  Gewicht 1.75                                                 [94m ║[0m
+[94m║ [0m[95mCAUS[0m      60.20  [95m████████████████████░░░░░░░░░░░░░░[0m  Gewicht 1.45                                                 [94m ║[0m
+[94m║ [0m[94mNORM[0m      40.48  [94m██████████████░░░░░░░░░░░░░░░░░░░░[0m  Gewicht 1.15                                                 [94m ║[0m
+[94m║ [0m[91mHIER[0m      58.39  [91m████████████████████░░░░░░░░░░░░░░[0m  Gewicht 1.05                                                 [94m ║[0m
+[94m║ [0m[93mBEHV[0m      99.77  [93m██████████████████████████████████[0m  Gewicht 0.90                                                 [94m ║[0m
+[94m║ [0m[32mREPR[0m      99.52  [32m██████████████████████████████████[0m  Gewicht 1.45                                                 [94m ║[0m
+[94m║ [0m[36mHELP[0m     100.00  [36m██████████████████████████████████[0m  Gewicht 1.30                                                 [94m ║[0m
+[94m║ [0m[34mRES[0m      100.00  [34m██████████████████████████████████[0m  Gewicht 0.95                                                 [94m ║[0m
+[94m║ [0m[33mOUT[0m       99.39  [33m██████████████████████████████████[0m  Gewicht 0.50                                                 [94m ║[0m
+[94m║ [0m[36mLIQ[0m      100.00  [36m██████████████████████████████████[0m  Gewicht 0.35                                                 [94m ║[0m
+[94m║ [0m[37mFAIR[0m      41.10  [37m██████████████░░░░░░░░░░░░░░░░░░░░[0m  Gewicht 1.60                                                 [94m ║[0m
+[94m║ [0m[93mCONS[0m      41.13  [93m██████████████░░░░░░░░░░░░░░░░░░░░[0m  Gewicht 1.70                                                 [94m ║[0m
+[94m║ [0m[35mREV[0m       66.37  [35m███████████████████████░░░░░░░░░░░[0m  Gewicht 1.00                                                 [94m ║[0m
+[94m║ [0m                                                                                                                  [94m ║[0m
+[94m║ [0mAuswertung: Hohe Werte bei AGY, SAFE, TRU, FAIR und CONS sind besonders wichtig, weil sie geschützte Metriken sind[94m ║[0m
+[94m║ [0m. OUT und LIQ sind bewusst niedriger gewichtet, damit bloße Produktion oder Liquidität Schaden nicht überdecken ka[94m ║[0m
+[94m║ [0mnn.                                                                                                               [94m ║[0m
+[94m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                                [95m Regionale Heatmap [0m                                                 ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mRegion  NI     [96mAGY[0m   [92mSAFE[0m  [92mTRU[0m   [95mCAUS[0m  [94mNORM[0m  [91mHIER[0m  [93mBEHV[0m  [32mREPR[0m  [36mHELP[0m  [34mRES[0m   [33mOUT[0m   [36mLIQ[0m   [37mFAIR[0m  [93mCONS[0m  [35mREV[0m            [95m ║[0m
+[95m║ [0m--------------------------------------------------------------------------------------------------------          [95m ║[0m
+[95m║ [0mR00     99.2 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR01     29.3 [91m!![0m  [91m!![0m  [91m!![0m  [91m!![0m  [91m!![0m  [91m!![0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [91m!![0m  [91m!![0m  [91m!![0m                                           [95m ║[0m
+[95m║ [0mR02     42.8 [93m▒▒[0m  [91m!![0m  [91m!![0m  [91m!![0m  [91m!![0m  [33m░░[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [91m!![0m  [91m!![0m  [93m▒▒[0m                                           [95m ║[0m
+[95m║ [0mR03     99.9 [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m                                           [95m ║[0m
+[95m║ [0mR04     48.8 [91m!![0m  [91m!![0m  [33m░░[0m  [92m██[0m  [91m!![0m  [33m░░[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [92m██[0m  [91m!![0m  [91m!![0m  [32m▓▓[0m                                           [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mLegende: [92m██ sehr gut[0m  [32m▓▓ gut[0m  [93m▒▒ mittel[0m  [91m░░ schwach[0m  [91m!! kritisch[0m                                                  [95m ║[0m
+[95m║ [0mWas dargestellt wird: Regionen sind lokale galaktische Wirtschaftszonen mit eigener Latenz, Ledgergröße und Metrik[95m ║[0m
+[95m║ [0mlage. Die Heatmap zeigt, wo Reparaturfonds oder Interventionsrechte besonders wertvoll sind.                      [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[92m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                 [92m Operationsmatrix: Algebra der unären Operationen [0m                                 ║
+[92m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[92m║ [0mOperation                          Einheit   akzept.  abgel.   minted     ΔScore     pGain      Schutzverlust     [92m ║[0m
+[92m║ [0m------------------------------------------------------------------------------------------------------------      [92m ║[0m
+[92m║ [0m[92mproduce_goods[0m                      [33mSTOCK[0m        763       0      0.00     448.12    2270.53          0.00         [92m ║[0m
+[92m║ [0m[92minfrastructure_maintenance[0m         [32mREPAIR[0m       545       0      0.00    1150.39     812.72          0.00         [92m ║[0m
+[92m║ [0m[92mtruth_audit[0m                        [92mTRUTH[0m        482       0      0.00    2436.34     480.46          0.00         [92m ║[0m
+[92m║ [0m[92mcausal_intervention[0m                [95mCAUSE[0m        417       0      0.00    1223.33     760.35          0.00         [92m ║[0m
+[92m║ [0m[92meducation[0m                          [92mTRUTH[0m        393       0      0.00    2249.78     496.53          0.00         [92m ║[0m
+[92m║ [0m[92mrepair_harm[0m                        [32mREPAIR[0m       381       0      0.00    3064.20     537.46          0.00         [92m ║[0m
+[92m║ [0m[92mfair_exchange[0m                      [36mOMK[0m          365       0      0.00     611.54     372.23          0.00         [92m ║[0m
+[92m║ [0m[92mvoluntary_behavior_contract[0m        [93mBEHAV[0m        337       0      0.00    1221.69     345.98          0.00         [92m ║[0m
+[92m║ [0m[92mnorm_reform[0m                        [94mNORM[0m         334       0      0.00    1794.64     290.79          0.00         [92m ║[0m
+[92m║ [0m[91mexploit_labor[0m                      [31mDEBT[0m         329       0      0.00   -4182.02    2026.68       3688.02         [92m ║[0m
+[92m║ [0m[92mrestore_agency[0m                     [36mOMK[0m          274       0      0.00    2188.42     320.42          0.00         [92m ║[0m
+[92m║ [0m[91mfake_truth_certificate[0m             [31mDEBT[0m         245       0      0.00   -1859.05    1236.95       1729.70         [92m ║[0m
+[92m║ [0m[91mmetric_hack[0m                        [31mDEBT[0m         228       0      0.00   -1552.18     857.27       1498.76         [92m ║[0m
+[92m║ [0m[92minsurance_underwrite[0m               [91mINS[0m          203       0      0.00     507.85     196.83          0.00         [92m ║[0m
+[92m║ [0m[91mcoercive_behavior_purchase[0m         [31mDEBT[0m         194       0      0.00   -2865.67     894.11       2711.21         [92m ║[0m
+[92m║ [0m[91msabotage_competitor[0m                [31mDEBT[0m         187       0      0.00   -1940.85     829.93       1463.37         [92m ║[0m
+[92m║ [0m[91mtyrant_hierarchy_inversion[0m         [31mDEBT[0m         180       0      0.00   -2597.86     927.07       1795.82         [92m ║[0m
+[92m║ [0m[91mself_created_need[0m                  [31mDEBT[0m         133       0      0.00   -1261.46     409.43        948.17         [92m ║[0m
+[92m║ [0m[92mhierarchy_inversion_repair[0m         [91mHIER[0m         130       0      0.00     843.13     172.35          0.00         [92m ║[0m
+[92m║ [0m[92mexternal_shock[0m                     [35mRISK[0m           7       0      0.00     -38.34       0.00         21.24         [92m ║[0m
+[92m║ [0m                                                                                                                  [92m ║[0m
+[92m║ [0mWas dargestellt wird: Jede Zeile ist eine Operationsfamilie f: Ω→Ω. 'minted' ist geprägtes OMK-Geld. ΔScore ist ge[92m ║[0m
+[92m║ [0mwichtete Metrikbewegung. pGain ist privater Profitanreiz. Schutzverlust misst negative Bewegung in geschützten Met[92m ║[0m
+[92m║ [0mriken.                                                                                                            [92m ║[0m
+[92m║ [0mWarum es wichtig ist: Der Kernvergleich ist, ob private hohe pGain-Werte trotz Schutzverlusten akzeptiert werden. [92m ║[0m
+[92m║ [0mGMOE blockiert rote Linien; Baseline kann sie räumen.                                                             [92m ║[0m
+[92m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[96m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                       [96m Zählbarer Geldstapel nach Einheiten [0m                                        ║
+[96m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[96m║ [0mJede Farbe ist eine andere Währungs-/Instrumentklasse. Die Länge zeigt den Anteil am Gesamtbestand.               [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0m[90mFIAT[0m         21878.68  [90m██████████████████████████████████████████[0m  100.0%                                         [96m ║[0m
+[96m║ [0m                                                                                                                  [96m ║[0m
+[96m║ [0mInterpretation: In der Baseline ist Geld ein skalares Fiatguthaben. Es trägt keine interne Information darüber, ob[96m ║[0m
+[96m║ [0m es durch Hilfe, Wahrheit oder Schaden entstand.                                                                  [96m ║[0m
+[96m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[93m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                                  [93m Marktpanorama [0m                                                   ║
+[93m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[93m║ [0mMarkt                         Einheit  Events  Erfolg  Fehler   Betrag     Aktivität                              [93m ║[0m
+[93m║ [0m----------------------------------------------------------------------------------------------------              [93m ║[0m
+[93m║ [0mdividend                       [33mSTOCK[0m     44288   44288       0   2806.98  [33m████████████████████████[0m                [93m ║[0m
+[93m║ [0msecurities_market              [90mFIAT[0m       2125    1098    1027  63307.70  [90m█░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcredit_market                  [31mDEBT[0m        704       0       0   8448.00  [31m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcredit_settlement              [31mDEBT[0m        684     622      62   9521.28  [31m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mtruth_market                   [92mTRUTH[0m       493     493       0    451.79  [92m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mcausality_market               [95mCAUSE[0m       339     339       0    159.09  [95m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mnorm_market                    [94mNORM[0m        203     203       0     70.99  [94m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mbehavior_market                [93mBEHAV[0m       185     185       0    130.00  [93m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minsurance_market               [90mFIAT[0m         46      45       1     62.14  [90m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mgoods_market                   [90mFIAT[0m         11      11       0     67.67  [90m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0mshock                          [35mRISK[0m          7       0       0      9.44  [35m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0menergy_market                  [90mFIAT[0m          2       2       0      4.50  [90m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0minsurance_payout               [90mFIAT[0m          1       1       0      1.41  [90m░░░░░░░░░░░░░░░░░░░░░░░░[0m                [93m ║[0m
+[93m║ [0m                                                                                                                  [93m ║[0m
+[93m║ [0mWas dargestellt wird: Die Marktpanorama-Grafik macht sichtbar, welche Teilmärkte die meiste Transaktionsaktivität [93m ║[0m
+[93m║ [0merzeugen: Güter, Wertpapiere, Wahrheit, Kausalität, Verhalten, Normen, Versicherungen, Bridge-Handel.             [93m ║[0m
+[93m║ [0mWarum es wichtig ist: Ein Wirtschaftssystem ist nicht nur eine Metrikregel. Es braucht Liquidität, Kredit, Risiko,[93m ║[0m
+[93m║ [0m Wertpapiere, Versicherung und regionale Synchronisation.                                                         [93m ║[0m
+[93m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[97m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                           [97m Akteursgruppen nach Absicht [0m                                            ║
+[97m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[97m║ [0mIntent     Anzahl   ØGeld     ØRep      ØStake   Øgültiger Δ   Øschädl. Δ   RedLines                              [97m ║[0m
+[97m║ [0m----------------------------------------------------------------------------------------------------              [97m ║[0m
+[97m║ [0m[91mharmful[0m         15     41.30      6.62     59.27         0.00      1030.01         0                              [97m ║[0m
+[97m║ [0m[93mneutral[0m         26    484.03     67.20     53.98         0.00        31.12         0                              [97m ║[0m
+[97m║ [0m[92mnoble[0m           19    456.54     71.80     38.18         0.00         0.00         0                              [97m ║[0m
+[97m║ [0m                                                                                                                  [97m ║[0m
+[97m║ [0mAuswertung: Diese Tabelle fragt, ob sich Geld und Reputation in Richtung gültiger Beiträge verschieben. Im GMOE-Mo[97m ║[0m
+[97m║ [0mdus sollten noble und neutrale Akteure durch echte Verbesserung Zahlungsfähigkeit erzeugen können; schädliche Akte[97m ║[0m
+[97m║ [0mure werden durch rote Linien gebremst.                                                                            [97m ║[0m
+[97m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[95m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                        [95m Zertifikate, Verträge und Bridges [0m                                         ║
+[95m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[95m║ [0mInstrument                    Einheit   erstellt  erledigt   Auszahlung/Betrag                                    [95m ║[0m
+[95m║ [0m------------------------------------------------------------------------------------------                        [95m ║[0m
+[95m║ [0mWahrheitszertifikate           [92mTRUTH[0m         253      240           451.79                                        [95m ║[0m
+[95m║ [0mKausalitätszertifikate         [95mCAUSE[0m         171      168           159.09                                        [95m ║[0m
+[95m║ [0mVerhaltensverträge             [93mBEHAV[0m          95       90           130.00                                        [95m ║[0m
+[95m║ [0mNormdistanzverträge            [94mNORM[0m          102      101            70.99                                        [95m ║[0m
+[95m║ [0mKreditverträge                 [31mDEBT[0m          704      684             0.00                                        [95m ║[0m
+[95m║ [0mVersicherungen                 [91mINS[0m            45        1             1.41                                        [95m ║[0m
+[95m║ [0mInterregionale Pakete          [34mBRIDGE[0m          0        0             0.00                                        [95m ║[0m
+[95m║ [0m                                                                                                                  [95m ║[0m
+[95m║ [0mWas dargestellt wird: Diese Übersicht zeigt die nichttrivialen Marktinstrumente jenseits einfachen Kaufs: Wahrheit[95m ║[0m
+[95m║ [0m, Kausalität, Normdistanz, Verhalten, Kredit, Versicherung und Galaxie-Bridges.                                   [95m ║[0m
+[95m║ [0mWarum es wichtig ist: Die Theorie behauptet, dass diese Instrumente alle Spezialfälle derselben Grundstruktur sind[95m ║[0m
+[95m║ [0m: zustandsabhängige Operationen mit Metrik und Beweis.                                                            [95m ║[0m
+[95m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
+
+[90m╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗[0m
+║                                          [90m Ausführliche Schlussauswertung [0m                                          ║
+[90m╠════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣[0m
+[90m║ [0mBaseline-Auswertung: Hier räumt privater Profit. Ein akzeptierter Handel kann also auch negative Metrikbewegung be[90m ║[0m
+[90m║ [0msitzen, solange er privat rentabel ist.                                                                           [90m ║[0m
+[90m║ [0m                                                                                                                  [90m ║[0m
+[90m║ [0mVergleich zu gmoe: NI-Differenz = -35.765                                                                         [90m ║[0m
+[90m║ [0mAkzeptierte schädliche Operationen: baseline=1496, gmoe=0                                                         [90m ║[0m
+[90m║ [0m                                                                                                                  [90m ║[0m
+[90m║ [0mGrenze der Aussage: Das Skript beweist nicht, dass reale Märkte automatisch edel sind. Es demonstriert, dass der p[90m ║[0m
+[90m║ [0mostulierte Mechanismus diese Richtung erzwingt, sobald 'Zahlung' definitionsgemäß eine auditierte positive Operato[90m ║[0m
+[90m║ [0mr-Metrik-Kontraktion ist.                                                                                         [90m ║[0m
+[90m╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝[0m
