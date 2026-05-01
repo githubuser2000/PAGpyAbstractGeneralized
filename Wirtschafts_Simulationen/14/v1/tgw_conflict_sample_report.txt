@@ -1,0 +1,91 @@
+Topologische Gruppenwirtschaft / TGW Simulation
+------------------------------------------------
+Währung: LZ = additive Gruppen-Zahl, positiv oder negativ.
+Topologie: Problem- und Lösungsbereiche als offene Mengen von Domänen-Tags.
+Szenario: conflict, Seed: 8, Galaxien: 3, Ticks: 100
+t=   0 | actors= 430 neg=  1 | openP=  90 sev=-183.45k LZ | projects=  0 solved=   +0.00 LZ damage=-183.45k LZ | fraud=  0 war= 0 | unemp= 14 | Σbal=-0.000000
+t=  25 | actors= 430 neg=  1 | openP= 167 sev=-131.09k LZ | projects= 48 solved= +80.47k LZ damage=-211.56k LZ | fraud= 21 war= 0 | unemp= 12 | Σbal=-0.000000
+t=  50 | actors= 430 neg=  1 | openP= 227 sev= -91.31k LZ | projects= 46 solved=+144.00k LZ damage=-235.34k LZ | fraud= 55 war= 0 | unemp= 11 | Σbal=-0.000000
+t=  75 | actors= 430 neg=  3 | openP= 296 sev=-169.68k LZ | projects= 45 solved=+195.63k LZ damage=-365.35k LZ | fraud= 85 war= 7 | unemp= 10 | Σbal=-0.000000
+t= 100 | actors= 430 neg=  7 | openP= 505 sev=  -1.19M LZ | projects= 50 solved=+266.77k LZ damage=  -1.45M LZ | fraud=111 war=63 | unemp= 10 | Σbal=-0.000000
+
+Finaler Bericht
+===============
+Ticks: 100
+Gesamtbilanz Σ aller Konten: -0.000000003 LZ (sollte nahe 0 bleiben; reine Gruppen-Transfers)
+Offene Problemschwere: -1.19M LZ
+Kumulierte Problemlösung: +266.77k LZ
+Kumulierter Schaden/Formalisierung: -1.45M LZ
+Topologische Brücken/Adapter-Wert: +18.58k LZ
+Entdeckte Betrugsfälle: 111, Betrugs-/Korrekturzahlungen: -32.90k LZ
+Hot-conflict events: 63, Kriegsschaden: -1.13M LZ
+Insolvenzen: 0
+Arbeitslose Haushalte: 10 von 300
+
+Top positive Akteure
+  RepairFund-G2P1S1                repair_fund  G2:P1:S1   bal= +337.69k LZ rep=   0.00
+  RepairFund-G2P1S0                repair_fund  G2:P1:S0   bal= +213.76k LZ rep=   0.00
+  RepairFund-G0P1S0                repair_fund  G0:P1:S0   bal= +162.71k LZ rep=   0.00
+  Bank-G2P2S1                      bank         G2:P2:S1   bal= +116.89k LZ rep=   0.00
+  RepairFund-G0P1S1                repair_fund  G0:P1:S1   bal= +112.12k LZ rep=   0.00
+  Bank-G0P0S0                      bank         G0:P0:S0   bal= +104.75k LZ rep=   0.00
+  Bank-G2P1S1                      bank         G2:P1:S1   bal= +103.88k LZ rep=   0.00
+  RepairFund-G2P2S1                repair_fund  G2:P2:S1   bal=  +97.19k LZ rep=   0.00
+  Bank-G1P1S0                      bank         G1:P1:S0   bal=  +96.11k LZ rep=   0.00
+  Bank-G1P1S1                      bank         G1:P1:S1   bal=  +82.20k LZ rep=   0.00
+
+Top negative Akteure
+  Universal Clearinghouse          clearinghouse GLOBAL     bal=   -3.34M LZ rep=   0.00
+  State-G2P1S0                     state        G2:P1:S0   bal= -425.12k LZ rep=-195.54
+  State-G2P1S1                     state        G2:P1:S1   bal= -114.73k LZ rep= -63.11
+  State-G0P1S1                     state        G0:P1:S1   bal=  -88.32k LZ rep= -62.38
+  State-G2P2S0                     state        G2:P2:S0   bal=  -62.77k LZ rep= -49.30
+  State-G0P1S0                     state        G0:P1:S0   bal=  -57.43k LZ rep= -52.09
+  State-G1P0S0                     state        G1:P0:S0   bal=   -4.98k LZ rep= -17.17
+  Intergalactic Escrow             escrow       GLOBAL     bal=    +0.00 LZ rep=   0.00
+  Universal Repair Reserve         repair_fund  GLOBAL     bal=    +0.00 LZ rep=   0.00
+  Firm-001-research                firm         G2:P2:S0   bal=   +11.17 LZ rep=  -0.09
+
+Größte offene Probleme
+  P426  war-damage-State-G2P1S0-to-State-G sev=  -27.96k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P517  war-damage-State-G0P1S1-to-State-G sev=  -27.68k LZ owner=State-G0P1S0         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P472  war-damage-State-G2P1S0-to-State-G sev=  -26.27k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P439  war-damage-State-G2P1S0-to-State-G sev=  -25.62k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P444  war-damage-State-G0P1S1-to-State-G sev=  -25.02k LZ owner=State-G0P1S0         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P381  war-damage-State-G2P1S0-to-State-G sev=  -24.12k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P477  war-damage-State-G0P1S1-to-State-G sev=  -23.29k LZ owner=State-G0P1S0         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P428  war-damage-State-G2P2S0-to-State-G sev=  -23.03k LZ owner=State-G2P2S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P408  war-damage-State-G2P1S0-to-State-G sev=  -22.70k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P486  war-damage-State-G0P1S0-to-State-G sev=  -22.45k LZ owner=State-G0P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P397  war-damage-State-G2P1S0-to-State-G sev=  -21.89k LZ owner=State-G2P1S1         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+  P358  war-damage-State-G2P1S1-to-State-G sev=  -21.39k LZ owner=State-G2P1S0         dom={governance,health,infrastructure,security} cause=hot_conflict_damage
+
+Transaktionsarten
+  tax                                   35417
+  wage                                  32358
+  consumption                           30000
+  problem_growth                         5147
+  project_payment                        1750
+  audit_fee                              1638
+  problem_formalized                      528
+  genesis_endowment                       427
+  fraud_or_underperformance_penalty       134
+  loan_repayment                           63
+  loan_disbursement                        17
+
+Letzte wichtige Ereignisse
+  t= 100 project_done       P477 by Firm-003-security             +364.98 LZ ok
+  t= 100 project_done       P297 by Firm-059-diplomacy            +347.68 LZ ok
+  t= 100 project_done       P345 by Firm-037-law                  +154.04 LZ ok
+  t= 100 project_done       P408 by Firm-037-law                  +118.75 LZ ok
+  t= 100 project_done       P486 by Firm-003-security             +344.46 LZ ok
+  t= 100 project_done       P419 by Firm-030-culture               +89.09 LZ ok
+  t= 100 project_done       P429 by Firm-030-culture              +103.41 LZ ok
+  t= 100 project_done       P360 by Firm-070-diplomacy            +221.17 LZ ok
+  t= 100 project_done       P381 by Firm-037-law                  +149.12 LZ ok
+  t= 100 project_done       P513 by Firm-030-culture              +122.35 LZ ok
+  t= 100 project_done       P502 by Firm-020-diplomacy            +178.26 LZ ok
+  t= 100 fraud_detected     Firm-037-law                          -207.78 LZ P336
+  t= 100 fraud_detected     Firm-037-law                          -165.75 LZ P268
+  t= 100 fraud_detected     Firm-003-security                     -559.13 LZ P444
+  t= 100 fraud_detected     Firm-059-diplomacy                    -465.21 LZ P471

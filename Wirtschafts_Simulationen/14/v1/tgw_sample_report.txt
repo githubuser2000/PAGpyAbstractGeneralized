@@ -1,0 +1,89 @@
+Topologische Gruppenwirtschaft / TGW Simulation
+------------------------------------------------
+Währung: LZ = additive Gruppen-Zahl, positiv oder negativ.
+Topologie: Problem- und Lösungsbereiche als offene Mengen von Domänen-Tags.
+Szenario: baseline, Seed: 23, Galaxien: 3, Ticks: 80
+t=   0 | actors= 430 neg=  1 | openP=  90 sev=-205.17k LZ | projects=  0 solved=   +0.00 LZ damage=-205.17k LZ | fraud=  0 war= 0 | unemp=  0 | Σbal=-0.000000
+t=  20 | actors= 430 neg=  1 | openP= 134 sev=-160.78k LZ | projects= 46 solved= +61.14k LZ damage=-221.92k LZ | fraud= 16 war= 0 | unemp=  0 | Σbal=-0.000000
+t=  40 | actors= 430 neg=  1 | openP= 188 sev=-118.62k LZ | projects= 50 solved=+121.64k LZ damage=-240.27k LZ | fraud= 39 war= 0 | unemp=  0 | Σbal=-0.000000
+t=  60 | actors= 430 neg=  1 | openP= 230 sev= -82.62k LZ | projects= 41 solved=+172.19k LZ damage=-254.83k LZ | fraud= 58 war= 0 | unemp=  0 | Σbal=-0.000000
+t=  80 | actors= 430 neg=  1 | openP= 256 sev= -56.92k LZ | projects= 41 solved=+212.39k LZ damage=-269.33k LZ | fraud= 86 war= 0 | unemp=  0 | Σbal=-0.000000
+
+Finaler Bericht
+===============
+Ticks: 80
+Gesamtbilanz Σ aller Konten: -0.000000002 LZ (sollte nahe 0 bleiben; reine Gruppen-Transfers)
+Offene Problemschwere: -56.92k LZ
+Kumulierte Problemlösung: +212.39k LZ
+Kumulierter Schaden/Formalisierung: -269.33k LZ
+Topologische Brücken/Adapter-Wert: +9.58k LZ
+Entdeckte Betrugsfälle: 86, Betrugs-/Korrekturzahlungen: -30.36k LZ
+Hot-conflict events: 0, Kriegsschaden: +-0.00 LZ
+Insolvenzen: 0
+Arbeitslose Haushalte: 0 von 300
+
+Top positive Akteure
+  Bank-G0P0S1                      bank         G0:P0:S1   bal= +117.37k LZ rep=   0.00
+  Bank-G1P2S0                      bank         G1:P2:S0   bal=  +94.65k LZ rep=   0.00
+  Bank-G0P2S0                      bank         G0:P2:S0   bal=  +93.64k LZ rep=   0.00
+  Bank-G2P0S0                      bank         G2:P0:S0   bal=  +90.60k LZ rep=   0.00
+  Bank-G2P2S0                      bank         G2:P2:S0   bal=  +88.93k LZ rep=   0.00
+  Bank-G1P1S0                      bank         G1:P1:S0   bal=  +87.56k LZ rep=   0.00
+  Bank-G0P1S1                      bank         G0:P1:S1   bal=  +81.55k LZ rep=   0.00
+  Bank-G2P2S1                      bank         G2:P2:S1   bal=  +81.28k LZ rep=   0.00
+  Bank-G1P1S1                      bank         G1:P1:S1   bal=  +80.34k LZ rep=   0.00
+  Bank-G2P0S1                      bank         G2:P0:S1   bal=  +73.00k LZ rep=   0.00
+
+Top negative Akteure
+  Universal Clearinghouse          clearinghouse GLOBAL     bal=   -3.30M LZ rep=   0.00
+  Intergalactic Escrow             escrow       GLOBAL     bal=    +0.00 LZ rep=   0.00
+  Universal Repair Reserve         repair_fund  GLOBAL     bal=    +0.00 LZ rep=   0.00
+  Firm-012-finance                 firm         G1:P2:S0   bal=  +167.65 LZ rep=   0.54
+  Household-143                    household    G1:P0:S0   bal=  +389.65 LZ rep=   0.00
+  Household-175                    household    G1:P1:S0   bal=  +429.26 LZ rep=   0.00
+  Household-074                    household    G1:P1:S1   bal=  +445.50 LZ rep=   0.00
+  Household-114                    household    G2:P0:S1   bal=  +480.13 LZ rep=   0.00
+  Household-202                    household    G2:P0:S1   bal=  +484.34 LZ rep=   0.00
+  Household-286                    household    G1:P2:S1   bal=  +488.85 LZ rep=   0.00
+
+Größte offene Probleme
+  P86   initial-water-1                    sev=   -3.47k LZ owner=State-G2P2S1         dom={environment,health,infrastructure,water} cause=initial_structural_problem
+  P4    initial-health-4                   sev=   -2.91k LZ owner=State-G0P0S0         dom={education,health,law} cause=initial_structural_problem
+  P6    initial-transport-1                sev=   -2.47k LZ owner=State-G0P0S1         dom={energy,infrastructure,logistics,transport} cause=initial_structural_problem
+  P71   initial-industry-1                 sev=   -2.02k LZ owner=State-G2P1S0         dom={energy,finance,housing,industry,labor} cause=initial_structural_problem
+  P85   initial-energy-5                   sev=   -1.99k LZ owner=State-G2P2S0         dom={energy,industry,infrastructure} cause=initial_structural_problem
+  P41   initial-environment-1              sev=   -1.84k LZ owner=State-G1P1S0         dom={energy,environment,industry,law,water} cause=initial_structural_problem
+  P58   initial-labor-3                    sev=   -1.75k LZ owner=State-G1P2S1         dom={education,housing,industry,labor} cause=initial_structural_problem
+  P90   initial-logistics-5                sev=   -1.75k LZ owner=State-G2P2S1         dom={food,industry,logistics,transport} cause=initial_structural_problem
+  P62   initial-health-2                   sev=   -1.74k LZ owner=State-G2P0S0         dom={education,health,law} cause=initial_structural_problem
+  P54   initial-logistics-4                sev=   -1.68k LZ owner=State-G1P2S0         dom={food,industry,logistics,transport} cause=initial_structural_problem
+  P43   initial-governance-3               sev=   -1.60k LZ owner=State-G1P1S0         dom={finance,governance,law} cause=initial_structural_problem
+  P42   initial-energy-2                   sev=   -1.59k LZ owner=State-G1P1S0         dom={energy,industry,infrastructure,research} cause=initial_structural_problem
+
+Transaktionsarten
+  tax                                   29105
+  wage                                  26480
+  consumption                           24000
+  problem_growth                         3666
+  project_payment                        1399
+  audit_fee                              1288
+  genesis_endowment                       427
+  problem_formalized                      288
+  fraud_or_underperformance_penalty        93
+
+Letzte wichtige Ereignisse
+  t=  80 project_done       P69 by Firm-003-communication          +71.40 LZ ok
+  t=  80 project_done       P95 by Firm-051-security              +144.25 LZ ok
+  t=  80 project_done       P119 by Firm-035-environment           +98.11 LZ ok
+  t=  80 project_done       P58 by Firm-059-finance                +83.77 LZ ok
+  t=  80 project_done       P11 by Firm-068-water                  +24.02 LZ ok
+  t=  80 project_done       P81 by Firm-023-infrastructure         +67.01 LZ ok
+  t=  80 project_done       P277 by Firm-030-education             +74.15 LZ ok
+  t=  80 project_done       P244 by Firm-035-environment          +119.57 LZ ok
+  t=  80 project_done       P73 by Firm-035-environment            +70.27 LZ ok
+  t=  80 project_done       P5 by Firm-020-energy                  +81.11 LZ ok
+  t=  80 project_done       P254 by Firm-034-law                   +95.41 LZ ok
+  t=  80 project_done       P233 by Firm-023-infrastructure        +69.31 LZ ok
+  t=  80 project_done       P105 by Firm-020-energy                +78.23 LZ ok
+  t=  80 fraud_detected     Firm-005-governance                   -331.11 LZ P231
+  t=  80 fraud_detected     Firm-035-environment                  -165.68 LZ P247

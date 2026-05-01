@@ -1,0 +1,3655 @@
+{
+  "config": {
+    "ticks": 80,
+    "seed": 23,
+    "scenario": "baseline",
+    "galaxies": 3,
+    "planets_per_galaxy": 3,
+    "states_per_planet": 2,
+    "households": 300,
+    "firms": 70,
+    "report_every": 20,
+    "initial_problems_per_state": 5,
+    "max_projects_started_per_tick": 18,
+    "max_active_projects": 80,
+    "intergalactic_delay": 18,
+    "remote_project_probability": 0.08,
+    "war_probability": 0.004,
+    "fraud_pressure": 1.0,
+    "externality_rate": 1.0,
+    "credit_leverage": 4.0,
+    "max_transactions_kept": 20000,
+    "csv_out": "/mnt/data/tgw_sample_timeseries.csv",
+    "json_out": "/mnt/data/tgw_sample_final.json",
+    "quiet": false
+  },
+  "final_metric": {
+    "tick": 80,
+    "phase": "tick",
+    "total_balance": -1.970988705579657e-09,
+    "min_balance": -3302046.041552232,
+    "max_balance": 117366.17048210614,
+    "negative_actors": 1,
+    "open_problems": 256,
+    "open_problem_severity": 56921.37724425937,
+    "active_projects": 41,
+    "completed_projects": 1399,
+    "audited_projects": 1288,
+    "cumulative_solved_value": 212385.24109843918,
+    "cumulative_damage_value": 269328.12695337995,
+    "cumulative_fraud_penalty": 30362.540543743882,
+    "cumulative_bridge_value": 9580.677499079411,
+    "war_events": 0,
+    "war_damage": 0.0,
+    "fraud_cases_detected": 86,
+    "bankruptcies": 0,
+    "unemployment": 0,
+    "active_firms": 70,
+    "active_loans": 0,
+    "avg_tension": 0.6296663467111137,
+    "max_tension": 1.6911658190509684
+  },
+  "top_positive_actors": [
+    {
+      "id": 10,
+      "name": "Bank-G0P0S1",
+      "kind": "bank",
+      "location": "G0:P0:S1",
+      "balance_lz": 117366.17,
+      "reputation": 0.0,
+      "integrity": 0.818,
+      "productivity": 1.129,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 38,
+      "name": "Bank-G1P2S0",
+      "kind": "bank",
+      "location": "G1:P2:S0",
+      "balance_lz": 94654.217,
+      "reputation": 0.0,
+      "integrity": 0.808,
+      "productivity": 1.035,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 19,
+      "name": "Bank-G0P2S0",
+      "kind": "bank",
+      "location": "G0:P2:S0",
+      "balance_lz": 93642.911,
+      "reputation": 0.0,
+      "integrity": 0.696,
+      "productivity": 0.854,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 45,
+      "name": "Bank-G2P0S0",
+      "kind": "bank",
+      "location": "G2:P0:S0",
+      "balance_lz": 90603.001,
+      "reputation": 0.0,
+      "integrity": 0.919,
+      "productivity": 1.049,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 57,
+      "name": "Bank-G2P2S0",
+      "kind": "bank",
+      "location": "G2:P2:S0",
+      "balance_lz": 88927.656,
+      "reputation": 0.0,
+      "integrity": 0.708,
+      "productivity": 0.839,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 32,
+      "name": "Bank-G1P1S0",
+      "kind": "bank",
+      "location": "G1:P1:S0",
+      "balance_lz": 87556.093,
+      "reputation": 0.0,
+      "integrity": 0.753,
+      "productivity": 1.147,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 16,
+      "name": "Bank-G0P1S1",
+      "kind": "bank",
+      "location": "G0:P1:S1",
+      "balance_lz": 81553.971,
+      "reputation": 0.0,
+      "integrity": 0.636,
+      "productivity": 0.819,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 60,
+      "name": "Bank-G2P2S1",
+      "kind": "bank",
+      "location": "G2:P2:S1",
+      "balance_lz": 81281.224,
+      "reputation": 0.0,
+      "integrity": 0.871,
+      "productivity": 1.034,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 35,
+      "name": "Bank-G1P1S1",
+      "kind": "bank",
+      "location": "G1:P1:S1",
+      "balance_lz": 80341.969,
+      "reputation": 0.0,
+      "integrity": 0.64,
+      "productivity": 1.116,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 48,
+      "name": "Bank-G2P0S1",
+      "kind": "bank",
+      "location": "G2:P0:S1",
+      "balance_lz": 72998.291,
+      "reputation": 0.0,
+      "integrity": 0.743,
+      "productivity": 1.01,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 26,
+      "name": "Bank-G1P0S0",
+      "kind": "bank",
+      "location": "G1:P0:S0",
+      "balance_lz": 71936.202,
+      "reputation": 0.0,
+      "integrity": 0.739,
+      "productivity": 0.897,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 13,
+      "name": "Bank-G0P1S0",
+      "kind": "bank",
+      "location": "G0:P1:S0",
+      "balance_lz": 70270.64,
+      "reputation": 0.0,
+      "integrity": 0.775,
+      "productivity": 1.159,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 52,
+      "name": "State-G2P1S1",
+      "kind": "state",
+      "location": "G2:P1:S1",
+      "balance_lz": 70004.249,
+      "reputation": -5.394,
+      "integrity": 0.731,
+      "productivity": 1.129,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 43,
+      "name": "State-G2P0S0",
+      "kind": "state",
+      "location": "G2:P0:S0",
+      "balance_lz": 68572.378,
+      "reputation": -7.151,
+      "integrity": 0.778,
+      "productivity": 0.963,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 29,
+      "name": "Bank-G1P0S1",
+      "kind": "bank",
+      "location": "G1:P0:S1",
+      "balance_lz": 67957.644,
+      "reputation": 0.0,
+      "integrity": 0.801,
+      "productivity": 1.206,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 14,
+      "name": "State-G0P1S1",
+      "kind": "state",
+      "location": "G0:P1:S1",
+      "balance_lz": 67285.519,
+      "reputation": -4.944,
+      "integrity": 0.625,
+      "productivity": 0.789,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 39,
+      "name": "State-G1P2S1",
+      "kind": "state",
+      "location": "G1:P2:S1",
+      "balance_lz": 66412.679,
+      "reputation": -6.655,
+      "integrity": 0.705,
+      "productivity": 1.093,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 30,
+      "name": "State-G1P1S0",
+      "kind": "state",
+      "location": "G1:P1:S0",
+      "balance_lz": 64553.615,
+      "reputation": -6.292,
+      "integrity": 0.732,
+      "productivity": 0.871,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 24,
+      "name": "State-G1P0S0",
+      "kind": "state",
+      "location": "G1:P0:S0",
+      "balance_lz": 64071.853,
+      "reputation": -4.744,
+      "integrity": 0.939,
+      "productivity": 0.969,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 55,
+      "name": "State-G2P2S0",
+      "kind": "state",
+      "location": "G2:P2:S0",
+      "balance_lz": 61775.592,
+      "reputation": -5.687,
+      "integrity": 0.61,
+      "productivity": 1.119,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 11,
+      "name": "State-G0P1S0",
+      "kind": "state",
+      "location": "G0:P1:S0",
+      "balance_lz": 59972.515,
+      "reputation": -4.321,
+      "integrity": 0.862,
+      "productivity": 0.884,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 54,
+      "name": "Bank-G2P1S1",
+      "kind": "bank",
+      "location": "G2:P1:S1",
+      "balance_lz": 54808.193,
+      "reputation": 0.0,
+      "integrity": 0.835,
+      "productivity": 0.821,
+      "sector": "bank",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 20,
+      "name": "State-G0P2S1",
+      "kind": "state",
+      "location": "G0:P2:S1",
+      "balance_lz": 52382.504,
+      "reputation": -4.964,
+      "integrity": 0.648,
+      "productivity": 0.973,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 36,
+      "name": "State-G1P2S0",
+      "kind": "state",
+      "location": "G1:P2:S0",
+      "balance_lz": 48574.555,
+      "reputation": -5.95,
+      "integrity": 0.652,
+      "productivity": 1.176,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 33,
+      "name": "State-G1P1S1",
+      "kind": "state",
+      "location": "G1:P1:S1",
+      "balance_lz": 48413.217,
+      "reputation": -5.916,
+      "integrity": 0.671,
+      "productivity": 0.905,
+      "sector": "state-domain",
+      "active": true,
+      "employees": 0
+    }
+  ],
+  "top_negative_actors": [
+    {
+      "id": 1,
+      "name": "Universal Clearinghouse",
+      "kind": "clearinghouse",
+      "location": "GLOBAL",
+      "balance_lz": -3302046.042,
+      "reputation": 0.0,
+      "integrity": 0.9,
+      "productivity": 1.0,
+      "sector": "clearing",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 2,
+      "name": "Intergalactic Escrow",
+      "kind": "escrow",
+      "location": "GLOBAL",
+      "balance_lz": 0.0,
+      "reputation": 0.0,
+      "integrity": 0.9,
+      "productivity": 1.0,
+      "sector": "escrow",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 3,
+      "name": "Universal Repair Reserve",
+      "kind": "repair_fund",
+      "location": "GLOBAL",
+      "balance_lz": 0.0,
+      "reputation": 0.0,
+      "integrity": 0.9,
+      "productivity": 1.0,
+      "sector": "repair",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 72,
+      "name": "Firm-012-finance",
+      "kind": "firm",
+      "location": "G1:P2:S0",
+      "balance_lz": 167.649,
+      "reputation": 0.544,
+      "integrity": 0.831,
+      "productivity": 0.755,
+      "sector": "finance",
+      "active": true,
+      "employees": 5
+    },
+    {
+      "id": 273,
+      "name": "Household-143",
+      "kind": "household",
+      "location": "G1:P0:S0",
+      "balance_lz": 389.646,
+      "reputation": 0.0,
+      "integrity": 0.853,
+      "productivity": 0.678,
+      "sector": "worker:finance",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 305,
+      "name": "Household-175",
+      "kind": "household",
+      "location": "G1:P1:S0",
+      "balance_lz": 429.257,
+      "reputation": 0.0,
+      "integrity": 0.808,
+      "productivity": 0.721,
+      "sector": "worker:communication",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 204,
+      "name": "Household-074",
+      "kind": "household",
+      "location": "G1:P1:S1",
+      "balance_lz": 445.498,
+      "reputation": 0.0,
+      "integrity": 0.943,
+      "productivity": 0.699,
+      "sector": "worker:law",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 244,
+      "name": "Household-114",
+      "kind": "household",
+      "location": "G2:P0:S1",
+      "balance_lz": 480.128,
+      "reputation": 0.0,
+      "integrity": 0.761,
+      "productivity": 0.848,
+      "sector": "worker:communication",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 332,
+      "name": "Household-202",
+      "kind": "household",
+      "location": "G2:P0:S1",
+      "balance_lz": 484.335,
+      "reputation": 0.0,
+      "integrity": 0.945,
+      "productivity": 0.759,
+      "sector": "worker:infrastructure",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 416,
+      "name": "Household-286",
+      "kind": "household",
+      "location": "G1:P2:S1",
+      "balance_lz": 488.849,
+      "reputation": 0.0,
+      "integrity": 0.91,
+      "productivity": 0.728,
+      "sector": "worker:environment",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 255,
+      "name": "Household-125",
+      "kind": "household",
+      "location": "G0:P2:S0",
+      "balance_lz": 493.349,
+      "reputation": 0.0,
+      "integrity": 0.799,
+      "productivity": 0.74,
+      "sector": "worker:transport",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 402,
+      "name": "Household-272",
+      "kind": "household",
+      "location": "G1:P1:S1",
+      "balance_lz": 508.766,
+      "reputation": 0.0,
+      "integrity": 0.754,
+      "productivity": 0.89,
+      "sector": "worker:industry",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 380,
+      "name": "Household-250",
+      "kind": "household",
+      "location": "G2:P0:S1",
+      "balance_lz": 512.284,
+      "reputation": 0.0,
+      "integrity": 0.865,
+      "productivity": 0.911,
+      "sector": "worker:security",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 411,
+      "name": "Household-281",
+      "kind": "household",
+      "location": "G0:P2:S1",
+      "balance_lz": 514.525,
+      "reputation": 0.0,
+      "integrity": 0.927,
+      "productivity": 0.995,
+      "sector": "worker:culture",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 295,
+      "name": "Household-165",
+      "kind": "household",
+      "location": "G2:P0:S1",
+      "balance_lz": 514.967,
+      "reputation": 0.0,
+      "integrity": 0.808,
+      "productivity": 0.721,
+      "sector": "worker:law",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 257,
+      "name": "Household-127",
+      "kind": "household",
+      "location": "G1:P2:S1",
+      "balance_lz": 519.101,
+      "reputation": 0.0,
+      "integrity": 0.9,
+      "productivity": 0.842,
+      "sector": "worker:health",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 141,
+      "name": "Household-011",
+      "kind": "household",
+      "location": "G1:P1:S1",
+      "balance_lz": 527.817,
+      "reputation": 0.0,
+      "integrity": 0.754,
+      "productivity": 0.929,
+      "sector": "worker:security",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 224,
+      "name": "Household-094",
+      "kind": "household",
+      "location": "G0:P2:S1",
+      "balance_lz": 530.624,
+      "reputation": 0.0,
+      "integrity": 0.832,
+      "productivity": 0.915,
+      "sector": "worker:housing",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 320,
+      "name": "Household-190",
+      "kind": "household",
+      "location": "G2:P1:S1",
+      "balance_lz": 535.422,
+      "reputation": 0.0,
+      "integrity": 0.836,
+      "productivity": 0.708,
+      "sector": "worker:finance",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 223,
+      "name": "Household-093",
+      "kind": "household",
+      "location": "G0:P1:S1",
+      "balance_lz": 536.324,
+      "reputation": 0.0,
+      "integrity": 0.911,
+      "productivity": 1.017,
+      "sector": "worker:industry",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 395,
+      "name": "Household-265",
+      "kind": "household",
+      "location": "G0:P0:S1",
+      "balance_lz": 545.331,
+      "reputation": 0.0,
+      "integrity": 0.846,
+      "productivity": 0.956,
+      "sector": "worker:governance",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 363,
+      "name": "Household-233",
+      "kind": "household",
+      "location": "G0:P2:S1",
+      "balance_lz": 547.289,
+      "reputation": 0.0,
+      "integrity": 0.922,
+      "productivity": 0.829,
+      "sector": "worker:energy",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 311,
+      "name": "Household-181",
+      "kind": "household",
+      "location": "G0:P0:S1",
+      "balance_lz": 547.761,
+      "reputation": 0.0,
+      "integrity": 0.949,
+      "productivity": 0.929,
+      "sector": "worker:labor",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 393,
+      "name": "Household-263",
+      "kind": "household",
+      "location": "G2:P2:S1",
+      "balance_lz": 548.122,
+      "reputation": 0.0,
+      "integrity": 0.935,
+      "productivity": 0.761,
+      "sector": "worker:logistics",
+      "active": true,
+      "employees": 0
+    },
+    {
+      "id": 345,
+      "name": "Household-215",
+      "kind": "household",
+      "location": "G1:P0:S1",
+      "balance_lz": 551.194,
+      "reputation": 0.0,
+      "integrity": 0.891,
+      "productivity": 0.714,
+      "sector": "worker:health",
+      "active": true,
+      "employees": 0
+    }
+  ],
+  "largest_open_problems": [
+    {
+      "id": 86,
+      "title": "initial-water-1",
+      "severity_lz": 3469.779,
+      "negative_value_lz": -3469.779,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 4,
+      "title": "initial-health-4",
+      "severity_lz": 2905.626,
+      "negative_value_lz": -2905.626,
+      "owner": "State-G0P0S0",
+      "fund": "RepairFund-G0P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "education",
+        "health",
+        "law"
+      ],
+      "location": "G0:P0:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 6,
+      "title": "initial-transport-1",
+      "severity_lz": 2472.969,
+      "negative_value_lz": -2472.969,
+      "owner": "State-G0P0S1",
+      "fund": "RepairFund-G0P0S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "infrastructure",
+        "logistics",
+        "transport"
+      ],
+      "location": "G0:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 71,
+      "title": "initial-industry-1",
+      "severity_lz": 2020.659,
+      "negative_value_lz": -2020.659,
+      "owner": "State-G2P1S0",
+      "fund": "RepairFund-G2P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "finance",
+        "housing",
+        "industry",
+        "labor"
+      ],
+      "location": "G2:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 85,
+      "title": "initial-energy-5",
+      "severity_lz": 1985.72,
+      "negative_value_lz": -1985.72,
+      "owner": "State-G2P2S0",
+      "fund": "RepairFund-G2P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G2:P2:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 41,
+      "title": "initial-environment-1",
+      "severity_lz": 1840.324,
+      "negative_value_lz": -1840.324,
+      "owner": "State-G1P1S0",
+      "fund": "RepairFund-G1P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "environment",
+        "industry",
+        "law",
+        "water"
+      ],
+      "location": "G1:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 58,
+      "title": "initial-labor-3",
+      "severity_lz": 1753.734,
+      "negative_value_lz": -1753.734,
+      "owner": "State-G1P2S1",
+      "fund": "RepairFund-G1P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "education",
+        "housing",
+        "industry",
+        "labor"
+      ],
+      "location": "G1:P2:S1",
+      "status": "open"
+    },
+    {
+      "id": 90,
+      "title": "initial-logistics-5",
+      "severity_lz": 1752.991,
+      "negative_value_lz": -1752.991,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "food",
+        "industry",
+        "logistics",
+        "transport"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 62,
+      "title": "initial-health-2",
+      "severity_lz": 1743.676,
+      "negative_value_lz": -1743.676,
+      "owner": "State-G2P0S0",
+      "fund": "RepairFund-G2P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "education",
+        "health",
+        "law"
+      ],
+      "location": "G2:P0:S0",
+      "status": "open"
+    },
+    {
+      "id": 54,
+      "title": "initial-logistics-4",
+      "severity_lz": 1678.71,
+      "negative_value_lz": -1678.71,
+      "owner": "State-G1P2S0",
+      "fund": "RepairFund-G1P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "food",
+        "industry",
+        "logistics",
+        "transport"
+      ],
+      "location": "G1:P2:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 43,
+      "title": "initial-governance-3",
+      "severity_lz": 1599.468,
+      "negative_value_lz": -1599.468,
+      "owner": "State-G1P1S0",
+      "fund": "RepairFund-G1P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "finance",
+        "governance",
+        "law"
+      ],
+      "location": "G1:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 42,
+      "title": "initial-energy-2",
+      "severity_lz": 1585.435,
+      "negative_value_lz": -1585.435,
+      "owner": "State-G1P1S0",
+      "fund": "RepairFund-G1P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure",
+        "research"
+      ],
+      "location": "G1:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 69,
+      "title": "initial-water-4",
+      "severity_lz": 1569.764,
+      "negative_value_lz": -1569.764,
+      "owner": "State-G2P0S1",
+      "fund": "RepairFund-G2P0S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G2:P0:S1",
+      "status": "open"
+    },
+    {
+      "id": 11,
+      "title": "initial-infrastructure-1",
+      "severity_lz": 1567.159,
+      "negative_value_lz": -1567.159,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "communication",
+        "infrastructure",
+        "transport"
+      ],
+      "location": "G0:P1:S0",
+      "status": "open"
+    },
+    {
+      "id": 63,
+      "title": "initial-governance-3",
+      "severity_lz": 1201.568,
+      "negative_value_lz": -1201.568,
+      "owner": "State-G2P0S0",
+      "fund": "RepairFund-G2P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "finance",
+        "governance",
+        "industry",
+        "law"
+      ],
+      "location": "G2:P0:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 76,
+      "title": "initial-security-1",
+      "severity_lz": 1143.39,
+      "negative_value_lz": -1143.39,
+      "owner": "State-G2P1S1",
+      "fund": "RepairFund-G2P1S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "governance",
+        "law",
+        "security"
+      ],
+      "location": "G2:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 73,
+      "title": "initial-governance-3",
+      "severity_lz": 628.841,
+      "negative_value_lz": -628.841,
+      "owner": "State-G2P1S0",
+      "fund": "RepairFund-G2P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "finance",
+        "governance",
+        "law"
+      ],
+      "location": "G2:P1:S0",
+      "status": "open"
+    },
+    {
+      "id": 5,
+      "title": "initial-food-5",
+      "severity_lz": 600.027,
+      "negative_value_lz": -600.027,
+      "owner": "State-G0P0S0",
+      "fund": "RepairFund-G0P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "food",
+        "labor",
+        "logistics",
+        "water"
+      ],
+      "location": "G0:P0:S0",
+      "status": "open"
+    },
+    {
+      "id": 87,
+      "title": "initial-food-2",
+      "severity_lz": 544.195,
+      "negative_value_lz": -544.195,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "food",
+        "housing",
+        "labor",
+        "logistics",
+        "water"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 53,
+      "title": "initial-water-3",
+      "severity_lz": 495.54,
+      "negative_value_lz": -495.54,
+      "owner": "State-G1P2S0",
+      "fund": "RepairFund-G1P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G1:P2:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 55,
+      "title": "initial-diplomacy-5",
+      "severity_lz": 427.651,
+      "negative_value_lz": -427.651,
+      "owner": "State-G1P2S0",
+      "fund": "RepairFund-G1P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "culture",
+        "diplomacy",
+        "governance",
+        "law",
+        "security"
+      ],
+      "location": "G1:P2:S0",
+      "status": "open"
+    },
+    {
+      "id": 15,
+      "title": "initial-governance-5",
+      "severity_lz": 413.473,
+      "negative_value_lz": -413.473,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "finance",
+        "governance",
+        "health",
+        "law"
+      ],
+      "location": "G0:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 275,
+      "title": "externality-by-Firm-032-security",
+      "severity_lz": 362.719,
+      "negative_value_lz": -362.719,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "production_externality",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G0:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 274,
+      "title": "externality-by-Firm-022-environment",
+      "severity_lz": 340.705,
+      "negative_value_lz": -340.705,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "production_externality",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G0:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 269,
+      "title": "public-shock-culture",
+      "severity_lz": 336.483,
+      "negative_value_lz": -336.483,
+      "owner": "State-G2P1S0",
+      "fund": "RepairFund-G2P1S0",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "communication",
+        "culture",
+        "education"
+      ],
+      "location": "G2:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 10,
+      "title": "initial-health-5",
+      "severity_lz": 306.197,
+      "negative_value_lz": -306.197,
+      "owner": "State-G0P0S1",
+      "fund": "RepairFund-G0P0S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "education",
+        "health",
+        "law"
+      ],
+      "location": "G0:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 287,
+      "title": "public-shock-food",
+      "severity_lz": 300.701,
+      "negative_value_lz": -300.701,
+      "owner": "State-G0P1S1",
+      "fund": "RepairFund-G0P1S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "food",
+        "labor",
+        "logistics",
+        "water"
+      ],
+      "location": "G0:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 7,
+      "title": "initial-infrastructure-2",
+      "severity_lz": 289.237,
+      "negative_value_lz": -289.237,
+      "owner": "State-G0P0S1",
+      "fund": "RepairFund-G0P0S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "communication",
+        "infrastructure",
+        "transport"
+      ],
+      "location": "G0:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 283,
+      "title": "public-shock-energy",
+      "severity_lz": 235.904,
+      "negative_value_lz": -235.904,
+      "owner": "State-G0P1S1",
+      "fund": "RepairFund-G0P1S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G0:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 288,
+      "title": "public-shock-labor",
+      "severity_lz": 234.08,
+      "negative_value_lz": -234.08,
+      "owner": "State-G2P1S1",
+      "fund": "RepairFund-G2P1S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "education",
+        "industry",
+        "labor"
+      ],
+      "location": "G2:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 81,
+      "title": "initial-water-1",
+      "severity_lz": 231.979,
+      "negative_value_lz": -231.979,
+      "owner": "State-G2P2S0",
+      "fund": "RepairFund-G2P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G2:P2:S0",
+      "status": "open"
+    },
+    {
+      "id": 277,
+      "title": "public-shock-security",
+      "severity_lz": 222.842,
+      "negative_value_lz": -222.842,
+      "owner": "State-G1P1S0",
+      "fund": "RepairFund-G1P1S0",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "governance",
+        "law",
+        "security"
+      ],
+      "location": "G1:P1:S0",
+      "status": "open"
+    },
+    {
+      "id": 57,
+      "title": "initial-food-2",
+      "severity_lz": 186.475,
+      "negative_value_lz": -186.475,
+      "owner": "State-G1P2S1",
+      "fund": "RepairFund-G1P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "food",
+        "labor",
+        "logistics",
+        "water"
+      ],
+      "location": "G1:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 31,
+      "title": "initial-water-1",
+      "severity_lz": 181.455,
+      "negative_value_lz": -181.455,
+      "owner": "State-G1P0S0",
+      "fund": "RepairFund-G1P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "housing",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G1:P0:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 51,
+      "title": "initial-water-1",
+      "severity_lz": 178.794,
+      "negative_value_lz": -178.794,
+      "owner": "State-G1P2S0",
+      "fund": "RepairFund-G1P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G1:P2:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 202,
+      "title": "externality-by-Firm-025-energy",
+      "severity_lz": 177.543,
+      "negative_value_lz": -177.543,
+      "owner": "State-G2P0S0",
+      "fund": "RepairFund-G2P0S0",
+      "cause": "production_externality",
+      "domain": [
+        "education",
+        "food",
+        "health",
+        "law"
+      ],
+      "location": "G2:P0:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 286,
+      "title": "public-shock-environment",
+      "severity_lz": 177.54,
+      "negative_value_lz": -177.54,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "energy",
+        "environment",
+        "law",
+        "water"
+      ],
+      "location": "G0:P1:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 281,
+      "title": "externality-by-Firm-068-water",
+      "severity_lz": 173.666,
+      "negative_value_lz": -173.666,
+      "owner": "State-G0P1S0",
+      "fund": "RepairFund-G0P1S0",
+      "cause": "production_externality",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G0:P1:S0",
+      "status": "open"
+    },
+    {
+      "id": 193,
+      "title": "externality-by-Firm-047-education",
+      "severity_lz": 172.323,
+      "negative_value_lz": -172.323,
+      "owner": "State-G2P0S1",
+      "fund": "RepairFund-G2P0S1",
+      "cause": "production_externality",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G2:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 134,
+      "title": "public-shock-water",
+      "severity_lz": 165.979,
+      "negative_value_lz": -165.979,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 48,
+      "title": "initial-health-3",
+      "severity_lz": 163.821,
+      "negative_value_lz": -163.821,
+      "owner": "State-G1P1S1",
+      "fund": "RepairFund-G1P1S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "education",
+        "environment",
+        "health",
+        "law"
+      ],
+      "location": "G1:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 214,
+      "title": "public-shock-infrastructure",
+      "severity_lz": 163.492,
+      "negative_value_lz": -163.492,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "communication",
+        "infrastructure",
+        "transport"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 40,
+      "title": "initial-infrastructure-5",
+      "severity_lz": 163.018,
+      "negative_value_lz": -163.018,
+      "owner": "State-G1P0S1",
+      "fund": "RepairFund-G1P0S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "communication",
+        "infrastructure",
+        "transport"
+      ],
+      "location": "G1:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 21,
+      "title": "initial-energy-1",
+      "severity_lz": 160.527,
+      "negative_value_lz": -160.527,
+      "owner": "State-G0P2S0",
+      "fund": "RepairFund-G0P2S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G0:P2:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 258,
+      "title": "public-shock-energy",
+      "severity_lz": 158.785,
+      "negative_value_lz": -158.785,
+      "owner": "State-G1P2S1",
+      "fund": "RepairFund-G1P2S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "energy",
+        "industry",
+        "infrastructure"
+      ],
+      "location": "G1:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 35,
+      "title": "initial-governance-5",
+      "severity_lz": 156.982,
+      "negative_value_lz": -156.982,
+      "owner": "State-G1P0S0",
+      "fund": "RepairFund-G1P0S0",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "finance",
+        "governance",
+        "industry",
+        "law"
+      ],
+      "location": "G1:P0:S0",
+      "status": "in_progress"
+    },
+    {
+      "id": 242,
+      "title": "externality-by-Firm-063-health",
+      "severity_lz": 156.836,
+      "negative_value_lz": -156.836,
+      "owner": "State-G1P0S1",
+      "fund": "RepairFund-G1P0S1",
+      "cause": "production_externality",
+      "domain": [
+        "environment",
+        "health",
+        "infrastructure",
+        "water"
+      ],
+      "location": "G1:P0:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 112,
+      "title": "public-shock-health",
+      "severity_lz": 156.271,
+      "negative_value_lz": -156.271,
+      "owner": "State-G1P1S1",
+      "fund": "RepairFund-G1P1S1",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "education",
+        "health",
+        "law"
+      ],
+      "location": "G1:P1:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 89,
+      "title": "initial-security-4",
+      "severity_lz": 154.018,
+      "negative_value_lz": -154.018,
+      "owner": "State-G2P2S1",
+      "fund": "RepairFund-G2P2S1",
+      "cause": "initial_structural_problem",
+      "domain": [
+        "governance",
+        "law",
+        "security"
+      ],
+      "location": "G2:P2:S1",
+      "status": "in_progress"
+    },
+    {
+      "id": 175,
+      "title": "public-shock-environment",
+      "severity_lz": 152.349,
+      "negative_value_lz": -152.349,
+      "owner": "State-G0P0S0",
+      "fund": "RepairFund-G0P0S0",
+      "cause": "public_decay_or_shock",
+      "domain": [
+        "energy",
+        "environment",
+        "law",
+        "water"
+      ],
+      "location": "G0:P0:S0",
+      "status": "in_progress"
+    }
+  ],
+  "transaction_kinds": {
+    "genesis_endowment": 427,
+    "problem_formalized": 288,
+    "problem_growth": 3666,
+    "wage": 26480,
+    "consumption": 24000,
+    "tax": 29105,
+    "project_payment": 1399,
+    "audit_fee": 1288,
+    "fraud_or_underperformance_penalty": 93
+  },
+  "recent_events": [
+    [
+      73,
+      "project_start",
+      "P51->Firm-016-communication",
+      90.48122352217543,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P244->Firm-035-environment",
+      84.81779175799326,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P38->Firm-056-food",
+      199.30320650305433,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P37->Firm-056-food",
+      130.53097178304108,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P134->Firm-048-infrastructure",
+      56.26597875092489,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P191->Firm-040-law",
+      146.67769726783956,
+      "local"
+    ],
+    [
+      73,
+      "project_start",
+      "P247->Firm-035-environment",
+      96.06056520407222,
+      "local"
+    ],
+    [
+      73,
+      "project_done",
+      "P90 by Firm-048-infrastructure",
+      35.31830378685397,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P76 by Firm-035-environment",
+      169.17311257260164,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P81 by Firm-023-infrastructure",
+      14.305512205260644,
+      "fraud?"
+    ],
+    [
+      73,
+      "project_done",
+      "P231 by Firm-005-governance",
+      160.7333353157805,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P58 by Firm-059-finance",
+      58.557705141866855,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P42 by Firm-010-transport",
+      142.0314811119541,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P10 by Firm-069-environment",
+      44.18611154188771,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P64 by Firm-025-energy",
+      191.82642105424375,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P120 by Firm-032-security",
+      214.1399864352735,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P128 by Firm-043-transport",
+      89.74568483050476,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P233 by Firm-023-infrastructure",
+      91.85200019774895,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P71 by Firm-035-environment",
+      93.80223022928506,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P242 by Firm-063-health",
+      118.87897849926128,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P20 by Firm-034-law",
+      80.57366840085967,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P249 by Firm-061-transport",
+      167.11862766830214,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P32 by Firm-017-culture",
+      78.27547790018687,
+      "ok"
+    ],
+    [
+      73,
+      "project_done",
+      "P165 by Firm-051-security",
+      137.8037904470829,
+      "ok"
+    ],
+    [
+      73,
+      "underperformance",
+      "Firm-030-education",
+      -82.54068978913084,
+      "P41"
+    ],
+    [
+      73,
+      "fraud_detected",
+      "Firm-017-culture",
+      -376.4420136945006,
+      "P32"
+    ],
+    [
+      74,
+      "problem",
+      "public-shock-security",
+      -364.9169349307951,
+      "State-G1P1S0[30]"
+    ],
+    [
+      74,
+      "project_start",
+      "P71->Firm-035-environment",
+      115.43445643226076,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P58->Firm-059-finance",
+      118.50121574074737,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P90->Firm-048-infrastructure",
+      51.29235218939281,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P42->Firm-010-transport",
+      130.51032983743767,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P76->Firm-035-environment",
+      84.03616833952798,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P10->Firm-069-environment",
+      93.78849371522266,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P277->Firm-030-education",
+      164.63902116977206,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P81->Firm-023-infrastructure",
+      64.54905513687363,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P233->Firm-023-infrastructure",
+      81.69107867800548,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P12->Firm-032-security",
+      171.20446743011337,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P65->Firm-025-energy",
+      166.48676137356827,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P102->Firm-021-industry",
+      177.08839020882954,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P132->Firm-048-infrastructure",
+      127.44715468626205,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P31->Firm-018-health",
+      120.064848260047,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P187->Firm-063-health",
+      86.88846659224468,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P224->Firm-054-energy",
+      162.86182325517973,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P151->Firm-025-energy",
+      107.85127069692095,
+      "local"
+    ],
+    [
+      74,
+      "project_start",
+      "P45->Firm-030-education",
+      151.92162474455947,
+      "local"
+    ],
+    [
+      74,
+      "project_done",
+      "P43 by Firm-030-education",
+      61.103229583101225,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P53 by Firm-016-communication",
+      49.113658579321594,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P267 by Firm-044-labor",
+      55.76614129564486,
+      "fraud?"
+    ],
+    [
+      74,
+      "project_done",
+      "P269 by Firm-048-infrastructure",
+      59.91115188171207,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P241 by Firm-068-water",
+      86.71710630492997,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P115 by Firm-027-transport",
+      133.5908400502715,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P154 by Firm-068-water",
+      29.24823135197078,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P69 by Firm-003-communication",
+      89.27804629642466,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P274 by Firm-068-water",
+      73.55515455730959,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P273 by Firm-047-education",
+      140.58305151327238,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P134 by Firm-048-infrastructure",
+      38.30311339640365,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P250 by Firm-054-energy",
+      207.40409698635276,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P6 by Firm-069-environment",
+      107.56276834170707,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P87 by Firm-045-education",
+      106.77166708681115,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P263 by Firm-012-finance",
+      463.58917573199744,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P88 by Firm-065-health",
+      228.644140849113,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P86 by Firm-048-infrastructure",
+      44.091143244089494,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P44 by Firm-030-education",
+      159.27928597232878,
+      "ok"
+    ],
+    [
+      74,
+      "project_done",
+      "P85 by Firm-023-infrastructure",
+      166.85479942109976,
+      "ok"
+    ],
+    [
+      75,
+      "problem",
+      "public-shock-water",
+      -146.37885362674746,
+      "State-G0P2S0[17]"
+    ],
+    [
+      75,
+      "problem",
+      "public-shock-water",
+      -121.39905087140392,
+      "State-G1P0S0[24]"
+    ],
+    [
+      75,
+      "problem",
+      "public-shock-health",
+      -162.66512855331422,
+      "State-G1P2S0[36]"
+    ],
+    [
+      75,
+      "problem",
+      "externality-by-Firm-068-water",
+      -642.932855409193,
+      "Firm-068-water[128]"
+    ],
+    [
+      75,
+      "project_start",
+      "P86->Firm-048-infrastructure",
+      65.0197702732194,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P6->Firm-069-environment",
+      88.84350465446192,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P85->Firm-023-infrastructure",
+      121.19094757295441,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P69->Firm-003-communication",
+      137.55372949069238,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P43->Firm-030-education",
+      204.17138545829275,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P87->Firm-045-education",
+      191.2395593554297,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P281->Firm-055-industry",
+      261.88983482008246,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P274->Firm-068-water",
+      124.84099521651083,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P53->Firm-016-communication",
+      57.27882212037708,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P267->Firm-044-labor",
+      358.0053106579603,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P269->Firm-048-infrastructure",
+      70.48510855520291,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P273->Firm-047-education",
+      125.3955369794966,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P241->Firm-068-water",
+      63.43504886736709,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P79->Firm-035-environment",
+      94.44286909039758,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P195->Firm-043-transport",
+      65.16307630362377,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P47->Firm-054-energy",
+      136.28075486876568,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P3->Firm-058-infrastructure",
+      134.35045361958618,
+      "local"
+    ],
+    [
+      75,
+      "project_start",
+      "P259->Firm-021-industry",
+      131.24396925999181,
+      "local"
+    ],
+    [
+      75,
+      "project_done",
+      "P5 by Firm-020-energy",
+      99.18058582332796,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P55 by Firm-040-law",
+      136.09911684746427,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P62 by Firm-047-education",
+      136.01426389073438,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P54 by Firm-050-transport",
+      63.426254565871815,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P254 by Firm-034-law",
+      98.84956824844635,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P247 by Firm-035-environment",
+      9.271201129301586,
+      "fraud?"
+    ],
+    [
+      75,
+      "project_done",
+      "P10 by Firm-069-environment",
+      59.060785098864464,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P233 by Firm-023-infrastructure",
+      65.96673501576623,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P187 by Firm-063-health",
+      101.81904199435644,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P224 by Firm-054-energy",
+      95.84528530742972,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P4 by Firm-020-energy",
+      43.770003570031164,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P63 by Firm-025-energy",
+      68.54886636254986,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P257 by Firm-043-transport",
+      444.7138674247503,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P96 by Firm-017-culture",
+      71.7057364826189,
+      "ok"
+    ],
+    [
+      75,
+      "project_done",
+      "P39 by Firm-063-health",
+      64.7947941150558,
+      "ok"
+    ],
+    [
+      75,
+      "fraud_detected",
+      "Firm-020-energy",
+      -157.9154663088483,
+      "P4"
+    ],
+    [
+      75,
+      "fraud_detected",
+      "Firm-047-education",
+      -222.64792942186483,
+      "P62"
+    ],
+    [
+      76,
+      "problem",
+      "public-shock-environment",
+      -291.09035922846067,
+      "State-G2P1S0[49]"
+    ],
+    [
+      76,
+      "project_start",
+      "P4->Firm-020-energy",
+      123.19756585997068,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P62->Firm-047-education",
+      123.61639039004523,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P54->Firm-050-transport",
+      75.98663131883173,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P63->Firm-025-energy",
+      147.11069160844326,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P5->Firm-020-energy",
+      180.715321297133,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P55->Firm-040-law",
+      115.07885587666803,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P10->Firm-069-environment",
+      114.07636432044062,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P254->Firm-034-law",
+      115.5042795047276,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P282->Firm-035-environment",
+      204.3076942587502,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P247->Firm-035-environment",
+      109.58729166175958,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P233->Firm-023-infrastructure",
+      81.05810952453393,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P25->Firm-027-transport",
+      129.45029186513588,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P91->Firm-035-environment",
+      170.21702956946075,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P202->Firm-047-education",
+      146.48805848768,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P110->Firm-069-environment",
+      112.40204828666347,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P129->Firm-024-diplomacy",
+      58.491755503426006,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P215->Firm-035-environment",
+      129.29525487032888,
+      "local"
+    ],
+    [
+      76,
+      "project_start",
+      "P152->Firm-020-energy",
+      106.18740808009102,
+      "local"
+    ],
+    [
+      76,
+      "project_done",
+      "P7 by Firm-001-water",
+      167.55963330143487,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P15 by Firm-032-security",
+      84.42670962794698,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P271 by Firm-015-energy",
+      151.40123677814873,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P67 by Firm-047-education",
+      5.065086651321332,
+      "fraud?"
+    ],
+    [
+      76,
+      "project_done",
+      "P73 by Firm-035-environment",
+      101.28774862949022,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P57 by Firm-043-transport",
+      83.18519078105513,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P51 by Firm-016-communication",
+      99.26593641988133,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P244 by Firm-035-environment",
+      90.10816430125573,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P37 by Firm-056-food",
+      204.3606372675558,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P191 by Firm-040-law",
+      203.70647912513135,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P90 by Firm-048-infrastructure",
+      40.3149239794296,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P76 by Firm-035-environment",
+      85.3146095403265,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P102 by Firm-021-industry",
+      139.2274214072309,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P151 by Firm-025-energy",
+      81.74080349306999,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P85 by Firm-023-infrastructure",
+      90.73235787969065,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P69 by Firm-003-communication",
+      79.90954894255714,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P273 by Firm-047-education",
+      92.34197536231362,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P79 by Firm-035-environment",
+      71.96232145184051,
+      "ok"
+    ],
+    [
+      76,
+      "project_done",
+      "P195 by Firm-043-transport",
+      37.98335410239874,
+      "ok"
+    ],
+    [
+      76,
+      "fraud_detected",
+      "Firm-044-labor",
+      -670.8253042867664,
+      "P267"
+    ],
+    [
+      77,
+      "problem",
+      "public-shock-energy",
+      -235.90422533059234,
+      "State-G0P1S1[14]"
+    ],
+    [
+      77,
+      "project_start",
+      "P85->Firm-023-infrastructure",
+      132.31592208115342,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P90->Firm-048-infrastructure",
+      58.8067118768033,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P69->Firm-003-communication",
+      90.9226268451246,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P76->Firm-035-environment",
+      176.6687359278901,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P73->Firm-035-environment",
+      151.40104110440345,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P7->Firm-001-water",
+      242.82663652463967,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P15->Firm-032-security",
+      94.37148774808027,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P57->Firm-043-transport",
+      107.33528784138934,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P283->Firm-015-energy",
+      181.31232204901045,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P51->Firm-016-communication",
+      76.31751717557538,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P67->Firm-047-education",
+      145.98593332501858,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P273->Firm-047-education",
+      144.048839189067,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P107->Firm-018-health",
+      163.07925528521096,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P154->Firm-068-water",
+      40.544719911991834,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P130->Firm-056-food",
+      145.16874639530468,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P95->Firm-051-security",
+      110.06082231552274,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P193->Firm-003-communication",
+      96.94388373249916,
+      "local"
+    ],
+    [
+      77,
+      "project_start",
+      "P119->Firm-035-environment",
+      121.3927442260536,
+      "local"
+    ],
+    [
+      77,
+      "project_done",
+      "P41 by Firm-030-education",
+      132.30770771400967,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P11 by Firm-068-water",
+      31.820019630333803,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P275 by Firm-055-industry",
+      305.76093904749996,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P38 by Firm-056-food",
+      111.54963599451375,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P58 by Firm-059-finance",
+      68.29931828225025,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P277 by Firm-030-education",
+      69.21646097376426,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P81 by Firm-023-infrastructure",
+      52.110205933544655,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P12 by Firm-032-security",
+      201.55559389382682,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P65 by Firm-025-energy",
+      152.5728166801125,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P132 by Firm-048-infrastructure",
+      195.38584103264617,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P31 by Firm-018-health",
+      12.669752174042108,
+      "fraud?"
+    ],
+    [
+      77,
+      "project_done",
+      "P45 by Firm-030-education",
+      105.06540750004187,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P259 by Firm-021-industry",
+      84.73189563178975,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P63 by Firm-025-energy",
+      154.55984044136883,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P247 by Firm-035-environment",
+      67.0530391947407,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P25 by Firm-027-transport",
+      166.50173319416197,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P202 by Firm-047-education",
+      5.818547276855884,
+      "fraud?"
+    ],
+    [
+      77,
+      "project_done",
+      "P110 by Firm-069-environment",
+      108.61202645257296,
+      "ok"
+    ],
+    [
+      77,
+      "project_done",
+      "P152 by Firm-020-energy",
+      42.523870707619,
+      "ok"
+    ],
+    [
+      77,
+      "fraud_detected",
+      "Firm-032-security",
+      -165.62790736210533,
+      "P12"
+    ],
+    [
+      78,
+      "project_start",
+      "P41->Firm-030-education",
+      151.06993322170382,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P58->Firm-059-finance",
+      82.50520430176036,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P11->Firm-068-water",
+      41.614999194712865,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P63->Firm-025-energy",
+      125.21290780292132,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P275->Firm-055-industry",
+      229.38042764035436,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P81->Firm-023-infrastructure",
+      118.21682668382874,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P277->Firm-030-education",
+      203.2537085562023,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P31->Firm-018-health",
+      123.83393260130183,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P202->Firm-047-education",
+      106.81169082102991,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P48->Firm-028-governance",
+      153.9866657296936,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P177->Firm-022-environment",
+      143.44960321171476,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P244->Firm-035-environment",
+      118.3938011312219,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P134->Firm-048-infrastructure",
+      65.97801815773406,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P72->Firm-061-transport",
+      132.45208263242017,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P19->Firm-015-energy",
+      112.69343972860837,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P214->Firm-048-infrastructure",
+      127.91632572763918,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P40->Firm-053-culture",
+      120.79375769198039,
+      "local"
+    ],
+    [
+      78,
+      "project_start",
+      "P280->Firm-040-law",
+      45.18241276758907,
+      "local"
+    ],
+    [
+      78,
+      "project_done",
+      "P71 by Firm-035-environment",
+      51.93730272090995,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P42 by Firm-010-transport",
+      147.83584236491154,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P6 by Firm-069-environment",
+      67.92903152964357,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P43 by Firm-030-education",
+      86.67662292213102,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P87 by Firm-045-education",
+      170.8087399418561,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P267 by Firm-044-labor",
+      508.500837651162,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P269 by Firm-048-infrastructure",
+      59.890945096313004,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P47 by Firm-054-energy",
+      109.35976065850403,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P4 by Firm-020-energy",
+      47.713654991926724,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P5 by Firm-020-energy",
+      18.066142844472274,
+      "fraud?"
+    ],
+    [
+      78,
+      "project_done",
+      "P254 by Firm-034-law",
+      103.23109898777263,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P233 by Firm-023-infrastructure",
+      11.588349295602201,
+      "fraud?"
+    ],
+    [
+      78,
+      "project_done",
+      "P76 by Firm-035-environment",
+      115.20807300247122,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P73 by Firm-035-environment",
+      92.63004598931599,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P7 by Firm-001-water",
+      238.11366939484685,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P57 by Firm-043-transport",
+      90.4380205154675,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P51 by Firm-016-communication",
+      54.00152614900387,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P67 by Firm-047-education",
+      153.9106509404509,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P154 by Firm-068-water",
+      47.74192629547598,
+      "ok"
+    ],
+    [
+      78,
+      "project_done",
+      "P130 by Firm-056-food",
+      174.61798918923677,
+      "ok"
+    ],
+    [
+      79,
+      "problem",
+      "public-shock-security",
+      -129.00041414867,
+      "State-G1P2S0[36]"
+    ],
+    [
+      79,
+      "project_start",
+      "P4->Firm-020-energy",
+      112.95612035859683,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P6->Firm-069-environment",
+      111.39904471417091,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P71->Firm-035-environment",
+      182.01592713599024,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P43->Firm-030-education",
+      269.98299308193003,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P42->Firm-010-transport",
+      97.68564893204022,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P76->Firm-035-environment",
+      142.73439014522123,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P73->Firm-035-environment",
+      71.31978974775417,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P5->Firm-020-energy",
+      144.73207728391444,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P87->Firm-045-education",
+      255.3650544144142,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P269->Firm-048-infrastructure",
+      97.52063283156235,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P7->Firm-001-water",
+      111.37490248608583,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P254->Firm-034-law",
+      77.20614758307593,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P57->Firm-043-transport",
+      108.30575981131669,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P233->Firm-023-infrastructure",
+      128.81178690939078,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P51->Firm-016-communication",
+      95.71269629908853,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P21->Firm-027-transport",
+      127.96970723236586,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P258->Firm-043-transport",
+      122.7929959871605,
+      "local"
+    ],
+    [
+      79,
+      "project_start",
+      "P105->Firm-020-energy",
+      137.20373536037678,
+      "local"
+    ],
+    [
+      79,
+      "project_done",
+      "P86 by Firm-048-infrastructure",
+      68.48107053513479,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P274 by Firm-068-water",
+      214.13902645288096,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P53 by Firm-016-communication",
+      48.35779685938959,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P241 by Firm-068-water",
+      76.61349023137697,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P3 by Firm-058-infrastructure",
+      186.34026439893955,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P54 by Firm-050-transport",
+      78.43545707187177,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P10 by Firm-069-environment",
+      90.91172361723439,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P282 by Firm-035-environment",
+      270.2802656281455,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P129 by Firm-024-diplomacy",
+      66.77637641499238,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P215 by Firm-035-environment",
+      135.46022422988221,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P85 by Firm-023-infrastructure",
+      82.83719161491375,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P90 by Firm-048-infrastructure",
+      35.14228858915762,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P273 by Firm-047-education",
+      126.80941089089234,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P107 by Firm-018-health",
+      118.25302363706004,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P63 by Firm-025-energy",
+      130.90661042817527,
+      "ok"
+    ],
+    [
+      79,
+      "problem",
+      "side-effect-P48",
+      -26.235156113250717,
+      "Firm-028-governance[88]"
+    ],
+    [
+      79,
+      "project_done",
+      "P48 by Firm-028-governance",
+      6.5185927730054445,
+      "fraud?"
+    ],
+    [
+      79,
+      "project_done",
+      "P177 by Firm-022-environment",
+      107.70801194660056,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P72 by Firm-061-transport",
+      113.45249131776063,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P19 by Firm-015-energy",
+      87.18190024249763,
+      "ok"
+    ],
+    [
+      79,
+      "project_done",
+      "P280 by Firm-040-law",
+      53.23903585718709,
+      "ok"
+    ],
+    [
+      79,
+      "fraud_detected",
+      "Firm-043-transport",
+      -533.9692800495006,
+      "P257"
+    ],
+    [
+      80,
+      "problem",
+      "public-shock-environment",
+      -177.53956977354855,
+      "State-G0P1S0[11]"
+    ],
+    [
+      80,
+      "problem",
+      "public-shock-food",
+      -300.70112854332393,
+      "State-G0P1S1[14]"
+    ],
+    [
+      80,
+      "problem",
+      "public-shock-labor",
+      -234.08036739743878,
+      "State-G2P1S1[52]"
+    ],
+    [
+      80,
+      "project_start",
+      "P86->Firm-048-infrastructure",
+      82.3698850208058,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P85->Firm-023-infrastructure",
+      85.35645716833325,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P90->Firm-048-infrastructure",
+      60.18563174697628,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P54->Firm-050-transport",
+      88.59425434625183,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P63->Firm-025-energy",
+      148.7873383686626,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P53->Firm-016-communication",
+      63.228535695025464,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P274->Firm-068-water",
+      112.2783538818765,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P10->Firm-069-environment",
+      149.2485767612511,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P287->Firm-044-labor",
+      182.61458639114426,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P288->Firm-021-industry",
+      208.64083704175243,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P286->Firm-022-environment",
+      131.50817271873402,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P48->Firm-028-governance",
+      141.9932137018406,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P35->Firm-018-health",
+      142.2333168384524,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P242->Firm-063-health",
+      73.55900523390721,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P112->Firm-028-governance",
+      141.2916495113865,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P89->Firm-002-security",
+      100.65267686993168,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P175->Firm-020-energy",
+      123.14954078814989,
+      "local"
+    ],
+    [
+      80,
+      "project_start",
+      "P270->Firm-023-infrastructure",
+      102.78488514673684,
+      "local"
+    ],
+    [
+      80,
+      "project_done",
+      "P281 by Firm-055-industry",
+      476.77305453941625,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P62 by Firm-047-education",
+      105.6547020033682,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P55 by Firm-040-law",
+      159.0979271450461,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P91 by Firm-035-environment",
+      111.48460927930645,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P69 by Firm-003-communication",
+      71.39826160295793,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P95 by Firm-051-security",
+      144.2484557260465,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P119 by Firm-035-environment",
+      98.10769882024165,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P58 by Firm-059-finance",
+      83.7665187505555,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P11 by Firm-068-water",
+      24.015641654780943,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P81 by Firm-023-infrastructure",
+      67.01195073216202,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P277 by Firm-030-education",
+      74.14991604803672,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P244 by Firm-035-environment",
+      119.57113165001151,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P73 by Firm-035-environment",
+      70.26697594072212,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P5 by Firm-020-energy",
+      81.10613216732578,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P254 by Firm-034-law",
+      95.41055229192999,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P233 by Firm-023-infrastructure",
+      69.31205384357798,
+      "ok"
+    ],
+    [
+      80,
+      "project_done",
+      "P105 by Firm-020-energy",
+      78.22762661329581,
+      "ok"
+    ],
+    [
+      80,
+      "fraud_detected",
+      "Firm-005-governance",
+      -331.11068704300413,
+      "P231"
+    ],
+    [
+      80,
+      "fraud_detected",
+      "Firm-035-environment",
+      -165.68483821807754,
+      "P247"
+    ]
+  ]
+}
