@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GAW-Ekonomicheskaya-Sistema-RU</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="экономика-сложенных-трудовых-блоков-эсtб">Экономика сложенных
+трудовых блоков (ЭСTБ)</h1>
+<h2 id="полная-экономическая-система-на-основе-трудовой-валюты">Полная
+экономическая система на основе трудовой валюты</h2>
+<p>Этот документ описывает экономическую систему, в которой валюта
+создаётся из проверенного труда. Труд понимается как преобразование
+входных единиц в выходные единицы. Сумма этих единиц образует количество
+труда. Это количество труда умножается на коэффициенты ценности разных
+видов работы и накапливается как трудовая валюта.</p>
+<p>Главная идея:</p>
+<blockquote>
+<p>Валюта создаётся не из золота, долга или одного лишь государственного
+решения, а из полезного, проверяемого и не продублированного труда.</p>
+</blockquote>
+<p>Система разделяет пять уровней:</p>
+<ol type="1">
+<li><strong>Количество труда</strong> — сколько единиц было перемещено,
+обработано или создано?</li>
+<li><strong>Вид работы</strong> — какой тип труда был выполнен?</li>
+<li><strong>Трудовая ценность</strong> — сколько трудовой валюты
+создаётся?</li>
+<li><strong>Цена</strong> — сколько результат стоит на рынке?</li>
+<li><strong>Собственность и требования</strong> — кому принадлежат
+результат, оплата и права использования?</li>
+</ol>
+<hr />
+<h1 id="основные-аксиомы">1. Основные аксиомы</h1>
+<h2 id="всё-экономическое-состоит-из-блоков">1.1 Всё экономическое
+состоит из блоков</h2>
+<p>Для целей экономики вселенная делится на <strong>блоки</strong>.
+Блоком может быть:</p>
+<ul>
+<li>площадь,</li>
+<li>пространственный объём,</li>
+<li>количество материала,</li>
+<li>количество времени,</li>
+<li>единица энергии,</li>
+<li>информационная структура,</li>
+<li>процесс коммуникации,</li>
+<li>математическая связь,</li>
+<li>причинная связь,</li>
+<li>продукт,</li>
+<li>услуга,</li>
+<li>устранённый ущерб,</li>
+<li>предотвращённый кризис.</li>
+</ul>
+<p>Экономика измеряет не статус и не одно лишь намерение, а проверяемое
+изменение блоков.</p>
+<h2 id="труд-это-преобразование">1.2 Труд — это преобразование</h2>
+<p>Труд означает:</p>
+<pre class="text"><code>Вход -&gt; Преобразование -&gt; Выход</code></pre>
+<p>Труд использует входные единицы и создаёт выходные единицы.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo>∑</mo><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+E = \sum E_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo>=</mo><mo>∑</mo><msub><mi>O</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">
+O = \sum O_j
+</annotation></semantics></math></p>
+<p>Где:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+= сумма входных единиц,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>O</mi><annotation encoding="application/x-tex">O</annotation></semantics></math>
+= сумма выходных единиц.</li>
+</ul>
+<p>Сырое количество труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="труд-складывается-в-стек">1.3 Труд складывается в стек</h2>
+<p>Каждый действительный рабочий процесс создаёт <strong>трудовой
+стек</strong>. Продукт, услуга или объект знания получает историю из
+предыдущих трудовых блоков.</p>
+<p>Пример: дом содержит труд по сырью, транспорт, работу с площадью,
+3D-строительство, планирование, коммуникацию, математическую статику,
+причинную координацию и обслуживание.</p>
+<p>Трудовой стек — это экономическая родословная объекта.</p>
+<h2
+id="ценность-это-количество-труда-умноженное-на-коэффициент-работы">1.4
+Ценность — это количество труда, умноженное на коэффициент работы</h2>
+<p>Одного количества труда недостаточно. Разные виды работы имеют разный
+системный рычаг.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">
+TV = M \cdot K
+</annotation></semantics></math></p>
+<p>Где:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">TV</annotation></semantics></math>
+= трудовая валюта,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+= количество труда,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+= коэффициент ценности вида работы.</li>
+</ul>
+<h2 id="цена-не-равна-трудовой-валюте">1.5 Цена не равна трудовой
+валюте</h2>
+<p>Трудовая ценность создаётся трудом. Рыночная цена дополнительно
+зависит от спроса, дефицита, риска, качества и прав собственности.</p>
+<p>Базовая формула цены:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<p>Где:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+= цена в трудовой валюте,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+= вес входных единиц,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+= вес выходных единиц,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+= коэффициент работы,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+= коэффициент качества,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+= коэффициент дефицита или спроса.</li>
+</ul>
+<hr />
+<h1 id="валюта">2. Валюта</h1>
+<p>Валюта называется:</p>
+<pre class="text"><code>TV = трудовая валюта</code></pre>
+<p>Одна единица
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>T</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">1 TV</annotation></semantics></math>
+соответствует одному проверенному базовому трудовому блоку пашенного
+земледелия с коэффициентом
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+стандартным качеством и реальной полезностью.</p>
+<p>Пашенное земледелие является точкой отсчёта:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> базовый труд</mtext></mrow><mo>=</mo><mn>1</mn><mi>T</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">
+1 \text{ базовый труд} = 1 TV
+</annotation></semantics></math></p>
+<p>Все остальные виды работы оцениваются относительно этой базы.</p>
+<hr />
+<h1 id="коэффициенты-ценности-труда">3. Коэффициенты ценности труда</h1>
+<p>Пашенное земледелие — база с коэффициентом
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.</p>
+<table>
+<thead>
+<tr>
+<th>Вид работы</th>
+<th style="text-align: right;">Коэффициент ценности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Пашенное земледелие / базовый труд</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">1\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Работа с площадью</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">2\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>3D-работа / строительство домов</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">3\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Срочная по времени работа</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">4\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Причинно важная работа</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">5\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Умственная работа</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">6\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коммуникационная работа</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">7\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Разделение вселенной на блоки</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">8\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Математика</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10\times</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Эти коэффициенты не означают, что люди имеют разную человеческую
+ценность. Они означают, что некоторые виды работы имеют более высокий
+системный рычаг.</p>
+<hr />
+<h1 id="виды-работы">4. Виды работы</h1>
+<h2 id="пашенное-земледелие-коэффициент-1">4.1 Пашенное земледелие —
+коэффициент 1</h2>
+<p>Пашенное земледелие производит пищу, биологическое сырьё и базовое
+биологическое обеспечение.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+K = 1
+</annotation></semantics></math></p>
+<p>Оно не является неважным; оно является базой. Если пища становится
+дефицитной, её рыночная цена растёт через коэффициент дефицита
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>.</p>
+<h2 id="работа-с-площадью-коэффициент-2">4.2 Работа с площадью —
+коэффициент 2</h2>
+<p>Работа с площадью обрабатывает двумерные пространства:</p>
+<ul>
+<li>структурирование полей,</li>
+<li>подготовка дорожных поверхностей,</li>
+<li>измерение участков,</li>
+<li>организация площадей для солнечных установок,</li>
+<li>организация складских площадей,</li>
+<li>создание карт,</li>
+<li>территориальное планирование.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+K = 2
+</annotation></semantics></math></p>
+<h2 id="d-работа-строительство-домов-коэффициент-3">4.3 3D-работа /
+строительство домов — коэффициент 3</h2>
+<p>3D-работа изменяет объёмы и пространственные структуры:</p>
+<ul>
+<li>строительство домов,</li>
+<li>машиностроение,</li>
+<li>строительство мостов,</li>
+<li>изготовление мебели,</li>
+<li>трубопроводные системы,</li>
+<li>склады,</li>
+<li>инфраструктурные тела,</li>
+<li>физические конструкции.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+K = 3
+</annotation></semantics></math></p>
+<h2 id="срочная-по-времени-работа-коэффициент-4">4.4 Срочная по времени
+работа — коэффициент 4</h2>
+<p>Срочная по времени работа — это труд, ценность которого сильно
+зависит от момента выполнения.</p>
+<p>Примеры:</p>
+<ul>
+<li>экстренная медицина,</li>
+<li>пожарная служба,</li>
+<li>спасательные работы,</li>
+<li>кризисный ремонт,</li>
+<li>логистика с жёстким сроком,</li>
+<li>сбор урожая перед бурей,</li>
+<li>реакция безопасности,</li>
+<li>восстановление сервера при аварии.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">
+K = 4
+</annotation></semantics></math></p>
+<p>Работа считается срочной только при наличии реального временного
+окна. Искусственно созданная срочность не должна учитываться.</p>
+<h2 id="причинно-важная-работа-коэффициент-5">4.5 Причинно важная работа
+— коэффициент 5</h2>
+<p>Причинно важная работа влияет на многие последующие процессы.</p>
+<p>Примеры:</p>
+<ul>
+<li>решение, которое делает возможными многие другие работы,</li>
+<li>ремонт центральной системы,</li>
+<li>планирование, от которого зависят многие люди,</li>
+<li>устранение узкого места,</li>
+<li>системная диагностика,</li>
+<li>центральная координация.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">
+K = 5
+</annotation></semantics></math></p>
+<p>Работа является причинно важной только если можно доказать:</p>
+<pre class="text"><code>Без этой работы другие работы были бы заблокированы, ухудшены или невозможны.</code></pre>
+<h2 id="умственная-работа-коэффициент-6">4.6 Умственная работа —
+коэффициент 6</h2>
+<p>Умственная работа создаёт модели, решения, идеи, планы, стратегии или
+знания.</p>
+<p>Примеры:</p>
+<ul>
+<li>исследование,</li>
+<li>планирование,</li>
+<li>дизайн,</li>
+<li>анализ,</li>
+<li>подготовка занятий,</li>
+<li>диагностика,</li>
+<li>стратегия,</li>
+<li>техническая концепция.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+K = 6
+</annotation></semantics></math></p>
+<p>Для создания валюты умственная работа нуждается в проверяемом
+выходе:</p>
+<ul>
+<li>текст,</li>
+<li>план,</li>
+<li>модель,</li>
+<li>решение,</li>
+<li>объяснение,</li>
+<li>черновик,</li>
+<li>диагноз,</li>
+<li>решение задачи.</li>
+</ul>
+<h2 id="коммуникационная-работа-коэффициент-7">4.7 Коммуникационная
+работа — коэффициент 7</h2>
+<p>Коммуникационная работа изменяет информационное состояние других
+людей или систем.</p>
+<p>Примеры:</p>
+<ul>
+<li>координация,</li>
+<li>обучение,</li>
+<li>переговоры,</li>
+<li>перевод,</li>
+<li>руководство,</li>
+<li>модерация,</li>
+<li>кризисная коммуникация,</li>
+<li>передача знаний,</li>
+<li>работа на интерфейсе между системами.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+K = 7
+</annotation></semantics></math></p>
+<p>Коммуникация считается трудом только если она достигает хотя бы
+одного результата:</p>
+<ul>
+<li>кто-то лучше что-то понимает,</li>
+<li>становится возможным решение,</li>
+<li>предотвращается ошибка,</li>
+<li>разрешается конфликт,</li>
+<li>координируются несколько акторов,</li>
+<li>ускоряется процесс,</li>
+<li>знания передаются надёжно.</li>
+</ul>
+<p>Спам, манипуляция и пустая самопрезентация не считаются.</p>
+<h2 id="разделение-вселенной-на-блоки-коэффициент-8">4.8 Разделение
+вселенной на блоки — коэффициент 8</h2>
+<p>Эта работа создаёт измеримость.</p>
+<p>Примеры:</p>
+<ul>
+<li>классификации,</li>
+<li>картирование,</li>
+<li>таксономии,</li>
+<li>стандарты,</li>
+<li>модели данных,</li>
+<li>системы измерения,</li>
+<li>онтологии,</li>
+<li>цифровые двойники,</li>
+<li>реестры ресурсов,</li>
+<li>производственные сетки,</li>
+<li>причинные графы,</li>
+<li>структуры симуляции.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
+K = 8
+</annotation></semantics></math></p>
+<p>Эта работа ценна, потому что делает другую работу сравнимой,
+планируемой и вычислимой.</p>
+<h2 id="математика-коэффициент-10">4.9 Математика — коэффициент 10</h2>
+<p>Математика — высшая нормальная форма труда в этой системе.</p>
+<p>Она создаёт:</p>
+<ul>
+<li>доказательства,</li>
+<li>уравнения,</li>
+<li>оптимизации,</li>
+<li>алгоритмы,</li>
+<li>модели,</li>
+<li>прогнозы,</li>
+<li>абстракции,</li>
+<li>формальные структуры,</li>
+<li>методы расчёта,</li>
+<li>системы принятия решений.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 10
+</annotation></semantics></math></p>
+<p>Математика получает коэффициент 10 только если она проверяема.
+Действительная математическая работа требует хотя бы одного из
+следующего:</p>
+<ul>
+<li>формальное доказательство,</li>
+<li>прослеживаемый расчёт,</li>
+<li>протестированный алгоритм,</li>
+<li>корректная модель,</li>
+<li>успешно применённая оптимизация,</li>
+<li>проверяемая полезность в других процессах.</li>
+</ul>
+<p>Ложная математика не создаёт ценности. Опасно ложная математика
+создаёт отрицательную ценность.</p>
+<hr />
+<h1 id="правило-сложения-для-комбинированной-работы">5. Правило сложения
+для комбинированной работы</h1>
+<p>Многие работы имеют несколько свойств. Математическая оптимизация
+спасательной логистики может быть одновременно математикой, срочной по
+времени, причинно важной, умственной и коммуникационной работой.</p>
+<p>Умножение всех коэффициентов дало бы экстремальные значения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>⋅</mo><mn>4</mn><mo>⋅</mo><mn>5</mn><mo>⋅</mo><mn>6</mn><mo>⋅</mo><mn>7</mn><mo>=</mo><mn>8400</mn></mrow><annotation encoding="application/x-tex">
+10 \cdot 4 \cdot 5 \cdot 6 \cdot 7 = 8400
+</annotation></semantics></math></p>
+<p>Поэтому система использует аддитивное правило сложения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo>∑</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = 1 + \sum (k_i - 1)
+</annotation></semantics></math></p>
+<p>Пример: математика + срочность + причинная важность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = 1 + (10-1) + (4-1) + (5-1)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>17</mn></mrow><annotation encoding="application/x-tex">
+K = 17
+</annotation></semantics></math></p>
+<p>Работа стоит
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">17\times</annotation></semantics></math>
+базового труда, а не
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8400</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">8400\times</annotation></semantics></math>.</p>
+<hr />
+<h1 id="сегментация-вместо-злоупотребления-ярлыками">6. Сегментация
+вместо злоупотребления ярлыками</h1>
+<p>Работа не должна автоматически получать все высокие коэффициенты.
+Проект строительства дома не является целиком математикой только потому,
+что инженер рассчитал статику.</p>
+<p>Поэтому каждый проект делится на рабочие сегменты.</p>
+<p>Пример строительства дома:</p>
+<table>
+<thead>
+<tr>
+<th>Сегмент</th>
+<th style="text-align: right;">Возможный коэффициент</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Транспорт материалов</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+до
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Измерение участка</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+или
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Фундаментные работы</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Кладка стен</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Расчёт статики</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Координация строительства</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Срочный ремонт</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+дополнительно</td>
+</tr>
+<tr>
+<td>Причинно центральное решение</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>
+дополнительно</td>
+</tr>
+</tbody>
+</table>
+<p>Общая ценность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msub><mi>V</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><msub><mi>M</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+TV_{project} = \sum_s M_s \cdot K_s \cdot Q_s
+</annotation></semantics></math></p>
+<p>Только конкретный сегмент получает свой подходящий коэффициент.</p>
+<hr />
+<h1 id="коэффициент-качества">7. Коэффициент качества</h1>
+<p>Не вся работа одного типа имеет одинаковое качество. Поэтому
+существует коэффициент качества
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>.</p>
+<table>
+<thead>
+<tr>
+<th>Качество</th>
+<th style="text-align: right;">Коэффициент
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Недействительно / вредно</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+или отрицательно</td>
+</tr>
+<tr>
+<td>Плохо</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5</mn><annotation encoding="application/x-tex">0.5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Приемлемо</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8</mn><annotation encoding="application/x-tex">0.8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Стандарт</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.0</mn><annotation encoding="application/x-tex">1.0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Хорошо</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.2</mn><annotation encoding="application/x-tex">1.2</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Очень хорошо</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.5</mn><annotation encoding="application/x-tex">1.5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Исключительно, системно доказано</td>
+<td style="text-align: right;">до
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.0</mn><annotation encoding="application/x-tex">2.0</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Базовая формула:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+TV = M \cdot K \cdot Q
+</annotation></semantics></math></p>
+<p>Высокие коэффициенты вознаграждают только действительную работу.</p>
+<hr />
+<h1 id="входные-и-выходные-единицы">8. Входные и выходные единицы</h1>
+<p>Входные и выходные единицы имеют разные веса:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K
+</annotation></semantics></math></p>
+<p>Полезная базовая настройка:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">
+\alpha = 0.5
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">
+\beta = 1.0
+</annotation></semantics></math></p>
+<p>Входы учитываются, но выходы учитываются сильнее, потому что
+результат непосредственно полезен.</p>
+<p>Пример:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>40</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>100</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+E = 40, \quad O = 100, \quad K = 3
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo>⋅</mo><mn>40</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>360</mn></mrow><annotation encoding="application/x-tex">
+P = (0.5 \cdot 40 + 1 \cdot 100) \cdot 3 = 360
+</annotation></semantics></math></p>
+<p>Количество труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>40</mn><mo>+</mo><mn>100</mn><mo>=</mo><mn>140</mn></mrow><annotation encoding="application/x-tex">
+M = 40 + 100 = 140
+</annotation></semantics></math></p>
+<p>Трудовая ценность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>140</mn><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>420</mn></mrow><annotation encoding="application/x-tex">
+TV = 140 \cdot 3 = 420
+</annotation></semantics></math></p>
+<p>Цена и трудовая ценность связаны, но не тождественны.</p>
+<hr />
+<h1 id="три-уровня-ценности">9. Три уровня ценности</h1>
+<p>Каждый продукт имеет три значения.</p>
+<h2 id="сырое-количество-труда">9.1 Сырое количество труда</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="взвешенная-трудовая-ценность">9.2 Взвешенная трудовая
+ценность</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+W = M \cdot K \cdot Q
+</annotation></semantics></math></p>
+<h2 id="рыночная-цена">9.3 Рыночная цена</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<p>Коэффициент дефицита
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+позволяет дефициту или избытку менять цены.</p>
+<hr />
+<h1 id="коэффициент-дефицита">10. Коэффициент дефицита</h1>
+<p>Даже простая работа может стать дорогой, если её результат
+дефицитен.</p>
+<table>
+<thead>
+<tr>
+<th>Рыночная ситуация</th>
+<th
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Избыток предложения</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.7</mn><annotation encoding="application/x-tex">0.7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Баланс</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.0</mn><annotation encoding="application/x-tex">1.0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Дефицит</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.5</mn><annotation encoding="application/x-tex">1.5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Критический дефицит</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.5</mn><annotation encoding="application/x-tex">2.5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Жизненно важный кризис</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4.0</mn><annotation encoding="application/x-tex">4.0</annotation></semantics></math>
+или нормирование</td>
+</tr>
+</tbody>
+</table>
+<p>Это защищает базовую работу, например производство пищи.</p>
+<hr />
+<h1 id="создание-денег">11. Создание денег</h1>
+<p>Новая трудовая валюта не должна возникать произвольно. Она создаётся
+только проверенным, полезным и не продублированным трудом.</p>
+<h2 id="частная-заказная-работа">11.1 Частная заказная работа</h2>
+<p>Человек или фирма заказывает работу. Заказчик платит существующую TV
+работнику. Новая валюта не создаётся.</p>
+<h2 id="общественная-или-общинная-работа">11.2 Общественная или общинная
+работа</h2>
+<p>Некоторая работа не имеет единственного покупателя, но полезна всем.
+Примеры:</p>
+<ul>
+<li>картирование дорог,</li>
+<li>математические основы,</li>
+<li>общественная безопасность,</li>
+<li>защита от катастроф,</li>
+<li>образовательная инфраструктура,</li>
+<li>профилактика здоровья,</li>
+<li>открытые стандарты,</li>
+<li>разделение вселенной на блоки.</li>
+</ul>
+<p>Эта работа оплачивается из общественного трудового фонда. Новая TV
+может создаваться здесь, но только против проверенной общественной
+полезности.</p>
+<h2 id="производство-на-склад">11.3 Производство на склад</h2>
+<p>Производство для склада может финансироваться временным трудовым
+кредитом. Этот кредит обеспечен продуктом. Когда продукт продаётся,
+кредит возвращается или уничтожается. Если продукт не продаётся,
+производитель несёт убыток.</p>
+<hr />
+<h1 id="запрет-двойного-счёта">12. Запрет двойного счёта</h1>
+<p>Трудовой блок, который уже был оплачен, не может снова полностью
+оплачиваться как новая работа.</p>
+<p>Камень, который уже был произведён, переносит свой старый трудовой
+стек в дом. При строительстве дома считается только новая работа:</p>
+<ul>
+<li>транспорт,</li>
+<li>обработка,</li>
+<li>подгонка,</li>
+<li>соединение,</li>
+<li>новая структура,</li>
+<li>новый выход.</li>
+</ul>
+<p>Формально:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>О</mi><mi>б</mi><mi>щ</mi><mi>и</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mo>=</mo><mi>с</mi><mi>т</mi><mi>а</mi><mi>р</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mo>+</mo><mi>н</mi><mi>о</mi><mi>в</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>б</mi><mi>л</mi><mi>о</mi><mi>к</mi></mrow><annotation encoding="application/x-tex">
+Общий\ стек = старый\ стек + новый\ трудовой\ блок
+</annotation></semantics></math></p>
+<p>Не так:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>О</mi><mi>б</mi><mi>щ</mi><mi>и</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mo>=</mo><mi>с</mi><mi>т</mi><mi>а</mi><mi>р</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mo>+</mo><mi>с</mi><mi>т</mi><mi>а</mi><mi>р</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>н</mi><mi>о</mi><mi>в</mi><mi>а</mi><mo>+</mo><mi>н</mi><mi>о</mi><mi>в</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>б</mi><mi>л</mi><mi>о</mi><mi>к</mi></mrow><annotation encoding="application/x-tex">
+Общий\ стек = старый\ стек + старый\ стек\ снова + новый\ трудовой\ блок
+</annotation></semantics></math></p>
+<hr />
+<h1 id="трудовой-счёт">13. Трудовой счёт</h1>
+<p>У каждого участника есть трудовой счёт с четырьмя частями.</p>
+<h2 id="платёжный-баланс">13.1 Платёжный баланс</h2>
+<p>Доступная трудовая валюта:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msub><mi>V</mi><mrow><mi>f</mi><mi>r</mi><mi>e</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+TV_{free}
+</annotation></semantics></math></p>
+<h2 id="трудовой-реестр">13.2 Трудовой реестр</h2>
+<p>Личная история труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>R</mi><mo>=</mo><mo>∑</mo><mi>п</mi><mi>р</mi><mi>о</mi><mi>в</mi><mi>е</mi><mi>р</mi><mi>е</mi><mi>н</mi><mi>н</mi><mi>ы</mi><mi>х</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>ы</mi><mi>х</mi><mspace width="0.222em"></mspace><mi>б</mi><mi>л</mi><mi>о</mi><mi>к</mi><mi>о</mi><mi>в</mi></mrow><annotation encoding="application/x-tex">
+TR = \sum проверенных\ трудовых\ блоков
+</annotation></semantics></math></p>
+<p>Трудовой реестр — это репутация и доказательство, а не просто
+деньги.</p>
+<h2 id="реестр-собственности">13.3 Реестр собственности</h2>
+<p>Требования на продукты, инструменты, здания, права использования,
+доли компаний, интеллектуальные произведения и лицензии на использование
+земли.</p>
+<h2 id="реестр-обязательств">13.4 Реестр обязательств</h2>
+<p>Кредиты, обязанности поставки, обязанности обслуживания, компенсации
+ущерба, договорные штрафы и общественные сборы.</p>
+<hr />
+<h1 id="акторы">14. Акторы</h1>
+<h2 id="индивиды">14.1 Индивиды</h2>
+<p>Они предлагают труд, потребляют товары, учатся навыкам и имеют
+трудовые счета.</p>
+<h2 id="домохозяйства">14.2 Домохозяйства</h2>
+<p>Домохозяйства объединяют потребление, уход, жильё и ресурсы.</p>
+<h2 id="предприятия">14.3 Предприятия</h2>
+<p>Предприятия комбинируют труд, капитал, сырьё, организацию, знания,
+коммуникацию и математику.</p>
+<h2 id="кооперативы">14.4 Кооперативы</h2>
+<p>Кооперативы принадлежат работникам или пользователям. Прибыль
+распределяется по вкладу, риску и правилам.</p>
+<h2 id="общественные-институты">14.5 Общественные институты</h2>
+<p>Они управляют стандартами, проверкой, инфраструктурой, правами
+ресурсов, безопасностью, образованием, здоровьем, правом и денежной
+стабильностью.</p>
+<h2 id="проверяющие">14.6 Проверяющие</h2>
+<p>Проверяющие оценивают:</p>
+<ul>
+<li>была ли работа действительно выполнена?</li>
+<li>реален ли выход?</li>
+<li>корректно ли качество?</li>
+<li>оправдан ли коэффициент?</li>
+<li>не было ли двойного счёта?</li>
+<li>есть ли отрицательные побочные эффекты?</li>
+</ul>
+<hr />
+<h1 id="рынки">15. Рынки</h1>
+<h2 id="рынок-товаров">15.1 Рынок товаров</h2>
+<p>Продаются физические товары: пища, инструменты, одежда, дома, машины,
+энергия и сырьё.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>g</mi><mi>o</mi><mi>o</mi><mi>d</mi></mrow></msub><mo>=</mo><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>е</mi><mi>к</mi><mo>+</mo><mi>р</mi><mi>е</mi><mi>с</mi><mi>у</mi><mi>р</mi><mi>с</mi><mi>н</mi><mi>а</mi><mi>я</mi><mspace width="0.222em"></mspace><mi>р</mi><mi>е</mi><mi>н</mi><mi>т</mi><mi>а</mi><mo>+</mo><mi>р</mi><mi>и</mi><mi>с</mi><mi>к</mi><mo>+</mo><mi>д</mi><mi>е</mi><mi>ф</mi><mi>и</mi><mi>ц</mi><mi>и</mi><mi>т</mi></mrow><annotation encoding="application/x-tex">
+P_{good} = трудовой\ стек + ресурсная\ рента + риск + дефицит
+</annotation></semantics></math></p>
+<h2 id="рынок-услуг">15.2 Рынок услуг</h2>
+<p>Продаётся прямой труд: ремонт, уход, консультации, обучение,
+транспорт, планирование и коммуникация.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>i</mi><mi>c</mi><mi>e</mi></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P_{service} = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<h2 id="рынок-знаний">15.3 Рынок знаний</h2>
+<p>Торгуются модели, алгоритмы, чертежи, исследовательские отчёты,
+симуляции, оптимизации и стандарты.</p>
+<p>Знание имеет особенность: первое создание дорого, копия дёшева.
+Поэтому создатель получает высокую начальную ценность и временно
+ограниченные права использования. Затем знание постепенно переходит в
+общее достояние.</p>
+<h2 id="рынок-труда">15.4 Рынок труда</h2>
+<p>Люди предлагают рабочие сегменты.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>=</mo><mi>T</mi><mi>V</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+Wage = TV \cdot S
+</annotation></semantics></math></p>
+<h2 id="рынок-капитала">15.5 Рынок капитала</h2>
+<p>Капитал — это сохранённый прошлый труд: машины, инструменты, здания,
+программное обеспечение, модели данных, патенты и запасы.</p>
+<p>Доход капитала состоит из компенсации износа, компенсации
+обслуживания, премии за риск и доли продуктивности.</p>
+<h2 id="рынок-ресурсов">15.6 Рынок ресурсов</h2>
+<p>Природные ресурсы не созданы трудом. Земля, вода, воздух, полезные
+ископаемые, радиочастоты и экосистемы управляются через права
+использования и ресурсную ренту.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mi>д</mi><mi>е</mi><mi>ф</mi><mi>и</mi><mi>ц</mi><mi>и</mi><mi>т</mi><mo>⋅</mo><mi>к</mi><mi>о</mi><mi>л</mi><mi>и</mi><mi>ч</mi><mi>е</mi><mi>с</mi><mi>т</mi><mi>в</mi><mi>о</mi><mspace width="0.222em"></mspace><mi>и</mi><mi>с</mi><mi>п</mi><mi>о</mi><mi>л</mi><mi>ь</mi><mi>з</mi><mi>о</mi><mi>в</mi><mi>а</mi><mi>н</mi><mi>и</mi><mi>я</mi><mo>⋅</mo><mi>э</mi><mi>к</mi><mi>о</mi><mi>л</mi><mi>о</mi><mi>г</mi><mi>и</mi><mi>ч</mi><mi>е</mi><mi>с</mi><mi>к</mi><mi>а</mi><mi>я</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>т</mi><mi>о</mi><mi>и</mi><mi>м</mi><mi>о</mi><mi>с</mi><mi>т</mi><mi>ь</mi></mrow><annotation encoding="application/x-tex">
+R = дефицит \cdot количество\ использования \cdot экологическая\ стоимость
+</annotation></semantics></math></p>
+<hr />
+<h1 id="собственность">16. Собственность</h1>
+<h2 id="трудовая-собственность">16.1 Трудовая собственность</h2>
+<p>Тот, кто выполняет труд, изначально имеет требование на его
+ценность.</p>
+<h2 id="собственность-на-продукт">16.2 Собственность на продукт</h2>
+<p>Тот, кто создаёт или законно покупает продукт, владеет им.</p>
+<h2 id="право-использования">16.3 Право использования</h2>
+<p>Некоторые вещи можно использовать, но нельзя владеть ими абсолютно:
+земля, права на воду, общественная инфраструктура, частоты и
+экологические пространства.</p>
+<h2 id="собственность-на-знания">16.4 Собственность на знания</h2>
+<p>Знание получает авторское требование и временно ограниченные права
+эксплуатации. Позже оно может перейти в открытые лицензии или
+общественное достояние.</p>
+<hr />
+<h1 id="предприятия-и-распределение-прибыли">17. Предприятия и
+распределение прибыли</h1>
+<p>Предприятие создаёт выход через множество трудовых блоков.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>u</mi><mi>r</mi><mi>p</mi><mi>l</mi><mi>u</mi><mi>s</mi><mo>=</mo><mi>в</mi><mi>ы</mi><mi>р</mi><mi>у</mi><mi>ч</mi><mi>к</mi><mi>а</mi><mo>−</mo><mi>и</mi><mi>з</mi><mi>д</mi><mi>е</mi><mi>р</mi><mi>ж</mi><mi>к</mi><mi>и</mi></mrow><annotation encoding="application/x-tex">
+Surplus = выручка - издержки
+</annotation></semantics></math></p>
+<p>Издержки состоят из входов, зарплат, износа капитала, ресурсных рент,
+налогов и риска.</p>
+<p>Излишек распределяется по:</p>
+<ol type="1">
+<li>трудовому вкладу,</li>
+<li>риску капитала,</li>
+<li>организационному вкладу,</li>
+<li>инновационному вкладу,</li>
+<li>общественному вкладу.</li>
+</ol>
+<p>Справедливая базовая формула:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>h</mi><mi>a</mi><mi>r</mi><msub><mi>e</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>b</mi><mi>u</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><mrow><mo>∑</mo><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>b</mi><mi>u</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+Share_i = \frac{Contribution_i}{\sum Contribution}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="налоги-и-общий-фонд">18. Налоги и общий фонд</h1>
+<h2 id="транзакционный-сбор">18.1 Транзакционный сбор</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>τ</mi><mo>⋅</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+T = \tau \cdot P
+</annotation></semantics></math></p>
+<p>Пример:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\tau = 5\%</annotation></semantics></math>.</p>
+<h2 id="ресурсная-рента">18.2 Ресурсная рента</h2>
+<p>Тот, кто использует дефицитные природные ресурсы, платит. Эти доходы
+принадлежат обществу.</p>
+<h2 id="сбор-за-отрицательный-выход">18.3 Сбор за отрицательный
+выход</h2>
+<p>Тот, кто создаёт ущерб, платит: загрязнение, дезинформация,
+производственные дефекты, риски безопасности или блокирование другой
+работы.</p>
+<h2 id="сбор-с-высоких-коэффициентов">18.4 Сбор с высоких
+коэффициентов</h2>
+<p>Высоко оцениваемая работа использует много общественных предпосылок:
+образование, язык, инфраструктуру, данные, стандарты и прошлую
+математику. Небольшой рычажный сбор может ограничивать крайнюю
+неравномерность.</p>
+<hr />
+<h1 id="гражданский-дивиденд-и-базовое-обеспечение">19. Гражданский
+дивиденд и базовое обеспечение</h1>
+<p>Поскольку природные ресурсы и общественные стандарты принадлежат
+всем, каждый гражданин получает базовый дивиденд или базовое
+обеспечение.</p>
+<p>Оно может состоять из:</p>
+<ul>
+<li>базовой пищи,</li>
+<li>базовой энергии,</li>
+<li>базового жилья,</li>
+<li>образования,</li>
+<li>доступа к здравоохранению,</li>
+<li>цифрового доступа,</li>
+<li>общественного транспорта,</li>
+<li>небольшой выплаты TV.</li>
+</ul>
+<p>Это защищает детей, пожилых, больных, ухаживающих, учащихся и людей в
+переходных фазах.</p>
+<hr />
+<h1 id="отрицательная-работа">20. Отрицательная работа</h1>
+<p>Не всякая работа хороша. Усилие может создавать ущерб.</p>
+<p>Примеры:</p>
+<ul>
+<li>ложный расчёт статики,</li>
+<li>плохая медицина,</li>
+<li>дезинформация,</li>
+<li>ненужная бюрократия,</li>
+<li>разрушение окружающей среды,</li>
+<li>ошибочная математика,</li>
+<li>плохое разложение на блоки,</li>
+<li>саботирующая коммуникация.</li>
+</ul>
+<p>Отрицательные выходные единицы:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>O</mi><mo>−</mo></msup><mo>=</mo><mi>у</mi><mi>щ</mi><mi>е</mi><mi>р</mi><mi>б</mi></mrow><annotation encoding="application/x-tex">
+O^- = ущерб
+</annotation></semantics></math></p>
+<p>Эффективное количество труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>e</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow></msub><mo>=</mo><mi>E</mi><mo>+</mo><msup><mi>O</mi><mo>+</mo></msup><mo>−</mo><mi>γ</mi><msup><mi>O</mi><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">
+M_{effective} = E + O^+ - \gamma O^-
+</annotation></semantics></math></p>
+<p>Если ущерб больше пользы, трудовая валюта не создаётся; вместо этого
+возникает долг или ответственность.</p>
+<hr />
+<h1 id="проверка">21. Проверка</h1>
+<p>Каждая оцениваемая работа требует доказательства.</p>
+<p>Трудовой блок содержит:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Актор</td>
+<td>Кто работал?</td>
+</tr>
+<tr>
+<td>Время</td>
+<td>Когда была выполнена работа?</td>
+</tr>
+<tr>
+<td>Место / система</td>
+<td>Где или над чем?</td>
+</tr>
+<tr>
+<td>Входные единицы</td>
+<td>Что было использовано?</td>
+</tr>
+<tr>
+<td>Выходные единицы</td>
+<td>Что было создано?</td>
+</tr>
+<tr>
+<td>Коэффициент</td>
+<td>Какой вид работы?</td>
+</tr>
+<tr>
+<td>Качество</td>
+<td>Насколько хорош выход?</td>
+</tr>
+<tr>
+<td>Полезность</td>
+<td>Кто или что получает пользу?</td>
+</tr>
+<tr>
+<td>Ущерб</td>
+<td>Какие побочные эффекты?</td>
+</tr>
+<tr>
+<td>Проверяющий</td>
+<td>Кто подтверждает?</td>
+</tr>
+<tr>
+<td>Трудовой стек</td>
+<td>Какие предыдущие работы включены?</td>
+</tr>
+</tbody>
+</table>
+<p>Без проверки нет действительного требования на TV.</p>
+<hr />
+<h1 id="проверка-коэффициентов">22. Проверка коэффициентов</h1>
+<p>Высокие коэффициенты требуют особых доказательств.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Коэффициент</th>
+<th>Доказательство</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Срочность
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+<td>срок, риск задержки, время реакции, предотвращённый ущерб</td>
+</tr>
+<tr>
+<td>Причинная важность
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math></td>
+<td>причинный граф, зависимые процессы, устранение узкого места,
+контрфакт</td>
+</tr>
+<tr>
+<td>Умственная работа
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+<td>документ, план, модель, диагноз, черновик, решение, объяснение</td>
+</tr>
+<tr>
+<td>Коммуникация
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+<td>получатель, понятая информация, скоординированное действие, решённый
+конфликт</td>
+</tr>
+<tr>
+<td>Разложение на блоки
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+<td>классификация, схема измерения, карта, стандарт, модель данных</td>
+</tr>
+<tr>
+<td>Математика
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+<td>доказательство, расчёт, алгоритм, симуляция, прогнозная модель,
+формальная проверка</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="система-образования">23. Система образования</h1>
+<p>Образование критически важно, потому что переводит людей в более
+высокие рабочие коэффициенты. Образование часто содержит умственную
+работу, коммуникацию, математику и разложение на блоки.</p>
+<p>Преподавание высоко оценивается, если оно создаёт реальный рост
+компетентности. Учащиеся не получают автоматически высокие коэффициенты,
+но могут получать образовательные гранты, потому что общество позже
+выигрывает от более высоких способностей.</p>
+<hr />
+<h1 id="здравоохранение">24. Здравоохранение</h1>
+<p>Медицинский труд часто оценивается высоко.</p>
+<table>
+<thead>
+<tr>
+<th>Деятельность</th>
+<th>Возможные коэффициенты</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Уход</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Экстренная медицина</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Диагностика</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+иногда
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Координация операции</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Медицинские исследования</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Медицинский труд получает высокие значения, если спасает жизни,
+предотвращает последующий ущерб или имеет срочный и причинно центральный
+эффект.</p>
+<hr />
+<h1 id="инфраструктура">25. Инфраструктура</h1>
+<p>Инфраструктура содержит работу с площадью, 3D-работу, причинно важную
+работу, коммуникацию, математическое планирование и разложение на
+блоки.</p>
+<p>Мост — это не просто бетон. Это причинный узел транспортной сети.
+Если он делает возможными многие другие работы, он получает причинную
+ценность.</p>
+<hr />
+<h1 id="сельское-хозяйство">26. Сельское хозяйство</h1>
+<p>Пашенное земледелие имеет коэффициент
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+но остаётся системно критическим.</p>
+<p>Механизмы защиты:</p>
+<ol type="1">
+<li>коэффициент дефицита,</li>
+<li>базовое обеспечение,</li>
+<li>земельная рента.</li>
+</ol>
+<p>Фермеры поэтому не получают автоматически низкую оплату. Рынок,
+дефицит и общественное обеспечение могут сильно повысить их доход.</p>
+<hr />
+<h1 id="математика-как-высшая-работа">27. Математика как высшая
+работа</h1>
+<p>Математика получает коэффициент
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>,
+но под строгим контролем.</p>
+<h2 id="чистая-математика">27.1 Чистая математика</h2>
+<p>Доказательства, структуры и теории.</p>
+<h2 id="прикладная-математика">27.2 Прикладная математика</h2>
+<p>Оптимизация, симуляция, криптография, планирование, статистика и
+управление машинами.</p>
+<h2 id="системная-математика">27.3 Системная математика</h2>
+<p>Математика, улучшающая другие части экономики: производственное
+планирование, логистика, модели риска, распределение энергии и экономия
+материалов.</p>
+<p>Математика плюс причинная важность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">
+K = 1 + (10-1) + (5-1) = 14
+</annotation></semantics></math></p>
+<hr />
+<h1 id="коммуникационная-работа">28. Коммуникационная работа</h1>
+<p>Коммуникационная работа с коэффициентом
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math>
+является высокоуровневым сектором, потому что сложные экономики часто
+проваливаются из-за плохой координации.</p>
+<p>Коммуникация создаёт ценность, когда передаёт знания, предотвращает
+недопонимание, делает возможными решения, создаёт доверие или разрешает
+конфликты.</p>
+<p>Она считается не по числу слов, а по успешному изменению состояния
+получателя.</p>
+<hr />
+<h1 id="разложение-вселенной-на-блоки">29. Разложение вселенной на
+блоки</h1>
+<p>Коэффициент
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>
+— основа всей экономической симуляции. Тот, кто определяет блоки,
+создаёт измеримость.</p>
+<p>Примеры:</p>
+<ul>
+<li>разделение поля на зоны,</li>
+<li>разделение здания на компоненты,</li>
+<li>разделение предприятия на процессы,</li>
+<li>разделение цепочки поставок на узлы,</li>
+<li>разделение математической задачи на переменные,</li>
+<li>разделение города на функциональные пространства,</li>
+<li>разделение социальной проблемы на причины.</li>
+</ul>
+<p>Ложное разложение на блоки опасно, потому что создаёт ложные цены,
+ложное планирование и ложную политику.</p>
+<hr />
+<h1 id="кредитная-система">30. Кредитная система</h1>
+<h2 id="трудовой-аванс">30.1 Трудовой аванс</h2>
+<p>Человек получает TV до завершения работы. Если работа успешна, аванс
+засчитывается. Если она проваливается, возникает долг или убыток.</p>
+<h2 id="производственный-кредит">30.2 Производственный кредит</h2>
+<p>Предприятие получает TV для покупки входов. Кредит обеспечен
+запасами, машинами, ожидаемым выходом, контрактами или страхованием.</p>
+<h2 id="исследовательская-опция">30.3 Исследовательская опция</h2>
+<p>Исследования, математика и разложение на блоки могут иметь
+неопределённую полезность. Поэтому сначала они оплачиваются частично.
+Если полезность появляется позже, высвобождается дополнительная TV.</p>
+<hr />
+<h1 id="банки-и-клиринговые-центры">31. Банки и клиринговые центры</h1>
+<p>Банки не являются свободными создателями денег. Они являются
+проверяющими, оценщиками риска, кредитными посредниками, доверительными
+управляющими, финансистами проектов и клиринговыми центрами.</p>
+<p>Временная TV может выдаваться только при наличии обеспечения: будущий
+труд, контракт, продукт, капитал или общественная гарантия.</p>
+<hr />
+<h1 id="инфляция-и-стабильность">32. Инфляция и стабильность</h1>
+<p>Четыре правила стабильности:</p>
+<ol type="1">
+<li>Считается только проверенный труд.</li>
+<li>Нет двойного счёта.</li>
+<li>Общественное создание денег ограничено.</li>
+<li>Опциональная плата за обращение предотвращает постоянное
+накопление.</li>
+</ol>
+<p>Плата за обращение:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msub><mi>V</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>T</mi><msub><mi>V</mi><mi>t</mi></msub><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+TV_{t+1} = TV_t \cdot (1-d)
+</annotation></semantics></math></p>
+<p>Типичное значение:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0.001</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> до </mtext><mspace width="0.333em"></mspace></mrow><mn>0.005</mn></mrow><annotation encoding="application/x-tex">
+d = 0.001 \text{ до } 0.005
+</annotation></semantics></math></p>
+<hr />
+<h1 id="макроуправление">33. Макроуправление</h1>
+<p>Экономика постоянно измеряет:</p>
+<ul>
+<li>количество труда,</li>
+<li>выпущенную TV,</li>
+<li>уровень цен,</li>
+<li>дефициты,</li>
+<li>безработицу,</li>
+<li>состояние ресурсов,</li>
+<li>производительность,</li>
+<li>ошибки качества,</li>
+<li>скорость обращения денег.</li>
+</ul>
+<p>При инфляции: меньше общественной эмиссии TV, более строгая проверка,
+более высокие ресурсные сборы и больше производства в дефицитных
+областях.</p>
+<p>При дефляции: больше общественных заказов, инфраструктурной работы,
+инвестиций в образование и финансирования исследований.</p>
+<hr />
+<h1 id="экономический-такт-симуляции">34. Экономический такт
+симуляции</h1>
+<p>Один такт проходит так:</p>
+<ol type="1">
+<li>Рассчитать потребности домохозяйств.</li>
+<li>Создать спрос.</li>
+<li>Определить дефициты.</li>
+<li>Акторы выбирают работу по способностям, цене и потребности.</li>
+<li>Зарезервировать входы.</li>
+<li>Создать трудовые блоки.</li>
+<li>Создать выходы.</li>
+<li>Проверить качество.</li>
+<li>Проверить коэффициенты.</li>
+<li>Рассчитать цены.</li>
+<li>Выполнить платежи.</li>
+<li>Оплатить общественную работу из общего фонда.</li>
+<li>Обновить кредиты.</li>
+<li>Обновить запасы ресурсов.</li>
+<li>Записать ущерб и отрицательные выходы.</li>
+<li>Измерить инфляцию и уровень цен.</li>
+<li>Распределить налоги, ренты и дивиденды.</li>
+<li>Обновить навыки и репутацию.</li>
+</ol>
+<hr />
+<h1 id="примеры">35. Примеры</h1>
+<h2 id="пашенная-работа">35.1 Пашенная работа</h2>
+<p>Дано:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>60</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>140</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Q</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+E = 60, \quad O = 140, \quad K = 1, \quad Q = 1
+</annotation></semantics></math></p>
+<p>Количество труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>60</mn><mo>+</mo><mn>140</mn><mo>=</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">
+M = 60 + 140 = 200
+</annotation></semantics></math></p>
+<p>Трудовая ценность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>200</mn><mo>⋅</mo><mn>1</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">
+TV = 200 \cdot 1 \cdot 1 = 200
+</annotation></semantics></math></p>
+<p>Цена:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo>⋅</mo><mn>60</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>140</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>170</mn></mrow><annotation encoding="application/x-tex">
+P = (0.5 \cdot 60 + 1 \cdot 140) \cdot 1 = 170
+</annotation></semantics></math></p>
+<p>Если пища дефицитна:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>1.5</mn></mrow><annotation encoding="application/x-tex">
+S = 1.5
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>170</mn><mo>⋅</mo><mn>1.5</mn><mo>=</mo><mn>255</mn></mrow><annotation encoding="application/x-tex">
+P = 170 \cdot 1.5 = 255
+</annotation></semantics></math></p>
+<h2 id="строительство-дома">35.2 Строительство дома</h2>
+<table>
+<thead>
+<tr>
+<th>Сегмент</th>
+<th style="text-align: right;">Количество
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math></th>
+<th style="text-align: right;">Коэффициент
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></th>
+<th style="text-align: right;">Ценность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подготовка площади</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">400</td>
+</tr>
+<tr>
+<td>Фундамент</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">900</td>
+</tr>
+<tr>
+<td>3D-строительство</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3000</td>
+</tr>
+<tr>
+<td>Расчёт статики</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">800</td>
+</tr>
+<tr>
+<td>Координация строительства</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">840</td>
+</tr>
+<tr>
+<td>Проверка качества</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">360</td>
+</tr>
+</tbody>
+</table>
+<p>Общая ценность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>400</mn><mo>+</mo><mn>900</mn><mo>+</mo><mn>3000</mn><mo>+</mo><mn>800</mn><mo>+</mo><mn>840</mn><mo>+</mo><mn>360</mn><mo>=</mo><mn>6400</mn></mrow><annotation encoding="application/x-tex">
+TV = 400 + 900 + 3000 + 800 + 840 + 360 = 6400
+</annotation></semantics></math></p>
+<h2 id="срочный-ремонт">35.3 Срочный ремонт</h2>
+<p>Ремонт электрического узла предотвращает производственный
+простой.</p>
+<p>База 3D/инфраструктура:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+K = 3
+</annotation></semantics></math></p>
+<p>Дополнительно срочно и причинно важно:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 1 + (3-1) + (4-1) + (5-1) = 10
+</annotation></semantics></math></p>
+<p>При
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">M = 100</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>100</mn><mo>⋅</mo><mn>10</mn><mo>=</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">
+TV = 100 \cdot 10 = 1000
+</annotation></semantics></math></p>
+<h2 id="математическая-оптимизация">35.4 Математическая оптимизация</h2>
+<p>Математик создаёт алгоритм, который снижает расход материалов.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>30</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>80</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">
+E = 30, \quad O = 80, \quad M = 110
+</annotation></semantics></math></p>
+<p>Математика:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 10
+</annotation></semantics></math></p>
+<p>Частично причинно важно:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">
+K = 12
+</annotation></semantics></math></p>
+<p>Трудовая ценность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>110</mn><mo>⋅</mo><mn>12</mn><mo>=</mo><mn>1320</mn></mrow><annotation encoding="application/x-tex">
+TV = 110 \cdot 12 = 1320
+</annotation></semantics></math></p>
+<p>Цена:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo>⋅</mo><mn>30</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>80</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>12</mn><mo>=</mo><mn>1140</mn></mrow><annotation encoding="application/x-tex">
+P = (0.5 \cdot 30 + 1 \cdot 80) \cdot 12 = 1140
+</annotation></semantics></math></p>
+<h2 id="коммуникационная-работа-1">35.5 Коммуникационная работа</h2>
+<p>Координатор предотвращает производственный дефект через ясную
+координацию.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>50</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Q</mi><mo>=</mo><mn>1.2</mn></mrow><annotation encoding="application/x-tex">
+M = 50, \quad K = 7, \quad Q = 1.2
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>V</mi><mo>=</mo><mn>50</mn><mo>⋅</mo><mn>7</mn><mo>⋅</mo><mn>1.2</mn><mo>=</mo><mn>420</mn></mrow><annotation encoding="application/x-tex">
+TV = 50 \cdot 7 \cdot 1.2 = 420
+</annotation></semantics></math></p>
+<p>Ненужные встречи без эффекта имели бы
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Q = 0</annotation></semantics></math>.</p>
+<hr />
+<h1 id="типы-договоров">36. Типы договоров</h1>
+<h2 id="количественный-договор">36.1 Количественный договор</h2>
+<p>Оплата по количеству труда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="договор-результата">36.2 Договор результата</h2>
+<p>Оплата по выходу.</p>
+<h2 id="договор-воздействия">36.3 Договор воздействия</h2>
+<p>Оплата по причинной полезности.</p>
+<p>Подходит для медицины, безопасности, оптимизации, консалтинга,
+исследований и коммуникации.</p>
+<h2 id="исследовательский-договор">36.4 Исследовательский договор</h2>
+<p>Одна часть оплачивается сразу, другая позже после доказанной
+полезности.</p>
+<h2 id="аварийный-договор">36.5 Аварийный договор</h2>
+<p>Срочная работа получает повышенные коэффициенты, но с последующей
+проверкой.</p>
+<hr />
+<h1 id="ресурсы-и-экология">37. Ресурсы и экология</h1>
+<p>Каждый природный запас имеет:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>t</mi><mi>o</mi><mi>c</mi><msub><mi>k</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>S</mi><mi>t</mi><mi>o</mi><mi>c</mi><msub><mi>k</mi><mi>t</mi></msub><mo>+</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>t</mi></msub><mo>−</mo><mi>E</mi><mi>x</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>t</mi></msub><mo>−</mo><mi>D</mi><mi>a</mi><mi>m</mi><mi>a</mi><mi>g</mi><msub><mi>e</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">
+Stock_{t+1} = Stock_t + Regeneration_t - Extraction_t - Damage_t
+</annotation></semantics></math></p>
+<p>Если добыча превышает восстановление, ресурсная рента растёт.</p>
+<p>Восстановление окружающей среды считается трудом. Экологический ущерб
+считается отрицательным выходом.</p>
+<hr />
+<h1 id="автоматизация-и-машины">38. Автоматизация и машины</h1>
+<p>Машины создают выход, но их ценность распределяется между:</p>
+<ul>
+<li>разработчиками,</li>
+<li>машиностроителями,</li>
+<li>обслуживающими,</li>
+<li>поставщиками энергии,</li>
+<li>владельцами с риском,</li>
+<li>общественной инфраструктурой,</li>
+<li>математической и технической предварительной работой.</li>
+</ul>
+<p>Автоматизация снижает цену простой работы и повышает значение
+математики, обслуживания, системного управления, коммуникации и
+разложения на блоки.</p>
+<hr />
+<h1 id="внешняя-торговля">39. Внешняя торговля</h1>
+<p>Обменный курс TV основан на корзине товаров:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>T</mi><mi>V</mi><mo>=</mo><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>а</mi><mi>я</mi><mspace width="0.222em"></mspace><mi>ц</mi><mi>е</mi><mi>н</mi><mi>н</mi><mi>о</mi><mi>с</mi><mi>т</mi><mi>ь</mi><mspace width="0.222em"></mspace><mi>б</mi><mi>а</mi><mi>з</mi><mi>о</mi><mi>в</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>о</mi><mi>в</mi><mi>а</mi><mi>р</mi><mi>н</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>к</mi><mi>о</mi><mi>р</mi><mi>з</mi><mi>и</mi><mi>н</mi><mi>ы</mi></mrow><annotation encoding="application/x-tex">
+1 TV = трудовая\ ценность\ базовой\ товарной\ корзины
+</annotation></semantics></math></p>
+<p>Импортные товары получают оценочный трудовой стек:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msub><mi>V</mi><mrow><mi>i</mi><mi>m</mi><mi>p</mi><mi>o</mi><mi>r</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>о</mi><mi>ц</mi><mi>е</mi><mi>н</mi><mi>о</mi><mi>ч</mi><mi>н</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>в</mi><mi>с</mi><mi>т</mi><mi>р</mi><mi>о</mi><mi>е</mi><mi>н</mi><mi>н</mi><mi>ы</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mo>+</mo><mi>т</mi><mi>р</mi><mi>а</mi><mi>н</mi><mi>с</mi><mi>п</mi><mi>о</mi><mi>р</mi><mi>т</mi><mo>+</mo><mi>п</mi><mi>о</mi><mi>ш</mi><mi>л</mi><mi>и</mi><mi>н</mi><mi>а</mi><mo>+</mo><mi>д</mi><mi>е</mi><mi>ф</mi><mi>и</mi><mi>ц</mi><mi>и</mi><mi>т</mi></mrow><annotation encoding="application/x-tex">
+TV_{import} = оценочный\ встроенный\ труд + транспорт + пошлина + дефицит
+</annotation></semantics></math></p>
+<hr />
+<h1 id="социальная-мобильность">40. Социальная мобильность</h1>
+<p>Система не должна навсегда запирать людей в работе с коэффициентом 1.
+Поэтому общий фонд финансирует:</p>
+<ul>
+<li>образование,</li>
+<li>базовое математическое обучение,</li>
+<li>обучение коммуникации,</li>
+<li>техническое обучение,</li>
+<li>доступ к инструментам,</li>
+<li>предпринимательские кредиты,</li>
+<li>общественные данные и стандарты.</li>
+</ul>
+<p>Цель:</p>
+<pre class="text"><code>Люди должны иметь возможность переходить к более высоким трудовым коэффициентам.</code></pre>
+<hr />
+<h1 id="ограничение-власти">41. Ограничение власти</h1>
+<p>Высокие коэффициенты
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>
+и
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>
+создают системную власть. Защитные правила:</p>
+<ol type="1">
+<li>прозрачность,</li>
+<li>обязательная проверка,</li>
+<li>отсутствие вечной монополии,</li>
+<li>общественные стандарты,</li>
+<li>встречная проверка.</li>
+</ol>
+<hr />
+<h1 id="мошенничество-и-защита">42. Мошенничество и защита</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Мошенничество</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Круговая работа</td>
+<td>Один и тот же объект снова и снова перемещается</td>
+<td>Реестр происхождения</td>
+</tr>
+<tr>
+<td>Мошенничество с коэффициентом</td>
+<td>Обычная работа выдаётся за математику</td>
+<td>Проверка</td>
+</tr>
+<tr>
+<td>Коммуникационный спам</td>
+<td>Много слов без эффекта</td>
+<td>Доказательство получателя и полезности</td>
+</tr>
+<tr>
+<td>Поддельная математика</td>
+<td>Ложные модели</td>
+<td>Формальная проверка</td>
+</tr>
+<tr>
+<td>Искусственная срочность</td>
+<td>Самостоятельно созданные аварии</td>
+<td>Проверка причин</td>
+</tr>
+<tr>
+<td>Двойной счёт</td>
+<td>Старая работа рассчитывается заново</td>
+<td>Реестр трудовых стеков</td>
+</tr>
+<tr>
+<td>Захват ресурсов</td>
+<td>Земля блокируется</td>
+<td>Земельная рента</td>
+</tr>
+<tr>
+<td>Мошенничество с качеством</td>
+<td>Плохой выход оценивается высоко</td>
+<td>Ответственность и ответственность проверяющего</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="ответственность-проверяющих">43. Ответственность
+проверяющих</h1>
+<p>Проверяющие не должны выдавать ложные оценки без последствий. Если
+проверяющий слишком высоко оценивает плохую работу, он несёт совместную
+ответственность.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>i</mi><mi>a</mi><mi>b</mi><mi>i</mi><mi>l</mi><mi>i</mi><mi>t</mi><msub><mi>y</mi><mrow><mi>v</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>e</mi><mi>r</mi></mrow></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+Liability_{verifier} &gt; 0
+</annotation></semantics></math></p>
+<hr />
+<h1 id="политический-порядок">44. Политический порядок</h1>
+<h2 id="трудовой-совет">44.1 Трудовой совет</h2>
+<p>Поддерживает порядок коэффициентов и стандарты.</p>
+<h2 id="ресурсный-совет">44.2 Ресурсный совет</h2>
+<p>Управляет землёй, водой, энергией, экологией и правами
+использования.</p>
+<h2 id="валютный-совет">44.3 Валютный совет</h2>
+<p>Стабилизирует предложение TV, наблюдает за инфляцией и общим
+фондом.</p>
+<h2 id="проверочные-палаты">44.4 Проверочные палаты</h2>
+<p>Проверяют математику, разложение на блоки, коммуникацию, причинность
+и аварийную работу.</p>
+<h2 id="арбитражные-суды">44.5 Арбитражные суды</h2>
+<p>Решают споры о качестве, собственности, оплате, назначении
+коэффициентов и ущербе.</p>
+<hr />
+<h1 id="формальная-общая-модель">45. Формальная общая модель</h1>
+<p>Для проекта
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+с сегментами
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msub><mi>V</mi><mi>p</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>M</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+TV_p = \sum_{s=1}^{n} M_s \cdot K_s \cdot Q_s \cdot U_s
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>s</mi></msub><mo>=</mo><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><msub><mi>O</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+M_s = E_s + O_s
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn><mo>+</mo><mo>∑</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>k</mi><mrow><mi>s</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K_s = 1 + \sum (k_{s,i} - 1)
+</annotation></semantics></math></p>
+<p>Цена:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>p</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><mi>α</mi><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><mi>β</mi><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>S</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+P_p = \sum_{s=1}^{n}(\alpha E_s + \beta O_s) \cdot K_s \cdot Q_s \cdot S_s
+</annotation></semantics></math></p>
+<p>Трудовой стек продукта:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>t</mi><mi>a</mi><mi>c</mi><msub><mi>k</mi><mi>p</mi></msub><mo>=</mo><mi>S</mi><mi>t</mi><mi>a</mi><mi>c</mi><msub><mi>k</mi><mrow><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>s</mi></mrow></msub><mo>+</mo><mi>T</mi><msub><mi>V</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+Stack_p = Stack_{Inputs} + TV_{new}
+</annotation></semantics></math></p>
+<p>Свободная денежная масса:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>t</mi></msub><mo>=</mo><msub><mi>G</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>T</mi><msub><mi>V</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>l</mi><mi>i</mi><mi>c</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>+</mo><mi>T</mi><msub><mi>V</mi><mrow><mi>c</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>−</mo><mi>T</mi><msub><mi>V</mi><mrow><mi>r</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>n</mi></mrow></msub><mo>−</mo><mi>T</mi><msub><mi>V</mi><mrow><mi>d</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>r</mi><mi>u</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+G_t = G_{t-1} + TV_{public\ new} + TV_{credit\ new} - TV_{return} - TV_{destruction}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="структура-данных-для-симуляции">46. Структура данных для
+симуляции</h1>
+<pre class="text"><code>LaborBlock:
+    id
+    actor
+    project
+    timestamp
+    input_units E
+    output_units O
+    labor_quantity M
+    factor K
+    quality Q
+    scarcity S
+    usefulness U
+    price P
+    created_TV
+    verifier
+    predecessor_blocks
+    successor_blocks
+    damage_risk</code></pre>
+<pre class="text"><code>Actor:
+    id
+    type: Person / Firm / State / Verifier
+    TV_balance
+    skills
+    reputation
+    ownership
+    debts
+    needs
+    productivity</code></pre>
+<pre class="text"><code>Good:
+    id
+    type
+    labor_stack
+    owner
+    quality
+    scarcity
+    useful_life
+    maintenance_need
+    resource_share</code></pre>
+<pre class="text"><code>Market:
+    good_type
+    supply
+    demand
+    average_price
+    scarcity_factor
+    quality_distribution</code></pre>
+<hr />
+<h1 id="алгоритм-симуляции">47. Алгоритм симуляции</h1>
+<pre class="text"><code>Для каждого периода:
+
+1. Рассчитать потребности домохозяйств.
+2. Создать спрос на товары и услуги.
+3. Определить дефициты.
+4. Акторы выбирают работу по способностям, цене и потребности.
+5. Зарезервировать входы.
+6. Создать трудовые блоки.
+7. Создать выходы.
+8. Проверить качество.
+9. Проверить коэффициенты.
+10. Рассчитать цены.
+11. Выполнить платежи.
+12. Оплатить общественную работу из общего фонда.
+13. Обновить кредиты.
+14. Обновить запасы ресурсов.
+15. Записать ущерб и отрицательные выходы.
+16. Измерить инфляцию и уровень цен.
+17. Распределить налоги, ренты и дивиденды.
+18. Обновить навыки и репутацию.</code></pre>
+<hr />
+<h1 id="минимальные-параметры-для-версии-1.0">48. Минимальные параметры
+для версии 1.0</h1>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th style="text-align: right;">Начальное значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+вес входа</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5</mn><annotation encoding="application/x-tex">0.5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+вес выхода</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.0</mn><annotation encoding="application/x-tex">1.0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент пашенного земледелия</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент площади</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент 3D</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент срочности</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент причинности</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент умственной работы</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент коммуникации</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент разложения на блоки</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Коэффициент математики</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Стандартное качество
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Транзакционный сбор</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">5\%</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Ресурсная рента</td>
+<td style="text-align: right;">переменная</td>
+</tr>
+<tr>
+<td>Коэффициент дефицита
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.7</mn><annotation encoding="application/x-tex">0.7</annotation></semantics></math>
+до
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Опциональная плата за обращение</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">0.1\%</annotation></semantics></math>
+до
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">0.5\%</annotation></semantics></math>
+за период</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="сильные-стороны-системы">49. Сильные стороны системы</h1>
+<p>Эта экономическая система вознаграждает:</p>
+<ul>
+<li>реальное производство,</li>
+<li>полезную работу,</li>
+<li>координацию,</li>
+<li>планирование,</li>
+<li>математику,</li>
+<li>хорошую коммуникацию,</li>
+<li>системное понимание,</li>
+<li>устранение узких мест,</li>
+<li>срочную помощь,</li>
+<li>устойчивое использование ресурсов.</li>
+</ul>
+<p>Она ограничивает:</p>
+<ul>
+<li>бессмысленную занятость,</li>
+<li>накопление ресурсов ради контроля,</li>
+<li>чистую ренту собственности,</li>
+<li>плохое качество,</li>
+<li>ложную математику,</li>
+<li>пустую коммуникацию,</li>
+<li>двойной счёт ценности,</li>
+<li>экологический ущерб.</li>
+</ul>
+<hr />
+<h1 id="главная-опасность">50. Главная опасность</h1>
+<p>Главная опасность — бюрократия. Если каждый рабочий процесс
+проверяется слишком тяжело, система задыхается.</p>
+<p>Поэтому нужны три уровня проверки:</p>
+<ol type="1">
+<li><strong>Малая работа:</strong> быстрая проверка, простые
+стандарты.</li>
+<li><strong>Средняя работа:</strong> обычная документация.</li>
+<li><strong>Высокофакторная работа:</strong> строгая проверка.</li>
+</ol>
+<hr />
+<h1 id="итоговые-формулы">51. Итоговые формулы</h1>
+<p>Главная формула трудовой ценности:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>T</mi><mi>V</mi><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><mo stretchy="false" form="prefix">(</mo><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>U</mi><mi>s</mi></msub></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{TV = \sum_s (E_s + O_s) \cdot K_s \cdot Q_s \cdot U_s}
+</annotation></semantics></math></p>
+<p>Главная формула цены:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>P</mi><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><mo stretchy="false" form="prefix">(</mo><mi>α</mi><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><mi>β</mi><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>S</mi><mi>s</mi></msub></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{P = \sum_s (\alpha E_s + \beta O_s) \cdot K_s \cdot Q_s \cdot S_s}
+</annotation></semantics></math></p>
+<p>Главная защита:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>Н</mi><mi>е</mi><mi>т</mi><mspace width="0.222em"></mspace><mi>п</mi><mi>р</mi><mi>о</mi><mi>в</mi><mi>е</mi><mi>р</mi><mi>к</mi><mi>и</mi><mo>⇒</mo><mi>н</mi><mi>е</mi><mi>т</mi><mspace width="0.222em"></mspace><mi>д</mi><mi>е</mi><mi>й</mi><mi>с</mi><mi>т</mi><mi>в</mi><mi>и</mi><mi>т</mi><mi>е</mi><mi>л</mi><mi>ь</mi><mi>н</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>о</mi><mi>в</mi><mi>о</mi><mi>й</mi><mspace width="0.222em"></mspace><mi>в</mi><mi>а</mi><mi>л</mi><mi>ю</mi><mi>т</mi><mi>ы</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{Нет\ проверки \Rightarrow нет\ действительной\ трудовой\ валюты}
+</annotation></semantics></math></p>
+<p>Главное антиинфляционное правило:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>Н</mi><mi>е</mi><mi>т</mi><mspace width="0.222em"></mspace><mi>д</mi><mi>в</mi><mi>о</mi><mi>й</mi><mi>н</mi><mi>о</mi><mi>г</mi><mi>о</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>ч</mi><mi>ё</mi><mi>т</mi><mi>а</mi><mspace width="0.222em"></mspace><mi>у</mi><mi>ж</mi><mi>е</mi><mspace width="0.222em"></mspace><mi>с</mi><mi>л</mi><mi>о</mi><mi>ж</mi><mi>е</mi><mi>н</mi><mi>н</mi><mi>о</mi><mi>г</mi><mi>о</mi><mspace width="0.222em"></mspace><mi>т</mi><mi>р</mi><mi>у</mi><mi>д</mi><mi>а</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{Нет\ двойного\ счёта\ уже\ сложенного\ труда}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="краткая-версия-как-экономический-закон">52. Краткая версия как
+экономический закон</h1>
+<blockquote>
+<p>Трудовая валюта создаётся из проверенного преобразования входных
+единиц в выходные единицы. Сырое количество труда — это сумма входов и
+выходов. Трудовая ценность возникает из количества труда, коэффициента
+работы, качества и полезности. Цены возникают из ценности входа,
+ценности выхода, коэффициента работы, качества и дефицита. Природные
+ресурсы управляются через права использования и ресурсные ренты. Высокая
+умственная, коммуникационная, математическая и блокообразующая работа
+сильно вознаграждается, но только при доказательстве её эффекта. Уже
+оплаченный труд не может снова создаваться как новая валюта.</p>
+</blockquote>
+</body>
+</html>

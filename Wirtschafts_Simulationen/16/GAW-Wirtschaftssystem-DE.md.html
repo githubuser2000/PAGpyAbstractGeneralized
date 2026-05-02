@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GAW-Wirtschaftssystem-DE</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="gestapelte-arbeitsblock-wirtschaft-gaw">Gestapelte
+Arbeitsblock-Wirtschaft (GAW)</h1>
+<h2
+id="ein-vollständiges-wirtschaftssystem-auf-basis-einer-arbeitswährung">Ein
+vollständiges Wirtschaftssystem auf Basis einer Arbeitswährung</h2>
+<p>Dieses Dokument beschreibt ein Wirtschaftssystem, in dem Währung aus
+verifizierter Arbeit entsteht. Arbeit wird als Transformation von
+Eingangseinheiten in Ausgangseinheiten verstanden. Die Summe dieser
+Einheiten bildet die Arbeitsmenge. Diese Arbeitsmenge wird mit
+Wertfaktoren für verschiedene Arbeitsarten multipliziert und als
+Arbeitswährung gestapelt.</p>
+<p>Die zentrale Idee lautet:</p>
+<blockquote>
+<p>Währung entsteht nicht aus Gold, Schulden oder reiner staatlicher
+Setzung, sondern aus überprüfbarer, nützlicher und nicht doppelt
+gezählter Arbeit.</p>
+</blockquote>
+<p>Das System trennt fünf Ebenen:</p>
+<ol type="1">
+<li><strong>Arbeitsmenge</strong> — wie viele Einheiten wurden bewegt,
+verarbeitet oder erzeugt?</li>
+<li><strong>Arbeitsart</strong> — welche Art von Arbeit wurde
+geleistet?</li>
+<li><strong>Arbeitswert</strong> — wie viel Arbeitswährung entsteht
+daraus?</li>
+<li><strong>Preis</strong> — wie viel kostet das Ergebnis am Markt?</li>
+<li><strong>Eigentum und Anspruch</strong> — wem gehören Ergebnis,
+Zahlung und Nutzungsrechte?</li>
+</ol>
+<hr />
+<h1 id="grundaxiome">1. Grundaxiome</h1>
+<h2 id="alles-wirtschaftliche-besteht-aus-blöcken">1.1 Alles
+Wirtschaftliche besteht aus Blöcken</h2>
+<p>Das Universum wird für die Wirtschaft in <strong>Blöcke</strong>
+zerlegt. Ein Block kann sein:</p>
+<ul>
+<li>eine Fläche,</li>
+<li>ein Raumvolumen,</li>
+<li>eine Materialmenge,</li>
+<li>eine Zeitmenge,</li>
+<li>eine Energieeinheit,</li>
+<li>eine Informationsstruktur,</li>
+<li>ein Kommunikationsvorgang,</li>
+<li>ein mathematischer Zusammenhang,</li>
+<li>ein kausaler Zusammenhang,</li>
+<li>ein Produkt,</li>
+<li>eine Dienstleistung,</li>
+<li>ein reparierter Schaden,</li>
+<li>eine verhinderte Krise.</li>
+</ul>
+<p>Die Wirtschaft misst nicht Status oder bloße Absicht, sondern
+nachweisbare Veränderung von Blöcken.</p>
+<h2 id="arbeit-ist-transformation">1.2 Arbeit ist Transformation</h2>
+<p>Arbeit bedeutet:</p>
+<pre class="text"><code>Input -&gt; Transformation -&gt; Output</code></pre>
+<p>Eine Arbeit nimmt Eingangseinheiten auf und erzeugt
+Ausgangseinheiten.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo>∑</mo><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+E = \sum E_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo>=</mo><mo>∑</mo><msub><mi>O</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">
+O = \sum O_j
+</annotation></semantics></math></p>
+<p>Dabei ist:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+= Summe der Eingangseinheiten,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>O</mi><annotation encoding="application/x-tex">O</annotation></semantics></math>
+= Summe der Ausgangseinheiten.</li>
+</ul>
+<p>Die rohe Arbeitsmenge ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="arbeit-wird-gestapelt">1.3 Arbeit wird gestapelt</h2>
+<p>Jede gültige Arbeit erzeugt einen <strong>Arbeitsstapel</strong>. Ein
+Produkt, eine Dienstleistung oder ein Wissensobjekt besitzt damit eine
+Geschichte aus vorherigen Arbeitsblöcken.</p>
+<p>Beispiel: Ein Haus enthält Rohstoffarbeit, Transportarbeit,
+Flächenarbeit, 3D-Bauarbeit, Planung, Kommunikation, mathematische
+Statik, kausale Koordination und Wartung.</p>
+<p>Der Arbeitsstapel ist der wirtschaftliche Stammbaum eines
+Gegenstands.</p>
+<h2 id="wert-ist-arbeitsmenge-mal-arbeitsfaktor">1.4 Wert ist
+Arbeitsmenge mal Arbeitsfaktor</h2>
+<p>Die Arbeitsmenge allein reicht nicht. Unterschiedliche Arbeitsarten
+haben unterschiedliche Hebelwirkung.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">
+AW = M \cdot K
+</annotation></semantics></math></p>
+<p>Dabei ist:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">AW</annotation></semantics></math>
+= Arbeitswährung,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+= Arbeitsmenge,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+= Wertfaktor der Arbeitsart.</li>
+</ul>
+<h2 id="preis-ist-nicht-dasselbe-wie-arbeitswährung">1.5 Preis ist nicht
+dasselbe wie Arbeitswährung</h2>
+<p>Der Arbeitswert entsteht aus Arbeit. Der Marktpreis entsteht
+zusätzlich aus Nachfrage, Knappheit, Risiko, Qualität und
+Eigentumsrechten.</p>
+<p>Eine Grundpreisformel lautet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<p>Dabei ist:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+= Preis in Arbeitswährung,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+= Gewicht für Eingangseinheiten,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+= Gewicht für Ausgangseinheiten,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+= Arbeitsfaktor,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+= Qualitätsfaktor,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+= Knappheits- oder Nachfragefaktor.</li>
+</ul>
+<hr />
+<h1 id="die-währung">2. Die Währung</h1>
+<p>Die Währung heißt:</p>
+<pre class="text"><code>AW = Arbeitswährung</code></pre>
+<p>Eine Einheit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>A</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">1 AW</annotation></semantics></math>
+entspricht einem verifizierten Basis-Arbeitsblock der
+Ackerlandwirtschaft mit Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+Standardqualität und realem Nutzen.</p>
+<p>Ackerlandwirtschaft ist der Referenzpunkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Basisarbeit</mtext></mrow><mo>=</mo><mn>1</mn><mi>A</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">
+1 \text{ Basisarbeit} = 1 AW
+</annotation></semantics></math></p>
+<p>Alle anderen Arbeitsarten werden relativ dazu bewertet.</p>
+<hr />
+<h1 id="wertfaktoren-der-arbeit">3. Wertfaktoren der Arbeit</h1>
+<p>Ackerlandwirtschaft ist die Basis mit Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.</p>
+<table>
+<thead>
+<tr>
+<th>Arbeitsart</th>
+<th style="text-align: right;">Wertfaktor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ackerlandwirtschaft / Basisarbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">1\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Flächenarbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">2\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>3D-Arbeit / Häuserbau</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">3\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Zeitkritische Arbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">4\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Kausal wichtige Arbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">5\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Geistige Arbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">6\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Kommunikationsarbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">7\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Das Universum in Blöcke zerlegen</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">8\times</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Mathematik</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10\times</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Diese Faktoren bedeuten nicht, dass Menschen unterschiedlich viel
+wert sind. Sie bedeuten, dass bestimmte Arbeitsarten eine höhere
+systemische Hebelwirkung haben.</p>
+<hr />
+<h1 id="die-arbeitsarten">4. Die Arbeitsarten</h1>
+<h2 id="ackerlandwirtschaft-faktor-1">4.1 Ackerlandwirtschaft — Faktor
+1</h2>
+<p>Ackerlandwirtschaft produziert Nahrung, Rohstoffe und biologische
+Grundversorgung.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+K = 1
+</annotation></semantics></math></p>
+<p>Sie ist nicht unwichtig, sondern die Basis. Wenn Lebensmittel knapp
+werden, steigt ihr Marktpreis über den Knappheitsfaktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>.</p>
+<h2 id="flächenarbeit-faktor-2">4.2 Flächenarbeit — Faktor 2</h2>
+<p>Flächenarbeit bearbeitet zweidimensionale Räume:</p>
+<ul>
+<li>Felder strukturieren,</li>
+<li>Straßenflächen vorbereiten,</li>
+<li>Grundstücke vermessen,</li>
+<li>Solaranlagenflächen ordnen,</li>
+<li>Lagerflächen organisieren,</li>
+<li>Kartenflächen erstellen,</li>
+<li>territoriale Planung.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+K = 2
+</annotation></semantics></math></p>
+<h2 id="d-arbeit-häuserbau-faktor-3">4.3 3D-Arbeit / Häuserbau — Faktor
+3</h2>
+<p>3D-Arbeit verändert Volumen und räumliche Strukturen:</p>
+<ul>
+<li>Häuserbau,</li>
+<li>Maschinenbau,</li>
+<li>Brückenbau,</li>
+<li>Möbelbau,</li>
+<li>Rohrleitungen,</li>
+<li>Lagerhallen,</li>
+<li>Infrastrukturkörper,</li>
+<li>physische Konstruktionen.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+K = 3
+</annotation></semantics></math></p>
+<h2 id="zeitkritische-arbeit-faktor-4">4.4 Zeitkritische Arbeit — Faktor
+4</h2>
+<p>Zeitkritische Arbeit ist Arbeit, deren Wert stark davon abhängt, wann
+sie geschieht.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Notfallmedizin,</li>
+<li>Feuerwehr,</li>
+<li>Rettung,</li>
+<li>Krisenreparatur,</li>
+<li>terminkritische Logistik,</li>
+<li>Ernte vor Unwetter,</li>
+<li>Sicherheitsreaktion,</li>
+<li>Serverrettung bei Ausfall.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">
+K = 4
+</annotation></semantics></math></p>
+<p>Zeitkritisch ist eine Arbeit nur, wenn ein echter Zeitkorridor
+existiert. Künstlich erzeugte Dringlichkeit darf nicht zählen.</p>
+<h2 id="kausal-wichtige-arbeit-faktor-5">4.5 Kausal wichtige Arbeit —
+Faktor 5</h2>
+<p>Kausal wichtige Arbeit beeinflusst viele nachfolgende Prozesse.</p>
+<p>Beispiele:</p>
+<ul>
+<li>eine Entscheidung, die viele andere Arbeiten ermöglicht,</li>
+<li>eine Reparatur an einem Hauptsystem,</li>
+<li>eine Planung, von der viele Menschen abhängen,</li>
+<li>das Entfernen eines Engpasses,</li>
+<li>eine Systemdiagnose,</li>
+<li>eine zentrale Koordinationsleistung.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">
+K = 5
+</annotation></semantics></math></p>
+<p>Kausal wichtig ist eine Arbeit nur, wenn nachweisbar gilt:</p>
+<pre class="text"><code>Ohne diese Arbeit wären andere Arbeiten blockiert, verschlechtert oder unmöglich.</code></pre>
+<h2 id="geistige-arbeit-faktor-6">4.6 Geistige Arbeit — Faktor 6</h2>
+<p>Geistige Arbeit erzeugt Modelle, Entscheidungen, Ideen, Pläne,
+Strategien oder Erkenntnisse.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Forschung,</li>
+<li>Planung,</li>
+<li>Design,</li>
+<li>Analyse,</li>
+<li>Unterrichtsvorbereitung,</li>
+<li>Diagnose,</li>
+<li>Strategie,</li>
+<li>technische Konzeption.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+K = 6
+</annotation></semantics></math></p>
+<p>Geistige Arbeit braucht für die Währung einen überprüfbaren
+Ausgang:</p>
+<ul>
+<li>Text,</li>
+<li>Plan,</li>
+<li>Modell,</li>
+<li>Entscheidung,</li>
+<li>Erklärung,</li>
+<li>Entwurf,</li>
+<li>Diagnose,</li>
+<li>Lösung.</li>
+</ul>
+<h2 id="kommunikationsarbeit-faktor-7">4.7 Kommunikationsarbeit — Faktor
+7</h2>
+<p>Kommunikationsarbeit verändert den Informationszustand anderer
+Menschen oder Systeme.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Koordination,</li>
+<li>Unterricht,</li>
+<li>Verhandlung,</li>
+<li>Übersetzung,</li>
+<li>Führung,</li>
+<li>Moderation,</li>
+<li>Krisenkommunikation,</li>
+<li>Wissensvermittlung,</li>
+<li>Schnittstellenarbeit.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+K = 7
+</annotation></semantics></math></p>
+<p>Kommunikation zählt nur als Arbeit, wenn sie mindestens eines
+bewirkt:</p>
+<ul>
+<li>jemand versteht etwas besser,</li>
+<li>eine Entscheidung wird möglich,</li>
+<li>ein Fehler wird vermieden,</li>
+<li>ein Konflikt wird gelöst,</li>
+<li>mehrere Akteure werden koordiniert,</li>
+<li>ein Prozess wird beschleunigt,</li>
+<li>Wissen wird zuverlässig übertragen.</li>
+</ul>
+<p>Spam, Manipulation und leere Selbstdarstellung zählen nicht.</p>
+<h2 id="das-universum-in-blöcke-zerlegen-faktor-8">4.8 Das Universum in
+Blöcke zerlegen — Faktor 8</h2>
+<p>Diese Arbeit schafft Messbarkeit.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Klassifikationen,</li>
+<li>Kartierungen,</li>
+<li>Taxonomien,</li>
+<li>Standards,</li>
+<li>Datenmodelle,</li>
+<li>Messsysteme,</li>
+<li>Ontologien,</li>
+<li>digitale Zwillinge,</li>
+<li>Ressourcenregister,</li>
+<li>Produktionsraster,</li>
+<li>Kausalgraphen,</li>
+<li>Simulationsstrukturen.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
+K = 8
+</annotation></semantics></math></p>
+<p>Diese Arbeit ist wertvoll, weil sie andere Arbeit vergleichbar,
+planbar und berechenbar macht.</p>
+<h2 id="mathematik-faktor-10">4.9 Mathematik — Faktor 10</h2>
+<p>Mathematik ist die höchste normale Arbeitsform in diesem System.</p>
+<p>Sie erzeugt:</p>
+<ul>
+<li>Beweise,</li>
+<li>Gleichungen,</li>
+<li>Optimierungen,</li>
+<li>Algorithmen,</li>
+<li>Modelle,</li>
+<li>Prognosen,</li>
+<li>Abstraktionen,</li>
+<li>formale Strukturen,</li>
+<li>Berechnungsverfahren,</li>
+<li>Entscheidungssysteme.</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 10
+</annotation></semantics></math></p>
+<p>Mathematik zählt nur als Faktor 10, wenn sie überprüfbar ist. Gültige
+mathematische Arbeit braucht mindestens eines davon:</p>
+<ul>
+<li>formaler Beweis,</li>
+<li>nachvollziehbare Berechnung,</li>
+<li>getesteter Algorithmus,</li>
+<li>korrektes Modell,</li>
+<li>erfolgreich angewandte Optimierung,</li>
+<li>überprüfbarer Nutzen in anderen Prozessen.</li>
+</ul>
+<p>Falsche Mathematik erzeugt keinen Wert. Gefährlich falsche Mathematik
+erzeugt negativen Wert.</p>
+<hr />
+<h1 id="stapelregel-für-kombinierte-arbeit">5. Stapelregel für
+kombinierte Arbeit</h1>
+<p>Viele Arbeiten haben mehrere Eigenschaften. Eine mathematische
+Optimierung für eine Rettungslogistik kann gleichzeitig Mathematik,
+zeitkritisch, kausal wichtig, geistig und kommunikativ sein.</p>
+<p>Multiplikation aller Faktoren würde zu extremen Werten führen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>⋅</mo><mn>4</mn><mo>⋅</mo><mn>5</mn><mo>⋅</mo><mn>6</mn><mo>⋅</mo><mn>7</mn><mo>=</mo><mn>8400</mn></mrow><annotation encoding="application/x-tex">
+10 \cdot 4 \cdot 5 \cdot 6 \cdot 7 = 8400
+</annotation></semantics></math></p>
+<p>Darum verwendet dieses System die additive Stapelregel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo>∑</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = 1 + \sum (k_i - 1)
+</annotation></semantics></math></p>
+<p>Beispiel Mathematik + zeitkritisch + kausal wichtig:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = 1 + (10-1) + (4-1) + (5-1)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>17</mn></mrow><annotation encoding="application/x-tex">
+K = 17
+</annotation></semantics></math></p>
+<p>Die Arbeit ist also
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">17\times</annotation></semantics></math>
+so viel wert wie Basisarbeit, nicht
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8400</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">8400\times</annotation></semantics></math>.</p>
+<hr />
+<h1 id="segmentierung-statt-etikettenmissbrauch">6. Segmentierung statt
+Etikettenmissbrauch</h1>
+<p>Eine Arbeit darf nicht einfach alle hohen Faktoren bekommen. Ein
+Hausbauprojekt ist nicht vollständig Mathematik, nur weil ein Statiker
+gerechnet hat.</p>
+<p>Darum wird jedes Projekt in Arbeitssegmente zerlegt.</p>
+<p>Beispiel Hausbau:</p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Möglicher Faktor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Materialtransport</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+bis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Grundstücksvermessung</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+oder
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Fundamentarbeit</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Mauerbau</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Statikberechnung</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Baukoordination</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Zeitkritische Reparatur</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+zusätzlich</td>
+</tr>
+<tr>
+<td>Kausal zentrale Entscheidung</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>
+zusätzlich</td>
+</tr>
+</tbody>
+</table>
+<p>Der Gesamtwert ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>W</mi><mrow><mi>P</mi><mi>r</mi><mi>o</mi><mi>j</mi><mi>e</mi><mi>k</mi><mi>t</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><msub><mi>M</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+AW_{Projekt} = \sum_s M_s \cdot K_s \cdot Q_s
+</annotation></semantics></math></p>
+<p>Nur das jeweilige Segment erhält seinen passenden Faktor.</p>
+<hr />
+<h1 id="qualitätsfaktor">7. Qualitätsfaktor</h1>
+<p>Nicht jede Arbeit gleicher Art ist gleich gut. Darum gibt es den
+Qualitätsfaktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>.</p>
+<table>
+<thead>
+<tr>
+<th>Qualität</th>
+<th style="text-align: right;">Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ungültig / schädlich</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+oder negativ</td>
+</tr>
+<tr>
+<td>Mangelhaft</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">0{,}5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Akzeptabel</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">0{,}8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Standard</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1{,}0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Gut</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">1{,}2</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Sehr gut</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1{,}5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Außergewöhnlich, systemisch bewiesen</td>
+<td style="text-align: right;">bis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">2{,}0</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Grundformel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+AW = M \cdot K \cdot Q
+</annotation></semantics></math></p>
+<p>Hohe Faktoren belohnen nur gültige Arbeit.</p>
+<hr />
+<h1 id="eingangseinheiten-und-ausgangseinheiten">8. Eingangseinheiten
+und Ausgangseinheiten</h1>
+<p>Eingangseinheiten und Ausgangseinheiten werden unterschiedlich
+gewichtet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K
+</annotation></semantics></math></p>
+<p>Eine sinnvolle Grundeinstellung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">
+\alpha = 0{,}5
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\beta = 1{,}0
+</annotation></semantics></math></p>
+<p>Das bedeutet: Eingänge zählen, aber Ausgänge zählen stärker, weil der
+Output direkt nutzbar ist.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>40</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>100</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+E = 40, \quad O = 100, \quad K = 3
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>⋅</mo><mn>40</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>360</mn></mrow><annotation encoding="application/x-tex">
+P = (0{,}5 \cdot 40 + 1 \cdot 100) \cdot 3 = 360
+</annotation></semantics></math></p>
+<p>Die Arbeitsmenge wäre:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>40</mn><mo>+</mo><mn>100</mn><mo>=</mo><mn>140</mn></mrow><annotation encoding="application/x-tex">
+M = 40 + 100 = 140
+</annotation></semantics></math></p>
+<p>Der Arbeitswert wäre:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>140</mn><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>420</mn></mrow><annotation encoding="application/x-tex">
+AW = 140 \cdot 3 = 420
+</annotation></semantics></math></p>
+<p>Preis und Arbeitswert sind verwandt, aber nicht identisch.</p>
+<hr />
+<h1 id="drei-wertebenen">9. Drei Wertebenen</h1>
+<p>Jedes Produkt hat drei Werte.</p>
+<h2 id="roharbeitsmenge">9.1 Roharbeitsmenge</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="gewichteter-arbeitswert">9.2 Gewichteter Arbeitswert</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mi>M</mi><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+W = M \cdot K \cdot Q
+</annotation></semantics></math></p>
+<h2 id="marktpreis">9.3 Marktpreis</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<p>Der Knappheitsfaktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+erlaubt, dass Mangel oder Überangebot die Preise verändern.</p>
+<hr />
+<h1 id="knappheitsfaktor">10. Knappheitsfaktor</h1>
+<p>Auch einfache Arbeit kann teuer werden, wenn ihr Ergebnis knapp
+ist.</p>
+<table>
+<thead>
+<tr>
+<th>Marktlage</th>
+<th
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Überangebot</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">0{,}7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Ausgeglichen</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1{,}0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Knapp</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1{,}5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Kritisch knapp</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">2{,}5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Lebensnotwendige Krise</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">4{,}0</annotation></semantics></math>
+oder Rationierung</td>
+</tr>
+</tbody>
+</table>
+<p>Damit bleibt Basisarbeit wie Nahrung wirtschaftlich geschützt.</p>
+<hr />
+<h1 id="geldschöpfung">11. Geldschöpfung</h1>
+<p>Neue Arbeitswährung darf nicht beliebig entstehen. Sie entsteht nur
+durch geprüfte, nützliche und nicht doppelt gezählte Arbeit.</p>
+<h2 id="private-auftragsarbeit">11.1 Private Auftragsarbeit</h2>
+<p>Eine Person oder Firma beauftragt Arbeit. Der Auftraggeber zahlt
+vorhandene AW an den Arbeiter. Es entsteht keine neue Währung.</p>
+<h2 id="öffentliche-oder-gemeinschaftliche-arbeit">11.2 Öffentliche oder
+gemeinschaftliche Arbeit</h2>
+<p>Manche Arbeit hat keinen einzelnen Käufer, aber großen Nutzen für
+alle. Beispiele:</p>
+<ul>
+<li>Straßenkartierung,</li>
+<li>mathematische Grundlagen,</li>
+<li>öffentliche Sicherheit,</li>
+<li>Katastrophenschutz,</li>
+<li>Bildungsinfrastruktur,</li>
+<li>Gesundheitsvorsorge,</li>
+<li>offene Standards,</li>
+<li>Blockzerlegung des Universums.</li>
+</ul>
+<p>Diese Arbeit wird aus einem öffentlichen Arbeitsfonds bezahlt. Neue
+AW darf hier entstehen, aber nur gegen geprüften öffentlichen
+Nutzen.</p>
+<h2 id="lagerproduktion">11.3 Lagerproduktion</h2>
+<p>Produktion auf Vorrat kann durch vorläufigen Arbeitskredit finanziert
+werden. Dieser Kredit ist durch das Produkt gedeckt. Wird das Produkt
+verkauft, wird der Kredit zurückgezahlt oder verbrannt. Wird es nicht
+verkauft, trägt der Produzent den Verlust.</p>
+<hr />
+<h1 id="keine-doppelte-zählung">12. Keine doppelte Zählung</h1>
+<p>Ein bereits bezahlter Arbeitsblock darf nicht noch einmal vollständig
+als neue Arbeit bezahlt werden.</p>
+<p>Ein Stein, der bereits produziert wurde, bringt seinen alten
+Arbeitsstapel in ein Haus ein. Beim Hausbau zählt nur die neue
+Arbeit:</p>
+<ul>
+<li>Transport,</li>
+<li>Bearbeitung,</li>
+<li>Einpassen,</li>
+<li>Kombinieren,</li>
+<li>neue Struktur,</li>
+<li>neuer Output.</li>
+</ul>
+<p>Formal:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>m</mi><mi>t</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mo>=</mo><mi>a</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>S</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mo>+</mo><mi>n</mi><mi>e</mi><mi>u</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">
+Gesamtstapel = alter\ Stapel + neuer\ Arbeitsblock
+</annotation></semantics></math></p>
+<p>Nicht:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>m</mi><mi>t</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mo>=</mo><mi>a</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>S</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mo>+</mo><mi>a</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>S</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>o</mi><mi>c</mi><mi>h</mi><mi>m</mi><mi>a</mi><mi>l</mi><mo>+</mo><mi>n</mi><mi>e</mi><mi>u</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">
+Gesamtstapel = alter\ Stapel + alter\ Stapel\ nochmal + neuer\ Arbeitsblock
+</annotation></semantics></math></p>
+<hr />
+<h1 id="das-arbeitskonto">13. Das Arbeitskonto</h1>
+<p>Jeder Teilnehmer hat ein Arbeitskonto mit vier Teilen.</p>
+<h2 id="zahlungsbestand">13.1 Zahlungsbestand</h2>
+<p>Verfügbare Arbeitswährung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>W</mi><mrow><mi>f</mi><mi>r</mi><mi>e</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+AW_{frei}
+</annotation></semantics></math></p>
+<h2 id="arbeitsregister">13.2 Arbeitsregister</h2>
+<p>Persönliche Arbeitsgeschichte:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>R</mi><mo>=</mo><mo>∑</mo><mi>v</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>z</mi><mi>i</mi><mi>e</mi><mi>r</mi><mi>t</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>b</mi><mi>l</mi><mi>ö</mi><mi>c</mi><mi>k</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">
+AR = \sum verifizierter\ Arbeitsblöcke
+</annotation></semantics></math></p>
+<p>Das Arbeitsregister ist Reputation und Nachweis, nicht bloß Geld.</p>
+<h2 id="eigentumsregister">13.3 Eigentumsregister</h2>
+<p>Ansprüche auf Produkte, Werkzeuge, Gebäude, Nutzungsrechte,
+Firmenanteile, geistige Werke und Landnutzungslizenzen.</p>
+<h2 id="verpflichtungsregister">13.4 Verpflichtungsregister</h2>
+<p>Kredite, Lieferpflichten, Wartungspflichten, Schadensersatz,
+Vertragsstrafen und öffentliche Abgaben.</p>
+<hr />
+<h1 id="akteure">14. Akteure</h1>
+<h2 id="einzelpersonen">14.1 Einzelpersonen</h2>
+<p>Sie bieten Arbeit an, konsumieren Güter, lernen Fähigkeiten und
+besitzen Arbeitskonten.</p>
+<h2 id="haushalte">14.2 Haushalte</h2>
+<p>Haushalte bündeln Konsum, Pflege, Wohnen und Ressourcen.</p>
+<h2 id="betriebe">14.3 Betriebe</h2>
+<p>Betriebe kombinieren Arbeit, Kapital, Rohstoffe, Organisation,
+Wissen, Kommunikation und Mathematik.</p>
+<h2 id="kooperativen">14.4 Kooperativen</h2>
+<p>Kooperativen gehören den Arbeitenden oder Nutzenden. Gewinn wird nach
+Beitrag, Risiko und Regeln verteilt.</p>
+<h2 id="öffentliche-institutionen">14.5 Öffentliche Institutionen</h2>
+<p>Sie verwalten Standards, Verifikation, Infrastruktur,
+Ressourcenrechte, Sicherheit, Bildung, Gesundheit, Recht und
+Geldstabilität.</p>
+<h2 id="verifizierer">14.6 Verifizierer</h2>
+<p>Verifizierer prüfen:</p>
+<ul>
+<li>Wurde die Arbeit wirklich getan?</li>
+<li>Ist der Output real?</li>
+<li>Ist die Qualität korrekt?</li>
+<li>Ist der Faktor gerechtfertigt?</li>
+<li>Wurde etwas doppelt gezählt?</li>
+<li>Gibt es negative Nebenfolgen?</li>
+</ul>
+<hr />
+<h1 id="märkte">15. Märkte</h1>
+<h2 id="gütermarkt">15.1 Gütermarkt</h2>
+<p>Physische Güter werden verkauft: Nahrung, Werkzeuge, Kleidung,
+Häuser, Maschinen, Energie und Rohstoffe.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>G</mi><mi>u</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mo>+</mo><mi>R</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mo>+</mo><mi>R</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>k</mi><mi>o</mi><mo>+</mo><mi>K</mi><mi>n</mi><mi>a</mi><mi>p</mi><mi>p</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">
+P_{Gut} = Arbeitsstapel + Ressourcenrente + Risiko + Knappheit
+</annotation></semantics></math></p>
+<h2 id="dienstleistungsmarkt">15.2 Dienstleistungsmarkt</h2>
+<p>Direkte Arbeit wird verkauft: Reparatur, Pflege, Beratung,
+Unterricht, Transport, Planung und Kommunikation.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>D</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>t</mi></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mi>E</mi><mo>+</mo><mi>β</mi><mi>O</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>K</mi><mo>⋅</mo><mi>Q</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+P_{Dienst} = (\alpha E + \beta O) \cdot K \cdot Q \cdot S
+</annotation></semantics></math></p>
+<h2 id="wissensmarkt">15.3 Wissensmarkt</h2>
+<p>Gehandelt werden Modelle, Algorithmen, Baupläne, Forschungsberichte,
+Simulationen, Optimierungen und Standards.</p>
+<p>Wissen hat eine Besonderheit: Die erste Erzeugung ist teuer, die
+Kopie billig. Deshalb erhält der Erzeuger hohen Erstwert und zeitlich
+begrenzte Nutzungsansprüche. Danach wandert Wissen zunehmend in den
+Gemeinbestand.</p>
+<h2 id="arbeitsmarkt">15.4 Arbeitsmarkt</h2>
+<p>Menschen bieten Arbeitssegmente an.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>o</mi><mi>h</mi><mi>n</mi><mo>=</mo><mi>A</mi><mi>W</mi><mo>⋅</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">
+Lohn = AW \cdot S
+</annotation></semantics></math></p>
+<h2 id="kapitalmarkt">15.5 Kapitalmarkt</h2>
+<p>Kapital ist gespeicherte frühere Arbeit: Maschinen, Werkzeuge,
+Gebäude, Software, Datenmodelle, Patente und Lagerbestände.</p>
+<p>Kapitalertrag besteht aus Abnutzungsersatz, Wartungsersatz,
+Risikoaufschlag und Produktivitätsanteil.</p>
+<h2 id="ressourcenmarkt">15.6 Ressourcenmarkt</h2>
+<p>Natürliche Ressourcen sind nicht durch Arbeit erschaffen. Boden,
+Wasser, Luft, Bodenschätze, Funkfrequenzen und Ökosysteme werden über
+Nutzungsrechte und Ressourcenrenten verwaltet.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mi>K</mi><mi>n</mi><mi>a</mi><mi>p</mi><mi>p</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>⋅</mo><mi>N</mi><mi>u</mi><mi>t</mi><mi>z</mi><mi>u</mi><mi>n</mi><mi>g</mi><mi>s</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><mi>ö</mi><mi>k</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>i</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>K</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">
+R = Knappheit \cdot Nutzungsmenge \cdot ökologische\ Kosten
+</annotation></semantics></math></p>
+<hr />
+<h1 id="eigentum">16. Eigentum</h1>
+<h2 id="arbeitseigentum">16.1 Arbeitseigentum</h2>
+<p>Wer Arbeit leistet, besitzt zunächst den Anspruch auf ihren Wert.</p>
+<h2 id="produkteigentum">16.2 Produkteigentum</h2>
+<p>Wer ein Produkt erzeugt oder rechtmäßig kauft, besitzt es.</p>
+<h2 id="nutzungseigentum">16.3 Nutzungseigentum</h2>
+<p>Manche Dinge kann man nutzen, aber nicht absolut besitzen: Land,
+Wasserrechte, öffentliche Infrastruktur, Frequenzen und ökologische
+Räume.</p>
+<h2 id="wissenseigentum">16.4 Wissenseigentum</h2>
+<p>Wissen erhält Urheberanspruch und zeitlich begrenzte
+Verwertungsrechte. Danach kann es in offene Lizenzen oder Gemeingut
+übergehen.</p>
+<hr />
+<h1 id="unternehmen-und-gewinnverteilung">17. Unternehmen und
+Gewinnverteilung</h1>
+<p>Ein Unternehmen erzeugt Output durch viele Arbeitsblöcke.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ü</mi><mi>b</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>u</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>E</mi><mi>r</mi><mi>l</mi><mi>ö</mi><mi>s</mi><mo>−</mo><mi>K</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">
+Überschuss = Erlös - Kosten
+</annotation></semantics></math></p>
+<p>Kosten bestehen aus Inputs, Löhnen, Kapitalabnutzung,
+Ressourcenrenten, Steuern und Risiko.</p>
+<p>Der Überschuss wird verteilt nach:</p>
+<ol type="1">
+<li>Arbeitsbeitrag,</li>
+<li>Kapitalrisiko,</li>
+<li>Organisationsbeitrag,</li>
+<li>Innovationsbeitrag,</li>
+<li>Gemeinschaftsbeitrag.</li>
+</ol>
+<p>Eine faire Standardformel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>i</mi><msub><mi>l</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mi>B</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>r</mi><mi>a</mi><msub><mi>g</mi><mi>i</mi></msub></mrow><mrow><mo>∑</mo><mi>B</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>g</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+Anteil_i = \frac{Beitrag_i}{\sum Beitrag}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="steuern-und-gemeinfonds">18. Steuern und Gemeinfonds</h1>
+<h2 id="transaktionsabgabe">18.1 Transaktionsabgabe</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>τ</mi><mo>⋅</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+T = \tau \cdot P
+</annotation></semantics></math></p>
+<p>Beispiel:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\tau = 5\%</annotation></semantics></math>.</p>
+<h2 id="ressourcenrente">18.2 Ressourcenrente</h2>
+<p>Wer knappe Naturressourcen nutzt, zahlt. Diese Einnahmen gehören der
+Gemeinschaft.</p>
+<h2 id="negativabgabe">18.3 Negativabgabe</h2>
+<p>Wer Schaden erzeugt, zahlt: Umweltverschmutzung, Fehlinformation,
+Produktionsfehler, Sicherheitsrisiko oder Blockade anderer Arbeit.</p>
+<h2 id="hochfaktor-abgabe">18.4 Hochfaktor-Abgabe</h2>
+<p>Sehr hoch bewertete Arbeit nutzt viel gesellschaftliche Vorleistung:
+Bildung, Sprache, Infrastruktur, Daten, Standards und frühere
+Mathematik. Eine kleine Hebelabgabe kann extreme Ungleichheit
+begrenzen.</p>
+<hr />
+<h1 id="bürgerdividende-und-grundversorgung">19. Bürgerdividende und
+Grundversorgung</h1>
+<p>Da Naturressourcen und öffentliche Standards allen gehören, erhält
+jeder Bürger eine Grunddividende oder Grundversorgung.</p>
+<p>Sie kann bestehen aus:</p>
+<ul>
+<li>Grundnahrung,</li>
+<li>Basisenergie,</li>
+<li>Grundwohnen,</li>
+<li>Bildung,</li>
+<li>Gesundheitszugang,</li>
+<li>digitalem Zugang,</li>
+<li>öffentlichem Transport,</li>
+<li>kleiner AW-Auszahlung.</li>
+</ul>
+<p>Das schützt Kinder, Alte, Kranke, Pflegende, Lernende und Menschen in
+Übergangsphasen.</p>
+<hr />
+<h1 id="negative-arbeit">20. Negative Arbeit</h1>
+<p>Nicht jede Arbeit ist gut. Aufwand kann Schaden erzeugen.</p>
+<p>Beispiele:</p>
+<ul>
+<li>falsche Statik,</li>
+<li>schlechte Medizin,</li>
+<li>Desinformation,</li>
+<li>unnötige Bürokratie,</li>
+<li>Umweltzerstörung,</li>
+<li>fehlerhafte Mathematik,</li>
+<li>schlechte Blockzerlegung,</li>
+<li>sabotierende Kommunikation.</li>
+</ul>
+<p>Negative Ausgangseinheiten:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>O</mi><mo>−</mo></msup><mo>=</mo><mi>S</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>d</mi><mi>e</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">
+O^- = Schaden
+</annotation></semantics></math></p>
+<p>Wirksame Arbeitsmenge:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>w</mi><mi>i</mi><mi>r</mi><mi>k</mi><mi>s</mi><mi>a</mi><mi>m</mi></mrow></msub><mo>=</mo><mi>E</mi><mo>+</mo><msup><mi>O</mi><mo>+</mo></msup><mo>−</mo><mi>γ</mi><msup><mi>O</mi><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">
+M_{wirksam} = E + O^+ - \gamma O^-
+</annotation></semantics></math></p>
+<p>Wenn der Schaden größer ist als der Nutzen, entsteht keine
+Arbeitswährung, sondern Schuld oder Haftung.</p>
+<hr />
+<h1 id="verifikation">21. Verifikation</h1>
+<p>Jede bewertete Arbeit braucht einen Nachweis.</p>
+<p>Ein Arbeitsblock enthält:</p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Akteur</td>
+<td>Wer hat gearbeitet?</td>
+</tr>
+<tr>
+<td>Zeit</td>
+<td>Wann wurde gearbeitet?</td>
+</tr>
+<tr>
+<td>Ort / System</td>
+<td>Wo oder woran?</td>
+</tr>
+<tr>
+<td>Eingangseinheiten</td>
+<td>Was wurde verwendet?</td>
+</tr>
+<tr>
+<td>Ausgangseinheiten</td>
+<td>Was wurde erzeugt?</td>
+</tr>
+<tr>
+<td>Faktor</td>
+<td>Welche Arbeitsart?</td>
+</tr>
+<tr>
+<td>Qualität</td>
+<td>Wie gut war der Output?</td>
+</tr>
+<tr>
+<td>Nutzen</td>
+<td>Wer oder was profitiert?</td>
+</tr>
+<tr>
+<td>Schaden</td>
+<td>Welche Nebenfolgen?</td>
+</tr>
+<tr>
+<td>Prüfer</td>
+<td>Wer bestätigt es?</td>
+</tr>
+<tr>
+<td>Arbeitsstapel</td>
+<td>Welche Vorarbeiten stecken darin?</td>
+</tr>
+</tbody>
+</table>
+<p>Ohne Verifikation gibt es keinen gültigen AW-Anspruch.</p>
+<hr />
+<h1 id="faktorprüfung">22. Faktorprüfung</h1>
+<p>Hohe Faktoren brauchen besondere Beweise.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Faktor</th>
+<th>Nachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zeitkritisch
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+<td>Deadline, Risiko bei Verzögerung, Reaktionszeit, vermiedener
+Schaden</td>
+</tr>
+<tr>
+<td>Kausal wichtig
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math></td>
+<td>Kausalgraph, abhängige Folgeprozesse, Engpassbehebung,
+Gegenfaktum</td>
+</tr>
+<tr>
+<td>Geistig
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+<td>Dokument, Plan, Modell, Diagnose, Entwurf, Entscheidung,
+Erklärung</td>
+</tr>
+<tr>
+<td>Kommunikation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+<td>Empfänger, verstandene Information, koordinierte Handlung, gelöster
+Konflikt</td>
+</tr>
+<tr>
+<td>Blockzerlegung
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+<td>Klassifikation, Messschema, Karte, Standard, Datenmodell</td>
+</tr>
+<tr>
+<td>Mathematik
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+<td>Beweis, Berechnung, Algorithmus, Simulation, Prognosemodell, formale
+Prüfung</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="bildungssystem">23. Bildungssystem</h1>
+<p>Bildung ist entscheidend, weil sie Menschen in höhere Arbeitsfaktoren
+bringt. Bildung enthält häufig geistige Arbeit, Kommunikationsarbeit,
+Mathematik und Blockzerlegung.</p>
+<p>Lehrende Arbeit wird hoch bewertet, wenn sie echten Kompetenzzuwachs
+erzeugt. Lernende erhalten nicht automatisch hohe Faktoren, können aber
+Bildungsstipendien erhalten, weil die Gesellschaft später von höheren
+Fähigkeiten profitiert.</p>
+<hr />
+<h1 id="gesundheitswesen">24. Gesundheitswesen</h1>
+<p>Gesundheitsarbeit ist oft hoch gewichtet.</p>
+<table>
+<thead>
+<tr>
+<th>Tätigkeit</th>
+<th>Mögliche Faktoren</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pflege</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Notfallmedizin</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Diagnose</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+manchmal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Operationskoordination</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>medizinische Forschung</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Gesundheitsarbeit erhält hohe Werte, wenn sie Leben rettet,
+Folgeschäden verhindert oder zeitkritische und kausal zentrale Wirkung
+hat.</p>
+<hr />
+<h1 id="infrastruktur">25. Infrastruktur</h1>
+<p>Infrastruktur enthält Flächenarbeit, 3D-Arbeit, kausal wichtige
+Arbeit, Kommunikation, mathematische Planung und Blockzerlegung.</p>
+<p>Eine Brücke ist nicht nur Beton. Sie ist ein kausaler Knoten im
+Verkehrsnetz. Wenn sie viele andere Arbeiten ermöglicht, erhält sie
+kausalen Wert.</p>
+<hr />
+<h1 id="landwirtschaft">26. Landwirtschaft</h1>
+<p>Ackerlandwirtschaft hat Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+bleibt aber systemkritisch.</p>
+<p>Schutzmechanismen:</p>
+<ol type="1">
+<li>Knappheitsfaktor,</li>
+<li>Grundversorgung,</li>
+<li>Bodenrente.</li>
+</ol>
+<p>Landwirte werden also nicht automatisch niedrig bezahlt. Markt,
+Knappheit und öffentliche Versorgung können ihren Ertrag stark
+erhöhen.</p>
+<hr />
+<h1 id="mathematik-als-spitzenarbeit">27. Mathematik als
+Spitzenarbeit</h1>
+<p>Mathematik erhält Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>,
+aber mit strenger Kontrolle.</p>
+<h2 id="reine-mathematik">27.1 Reine Mathematik</h2>
+<p>Beweise, Strukturen und Theorien.</p>
+<h2 id="angewandte-mathematik">27.2 Angewandte Mathematik</h2>
+<p>Optimierung, Simulation, Kryptographie, Planung, Statistik und
+Maschinensteuerung.</p>
+<h2 id="systemmathematik">27.3 Systemmathematik</h2>
+<p>Mathematik, die andere Wirtschaftsteile verbessert:
+Produktionsplanung, Logistik, Risikomodelle, Energieverteilung und
+Materialeinsparung.</p>
+<p>Mathematik plus kausale Wichtigkeit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">
+K = 1 + (10-1) + (5-1) = 14
+</annotation></semantics></math></p>
+<hr />
+<h1 id="kommunikationsarbeit">28. Kommunikationsarbeit</h1>
+<p>Kommunikationsarbeit mit Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math>
+ist ein Hochsektor, weil komplexe Wirtschaften oft an schlechter
+Koordination scheitern.</p>
+<p>Kommunikation erzeugt Wert, wenn sie Wissen überträgt,
+Missverständnisse verhindert, Entscheidungen ermöglicht, Vertrauen
+schafft oder Konflikte löst.</p>
+<p>Sie zählt nicht nach Anzahl der Wörter, sondern nach erfolgreicher
+Zustandsänderung beim Empfänger.</p>
+<hr />
+<h1 id="blockzerlegung-des-universums">29. Blockzerlegung des
+Universums</h1>
+<p>Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>
+ist die Grundlage der gesamten Wirtschaftssimulation. Wer Blöcke
+definiert, schafft Messbarkeit.</p>
+<p>Beispiele:</p>
+<ul>
+<li>ein Feld in Zonen zerlegen,</li>
+<li>ein Gebäude in Bauteile zerlegen,</li>
+<li>ein Unternehmen in Prozesse zerlegen,</li>
+<li>eine Lieferkette in Knoten zerlegen,</li>
+<li>ein mathematisches Problem in Variablen zerlegen,</li>
+<li>eine Stadt in Funktionsräume zerlegen,</li>
+<li>ein soziales Problem in Ursachen zerlegen.</li>
+</ul>
+<p>Falsche Blockzerlegung ist gefährlich, weil sie falsche Preise,
+falsche Planung und falsche Politik erzeugt.</p>
+<hr />
+<h1 id="kreditwesen">30. Kreditwesen</h1>
+<h2 id="arbeitsvorschuss">30.1 Arbeitsvorschuss</h2>
+<p>Eine Person erhält AW, bevor die Arbeit abgeschlossen ist. Gelingt
+die Arbeit, wird der Vorschuss verrechnet. Scheitert sie, entsteht
+Schuld oder Verlust.</p>
+<h2 id="produktionskredit">30.2 Produktionskredit</h2>
+<p>Ein Betrieb erhält AW, um Inputs zu kaufen. Der Kredit ist gedeckt
+durch Lagerbestand, Maschinen, erwarteten Output, Verträge oder
+Versicherung.</p>
+<h2 id="forschungsoption">30.3 Forschungsoption</h2>
+<p>Forschung, Mathematik und Blockzerlegung können unsicheren Nutzen
+haben. Darum werden sie zunächst teilweise bezahlt. Wenn später Nutzen
+entsteht, wird zusätzlicher AW freigegeben.</p>
+<hr />
+<h1 id="banken-und-clearingstellen">31. Banken und Clearingstellen</h1>
+<p>Banken sind keine freien Geldschöpfer. Sie sind Prüfer,
+Risikobewerter, Kreditvermittler, Treuhänder, Projektfinanzierer und
+Clearingstellen.</p>
+<p>Vorläufige AW dürfen nur ausgegeben werden, wenn Deckung existiert:
+zukünftige Arbeit, Vertrag, Produkt, Kapital oder öffentliche
+Garantie.</p>
+<hr />
+<h1 id="inflation-und-stabilität">32. Inflation und Stabilität</h1>
+<p>Vier Stabilitätsregeln:</p>
+<ol type="1">
+<li>Nur verifizierte Arbeit zählt.</li>
+<li>Keine doppelte Zählung.</li>
+<li>Öffentliche Geldschöpfung ist begrenzt.</li>
+<li>Eine optionale Umlaufgebühr verhindert dauerhaftes Horten.</li>
+</ol>
+<p>Umlaufgebühr:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>W</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>A</mi><msub><mi>W</mi><mi>t</mi></msub><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+AW_{t+1} = AW_t \cdot (1-d)
+</annotation></semantics></math></p>
+<p>Typischer Wert:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>001</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> bis </mtext><mspace width="0.333em"></mspace></mrow><mn>0</mn><mo>,</mo><mn>005</mn></mrow><annotation encoding="application/x-tex">
+d = 0{,}001 \text{ bis } 0{,}005
+</annotation></semantics></math></p>
+<hr />
+<h1 id="makrosteuerung">33. Makrosteuerung</h1>
+<p>Die Wirtschaft misst ständig:</p>
+<ul>
+<li>Arbeitsmenge,</li>
+<li>ausgegebene AW,</li>
+<li>Preisniveau,</li>
+<li>Knappheiten,</li>
+<li>Arbeitslosigkeit,</li>
+<li>Ressourcenzustand,</li>
+<li>Produktivität,</li>
+<li>Qualitätsfehler,</li>
+<li>Geldumlaufgeschwindigkeit.</li>
+</ul>
+<p>Bei Inflation: weniger öffentliche AW-Ausgabe, strengere
+Verifikation, höhere Ressourcenabgaben und mehr Produktion in knappen
+Bereichen.</p>
+<p>Bei Deflation: mehr öffentliche Aufträge, Infrastrukturarbeit,
+Bildungsinvestitionen und Forschungsfinanzierung.</p>
+<hr />
+<h1 id="wirtschaftstakt-einer-simulation">34. Wirtschaftstakt einer
+Simulation</h1>
+<p>Ein Takt läuft so:</p>
+<ol type="1">
+<li>Bedürfnisse der Haushalte berechnen.</li>
+<li>Nachfrage erzeugen.</li>
+<li>Knappheiten bestimmen.</li>
+<li>Akteure wählen Arbeit nach Fähigkeit, Preis und Bedarf.</li>
+<li>Inputs reservieren.</li>
+<li>Arbeitsblöcke erzeugen.</li>
+<li>Outputs erzeugen.</li>
+<li>Qualität prüfen.</li>
+<li>Faktoren prüfen.</li>
+<li>Preise berechnen.</li>
+<li>Zahlungen ausführen.</li>
+<li>Öffentliche Arbeit aus Gemeinfonds bezahlen.</li>
+<li>Kredite aktualisieren.</li>
+<li>Ressourcenbestände aktualisieren.</li>
+<li>Schäden und negative Outputs buchen.</li>
+<li>Inflation und Preisniveau messen.</li>
+<li>Steuern, Renten und Dividenden verteilen.</li>
+<li>Fähigkeiten und Reputation aktualisieren.</li>
+</ol>
+<hr />
+<h1 id="beispiele">35. Beispiele</h1>
+<h2 id="ackerarbeit">35.1 Ackerarbeit</h2>
+<p>Gegeben:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>60</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>140</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Q</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+E = 60, \quad O = 140, \quad K = 1, \quad Q = 1
+</annotation></semantics></math></p>
+<p>Arbeitsmenge:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>60</mn><mo>+</mo><mn>140</mn><mo>=</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">
+M = 60 + 140 = 200
+</annotation></semantics></math></p>
+<p>Arbeitswert:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>200</mn><mo>⋅</mo><mn>1</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">
+AW = 200 \cdot 1 \cdot 1 = 200
+</annotation></semantics></math></p>
+<p>Preis:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>⋅</mo><mn>60</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>140</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>170</mn></mrow><annotation encoding="application/x-tex">
+P = (0{,}5 \cdot 60 + 1 \cdot 140) \cdot 1 = 170
+</annotation></semantics></math></p>
+<p>Wenn Nahrung knapp ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">
+S = 1{,}5
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>170</mn><mo>⋅</mo><mn>1</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>255</mn></mrow><annotation encoding="application/x-tex">
+P = 170 \cdot 1{,}5 = 255
+</annotation></semantics></math></p>
+<h2 id="häuserbau">35.2 Häuserbau</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Menge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math></th>
+<th style="text-align: right;">Faktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></th>
+<th style="text-align: right;">Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flächenvorbereitung</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">400</td>
+</tr>
+<tr>
+<td>Fundament</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">900</td>
+</tr>
+<tr>
+<td>3D-Bau</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3000</td>
+</tr>
+<tr>
+<td>Statik</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">800</td>
+</tr>
+<tr>
+<td>Baukoordination</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">840</td>
+</tr>
+<tr>
+<td>Qualitätsprüfung</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">360</td>
+</tr>
+</tbody>
+</table>
+<p>Gesamtwert:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>400</mn><mo>+</mo><mn>900</mn><mo>+</mo><mn>3000</mn><mo>+</mo><mn>800</mn><mo>+</mo><mn>840</mn><mo>+</mo><mn>360</mn><mo>=</mo><mn>6400</mn></mrow><annotation encoding="application/x-tex">
+AW = 400 + 900 + 3000 + 800 + 840 + 360 = 6400
+</annotation></semantics></math></p>
+<h2 id="zeitkritische-reparatur">35.3 Zeitkritische Reparatur</h2>
+<p>Eine Reparatur an einem Stromknoten verhindert
+Produktionsausfall.</p>
+<p>Basis 3D/Infrastruktur:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">
+K = 3
+</annotation></semantics></math></p>
+<p>Zusätzlich zeitkritisch und kausal wichtig:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 1 + (3-1) + (4-1) + (5-1) = 10
+</annotation></semantics></math></p>
+<p>Bei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">M = 100</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>100</mn><mo>⋅</mo><mn>10</mn><mo>=</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">
+AW = 100 \cdot 10 = 1000
+</annotation></semantics></math></p>
+<h2 id="mathematische-optimierung">35.4 Mathematische Optimierung</h2>
+<p>Eine Mathematikerin entwickelt einen Algorithmus, der
+Materialverbrauch senkt.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>30</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>O</mi><mo>=</mo><mn>80</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">
+E = 30, \quad O = 80, \quad M = 110
+</annotation></semantics></math></p>
+<p>Mathematik:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+K = 10
+</annotation></semantics></math></p>
+<p>Teilweise kausal wichtig:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">
+K = 12
+</annotation></semantics></math></p>
+<p>Arbeitswert:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>110</mn><mo>⋅</mo><mn>12</mn><mo>=</mo><mn>1320</mn></mrow><annotation encoding="application/x-tex">
+AW = 110 \cdot 12 = 1320
+</annotation></semantics></math></p>
+<p>Preis:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>⋅</mo><mn>30</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>80</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>12</mn><mo>=</mo><mn>1140</mn></mrow><annotation encoding="application/x-tex">
+P = (0{,}5 \cdot 30 + 1 \cdot 80) \cdot 12 = 1140
+</annotation></semantics></math></p>
+<h2 id="kommunikationsarbeit-1">35.5 Kommunikationsarbeit</h2>
+<p>Eine Koordinatorin verhindert durch klare Abstimmung einen
+Produktionsfehler.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>50</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>K</mi><mo>=</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Q</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+M = 50, \quad K = 7, \quad Q = 1{,}2
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>W</mi><mo>=</mo><mn>50</mn><mo>⋅</mo><mn>7</mn><mo>⋅</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>=</mo><mn>420</mn></mrow><annotation encoding="application/x-tex">
+AW = 50 \cdot 7 \cdot 1{,}2 = 420
+</annotation></semantics></math></p>
+<p>Unnötige Meetings ohne Wirkung hätten
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Q = 0</annotation></semantics></math>.</p>
+<hr />
+<h1 id="vertragsarten">36. Vertragsarten</h1>
+<h2 id="mengenvertrag">36.1 Mengenvertrag</h2>
+<p>Bezahlt wird nach Arbeitsmenge:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>E</mi><mo>+</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">
+M = E + O
+</annotation></semantics></math></p>
+<h2 id="ergebnisvertrag">36.2 Ergebnisvertrag</h2>
+<p>Bezahlt wird nach Output.</p>
+<h2 id="wirkungsvertrag">36.3 Wirkungsvertrag</h2>
+<p>Bezahlt wird nach kausalem Nutzen.</p>
+<p>Geeignet für Medizin, Sicherheit, Optimierung, Beratung, Forschung
+und Kommunikation.</p>
+<h2 id="forschungsauftrag">36.4 Forschungsauftrag</h2>
+<p>Ein Teil wird sofort bezahlt, ein weiterer Teil später nach
+nachgewiesenem Nutzen.</p>
+<h2 id="notfallvertrag">36.5 Notfallvertrag</h2>
+<p>Zeitkritische Arbeit bekommt erhöhte Faktoren, aber nachträgliche
+Prüfung.</p>
+<hr />
+<h1 id="ressourcen-und-ökologie">37. Ressourcen und Ökologie</h1>
+<p>Jeder natürliche Bestand hat:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><msub><mi>d</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>B</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><msub><mi>d</mi><mi>t</mi></msub><mo>+</mo><mi>R</mi><mi>e</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>t</mi></msub><mo>−</mo><mi>E</mi><mi>n</mi><mi>t</mi><mi>n</mi><mi>a</mi><mi>h</mi><mi>m</mi><msub><mi>e</mi><mi>t</mi></msub><mo>−</mo><mi>S</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>d</mi><mi>e</mi><msub><mi>n</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">
+Bestand_{t+1} = Bestand_t + Regeneration_t - Entnahme_t - Schaden_t
+</annotation></semantics></math></p>
+<p>Wenn Entnahme größer als Regeneration ist, steigt die
+Ressourcenrente.</p>
+<p>Umweltreparatur zählt als Arbeit. Umweltschaden zählt als negativer
+Output.</p>
+<hr />
+<h1 id="automatisierung-und-maschinen">38. Automatisierung und
+Maschinen</h1>
+<p>Maschinen erzeugen Output, aber ihr Wert verteilt sich auf:</p>
+<ul>
+<li>Entwickler,</li>
+<li>Maschinenbauer,</li>
+<li>Wartende,</li>
+<li>Energieanbieter,</li>
+<li>Eigentümer mit Risiko,</li>
+<li>öffentliche Infrastruktur,</li>
+<li>mathematische und technische Vorarbeiten.</li>
+</ul>
+<p>Automatisierung senkt den Preis einfacher Arbeit und erhöht die
+Bedeutung von Mathematik, Wartung, Systemsteuerung, Kommunikation und
+Blockzerlegung.</p>
+<hr />
+<h1 id="außenhandel">39. Außenhandel</h1>
+<p>Der Wechselkurs der AW basiert auf einem Warenkorb:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>A</mi><mi>W</mi><mo>=</mo><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>w</mi><mi>e</mi><mi>r</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>i</mi><mi>n</mi><mi>e</mi><mi>s</mi><mspace width="0.222em"></mspace><mi>B</mi><mi>a</mi><mi>s</mi><mi>i</mi><mi>s</mi><mi>w</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>k</mi><mi>o</mi><mi>r</mi><mi>b</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">
+1 AW = Arbeitswert\ eines\ Basiswarenkorbs
+</annotation></semantics></math></p>
+<p>Importgüter erhalten einen geschätzten Arbeitsstapel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>W</mi><mrow><mi>I</mi><mi>m</mi><mi>p</mi><mi>o</mi><mi>r</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>g</mi><mi>e</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>ä</mi><mi>t</mi><mi>z</mi><mi>t</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>e</mi><mi>b</mi><mi>e</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>t</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mo>+</mo><mi>T</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>p</mi><mi>o</mi><mi>r</mi><mi>t</mi><mo>+</mo><mi>Z</mi><mi>o</mi><mi>l</mi><mi>l</mi><mo>+</mo><mi>K</mi><mi>n</mi><mi>a</mi><mi>p</mi><mi>p</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">
+AW_{Import} = geschätzte\ eingebettete\ Arbeit + Transport + Zoll + Knappheit
+</annotation></semantics></math></p>
+<hr />
+<h1 id="soziale-mobilität">40. Soziale Mobilität</h1>
+<p>Das System darf Menschen nicht dauerhaft in Faktor-1-Arbeit
+einsperren. Der Gemeinfonds finanziert daher:</p>
+<ul>
+<li>Bildung,</li>
+<li>mathematische Grundausbildung,</li>
+<li>Kommunikationstraining,</li>
+<li>technische Ausbildung,</li>
+<li>Werkzeugzugang,</li>
+<li>Unternehmenskredite,</li>
+<li>öffentliche Daten und Standards.</li>
+</ul>
+<p>Ziel:</p>
+<pre class="text"><code>Menschen sollen in höhere Arbeitsfaktoren aufsteigen können.</code></pre>
+<hr />
+<h1 id="machtbegrenzung">41. Machtbegrenzung</h1>
+<p>Hohe Faktoren wie
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>
+erzeugen Systemmacht. Schutzregeln:</p>
+<ol type="1">
+<li>Transparenz,</li>
+<li>Prüfpflicht,</li>
+<li>kein ewiges Monopol,</li>
+<li>öffentliche Standards,</li>
+<li>Gegenprüfung.</li>
+</ol>
+<hr />
+<h1 id="betrug-und-schutz">42. Betrug und Schutz</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Betrug</th>
+<th>Beschreibung</th>
+<th>Schutz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kreisarbeit</td>
+<td>Dasselbe Objekt wird immer wieder bewegt</td>
+<td>Herkunftsregister</td>
+</tr>
+<tr>
+<td>Faktorbetrug</td>
+<td>Normale Arbeit wird als Mathematik ausgegeben</td>
+<td>Verifikation</td>
+</tr>
+<tr>
+<td>Kommunikationsspam</td>
+<td>Viele Worte ohne Wirkung</td>
+<td>Empfänger- und Nutzennachweis</td>
+</tr>
+<tr>
+<td>Scheinmathematik</td>
+<td>Falsche Modelle</td>
+<td>formale Prüfung</td>
+</tr>
+<tr>
+<td>Künstliche Dringlichkeit</td>
+<td>selbst erzeugte Notfälle</td>
+<td>Ursachenprüfung</td>
+</tr>
+<tr>
+<td>Doppelte Zählung</td>
+<td>alte Arbeit wird neu berechnet</td>
+<td>Arbeitsstapelregister</td>
+</tr>
+<tr>
+<td>Ressourcenhortung</td>
+<td>Land wird blockiert</td>
+<td>Bodenrente</td>
+</tr>
+<tr>
+<td>Qualitätsbetrug</td>
+<td>schlechter Output wird gut bewertet</td>
+<td>Haftung und Prüferhaftung</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="prüferhaftung">43. Prüferhaftung</h1>
+<p>Prüfer dürfen falsche Bewertungen nicht folgenlos vergeben. Wenn ein
+Prüfer schlechte Arbeit zu hoch bewertet, trägt er Mitschuld.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>a</mi><mi>f</mi><mi>t</mi><mi>u</mi><mi>n</mi><msub><mi>g</mi><mrow><mi>P</mi><mi>r</mi><mi>ü</mi><mi>f</mi><mi>e</mi><mi>r</mi></mrow></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+Haftung_{Prüfer} &gt; 0
+</annotation></semantics></math></p>
+<hr />
+<h1 id="politische-ordnung">44. Politische Ordnung</h1>
+<h2 id="arbeitsrat">44.1 Arbeitsrat</h2>
+<p>Pflegt Faktorordnung und Standards.</p>
+<h2 id="ressourcenrat">44.2 Ressourcenrat</h2>
+<p>Verwaltet Boden, Wasser, Energie, Ökologie und Nutzungsrechte.</p>
+<h2 id="währungsrat">44.3 Währungsrat</h2>
+<p>Stabilisiert AW-Menge, beobachtet Inflation und Gemeinfonds.</p>
+<h2 id="prüfkammern">44.4 Prüfkammern</h2>
+<p>Prüfen Mathematik, Blockzerlegung, Kommunikation, Kausalität und
+Notfallarbeit.</p>
+<h2 id="schiedsgerichte">44.5 Schiedsgerichte</h2>
+<p>Lösen Streit über Qualität, Eigentum, Zahlung, Faktorzuordnung und
+Schaden.</p>
+<hr />
+<h1 id="formales-gesamtmodell">45. Formales Gesamtmodell</h1>
+<p>Für ein Projekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+mit Segmenten
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>W</mi><mi>p</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>M</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+AW_p = \sum_{s=1}^{n} M_s \cdot K_s \cdot Q_s \cdot U_s
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>s</mi></msub><mo>=</mo><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><msub><mi>O</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+M_s = E_s + O_s
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn><mo>+</mo><mo>∑</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>k</mi><mrow><mi>s</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K_s = 1 + \sum (k_{s,i} - 1)
+</annotation></semantics></math></p>
+<p>Der Preis:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>p</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><mi>α</mi><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><mi>β</mi><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>S</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">
+P_p = \sum_{s=1}^{n}(\alpha E_s + \beta O_s) \cdot K_s \cdot Q_s \cdot S_s
+</annotation></semantics></math></p>
+<p>Der Arbeitsstapel eines Produkts:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>t</mi><mi>a</mi><mi>c</mi><msub><mi>k</mi><mi>p</mi></msub><mo>=</mo><mi>S</mi><mi>t</mi><mi>a</mi><mi>c</mi><msub><mi>k</mi><mrow><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>s</mi></mrow></msub><mo>+</mo><mi>A</mi><msub><mi>W</mi><mrow><mi>n</mi><mi>e</mi><mi>u</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+Stack_p = Stack_{Inputs} + AW_{neu}
+</annotation></semantics></math></p>
+<p>Die freie Geldmenge:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>t</mi></msub><mo>=</mo><msub><mi>G</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>A</mi><msub><mi>W</mi><mrow><mi>ö</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>h</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>e</mi><mi>u</mi></mrow></msub><mo>+</mo><mi>A</mi><msub><mi>W</mi><mrow><mi>K</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>e</mi><mi>u</mi></mrow></msub><mo>−</mo><mi>A</mi><msub><mi>W</mi><mrow><mi>R</mi><mi>ü</mi><mi>c</mi><mi>k</mi><mi>f</mi><mi>l</mi><mi>u</mi><mi>s</mi><mi>s</mi></mrow></msub><mo>−</mo><mi>A</mi><msub><mi>W</mi><mrow><mi>V</mi><mi>e</mi><mi>r</mi><mi>n</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>t</mi><mi>u</mi><mi>n</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+G_t = G_{t-1} + AW_{öffentlich\ neu} + AW_{Kredit\ neu} - AW_{Rückfluss} - AW_{Vernichtung}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="datenstruktur-für-eine-simulation">46. Datenstruktur für eine
+Simulation</h1>
+<pre class="text"><code>Arbeitsblock:
+    id
+    akteur
+    projekt
+    zeitpunkt
+    eingangseinheiten E
+    ausgangseinheiten O
+    arbeitsmenge M
+    faktor K
+    qualität Q
+    knappheit S
+    nutzen U
+    preis P
+    erzeugte_AW
+    prüfer
+    vorgängerblöcke
+    nachfolgerblöcke
+    schadensrisiko</code></pre>
+<pre class="text"><code>Akteur:
+    id
+    typ: Person / Betrieb / Staat / Prüfer
+    AW_Bestand
+    Fähigkeiten
+    Reputation
+    Eigentum
+    Schulden
+    Bedürfnisse
+    Produktivität</code></pre>
+<pre class="text"><code>Gut:
+    id
+    typ
+    arbeitsstapel
+    besitzer
+    qualität
+    knappheit
+    nutzungsdauer
+    wartungsbedarf
+    ressourcenanteil</code></pre>
+<pre class="text"><code>Markt:
+    gut_typ
+    angebot
+    nachfrage
+    durchschnittspreis
+    knappheitsfaktor
+    qualitätsverteilung</code></pre>
+<hr />
+<h1 id="simulationsalgorithmus">47. Simulationsalgorithmus</h1>
+<pre class="text"><code>Für jede Periode:
+
+1. Bedürfnisse der Haushalte berechnen.
+2. Nachfrage nach Gütern und Dienstleistungen erzeugen.
+3. Knappheiten bestimmen.
+4. Akteure wählen Arbeit nach Fähigkeit, Preis und Bedarf.
+5. Inputs reservieren.
+6. Arbeitsblöcke erzeugen.
+7. Outputs erzeugen.
+8. Qualität prüfen.
+9. Faktoren prüfen.
+10. Preise berechnen.
+11. Zahlungen ausführen.
+12. Öffentliche Arbeit aus Gemeinfonds bezahlen.
+13. Kredite aktualisieren.
+14. Ressourcenbestände aktualisieren.
+15. Schäden und negative Outputs buchen.
+16. Inflation und Preisniveau messen.
+17. Steuern, Renten und Dividenden verteilen.
+18. Fähigkeiten und Reputation aktualisieren.</code></pre>
+<hr />
+<h1 id="minimalparameter-für-version-1.0">48. Minimalparameter für
+Version 1.0</h1>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right;">Startwert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+Eingangswert</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">0{,}5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+Ausgangswert</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1{,}0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Ackerlandwirtschaft</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Fläche</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor 3D</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Zeitkritik</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Kausalität</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Geist</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Kommunikation</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Blockzerlegung</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Faktor Mathematik</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Standardqualität
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Transaktionsabgabe</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">5\%</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Ressourcenrente</td>
+<td style="text-align: right;">variabel</td>
+</tr>
+<tr>
+<td>Knappheitsfaktor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">0{,}7</annotation></semantics></math>
+bis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Umlaufgebühr optional</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">0{,}1\%</annotation></semantics></math>
+bis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">0{,}5\%</annotation></semantics></math>
+pro Periode</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="stärken-des-systems">49. Stärken des Systems</h1>
+<p>Dieses Wirtschaftssystem belohnt:</p>
+<ul>
+<li>reale Produktion,</li>
+<li>nützliche Arbeit,</li>
+<li>Koordination,</li>
+<li>Planung,</li>
+<li>Mathematik,</li>
+<li>gute Kommunikation,</li>
+<li>Systemverständnis,</li>
+<li>Engpassbeseitigung,</li>
+<li>zeitkritische Hilfe,</li>
+<li>nachhaltige Ressourcennutzung.</li>
+</ul>
+<p>Es begrenzt:</p>
+<ul>
+<li>sinnlose Beschäftigung,</li>
+<li>Ressourcenhortung,</li>
+<li>reine Besitzrenten,</li>
+<li>schlechte Qualität,</li>
+<li>falsche Mathematik,</li>
+<li>leere Kommunikation,</li>
+<li>doppelte Wertzählung,</li>
+<li>ökologische Schäden.</li>
+</ul>
+<hr />
+<h1 id="größte-gefahr">50. Größte Gefahr</h1>
+<p>Die größte Gefahr ist Bürokratie. Wenn jede Arbeit zu stark geprüft
+werden muss, erstickt das System.</p>
+<p>Darum braucht es drei Prüfebenen:</p>
+<ol type="1">
+<li><strong>Kleine Arbeit:</strong> schnelle Prüfung, einfache
+Standards.</li>
+<li><strong>Mittlere Arbeit:</strong> normale Dokumentation.</li>
+<li><strong>Hohe Faktorarbeit:</strong> strenge Prüfung.</li>
+</ol>
+<hr />
+<h1 id="endformeln">51. Endformeln</h1>
+<p>Wichtigste Arbeitswertformel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>A</mi><mi>W</mi><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><mo stretchy="false" form="prefix">(</mo><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>U</mi><mi>s</mi></msub></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{AW = \sum_s (E_s + O_s) \cdot K_s \cdot Q_s \cdot U_s}
+</annotation></semantics></math></p>
+<p>Wichtigste Preisformel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>P</mi><mo>=</mo><munder><mo>∑</mo><mi>s</mi></munder><mo stretchy="false" form="prefix">(</mo><mi>α</mi><msub><mi>E</mi><mi>s</mi></msub><mo>+</mo><mi>β</mi><msub><mi>O</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>K</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>Q</mi><mi>s</mi></msub><mo>⋅</mo><msub><mi>S</mi><mi>s</mi></msub></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{P = \sum_s (\alpha E_s + \beta O_s) \cdot K_s \cdot Q_s \cdot S_s}
+</annotation></semantics></math></p>
+<p>Wichtigster Schutz:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>K</mi><mi>e</mi><mi>i</mi><mi>n</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>V</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>k</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>⇒</mo><mi>k</mi><mi>e</mi><mi>i</mi><mi>n</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>g</mi><mi>ü</mi><mi>l</mi><mi>t</mi><mi>i</mi><mi>g</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>w</mi><mi>ä</mi><mi>h</mi><mi>r</mi><mi>u</mi><mi>n</mi><mi>g</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{Keine\ Verifikation \Rightarrow keine\ gültige\ Arbeitswährung}
+</annotation></semantics></math></p>
+<p>Wichtigste Antiinflationsregel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>K</mi><mi>e</mi><mi>i</mi><mi>n</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>d</mi><mi>o</mi><mi>p</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>t</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>Z</mi><mi>ä</mi><mi>h</mi><mi>l</mi><mi>u</mi><mi>n</mi><mi>g</mi><mspace width="0.222em"></mspace><mi>b</mi><mi>e</mi><mi>r</mi><mi>e</mi><mi>i</mi><mi>t</mi><mi>s</mi><mspace width="0.222em"></mspace><mi>g</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>A</mi><mi>r</mi><mi>b</mi><mi>e</mi><mi>i</mi><mi>t</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{Keine\ doppelte\ Zählung\ bereits\ gestapelter\ Arbeit}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="kurzfassung-als-wirtschaftsgesetz">52. Kurzfassung als
+Wirtschaftsgesetz</h1>
+<blockquote>
+<p>Die Arbeitswährung entsteht aus verifizierter Transformation von
+Eingangs- in Ausgangseinheiten. Die rohe Arbeitsmenge ist die Summe von
+Eingängen und Ausgängen. Der Arbeitswert ergibt sich aus Arbeitsmenge,
+Arbeitsfaktor, Qualität und Nutzen. Preise entstehen aus Eingangswert,
+Ausgangswert, Arbeitsfaktor, Qualität und Knappheit. Natürliche
+Ressourcen werden über Nutzungsrechte und Ressourcenrenten verwaltet.
+Hohe geistige, kommunikative, mathematische und blockbildende Arbeit
+wird stark belohnt, aber nur bei Nachweis ihrer Wirkung. Bereits
+vergütete Arbeit darf nicht erneut als neue Währung erzeugt werden.</p>
+</blockquote>
+</body>
+</html>
