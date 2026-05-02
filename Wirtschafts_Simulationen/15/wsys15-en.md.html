@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wsys15-en</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="universe-circular-economy-complete-economic-system">Universe
+Circular Economy — Complete Economic System</h1>
+<p><strong>Language:</strong> English<br />
+<strong>Foundation:</strong> The currency is the stacked
+<code>for</code> loop of a cycle.<br />
+<strong>Planet types:</strong> Earth-type = 20 stations, Vulcan-type =
+22 stations.<br />
+<strong>Core principle:</strong> Money is not created by mere ownership
+or extraction. It is created by verified reintegration of identity,
+matter, food, life, death, microbes, soil, and planetary energy into a
+repeatable cycle.</p>
+<hr />
+<h2 id="core-idea">1. Core idea</h2>
+<p>The Universe Circular Economy treats every economic act as movement
+inside a repeatable cycle. A plant grows, is harvested, eaten, digested,
+excreted, decomposed by microbes, chemically transformed, and returned
+into soil, plant, and food. This is not just a biological metaphor. It
+is the central economic ledger.</p>
+<p>The currency is the <strong>loop value</strong> of a movement through
+the cycle. An agent does not receive money merely because they take
+something out of the system. They receive money because they carry an
+identity through a useful, verifiable transformation within the
+system.</p>
+<p>Example for an Earth-type planet:</p>
+<pre class="text"><code>Start = 4
+End = 17
+Repetition = 4
+Cycle length N = 20
+
+Loop value = (20 - 4) + 20 + 20 + 17 = 73</code></pre>
+<p>This means: an identity begins at station 4, moves through the rest
+of the first circle, through two further full circles, and ends in the
+fourth pass at station 17. The currency unit is therefore the traveled,
+stacked iteration distance.</p>
+<hr />
+<h2 id="the-two-planet-types">2. The two planet types</h2>
+<p>The system distinguishes cycle classes by planet type.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Planet type</th>
+<th style="text-align: right;">Symbol</th>
+<th style="text-align: right;">Cycle length</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth-type</td>
+<td style="text-align: right;"><code>EarthType</code></td>
+<td style="text-align: right;"><code>N = 20</code></td>
+<td>Biological-geological cycle up to station 20</td>
+</tr>
+<tr>
+<td>Vulcan-type</td>
+<td style="text-align: right;"><code>VulcanType</code></td>
+<td style="text-align: right;"><code>N = 22</code></td>
+<td>Extended volcanic cycle up to station 22</td>
+</tr>
+</tbody>
+</table>
+<p>Important: stations 21 and 22 do not retroactively extend the
+Earth-type cycle. They belong to the Vulcan-type cycle. The Earth
+calculation with <code>N = 20</code> therefore remains valid.</p>
+<p>For the same start-end case:</p>
+<pre class="text"><code>Earth-type:   (4 - 1) * 20 + (17 - 4) = 73
+Vulcan-type:  (4 - 1) * 22 + (17 - 4) = 79</code></pre>
+<p>The currency is therefore <strong>planet-type dependent</strong>.</p>
+<hr />
+<h2 id="the-earth-type-station-alphabet">3. The Earth-type station
+alphabet</h2>
+<p>The Earth-type has 20 stations. Each station is simultaneously a
+biological phase, an economic state, a symbolic form, and a bookkeeping
+position.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">No.</th>
+<th>Letter</th>
+<th>Form</th>
+<th>Short name</th>
+<th>Economic function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>A</td>
+<td>Point</td>
+<td>Fecundation</td>
+<td>Start of a new identity; pollination, fertilization, seed
+impulse</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>B</td>
+<td>Line</td>
+<td>Seed</td>
+<td>Potential, storage, transport, germinability</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>C</td>
+<td>Triangle</td>
+<td>Seedling</td>
+<td>Life exits potential; sprouts, first rooting</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>D</td>
+<td>Square</td>
+<td>Growth</td>
+<td>Green plant, biomass buildup, photosynthetic value</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>E</td>
+<td>Pentagram</td>
+<td>Fertilizer growth</td>
+<td>Slurry, manure, mulch, wood, higher growth, soil fertility</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>F</td>
+<td>Hexagram</td>
+<td>Blossom</td>
+<td>Flower, bloom, maturity signal, reproductive capacity</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>G</td>
+<td>Heptagram</td>
+<td>Harvest</td>
+<td>Pulling out, cutting, collecting, crop</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>H</td>
+<td>Octagram</td>
+<td>Eating</td>
+<td>Nutrition, feeding, consumption, intake by living beings</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>I</td>
+<td>Nonagram</td>
+<td>Flesh/creature</td>
+<td>Animal, human, people, creature, body formation from food</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>J</td>
+<td>Decagram</td>
+<td>Fitting-in</td>
+<td>Fitting into other life, coexistence, ecological roles</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>K</td>
+<td>Hendecagram</td>
+<td>Production chain</td>
+<td>Food chain and production chain: grain, miller, flour, baker, bread,
+market, consumption</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>L</td>
+<td>Dodecagram</td>
+<td>Digestion</td>
+<td>Stomach, digestion, conversion of food into body and residue</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>M</td>
+<td>Triskaidecagram</td>
+<td>Slurry/excrement</td>
+<td>Excretion, slurry, feces, microbial food, organic return</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>N</td>
+<td>Tetrakaidecagram</td>
+<td>Circular economy</td>
+<td>Animals, plants, microbes, earth, ground, repetition, circle, loop,
+laws</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>O</td>
+<td>Pentadecagram</td>
+<td>Decomposition</td>
+<td>Degradation, return, decomposing, dissolving, coming back</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td>P</td>
+<td>Hexadecagram</td>
+<td>Chemical reaction</td>
+<td>Reacting, transforming, elemental shift, chemical reordering</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td>Q</td>
+<td>Heptadecagram</td>
+<td>Reintegration</td>
+<td>Assimilation, embedding, return into the cycle</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td>R</td>
+<td>Octadecagram</td>
+<td>Death/microbes</td>
+<td>Dead life, microbial food, organic residual identity</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td>S</td>
+<td>Nonadecagram</td>
+<td>Earth/soil/planet</td>
+<td>Soil, earth, planet Earth within the Sun/Sol order</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td>T</td>
+<td>Icosagram</td>
+<td>Heat/lava</td>
+<td>Deep geological energy, heat, lava, heat stream, planetary base
+force</td>
+</tr>
+</tbody>
+</table>
+<p>Station 20 is the boundary station for the Earth-type. After it, the
+cycle jumps back to station 1.</p>
+<hr />
+<h2 id="additional-stations-of-the-vulcan-type">4. Additional stations
+of the Vulcan-type</h2>
+<p>The Vulcan-type inherits the first 20 stations but opens two
+additional geological-volcanic stations after station 20.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">No.</th>
+<th>Letter</th>
+<th>Form</th>
+<th>Short name</th>
+<th>Economic function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">21</td>
+<td>U</td>
+<td>Henaicosagram</td>
+<td>Volcanic ash</td>
+<td>Volcano, ash, eruptive mineral release, deep planetary matter at the
+surface</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td>V</td>
+<td>Dyoicosagram</td>
+<td>Mineral reordering</td>
+<td>Cooling, rock formation, ash-to-soil substrate, new mineral
+fertility</td>
+</tr>
+</tbody>
+</table>
+<p>Station 22 is defined here as <strong>mineral reordering</strong>,
+because the Vulcan-type closes only when heat, lava, and ash become a
+stable substrate for new cycles. If a different definition of
+<code>V</code> is later chosen, this station can be replaced without
+changing the rest of the system logic.</p>
+<hr />
+<h2 id="the-currency-loop-money">5. The currency: Loop Money</h2>
+<h3 id="base-unit">5.1 Base unit</h3>
+<p>The base unit is called:</p>
+<pre class="text"><code>LC = Loop Credit</code></pre>
+<p>One <code>LC</code> is a counted, verified step of an identity
+through a planetary cycle.</p>
+<p>The raw currency formula is:</p>
+<pre class="text"><code>LC_raw = (r - 1) * N + e - s</code></pre>
+<p>Where:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>N</code></td>
+<td>Cycle length of the planet type: Earth = 20, Vulcan = 22</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Start station</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>End station</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>Repetition/pass in which the end station is reached</td>
+</tr>
+<tr>
+<td><code>LC_raw</code></td>
+<td>raw loop currency as iteration distance</td>
+</tr>
+</tbody>
+</table>
+<p>The formula counts <strong>transitions</strong>, not visited stations
+including the starting point. That is why your example gives
+<code>73</code>, not <code>74</code>.</p>
+<h3 id="validity-condition">5.2 Validity condition</h3>
+<pre class="text"><code>LC_raw &gt;= 0</code></pre>
+<p>If the end point lies before the start point, the repetition count
+must be high enough. Example for an Earth-type planet:</p>
+<pre class="text"><code>Start = 17
+End = 4
+r = 1
+LC_raw = (1 - 1) * 20 + 4 - 17 = -13  → invalid
+
+Start = 17
+End = 4
+r = 2
+LC_raw = (2 - 1) * 20 + 4 - 17 = 7    → valid</code></pre>
+<h3 id="local-and-universal-unit">5.3 Local and universal unit</h3>
+<p>Because Earth and Vulcan have different cycle lengths, there are two
+accounting layers:</p>
+<pre class="text"><code>Local LC:      raw steps in the local planet type
+Universal UCU: LC_raw / N</code></pre>
+<p><code>UCU</code> means <strong>Universal Cycle Unit</strong>. It
+measures how many full cycle equivalents a movement expresses.</p>
+<p>Example:</p>
+<pre class="text"><code>Earth:   73 / 20 = 3.65 UCU
+Vulcan: 79 / 22 = 3.5909 UCU</code></pre>
+<p>Local money counts real steps; the universal unit enables comparison
+and trade between planet types.</p>
+<hr />
+<h2 id="the-stacked-for-loop">6. The stacked <code>for</code> loop</h2>
+<p>A simple loop tracks one identity from start to end. But an economy
+never consists of only one identity. Bread contains grain, soil, water,
+labor, fire, digestion, feces, microbes, and reintegration. Therefore
+the currency is <strong>stacked</strong>.</p>
+<p>A stack consists of several verified cycles:</p>
+<pre class="text"><code>CycleStack = [
+  plant loop,
+  soil loop,
+  human/animal loop,
+  microbial loop,
+  production-chain loop,
+  energy loop,
+  reintegration loop
+]</code></pre>
+<p>The stacked currency is:</p>
+<pre class="text"><code>LC_stack = Σ (LC_raw_i * M_i * Q_i * U_i * G_i)</code></pre>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LC_raw_i</code></td>
+<td>Loop distance</td>
+<td>Iteration distance of the individual identity</td>
+</tr>
+<tr>
+<td><code>M_i</code></td>
+<td>Material factor</td>
+<td>standardized quantity: mass, energy, area, or nutritional value</td>
+</tr>
+<tr>
+<td><code>Q_i</code></td>
+<td>Quality factor</td>
+<td>purity, fertility, health, absence of pollutants</td>
+</tr>
+<tr>
+<td><code>U_i</code></td>
+<td>Use factor</td>
+<td>real contribution to food, soil, life, or infrastructure</td>
+</tr>
+<tr>
+<td><code>G_i</code></td>
+<td>Justice factor</td>
+<td>fair labor, no theft, no destruction, lawful participation</td>
+</tr>
+</tbody>
+</table>
+<p>Without these factors, the system would be vulnerable to empty loops:
+moving things around pointlessly just to create money. The factors
+prevent loop fraud. Only useful, material, proven, and just circular
+movement creates full-value money.</p>
+<hr />
+<h2 id="identity-as-the-core-of-bookkeeping">7. Identity as the core of
+bookkeeping</h2>
+<p>The system does not only account for goods. It accounts for
+<strong>identities</strong>.</p>
+<p>An identity can be:</p>
+<ul>
+<li>a seed batch,</li>
+<li>a field,</li>
+<li>a compost pile,</li>
+<li>an animal body,</li>
+<li>a bread dough,</li>
+<li>a sack of flour,</li>
+<li>a microbial culture,</li>
+<li>a soil volume,</li>
+<li>a heat stream,</li>
+<li>a volcanic ash substrate.</li>
+</ul>
+<p>Identity does not mean that the form remains the same. A seed can
+become plant, grain, bread, body, feces, microbial food, and soil
+component. The identity remains as a traceable transformation line.</p>
+<p>Every identity receives a <strong>cycle passport</strong>:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identity_id</span><span class="kw">:</span><span class="at"> soil-batch-00071</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planet_type</span><span class="kw">:</span><span class="at"> EarthType</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cycle_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">current_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">17</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">previous_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">13</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">repetition</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">raw_value</span><span class="kw">:</span><span class="at"> </span><span class="dv">73</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mass_reference</span><span class="kw">:</span><span class="at"> 1000 kg organic matter</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">quality_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.91</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">use_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.88</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">governance_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.00</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">status</span><span class="kw">:</span><span class="at"> verified</span></span></code></pre></div>
+<hr />
+<h2 id="money-creation">8. Money creation</h2>
+<h3 id="basic-rule">8.1 Basic rule</h3>
+<p>Money is created when an identity completes a verified distance
+within the cycle.</p>
+<pre class="text"><code>No reintegration → no full money creation.
+No verification → no public recognition.
+No usefulness → no full value.
+Damage to the cycle → debt instead of money.</code></pre>
+<h3 id="three-forms-of-money-creation">8.2 Three forms of money
+creation</h3>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Completed LC</td>
+<td>Money after verified transformation</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pre-financed LC</td>
+<td>Credit against expected transformation</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Repair LC</td>
+<td>Money for healing damaged cycles</td>
+</tr>
+</tbody>
+</table>
+<p>Completed LC is strongest. Pre-financed LC is risky and must become
+cycle debt if the promised transformation fails. Repair LC is created
+when damaged soils, waterways, waste streams, or social production
+chains are made integrable again.</p>
+<hr />
+<h2 id="cycle-debt">9. Cycle debt</h2>
+<p>In a linear economy, waste is often externalized. In this economy,
+waste is booked as debt.</p>
+<p>Cycle debt arises when:</p>
+<ul>
+<li>matter is removed from the cycle,</li>
+<li>pollutants block reintegration,</li>
+<li>labor is exploited,</li>
+<li>soil fertility declines,</li>
+<li>food is consumed without organized return,</li>
+<li>heat, chemistry, or slurry act destructively instead of
+regeneratively.</li>
+</ul>
+<p>Formula:</p>
+<pre class="text"><code>Debt = unreintegrated_LC_value * DamageFactor * TimeFactor</code></pre>
+<p>The longer an identity remains outside the cycle, the larger the debt
+becomes. This forces the economy to treat disposal, composting,
+digestion, microbial work, and chemical return as real economic
+processes.</p>
+<hr />
+<h2 id="prices">10. Prices</h2>
+<p>The price of a good is not only supply and demand. It is the sum of
+its circular work, production work, and damages or healings.</p>
+<pre class="text"><code>Price = operating costs
+      + stacked LC
+      + risk premium
+      + scarcity premium
+      + exit penalty
+      - regeneration credit</code></pre>
+<h3 id="example-bread">Example: bread</h3>
+<p>A loaf of bread passes through several stations:</p>
+<pre class="text"><code>2  Seed
+3  Seedling
+4  Growth
+6  Blossom
+7  Harvest
+11 Production chain: grain → miller → flour → baker → bread → market
+8  Eating
+12 Digestion
+13 Feces/slurry
+15 Decomposition
+17 Reintegration</code></pre>
+<p>Bread is economically more valuable when stations 12, 13, 15, and 17
+are also organized after eating. A system with compost toilets, biogas,
+hygienic nutrient return, or animal manure can therefore create real
+reintegration currency. A system that treats everything as waste creates
+cycle debt.</p>
+<hr />
+<h2 id="labor-and-wages">11. Labor and wages</h2>
+<p>Wages are not paid only for time. They are paid for <strong>cycle
+movement</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Labor</th>
+<th>Typical cycle contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Farmer</td>
+<td>Stations 2–7, 13–17, soil fertility</td>
+</tr>
+<tr>
+<td>Miller</td>
+<td>Station 11, conversion of grain into flour</td>
+</tr>
+<tr>
+<td>Baker</td>
+<td>Station 11, conversion of flour into bread</td>
+</tr>
+<tr>
+<td>Merchant</td>
+<td>Station 11, distribution without identity loss</td>
+</tr>
+<tr>
+<td>Cook</td>
+<td>Station 8, making food absorbable and useful</td>
+</tr>
+<tr>
+<td>Care worker</td>
+<td>Stations 8–12, nutrition and bodily maintenance</td>
+</tr>
+<tr>
+<td>Sanitation worker</td>
+<td>Stations 12–15, safe return of excretions</td>
+</tr>
+<tr>
+<td>Compost master</td>
+<td>Stations 13–17, microbial and soil work</td>
+</tr>
+<tr>
+<td>Chemist</td>
+<td>Station 16, safe reaction and pollutant control</td>
+</tr>
+<tr>
+<td>Geologist/Vulcan worker</td>
+<td>Stations 20–22 for Vulcan-types</td>
+</tr>
+<tr>
+<td>Judge/validator</td>
+<td>Station 14, law, justice, signals, communication</td>
+</tr>
+</tbody>
+</table>
+<p>This upgrades work that linear economies often make invisible: care,
+digestion infrastructure, composting, microbial work, soil work, and
+reintegration.</p>
+<hr />
+<h2 id="ownership">12. Ownership</h2>
+<p>Ownership is not an absolute right to destroy. Ownership is a
+<strong>right of use with a duty of return</strong>.</p>
+<p>A person may own, process, sell, or consume an identity. But whoever
+removes an identity from the cycle must pay for or organize its
+return.</p>
+<p>There are three ownership layers:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Ownership layer</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Private use right</td>
+<td>A person or organization may use an identity</td>
+</tr>
+<tr>
+<td>Cycle duty</td>
+<td>The identity must remain returnable</td>
+</tr>
+<tr>
+<td>Commons share</td>
+<td>Soil, water, air, microbes, and planetary stability remain partly
+public</td>
+</tr>
+</tbody>
+</table>
+<p>Soil is therefore never merely private capital. It is a means of
+production, a life-support foundation, and a cycle memory at the same
+time.</p>
+<hr />
+<h2 id="banks-and-credit">13. Banks and credit</h2>
+<p>Banks in this system are <strong>cycle banks</strong>.</p>
+<p>They do not lend only against collateral. They lend against plausible
+future cycles.</p>
+<p>A credit contract contains:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">borrower</span><span class="kw">:</span><span class="at"> cooperative-farm-12</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planet_type</span><span class="kw">:</span><span class="at"> EarthType</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">start_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">planned_end_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">17</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">planned_repetition</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expected_raw_LC</span><span class="kw">:</span><span class="at"> </span><span class="dv">55</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">collateral</span><span class="kw">:</span><span class="at"> seed stock + compost contract + harvest insurance</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">verification</span><span class="kw">:</span><span class="at"> field audit + mass balance + soil test</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">failure_mode</span><span class="kw">:</span><span class="at"> converts to cycle debt</span></span></code></pre></div>
+<p>Interest is not understood as infinite money multiplication. It is a
+<strong>rhythm premium</strong>:</p>
+<pre class="text"><code>Rhythm premium = risk + waiting time + coordination cost + failure probability</code></pre>
+<p>Compound interest without real cycle progress is limited, because it
+would detach money from matter.</p>
+<hr />
+<h2 id="markets">14. Markets</h2>
+<p>There is not just one goods market. There are station markets.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Market</th>
+<th>What is traded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A/B market</td>
+<td>Fecundation, seed, genetic and ecological starting capacity</td>
+</tr>
+<tr>
+<td>C/D market</td>
+<td>Seedlings, young plants, growth services</td>
+</tr>
+<tr>
+<td>E market</td>
+<td>Fertilizer, slurry, mulch, manure, soil building</td>
+</tr>
+<tr>
+<td>F/G market</td>
+<td>Blossom, harvest, ripeness, harvest work</td>
+</tr>
+<tr>
+<td>H/I market</td>
+<td>Food, feeding, nutrition, body formation</td>
+</tr>
+<tr>
+<td>K market</td>
+<td>Production chains: miller, baker, trader, market logistics</td>
+</tr>
+<tr>
+<td>L/M market</td>
+<td>Digestion, sanitation systems, slurry, feces, biogas</td>
+</tr>
+<tr>
+<td>N/O/P/Q market</td>
+<td>Circular economy, decomposition, chemistry, reintegration</td>
+</tr>
+<tr>
+<td>R/S/T market</td>
+<td>Death, soil, earth, geological energy</td>
+</tr>
+<tr>
+<td>U/V market</td>
+<td>Volcanic ash, mineral fertility, geological reordering</td>
+</tr>
+</tbody>
+</table>
+<p>These markets reveal where an economy is strong or weak. A society
+with abundant food but poor stations 13–17 is rich in consumption and
+poor in return.</p>
+<hr />
+<h2 id="state-law-and-justice">15. State, law, and justice</h2>
+<p>Station 14 explicitly contains laws, justice, signals, and
+communication. Law is therefore not an external add-on. It is an
+internal part of the cycle.</p>
+<p>The political system has three chambers:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Chamber</th>
+<th>Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biological chamber</td>
+<td>Reviews material flows, soil, microbes, health, ecological
+truth</td>
+</tr>
+<tr>
+<td>Economic chamber</td>
+<td>Reviews prices, division of labor, efficiency, supply</td>
+</tr>
+<tr>
+<td>Justice chamber</td>
+<td>Reviews rights, exploitation, access, conflicts, dignity</td>
+</tr>
+</tbody>
+</table>
+<p>A process has full legitimacy only if all three chambers can
+basically recognize it.</p>
+<h3 id="basic-rights">Basic rights</h3>
+<ol type="1">
+<li>Right to food.</li>
+<li>Right to safe return of excretions and waste.</li>
+<li>Right to access soil or cycle infrastructure.</li>
+<li>Right to fair payment for return work.</li>
+<li>Right to protection from other people’s toxic cycle debt.</li>
+<li>Right to transparency about the cycle balance of important
+goods.</li>
+</ol>
+<hr />
+<h2 id="taxes">16. Taxes</h2>
+<p>Taxes are instruments of return.</p>
+<table>
+<thead>
+<tr>
+<th>Tax</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exit tax</td>
+<td>Burdens matter that leaves the cycle</td>
+</tr>
+<tr>
+<td>Pollutant tax</td>
+<td>Burdens substances that make reintegration harder</td>
+</tr>
+<tr>
+<td>Soil rent</td>
+<td>Public share in soil fertility and location advantage</td>
+</tr>
+<tr>
+<td>Entropy levy</td>
+<td>Burdens irreversible dispersal of energy and matter</td>
+</tr>
+<tr>
+<td>Repair levy</td>
+<td>Funds healing of historical damage</td>
+</tr>
+</tbody>
+</table>
+<p>There are also negative taxes, meaning credits:</p>
+<table>
+<thead>
+<tr>
+<th>Credit</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compost dividend</td>
+<td>For clean organic return</td>
+</tr>
+<tr>
+<td>Soil-building premium</td>
+<td>For measurably improved fertility</td>
+</tr>
+<tr>
+<td>Microbe bonus</td>
+<td>For healthy microbial activity</td>
+</tr>
+<tr>
+<td>Water-purity bonus</td>
+<td>For return without water pollution</td>
+</tr>
+<tr>
+<td>Social bonus</td>
+<td>For fair labor chains</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="trade-between-planet-types">17. Trade between planet types</h2>
+<p>Because different planet types have different cycle lengths, trade
+needs two values:</p>
+<pre class="text"><code>Local value = LC_raw
+Universal value = LC_raw / N</code></pre>
+<p>An Earth-type product with <code>73 LC</code> has:</p>
+<pre class="text"><code>73 / 20 = 3.65 UCU</code></pre>
+<p>A Vulcan-type product with <code>79 LC</code> has:</p>
+<pre class="text"><code>79 / 22 = 3.5909 UCU</code></pre>
+<p>Trade can happen in three ways:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raw-step trade</td>
+<td>Every step counts equally; useful for local bookkeeping</td>
+</tr>
+<tr>
+<td>UCU trade</td>
+<td>Full cycle equivalents are compared; useful for interplanetary
+trade</td>
+</tr>
+<tr>
+<td>Matter-quality trade</td>
+<td>Quality, scarcity, and returnability also decide</td>
+</tr>
+</tbody>
+</table>
+<p>Vulcan-types must not use their 22-cycle to artificially inflate
+Earth-type values. Conversely, Earth-types must not treat volcanic ash
+or mineral fertility as ordinary 20-cycle goods if their actual cycle
+has 22 stations.</p>
+<hr />
+<h2 id="inflation-and-monetary-stability">18. Inflation and monetary
+stability</h2>
+<p>Inflation arises when more LC is issued than real cycles can
+support.</p>
+<p>The system prevents inflation through:</p>
+<ol type="1">
+<li><strong>Verification:</strong> money only for provable
+transformation.</li>
+<li><strong>Mass balance:</strong> matter must not be fully counted
+multiple times.</li>
+<li><strong>Quality testing:</strong> poor return receives lower
+value.</li>
+<li><strong>Planetary budgets:</strong> soils, water, food, and heat
+have carrying limits.</li>
+<li><strong>Devaluation of empty loops:</strong> pointless
+back-and-forth movement produces no use factor.</li>
+<li><strong>Cycle debt:</strong> damages are booked instead of
+hidden.</li>
+</ol>
+<p>Deflation arises when too few cycles are financed. The remedy is
+public investment in soil, water, compost, seed, repair, and sanitation
+systems.</p>
+<hr />
+<h2 id="business-accounting">19. Business accounting</h2>
+<p>Every enterprise keeps four balance sheets.</p>
+<table>
+<thead>
+<tr>
+<th>Balance sheet</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Financial balance</td>
+<td>Is the enterprise solvent?</td>
+</tr>
+<tr>
+<td>Material balance</td>
+<td>Where does matter come from, where does it go?</td>
+</tr>
+<tr>
+<td>Cycle balance</td>
+<td>Which stations are closed, which remain open?</td>
+</tr>
+<tr>
+<td>Justice balance</td>
+<td>Who bears costs, who receives benefits?</td>
+</tr>
+</tbody>
+</table>
+<p>An enterprise is healthy only when all four balance sheets are
+viable.</p>
+<h3 id="example-bakery">Example: bakery</h3>
+<p>A bakery buys flour not only as a commodity but as an identity with a
+cycle passport. It sells bread with production-chain value. If it is
+connected to a compost or biogas structure, it can additionally create
+return value. If packaging and waste are not returnable, debts
+arise.</p>
+<hr />
+<h2 id="public-basic-provision">20. Public basic provision</h2>
+<p>Society guarantees a minimum cycle for every person:</p>
+<pre class="text"><code>Seed/soil → food → eating → digestion → safe excretion → return → soil</code></pre>
+<p>This is more important than an abstract basic income. Money alone
+does not help if food, soil, water, and return systems are missing.</p>
+<p>Therefore there is a <strong>basic cycle guarantee</strong>:</p>
+<ul>
+<li>access to food,</li>
+<li>access to water,</li>
+<li>access to hygienic digestion and return infrastructure,</li>
+<li>access to communal soil or soil-equivalent infrastructure,</li>
+<li>access to energy for cooking, heat, and transformation,</li>
+<li>protection from other people’s cycle debt.</li>
+</ul>
+<hr />
+<h2 id="technology">21. Technology</h2>
+<p>Technology is good when it closes cycles, raises quality, or makes
+dangerous transitions safe.</p>
+<p>Useful technologies include:</p>
+<ul>
+<li>sensors for soil, moisture, nutrients, and pollutants,</li>
+<li>decentralized composting,</li>
+<li>biogas,</li>
+<li>hygienic nutrient return,</li>
+<li>cycle passports for products,</li>
+<li>laboratory testing of microbes and chemistry,</li>
+<li>heat recovery,</li>
+<li>regional production chains,</li>
+<li>privacy-preserving technology for identity flows.</li>
+</ul>
+<p>Harmful technology is technology that hides cycle debt, conceals
+exploitation, or makes return impossible.</p>
+<hr />
+<h2 id="privacy-and-surveillance">22. Privacy and surveillance</h2>
+<p>Because the system tracks identities, there is a surveillance risk.
+Therefore:</p>
+<pre class="text"><code>As much material-flow transparency as necessary.
+As little personal transparency as possible.</code></pre>
+<p>Product batches, soil quantities, and material flows should be
+visible. Private life data, eating behavior, and individual body data
+must not be unnecessarily exposed.</p>
+<p>Possible solution:</p>
+<ul>
+<li>track batches instead of persons,</li>
+<li>anonymous return certificates,</li>
+<li>local cooperative verification,</li>
+<li>cryptographic proofs without full disclosure,</li>
+<li>strict separation of health data and economic bookkeeping.</li>
+</ul>
+<hr />
+<h2 id="fraud-and-countermeasures">23. Fraud and countermeasures</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Fraud</th>
+<th>Description</th>
+<th>Countermeasure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty loops</td>
+<td>Pointless movement for money creation</td>
+<td>Lower use factor <code>U</code></td>
+</tr>
+<tr>
+<td>Double counting</td>
+<td>Same matter counted fully more than once</td>
+<td>Mass balance, identity passport</td>
+</tr>
+<tr>
+<td>Fake compost</td>
+<td>Polluted return sold as fertile</td>
+<td>Laboratory testing, soil liability</td>
+</tr>
+<tr>
+<td>Planet-type arbitrage</td>
+<td>20- and 22-cycles converted falsely</td>
+<td>Mandatory disclosure of <code>N</code> and UCU</td>
+</tr>
+<tr>
+<td>Exploitation</td>
+<td>Loop value created through underpaid labor</td>
+<td>Lower justice factor <code>G</code></td>
+</tr>
+<tr>
+<td>Hidden pollutants</td>
+<td>Toxins exported to other regions</td>
+<td>Cycle debt remains with origin</td>
+</tr>
+<tr>
+<td>Soil monopoly</td>
+<td>Access to return is blocked</td>
+<td>Commons share, soil rent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mathematical-rulebook">24. Mathematical rulebook</h2>
+<h3 id="individual-value">24.1 Individual value</h3>
+<pre class="text"><code>LC_raw(P, s, e, r) = (r - 1) * N(P) + e - s</code></pre>
+<p>with:</p>
+<pre class="text"><code>N(EarthType) = 20
+N(VulcanType) = 22</code></pre>
+<h3 id="stack-value">24.2 Stack value</h3>
+<pre class="text"><code>LC_stack = Σ_i LC_raw_i * M_i * Q_i * U_i * G_i</code></pre>
+<h3 id="universal-comparison-unit">24.3 Universal comparison unit</h3>
+<pre class="text"><code>UCU_i = LC_raw_i / N(P_i)</code></pre>
+<h3 id="cycle-debt-1">24.4 Cycle debt</h3>
+<pre class="text"><code>Debt = OpenLoopValue * DamageFactor * TimeFactor</code></pre>
+<h3 id="price">24.5 Price</h3>
+<pre class="text"><code>Price = Cost + LC_stack + Risk + Scarcity + ExitPenalty - RegenerationCredit</code></pre>
+<h3 id="pseudocode">24.6 Pseudocode</h3>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loop_value(planet_type: <span class="bu">str</span>, start: <span class="bu">int</span>, end: <span class="bu">int</span>, repetition: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> {<span class="st">&quot;EarthType&quot;</span>: <span class="dv">20</span>, <span class="st">&quot;VulcanType&quot;</span>: <span class="dv">22</span>}[planet_type]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> (repetition <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> N <span class="op">+</span> end <span class="op">-</span> start</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;End station lies before start station without sufficient pass count&quot;</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loop_value(<span class="st">&quot;EarthType&quot;</span>, <span class="dv">4</span>, <span class="dv">17</span>, <span class="dv">4</span>))   <span class="co"># 73</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loop_value(<span class="st">&quot;VulcanType&quot;</span>, <span class="dv">4</span>, <span class="dv">17</span>, <span class="dv">4</span>))  <span class="co"># 79</span></span></code></pre></div>
+<hr />
+<h2 id="example-calculation-earth-type">25. Example calculation:
+Earth-type</h2>
+<p>An organic material flow begins at station 4: green plants grow. It
+ends at station 17: reintegration into the cycle. The end station is
+reached in the fourth pass.</p>
+<pre class="text"><code>Planet type = Earth
+N = 20
+s = 4
+e = 17
+r = 4
+
+LC_raw = (4 - 1) * 20 + 17 - 4
+LC_raw = 60 + 13
+LC_raw = 73</code></pre>
+<p>If the quantity is one standard batch and all factors are good:</p>
+<pre class="text"><code>M = 1.00
+Q = 0.95
+U = 0.90
+G = 1.00
+
+LC_effective = 73 * 1.00 * 0.95 * 0.90 * 1.00
+LC_effective = 62.415</code></pre>
+<p>The economy therefore recognizes <code>73 LC_raw</code> as loop
+distance and <code>62.415 LC_effective</code> as tradable,
+quality-weighted value.</p>
+<hr />
+<h2 id="example-calculation-vulcan-type">26. Example calculation:
+Vulcan-type</h2>
+<p>Same start, same end, same pass, but Vulcan-type:</p>
+<pre class="text"><code>Planet type = Vulcan
+N = 22
+s = 4
+e = 17
+r = 4
+
+LC_raw = (4 - 1) * 22 + 17 - 4
+LC_raw = 66 + 13
+LC_raw = 79</code></pre>
+<p>The Vulcan-type has more local steps. That does not automatically
+mean it is absolutely richer. For interplanetary comparison,
+normalize:</p>
+<pre class="text"><code>79 / 22 = 3.5909 UCU</code></pre>
+<hr />
+<h2 id="purpose-of-the-system">27. Purpose of the system</h2>
+<p>This economic system corrects five failures of linear economies:</p>
+<ol type="1">
+<li><strong>Waste is not externalized.</strong> It becomes visible as
+open debt.</li>
+<li><strong>Care and return are paid.</strong> Digestion, compost,
+microbes, and soil work are productive.</li>
+<li><strong>Money is tied to reality.</strong> Without material flow,
+quality, and use, no full value is created.</li>
+<li><strong>Planet types are respected.</strong> Earth and Vulcan have
+different loop lengths.</li>
+<li><strong>Justice is built in.</strong> Exploitation reduces value
+instead of maximizing it.</li>
+</ol>
+<hr />
+<h2 id="transition-plan">28. Transition plan</h2>
+<h3 id="phase-1-local-pilot-circles">Phase 1: Local pilot circles</h3>
+<ul>
+<li>Connect farms, bakeries, compost systems, and markets.</li>
+<li>First account only for stations 2–17.</li>
+<li>Introduce simple cycle passports.</li>
+</ul>
+<h3 id="phase-2-public-return-infrastructure">Phase 2: Public return
+infrastructure</h3>
+<ul>
+<li>Build sanitation systems, compost, biogas, and soil
+laboratories.</li>
+<li>Add return value to food prices.</li>
+<li>Introduce cycle debt for non-returnable waste.</li>
+</ul>
+<h3 id="phase-3-full-earth-type">Phase 3: Full Earth-type</h3>
+<ul>
+<li>Account for all 20 stations.</li>
+<li>Include soil, heat, geological energy, and long-term fertility.</li>
+<li>Establish basic cycle guarantee as public provision.</li>
+</ul>
+<h3 id="phase-4-vulcan-type">Phase 4: Vulcan-type</h3>
+<ul>
+<li>Activate stations 21 and 22 for volcanic or mineral-eruptive
+planets.</li>
+<li>Treat volcanic ash, mineral reordering, and geological substrates as
+their own markets.</li>
+<li>Use UCU as the interplanetary comparison unit.</li>
+</ul>
+<hr />
+<h2 id="short-constitution-of-the-universe-circular-economy">29. Short
+constitution of the Universe Circular Economy</h2>
+<ol type="1">
+<li>All economic activity is movement of identity through cycles.</li>
+<li>The currency is counted, verified, quality-weighted loop value.</li>
+<li>Earth-types have 20 stations; Vulcan-types have 22 stations.</li>
+<li>Money is created by return, not mere extraction.</li>
+<li>Waste is open debt until safely reintegrated.</li>
+<li>Soil, water, microbes, food, digestion, and death are core economic
+domains.</li>
+<li>Ownership entails cycle capability.</li>
+<li>Labor is valued by its contribution to moving, preserving, and
+healing the cycle.</li>
+<li>Justice is part of bookkeeping, not morality outside
+bookkeeping.</li>
+<li>An economy is rich when its cycles are closed, fertile, fair, and
+repeatable.</li>
+</ol>
+<hr />
+<h2 id="compact-definition">30. Compact definition</h2>
+<pre class="text"><code>Universe Circular Economy =
+    an economic system
+    in which every good is treated as an identity inside a planet-type-specific cycle,
+    money is created as stacked for-loop distance,
+    Earth-types calculate with 20 stations and Vulcan-types with 22 stations,
+    prices consist of cycle work, quality, use, and justice,
+    and waste counts as debt until it is returned into soil, life, or planetary order.</code></pre>
+</body>
+</html>

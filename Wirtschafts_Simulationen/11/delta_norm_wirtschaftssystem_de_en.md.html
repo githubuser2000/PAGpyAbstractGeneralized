@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>delta_norm_wirtschaftssystem_de_en</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="delta-norm-wirtschaftssystem-delta-norm-economy">Delta-Norm-Wirtschaftssystem
+/ Delta-Norm Economy</h1>
+<p><strong>Sprache / Language:</strong> Deutsch und Englisch / German
+and English<br />
+<strong>Thema / Topic:</strong> Ein Wirtschaftssystem, in dem Geld aus
+der Abweichung zwischen zwei mathematischen Normen entsteht und
+Verhalten bezahlt, gekauft und koordiniert wird.<br />
+<strong>Datum / Date:</strong> 30. April 2026<br />
+<strong>Status:</strong> Konzeptmodell, kein politischer
+Implementierungsaufruf.</p>
+<hr />
+<h2 id="kurzfassung-auf-deutsch">Kurzfassung auf Deutsch</h2>
+<p>Dieses Modell konstruiert eine Wirtschaft, in der Geld nicht primär
+als Metall, Banknote, Fiat-Zahl oder Kryptowert verstanden wird, sondern
+als <strong>Delta zwischen zwei mathematischen Normwerten</strong>. Jede
+wirtschaftlich relevante Handlung wird als Verhaltensereignis in einem
+Vektorraum beschrieben. Zwei Normen bewerten dieses Ereignis aus zwei
+Richtungen:</p>
+<ol type="1">
+<li><strong>Beitragsnorm</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_+</annotation></semantics></math>:
+Wie stark erhöht das Verhalten Systemfähigkeit, Nutzen, Wahrheit,
+Sicherheit, Versorgung, Kooperation oder Zukunftsfähigkeit?</li>
+<li><strong>Belastungsnorm</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_-</annotation></semantics></math>:
+Wie stark verbraucht, gefährdet, verzerrt oder belastet das Verhalten
+Ressourcen, Vertrauen, Aufmerksamkeit, Gesundheit, Umwelt, Infrastruktur
+oder soziale Ordnung?</li>
+</ol>
+<p>Die Währungseinheit heißt <strong>Delta</strong> oder
+<strong>Δ</strong>. Für ein Verhaltensereignis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+gilt vereinfacht:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mi>d</mi></msub><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda_d\bigl(\|\Phi_d(e)\|_{+,d}-\|\Phi_d(e)\|_{-,d}\bigr)
+</annotation></semantics></math></p>
+<p>Dabei ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Phi_d(e)</annotation></semantics></math>
+die Vektorisierung des Ereignisses im Bereich
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+etwa Nahrung, Arbeit, Medien, Energie, Mobilität, Raumstation oder
+Mondlogistik.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>
+ist der geldpolitische Umrechnungsfaktor. Ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&gt;0</annotation></semantics></math>,
+erzeugt oder verdient das Verhalten Delta. Ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&lt;0</annotation></semantics></math>,
+kostet es Delta oder erzeugt eine
+Rückzahlungs-/Wiedergutmachungspflicht.</p>
+<p>Wichtig: Die Differenz zweier Normwerte ist selbst <strong>keine
+mathematische Norm</strong> mehr. Sie ist ein <strong>monetärer
+Spread</strong> aus zwei Normen. Genau dieser Spread wird als Geld
+verwendet.</p>
+<p>Das System besitzt eine Zentralbank für Erde, Mond, Satelliten und
+Raumstationen im Erdorbit: die <strong>Zentralbank des
+Erde-Mond-Orbit-Systems</strong>, kurz <strong>ZEMO</strong>. Sie
+verwaltet nicht alle menschlichen Werte, sondern die Stabilität der
+Delta-Währung, die technische Abrechnung, die Verhaltensmärkte, die
+Geldmenge, die Normtransparenz und die Rechte der Teilnehmer. Damit das
+System nicht zu einem totalitären Sozialkreditsystem wird, sind
+Privatsphäre, Einspruchsrechte, demokratische Normsetzung, minimale
+Grundversorgung, pluralistische Medienregeln und harte Grenzen gegen
+politische Gesinnungsbewertung eingebaut.</p>
+<hr />
+<h2 id="executive-summary-in-english">Executive Summary in English</h2>
+<p>This model designs an economy in which money is not primarily metal,
+paper, fiat balance, or crypto scarcity. Money is a <strong>delta
+between two mathematical norm values</strong>. Every economically
+relevant action is represented as a behavioral event in a vector space.
+Two norms evaluate the event from two directions:</p>
+<ol type="1">
+<li><strong>Contribution norm</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_+</annotation></semantics></math>:
+How much does the behavior increase system capacity, utility, truth,
+safety, supply, cooperation, or future viability?</li>
+<li><strong>Burden norm</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_-</annotation></semantics></math>:
+How much does the behavior consume, endanger, distort, or burden
+resources, trust, attention, health, the environment, infrastructure, or
+social order?</li>
+</ol>
+<p>The currency unit is called <strong>Delta</strong> or
+<strong>Δ</strong>. For a behavioral event
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mi>d</mi></msub><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda_d\bigl(\|\Phi_d(e)\|_{+,d}-\|\Phi_d(e)\|_{-,d}\bigr)
+</annotation></semantics></math></p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Phi_d(e)</annotation></semantics></math>
+is the vectorization of the event in domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+such as food, labor, media, energy, mobility, orbital stations, or lunar
+logistics.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>
+is the monetary conversion factor. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&gt;0</annotation></semantics></math>,
+the behavior earns or creates Delta. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&lt;0</annotation></semantics></math>,
+it costs Delta or creates a restorative liability.</p>
+<p>Technically, the difference between two norm values is not itself a
+mathematical norm. It is a <strong>monetary spread</strong> produced by
+two norms. That spread is used as money.</p>
+<p>The system has a central bank for Earth, Moon, satellites, and
+stations in Earth orbit: the <strong>Central Bank of the
+Earth-Moon-Orbit System</strong>, abbreviated <strong>ZEMO</strong>. It
+does not own all human values. It manages currency stability,
+settlement, behavioral markets, money supply, norm transparency, and
+participant rights. To avoid becoming a coercive social-credit regime,
+the design includes privacy, appeals, democratic norm-setting, universal
+basic access, pluralistic media rules, and hard barriers against
+political belief scoring.</p>
+<hr />
+<h1 id="teil-i-deutsch">Teil I – Deutsch</h1>
+<h2 id="grundidee">1. Grundidee</h2>
+<p>In einer gewöhnlichen Wirtschaft bezahlt man mit Geld für Dinge:
+Brot, Strom, Arbeitszeit, Transport, Nachrichten, Unterhaltung, Wohnung,
+Maschinen, Kredite. In diesem Modell wird alles als
+<strong>Verhalten</strong> interpretiert.</p>
+<p>Ein Brot ist nicht nur ein Objekt. Es ist die Summe vieler
+Verhaltensketten: säen, bewässern, düngen, ernten, mahlen, backen,
+transportieren, verkaufen, essen, entsorgen. Eine Nachricht ist nicht
+nur Text. Sie ist Verhalten: recherchieren, prüfen, formulieren,
+gewichten, veröffentlichen, korrigieren, verbreiten. Arbeit ist
+offensichtlich Verhalten. Konsum ist Verhalten. Auch Nicht-Handeln kann
+Verhalten sein, etwa das Unterlassen einer Reparatur an einer
+Raumstation.</p>
+<p>Die zentrale These lautet:</p>
+<blockquote>
+<p>Wirtschaft ist ein System zur Koordination von Verhalten. Geld ist
+die Zahl, mit der Verhaltensabweichungen messbar, handelbar und
+verrechenbar werden.</p>
+</blockquote>
+<p>Dieses System macht diese These radikal explizit. Es sagt nicht:
+„Geld kauft Sachen.“ Es sagt:</p>
+<blockquote>
+<p>Geld kauft, belohnt, belastet oder überträgt Verhalten.</p>
+</blockquote>
+<p>Das Verhalten wird nicht beliebig bewertet, sondern über zwei
+mathematische Normen. Der Geldbetrag ist der Unterschied zwischen dem
+normierten Beitrag und der normierten Belastung.</p>
+<hr />
+<h2 id="mathematischer-kern">2. Mathematischer Kern</h2>
+<h3 id="verhaltensraum">2.1 Verhaltensraum</h3>
+<p>Sei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+die Menge aller Akteure: Personen, Unternehmen, Medienhäuser,
+KI-Agenten, Forschungseinrichtungen, Satellitenbetreiber, Raumstationen,
+Mondhabitate, Gemeinden, Staaten oder Kooperativen.</p>
+<p>Ein wirtschaftlich relevantes Ereignis ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>l</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+e=(a,t,l,d,z)
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>:
+Akteur,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>:
+Zeitpunkt oder Zeitraum,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>l</mi><annotation encoding="application/x-tex">l</annotation></semantics></math>:
+Ort oder Infrastrukturkontext, etwa Erde, Mond, Satellit, Station,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>:
+Verhaltensdomäne, etwa Nahrung, Arbeit, Medien, Energie,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>:
+beobachtbare oder beweisbare Ereignisdaten.</li>
+</ul>
+<p>Für jede Domäne
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+gibt es eine Abbildung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo>:</mo><msub><mi>E</mi><mi>d</mi></msub><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><msub><mi>n</mi><mi>d</mi></msub></msup></mrow><annotation encoding="application/x-tex">
+\Phi_d:E_d\to\mathbb{R}^{n_d}
+</annotation></semantics></math></p>
+<p>Diese Abbildung verwandelt ein Ereignis in einen Vektor.
+Beispiele:</p>
+<ul>
+<li>Ein Arbeitsereignis wird zu einem Vektor aus Zeit, Qualität,
+Sicherheit, Kooperationsgrad, Zuverlässigkeit, Lernbeitrag und
+Ressourcenverbrauch.</li>
+<li>Ein Nachrichtenereignis wird zu einem Vektor aus Faktentreue,
+Quellenlage, öffentlicher Relevanz, Aktualität, Korrekturverhalten,
+Manipulationsrisiko und Aufmerksamkeitsverbrauch.</li>
+<li>Ein Essensereignis wird zu einem Vektor aus Nährwert,
+Energieaufwand, Materialfluss, Gesundheitswirkung, Abfall, Knappheit und
+kulturellem Nutzen.</li>
+</ul>
+<h3 id="zwei-normen">2.2 Zwei Normen</h3>
+<p>Für jede Domäne gibt es zwei mathematische Normen auf demselben oder
+einem transformierten Vektorraum:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\|x\|_{+,d}
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\|x\|_{-,d}
+</annotation></semantics></math></p>
+<p>Die <strong>Plusnorm</strong> misst den Beitrag. Die
+<strong>Minusnorm</strong> misst die Belastung.</p>
+<p>Eine typische Form ist eine gewichtete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-Norm:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>n</mi><mi>d</mi></msub></munderover><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>+</mo></msubsup><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><msup><mo stretchy="false" form="prefix">|</mo><msub><mi>p</mi><mi>d</mi></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><msub><mi>p</mi><mi>d</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">
+\|x\|_{+,d}=\left(\sum_{j=1}^{n_d}w^+_{d,j}|x_j|^{p_d}\right)^{1/p_d}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>n</mi><mi>d</mi></msub></munderover><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>−</mo></msubsup><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><msup><mo stretchy="false" form="prefix">|</mo><msub><mi>q</mi><mi>d</mi></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><msub><mi>q</mi><mi>d</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">
+\|x\|_{-,d}=\left(\sum_{j=1}^{n_d}w^-_{d,j}|x_j|^{q_d}\right)^{1/q_d}
+</annotation></semantics></math></p>
+<p>mit positiven Gewichten
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>+</mo></msubsup><annotation encoding="application/x-tex">w^+_{d,j}</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>−</mo></msubsup><annotation encoding="application/x-tex">w^-_{d,j}</annotation></semantics></math>.
+Die Gewichte legen fest, was in einer Domäne wichtig ist. In einer
+Raumstation ist Sauerstoffsicherheit viel höher gewichtet als
+Bequemlichkeit. Im Journalismus ist Quellenqualität höher gewichtet als
+Klickzahl. In der Landwirtschaft sind Ernährung, Boden, Wasser, Energie,
+Arbeitsbedingungen und Abfall relevant.</p>
+<h3 id="geld-als-norm-spread">2.3 Geld als Norm-Spread</h3>
+<p>Der monetäre Wert eines Ereignisses ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mi>d</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><msubsup><mi>P</mi><mi>d</mi><mo>+</mo></msubsup><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><msubsup><mi>P</mi><mi>d</mi><mo>−</mo></msubsup><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda_d\left(\|P^+_d\Phi_d(e)\|_{+,d}-\|P^-_d\Phi_d(e)\|_{-,d}\right)
+</annotation></semantics></math></p>
+<p>Dabei sind
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>d</mi><mo>+</mo></msubsup><annotation encoding="application/x-tex">P^+_d</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>d</mi><mo>−</mo></msubsup><annotation encoding="application/x-tex">P^-_d</annotation></semantics></math>
+Projektionen oder Filter. Sie trennen jene Koordinaten, die als Beitrag
+bewertet werden, von jenen, die als Belastung zählen.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>
+ist ein Umrechnungsfaktor der Zentralbank.</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&gt;0</annotation></semantics></math>:
+Verhalten erzeugt Netto-Beitrag. Der Akteur erhält Delta.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)=0</annotation></semantics></math>:
+Beitrag und Belastung gleichen sich aus.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&lt;0</annotation></semantics></math>:
+Verhalten erzeugt Netto-Belastung. Der Akteur bezahlt Delta oder erhält
+eine Verpflichtung zur Kompensation.</li>
+</ul>
+<p>Die Währungseinheit ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.278em"></mspace><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+1\;\Delta
+</annotation></semantics></math></p>
+<p>oder kurz:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.278em"></mspace><mi>D</mi></mrow><annotation encoding="application/x-tex">
+1\;D
+</annotation></semantics></math></p>
+<p>Ein Kontostand eines Akteurs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+entwickelt sich als:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msub><mi>E</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow></munder><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>T</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>F</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+B_a(t+1)=B_a(t)+\sum_{e\in E_a(t)}\mu(e)+T_a(t)-F_a(t)
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B_a(t)</annotation></semantics></math>:
+Delta-Kontostand,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">E_a(t)</annotation></semantics></math>:
+Ereignisse des Akteurs im Zeitraum,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T_a(t)</annotation></semantics></math>:
+Transfers, Löhne, Käufe, Vertragszahlungen,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_a(t)</annotation></semantics></math>:
+Gebühren, Steuern, Rückzahlungen, Sanktionen, Ausgleichspflichten.</li>
+</ul>
+<hr />
+<h2 id="warum-das-geld-ist">3. Warum das Geld ist</h2>
+<p>Damit etwas Geld ist, muss es mindestens vier Funktionen
+erfüllen.</p>
+<h3 id="recheneinheit">3.1 Recheneinheit</h3>
+<p>Delta ist die gemeinsame Zahl, in der Preise angegeben werden. Ein
+Medienartikel, ein Kilogramm Nahrung, eine Stunde Wartungsarbeit, eine
+Orbitkorrektur, ein medizinischer Dienst, eine Forschungsleistung und
+eine Werbekampagne können alle in Delta bewertet werden.</p>
+<h3 id="tauschmittel">3.2 Tauschmittel</h3>
+<p>Akteure übertragen Delta, wenn sie Verhalten kaufen. Ein Habitat kann
+Wartungsverhalten kaufen. Eine Gemeinde kann Nachrichtenrecherche
+kaufen. Eine Person kann Nahrung kaufen, also die Verhaltenskette hinter
+der Nahrung bezahlen. Ein Unternehmen kann Arbeitsverhalten kaufen.</p>
+<h3 id="wertaufbewahrung">3.3 Wertaufbewahrung</h3>
+<p>Delta ist ein Anspruch auf künftig anerkanntes positives Verhalten
+anderer Akteure. Wer Delta hält, hält keinen moralischen Rang, sondern
+Kaufkraft über Verhaltensleistungen.</p>
+<h3 id="maß-für-spätere-zahlungen">3.4 Maß für spätere Zahlungen</h3>
+<p>Kredite, Versicherungen, Anleihen, Löhne und Leasingverträge werden
+als Ansprüche auf zukünftige Delta-Flüsse geschrieben. Ein Kredit ist
+die Erwartung, dass der Schuldner künftig genügend positive
+Verhaltensdeltas erzeugt oder Delta-Transfers erhält.</p>
+<hr />
+<h2 id="die-zentralbank-des-erde-mond-orbit-systems-zemo">4. Die
+Zentralbank des Erde-Mond-Orbit-Systems: ZEMO</h2>
+<h3 id="name-und-zuständigkeit">4.1 Name und Zuständigkeit</h3>
+<p>Die Zentralbank heißt:</p>
+<p><strong>Zentralbank des Erde-Mond-Orbit-Systems</strong>, kurz
+<strong>ZEMO</strong>.</p>
+<p>Ihr Währungsraum umfasst:</p>
+<ul>
+<li>Erde,</li>
+<li>Mond,</li>
+<li>Satelliten im Erdorbit,</li>
+<li>Raumstationen im Erdorbit,</li>
+<li>Kommunikations-, Navigations-, Energie- und Forschungsinfrastruktur
+zwischen Erde und Mond.</li>
+</ul>
+<p>Später kann das System auf Mars, Asteroiden oder andere Habitate
+erweitert werden. Der Grundraum bleibt zunächst Erde-Mond-Orbit, weil
+dort Ressourcen, Kommunikation, Abhängigkeiten und Sicherheitsfragen eng
+zusammenhängen.</p>
+<h3 id="mandat">4.2 Mandat</h3>
+<p>Die ZEMO hat sechs Hauptaufgaben:</p>
+<ol type="1">
+<li><strong>Stabilität der Delta-Währung</strong>: Die Kaufkraft von
+Delta soll über Grundgüter und Grundverhalten hinweg stabil
+bleiben.</li>
+<li><strong>Norm-Transparenz</strong>: Die verwendeten Normen, Gewichte,
+Datenquellen und Berechnungen müssen öffentlich prüfbar sein.</li>
+<li><strong>Geldschöpfung und Geldvernichtung</strong>: Delta wird
+geschaffen, wenn verifizierbares Verhalten die Systemfähigkeit erhöht.
+Delta wird vernichtet oder gebunden, wenn Verhalten knappe Ressourcen
+verbraucht oder Risiken erzeugt.</li>
+<li><strong>Abrechnung und Finalität</strong>: Transaktionen zwischen
+Erde, Mond, Satelliten und Stationen müssen sicher abgeschlossen werden
+können, auch bei Kommunikationsverzögerungen oder Ausfällen.</li>
+<li><strong>Schutz vor Manipulation</strong>: Norm-Gaming, gefälschte
+Daten, Medienmanipulation, Scheinverhalten und Scheinknappheit werden
+erkannt und sanktioniert.</li>
+<li><strong>Rechte und Grenzen</strong>: Die ZEMO darf nicht zur totalen
+Verhaltenspolizei werden. Sie sichert Einspruch, Privatsphäre,
+Grundversorgung und pluralistische Lebensformen.</li>
+</ol>
+<h3 id="gewaltenteilung-innerhalb-der-zemo">4.3 Gewaltenteilung
+innerhalb der ZEMO</h3>
+<p>Damit die Zentralbank nicht alle Werte der Gesellschaft bestimmt,
+besteht sie aus getrennten Kammern:</p>
+<h4 id="a.-monetäre-kammer">A. Monetäre Kammer</h4>
+<p>Sie setzt Umrechnungsfaktoren
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>,
+Liquiditätsquoten, Reserveanforderungen und Stabilitätsziele.</p>
+<h4 id="b.-normenkammer">B. Normenkammer</h4>
+<p>Sie verwaltet die mathematischen Normfamilien, darf Gewichte aber nur
+nach transparenten Verfahren ändern. Sie ist nicht identisch mit der
+Regierung.</p>
+<h4 id="c.-daten--und-orakelkammer">C. Daten- und Orakelkammer</h4>
+<p>Sie zertifiziert Messsysteme, Sensoren, Medienbelege,
+Arbeitsnachweise, Lieferkettennachweise und Audits.</p>
+<h4 id="d.-rechtekammer">D. Rechtekammer</h4>
+<p>Sie prüft Beschwerden, schützt Privatsphäre, stoppt missbräuchliche
+Normen und kann Abrechnungen aussetzen.</p>
+<h4 id="e.-erde-mond-orbit-rat">E. Erde-Mond-Orbit-Rat</h4>
+<p>Er sorgt dafür, dass Erde, Mond, Satellitenbetreiber und
+Raumstationen nicht gegenseitig dominiert werden. Eine Mondkolonie darf
+nicht allein nach irdischen Komfortnormen bewertet werden. Eine
+Erdregion darf nicht nach Stationsnotfallnormen leben müssen.</p>
+<hr />
+<h2 id="geldschöpfung">5. Geldschöpfung</h2>
+<p>Delta entsteht nicht einfach durch Drucken. Delta entsteht aus
+verifiziertem Netto-Beitrag.</p>
+<h3 id="primäre-geldschöpfung">5.1 Primäre Geldschöpfung</h3>
+<p>Die ZEMO schreibt neues Delta gut, wenn Verhalten nachweislich
+Systemkapazität erhöht. Beispiele:</p>
+<ul>
+<li>Reparatur kritischer Infrastruktur,</li>
+<li>Produktion von Nahrung mit niedriger Belastung und hoher
+Versorgungssicherheit,</li>
+<li>Verbesserung von Sauerstoff-, Wasser- oder Energie-Recycling in
+Habitaten,</li>
+<li>zuverlässige Nachrichtenrecherche von öffentlichem Interesse,</li>
+<li>medizinische Versorgung,</li>
+<li>Bildung und Ausbildung,</li>
+<li>Forschung mit reproduzierbaren Ergebnissen,</li>
+<li>Risikoreduktion im Orbit, etwa Vermeidung oder Beseitigung von
+Trümmern,</li>
+<li>Pflegearbeit und soziale Stabilisierung,</li>
+<li>Software- und Sicherheitswartung wichtiger Systeme.</li>
+</ul>
+<p>Mathematisch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msubsup><mi>M</mi><mi>t</mi><mo>+</mo></msubsup><mo>=</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msubsup><mi>E</mi><mi>t</mi><mrow><mi>v</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi></mrow></msubsup></mrow></munder><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">
+\Delta M^+_t=\sum_{e\in E_t^{valid}}\max(0,\mu(e))\cdot \rho_e
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\rho_e</annotation></semantics></math>
+ist ein Verifikationsfaktor zwischen 0 und 1. Unklare oder schwach
+bewiesene Ereignisse erzeugen weniger oder vorläufiges Delta.</p>
+<h3 id="geldvernichtung">5.2 Geldvernichtung</h3>
+<p>Delta wird vernichtet, gesperrt oder als Rückstellung gebunden, wenn
+Verhalten knappe Systemkapazität verbraucht oder Risiken erzeugt:</p>
+<ul>
+<li>hoher Ressourcenverbrauch,</li>
+<li>vermeidbarer Abfall,</li>
+<li>gefährliches Verhalten im Orbit,</li>
+<li>Falschinformation mit messbarem Schaden,</li>
+<li>Vertragsbruch,</li>
+<li>Infrastrukturverschleiß,</li>
+<li>Produktion mit versteckten Folgekosten,</li>
+<li>Aufmerksamkeitsausbeutung durch Täuschung.</li>
+</ul>
+<p>Mathematisch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msubsup><mi>M</mi><mi>t</mi><mo>−</mo></msubsup><mo>=</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msubsup><mi>E</mi><mi>t</mi><mrow><mi>v</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi></mrow></msubsup></mrow></munder><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>−</mi><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>σ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">
+\Delta M^-_t=\sum_{e\in E_t^{valid}}\max(0,-\mu(e))\cdot \sigma_e
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\sigma_e</annotation></semantics></math>
+ist ein Belastungs- oder Haftungsfaktor.</p>
+<h3 id="sekundäre-geldübertragung">5.3 Sekundäre Geldübertragung</h3>
+<p>Die meisten Alltagszahlungen schaffen kein neues Geld. Sie übertragen
+vorhandenes Delta:</p>
+<ul>
+<li>Lohnzahlung,</li>
+<li>Kauf von Nahrung,</li>
+<li>Bezahlung eines Medienabos,</li>
+<li>Miete,</li>
+<li>Reparaturauftrag,</li>
+<li>Transportticket,</li>
+<li>Softwarelizenz,</li>
+<li>Stationswartung.</li>
+</ul>
+<p>Der Unterschied ist wichtig: Nicht jede gute Tat druckt Geld. Sonst
+entstünde Inflation. Geldschöpfung erfordert verifizierbaren
+Netto-Zuwachs an Systemfähigkeit oder einen von der ZEMO genehmigten
+öffentlichen Auftrag.</p>
+<hr />
+<h2 id="märkte-für-verhalten">6. Märkte für Verhalten</h2>
+<h3 id="verhaltensvertrag">6.1 Verhaltensvertrag</h3>
+<p>Ein Marktvertrag lautet nicht mehr nur „Ware gegen Geld“,
+sondern:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>T</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi mathvariant="normal">Π</mi><mo>,</mo><mi>E</mi><mo>,</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+C=(a,b,d,T,g,\Pi,E,p)
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>:
+Käufer,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>:
+Anbieter,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>:
+Domäne,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>:
+Zeitraum,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>:
+Zielvektor oder Verhaltensziel,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math>:
+Preisformel in Delta,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>:
+Beweisstandard,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>:
+Datenschutzstufe.</li>
+</ul>
+<p>Beispiel: Eine Raumstation kauft von einem Techniker nicht „eine
+Stunde Zeit“, sondern „sicheres Wartungsverhalten am CO₂-Filter mit
+dokumentierter Prüfung und Fehlerreduktion“. Der Techniker wird nicht
+für Anwesenheit bezahlt, sondern für verifiziertes Verhalten.</p>
+<h3 id="verhaltensbörse">6.2 Verhaltensbörse</h3>
+<p>Es gibt Börsen für standardisierte Verhaltenstypen:</p>
+<ul>
+<li>Arbeitsdeltas,</li>
+<li>Pflegedeltas,</li>
+<li>Forschungsdeltas,</li>
+<li>Nachrichten- und Wahrheitsdeltas,</li>
+<li>Energiedeltas,</li>
+<li>Recyclingdeltas,</li>
+<li>Orbit-Sicherheitsdeltas,</li>
+<li>Nahrungsdeltas,</li>
+<li>Transportdeltas,</li>
+<li>Bildungsdeltas.</li>
+</ul>
+<p>Ein Anbieter verkauft die Bereitschaft oder Fähigkeit, ein Verhalten
+zu erzeugen. Ein Käufer erwirbt das Verhalten oder dessen Ergebnis.</p>
+<h3 id="preise">6.3 Preise</h3>
+<p>Der Preis eines Verhaltensbündels ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="double-struck">𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><mi>C</mi></mrow></munder><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mo>+</mo><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>K</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P(C)=\mathbb{E}\left[\sum_{e\in C}\mu(e)\right]+R(C)+L(C)+K(C)
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li>erwarteter Norm-Spread,</li>
+<li>Risikoaufschlag
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">R(C)</annotation></semantics></math>,</li>
+<li>Liquiditätsaufschlag
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L(C)</annotation></semantics></math>,</li>
+<li>Koordinationskosten
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K(C)</annotation></semantics></math>.</li>
+</ul>
+<hr />
+<h2 id="arbeit-und-arbeitnehmersein">7. Arbeit und Arbeitnehmersein</h2>
+<p>In diesem System ist Arbeit ein vertraglich begrenzter
+Verhaltensraum. Ein Arbeitgeber kauft nicht den Menschen, sondern
+bestimmte, definierte, zeitlich begrenzte Verhaltensereignisse.</p>
+<h3 id="arbeitsvektor">7.1 Arbeitsvektor</h3>
+<p>Ein Arbeitsereignis kann Koordinaten haben wie:</p>
+<ul>
+<li>Zeitaufwand,</li>
+<li>Outputqualität,</li>
+<li>Sicherheitsverhalten,</li>
+<li>Teamkoordination,</li>
+<li>Zuverlässigkeit,</li>
+<li>Lernbeitrag,</li>
+<li>Dokumentationsqualität,</li>
+<li>Ressourcenverbrauch,</li>
+<li>Fehlerquote,</li>
+<li>Erholungs- und Überlastungsrisiko.</li>
+</ul>
+<p>Die Plusnorm belohnt Qualität, Sicherheit, Kooperation und
+Lernbeitrag. Die Minusnorm belastet Fehler, vermeidbare Risiken,
+Ressourcenverschwendung und Schädigung anderer.</p>
+<h3 id="lohn">7.2 Lohn</h3>
+<p>Ein Lohn ist ein erwarteter positiver Delta-Flow:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>a</mi></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>t</mi><mo>∈</mo><mi>T</mi></mrow></munder><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>e</mi><mrow><mi>a</mi><mo>,</mo><mi>t</mi></mrow><mrow><mi>w</mi><mi>o</mi><mi>r</mi><mi>k</mi></mrow></msubsup><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mtext mathvariant="normal">Knappheitsprämie</mtext><mo>+</mo><mtext mathvariant="normal">Risikoausgleich</mtext></mrow><annotation encoding="application/x-tex">
+W_a=\sum_{t\in T}\mathbb{E}[\mu(e_{a,t}^{work})]+\text{Knappheitsprämie}+\text{Risikoausgleich}
+</annotation></semantics></math></p>
+<p>Das Modell darf aber nicht bedeuten, dass jeder private Moment eines
+Arbeitnehmers bewertet wird. Nur vertraglich definierte,
+arbeitsrelevante und rechtlich zulässige Verhaltensdaten dürfen
+eingehen.</p>
+<h3 id="arbeitnehmerrechte">7.3 Arbeitnehmerrechte</h3>
+<p>Es gibt harte Regeln:</p>
+<ul>
+<li>keine Bewertung privater Gedanken,</li>
+<li>keine permanente Überwachung ohne konkreten Zweck,</li>
+<li>keine versteckte biometrische Auswertung,</li>
+<li>Recht auf Erklärung jeder relevanten Delta-Buchung,</li>
+<li>Recht auf Einspruch,</li>
+<li>Recht auf arbeitsfreie Räume,</li>
+<li>Mindestlohn oder Grunddelta für notwendige Arbeit,</li>
+<li>Schutz vor Diskriminierung durch Normgewichte.</li>
+</ul>
+<hr />
+<h2 id="nahrung-essen-und-konsum">8. Nahrung, Essen und Konsum</h2>
+<h3 id="nahrung-als-verhalten">8.1 Nahrung als Verhalten</h3>
+<p>Essen ist Verbrauchsverhalten, Gesundheitsverhalten, Kulturverhalten
+und Lieferkettenverhalten zugleich. Ein Lebensmittelpreis enthält daher
+nicht nur Angebot und Nachfrage, sondern den Delta-Spread der gesamten
+Kette.</p>
+<p>Ein Nahrungsvektor kann enthalten:</p>
+<ul>
+<li>Kalorien,</li>
+<li>Mikronährstoffe,</li>
+<li>Proteine,</li>
+<li>Wasserverbrauch,</li>
+<li>Energieverbrauch,</li>
+<li>Bodenbelastung,</li>
+<li>Transportdistanz,</li>
+<li>Kühlaufwand,</li>
+<li>Abfall,</li>
+<li>Arbeitsbedingungen,</li>
+<li>Gesundheitswirkung,</li>
+<li>kultureller oder sozialer Wert.</li>
+</ul>
+<h3 id="preisformel">8.2 Preisformel</h3>
+<p>Ein Lebensmittel kostet Delta, wenn seine Belastungsnorm hoch ist. Es
+kann subventioniert oder sogar positiv bewertet werden, wenn es
+Versorgung, Gesundheit, Kreislaufwirtschaft und lokale Resilienz
+stärkt.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mrow><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>n</mi><mi>u</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>r</mi><mi>e</mi><mi>s</mi><mi>i</mi><mi>l</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo>+</mo><mi>c</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>s</mi><mi>c</mi><mi>a</mi><mi>r</mi><mi>c</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>+</mo><mi>w</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>e</mi><mo>+</mo><mi>h</mi><mi>a</mi><mi>r</mi><mi>m</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(food)=\lambda_{food}(\|nutrition+resilience+culture\|_+-\|scarcity+waste+harm\|_-)
+</annotation></semantics></math></p>
+<p>Normales Essen darf nicht moralisch kriminalisiert werden. Deshalb
+gibt es ein <strong>Grundversorgungsdelta</strong>. Jeder Mensch erhält
+Zugang zu notwendiger Nahrung, Wasser, medizinischer Basisversorgung,
+Wohnen und Kommunikation. Das Delta-System steuert Knappheit und
+Verhalten, aber es darf Existenz nicht zur Ware machen.</p>
+<h3 id="konsum-allgemein">8.3 Konsum allgemein</h3>
+<p>Konsum bedeutet: Man kauft die Verhaltenskette, die ein Produkt
+erzeugt hat, und übernimmt einen Teil der zukünftigen Verhaltensfolgen.
+Ein Smartphone ist nicht nur ein Gerät, sondern Bergbau-, Fabrik-,
+Design-, Software-, Transport-, Nutzungs-, Reparatur- und
+Entsorgungsverhalten.</p>
+<p>Der Preis enthält:</p>
+<ul>
+<li>Produktionsdelta,</li>
+<li>Materialdelta,</li>
+<li>Arbeitsdelta,</li>
+<li>Nutzungsdelta,</li>
+<li>Reparierbarkeitsdelta,</li>
+<li>Recyclingdelta,</li>
+<li>Informationsdelta, etwa Wahrheit der Werbung.</li>
+</ul>
+<hr />
+<h2 id="medien-massenmedien-und-nachrichten">9. Medien, Massenmedien und
+Nachrichten</h2>
+<p>Dieser Bereich ist zentral, weil Nachrichten nicht nur Information
+sind. Sie formen Verhalten. Wer Nachrichten kontrolliert, beeinflusst
+Konsum, Arbeit, Wahlen, Sicherheit, Märkte, Angst, Vertrauen und
+Konflikte. Deshalb braucht das Delta-System besonders strenge Regeln für
+Medien.</p>
+<h3 id="nachricht-als-verhaltensereignis">9.1 Nachricht als
+Verhaltensereignis</h3>
+<p>Ein Nachrichtenereignis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">e_{news}</annotation></semantics></math>
+kann Koordinaten haben:</p>
+<ul>
+<li>Faktentreue,</li>
+<li>Quellenqualität,</li>
+<li>Quellentransparenz,</li>
+<li>Trennung von Nachricht und Meinung,</li>
+<li>Aktualität,</li>
+<li>öffentliche Relevanz,</li>
+<li>Korrekturgeschwindigkeit,</li>
+<li>Kontexttiefe,</li>
+<li>Unsicherheitskennzeichnung,</li>
+<li>Sensationalismus,</li>
+<li>Manipulationsabsicht,</li>
+<li>Aufmerksamkeitsverbrauch,</li>
+<li>Schaden durch Fehlleitung,</li>
+<li>Schutz gefährdeter Personen,</li>
+<li>Vielfalt der Perspektiven.</li>
+</ul>
+<h3 id="medien-delta">9.2 Medien-Delta</h3>
+<p>Die Geldformel lautet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>t</mi><mi>h</mi><mo>+</mo><mi>r</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>v</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>x</mi><mi>t</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>d</mi><mi>e</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>m</mi><mi>a</mi><mi>n</mi><mi>i</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>a</mi><mi>v</mi><mi>o</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>b</mi><mi>l</mi><msub><mi>e</mi><mi>h</mi></msub><mi>a</mi><mi>r</mi><mi>m</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(news)=\lambda_{news}(\|truth+relevance+correction+context\|_+-\|deception+manipulation+avoidable_harm\|_-)
+</annotation></semantics></math></p>
+<p>Ein Medium verdient Delta nicht einfach durch Reichweite. Reichweite
+ohne Qualität kann sogar negativ sein. Ein kleiner, korrekt
+recherchierter lokaler Warnhinweis kann mehr Delta verdienen als eine
+massenhaft verbreitete, aber manipulative Schlagzeile.</p>
+<h3 id="keine-wahrheitsdiktatur">9.3 Keine Wahrheitsdiktatur</h3>
+<p>Das System darf nicht entscheiden: „Diese Meinung ist erlaubt, jene
+Meinung ist verboten.“ Bewertet wird nicht politische Gesinnung, sondern
+überprüfbares Medienverhalten:</p>
+<ul>
+<li>Wurden Quellen angegeben?</li>
+<li>Wurden Tatsachenbehauptungen geprüft?</li>
+<li>Wurde Unsicherheit markiert?</li>
+<li>Wurde eine falsche Behauptung korrigiert?</li>
+<li>Wurde Meinung als Meinung gekennzeichnet?</li>
+<li>Wurde absichtlich eine falsche Darstellung verbreitet?</li>
+<li>Wurde eine Person oder Gruppe durch nachweislich falsche Information
+geschädigt?</li>
+</ul>
+<p>Unpopuläre, neue oder unbequeme Positionen dürfen nicht negativ
+bewertet werden, nur weil sie unbequem sind. Neue Hypothesen erhalten
+einen Unsicherheitsstatus, keinen Strafstatus.</p>
+<h3 id="massenmedien-und-aufmerksamkeitsmärkte">9.4 Massenmedien und
+Aufmerksamkeitsmärkte</h3>
+<p>Aufmerksamkeit ist selbst ein knapper Verhaltensraum. Massenmedien
+kaufen Aufmerksamkeit und verkaufen Verhaltenswahrscheinlichkeit an
+Werbekunden, Parteien, Unternehmen oder Bewegungen. Im Delta-System wird
+auch dieses Verhalten bilanziert.</p>
+<p>Eine Werbekampagne hat positive Delta, wenn sie nützliche,
+wahrheitsgemäße Information vermittelt. Sie hat negative Delta, wenn sie
+manipuliert, verschleiert, suchtähnliche Muster ausnutzt oder
+absichtlich falsche Erwartungen erzeugt.</p>
+<h3 id="nachrichtenfonds">9.5 Nachrichtenfonds</h3>
+<p>Die ZEMO betreibt keinen Propagandafonds, sondern einen
+<strong>öffentlichen Nachrichtenfonds</strong>. Dieser kauft bestimmte
+Verhaltensleistungen:</p>
+<ul>
+<li>Katastrophenwarnungen,</li>
+<li>lokale Recherchen,</li>
+<li>wissenschaftliche Replikation,</li>
+<li>Korruptionsaufdeckung,</li>
+<li>Infrastrukturwarnungen,</li>
+<li>Raumwetter- und Orbitrisikomeldungen,</li>
+<li>Gesundheitsinformationen,</li>
+<li>Faktenarchive.</li>
+</ul>
+<p>Finanziert wird der Fonds durch eine kleine Delta-Gebühr auf große
+Aufmerksamkeitsmärkte und durch direkte ZEMO-Geldschöpfung für
+verifizierte öffentliche Informationsgüter.</p>
+<hr />
+<h2 id="unternehmen">10. Unternehmen</h2>
+<p>Ein Unternehmen ist ein Akteur, der Verhaltensketten organisiert.
+Gewinn ist nicht nur Umsatz minus Kosten, sondern positiver Delta-Flow
+minus negativer Delta-Flow.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><mo>=</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>s</mi><mi>a</mi><mi>l</mi><mi>e</mi><mi>s</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>c</mi><mi>e</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Profit_\Delta=\sum \mu(e_{sales})+\sum \mu(e_{production})-\sum \mu(e_{resource})-\sum \mu(e_{risk})
+</annotation></semantics></math></p>
+<p>Ein Unternehmen kann reich werden, wenn es Verhalten koordiniert, das
+mehr Systemfähigkeit erzeugt als es Belastung verursacht. Es kann nicht
+dauerhaft reich werden, indem es Kosten versteckt, weil versteckte
+Kosten später als negative Delta nachgebucht werden.</p>
+<h3 id="bilanz">10.1 Bilanz</h3>
+<p>Eine Delta-Bilanz enthält:</p>
+<ul>
+<li>Finanzkonto,</li>
+<li>Verhaltensaktiva,</li>
+<li>Reputations- und Vertrauensdelta,</li>
+<li>Ressourcenverpflichtungen,</li>
+<li>Rückstellungen für Schäden,</li>
+<li>Medien- und Informationshaftung,</li>
+<li>Arbeitsverhaltensverpflichtungen,</li>
+<li>Kreislauf- und Entsorgungspflichten.</li>
+</ul>
+<h3 id="insolvenz">10.2 Insolvenz</h3>
+<p>Insolvenz bedeutet nicht nur Zahlungsunfähigkeit, sondern
+Unfähigkeit, künftige positive Delta-Flüsse glaubwürdig zu erzeugen.
+Sanierung bedeutet: Das Unternehmen muss sein Verhalten so ändern, dass
+die Plusnorm wieder über der Minusnorm liegt.</p>
+<hr />
+<h2 id="kredite-zinsen-und-vermögen">11. Kredite, Zinsen und
+Vermögen</h2>
+<h3 id="kredit">11.1 Kredit</h3>
+<p>Ein Kredit ist ein Vertrag über zukünftige Delta-Flüsse. Die Bank
+fragt nicht nur: „Hast du Sicherheiten?“, sondern:</p>
+<blockquote>
+<p>Welche positiven Verhaltensdeltas kannst du in Zukunft plausibel
+erzeugen?</p>
+</blockquote>
+<p>Der Kreditbetrag ist der Barwert erwarteter Delta-Flüsse:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>n</mi><mo>≤</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><mfrac><mrow><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>μ</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>r</mi><mi>t</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mi>t</mi></msup></mrow></mfrac><mo>⋅</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+Loan\leq \sum_{t=1}^{T}\frac{\mathbb{E}[\mu_t]}{(1+r_t)^t}\cdot \theta
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+ist ein Sicherheitsfaktor.</p>
+<h3 id="zins">11.2 Zins</h3>
+<p>Der Zins besteht aus:</p>
+<ul>
+<li>Zeitpräferenz,</li>
+<li>Ausfallrisiko,</li>
+<li>Normänderungsrisiko,</li>
+<li>Liquiditätsrisiko,</li>
+<li>Verifikationsrisiko,</li>
+<li>Systemrisiko.</li>
+</ul>
+<h3 id="vermögen">11.3 Vermögen</h3>
+<p>Vermögen ist die Fähigkeit, künftige positive Delta-Flüsse zu
+kontrollieren oder zu empfangen. Land, Maschinen, Medienmarken,
+Software, Daten, Satelliten, Mondhabitate und Patente sind Vermögen,
+wenn sie erwartbar positive Norm-Spreads erzeugen.</p>
+<hr />
+<h2 id="erde-mond-satelliten-und-raumstationen">12. Erde, Mond,
+Satelliten und Raumstationen</h2>
+<h3 id="warum-ein-gemeinsamer-währungsraum">12.1 Warum ein gemeinsamer
+Währungsraum?</h3>
+<p>Erde, Mond und Orbit sind physisch verbunden. Satelliten liefern
+Kommunikation, Navigation, Klimadaten, Forschung und Sicherheit.
+Raumstationen und Mondhabitate hängen von Lieferketten, Energie, Wasser,
+Sauerstoff, Reparatur und präziser Information ab. Ein Fehler im Orbit
+kann irdische Kommunikation treffen. Eine schlechte Erdpolitik kann
+Mondlogistik gefährden. Deshalb ist ein gemeinsames Abrechnungssystem
+sinnvoll.</p>
+<h3 id="orbit-domäne">12.2 Orbit-Domäne</h3>
+<p>Orbitverhalten hat besonders hohe Risikogewichte:</p>
+<ul>
+<li>Kollisionsvermeidung,</li>
+<li>Trümmervermeidung,</li>
+<li>Bahnkorrekturen,</li>
+<li>sichere Deorbit-Prozesse,</li>
+<li>Frequenzdisziplin,</li>
+<li>Strahlungswarnungen,</li>
+<li>Stationssicherheit,</li>
+<li>Notfallprotokolle,</li>
+<li>Datenintegrität.</li>
+</ul>
+<p>Ein Betreiber, der Satelliten sicher entsorgt, erhält positive Delta.
+Ein Betreiber, der Trümmer erzeugt, erhält massive negative Delta und
+muss Sicherheiten hinterlegen.</p>
+<h3 id="mond-domäne">12.3 Mond-Domäne</h3>
+<p>Auf dem Mond sind Wasser, Energie, geschlossene Kreisläufe,
+Habitatdruck, Strahlungsschutz, Reparierbarkeit und psychologische
+Stabilität entscheidend. Die Gewichte unterscheiden sich daher von der
+Erde.</p>
+<p>Ein Verhalten, das auf der Erde harmlos ist, kann auf dem Mond teuer
+sein. Ein kleines Leck, ein unnötiger Materialverlust oder falsche
+Information über Vorräte kann dort lebensgefährlich sein.</p>
+<h3 id="raumstations-domäne">12.4 Raumstations-Domäne</h3>
+<p>In Raumstationen gilt eine besondere Regel:</p>
+<blockquote>
+<p>Lebensunterhalt darf nie wegen negativem Kontostand verweigert
+werden.</p>
+</blockquote>
+<p>Luft, Druck, Temperatur, medizinische Notversorgung und
+Rückkehrsicherheit sind Grundrechte. Negative Delta erzeugt
+Verpflichtungen, aber keine akute Erpressbarkeit.</p>
+<hr />
+<h2 id="persönliche-konten">13. Persönliche Konten</h2>
+<p>Jeder Akteur hat mehrere getrennte Konten:</p>
+<h3 id="alltagskonto">13.1 Alltagskonto</h3>
+<p>Für Käufe, Löhne, Miete, Nahrung, Mobilität, Medien und normale
+Verträge.</p>
+<h3 id="grundversorgungskonto">13.2 Grundversorgungskonto</h3>
+<p>Nicht pfändbar. Deckt minimale Nahrung, Wasser, Wohnen, Gesundheit,
+Kommunikation und grundlegende Mobilität.</p>
+<h3 id="vertragskonto">13.3 Vertragskonto</h3>
+<p>Für spezifische Verhaltensverträge mit klaren Nachweisen.</p>
+<h3 id="haftungskonto">13.4 Haftungskonto</h3>
+<p>Für negative Delta, Rückstellungen, Schäden und Wiedergutmachung.</p>
+<h3 id="reputationsregister">13.5 Reputationsregister</h3>
+<p>Kein universeller Sozialscore. Es enthält domänenspezifische,
+erklärbare, anfechtbare Verhaltensnachweise. Ein guter Journalist muss
+nicht automatisch ein guter Mechaniker sein. Ein schlechter Kreditnehmer
+darf nicht automatisch politisch entwertet werden.</p>
+<hr />
+<h2 id="datenschutz-und-freiheit">14. Datenschutz und Freiheit</h2>
+<p>Ein Wirtschaftssystem, das Verhalten bewertet, ist gefährlich, wenn
+es falsch gebaut wird. Es kann Freiheit zerstören, Konformismus
+erzwingen und Macht missbrauchen. Deshalb enthält das Modell harte
+Grenzen.</p>
+<h3 id="nur-wirtschaftlich-relevante-verhaltensereignisse">14.1 Nur
+wirtschaftlich relevante Verhaltensereignisse</h3>
+<p>Private Gedanken, intime Beziehungen, legale politische Meinungen,
+Religion, Kunstgeschmack, persönliche Lebensführung und nicht-schädliche
+Eigenheiten sind keine allgemeine Währungsgrundlage.</p>
+<h3 id="datenminimalität">14.2 Datenminimalität</h3>
+<p>Für jede Buchung gilt:</p>
+<blockquote>
+<p>Es darf nur die geringste Datenmenge verarbeitet werden, die zur
+Abrechnung nötig ist.</p>
+</blockquote>
+<p>Wenn ein Zero-Knowledge-Nachweis reicht, darf kein Rohdatum
+gespeichert werden. Wenn eine aggregierte Messung reicht, darf keine
+Personendauerüberwachung erfolgen.</p>
+<h3 id="erklärbarkeit">14.3 Erklärbarkeit</h3>
+<p>Jede relevante Delta-Buchung muss erklärbar sein:</p>
+<ul>
+<li>Welche Domäne?</li>
+<li>Welcher Vektor?</li>
+<li>Welche Norm?</li>
+<li>Welche Gewichte?</li>
+<li>Welche Beweise?</li>
+<li>Welche Einspruchsfrist?</li>
+</ul>
+<h3 id="einspruch">14.4 Einspruch</h3>
+<p>Jeder Akteur kann Delta-Buchungen anfechten. Bei hohem Schaden gilt
+menschliche Prüfung. Automatische Systeme dürfen vorläufig buchen, aber
+nicht endgültig über existenzielle Rechte entscheiden.</p>
+<hr />
+<h2 id="demokratische-normsetzung">15. Demokratische Normsetzung</h2>
+<p>Die wichtigste politische Frage lautet: Wer bestimmt die
+Gewichte?</p>
+<p>Die Antwort in diesem Modell lautet: nicht eine Person, nicht ein
+Konzern, nicht allein die Zentralbank.</p>
+<h3 id="normenverfassung">15.1 Normenverfassung</h3>
+<p>Es gibt eine <strong>Delta-Normenverfassung</strong>. Sie legt
+fest:</p>
+<ul>
+<li>welche Domänen überhaupt bewertet werden dürfen,</li>
+<li>welche Daten verboten sind,</li>
+<li>welche Grundrechte unantastbar sind,</li>
+<li>wie Gewichte geändert werden,</li>
+<li>wie Minderheiten geschützt werden,</li>
+<li>wie wissenschaftliche Evidenz eingeht,</li>
+<li>wie Notfallnormen befristet werden.</li>
+</ul>
+<h3 id="normparlamente">15.2 Normparlamente</h3>
+<p>Für wichtige Domänen gibt es Normparlamente oder Normräte:</p>
+<ul>
+<li>Medienrat,</li>
+<li>Arbeitsrat,</li>
+<li>Nahrungsrat,</li>
+<li>Energierat,</li>
+<li>Orbitrat,</li>
+<li>Mondrat,</li>
+<li>Gesundheitsrat,</li>
+<li>Datenschutzrat.</li>
+</ul>
+<p>Diese Räte definieren nicht jede einzelne Zahlung, sondern die
+zulässigen Normrahmen.</p>
+<h3 id="langsame-änderungen">15.3 Langsame Änderungen</h3>
+<p>Normen dürfen nicht hektisch geändert werden, weil sonst Geld
+instabil wird. Gewichtsänderungen haben:</p>
+<ul>
+<li>Ankündigungsfrist,</li>
+<li>Testphase,</li>
+<li>Folgenabschätzung,</li>
+<li>Einspruchsphase,</li>
+<li>Übergangsregeln.</li>
+</ul>
+<hr />
+<h2 id="inflation-deflation-und-stabilität">16. Inflation, Deflation und
+Stabilität</h2>
+<h3 id="delta-preisindex">16.1 Delta-Preisindex</h3>
+<p>Die ZEMO misst einen <strong>Delta-Preisindex</strong>. Er enthält
+nicht nur Waren, sondern Verhaltensbündel:</p>
+<ul>
+<li>Grundnahrung,</li>
+<li>Wohnraum,</li>
+<li>Energie,</li>
+<li>Kommunikation,</li>
+<li>Gesundheitsbasis,</li>
+<li>Transport,</li>
+<li>glaubwürdige Nachrichten,</li>
+<li>Arbeitsstunde verschiedener Qualifikationen,</li>
+<li>Orbit-Sicherheitsdienst,</li>
+<li>Stationsversorgung,</li>
+<li>Mondlogistik.</li>
+</ul>
+<h3 id="inflation">16.2 Inflation</h3>
+<p>Inflation entsteht, wenn zu viel Delta für schwach verifizierte oder
+überbewertete Plusnormen geschaffen wird. Gegenmittel:</p>
+<ul>
+<li>Verifikationsfaktor senken,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>
+reduzieren,</li>
+<li>Norm-Gewichte prüfen,</li>
+<li>Geldschöpfung auf öffentliche Aufträge begrenzen,</li>
+<li>Rückstellungen erhöhen,</li>
+<li>Scheinverhalten sanktionieren.</li>
+</ul>
+<h3 id="deflation">16.3 Deflation</h3>
+<p>Deflation entsteht, wenn zu wenig Delta entsteht oder zu viele
+negative Buchungen Kaufkraft vernichten. Gegenmittel:</p>
+<ul>
+<li>öffentliche Delta-Aufträge,</li>
+<li>Grundversorgungsdelta erhöhen,</li>
+<li>Liquidität bereitstellen,</li>
+<li>belastende Normen überprüfen,</li>
+<li>produktive Verhaltenserzeugung vorfinanzieren.</li>
+</ul>
+<hr />
+<h2 id="steuern-und-öffentliche-güter">17. Steuern und öffentliche
+Güter</h2>
+<p>Steuern sind in diesem System keine bloße Abgabe, sondern eine
+Umlenkung von Delta in gemeinschaftliche Verhaltensaufträge.</p>
+<h3 id="steuerarten">17.1 Steuerarten</h3>
+<ul>
+<li>Ressourcenbelastungssteuer,</li>
+<li>Aufmerksamkeitsmarktabgabe,</li>
+<li>Orbitrisikoabgabe,</li>
+<li>Medienmanipulationshaftung,</li>
+<li>Luxusverbrauchsabgabe,</li>
+<li>Infrastrukturbeitrag,</li>
+<li>Automatisierungsdividende,</li>
+<li>Datenextraktionsabgabe.</li>
+</ul>
+<h3 id="öffentliche-güter">17.2 Öffentliche Güter</h3>
+<p>Steuereinnahmen kaufen Verhalten, das Märkte unterproduzieren:</p>
+<ul>
+<li>Grundlagenforschung,</li>
+<li>öffentliche Dateninfrastruktur,</li>
+<li>Bildung,</li>
+<li>Pflege,</li>
+<li>Katastrophenschutz,</li>
+<li>vertrauenswürdige Nachrichtenarchive,</li>
+<li>Orbitreinigung,</li>
+<li>Klimaanpassung,</li>
+<li>Mond- und Stationssicherheit.</li>
+</ul>
+<hr />
+<h2 id="versicherungen">18. Versicherungen</h2>
+<p>Versicherungen bündeln negative Delta-Risiken. Eine Station
+versichert Druckverlust. Ein Medienhaus versichert Recherchefehler. Ein
+Landwirt versichert Ernteausfall. Ein Satellitenbetreiber versichert
+Kollisionsrisiken.</p>
+<p>Die Prämie ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mi>e</mi><mi>m</mi><mi>i</mi><mi>u</mi><mi>m</mi><mo>=</mo><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mspace width="0.278em"></mspace><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>c</mi><mi>a</mi><mi>p</mi><mi>i</mi><mi>t</mi><mi>a</mi><mi>l</mi><mspace width="0.278em"></mspace><mi>b</mi><mi>u</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>r</mi><mo>+</mo><mi>v</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mspace width="0.278em"></mspace><mi>c</mi><mi>o</mi><mi>s</mi><mi>t</mi><mo>+</mo><mi>s</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>m</mi><mi>i</mi><mi>c</mi><mspace width="0.278em"></mspace><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">
+Premium=\mathbb{E}[negative\;\Delta]+capital\;buffer+verification\;cost+systemic\;risk
+</annotation></semantics></math></p>
+<p>Versicherungen haben einen positiven Effekt: Sie belohnen Prävention.
+Wer nachweislich Risiken senkt, zahlt weniger.</p>
+<hr />
+<h2 id="bildung-und-kultur">19. Bildung und Kultur</h2>
+<p>Bildung erzeugt zukünftige positive Delta-Fähigkeit. Kultur erzeugt
+Sinn, Kooperation, Identität, Kritikfähigkeit und psychologische
+Stabilität. Das Modell darf Kultur nicht nur nach Markt-Klicks
+bewerten.</p>
+<p>Eine kulturelle Leistung kann positive Delta haben, wenn sie:</p>
+<ul>
+<li>Wissen bewahrt,</li>
+<li>Gemeinschaft stiftet,</li>
+<li>Kritik ermöglicht,</li>
+<li>Traumata verarbeitet,</li>
+<li>Kreativität erhöht,</li>
+<li>psychologische Gesundheit stärkt,</li>
+<li>Dialog zwischen Gruppen ermöglicht.</li>
+</ul>
+<p>Aber Kunst darf nicht zur reinen Normerfüllung werden. Deshalb
+braucht Kultur einen Autonomiebereich, in dem Experimente geschützt
+sind, auch wenn ihr Nutzen erst später sichtbar wird.</p>
+<hr />
+<h2 id="beispielrechnungen">20. Beispielrechnungen</h2>
+<h3 id="raumstationswartung">20.1 Raumstationswartung</h3>
+<p>Ein Techniker repariert ein CO₂-Filtersystem.</p>
+<ul>
+<li>Plusnorm: Sicherheit, Lebensschutz, Fehlerreduktion, Dokumentation =
+13,0</li>
+<li>Minusnorm: Materialverbrauch, Arbeitsrisiko, Ausfallzeit = 2,0</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">\lambda_{station}=20</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>20</mn><mo stretchy="false" form="prefix">(</mo><mn>13</mn><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>220</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=20(13-2)=220\Delta
+</annotation></semantics></math></p>
+<p>Der Techniker oder sein Team erhält 220 Delta. Ein Teil kann direkt
+von der Station bezahlt werden, ein Teil kann von der ZEMO als
+Systemstabilitätsgeld geschaffen werden.</p>
+<h3 id="manipulative-massennachricht">20.2 Manipulative
+Massennachricht</h3>
+<p>Ein Medium veröffentlicht eine stark verbreitete, irreführende
+Schlagzeile.</p>
+<ul>
+<li>Plusnorm: öffentliche Relevanz und Aktualität = 1,0</li>
+<li>Minusnorm: Täuschung, Schaden, Korrekturverzögerung,
+Aufmerksamkeitsmissbrauch = 9,0</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\lambda_{news}=10</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>10</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>80</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=10(1-9)=-80\Delta
+</annotation></semantics></math></p>
+<p>Das Medium muss 80 Delta zahlen oder durch Korrekturverhalten
+teilweise ausgleichen.</p>
+<h3 id="gute-lokale-warnmeldung">20.3 Gute lokale Warnmeldung</h3>
+<p>Eine kleine Redaktion meldet rechtzeitig ein Trinkwasserproblem mit
+Quellen und Handlungshinweisen.</p>
+<ul>
+<li>Plusnorm: Relevanz, Genauigkeit, Prävention, Korrekturstruktur =
+8,4</li>
+<li>Minusnorm: Unsicherheit, Aufmerksamkeitskosten = 1,2</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\lambda_{news}=10</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>10</mn><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mo>,</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>72</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=10(8,4-1,2)=72\Delta
+</annotation></semantics></math></p>
+<p>Die Redaktion verdient 72 Delta, auch wenn die Reichweite kleiner ist
+als bei großen Medien.</p>
+<h3 id="nahrung">20.4 Nahrung</h3>
+<p>Eine Mahlzeit hat hohen Nährwert, geringe Verschwendung, aber
+moderaten Transportaufwand.</p>
+<ul>
+<li>Plusnorm: Ernährung, Gesundheit, lokale Resilienz = 4,0</li>
+<li>Minusnorm: Energie, Verpackung, Transport = 2,7</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi></mrow></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\lambda_{food}=5</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>5</mn><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>−</mo><mn>2</mn><mo>,</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6</mn><mo>,</mo><mn>5</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=5(4,0-2,7)=6,5\Delta
+</annotation></semantics></math></p>
+<p>Die Lieferkette kann positive Delta erhalten. Der Käufer zahlt
+trotzdem einen Preis, weil er Arbeit, Material und Organisation der
+Kette vergütet. Der positive Norm-Spread kann den Preis senken.</p>
+<hr />
+<h2 id="missbrauch-und-gegenmaßnahmen">21. Missbrauch und
+Gegenmaßnahmen</h2>
+<h3 id="norm-gaming">21.1 Norm-Gaming</h3>
+<p>Akteure könnten versuchen, nur die gemessenen Koordinaten zu
+optimieren. Gegenmaßnahmen:</p>
+<ul>
+<li>zufällige Audits,</li>
+<li>robuste Indikatoren,</li>
+<li>Messrotation,</li>
+<li>qualitative Prüfung,</li>
+<li>Whistleblower-Belohnung,</li>
+<li>spätere Nachbuchung versteckter Schäden.</li>
+</ul>
+<h3 id="verhaltensmonopole">21.2 Verhaltensmonopole</h3>
+<p>Wer Messdaten kontrolliert, könnte die Wirtschaft kontrollieren.
+Gegenmaßnahmen:</p>
+<ul>
+<li>offene Standards,</li>
+<li>unabhängige Orakel,</li>
+<li>Datenportabilität,</li>
+<li>Trennung von Messung und Zahlung,</li>
+<li>öffentliche Referenzmodelle.</li>
+</ul>
+<h3 id="politische-unterdrückung">21.3 Politische Unterdrückung</h3>
+<p>Die größte Gefahr ist, dass eine Regierung oder Zentralbank Normen
+nutzt, um Opposition zu bestrafen. Gegenmaßnahmen:</p>
+<ul>
+<li>Verbot von Gesinnungskoordinaten,</li>
+<li>Schutz politischer Meinung,</li>
+<li>unabhängige Rechtekammer,</li>
+<li>Medienpluralismus,</li>
+<li>internationale und orbitale Vetorechte,</li>
+<li>öffentliche Normhistorie,</li>
+<li>gerichtliche Überprüfung.</li>
+</ul>
+<h3 id="arme-werden-dauerhaft-negativ">21.4 Arme werden dauerhaft
+negativ</h3>
+<p>Wenn negative Delta zu streng wirken, werden Menschen gefangen.
+Gegenmaßnahmen:</p>
+<ul>
+<li>Grundversorgungskonto,</li>
+<li>Schuldenschnitt nach Wiedergutmachung,</li>
+<li>Bildungs- und Arbeitszugang,</li>
+<li>keine Zinsen auf existenzielle Negativkonten,</li>
+<li>restorative statt rein punitive Logik.</li>
+</ul>
+<hr />
+<h2 id="implementierungsphasen">22. Implementierungsphasen</h2>
+<h3 id="phase-1-freiwillige-pilotmärkte">Phase 1: Freiwillige
+Pilotmärkte</h3>
+<p>Start in Bereichen, in denen Verhalten gut messbar und
+gesellschaftlich nützlich ist:</p>
+<ul>
+<li>Recycling,</li>
+<li>Energieeinsparung,</li>
+<li>lokale Nachrichtenqualität,</li>
+<li>Pflegeleistungen,</li>
+<li>Open-Source-Sicherheitsarbeit,</li>
+<li>Stations- und Satellitensicherheit.</li>
+</ul>
+<h3 id="phase-2-öffentliche-delta-aufträge">Phase 2: Öffentliche
+Delta-Aufträge</h3>
+<p>Gemeinden, Stationen und Forschungseinrichtungen kaufen mit Delta
+konkrete Verhaltensleistungen.</p>
+<h3 id="phase-3-teilwährung">Phase 3: Teilwährung</h3>
+<p>Delta wird neben bestehenden Währungen verwendet. Preise werden
+doppelt ausgezeichnet.</p>
+<h3 id="phase-4-erde-mond-orbit-abrechnung">Phase 4:
+Erde-Mond-Orbit-Abrechnung</h3>
+<p>Satelliten, Raumstationen und Mondhabitate nutzen Delta als primäre
+Abrechnungseinheit für Sicherheit, Logistik, Energie, Wasser,
+Nachrichten und Wartung.</p>
+<h3 id="phase-5-vollwirtschaft-mit-verfassung">Phase 5: Vollwirtschaft
+mit Verfassung</h3>
+<p>Erst nach stabiler Erfahrung, demokratischer Legitimation und starken
+Grundrechten wird Delta zur dominanten Währung.</p>
+<hr />
+<h2 id="philosophischer-kern">23. Philosophischer Kern</h2>
+<p>Dieses System macht sichtbar, was in jeder Wirtschaft bereits
+geschieht: Menschen bezahlen einander dafür, dass sie Verhalten
+verändern. Ein Lohn verändert Arbeitsverhalten. Ein Preis verändert
+Konsumverhalten. Werbung verändert Aufmerksamkeitsverhalten. Nachrichten
+verändern Erwartungsverhalten. Kredite verändern Zukunftsverhalten.
+Steuern verändern Ressourcenverhalten.</p>
+<p>Der Unterschied ist: Das Delta-System sagt offen, was bewertet wird,
+und zwingt die Bewertung in transparente mathematische Formen.</p>
+<p>Das ist seine Stärke und seine Gefahr.</p>
+<p>Seine Stärke: Versteckte Kosten werden sichtbar. Medienverhalten wird
+verantwortlicher. Orbit- und Mondrisiken werden korrekt bepreist.
+Öffentliche Güter können direkt bezahlt werden.</p>
+<p>Seine Gefahr: Wenn falsch gebaut, wird es eine Maschine zur sozialen
+Kontrolle.</p>
+<p>Darum ist die wichtigste Formel nicht nur:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda(\|e\|_+-\|e\|_-)
+</annotation></semantics></math></p>
+<p>sondern auch:</p>
+<blockquote>
+<p>Kein Delta ohne Rechte. Keine Norm ohne Einspruch. Keine
+Medienbewertung ohne Pluralismus. Keine Verhaltensökonomie ohne
+Privatsphäre. Keine Zentralbank ohne Gewaltenteilung.</p>
+</blockquote>
+<hr />
+<h2 id="minimale-verfassung-des-delta-systems">24. Minimale Verfassung
+des Delta-Systems</h2>
+<ol type="1">
+<li><strong>Menschenwürde ist nicht käuflich.</strong> Delta bewertet
+Handlungen, nicht den Wert einer Person.</li>
+<li><strong>Kein universeller Sozialscore.</strong> Es gibt
+domänenspezifische Nachweise, keine totale Bürgerzahl.</li>
+<li><strong>Grundversorgung ist garantiert.</strong> Nahrung, Wasser,
+Luft, Notmedizin, Basiskommunikation und Schutz vor akuter Gefahr sind
+nicht von Kontostand abhängig.</li>
+<li><strong>Politische Meinung ist geschützt.</strong> Bewertet werden
+überprüfbare Schäden und Vertragsbrüche, nicht Gesinnung.</li>
+<li><strong>Medienpluralismus ist Pflicht.</strong> Wahrheitsprozesse
+werden bewertet, nicht erlaubte Ideologien.</li>
+<li><strong>Jede Norm ist öffentlich.</strong> Gewichte, Formeln,
+Datenquellen und Änderungen sind nachvollziehbar.</li>
+<li><strong>Jede relevante Buchung ist anfechtbar.</strong>
+Automatisierung ersetzt keine Rechte.</li>
+<li><strong>Datenminimalität gilt immer.</strong> Kein Rohdatum, wenn
+ein Nachweis reicht.</li>
+<li><strong>Normen ändern sich langsam.</strong> Geld darf nicht durch
+plötzliche Bewertungswechsel zerstört werden.</li>
+<li><strong>ZEMO ist geteilt.</strong> Geldpolitik, Normsetzung,
+Datenprüfung und Rechtekontrolle sind getrennt.</li>
+</ol>
+<hr />
+<h2 id="kompakte-definition">25. Kompakte Definition</h2>
+<p>Das Delta-Norm-Wirtschaftssystem ist eine Wirtschaftsordnung, in der
+jede wirtschaftlich relevante Handlung als Vektor in einem
+domänenspezifischen Verhaltensraum dargestellt wird. Zwei mathematische
+Normen messen Beitrag und Belastung dieser Handlung. Die Differenz der
+beiden Normwerte, skaliert durch geldpolitische Faktoren, erzeugt einen
+positiven oder negativen Delta-Betrag. Dieser Betrag dient als Währung,
+Preis, Lohn, Steuerbasis, Kreditgrundlage, Versicherungsmaß und
+Steuerungsimpuls. Eine Zentralbank für Erde, Mond, Satelliten und
+Raumstationen stabilisiert die Währung, während eine Normenverfassung
+verhindert, dass aus Verhaltensgeld ein totalitäres Kontrollsystem
+wird.</p>
+<hr />
+<h1 id="part-ii-english">Part II – English</h1>
+<h2 id="core-idea">1. Core Idea</h2>
+<p>In a conventional economy, people pay money for things: bread,
+electricity, labor time, transportation, news, entertainment, housing,
+machines, and loans. In this model, everything is interpreted as
+<strong>behavior</strong>.</p>
+<p>A loaf of bread is not merely an object. It is the sum of many
+behavioral chains: sowing, watering, fertilizing, harvesting, milling,
+baking, transporting, selling, eating, and disposing. A news item is not
+just text. It is behavior: investigating, verifying, framing,
+publishing, correcting, and distributing. Labor is obviously behavior.
+Consumption is behavior. Even non-action can be behavior, such as
+failing to repair a life-support system on a station.</p>
+<p>The central thesis is:</p>
+<blockquote>
+<p>An economy is a system for coordinating behavior. Money is the number
+that makes behavioral deviations measurable, tradable, and
+settleable.</p>
+</blockquote>
+<p>This system makes that thesis explicit. It does not say, “money buys
+things.” It says:</p>
+<blockquote>
+<p>Money buys, rewards, burdens, or transfers behavior.</p>
+</blockquote>
+<p>Behavior is evaluated through two mathematical norms. The monetary
+amount is the difference between the normed contribution and the normed
+burden.</p>
+<hr />
+<h2 id="mathematical-core">2. Mathematical Core</h2>
+<h3 id="behavioral-space">2.1 Behavioral Space</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+be the set of all actors: individuals, companies, media organizations,
+AI agents, research institutions, satellite operators, space stations,
+lunar habitats, municipalities, states, or cooperatives.</p>
+<p>An economically relevant event is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>l</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+e=(a,t,l,d,z)
+</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>:
+actor,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>:
+time or period,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>l</mi><annotation encoding="application/x-tex">l</annotation></semantics></math>:
+location or infrastructure context, such as Earth, Moon, satellite, or
+station,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>:
+behavioral domain, such as food, labor, media, or energy,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>:
+observable or provable event data.</li>
+</ul>
+<p>For each domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+there is a map:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo>:</mo><msub><mi>E</mi><mi>d</mi></msub><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><msub><mi>n</mi><mi>d</mi></msub></msup></mrow><annotation encoding="application/x-tex">
+\Phi_d:E_d\to\mathbb{R}^{n_d}
+</annotation></semantics></math></p>
+<p>This map turns an event into a vector. Examples:</p>
+<ul>
+<li>A labor event becomes a vector of time, quality, safety,
+cooperation, reliability, learning contribution, and resource use.</li>
+<li>A news event becomes a vector of factual accuracy, source quality,
+public relevance, timeliness, correction behavior, manipulation risk,
+and attention consumption.</li>
+<li>A food event becomes a vector of nutrition, energy use, material
+flow, health effect, waste, scarcity, and cultural value.</li>
+</ul>
+<h3 id="two-norms">2.2 Two Norms</h3>
+<p>For every domain, there are two mathematical norms on the same or a
+transformed vector space:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\|x\|_{+,d}
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\|x\|_{-,d}
+</annotation></semantics></math></p>
+<p>The <strong>plus norm</strong> measures contribution. The
+<strong>minus norm</strong> measures burden.</p>
+<p>A typical form is a weighted
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-norm:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>n</mi><mi>d</mi></msub></munderover><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>+</mo></msubsup><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><msup><mo stretchy="false" form="prefix">|</mo><msub><mi>p</mi><mi>d</mi></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><msub><mi>p</mi><mi>d</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">
+\|x\|_{+,d}=\left(\sum_{j=1}^{n_d}w^+_{d,j}|x_j|^{p_d}\right)^{1/p_d}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>n</mi><mi>d</mi></msub></munderover><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>−</mo></msubsup><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><msup><mo stretchy="false" form="prefix">|</mo><msub><mi>q</mi><mi>d</mi></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><msub><mi>q</mi><mi>d</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">
+\|x\|_{-,d}=\left(\sum_{j=1}^{n_d}w^-_{d,j}|x_j|^{q_d}\right)^{1/q_d}
+</annotation></semantics></math></p>
+<p>with positive weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>+</mo></msubsup><annotation encoding="application/x-tex">w^+_{d,j}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>w</mi><mrow><mi>d</mi><mo>,</mo><mi>j</mi></mrow><mo>−</mo></msubsup><annotation encoding="application/x-tex">w^-_{d,j}</annotation></semantics></math>.
+The weights define what matters in a domain. In a space station, oxygen
+safety is weighted more heavily than comfort. In journalism, source
+quality is weighted more heavily than clicks. In agriculture, nutrition,
+soil, water, energy, labor conditions, and waste matter.</p>
+<h3 id="money-as-norm-spread">2.3 Money as Norm Spread</h3>
+<p>The monetary value of an event is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mi>d</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><msubsup><mi>P</mi><mi>d</mi><mo>+</mo></msubsup><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><msubsup><mi>P</mi><mi>d</mi><mo>−</mo></msubsup><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda_d\left(\|P^+_d\Phi_d(e)\|_{+,d}-\|P^-_d\Phi_d(e)\|_{-,d}\right)
+</annotation></semantics></math></p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>d</mi><mo>+</mo></msubsup><annotation encoding="application/x-tex">P^+_d</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>d</mi><mo>−</mo></msubsup><annotation encoding="application/x-tex">P^-_d</annotation></semantics></math>
+are projections or filters. They separate coordinates counted as
+contribution from coordinates counted as burden.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>
+is a conversion factor set by the central bank.</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&gt;0</annotation></semantics></math>:
+behavior creates net contribution. The actor receives Delta.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)=0</annotation></semantics></math>:
+contribution and burden cancel out.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu(e)&lt;0</annotation></semantics></math>:
+behavior creates net burden. The actor pays Delta or receives a
+restorative obligation.</li>
+</ul>
+<p>The currency unit is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.278em"></mspace><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+1\;\Delta
+</annotation></semantics></math></p>
+<p>or simply:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.278em"></mspace><mi>D</mi></mrow><annotation encoding="application/x-tex">
+1\;D
+</annotation></semantics></math></p>
+<p>The balance of actor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+evolves as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msub><mi>E</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow></munder><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>T</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>F</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+B_a(t+1)=B_a(t)+\sum_{e\in E_a(t)}\mu(e)+T_a(t)-F_a(t)
+</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B_a(t)</annotation></semantics></math>:
+Delta account balance,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">E_a(t)</annotation></semantics></math>:
+events of the actor during the period,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T_a(t)</annotation></semantics></math>:
+transfers, wages, purchases, contractual payments,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_a(t)</annotation></semantics></math>:
+fees, taxes, repayments, sanctions, compensation duties.</li>
+</ul>
+<hr />
+<h2 id="why-this-is-money">3. Why This Is Money</h2>
+<p>For something to be money, it must perform at least four
+functions.</p>
+<h3 id="unit-of-account">3.1 Unit of Account</h3>
+<p>Delta is the common number in which prices are quoted. A media
+article, a kilogram of food, an hour of maintenance labor, an orbital
+correction, medical service, research output, and an advertising
+campaign can all be priced in Delta.</p>
+<h3 id="medium-of-exchange">3.2 Medium of Exchange</h3>
+<p>Actors transfer Delta when they buy behavior. A habitat can buy
+maintenance behavior. A municipality can buy investigative reporting. A
+person can buy food, meaning the behavioral chain behind the food. A
+company can buy labor behavior.</p>
+<h3 id="store-of-value">3.3 Store of Value</h3>
+<p>Delta is a claim on future recognized positive behavior by other
+actors. Holding Delta is not holding moral rank. It is holding
+purchasing power over behavioral services.</p>
+<h3 id="standard-of-deferred-payment">3.4 Standard of Deferred
+Payment</h3>
+<p>Loans, insurance contracts, bonds, wages, and leases are written as
+claims on future Delta flows. A loan is the expectation that the debtor
+will generate enough positive behavioral deltas or receive enough Delta
+transfers in the future.</p>
+<hr />
+<h2 id="central-bank-of-the-earth-moon-orbit-system-zemo">4. Central
+Bank of the Earth-Moon-Orbit System: ZEMO</h2>
+<h3 id="name-and-jurisdiction">4.1 Name and Jurisdiction</h3>
+<p>The central bank is called:</p>
+<p><strong>Central Bank of the Earth-Moon-Orbit System</strong>,
+abbreviated <strong>ZEMO</strong>.</p>
+<p>Its currency area includes:</p>
+<ul>
+<li>Earth,</li>
+<li>the Moon,</li>
+<li>satellites in Earth orbit,</li>
+<li>space stations in Earth orbit,</li>
+<li>communication, navigation, energy, and research infrastructure
+between Earth and Moon.</li>
+</ul>
+<p>Later, the system can be expanded to Mars, asteroids, or other
+habitats. The initial core is Earth-Moon-Orbit because resources,
+communications, dependencies, and safety questions are tightly linked
+there.</p>
+<h3 id="mandate">4.2 Mandate</h3>
+<p>ZEMO has six main tasks:</p>
+<ol type="1">
+<li><strong>Stability of the Delta currency</strong>: Delta purchasing
+power should remain stable across basic goods and basic behaviors.</li>
+<li><strong>Norm transparency</strong>: The norms, weights, data
+sources, and calculations must be publicly auditable.</li>
+<li><strong>Money creation and destruction</strong>: Delta is created
+when verifiable behavior increases system capacity. Delta is destroyed
+or locked when behavior consumes scarce resources or creates risks.</li>
+<li><strong>Settlement and finality</strong>: Transactions between
+Earth, Moon, satellites, and stations must settle safely, even with
+communication delays or outages.</li>
+<li><strong>Protection against manipulation</strong>: Norm gaming, fake
+data, media manipulation, fake behavior, and artificial scarcity are
+detected and sanctioned.</li>
+<li><strong>Rights and limits</strong>: ZEMO must not become a total
+behavior police system. It protects appeals, privacy, basic access, and
+plural ways of life.</li>
+</ol>
+<h3 id="separation-of-powers-within-zemo">4.3 Separation of Powers
+Within ZEMO</h3>
+<p>To prevent the central bank from defining all social values, it is
+divided into separate chambers.</p>
+<h4 id="a.-monetary-chamber">A. Monetary Chamber</h4>
+<p>It sets conversion factors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>,
+liquidity quotas, reserve requirements, and stability targets.</p>
+<h4 id="b.-norm-chamber">B. Norm Chamber</h4>
+<p>It manages mathematical norm families but may change weights only
+through transparent procedures. It is not identical to the
+government.</p>
+<h4 id="c.-data-and-oracle-chamber">C. Data and Oracle Chamber</h4>
+<p>It certifies measurement systems, sensors, media evidence, labor
+proofs, supply-chain proofs, and audits.</p>
+<h4 id="d.-rights-chamber">D. Rights Chamber</h4>
+<p>It reviews complaints, protects privacy, stops abusive norms, and can
+suspend settlements.</p>
+<h4 id="e.-earth-moon-orbit-council">E. Earth-Moon-Orbit Council</h4>
+<p>It ensures that Earth, Moon, satellite operators, and space stations
+do not dominate each other. A lunar colony must not be judged only by
+Earth comfort norms. An Earth region must not be forced to live by
+emergency station norms.</p>
+<hr />
+<h2 id="money-creation">5. Money Creation</h2>
+<p>Delta is not created by arbitrary printing. Delta emerges from
+verified net contribution.</p>
+<h3 id="primary-money-creation">5.1 Primary Money Creation</h3>
+<p>ZEMO credits new Delta when behavior demonstrably increases system
+capacity. Examples:</p>
+<ul>
+<li>repairing critical infrastructure,</li>
+<li>producing food with low burden and high supply security,</li>
+<li>improving oxygen, water, or energy recycling in habitats,</li>
+<li>reliable public-interest journalism,</li>
+<li>medical care,</li>
+<li>education and training,</li>
+<li>reproducible research,</li>
+<li>risk reduction in orbit, such as debris prevention or removal,</li>
+<li>care work and social stabilization,</li>
+<li>software and security maintenance for critical systems.</li>
+</ul>
+<p>Mathematically:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msubsup><mi>M</mi><mi>t</mi><mo>+</mo></msubsup><mo>=</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msubsup><mi>E</mi><mi>t</mi><mrow><mi>v</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi></mrow></msubsup></mrow></munder><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">
+\Delta M^+_t=\sum_{e\in E_t^{valid}}\max(0,\mu(e))\cdot \rho_e
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\rho_e</annotation></semantics></math>
+is a verification factor between 0 and 1. Unclear or weakly proven
+events create less or provisional Delta.</p>
+<h3 id="money-destruction">5.2 Money Destruction</h3>
+<p>Delta is destroyed, locked, or reserved when behavior consumes scarce
+system capacity or creates risks:</p>
+<ul>
+<li>high resource use,</li>
+<li>avoidable waste,</li>
+<li>dangerous orbital behavior,</li>
+<li>misinformation with measurable harm,</li>
+<li>breach of contract,</li>
+<li>infrastructure wear,</li>
+<li>production with hidden downstream costs,</li>
+<li>attention exploitation through deception.</li>
+</ul>
+<p>Mathematically:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msubsup><mi>M</mi><mi>t</mi><mo>−</mo></msubsup><mo>=</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><msubsup><mi>E</mi><mi>t</mi><mrow><mi>v</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi></mrow></msubsup></mrow></munder><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>−</mi><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>σ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">
+\Delta M^-_t=\sum_{e\in E_t^{valid}}\max(0,-\mu(e))\cdot \sigma_e
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\sigma_e</annotation></semantics></math>
+is a burden or liability factor.</p>
+<h3 id="secondary-transfers">5.3 Secondary Transfers</h3>
+<p>Most everyday payments do not create new money. They transfer
+existing Delta:</p>
+<ul>
+<li>wages,</li>
+<li>food purchases,</li>
+<li>media subscriptions,</li>
+<li>rent,</li>
+<li>repair contracts,</li>
+<li>transport tickets,</li>
+<li>software licenses,</li>
+<li>station maintenance.</li>
+</ul>
+<p>The distinction matters: not every good action prints money.
+Otherwise inflation follows. Money creation requires verified net growth
+in system capacity or a public mandate approved by ZEMO.</p>
+<hr />
+<h2 id="behavioral-markets">6. Behavioral Markets</h2>
+<h3 id="behavioral-contract">6.1 Behavioral Contract</h3>
+<p>A market contract is no longer only “good for money.” It is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>T</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi mathvariant="normal">Π</mi><mo>,</mo><mi>E</mi><mo>,</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+C=(a,b,d,T,g,\Pi,E,p)
+</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>:
+buyer,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>:
+provider,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>:
+domain,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>:
+period,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>:
+target vector or behavioral target,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math>:
+price formula in Delta,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>:
+proof standard,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>:
+privacy level.</li>
+</ul>
+<p>Example: A space station buys from a technician not “one hour of
+time,” but “safe maintenance behavior on the CO₂ filter with documented
+inspection and risk reduction.” The technician is paid not for mere
+presence, but for verified behavior.</p>
+<h3 id="behavioral-exchange">6.2 Behavioral Exchange</h3>
+<p>There are exchanges for standardized behavior types:</p>
+<ul>
+<li>labor deltas,</li>
+<li>care deltas,</li>
+<li>research deltas,</li>
+<li>news and truth deltas,</li>
+<li>energy deltas,</li>
+<li>recycling deltas,</li>
+<li>orbital safety deltas,</li>
+<li>food deltas,</li>
+<li>transport deltas,</li>
+<li>education deltas.</li>
+</ul>
+<p>A provider sells the readiness or ability to generate behavior. A
+buyer acquires the behavior or its result.</p>
+<h3 id="prices">6.3 Prices</h3>
+<p>The price of a behavioral bundle is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="double-struck">𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><mi>C</mi></mrow></munder><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mo>+</mo><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>K</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P(C)=\mathbb{E}\left[\sum_{e\in C}\mu(e)\right]+R(C)+L(C)+K(C)
+</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li>expected norm spread,</li>
+<li>risk premium
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">R(C)</annotation></semantics></math>,</li>
+<li>liquidity premium
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L(C)</annotation></semantics></math>,</li>
+<li>coordination cost
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K(C)</annotation></semantics></math>.</li>
+</ul>
+<hr />
+<h2 id="labor-and-employment">7. Labor and Employment</h2>
+<p>In this system, labor is a contractually bounded behavioral space. An
+employer does not buy the person. It buys specific, defined,
+time-limited behavioral events.</p>
+<h3 id="labor-vector">7.1 Labor Vector</h3>
+<p>A labor event may contain coordinates such as:</p>
+<ul>
+<li>time input,</li>
+<li>output quality,</li>
+<li>safety behavior,</li>
+<li>team coordination,</li>
+<li>reliability,</li>
+<li>learning contribution,</li>
+<li>documentation quality,</li>
+<li>resource use,</li>
+<li>error rate,</li>
+<li>recovery and overload risk.</li>
+</ul>
+<p>The plus norm rewards quality, safety, cooperation, and learning. The
+minus norm burdens errors, avoidable risks, resource waste, and harm to
+others.</p>
+<h3 id="wage">7.2 Wage</h3>
+<p>A wage is an expected positive Delta flow:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>a</mi></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>t</mi><mo>∈</mo><mi>T</mi></mrow></munder><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>e</mi><mrow><mi>a</mi><mo>,</mo><mi>t</mi></mrow><mrow><mi>w</mi><mi>o</mi><mi>r</mi><mi>k</mi></mrow></msubsup><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mtext mathvariant="normal">scarcity premium</mtext><mo>+</mo><mtext mathvariant="normal">risk compensation</mtext></mrow><annotation encoding="application/x-tex">
+W_a=\sum_{t\in T}\mathbb{E}[\mu(e_{a,t}^{work})]+\text{scarcity premium}+\text{risk compensation}
+</annotation></semantics></math></p>
+<p>This must not mean that every private moment of an employee is
+evaluated. Only contractually defined, work-relevant, legally
+permissible behavioral data may be used.</p>
+<h3 id="employee-rights">7.3 Employee Rights</h3>
+<p>Hard rules apply:</p>
+<ul>
+<li>no scoring of private thoughts,</li>
+<li>no permanent surveillance without a specific purpose,</li>
+<li>no hidden biometric analysis,</li>
+<li>right to explanation for every relevant Delta entry,</li>
+<li>right to appeal,</li>
+<li>right to off-work spaces,</li>
+<li>minimum wage or basic Delta for necessary labor,</li>
+<li>protection against discrimination through norm weights.</li>
+</ul>
+<hr />
+<h2 id="food-eating-and-consumption">8. Food, Eating, and
+Consumption</h2>
+<h3 id="food-as-behavior">8.1 Food as Behavior</h3>
+<p>Eating is consumption behavior, health behavior, cultural behavior,
+and supply-chain behavior at the same time. A food price therefore
+contains not only supply and demand, but the Delta spread of the entire
+chain.</p>
+<p>A food vector may include:</p>
+<ul>
+<li>calories,</li>
+<li>micronutrients,</li>
+<li>proteins,</li>
+<li>water use,</li>
+<li>energy use,</li>
+<li>soil burden,</li>
+<li>transport distance,</li>
+<li>cooling effort,</li>
+<li>waste,</li>
+<li>labor conditions,</li>
+<li>health effects,</li>
+<li>cultural or social value.</li>
+</ul>
+<h3 id="price-formula">8.2 Price Formula</h3>
+<p>Food costs Delta when its burden norm is high. It can be subsidized
+or even positively scored when it strengthens nutrition, health,
+circularity, and local resilience.</p>
+<p>Example:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mrow><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>n</mi><mi>u</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>r</mi><mi>e</mi><mi>s</mi><mi>i</mi><mi>l</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo>+</mo><mi>c</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>s</mi><mi>c</mi><mi>a</mi><mi>r</mi><mi>c</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>+</mo><mi>w</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>e</mi><mo>+</mo><mi>h</mi><mi>a</mi><mi>r</mi><mi>m</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(food)=\lambda_{food}(\|nutrition+resilience+culture\|_+-\|scarcity+waste+harm\|_-)
+</annotation></semantics></math></p>
+<p>Normal eating must not be morally criminalized. Therefore, there is a
+<strong>basic access Delta</strong>. Every person receives access to
+necessary food, water, basic medical care, housing, and communication.
+The Delta system steers scarcity and behavior, but existence itself must
+not become a commodity.</p>
+<h3 id="consumption-in-general">8.3 Consumption in General</h3>
+<p>Consumption means buying the behavioral chain that created a product
+and accepting part of the future behavioral consequences. A smartphone
+is not just a device. It is mining, factory, design, software,
+transportation, usage, repair, and disposal behavior.</p>
+<p>The price includes:</p>
+<ul>
+<li>production delta,</li>
+<li>material delta,</li>
+<li>labor delta,</li>
+<li>usage delta,</li>
+<li>repairability delta,</li>
+<li>recycling delta,</li>
+<li>information delta, such as truth in advertising.</li>
+</ul>
+<hr />
+<h2 id="media-mass-media-and-news">9. Media, Mass Media, and News</h2>
+<p>This domain is central because news is not merely information. It
+shapes behavior. Whoever controls news influences consumption, labor,
+elections, safety, markets, fear, trust, and conflict. Therefore, the
+Delta system needs especially strict rules for media.</p>
+<h3 id="news-as-behavioral-event">9.1 News as Behavioral Event</h3>
+<p>A news event
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">e_{news}</annotation></semantics></math>
+may include coordinates such as:</p>
+<ul>
+<li>factual accuracy,</li>
+<li>source quality,</li>
+<li>source transparency,</li>
+<li>separation of news and opinion,</li>
+<li>timeliness,</li>
+<li>public relevance,</li>
+<li>correction speed,</li>
+<li>contextual depth,</li>
+<li>uncertainty labeling,</li>
+<li>sensationalism,</li>
+<li>manipulative intent,</li>
+<li>attention consumption,</li>
+<li>harm through misdirection,</li>
+<li>protection of vulnerable persons,</li>
+<li>diversity of perspectives.</li>
+</ul>
+<h3 id="media-delta">9.2 Media Delta</h3>
+<p>The money formula is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>t</mi><mi>h</mi><mo>+</mo><mi>r</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>v</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>x</mi><mi>t</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>d</mi><mi>e</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>m</mi><mi>a</mi><mi>n</mi><mi>i</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mi>a</mi><mi>v</mi><mi>o</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>b</mi><mi>l</mi><msub><mi>e</mi><mi>h</mi></msub><mi>a</mi><mi>r</mi><mi>m</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(news)=\lambda_{news}(\|truth+relevance+correction+context\|_+-\|deception+manipulation+avoidable_harm\|_-)
+</annotation></semantics></math></p>
+<p>A media organization does not earn Delta merely through reach. Reach
+without quality may become negative. A small, accurately researched
+local warning can earn more Delta than a massively distributed but
+manipulative headline.</p>
+<h3 id="no-truth-dictatorship">9.3 No Truth Dictatorship</h3>
+<p>The system must not decide: “This opinion is allowed, that opinion is
+forbidden.” It evaluates verifiable media behavior, not political
+belief:</p>
+<ul>
+<li>Were sources provided?</li>
+<li>Were factual claims checked?</li>
+<li>Was uncertainty marked?</li>
+<li>Was a false claim corrected?</li>
+<li>Was opinion labeled as opinion?</li>
+<li>Was a false representation intentionally spread?</li>
+<li>Was a person or group harmed by demonstrably false information?</li>
+</ul>
+<p>Unpopular, new, or uncomfortable positions must not be penalized
+merely because they are uncomfortable. New hypotheses receive an
+uncertainty status, not a punishment status.</p>
+<h3 id="mass-media-and-attention-markets">9.4 Mass Media and Attention
+Markets</h3>
+<p>Attention is itself a scarce behavioral space. Mass media buy
+attention and sell behavioral probability to advertisers, parties,
+companies, or movements. In the Delta system, that behavior is accounted
+for as well.</p>
+<p>An advertising campaign has positive Delta when it conveys useful,
+truthful information. It has negative Delta when it manipulates,
+conceals, exploits addiction-like patterns, or intentionally creates
+false expectations.</p>
+<h3 id="news-fund">9.5 News Fund</h3>
+<p>ZEMO does not operate a propaganda fund. It operates a <strong>public
+news fund</strong>. This fund buys specific behavioral services:</p>
+<ul>
+<li>disaster warnings,</li>
+<li>local investigations,</li>
+<li>scientific replication,</li>
+<li>corruption exposure,</li>
+<li>infrastructure warnings,</li>
+<li>space-weather and orbital-risk reporting,</li>
+<li>health information,</li>
+<li>factual archives.</li>
+</ul>
+<p>It is financed by a small Delta fee on large attention markets and by
+direct ZEMO money creation for verified public information goods.</p>
+<hr />
+<h2 id="firms">10. Firms</h2>
+<p>A firm is an actor that organizes behavioral chains. Profit is not
+only revenue minus cost, but positive Delta flow minus negative Delta
+flow.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><mo>=</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>s</mi><mi>a</mi><mi>l</mi><mi>e</mi><mi>s</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>c</mi><mi>e</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo>∑</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mrow><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Profit_\Delta=\sum \mu(e_{sales})+\sum \mu(e_{production})-\sum \mu(e_{resource})-\sum \mu(e_{risk})
+</annotation></semantics></math></p>
+<p>A firm can become wealthy when it coordinates behavior that produces
+more system capacity than burden. It cannot become sustainably wealthy
+by hiding costs, because hidden costs are later booked back as negative
+Delta.</p>
+<h3 id="balance-sheet">10.1 Balance Sheet</h3>
+<p>A Delta balance sheet includes:</p>
+<ul>
+<li>financial account,</li>
+<li>behavioral assets,</li>
+<li>reputation and trust delta,</li>
+<li>resource obligations,</li>
+<li>damage reserves,</li>
+<li>media and information liability,</li>
+<li>labor behavior obligations,</li>
+<li>circularity and disposal duties.</li>
+</ul>
+<h3 id="insolvency">10.2 Insolvency</h3>
+<p>Insolvency means not only inability to pay. It means inability to
+credibly generate future positive Delta flows. Restructuring means
+changing firm behavior so the plus norm again exceeds the minus
+norm.</p>
+<hr />
+<h2 id="credit-interest-and-wealth">11. Credit, Interest, and
+Wealth</h2>
+<h3 id="credit">11.1 Credit</h3>
+<p>A loan is a contract over future Delta flows. The bank does not only
+ask, “What collateral do you have?” It asks:</p>
+<blockquote>
+<p>What positive behavioral deltas can you plausibly generate in the
+future?</p>
+</blockquote>
+<p>The loan amount is the present value of expected Delta flows:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>o</mi><mi>a</mi><mi>n</mi><mo>≤</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><mfrac><mrow><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>μ</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>r</mi><mi>t</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mi>t</mi></msup></mrow></mfrac><mo>⋅</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+Loan\leq \sum_{t=1}^{T}\frac{\mathbb{E}[\mu_t]}{(1+r_t)^t}\cdot \theta
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+is a safety factor.</p>
+<h3 id="interest">11.2 Interest</h3>
+<p>Interest consists of:</p>
+<ul>
+<li>time preference,</li>
+<li>default risk,</li>
+<li>norm-change risk,</li>
+<li>liquidity risk,</li>
+<li>verification risk,</li>
+<li>system risk.</li>
+</ul>
+<h3 id="wealth">11.3 Wealth</h3>
+<p>Wealth is the ability to control or receive future positive Delta
+flows. Land, machines, media brands, software, data, satellites, lunar
+habitats, and patents are wealth when they are expected to generate
+positive norm spreads.</p>
+<hr />
+<h2 id="earth-moon-satellites-and-space-stations">12. Earth, Moon,
+Satellites, and Space Stations</h2>
+<h3 id="why-one-currency-area">12.1 Why One Currency Area?</h3>
+<p>Earth, Moon, and orbit are physically linked. Satellites provide
+communication, navigation, climate data, research, and security. Space
+stations and lunar habitats depend on supply chains, energy, water,
+oxygen, repair, and precise information. A mistake in orbit can affect
+terrestrial communications. Poor Earth policy can endanger lunar
+logistics. Therefore, a shared settlement system is reasonable.</p>
+<h3 id="orbital-domain">12.2 Orbital Domain</h3>
+<p>Orbital behavior has especially high risk weights:</p>
+<ul>
+<li>collision avoidance,</li>
+<li>debris prevention,</li>
+<li>orbital corrections,</li>
+<li>safe deorbiting,</li>
+<li>frequency discipline,</li>
+<li>radiation warnings,</li>
+<li>station safety,</li>
+<li>emergency protocols,</li>
+<li>data integrity.</li>
+</ul>
+<p>An operator that safely disposes of satellites receives positive
+Delta. An operator that creates debris receives massive negative Delta
+and must post collateral.</p>
+<h3 id="lunar-domain">12.3 Lunar Domain</h3>
+<p>On the Moon, water, energy, closed loops, habitat pressure, radiation
+protection, repairability, and psychological stability are decisive. The
+weights therefore differ from Earth.</p>
+<p>Behavior that is harmless on Earth may be costly on the Moon. A small
+leak, unnecessary material loss, or false information about reserves can
+become life-threatening there.</p>
+<h3 id="space-station-domain">12.4 Space Station Domain</h3>
+<p>Space stations have a special rule:</p>
+<blockquote>
+<p>Life support must never be denied because of a negative balance.</p>
+</blockquote>
+<p>Air, pressure, temperature, emergency medical care, and return safety
+are basic rights. Negative Delta creates obligations, but not immediate
+coercive vulnerability.</p>
+<hr />
+<h2 id="personal-accounts">13. Personal Accounts</h2>
+<p>Every actor has several separated accounts.</p>
+<h3 id="everyday-account">13.1 Everyday Account</h3>
+<p>For purchases, wages, rent, food, mobility, media, and ordinary
+contracts.</p>
+<h3 id="basic-access-account">13.2 Basic Access Account</h3>
+<p>Non-seizable. Covers minimal food, water, housing, health,
+communication, and basic mobility.</p>
+<h3 id="contract-account">13.3 Contract Account</h3>
+<p>For specific behavioral contracts with clear proof standards.</p>
+<h3 id="liability-account">13.4 Liability Account</h3>
+<p>For negative Delta, reserves, damages, and restorative
+obligations.</p>
+<h3 id="reputation-register">13.5 Reputation Register</h3>
+<p>Not a universal social score. It contains domain-specific,
+explainable, appealable behavioral proofs. A good journalist is not
+automatically a good mechanic. A bad debtor must not be politically
+devalued.</p>
+<hr />
+<h2 id="privacy-and-freedom">14. Privacy and Freedom</h2>
+<p>An economy that evaluates behavior is dangerous if built badly. It
+can destroy freedom, enforce conformity, and abuse power. Therefore,
+this model contains hard limits.</p>
+<h3 id="only-economically-relevant-behavioral-events">14.1 Only
+Economically Relevant Behavioral Events</h3>
+<p>Private thoughts, intimate relationships, legal political opinions,
+religion, taste in art, personal life choices, and harmless eccentricity
+are not general currency sources.</p>
+<h3 id="data-minimization">14.2 Data Minimization</h3>
+<p>For every entry:</p>
+<blockquote>
+<p>Only the smallest amount of data necessary for settlement may be
+processed.</p>
+</blockquote>
+<p>If a zero-knowledge proof is enough, raw data must not be stored. If
+an aggregate measurement is enough, no permanent personal monitoring may
+occur.</p>
+<h3 id="explainability">14.3 Explainability</h3>
+<p>Every relevant Delta entry must be explainable:</p>
+<ul>
+<li>Which domain?</li>
+<li>Which vector?</li>
+<li>Which norm?</li>
+<li>Which weights?</li>
+<li>Which evidence?</li>
+<li>Which appeal period?</li>
+</ul>
+<h3 id="appeals">14.4 Appeals</h3>
+<p>Every actor can dispute Delta entries. For high-impact cases, human
+review is required. Automated systems may post provisional entries, but
+they must not make final decisions about existential rights.</p>
+<hr />
+<h2 id="democratic-norm-setting">15. Democratic Norm Setting</h2>
+<p>The most important political question is: Who sets the weights?</p>
+<p>The answer in this model is: not one person, not one corporation, and
+not the central bank alone.</p>
+<h3 id="norm-constitution">15.1 Norm Constitution</h3>
+<p>There is a <strong>Delta Norm Constitution</strong>. It
+determines:</p>
+<ul>
+<li>which domains may be evaluated at all,</li>
+<li>which data are forbidden,</li>
+<li>which basic rights are untouchable,</li>
+<li>how weights are changed,</li>
+<li>how minorities are protected,</li>
+<li>how scientific evidence enters,</li>
+<li>how emergency norms expire.</li>
+</ul>
+<h3 id="norm-councils">15.2 Norm Councils</h3>
+<p>Major domains have norm parliaments or councils:</p>
+<ul>
+<li>media council,</li>
+<li>labor council,</li>
+<li>food council,</li>
+<li>energy council,</li>
+<li>orbital council,</li>
+<li>lunar council,</li>
+<li>health council,</li>
+<li>privacy council.</li>
+</ul>
+<p>These councils do not define every payment. They define the
+permissible norm frameworks.</p>
+<h3 id="slow-changes">15.3 Slow Changes</h3>
+<p>Norms must not change frantically, or money becomes unstable. Weight
+changes require:</p>
+<ul>
+<li>advance notice,</li>
+<li>testing period,</li>
+<li>impact assessment,</li>
+<li>appeal period,</li>
+<li>transition rules.</li>
+</ul>
+<hr />
+<h2 id="inflation-deflation-and-stability">16. Inflation, Deflation, and
+Stability</h2>
+<h3 id="delta-price-index">16.1 Delta Price Index</h3>
+<p>ZEMO measures a <strong>Delta Price Index</strong>. It contains not
+only goods, but behavioral bundles:</p>
+<ul>
+<li>basic food,</li>
+<li>housing,</li>
+<li>energy,</li>
+<li>communication,</li>
+<li>basic health,</li>
+<li>transport,</li>
+<li>credible news,</li>
+<li>labor hours at different skill levels,</li>
+<li>orbital safety service,</li>
+<li>station supply,</li>
+<li>lunar logistics.</li>
+</ul>
+<h3 id="inflation-1">16.2 Inflation</h3>
+<p>Inflation occurs when too much Delta is created for weakly verified
+or overvalued plus norms. Countermeasures:</p>
+<ul>
+<li>lower the verification factor,</li>
+<li>reduce
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math>,</li>
+<li>review norm weights,</li>
+<li>limit money creation to public mandates,</li>
+<li>increase reserves,</li>
+<li>sanction fake behavior.</li>
+</ul>
+<h3 id="deflation-1">16.3 Deflation</h3>
+<p>Deflation occurs when too little Delta is created or too many
+negative entries destroy purchasing power. Countermeasures:</p>
+<ul>
+<li>public Delta contracts,</li>
+<li>increase basic access Delta,</li>
+<li>provide liquidity,</li>
+<li>review overly burdensome norms,</li>
+<li>pre-finance productive behavior creation.</li>
+</ul>
+<hr />
+<h2 id="taxes-and-public-goods">17. Taxes and Public Goods</h2>
+<p>Taxes in this system are not merely extraction. They redirect Delta
+into shared behavioral contracts.</p>
+<h3 id="tax-types">17.1 Tax Types</h3>
+<ul>
+<li>resource burden tax,</li>
+<li>attention-market fee,</li>
+<li>orbital-risk fee,</li>
+<li>media manipulation liability,</li>
+<li>luxury consumption fee,</li>
+<li>infrastructure contribution,</li>
+<li>automation dividend,</li>
+<li>data extraction fee.</li>
+</ul>
+<h3 id="public-goods">17.2 Public Goods</h3>
+<p>Tax revenue buys behavior that markets underproduce:</p>
+<ul>
+<li>basic research,</li>
+<li>public data infrastructure,</li>
+<li>education,</li>
+<li>care,</li>
+<li>disaster protection,</li>
+<li>trustworthy news archives,</li>
+<li>orbital cleanup,</li>
+<li>climate adaptation,</li>
+<li>lunar and station safety.</li>
+</ul>
+<hr />
+<h2 id="insurance">18. Insurance</h2>
+<p>Insurance pools negative Delta risks. A station insures against
+pressure loss. A media organization insures against reporting errors. A
+farmer insures against crop failure. A satellite operator insures
+collision risk.</p>
+<p>The premium is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mi>e</mi><mi>m</mi><mi>i</mi><mi>u</mi><mi>m</mi><mo>=</mo><mi mathvariant="double-struck">𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mspace width="0.278em"></mspace><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>c</mi><mi>a</mi><mi>p</mi><mi>i</mi><mi>t</mi><mi>a</mi><mi>l</mi><mspace width="0.278em"></mspace><mi>b</mi><mi>u</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>r</mi><mo>+</mo><mi>v</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mspace width="0.278em"></mspace><mi>c</mi><mi>o</mi><mi>s</mi><mi>t</mi><mo>+</mo><mi>s</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>m</mi><mi>i</mi><mi>c</mi><mspace width="0.278em"></mspace><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">
+Premium=\mathbb{E}[negative\;\Delta]+capital\;buffer+verification\;cost+systemic\;risk
+</annotation></semantics></math></p>
+<p>Insurance has a positive effect: it rewards prevention. Actors who
+demonstrably reduce risks pay less.</p>
+<hr />
+<h2 id="education-and-culture">19. Education and Culture</h2>
+<p>Education creates future positive Delta capacity. Culture creates
+meaning, cooperation, identity, critical ability, and psychological
+stability. The model must not evaluate culture only by market
+clicks.</p>
+<p>A cultural contribution can have positive Delta when it:</p>
+<ul>
+<li>preserves knowledge,</li>
+<li>builds community,</li>
+<li>enables criticism,</li>
+<li>processes trauma,</li>
+<li>increases creativity,</li>
+<li>strengthens psychological health,</li>
+<li>enables dialogue between groups.</li>
+</ul>
+<p>But art must not become mere norm compliance. Therefore, culture
+needs an autonomy zone where experiments are protected even when their
+usefulness appears only later.</p>
+<hr />
+<h2 id="numerical-examples">20. Numerical Examples</h2>
+<h3 id="space-station-maintenance">20.1 Space Station Maintenance</h3>
+<p>A technician repairs a CO₂ filter system.</p>
+<ul>
+<li>Plus norm: safety, life protection, error reduction, documentation =
+13.0</li>
+<li>Minus norm: material use, work risk, downtime = 2.0</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">\lambda_{station}=20</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>20</mn><mo stretchy="false" form="prefix">(</mo><mn>13</mn><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>220</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=20(13-2)=220\Delta
+</annotation></semantics></math></p>
+<p>The technician or team receives 220 Delta. Part can be paid by the
+station, part can be created by ZEMO as system-stability money.</p>
+<h3 id="manipulative-mass-news">20.2 Manipulative Mass News</h3>
+<p>A media organization publishes a widely distributed misleading
+headline.</p>
+<ul>
+<li>Plus norm: public relevance and timeliness = 1.0</li>
+<li>Minus norm: deception, harm, correction delay, attention abuse =
+9.0</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\lambda_{news}=10</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>10</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>80</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=10(1-9)=-80\Delta
+</annotation></semantics></math></p>
+<p>The media organization must pay 80 Delta or partly offset it through
+corrective behavior.</p>
+<h3 id="good-local-warning">20.3 Good Local Warning</h3>
+<p>A small newsroom reports a drinking-water issue in time, with sources
+and practical guidance.</p>
+<ul>
+<li>Plus norm: relevance, accuracy, prevention, correction structure =
+8.4</li>
+<li>Minus norm: uncertainty, attention cost = 1.2</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\lambda_{news}=10</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>10</mn><mo stretchy="false" form="prefix">(</mo><mn>8.4</mn><mo>−</mo><mn>1.2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>72</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=10(8.4-1.2)=72\Delta
+</annotation></semantics></math></p>
+<p>The newsroom earns 72 Delta, even if its reach is smaller than major
+media.</p>
+<h3 id="food">20.4 Food</h3>
+<p>A meal has high nutritional value, low waste, and moderate
+transportation burden.</p>
+<ul>
+<li>Plus norm: nutrition, health, local resilience = 4.0</li>
+<li>Minus norm: energy, packaging, transport = 2.7</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mi>f</mi><mi>o</mi><mi>o</mi><mi>d</mi></mrow></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\lambda_{food}=5</annotation></semantics></math></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>5</mn><mo stretchy="false" form="prefix">(</mo><mn>4.0</mn><mo>−</mo><mn>2.7</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6.5</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">
+\mu=5(4.0-2.7)=6.5\Delta
+</annotation></semantics></math></p>
+<p>The supply chain may receive positive Delta. The buyer still pays a
+price because labor, materials, and coordination must be compensated.
+The positive norm spread can reduce that price.</p>
+<hr />
+<h2 id="abuse-and-countermeasures">21. Abuse and Countermeasures</h2>
+<h3 id="norm-gaming-1">21.1 Norm Gaming</h3>
+<p>Actors may try to optimize only the measured coordinates.
+Countermeasures:</p>
+<ul>
+<li>random audits,</li>
+<li>robust indicators,</li>
+<li>measurement rotation,</li>
+<li>qualitative review,</li>
+<li>whistleblower rewards,</li>
+<li>later booking of hidden damages.</li>
+</ul>
+<h3 id="behavioral-monopolies">21.2 Behavioral Monopolies</h3>
+<p>Whoever controls measurement data could control the economy.
+Countermeasures:</p>
+<ul>
+<li>open standards,</li>
+<li>independent oracles,</li>
+<li>data portability,</li>
+<li>separation of measurement and payment,</li>
+<li>public reference models.</li>
+</ul>
+<h3 id="political-repression">21.3 Political Repression</h3>
+<p>The greatest danger is a government or central bank using norms to
+punish opposition. Countermeasures:</p>
+<ul>
+<li>ban on belief coordinates,</li>
+<li>protection of political opinion,</li>
+<li>independent rights chamber,</li>
+<li>media pluralism,</li>
+<li>international and orbital veto rights,</li>
+<li>public norm history,</li>
+<li>judicial review.</li>
+</ul>
+<h3 id="the-poor-become-permanently-negative">21.4 The Poor Become
+Permanently Negative</h3>
+<p>If negative Delta is too harsh, people become trapped.
+Countermeasures:</p>
+<ul>
+<li>basic access account,</li>
+<li>debt discharge after restoration,</li>
+<li>access to education and work,</li>
+<li>no interest on existential negative accounts,</li>
+<li>restorative rather than purely punitive logic.</li>
+</ul>
+<hr />
+<h2 id="implementation-phases">22. Implementation Phases</h2>
+<h3 id="phase-1-voluntary-pilot-markets">Phase 1: Voluntary Pilot
+Markets</h3>
+<p>Start in areas where behavior is measurable and socially useful:</p>
+<ul>
+<li>recycling,</li>
+<li>energy savings,</li>
+<li>local news quality,</li>
+<li>care work,</li>
+<li>open-source security work,</li>
+<li>station and satellite safety.</li>
+</ul>
+<h3 id="phase-2-public-delta-contracts">Phase 2: Public Delta
+Contracts</h3>
+<p>Municipalities, stations, and research institutions buy concrete
+behavioral services with Delta.</p>
+<h3 id="phase-3-partial-currency">Phase 3: Partial Currency</h3>
+<p>Delta is used alongside existing currencies. Prices are displayed in
+both systems.</p>
+<h3 id="phase-4-earth-moon-orbit-settlement">Phase 4: Earth-Moon-Orbit
+Settlement</h3>
+<p>Satellites, space stations, and lunar habitats use Delta as the
+primary unit of account for safety, logistics, energy, water, news, and
+maintenance.</p>
+<h3 id="phase-5-full-economy-with-constitution">Phase 5: Full Economy
+With Constitution</h3>
+<p>Only after stable experience, democratic legitimacy, and strong basic
+rights does Delta become the dominant currency.</p>
+<hr />
+<h2 id="philosophical-core">23. Philosophical Core</h2>
+<p>This system makes visible what already happens in every economy:
+people pay each other to change behavior. A wage changes labor behavior.
+A price changes consumption behavior. Advertising changes attention
+behavior. News changes expectation behavior. Credit changes future
+behavior. Taxes change resource behavior.</p>
+<p>The difference is that the Delta system says openly what is being
+evaluated and forces the evaluation into transparent mathematical
+forms.</p>
+<p>That is its strength and its danger.</p>
+<p>Its strength: hidden costs become visible. Media behavior becomes
+more accountable. Orbital and lunar risks are priced correctly. Public
+goods can be paid for directly.</p>
+<p>Its danger: if built badly, it becomes a machine for social
+control.</p>
+<p>Therefore, the most important formula is not only:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">∥</mo><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>+</mo></msub><mi>−</mi><mo stretchy="false" form="postfix">∥</mo><mi>e</mi><msub><mo stretchy="false" form="postfix">∥</mo><mo>−</mo></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mu(e)=\lambda(\|e\|_+-\|e\|_-)
+</annotation></semantics></math></p>
+<p>but also:</p>
+<blockquote>
+<p>No Delta without rights. No norm without appeal. No media evaluation
+without pluralism. No behavioral economy without privacy. No central
+bank without separation of powers.</p>
+</blockquote>
+<hr />
+<h2 id="minimal-constitution-of-the-delta-system">24. Minimal
+Constitution of the Delta System</h2>
+<ol type="1">
+<li><strong>Human dignity is not for sale.</strong> Delta evaluates
+actions, not the worth of a person.</li>
+<li><strong>No universal social score.</strong> There are
+domain-specific proofs, not one total citizen number.</li>
+<li><strong>Basic access is guaranteed.</strong> Food, water, air,
+emergency medicine, basic communication, and protection from acute
+danger do not depend on account balance.</li>
+<li><strong>Political opinion is protected.</strong> Verifiable harm and
+breach of contract may be evaluated, not belief.</li>
+<li><strong>Media pluralism is mandatory.</strong> Truth processes are
+evaluated, not permitted ideologies.</li>
+<li><strong>Every norm is public.</strong> Weights, formulas, data
+sources, and changes are traceable.</li>
+<li><strong>Every relevant entry is appealable.</strong> Automation does
+not replace rights.</li>
+<li><strong>Data minimization always applies.</strong> No raw data when
+proof is enough.</li>
+<li><strong>Norms change slowly.</strong> Money must not be destroyed by
+sudden scoring shifts.</li>
+<li><strong>ZEMO is separated.</strong> Monetary policy, norm setting,
+data verification, and rights review are divided.</li>
+</ol>
+<hr />
+<h2 id="compact-definition">25. Compact Definition</h2>
+<p>The Delta-Norm Economy is an economic order in which every
+economically relevant action is represented as a vector in a
+domain-specific behavioral space. Two mathematical norms measure the
+contribution and burden of that action. The difference between the two
+norm values, scaled by monetary policy factors, creates a positive or
+negative Delta amount. This amount functions as currency, price, wage,
+tax base, credit foundation, insurance measure, and steering signal. A
+central bank for Earth, Moon, satellites, and space stations stabilizes
+the currency, while a norm constitution prevents behavioral money from
+turning into a totalitarian control system.</p>
+<hr />
+<h1 id="anhang-appendix-symboltabelle-symbol-table">Anhang / Appendix:
+Symboltabelle / Symbol Table</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Deutsch</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math></td>
+<td>Menge der Akteure</td>
+<td>Set of actors</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math></td>
+<td>Verhaltensereignis</td>
+<td>Behavioral event</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math></td>
+<td>Domäne</td>
+<td>Domain</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>d</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Phi_d(e)</annotation></semantics></math></td>
+<td>Vektorisierung des Ereignisses</td>
+<td>Vectorization of the event</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>+</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_{+,d}</annotation></semantics></math></td>
+<td>Beitragsnorm</td>
+<td>Contribution norm</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mo>⋅</mo><msub><mo stretchy="false" form="postfix">∥</mo><mrow><mi>−</mi><mo>,</mo><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\|\cdot\|_{-,d}</annotation></semantics></math></td>
+<td>Belastungsnorm</td>
+<td>Burden norm</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\lambda_d</annotation></semantics></math></td>
+<td>geldpolitischer Umrechnungsfaktor</td>
+<td>monetary conversion factor</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mu(e)</annotation></semantics></math></td>
+<td>Delta-Wert eines Ereignisses</td>
+<td>Delta value of an event</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B_a(t)</annotation></semantics></math></td>
+<td>Kontostand eines Akteurs</td>
+<td>Balance of an actor</td>
+</tr>
+<tr>
+<td>ZEMO</td>
+<td>Zentralbank des Erde-Mond-Orbit-Systems</td>
+<td>Central Bank of the Earth-Moon-Orbit System</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\rho_e</annotation></semantics></math></td>
+<td>Verifikationsfaktor</td>
+<td>Verification factor</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\sigma_e</annotation></semantics></math></td>
+<td>Haftungs-/Belastungsfaktor</td>
+<td>Liability/burden factor</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="letzter-satz-final-sentence">Letzter Satz / Final Sentence</h1>
+<p><strong>Deutsch:</strong> Dieses Wirtschaftssystem macht Geld zu
+einer messbaren, handelbaren Differenz zwischen nützlichem und
+belastendem Verhalten, aber es kann nur legitim sein, wenn Rechte,
+Privatsphäre, pluralistische Medien und demokratische Normsetzung
+stärker sind als die reine Rechenmaschine.</p>
+<p><strong>English:</strong> This economy turns money into a measurable,
+tradable difference between useful and burdensome behavior, but it can
+be legitimate only if rights, privacy, pluralistic media, and democratic
+norm-setting are stronger than the calculation machine itself.</p>
+</body>
+</html>

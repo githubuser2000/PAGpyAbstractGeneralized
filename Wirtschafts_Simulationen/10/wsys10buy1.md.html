@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wsys10buy1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="stacked-truth-values-as-purchasing-power">Stacked Truth Values
+as Purchasing Power</h1>
+<p>Properly understood, this does <strong>not</strong> mean that one can
+buy truth itself. One can buy <strong>transitions of truth</strong>.</p>
+<p>Not:</p>
+<blockquote>
+<p>“I buy truth.”</p>
+</blockquote>
+<p>But rather:</p>
+<blockquote>
+<p>“I pay so that a certain statement about the world becomes truer,
+more probable, legally valid, socially recognized, or causally
+realizable.”</p>
+</blockquote>
+<p>This is a powerful model. Money would only be the crude,
+one-dimensional surface. Beneath it lie stacked truth values: ownership,
+claim, delivery, ability, probability, trust, contract, perception,
+time-binding, and causality.</p>
+<h2 id="the-basic-formula">1. The Basic Formula</h2>
+<p>A purchase is:</p>
+<blockquote>
+<p><strong>Payment in exchange for a change in reality.</strong></p>
+</blockquote>
+<p>Or more precisely:</p>
+<blockquote>
+<p><strong>I give up a bundled truth value so that another state of
+truth can be produced.</strong></p>
+</blockquote>
+<p>Example: a car.</p>
+<p>Before the purchase, the following statement is false or
+unsecured:</p>
+<blockquote>
+<p>“This car is available to me and can take me from A to B.”</p>
+</blockquote>
+<p>After the purchase, registration, fueling, and confirmation that it
+works, the statement becomes truer:</p>
+<blockquote>
+<p>“I have a roadworthy car that can very probably drive.”</p>
+</blockquote>
+<p>So you are not merely buying “a car.” You are buying a stack of
+truths:</p>
+<ul>
+<li>material existence: The car exists.</li>
+<li>ownership truth: It now belongs to me.</li>
+<li>technical truth: It works.</li>
+<li>legal truth: I am allowed to use it.</li>
+<li>causal truth: It can produce movement.</li>
+<li>temporal truth: It is available to me from now on.</li>
+<li>social truth: Others recognize my ownership.</li>
+</ul>
+<p>The price compresses all of this into a number.</p>
+<h2 id="what-can-be-bought-with-this">2. What Can Be Bought With
+This?</h2>
+<p>Almost everything that can be bought can be described as the
+<strong>purchased making-true of a statement</strong>.</p>
+<h3 id="living-space">Living Space</h3>
+<p>You do not merely buy or rent square meters. You buy the truth:</p>
+<blockquote>
+<p>“I may stay in this place, others may not remove me from it without
+reason, and I can sleep, store things, and live there.”</p>
+</blockquote>
+<p>This includes property rights, access, protection, duration, social
+recognition, utilities, location, neighborhood, and safety.</p>
+<h3 id="ticket-arrival">Ticket / Arrival</h3>
+<p>A ticket does not buy the physical object called “ticket.” It buys
+the conditional truth:</p>
+<blockquote>
+<p>“I may use this transport system, and with some probability I will
+arrive at the destination.”</p>
+</blockquote>
+<p>A plane ticket is a stack of seat claim, time window, transport
+obligation, infrastructure, route, risk, control, identity verification,
+and expectation.</p>
+<h3 id="product">Product</h3>
+<p>A product is a compressed statement:</p>
+<blockquote>
+<p>“This thing can fulfill a certain function.”</p>
+</blockquote>
+<p>A hammer means:</p>
+<blockquote>
+<p>“I can drive nails.”</p>
+</blockquote>
+<p>A laptop means:</p>
+<blockquote>
+<p>“I can compute, write, communicate, and store information.”</p>
+</blockquote>
+<p>A medicine means:</p>
+<blockquote>
+<p>“My bodily state will be changed with a certain probability.”</p>
+</blockquote>
+<p>A beautiful chair means:</p>
+<blockquote>
+<p>“I can sit, but in addition, the room will be perceived
+differently.”</p>
+</blockquote>
+<h3 id="employee-service">Employee / Service</h3>
+<p>Here one must be precise: You do not buy the person. You buy
+contractually limited time, attention, ability, and responsibility.</p>
+<p>So you buy the truth:</p>
+<blockquote>
+<p>“For this duration, this person directs part of their agency toward
+my goal.”</p>
+</blockquote>
+<p>That is purchased causality through another person’s competence.</p>
+<h3 id="beauty-being-more-beautiful">Beauty / “Being More
+Beautiful”</h3>
+<p>One does not buy beauty as an absolute truth. One buys conditions
+that make a statement more likely:</p>
+<blockquote>
+<p>“I will be perceived by myself or by others as more beautiful.”</p>
+</blockquote>
+<p>This includes clothing, training, skincare, surgery, lighting,
+status, style, context, comparison group, and cultural codes.</p>
+<p>Beauty is therefore a hybrid truth value: partly biological, partly
+social, partly aesthetic, partly self-perceptual.</p>
+<h3 id="adventure-vacation-intensity">Adventure Vacation /
+Intensity</h3>
+<p>An adventure vacation does not simply buy travel time. It buys an
+increased density of certain events:</p>
+<blockquote>
+<p>“Within a short time, many intense, new, physical, risky, or
+memorable states will occur.”</p>
+</blockquote>
+<p>That is purchased intensity. One pays for probability, staging,
+change of place, adrenaline, social narratability, and later memory.</p>
+<h2 id="causality-as-a-commodity">3. Causality as a Commodity</h2>
+<p>The strongest idea is probably this:</p>
+<blockquote>
+<p><strong>One buys causalities.</strong></p>
+</blockquote>
+<p>A purchase is often the acquisition of a mechanism:</p>
+<blockquote>
+<p>“If I have X, I can cause Y.”</p>
+</blockquote>
+<p>Examples:</p>
+<ul>
+<li>A drill buys the causality “hole in wall.”</li>
+<li>A car buys the causality “movement without a timetable.”</li>
+<li>A lawyer buys the causality “improvement of legal position.”</li>
+<li>A designer buys the causality “change in how others perceive
+something.”</li>
+<li>A teacher buys the causality “increase in future ability.”</li>
+<li>Insurance buys the causality “damage is financially buffered.”</li>
+</ul>
+<p>So: One does not only buy things. One buys <strong>capacities to
+produce effects</strong>.</p>
+<h2 id="buying-time">4. Buying Time</h2>
+<p>Time can also be bought, but not as pure time. Usually one buys one
+of four forms:</p>
+<ol type="1">
+<li><p><strong>Other people’s time</strong><br />
+Employees, service providers, drivers, assistants.</p></li>
+<li><p><strong>Saved time</strong><br />
+Taxi instead of walking, premium service instead of waiting, software
+instead of manual labor.</p></li>
+<li><p><strong>Reserved time</strong><br />
+Appointment, rental duration, hotel night, time slot.</p></li>
+<li><p><strong>Future openness</strong><br />
+Education, capital, options, health, network.</p></li>
+</ol>
+<p>“Buying time” usually means:</p>
+<blockquote>
+<p>“I pay so that a desired state becomes true earlier, longer, more
+safely, or with less effort of my own.”</p>
+</blockquote>
+<h2 id="determination-and-comparison">5. Determination and
+Comparison</h2>
+<p>Comparisons are also truth values.</p>
+<p>Examples:</p>
+<blockquote>
+<p>“A is faster than B.”<br />
+“This apartment is larger than that one.”<br />
+“This vacation is more intense.”<br />
+“This person appears more competent.”<br />
+“This product is more durable.”</p>
+</blockquote>
+<p>A market constantly trades in comparative truths. Prices arise not
+only from things, but from relations:</p>
+<ul>
+<li>better than</li>
+<li>rarer than</li>
+<li>faster than</li>
+<li>more beautiful than</li>
+<li>closer than</li>
+<li>safer than</li>
+<li>more prestigious than</li>
+<li>more likely to succeed than</li>
+</ul>
+<p>A luxury product often sells less function than comparative
+truth:</p>
+<blockquote>
+<p>“I own something that others do not own.”</p>
+</blockquote>
+<h2 id="buying-potentials">6. Buying Potentials</h2>
+<p>Potentials are especially interesting because they are not fully
+realized truths. They are <strong>not yet true, but capable of becoming
+true</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>tool</li>
+<li>education</li>
+<li>plot of land</li>
+<li>network</li>
+<li>talent contract</li>
+<li>stock</li>
+<li>medicine</li>
+<li>gym membership</li>
+</ul>
+<p>In such cases, one does not buy the finished state, but the
+statement:</p>
+<blockquote>
+<p>“Under suitable conditions, this desired state can emerge.”</p>
+</blockquote>
+<p>Potential is therefore a stacked truth value directed toward the
+future.</p>
+<h2 id="debt-as-a-negative-truth-value">7. Debt as a Negative Truth
+Value</h2>
+<p>The idea of “minus” is very strong.</p>
+<p>Debt is not merely a negative number. Debt is a <strong>negative
+claim on reality</strong>.</p>
+<p>If I have 100 euros of debt, the following statement is true:</p>
+<blockquote>
+<p>“A part of my future agency already belongs to someone else.”</p>
+</blockquote>
+<p>Or:</p>
+<blockquote>
+<p>“I must perform a truth-balancing act in the future.”</p>
+</blockquote>
+<p>Debt arises when a truth is brought forward prematurely.</p>
+<p>Example: credit.</p>
+<p>Now the following becomes true:</p>
+<blockquote>
+<p>“I can buy today.”</p>
+</blockquote>
+<p>But at the same time, this also becomes true:</p>
+<blockquote>
+<p>“I owe payment tomorrow.”</p>
+</blockquote>
+<p>That is a negative stack. It burdens the future, freedom,
+credibility, and room for action.</p>
+<p>A lie is also a kind of epistemic debt:</p>
+<blockquote>
+<p>“I assert a truth that is not backed by reality.”</p>
+</blockquote>
+<p>Then a deficit emerges between statement and reality. Sooner or later
+it must be settled: through correction, concealment, loss of trust,
+punishment, or alteration of reality.</p>
+<h2 id="truth-has-several-layers">8. Truth Has Several Layers</h2>
+<p>For this model to work, “truth” must not be merely binary. There are
+at least five different layers.</p>
+<h3 id="ontic-truth">Ontic Truth</h3>
+<p>What is actually the case?</p>
+<p>Example:</p>
+<blockquote>
+<p>The car exists and has an engine.</p>
+</blockquote>
+<h3 id="epistemic-truth">Epistemic Truth</h3>
+<p>What is known, checked, or proven?</p>
+<p>Example:</p>
+<blockquote>
+<p>The inspection report says it is roadworthy.</p>
+</blockquote>
+<h3 id="social-truth">Social Truth</h3>
+<p>What do others recognize?</p>
+<p>Example:</p>
+<blockquote>
+<p>The registration authority recognizes you as the holder.</p>
+</blockquote>
+<h3 id="legal-truth">Legal Truth</h3>
+<p>What is institutionally valid?</p>
+<p>Example:</p>
+<blockquote>
+<p>You are allowed to drive, insure, and sell it.</p>
+</blockquote>
+<h3 id="causal-truth">Causal Truth</h3>
+<p>What can be brought about through it?</p>
+<p>Example:</p>
+<blockquote>
+<p>The car can transport you.</p>
+</blockquote>
+<p>A “stacked truth value” would therefore not simply be
+<code>true</code> or <code>false</code>, but more like a vector:</p>
+<blockquote>
+<p>Existence + proof + law + recognition + function + probability +
+time-binding + risk</p>
+</blockquote>
+<p>Money brutally turns this into a number. This model tries to make the
+hidden dimensions visible again.</p>
+<h2 id="the-core-sentence">9. The Core Sentence</h2>
+<p>The core could be:</p>
+<blockquote>
+<p><strong>To buy means to exchange truth values for causal
+rights.</strong></p>
+</blockquote>
+<p>Or even stronger:</p>
+<blockquote>
+<p><strong>A price is the numerical form of a stacked truth-claim on
+reality.</strong></p>
+</blockquote>
+<p>This is philosophically and economically fruitful.</p>
+<p>Money is then not “value in itself,” but a claim on future
+truth-making:</p>
+<blockquote>
+<p>“With this amount, I can cause others to make certain statements
+about my future true.”</p>
+</blockquote>
+<p>For example:</p>
+<blockquote>
+<p>“I will have shelter.”<br />
+“I will eat.”<br />
+“I will arrive.”<br />
+“I will appear more beautiful.”<br />
+“I will be protected.”<br />
+“I will save time.”<br />
+“I will have access.”<br />
+“I will make someone act.”<br />
+“I will reduce a risk.”<br />
+“I will possess a possibility.”</p>
+</blockquote>
+<h2 id="what-cannot-be-bought">10. What Cannot Be Bought</h2>
+<p>The boundary matters.</p>
+<p>One cannot directly buy:</p>
+<blockquote>
+<p>“The past was different.”</p>
+</blockquote>
+<p>One can forge documents, influence memory, buy narratives, or
+suppress evidence. But that does not buy truth. It buys control over
+perception.</p>
+<p>One also cannot logically buy:</p>
+<blockquote>
+<p>“2 + 2 = 5.”</p>
+</blockquote>
+<p>One can only corrupt social systems so that they claim it. Then
+social pseudo-truth increases, but ontic or logical truth remains
+unchanged.</p>
+<p>One cannot buy absolute love. But one can buy conditions that make
+love, attachment, desire, or dependency more likely.</p>
+<p>One cannot securely buy health. But one can buy probabilities,
+diagnosis, treatment, prevention, and care.</p>
+<p>The model must therefore distinguish between <strong>truth</strong>,
+<strong>probability</strong>, <strong>recognition</strong>, and
+<strong>manipulation</strong>.</p>
+<h2 id="the-danger-false-truth-stacks">11. The Danger: False Truth
+Stacks</h2>
+<p>A market can become sick when the stacked truth values are false.</p>
+<p>Examples:</p>
+<ul>
+<li>A product promises more function than it has.</li>
+<li>A person sells competence they do not possess.</li>
+<li>An institution issues certificates without proper examination.</li>
+<li>A bank creates payment claims without real backing.</li>
+<li>A brand sells status that only works through illusion.</li>
+<li>A state declares something valid even though reality works against
+it.</li>
+</ul>
+<p>Then truth bubbles emerge.</p>
+<p>A bubble is:</p>
+<blockquote>
+<p><strong>Too much socially recognized truth with too little real
+causality.</strong></p>
+</blockquote>
+<p>When it bursts, the truth stack is revalued. Debt, fraud,
+disappointment, and falling prices are then forms of reality
+returning.</p>
+<h2 id="the-most-precise-answer">12. The Most Precise Answer</h2>
+<p>What can one buy with stacked truth values?</p>
+<p>One can buy:</p>
+<blockquote>
+<p><strong>States, rights, access, probabilities, causalities,
+time-bindings, intensities, comparisons, potentials, recognitions, and
+obligations.</strong></p>
+</blockquote>
+<p>But always in this form:</p>
+<blockquote>
+<p><strong>A statement about reality is supposed to become true, remain
+true, become more probable, or be treated as true by
+others.</strong></p>
+</blockquote>
+<p>The purchase is therefore a transaction between statement and
+world.</p>
+<p>A very compressed term for this would be:</p>
+<blockquote>
+<p><strong>truth capital.</strong></p>
+</blockquote>
+<p>And debts would be:</p>
+<blockquote>
+<p><strong>negative truth obligations toward the future.</strong></p>
+</blockquote>
+<p>This gives us a powerful system:</p>
+<blockquote>
+<p><strong>Economics as the trade of stacked, temporally directed truth
+values.</strong></p>
+</blockquote>
+</body>
+</html>

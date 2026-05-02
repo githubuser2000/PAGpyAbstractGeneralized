@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssystem_simulation</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="wirtschaftssysteme-simulieren-warum-wozu-was">Wirtschaftssysteme
+simulieren: Warum, wozu, was?</h1>
+<blockquote>
+<p>Ein Wirtschaftssystem simuliert man nicht, um „die Wirtschaft
+nachzubauen“. Das wäre unmöglich und meistens nutzlos. Man simuliert es,
+um <strong>kausale Mechanismen unter kontrollierten Bedingungen zu
+testen</strong>.</p>
+</blockquote>
+<p>Die zentrale Regel lautet:</p>
+<blockquote>
+<p><strong>Simuliere nicht alles, was existiert. Simuliere nur das, was
+für die Frage kausal relevant ist.</strong></p>
+</blockquote>
+<h2 id="inhaltsverzeichnis">Inhaltsverzeichnis</h2>
+<ol type="1">
+<li><a href="#1-warum-überhaupt-ein-wirtschaftssystem-simulieren">Warum
+überhaupt ein Wirtschaftssystem simulieren?</a></li>
+<li><a href="#2-mit-welchen-zielen-simuliert-man">Mit welchen Zielen
+simuliert man?</a></li>
+<li><a href="#3-was-will-man-herausfinden">Was will man
+herausfinden?</a></li>
+<li><a href="#4-welche-märkte-sollte-man-simulieren">Welche Märkte
+sollte man simulieren?</a></li>
+<li><a href="#5-der-minimale-kern-einer-wirtschaftssimulation">Der
+minimale Kern einer Wirtschaftssimulation</a></li>
+<li><a
+href="#6-die-wichtigsten-märkte-und-warum-man-sie-simulieren-sollte">Die
+wichtigsten Märkte und warum man sie simulieren sollte</a></li>
+<li><a href="#7-welche-märkte-sollte-man-zuerst-simulieren">Welche
+Märkte sollte man zuerst simulieren?</a></li>
+<li><a href="#8-welche-dinge-außer-märkten-muss-man-simulieren">Welche
+Dinge außer Märkten muss man simulieren?</a></li>
+<li><a href="#9-welche-modelltypen-passen-zu-welchen-zielen">Welche
+Modelltypen passen zu welchen Zielen?</a></li>
+<li><a href="#10-der-wichtigste-designgrundsatz">Der wichtigste
+Designgrundsatz</a></li>
+<li><a href="#11-eine-sinnvolle-allgemeine-architektur">Eine sinnvolle
+allgemeine Architektur</a></li>
+<li><a href="#12-was-eine-gute-simulation-leisten-sollte">Was eine gute
+Simulation leisten sollte</a></li>
+<li><a href="#13-klare-empfehlung">Klare Empfehlung</a></li>
+<li><a href="#14-praktische-start-checkliste">Praktische
+Start-Checkliste</a></li>
+</ol>
+<h2 id="warum-überhaupt-ein-wirtschaftssystem-simulieren">1. Warum
+überhaupt ein Wirtschaftssystem simulieren?</h2>
+<p>Weil reale Wirtschaftssysteme vier Eigenschaften haben, die reine
+Intuition schnell überfordern.</p>
+<p>Erstens gibt es <strong>Rückkopplungen</strong>. Höhere Zinsen senken
+vielleicht Investitionen, senken dadurch Einkommen, senken Konsum,
+senken Firmenumsätze, erhöhen Ausfallrisiken, verschärfen
+Kreditbedingungen — und das wirkt wieder zurück auf Investitionen.</p>
+<p>Zweitens gibt es <strong>Heterogenität</strong>. „Der Haushalt“, „die
+Firma“ oder „der Investor“ existieren in der Realität nicht. Arme
+Haushalte reagieren anders als reiche. Verschuldete Firmen anders als
+Cash-reiche. Große Banken anders als kleine.</p>
+<p>Drittens gibt es <strong>Nichtlinearitäten</strong>. Ein kleiner
+Schock kann harmlos sein, aber ab einer Schwelle eine Kaskade auslösen:
+Bank Runs, Lieferkettenausfälle, Immobiliencrashs, Energiepreisschocks,
+Liquiditätskrisen.</p>
+<p>Viertens gibt es <strong>Institutionen und Friktionen</strong>.
+Märkte sind nicht einfach freie Preisfindung. Es gibt Kreditlimits,
+Löhne, Verträge, Regulierung, Monopole, Suchkosten,
+Informationsasymmetrien, Insolvenzen, Steuern, Zentralbanken und
+Netzwerkeffekte.</p>
+<p>Eine Simulation ist also besonders nützlich, wenn du wissen
+willst:</p>
+<blockquote>
+<p><strong>Welche Dynamik entsteht aus lokalen Entscheidungen vieler
+Akteure?</strong></p>
+</blockquote>
+<h2 id="mit-welchen-zielen-simuliert-man">2. Mit welchen Zielen
+simuliert man?</h2>
+<p>Es gibt unterschiedliche gute Ziele. Schlechte Simulationen
+vermischen sie. Gute Simulationen wählen eines oder wenige davon klar
+aus.</p>
+<h3 id="a.-erklärung">A. Erklärung</h3>
+<p>Du willst verstehen, warum ein Phänomen entsteht.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Warum gibt es Konjunkturzyklen?</li>
+<li>Warum bleiben manche Regionen arm?</li>
+<li>Warum führen Immobilienbooms oft zu Bankenproblemen?</li>
+<li>Warum erzeugen manche Märkte Konzentration und Monopole?</li>
+</ul>
+<p>Hier geht es nicht primär um Prognose, sondern um Mechanismen.</p>
+<h3 id="b.-prognose-unter-szenarien">B. Prognose unter Szenarien</h3>
+<p>Nicht: „Was wird exakt passieren?“</p>
+<p>Sondern: „Was passiert wahrscheinlich unter Szenario A, B oder
+C?“</p>
+<p>Beispiele:</p>
+<ul>
+<li>Was passiert mit Inflation, Arbeitslosigkeit und Firmeninsolvenzen,
+wenn Energiepreise um 40 Prozent steigen?</li>
+<li>Was passiert mit Wohnungsmieten, wenn Zuwanderung steigt, aber
+Baukapazität begrenzt bleibt?</li>
+<li>Was passiert mit Kreditvergabe, wenn Eigenkapitalanforderungen für
+Banken erhöht werden?</li>
+</ul>
+<h3 id="c.-politik--und-regulierungsanalyse">C. Politik- und
+Regulierungsanalyse</h3>
+<p>Hier fragt man: Welche Maßnahme ist besser, wenn man Nebenwirkungen
+einbezieht?</p>
+<p>Beispiele:</p>
+<ul>
+<li>Mietpreisbremse vs. Wohnungsbauzuschüsse</li>
+<li>CO₂-Steuer vs. Subventionen</li>
+<li>Mindestlohn</li>
+<li>Vermögenssteuer</li>
+<li>Bankenregulierung</li>
+<li>Industriepolitik</li>
+<li>Arbeitslosenversicherung</li>
+<li>Zölle</li>
+<li>Transferprogramme</li>
+</ul>
+<p>Das Ziel ist nicht nur Effizienz, sondern auch Verteilung, Stabilität
+und politische Robustheit.</p>
+<h3 id="d.-krisen--und-stabilitätsanalyse">D. Krisen- und
+Stabilitätsanalyse</h3>
+<p>Hier willst du wissen, wo das System bricht.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Wann wird ein Bankenproblem systemisch?</li>
+<li>Welche Firmen sind in einer Lieferkette kritische Knoten?</li>
+<li>Wann wird aus einem Immobilienpreisrückgang eine Kreditkrise?</li>
+<li>Wie viel Energiepreisvolatilität hält eine Industrie aus?</li>
+</ul>
+<p>Das ist oft der wichtigste praktische Nutzen von Simulationen:
+<strong>Stress Tests</strong>.</p>
+<h3 id="e.-marktdesign">E. Marktdesign</h3>
+<p>Hier simulierst du nicht „die Wirtschaft“, sondern konkrete Regeln
+eines Marktes.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Auktionen für Strom, Frequenzen oder Werbung</li>
+<li>Matching-Märkte für Arbeitsplätze, Schulen oder Organspenden</li>
+<li>Plattformmärkte</li>
+<li>CO₂-Zertifikate</li>
+<li>Strombörsen</li>
+<li>Ride-sharing</li>
+<li>Lieferdienst-Plattformen</li>
+</ul>
+<p>Das Ziel: Welche Regeln erzeugen effiziente, faire oder
+manipulationsresistente Ergebnisse?</p>
+<h3 id="f.-unternehmensstrategie">F. Unternehmensstrategie</h3>
+<p>Eine Firma kann simulieren, wie Preise, Nachfrage, Wettbewerber,
+Lieferketten und Finanzierung zusammenwirken.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Was passiert, wenn wir Preise erhöhen?</li>
+<li>Wie reagiert der Wettbewerb?</li>
+<li>Wie robust ist unsere Lieferkette?</li>
+<li>Wo entstehen Engpässe?</li>
+<li>Wie viel Lagerbestand ist optimal?</li>
+<li>Welche Kundengruppe reagiert am stärksten auf Rabatte?</li>
+</ul>
+<h2 id="was-will-man-herausfinden">3. Was will man herausfinden?</h2>
+<p>Eine gute ökonomische Simulation sollte mindestens eine dieser Fragen
+beantworten.</p>
+<h3 id="welche-gleichgewichte-entstehen">1. Welche Gleichgewichte
+entstehen?</h3>
+<p>Wo stabilisieren sich Preise, Löhne, Produktion, Mieten, Zinsen oder
+Beschäftigung?</p>
+<p>Aber Vorsicht: Viele reale Systeme sind nicht ständig im
+Gleichgewicht. Daher ist die dynamische Frage oft wichtiger.</p>
+<h3 id="welche-übergangsdynamik-entsteht">2. Welche Übergangsdynamik
+entsteht?</h3>
+<p>Wie kommt das System von Zustand A nach Zustand B?</p>
+<p>Das ist zentral, weil kurzfristige Anpassungskosten politisch und
+wirtschaftlich oft wichtiger sind als ein schöner langfristiger
+Endzustand.</p>
+<p>Beispiel: Eine CO₂-Steuer kann langfristig effizient sein, aber
+kurzfristig bestimmte Branchen, Haushalte oder Regionen hart
+treffen.</p>
+<h3 id="wer-trägt-kosten-und-wer-erhält-gewinne">3. Wer trägt Kosten und
+wer erhält Gewinne?</h3>
+<p>Eine Simulation, die nur aggregiertes BIP, Durchschnittseinkommen
+oder Gesamtwohlfahrt betrachtet, ist oft blind.</p>
+<p>Wichtiger ist:</p>
+<ul>
+<li>Wer verliert Einkommen?</li>
+<li>Wer verliert Vermögen?</li>
+<li>Wer bekommt Zugang zu Kredit?</li>
+<li>Wer wird aus dem Wohnungsmarkt gedrängt?</li>
+<li>Welche Firmen überleben?</li>
+<li>Welche Regionen profitieren?</li>
+</ul>
+<h3 id="wo-liegen-schwellenwerte">4. Wo liegen Schwellenwerte?</h3>
+<p>Viele Systeme kippen nicht linear.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Bei 5 Prozent Kreditausfällen bleibt das Bankensystem stabil.</li>
+<li>Bei 8 Prozent ziehen Banken Kreditlinien zurück.</li>
+<li>Bei 12 Prozent kommt es zu Fire Sales.</li>
+<li>Bei 15 Prozent entsteht eine systemische Krise.</li>
+</ul>
+<p>Solche Kipppunkte erkennt man durch Simulation oft besser als durch
+statische Analyse.</p>
+<h3 id="welche-rückkopplungen-dominieren">5. Welche Rückkopplungen
+dominieren?</h3>
+<p>In komplexen Systemen sind nicht alle Mechanismen gleich wichtig.</p>
+<p>Eine gute Simulation hilft zu erkennen:</p>
+<ul>
+<li>Ist das Problem Nachfrage?</li>
+<li>Angebot?</li>
+<li>Kredit?</li>
+<li>Erwartungen?</li>
+<li>Marktmacht?</li>
+<li>Energie?</li>
+<li>Arbeitskräfte?</li>
+<li>Regulierung?</li>
+<li>Liquidität?</li>
+<li>Vertrauen?</li>
+</ul>
+<h3 id="welche-politik-ist-robust">6. Welche Politik ist robust?</h3>
+<p>Eine Maßnahme, die in einem Modell gut aussieht, aber bei kleinen
+Parameteränderungen kollabiert, ist gefährlich.</p>
+<p>Deshalb testet man Szenarien:</p>
+<ul>
+<li>Was, wenn Haushalte anders sparen?</li>
+<li>Was, wenn Banken risikoscheuer sind?</li>
+<li>Was, wenn Produktivität niedriger ist?</li>
+<li>Was, wenn Energiepreise stärker schwanken?</li>
+<li>Was, wenn Firmen Marktmacht haben?</li>
+</ul>
+<p>Robustheit ist oft wichtiger als theoretische Optimalität.</p>
+<h2 id="welche-märkte-sollte-man-simulieren">4. Welche Märkte sollte man
+simulieren?</h2>
+<p>Das hängt vom Erkenntnisziel ab. Trotzdem gibt es einige zentrale
+Märkte, weil sie in fast jedem Wirtschaftssystem starke Rückkopplungen
+erzeugen.</p>
+<p>Die erste Frage ist nicht: „Welche Märkte existieren?“</p>
+<p>Die bessere Frage ist:</p>
+<blockquote>
+<p><strong>Welche Märkte übertragen, verstärken oder dämpfen genau den
+Mechanismus, den ich untersuchen will?</strong></p>
+</blockquote>
+<h2 id="der-minimale-kern-einer-wirtschaftssimulation">5. Der minimale
+Kern einer Wirtschaftssimulation</h2>
+<p>Für eine allgemeine Wirtschaftssimulation würde ich mindestens diese
+Bestandteile modellieren:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bestandteil</th>
+<th>Warum er wichtig ist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haushalte</td>
+<td>Konsum, Arbeit, Sparen, Verschuldung, Verteilung</td>
+</tr>
+<tr>
+<td>Firmen</td>
+<td>Produktion, Preise, Löhne, Investitionen, Gewinne, Insolvenzen</td>
+</tr>
+<tr>
+<td>Arbeitsmarkt</td>
+<td>Einkommen, Beschäftigung, Lohnbildung, Ungleichheit</td>
+</tr>
+<tr>
+<td>Gütermarkt</td>
+<td>Nachfrage, Angebot, Preise, Inflation</td>
+</tr>
+<tr>
+<td>Kredit-/Bankensystem</td>
+<td>Geldschöpfung, Investition, Hebel, Krisen</td>
+</tr>
+<tr>
+<td>Staat</td>
+<td>Steuern, Ausgaben, Transfers, Schulden, Regulierung</td>
+</tr>
+<tr>
+<td>Zentralbank/Geldpolitik</td>
+<td>Zinsen, Liquidität, Inflation, Kreditbedingungen</td>
+</tr>
+<tr>
+<td>Kapital/Investitionen</td>
+<td>Produktivität, Kapazität, Wachstum</td>
+</tr>
+<tr>
+<td>Vermögensmärkte</td>
+<td>Immobilien, Aktien, Anleihen, Sicherheiten, Vermögenseffekte</td>
+</tr>
+<tr>
+<td>Außenhandel, falls offene Volkswirtschaft</td>
+<td>Wechselkurse, Importe, Exporte, externe Schocks</td>
+</tr>
+</tbody>
+</table>
+<p>Wenn du nur „Güterangebot und Güternachfrage“ simulierst, hast du ein
+Spielzeug. Sobald du Kredit, Vermögen, Erwartungen und Bilanzen
+hinzufügst, wird es ökonomisch ernst.</p>
+<h2 id="die-wichtigsten-märkte-und-warum-man-sie-simulieren-sollte">6.
+Die wichtigsten Märkte und warum man sie simulieren sollte</h2>
+<h3 id="güter--und-konsummärkte">1. Güter- und Konsummärkte</h3>
+<p>Hier entstehen Preise, Umsätze, Produktionsentscheidungen und
+Inflation.</p>
+<p>Diese Märkte solltest du simulieren, wenn du Fragen hast wie:</p>
+<ul>
+<li>Warum steigen Preise?</li>
+<li>Wie reagieren Konsumenten auf Einkommensschocks?</li>
+<li>Wie geben Firmen Kostensteigerungen weiter?</li>
+<li>Wie wirken Steuern oder Subventionen auf Nachfrage und
+Produktion?</li>
+</ul>
+<p>Wichtig sind hier:</p>
+<ul>
+<li>Preissetzung</li>
+<li>Nachfrageelastizität</li>
+<li>Lagerbestände</li>
+<li>Wettbewerb</li>
+<li>Marktmacht</li>
+<li>Lieferengpässe</li>
+<li>Konsumentenheterogenität</li>
+</ul>
+<p>Ohne Gütermärkte fehlt der direkte Ort, an dem reale Produktion und
+Konsum zusammenkommen.</p>
+<h3 id="arbeitsmarkt">2. Arbeitsmarkt</h3>
+<p>Der Arbeitsmarkt ist zentral, weil er Einkommen, Produktion, soziale
+Stabilität und politische Konflikte verbindet.</p>
+<p>Man simuliert ihn, um herauszufinden:</p>
+<ul>
+<li>Wie entsteht Arbeitslosigkeit?</li>
+<li>Wie wirken Mindestlöhne?</li>
+<li>Wie schnell finden Menschen neue Jobs?</li>
+<li>Wie beeinflussen Löhne Inflation?</li>
+<li>Wie verändern Automatisierung oder Migration Beschäftigung und
+Lohnstruktur?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Matching</li>
+<li>Suchkosten</li>
+<li>Qualifikation</li>
+<li>regionale Mobilität</li>
+<li>Gewerkschaften</li>
+<li>Lohnstarrheit</li>
+<li>Verhandlungsmacht</li>
+<li>informelle Arbeit</li>
+</ul>
+<p>Ein perfekter Arbeitsmarkt mit sofortiger Anpassung ist für viele
+reale Fragen nutzlos. Gerade die Friktionen sind interessant.</p>
+<h3 id="kredit--und-bankenmarkt">3. Kredit- und Bankenmarkt</h3>
+<p>Das ist einer der wichtigsten Märkte überhaupt, weil Kredit
+Investitionen, Konsum, Immobilien, Firmenwachstum und Krisen
+ermöglicht.</p>
+<p>Man simuliert Kreditmärkte, wenn man wissen will:</p>
+<ul>
+<li>Wann wird Verschuldung gefährlich?</li>
+<li>Wie entstehen Finanzkrisen?</li>
+<li>Wie wirken Zinsen?</li>
+<li>Warum brechen Investitionen plötzlich ein?</li>
+<li>Wie übertragen sich Ausfälle von Firmen auf Banken und zurück auf
+Firmen?</li>
+</ul>
+<p>Wichtige Variablen:</p>
+<ul>
+<li>Bankbilanzen</li>
+<li>Eigenkapital</li>
+<li>Sicherheiten</li>
+<li>Ausfallraten</li>
+<li>Risikoprämien</li>
+<li>Kreditrationierung</li>
+<li>Liquidität</li>
+<li>Interbankenverflechtung</li>
+<li>Zentralbankpolitik</li>
+</ul>
+<p>Viele Wirtschaftssimulationen sind schwach, weil sie Geld und Kredit
+zu harmlos behandeln. In der Realität ist Kredit nicht nur ein Schleier
+über der Realwirtschaft. Er ist ein Verstärker.</p>
+<h3 id="kapital--und-investitionsgütermärkte">4. Kapital- und
+Investitionsgütermärkte</h3>
+<p>Hier entscheidet sich, wie viel zukünftige Produktionskapazität
+entsteht.</p>
+<p>Man simuliert sie, wenn man Wachstum, Produktivität, Strukturwandel
+oder Industriepolitik verstehen will.</p>
+<p>Fragen:</p>
+<ul>
+<li>Wann investieren Firmen?</li>
+<li>Wie wirken Zinssätze?</li>
+<li>Wie schnell kann eine Wirtschaft neue Kapazitäten aufbauen?</li>
+<li>Welche Branchen schrumpfen oder expandieren?</li>
+<li>Wie wirken Unsicherheit und erwartete Nachfrage?</li>
+</ul>
+<p>Wichtig sind:</p>
+<ul>
+<li>Kapitalstock</li>
+<li>Abschreibungen</li>
+<li>Kapazitätsauslastung</li>
+<li>Investitionskosten</li>
+<li>Finanzierung</li>
+<li>Technologie</li>
+<li>Erwartungen</li>
+</ul>
+<p>Ohne Investitionen bleibt die Simulation statisch.</p>
+<h3 id="immobilien--und-bodenmärkte">5. Immobilien- und Bodenmärkte</h3>
+<p>Immobilien sind besonders wichtig, weil sie Konsumgut, Vermögenswert
+und Kreditsicherheit zugleich sind.</p>
+<p>Man simuliert sie, wenn man wissen will:</p>
+<ul>
+<li>Warum steigen Mieten?</li>
+<li>Wie entstehen Immobilienblasen?</li>
+<li>Warum ist Wohnraum knapp?</li>
+<li>Wie wirken Bauvorschriften, Zinsen, Migration, Einkommen oder
+Spekulation?</li>
+<li>Wie treffen Immobilienpreise das Bankensystem?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Bodenknappheit</li>
+<li>Bauverzögerungen</li>
+<li>Regulierung</li>
+<li>Hypotheken</li>
+<li>Mieten</li>
+<li>Leerstand</li>
+<li>Eigentum vs. Miete</li>
+<li>regionale Nachfrage</li>
+<li>Beleihungswerte</li>
+</ul>
+<p>Der Immobilienmarkt ist oft der Ort, an dem Finanzsystem,
+Ungleichheit und reale Lebensqualität zusammenstoßen.</p>
+<h3 id="energiemärkte">6. Energiemärkte</h3>
+<p>Energie ist kein normaler Markt. Sie ist ein Input fast aller anderen
+Märkte.</p>
+<p>Man simuliert Energiemärkte, wenn man Inflation, Industrieproduktion,
+Klimapolitik, Versorgungssicherheit oder geopolitische Schocks verstehen
+will.</p>
+<p>Fragen:</p>
+<ul>
+<li>Wie wirken Energiepreisschocks auf Inflation?</li>
+<li>Welche Industrien werden unrentabel?</li>
+<li>Wie stabil ist ein Stromsystem mit viel erneuerbarer Energie?</li>
+<li>Wie wirken CO₂-Preise?</li>
+<li>Welche Rolle spielen Speicher, Netze und Grundlast?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Grenzkosten</li>
+<li>Netzkapazität</li>
+<li>Speicher</li>
+<li>Importabhängigkeit</li>
+<li>Preisspitzen</li>
+<li>Substitution</li>
+<li>Regulierung</li>
+<li>Emissionspreise</li>
+</ul>
+<p>Ein Energieschock ist oft kein isolierter Preisschock, sondern ein
+systemweiter Kostenschock.</p>
+<h3 id="finanzmärkte">7. Finanzmärkte</h3>
+<p>Finanzmärkte sollte man simulieren, wenn Erwartungen, Liquidität,
+Vermögenseffekte oder Ansteckung wichtig sind.</p>
+<p>Fragen:</p>
+<ul>
+<li>Wie entstehen Blasen?</li>
+<li>Wann kommt es zu Fire Sales?</li>
+<li>Wie übertragen sich Schocks zwischen Aktien, Anleihen, Banken und
+Immobilien?</li>
+<li>Wie wirken Margin Calls?</li>
+<li>Wie wichtig sind Liquidität und Vertrauen?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Hebel</li>
+<li>Liquiditätsbedarf</li>
+<li>Bewertungsänderungen</li>
+<li>Risikoprämien</li>
+<li>Erwartungen</li>
+<li>Portfolioumschichtungen</li>
+<li>institutionelle Investoren</li>
+</ul>
+<p>Finanzmärkte sind nicht nur „Casino“. Sie beeinflussen
+Finanzierungskosten, Vermögen, Sicherheiten und Vertrauen.</p>
+<h3 id="außenhandel-und-devisenmärkte">8. Außenhandel und
+Devisenmärkte</h3>
+<p>Diese brauchst du, sobald die Wirtschaft offen ist.</p>
+<p>Fragen:</p>
+<ul>
+<li>Wie wirken Zölle?</li>
+<li>Was passiert bei Wechselkursschocks?</li>
+<li>Wie abhängig ist eine Wirtschaft von Importen?</li>
+<li>Wie übertragen sich globale Lieferkettenprobleme?</li>
+<li>Wie wirken Kapitalflüsse?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Importpreise</li>
+<li>Exportnachfrage</li>
+<li>Wechselkurse</li>
+<li>Handelsbilanzen</li>
+<li>Kapitalflüsse</li>
+<li>globale Lieferketten</li>
+<li>geopolitische Risiken</li>
+</ul>
+<p>Für kleine offene Volkswirtschaften ist dieser Block nicht
+optional.</p>
+<h3 id="plattform--daten--und-aufmerksamkeitsmärkte">9. Plattform-,
+Daten- und Aufmerksamkeitsmärkte</h3>
+<p>Für moderne digitale Ökonomien sind diese Märkte besonders
+wichtig.</p>
+<p>Fragen:</p>
+<ul>
+<li>Warum entstehen Winner-take-most-Strukturen?</li>
+<li>Wie wirken Netzwerkeffekte?</li>
+<li>Wann wird eine Plattform monopolistisch?</li>
+<li>Wie beeinflussen Rankings, Empfehlungen und Datenvorteile
+Wettbewerb?</li>
+</ul>
+<p>Wichtige Mechanismen:</p>
+<ul>
+<li>Netzwerkeffekte</li>
+<li>Skalenerträge</li>
+<li>Datenakkumulation</li>
+<li>Lock-in</li>
+<li>Multi-Homing</li>
+<li>algorithmische Preis- oder Nachfrageverteilung</li>
+</ul>
+<p>Diese Märkte sind klassisch schlecht durch einfache
+Angebots-Nachfrage-Modelle erklärbar.</p>
+<h3 id="versicherungs--gesundheits--und-bildungssektor">10.
+Versicherungs-, Gesundheits- und Bildungssektor</h3>
+<p>Diese sind keine normalen Märkte, weil Information, Risiko und
+öffentliche Interessen stark verzerrend wirken.</p>
+<p>Man simuliert sie, wenn man Wohlfahrt, Humankapital, soziale
+Mobilität oder staatliche Ausgaben verstehen will.</p>
+<p>Fragen:</p>
+<ul>
+<li>Wie wirken Versicherungspflichten?</li>
+<li>Wie entstehen adverse Selektion und moral hazard?</li>
+<li>Wie beeinflusst Bildung langfristiges Einkommen?</li>
+<li>Wie wirken Studiengebühren, Gesundheitskosten oder
+Rentensysteme?</li>
+</ul>
+<p>Hier sind Institutionen oft wichtiger als Preise.</p>
+<h2 id="welche-märkte-sollte-man-zuerst-simulieren">7. Welche Märkte
+sollte man zuerst simulieren?</h2>
+<p>Ich würde nach Erkenntnisziel priorisieren.</p>
+<h3 id="wenn-du-konjunktur-und-inflation-verstehen-willst">Wenn du
+Konjunktur und Inflation verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Gütermärkte</li>
+<li>Arbeitsmarkt</li>
+<li>Kreditmarkt</li>
+<li>Energie/Importe</li>
+<li>Staat/Zentralbank</li>
+</ol>
+<p>Warum? Inflation entsteht nicht nur aus „zu viel Geld“. Sie kann aus
+Nachfrage, Angebot, Löhnen, Energie, Wechselkursen, Marktmacht oder
+Erwartungen entstehen.</p>
+<h3 id="wenn-du-finanzkrisen-verstehen-willst">Wenn du Finanzkrisen
+verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Banken und Kredit</li>
+<li>Immobilien/Sicherheiten</li>
+<li>Firmenbilanzen</li>
+<li>Haushaltsverschuldung</li>
+<li>Finanzmärkte</li>
+<li>Zentralbank/Liquidität</li>
+</ol>
+<p>Warum? Krisen entstehen oft durch Bilanzverknüpfungen, Hebel und
+Vertrauen, nicht durch den Gütermarkt allein.</p>
+<h3 id="wenn-du-ungleichheit-verstehen-willst">Wenn du Ungleichheit
+verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Arbeitsmarkt</li>
+<li>Bildung/Qualifikation</li>
+<li>Vermögensmärkte</li>
+<li>Immobilien</li>
+<li>Steuern/Transfers</li>
+<li>Erbschaften und Kapitalerträge</li>
+</ol>
+<p>Warum? Ungleichheit entsteht nicht nur durch Löhne. Vermögen,
+Immobilien, Bildung, Erbschaften und Zugang zu Kapital sind oft
+entscheidender.</p>
+<h3 id="wenn-du-wachstum-und-innovation-verstehen-willst">Wenn du
+Wachstum und Innovation verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Firmeninvestitionen</li>
+<li>Kapitalstock</li>
+<li>Forschung/Technologie</li>
+<li>Arbeitskräfte und Bildung</li>
+<li>Kredit/Finanzierung</li>
+<li>Wettbewerb und Markteintritt</li>
+</ol>
+<p>Warum? Wachstum ist nicht einfach mehr Konsum, sondern
+Kapazitätsaufbau, Produktivität und institutionelle Dynamik.</p>
+<h3 id="wenn-du-klimapolitik-verstehen-willst">Wenn du Klimapolitik
+verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Energie</li>
+<li>Industrieproduktion</li>
+<li>Haushaltskonsum</li>
+<li>Investitionen</li>
+<li>staatliche CO₂-Politik</li>
+<li>Verteilungseffekte</li>
+<li>internationale Wettbewerbsfähigkeit</li>
+</ol>
+<p>Warum? Klimapolitik ist ein Strukturwandelproblem, kein isoliertes
+Steuerproblem.</p>
+<h3 id="wenn-du-wohnungsnot-verstehen-willst">Wenn du Wohnungsnot
+verstehen willst</h3>
+<p>Simuliere:</p>
+<ol type="1">
+<li>Bodenmarkt</li>
+<li>Baukapazitäten</li>
+<li>Mieten</li>
+<li>Einkommen</li>
+<li>Zinsen/Hypotheken</li>
+<li>Regulierung</li>
+<li>Migration und Haushaltsbildung</li>
+</ol>
+<p>Warum? Wohnungsmärkte reagieren langsam. Bau dauert. Boden ist knapp.
+Kreditbedingungen treiben Preise. Regulierung verändert Angebot.</p>
+<h2 id="welche-dinge-außer-märkten-muss-man-simulieren">8. Welche Dinge
+außer Märkten muss man simulieren?</h2>
+<p>Ein großer Fehler ist zu glauben, Wirtschaft bestehe nur aus Märkten.
+Viele entscheidende Dinge sind keine Märkte, sondern Regeln, Bilanzen
+und Institutionen.</p>
+<h3 id="a.-bilanzen">A. Bilanzen</h3>
+<p>Jede Forderung ist irgendwo eine Verbindlichkeit. Jedes Defizit ist
+irgendwo ein Überschuss. Jeder Kredit erzeugt eine
+Schuldner-Gläubiger-Beziehung.</p>
+<p>Eine gute Simulation muss konsistent sein:</p>
+<ul>
+<li>Haushalte haben Einkommen, Ausgaben, Vermögen und Schulden.</li>
+<li>Firmen haben Umsätze, Kosten, Kapital und Kredite.</li>
+<li>Banken haben Aktiva, Passiva und Eigenkapital.</li>
+<li>Der Staat hat Einnahmen, Ausgaben und Schulden.</li>
+</ul>
+<p>Ohne Bilanzlogik produziert man schnell ökonomische Fantasie.</p>
+<h3 id="b.-erwartungen">B. Erwartungen</h3>
+<p>Akteure handeln nicht nur nach Gegenwartsdaten, sondern nach
+Erwartungen.</p>
+<ul>
+<li>Firmen investieren, wenn sie Nachfrage erwarten.</li>
+<li>Haushalte sparen, wenn sie Unsicherheit erwarten.</li>
+<li>Banken vergeben Kredit, wenn sie Rückzahlung erwarten.</li>
+<li>Investoren kaufen, wenn sie Preissteigerungen erwarten.</li>
+</ul>
+<p>Erwartungen können stabilisieren oder destabilisieren.</p>
+<h3 id="c.-institutionen">C. Institutionen</h3>
+<p>Steuern, Arbeitsrecht, Insolvenzrecht, Mietrecht, Bankenregulierung,
+Zentralbankregeln, Sozialversicherung, Subventionen und Wettbewerbsrecht
+formen Märkte.</p>
+<p>Institutionen sind nicht „Details“. Sie bestimmen oft das
+Ergebnis.</p>
+<h3 id="d.-netzwerke">D. Netzwerke</h3>
+<p>Lieferketten, Bankverflechtungen, soziale Netzwerke, regionale
+Arbeitsmärkte und Plattformen sind Netzwerke.</p>
+<p>Netzwerke sind wichtig, weil sie Kaskaden ermöglichen. Ein einzelner
+Ausfall kann harmlos oder systemisch sein — je nachdem, wo er im
+Netzwerk liegt.</p>
+<h3 id="e.-zeitverzögerungen">E. Zeitverzögerungen</h3>
+<p>Viele Anpassungen passieren nicht sofort.</p>
+<p>Bau dauert. Umschulung dauert. Investitionen dauern. Kreditprüfung
+dauert. Preisverhandlungen dauern. Löhne ändern sich nicht täglich.
+Infrastruktur dauert Jahre.</p>
+<p>Zeitverzögerungen erzeugen Zyklen, Engpässe und Überreaktionen.</p>
+<h2 id="welche-modelltypen-passen-zu-welchen-zielen">9. Welche
+Modelltypen passen zu welchen Zielen?</h2>
+<h3 id="gleichgewichtsmodelle">Gleichgewichtsmodelle</h3>
+<p>Gut für:</p>
+<ul>
+<li>Steuerpolitik</li>
+<li>Handelsmodelle</li>
+<li>langfristige Allokation</li>
+<li>Effizienzvergleiche</li>
+</ul>
+<p>Schwach bei:</p>
+<ul>
+<li>Krisen</li>
+<li>Instabilität</li>
+<li>Heterogenität</li>
+<li>Netzwerken</li>
+<li>plötzlichen Kaskaden</li>
+</ul>
+<h3 id="agentenbasierte-modelle">Agentenbasierte Modelle</h3>
+<p>Gut für:</p>
+<ul>
+<li>heterogene Akteure</li>
+<li>emergente Dynamiken</li>
+<li>Märkte mit Friktionen</li>
+<li>Krisen</li>
+<li>Netzwerke</li>
+<li>Verteilung</li>
+</ul>
+<p>Schwach bei:</p>
+<ul>
+<li>Kalibrierung</li>
+<li>Interpretierbarkeit</li>
+<li>sauberer Identifikation</li>
+<li>Rechenaufwand</li>
+</ul>
+<h3
+id="stock-flow-consistent-modelle">Stock-Flow-Consistent-Modelle</h3>
+<p>Gut für:</p>
+<ul>
+<li>Geld</li>
+<li>Kredit</li>
+<li>Bilanzen</li>
+<li>sektorale Finanzierungsströme</li>
+<li>Makro-Stabilität</li>
+</ul>
+<p>Schwach bei:</p>
+<ul>
+<li>Mikroverhalten</li>
+<li>detailliertem Marktdesign</li>
+<li>granularen Netzwerken</li>
+</ul>
+<h3 id="netzwerkmodelle">Netzwerkmodelle</h3>
+<p>Gut für:</p>
+<ul>
+<li>Lieferketten</li>
+<li>Banken</li>
+<li>Ansteckung</li>
+<li>systemische Risiken</li>
+</ul>
+<p>Schwach bei:</p>
+<ul>
+<li>allgemeiner Makroökonomie, wenn sie isoliert genutzt werden</li>
+</ul>
+<h3
+id="spieltheoretische-oder-auktionstheoretische-simulationen">Spieltheoretische
+oder auktionstheoretische Simulationen</h3>
+<p>Gut für:</p>
+<ul>
+<li>Marktdesign</li>
+<li>Plattformen</li>
+<li>Strommärkte</li>
+<li>Frequenzauktionen</li>
+<li>Bietstrategien</li>
+</ul>
+<p>Schwach bei:</p>
+<ul>
+<li>breiter Makro- und Verteilungsdynamik</li>
+</ul>
+<h2 id="der-wichtigste-designgrundsatz">10. Der wichtigste
+Designgrundsatz</h2>
+<p>Baue nicht zuerst ein großes Modell. Baue zuerst die <strong>kleinste
+Simulation, die deine Frage beantworten kann</strong>.</p>
+<p>Schlechte Frage:</p>
+<blockquote>
+<p>„Ich möchte die Wirtschaft simulieren.“</p>
+</blockquote>
+<p>Bessere Frage:</p>
+<blockquote>
+<p>„Ich möchte wissen, ob steigende Zinsen in einem hochverschuldeten
+Immobilienmarkt zuerst Konsum, Bauinvestitionen oder Bankstabilität
+treffen.“</p>
+</blockquote>
+<p>Dann weißt du, was du brauchst:</p>
+<ul>
+<li>Haushalte</li>
+<li>Hypotheken</li>
+<li>Banken</li>
+<li>Immobilienpreise</li>
+<li>Bauwirtschaft</li>
+<li>Zinssatz</li>
+<li>Ausfälle</li>
+<li>Konsum</li>
+</ul>
+<p>Du brauchst vielleicht keinen internationalen Handel, keine Bildung,
+keine Plattformmärkte und keine Landwirtschaft.</p>
+<h2 id="eine-sinnvolle-allgemeine-architektur">11. Eine sinnvolle
+allgemeine Architektur</h2>
+<p>Für ein ernsthaftes, aber noch kontrollierbares Modell würde ich so
+starten.</p>
+<h3 id="agenten">Agenten</h3>
+<ul>
+<li>Haushalte</li>
+<li>Firmen</li>
+<li>Banken</li>
+<li>Staat</li>
+<li>Zentralbank</li>
+<li>eventuell Ausland</li>
+</ul>
+<h3 id="märkte">Märkte</h3>
+<ul>
+<li>Arbeitsmarkt</li>
+<li>Gütermarkt</li>
+<li>Kreditmarkt</li>
+<li>Immobilienmarkt</li>
+<li>Energiemarkt</li>
+<li>Kapitalmarkt</li>
+</ul>
+<h3 id="zustände">Zustände</h3>
+<ul>
+<li>Einkommen</li>
+<li>Vermögen</li>
+<li>Schulden</li>
+<li>Preise</li>
+<li>Löhne</li>
+<li>Beschäftigung</li>
+<li>Produktion</li>
+<li>Kapitalstock</li>
+<li>Lagerbestände</li>
+<li>Bankkapital</li>
+<li>Staatsverschuldung</li>
+</ul>
+<h3 id="entscheidungen">Entscheidungen</h3>
+<ul>
+<li>Haushalte konsumieren, sparen, arbeiten und leihen.</li>
+<li>Firmen setzen Preise, produzieren, investieren, stellen ein,
+entlassen und leihen.</li>
+<li>Banken vergeben Kredite, verlangen Sicherheiten und reagieren auf
+Ausfälle.</li>
+<li>Staat besteuert, transferiert und investiert.</li>
+<li>Zentralbank setzt Zinsen oder Liquiditätsbedingungen.</li>
+</ul>
+<h3 id="schocks">Schocks</h3>
+<ul>
+<li>Zinsschock</li>
+<li>Produktivitätsschock</li>
+<li>Energiepreisschock</li>
+<li>Nachfrageeinbruch</li>
+<li>Bankenverlust</li>
+<li>Migrationsschock</li>
+<li>Lieferkettenausfall</li>
+<li>Steueränderung</li>
+<li>Regulierung</li>
+</ul>
+<h3 id="outputs">Outputs</h3>
+<ul>
+<li>BIP</li>
+<li>Inflation</li>
+<li>Arbeitslosigkeit</li>
+<li>Löhne</li>
+<li>Gewinne</li>
+<li>Insolvenzen</li>
+<li>Kreditvolumen</li>
+<li>Ausfallraten</li>
+<li>Vermögensverteilung</li>
+<li>Mieten</li>
+<li>Staatsdefizit</li>
+<li>Energieverbrauch</li>
+<li>Wohlfahrt nach Gruppen</li>
+</ul>
+<h2 id="was-eine-gute-simulation-leisten-sollte">12. Was eine gute
+Simulation leisten sollte</h2>
+<p>Eine gute Wirtschaftssimulation sollte nicht nur Kurven ausspucken.
+Sie sollte erklären:</p>
+<ul>
+<li>Warum passiert etwas?</li>
+<li>Über welchen Kanal passiert es?</li>
+<li>Mit welcher Zeitverzögerung?</li>
+<li>Wer ist betroffen?</li>
+<li>Welche Annahmen sind entscheidend?</li>
+<li>Welche Politik ändert wirklich etwas?</li>
+<li>Wo ist das System fragil?</li>
+</ul>
+<p>Die beste Simulation ist nicht die mit den meisten Variablen. Es ist
+die, bei der du nach einem Experiment sagen kannst:</p>
+<blockquote>
+<p>„Jetzt weiß ich, welcher Mechanismus das Ergebnis erzeugt.“</p>
+</blockquote>
+<h2 id="klare-empfehlung">13. Klare Empfehlung</h2>
+<p>Wenn du ein Wirtschaftssystem simulieren willst, beginne nicht mit
+„allen Märkten“. Beginne mit diesen drei Kernfragen:</p>
+<ol type="1">
+<li><p><strong>Welche Dynamik interessiert mich?</strong><br />
+Inflation, Krise, Wachstum, Ungleichheit, Wohnungsnot, Klimawandel,
+Arbeitslosigkeit, Marktmacht?</p></li>
+<li><p><strong>Welche Mechanismen könnten diese Dynamik
+verursachen?</strong><br />
+Kredit, Löhne, Energie, Erwartungen, Vermögen, Regulierung, Netzwerke,
+Marktmacht?</p></li>
+<li><p><strong>Welche Märkte sind dafür unvermeidlich?</strong><br />
+Nur diese gehören zuerst ins Modell.</p></li>
+</ol>
+<p>Für eine breite Wirtschaftssimulation wären die ersten Märkte fast
+immer:</p>
+<blockquote>
+<p><strong>Arbeitsmarkt, Gütermarkt, Kreditmarkt,
+Kapital-/Investitionsmarkt, Immobilienmarkt, Energiemarkt und
+Staat/Zentralbank als institutioneller Rahmen.</strong></p>
+</blockquote>
+<p>Danach ergänzt man je nach Ziel: Außenhandel, Finanzmärkte,
+Plattformmärkte, Bildung, Gesundheit, Versicherungen, Lieferketten oder
+regionale Märkte.</p>
+<p>Die nüchterne Wahrheit ist:</p>
+<blockquote>
+<p>Eine Wirtschaftssimulation wird nur dann wertvoll, wenn sie nicht
+versucht, die Welt vollständig abzubilden, sondern wenn sie die
+entscheidenden Kausalmechanismen brutal klar isoliert.</p>
+</blockquote>
+<h2 id="praktische-start-checkliste">14. Praktische
+Start-Checkliste</h2>
+<p>Vor dem Bau einer Simulation solltest du diese Fragen
+beantworten:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Frage</th>
+<th>Warum sie wichtig ist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Welche konkrete Hypothese teste ich?</td>
+<td>Verhindert ein zielloses Universalmodell.</td>
+</tr>
+<tr>
+<td>Welche Akteure entscheiden wirklich?</td>
+<td>Bestimmt Agenten und Verhaltensregeln.</td>
+</tr>
+<tr>
+<td>Welche Märkte übertragen die Wirkung?</td>
+<td>Bestimmt Modellgrenzen.</td>
+</tr>
+<tr>
+<td>Welche Bestände und Flüsse müssen bilanziell konsistent sein?</td>
+<td>Verhindert ökonomisch unmögliche Ergebnisse.</td>
+</tr>
+<tr>
+<td>Welche Friktionen sind kausal wichtig?</td>
+<td>Macht das Modell realistisch genug.</td>
+</tr>
+<tr>
+<td>Welche Schocks oder Politiken will ich testen?</td>
+<td>Definiert Experimente.</td>
+</tr>
+<tr>
+<td>Welche Outputs entscheiden über Erfolg oder Misserfolg?</td>
+<td>Verhindert falsche Zielgrößen.</td>
+</tr>
+<tr>
+<td>Welche Parameter sind unsicher?</td>
+<td>Erzwingt Sensitivitätsanalyse.</td>
+</tr>
+<tr>
+<td>Für wen sind die Ergebnisse relevant?</td>
+<td>Erzwingt Verteilungsanalyse.</td>
+</tr>
+<tr>
+<td>Was wäre ein Gegenbeweis gegen meine Hypothese?</td>
+<td>Schützt vor Modellbestätigung statt Erkenntnis.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

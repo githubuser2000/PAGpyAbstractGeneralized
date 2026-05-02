@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wsys15-de</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1
+id="universum-kreislaufwirtschaft-vollständiges-wirtschaftssystem">Universum-Kreislaufwirtschaft
+— vollständiges Wirtschaftssystem</h1>
+<p><strong>Sprache:</strong> Deutsch<br />
+<strong>Grundlage:</strong> Die Währung ist die gestapelte
+<code>for</code>-Schleife eines Kreislaufs.<br />
+<strong>Planetentypen:</strong> Erde-Typ = 20 Stationen, Vulkan-Typ = 22
+Stationen.<br />
+<strong>Leitsatz:</strong> Geld entsteht nicht aus bloßem Besitz,
+sondern aus nachweisbar vollzogener Rückführung von Identität, Materie,
+Nahrung, Leben, Tod, Mikroben, Boden und planetarer Energie in einen
+Kreislauf.</p>
+<hr />
+<h2 id="grundidee">1. Grundidee</h2>
+<p>Die Universum-Kreislaufwirtschaft betrachtet jede wirtschaftliche
+Handlung als Bewegung innerhalb eines wiederholbaren Kreislaufs. Eine
+Pflanze wächst, wird geerntet, gegessen, verdaut, ausgeschieden,
+mikrobiell zersetzt, chemisch transformiert und wieder in Boden, Pflanze
+und Nahrung zurückgeführt. Dieser Ablauf ist nicht bloß ein biologisches
+Bild, sondern die zentrale ökonomische Buchhaltung.</p>
+<p>Die Währung ist der <strong>Schleifenwert</strong> einer Bewegung
+durch diesen Kreislauf. Ein Akteur erhält nicht Geld, weil er etwas aus
+dem System herausnimmt, sondern weil er eine Identität durch eine
+nützliche, überprüfbare Transformation innerhalb des Systems geführt
+hat.</p>
+<p>Beispiel Erde-Typ:</p>
+<pre class="text"><code>Start = 4
+Ende = 17
+Wiederholung = 4
+Kreislauflänge N = 20
+
+Schleifenwert = (20 - 4) + 20 + 20 + 17 = 73</code></pre>
+<p>Dies bedeutet: Eine Identität beginnt bei Station 4, läuft durch den
+Rest des ersten Kreises, durch zwei volle weitere Kreise und endet im
+vierten Umlauf bei Station 17. Die Währungseinheit ist also die
+zurückgelegte, gestapelte Iterationsdistanz.</p>
+<hr />
+<h2 id="die-zwei-planetentypen">2. Die zwei Planetentypen</h2>
+<p>Das System unterscheidet Kreislaufklassen nach Planetentyp.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Planetentyp</th>
+<th style="text-align: right;">Symbol</th>
+<th style="text-align: right;">Kreislauflänge</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Erde-Typ</td>
+<td style="text-align: right;"><code>EarthType</code></td>
+<td style="text-align: right;"><code>N = 20</code></td>
+<td>Biologisch-geologischer Kreislauf bis Station 20</td>
+</tr>
+<tr>
+<td>Vulkan-Typ</td>
+<td style="text-align: right;"><code>VulcanType</code></td>
+<td style="text-align: right;"><code>N = 22</code></td>
+<td>Erweiterter vulkanischer Kreislauf bis Station 22</td>
+</tr>
+</tbody>
+</table>
+<p>Wichtig: Station 21 und 22 erweitern nicht rückwirkend den Erde-Typ.
+Sie gehören zum Vulkan-Typ. Deshalb bleibt die Erdrechnung mit
+<code>N = 20</code> gültig.</p>
+<p>Für denselben Start-Ende-Fall gilt:</p>
+<pre class="text"><code>Erde-Typ:    (4 - 1) * 20 + (17 - 4) = 73
+Vulkan-Typ:  (4 - 1) * 22 + (17 - 4) = 79</code></pre>
+<p>Die Währung ist also <strong>planetentypabhängig</strong>.</p>
+<hr />
+<h2 id="stationsalphabet-des-erde-typs">3. Stationsalphabet des
+Erde-Typs</h2>
+<p>Der Erde-Typ besitzt 20 Stationen. Jede Station ist gleichzeitig
+biologische Phase, ökonomischer Zustand, Zeichenform und
+Buchhaltungsposition.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Nr.</th>
+<th>Buchstabe</th>
+<th>Form</th>
+<th>Kurzname</th>
+<th>Ökonomische Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>A</td>
+<td>Punkt</td>
+<td>Befruchtung</td>
+<td>Beginn einer neuen Identität; Pollination, Fecundation,
+Samenimpuls</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>B</td>
+<td>Linie</td>
+<td>Samen</td>
+<td>Potenzial, Lagerung, Transport, Keimfähigkeit</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>C</td>
+<td>Dreieck</td>
+<td>Keimling</td>
+<td>Austritt des Lebens aus dem Potenzial; Sprossen, erste
+Verwurzelung</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>D</td>
+<td>Quadrat</td>
+<td>Wachstum</td>
+<td>Grüne Pflanze, Aufbau von Biomasse, photosynthetischer Wert</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>E</td>
+<td>Pentagramm</td>
+<td>Dünger-Wachstum</td>
+<td>Gülle, Mist, Mulch, Holz, höheres Wachstum, Bodenfruchtbarkeit</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>F</td>
+<td>Hexagramm</td>
+<td>Blüte</td>
+<td>Blume, Blüte, Reifezeichen, Fortpflanzungsfähigkeit</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>G</td>
+<td>Heptagramm</td>
+<td>Ernte</td>
+<td>Herausreißen, Schneiden, Sammeln, Erntegut</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>H</td>
+<td>Oktagramm</td>
+<td>Essen</td>
+<td>Ernährung, Füttern, Konsum, Aufnahme durch Lebewesen</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>I</td>
+<td>Nonagramm</td>
+<td>Fleisch/Wesen</td>
+<td>Tier, Mensch, Volk, Kreatur, Körperaufbau aus Nahrung</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>J</td>
+<td>Dekagramm</td>
+<td>Einpassung</td>
+<td>Einfügen in anderes Leben, Koexistenz, ökologische Rollen</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>K</td>
+<td>Hendekagramm</td>
+<td>Produktionskette</td>
+<td>Nahrungskette und Produktionskette: Korn, Müller, Mehl, Bäcker,
+Brot, Markt, Konsum</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>L</td>
+<td>Dodekagramm</td>
+<td>Verdauung</td>
+<td>Magen, Verdauung, Umwandlung von Nahrung in Körper und
+Reststoff</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>M</td>
+<td>Triskaidekagramm</td>
+<td>Gülle/Kot</td>
+<td>Ausscheidung, Gülle, Kot, Mikrobenfutter, organische Rückgabe</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>N</td>
+<td>Tetrakaidekagramm</td>
+<td>Kreislaufwirtschaft</td>
+<td>Tiere, Pflanzen, Mikroben, Erde, Boden, Wiederholung, Kreis,
+Schleife, Gesetze</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>O</td>
+<td>Pentadekagramm</td>
+<td>Zersetzung</td>
+<td>Degradation, Rückführung, Zersetzen, Auflösen, Zurückkehren</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td>P</td>
+<td>Hexadekagramm</td>
+<td>Chemische Reaktion</td>
+<td>Reagieren, Transformieren, Elementwechsel, chemische Neuordnung</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td>Q</td>
+<td>Heptadekagramm</td>
+<td>Rückintegration</td>
+<td>Assimilation, Einbettung, Rückführung in den Kreislauf</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td>R</td>
+<td>Oktadekagramm</td>
+<td>Tod/Mikroben</td>
+<td>Totes Leben, Mikrobenfutter, organische Restidentität</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td>S</td>
+<td>Nonadekagramm</td>
+<td>Erde/Boden/Planet</td>
+<td>Boden, Erde, Planet Erde innerhalb der Sonne/Sol-Ordnung</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td>T</td>
+<td>Ikosigramm</td>
+<td>Hitze/Lava</td>
+<td>Tiefe geologische Energie, Hitze, Lava, Wärmestrom, planetare
+Grundkraft</td>
+</tr>
+</tbody>
+</table>
+<p>Station 20 ist beim Erde-Typ die Grenzstation. Danach springt der
+Kreislauf wieder zu Station 1 zurück.</p>
+<hr />
+<h2 id="zusatzstationen-des-vulkan-typs">4. Zusatzstationen des
+Vulkan-Typs</h2>
+<p>Der Vulkan-Typ übernimmt die ersten 20 Stationen, öffnet aber nach
+Station 20 zwei zusätzliche geologisch-vulkanische Stationen.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Nr.</th>
+<th>Buchstabe</th>
+<th>Form</th>
+<th>Kurzname</th>
+<th>Ökonomische Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">21</td>
+<td>U</td>
+<td>Henaikosigramm</td>
+<td>Vulkanasche</td>
+<td>Vulkan, Asche, eruptive Mineralfreisetzung, planetare Tiefenmaterie
+an der Oberfläche</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td>V</td>
+<td>Dyoikosigramm</td>
+<td>Mineralische Neuordnung</td>
+<td>Abkühlung, Gesteinsbildung, Asche-zu-Boden-Substrat, neue
+mineralische Fruchtbarkeit</td>
+</tr>
+</tbody>
+</table>
+<p>Station 22 wird hier als <strong>mineralische Neuordnung</strong>
+gesetzt, weil der Vulkan-Typ erst geschlossen ist, wenn Hitze, Lava und
+Asche wieder zu einem tragenden Substrat für neue Kreisläufe werden.
+Falls später eine andere Definition für <code>V</code> festgelegt wird,
+kann diese Station ersetzt werden, ohne die übrige Systemlogik zu
+ändern.</p>
+<hr />
+<h2 id="die-währung-schleifen-geld">5. Die Währung: Schleifen-Geld</h2>
+<h3 id="basiseinheit">5.1 Basiseinheit</h3>
+<p>Die Basiseinheit heißt hier:</p>
+<pre class="text"><code>SG = Schleifen-Geld</code></pre>
+<p>Ein <code>SG</code> ist ein gezählter, verifizierter Schritt einer
+Identität durch einen Planetenkreislauf.</p>
+<p>Die rohe Währungsformel lautet:</p>
+<pre class="text"><code>SG_roh = (r - 1) * N + e - s</code></pre>
+<p>Dabei gilt:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>N</code></td>
+<td>Kreislauflänge des Planetentyps: Erde = 20, Vulkan = 22</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Startstation</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Endstation</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>Wiederholungszahl / Umlauf, in dem die Endstation erreicht wird</td>
+</tr>
+<tr>
+<td><code>SG_roh</code></td>
+<td>rohe Schleifenwährung als Iterationsdistanz</td>
+</tr>
+</tbody>
+</table>
+<p>Die Formel zählt <strong>Übergänge</strong>, nicht die Anzahl
+besuchter Stationen inklusive Startpunkt. Deshalb ergibt dein Beispiel
+<code>73</code> und nicht <code>74</code>.</p>
+<h3 id="gültigkeitsbedingung">5.2 Gültigkeitsbedingung</h3>
+<pre class="text"><code>SG_roh &gt;= 0</code></pre>
+<p>Wenn der Endpunkt vor dem Startpunkt liegt, muss die
+Wiederholungszahl entsprechend größer sein. Beispiel Erde-Typ:</p>
+<pre class="text"><code>Start = 17
+Ende = 4
+r = 1
+SG_roh = (1 - 1) * 20 + 4 - 17 = -13  → ungültig
+
+Start = 17
+Ende = 4
+r = 2
+SG_roh = (2 - 1) * 20 + 4 - 17 = 7    → gültig</code></pre>
+<h3 id="lokale-und-universelle-einheit">5.3 Lokale und universelle
+Einheit</h3>
+<p>Da Erde und Vulkan unterschiedliche Kreislauflängen haben, gibt es
+zwei Ebenen:</p>
+<pre class="text"><code>Lokales SG:       rohe Schritte im lokalen Planetentyp
+Universelle UKE:  SG_roh / N</code></pre>
+<p><code>UKE</code> bedeutet <strong>Universelle
+Kreislauf-Einheit</strong>. Sie misst, wie viele volle
+Kreislaufäquivalente eine Bewegung ausdrückt.</p>
+<p>Beispiel:</p>
+<pre class="text"><code>Erde:   73 / 20 = 3,65 UKE
+Vulkan: 79 / 22 = 3,5909 UKE</code></pre>
+<p>Das lokale Geld zählt reale Schritte; die universelle Einheit
+ermöglicht Vergleich und Handel zwischen Planetentypen.</p>
+<hr />
+<h2 id="die-gestapelte-for-schleife">6. Die gestapelte
+<code>for</code>-Schleife</h2>
+<p>Eine einfache Schleife verfolgt eine Identität von Start zu Ende.
+Eine Wirtschaft besteht aber nie aus nur einer Identität. Brot enthält
+Korn, Boden, Wasser, Arbeit, Feuer, Verdauung, Kot, Mikroben und
+Rückführung. Deshalb ist die Währung <strong>gestapelt</strong>.</p>
+<p>Ein Stack besteht aus mehreren verifizierten Kreisläufen:</p>
+<pre class="text"><code>CycleStack = [
+  Schleife der Pflanze,
+  Schleife des Bodens,
+  Schleife des Menschen/Tiers,
+  Schleife der Mikroben,
+  Schleife der Produktionskette,
+  Schleife der Energie,
+  Schleife der Rückintegration
+]</code></pre>
+<p>Die gestapelte Währung lautet:</p>
+<pre class="text"><code>SG_stack = Σ (SG_roh_i * M_i * Q_i * U_i * G_i)</code></pre>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Faktor</th>
+<th>Name</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SG_roh_i</code></td>
+<td>Schleifendistanz</td>
+<td>Iterationsdistanz der einzelnen Identität</td>
+</tr>
+<tr>
+<td><code>M_i</code></td>
+<td>Materialfaktor</td>
+<td>standardisierte Menge: Masse, Energie, Fläche oder Nährwert</td>
+</tr>
+<tr>
+<td><code>Q_i</code></td>
+<td>Qualitätsfaktor</td>
+<td>Reinheit, Fruchtbarkeit, Gesundheit, Schadstofffreiheit</td>
+</tr>
+<tr>
+<td><code>U_i</code></td>
+<td>Nutzenfaktor</td>
+<td>tatsächlicher Beitrag zu Ernährung, Boden, Leben, Infrastruktur</td>
+</tr>
+<tr>
+<td><code>G_i</code></td>
+<td>Gerechtigkeitsfaktor</td>
+<td>faire Arbeit, kein Raub, keine Zerstörung, rechtmäßige Teilhabe</td>
+</tr>
+</tbody>
+</table>
+<p>Ohne diese Faktoren wäre das System anfällig für leere Schleifen: Man
+könnte Dinge sinnlos im Kreis bewegen, nur um Geld zu erzeugen. Die
+Faktoren verhindern Schleifenbetrug. Nur nützliche, materielle,
+nachgewiesene und gerechte Kreisbewegung erzeugt vollwertiges Geld.</p>
+<hr />
+<h2 id="identität-als-buchhaltungskern">7. Identität als
+Buchhaltungskern</h2>
+<p>Das System rechnet nicht nur mit Waren, sondern mit
+<strong>Identitäten</strong>.</p>
+<p>Eine Identität kann sein:</p>
+<ul>
+<li>ein Samenbatch,</li>
+<li>ein Feld,</li>
+<li>ein Komposthaufen,</li>
+<li>ein Tierkörper,</li>
+<li>ein Brotteig,</li>
+<li>ein Sack Mehl,</li>
+<li>ein Mikrobenkultur-Ansatz,</li>
+<li>ein Bodenvolumen,</li>
+<li>ein Wärmestrom,</li>
+<li>ein Vulkanasche-Substrat.</li>
+</ul>
+<p>Identität bedeutet nicht, dass die Form gleich bleibt. Ein Samen kann
+Pflanze, Korn, Brot, Körper, Kot, Mikrobenfutter und Bodenbestandteil
+werden. Die Identität bleibt als nachvollziehbare Transformationslinie
+erhalten.</p>
+<p>Jede Identität erhält einen <strong>Kreislaufpass</strong>:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identity_id</span><span class="kw">:</span><span class="at"> soil-batch-00071</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planet_type</span><span class="kw">:</span><span class="at"> EarthType</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cycle_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">current_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">17</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">previous_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">13</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">repetition</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">raw_value</span><span class="kw">:</span><span class="at"> </span><span class="dv">73</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mass_reference</span><span class="kw">:</span><span class="at"> 1000 kg organic matter</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">quality_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.91</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">use_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.88</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">governance_factor</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.00</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">status</span><span class="kw">:</span><span class="at"> verified</span></span></code></pre></div>
+<hr />
+<h2 id="geldschöpfung">8. Geldschöpfung</h2>
+<h3 id="grundregel">8.1 Grundregel</h3>
+<p>Geld wird geschaffen, wenn eine Identität eine verifizierte Strecke
+im Kreislauf vollendet.</p>
+<pre class="text"><code>Keine Rückführung → keine volle Geldschöpfung.
+Keine Prüfung → keine öffentliche Anerkennung.
+Keine Nützlichkeit → kein voller Wert.
+Schädigung des Kreislaufs → Schuld statt Geld.</code></pre>
+<h3 id="drei-formen-der-geldschöpfung">8.2 Drei Formen der
+Geldschöpfung</h3>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Name</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Vollendetes SG</td>
+<td>Geld nach nachgewiesener Transformation</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Vorfinanziertes SG</td>
+<td>Kredit auf erwartete Transformation</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Reparatur-SG</td>
+<td>Geld für Heilung beschädigter Kreisläufe</td>
+</tr>
+</tbody>
+</table>
+<p>Vollendetes SG ist am stärksten. Vorfinanziertes SG ist riskant und
+muss bei Nichterfüllung in Kreislaufschuld umgewandelt werden.
+Reparatur-SG entsteht, wenn beschädigte Böden, Wasserläufe, Abfallströme
+oder soziale Produktionsketten wieder integrierbar gemacht werden.</p>
+<hr />
+<h2 id="kreislaufschuld">9. Kreislaufschuld</h2>
+<p>In einer linearen Wirtschaft wird Abfall oft ausgelagert. In dieser
+Wirtschaft wird Abfall als Schuld gebucht.</p>
+<p>Kreislaufschuld entsteht, wenn:</p>
+<ul>
+<li>Materie aus dem Kreislauf entfernt wird,</li>
+<li>Schadstoffe die Rückintegration blockieren,</li>
+<li>Arbeit ausgebeutet wird,</li>
+<li>Bodenfruchtbarkeit sinkt,</li>
+<li>Nahrung konsumiert wird, ohne dass Rückführung organisiert ist,</li>
+<li>Wärme, Chemie oder Gülle zerstörerisch statt regenerativ
+wirken.</li>
+</ul>
+<p>Formel:</p>
+<pre class="text"><code>Schuld = nicht_rückgeführter_SG_Wert * Schadensfaktor * Zeitfaktor</code></pre>
+<p>Je länger eine Identität außerhalb des Kreislaufs bleibt, desto
+größer wird die Schuld. Das zwingt die Wirtschaft, Entsorgung,
+Kompostierung, Verdauung, Mikrobenarbeit und chemische Rückführung als
+echte wirtschaftliche Vorgänge zu behandeln.</p>
+<hr />
+<h2 id="preise">10. Preise</h2>
+<p>Der Preis einer Ware ist nicht nur Angebot und Nachfrage. Er ist die
+Summe ihrer Kreislaufarbeit, ihrer Produktionsarbeit und ihrer Schäden
+oder Heilungen.</p>
+<pre class="text"><code>Preis = Betriebskosten
+      + gestapeltes SG
+      + Risikoaufschlag
+      + Knappheitsaufschlag
+      + Austrittsstrafe
+      - Regenerationsgutschrift</code></pre>
+<h3 id="beispiel-brot">Beispiel: Brot</h3>
+<p>Ein Brot durchläuft mehrere Stationen:</p>
+<pre class="text"><code>2  Samen
+3  Keimling
+4  Wachstum
+6  Blüte
+7  Ernte
+11 Produktionskette: Korn → Müller → Mehl → Bäcker → Brot → Markt
+8  Essen
+12 Verdauung
+13 Kot/Gülle
+15 Zersetzung
+17 Rückintegration</code></pre>
+<p>Ein Brot ist wirtschaftlich wertvoller, wenn nach dem Essen auch die
+Stationen 12, 13, 15 und 17 organisiert sind. Ein System mit
+Komposttoiletten, Biogas, hygienischer Nährstoffrückführung oder
+Tiermist kann also echte Rückführungswährung erzeugen. Ein System, das
+alles als Abfall behandelt, erzeugt Kreislaufschuld.</p>
+<hr />
+<h2 id="arbeit-und-lohn">11. Arbeit und Lohn</h2>
+<p>Lohn wird nicht nur für Zeit bezahlt, sondern für
+<strong>Kreislaufbewegung</strong>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Arbeit</th>
+<th>Typischer Kreislaufbeitrag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bauer</td>
+<td>Station 2–7, 13–17, Bodenfruchtbarkeit</td>
+</tr>
+<tr>
+<td>Müller</td>
+<td>Station 11, Umwandlung von Korn zu Mehl</td>
+</tr>
+<tr>
+<td>Bäcker</td>
+<td>Station 11, Umwandlung von Mehl zu Brot</td>
+</tr>
+<tr>
+<td>Händler</td>
+<td>Station 11, Verteilung ohne Identitätsverlust</td>
+</tr>
+<tr>
+<td>Koch</td>
+<td>Station 8, nützliche Aufnahmefähigkeit der Nahrung</td>
+</tr>
+<tr>
+<td>Pfleger</td>
+<td>Station 8–12, Ernährung und Körpererhaltung</td>
+</tr>
+<tr>
+<td>Sanitärarbeiter</td>
+<td>Station 12–15, sichere Rückführung von Ausscheidungen</td>
+</tr>
+<tr>
+<td>Kompostmeister</td>
+<td>Station 13–17, Mikroben- und Bodenarbeit</td>
+</tr>
+<tr>
+<td>Chemiker</td>
+<td>Station 16, sichere Reaktion und Schadstoffkontrolle</td>
+</tr>
+<tr>
+<td>Geologe/Vulkanarbeiter</td>
+<td>Station 20–22 bei Vulkan-Typen</td>
+</tr>
+<tr>
+<td>Richter/Validator</td>
+<td>Station 14, Gesetz, Gerechtigkeit, Signale, Kommunikation</td>
+</tr>
+</tbody>
+</table>
+<p>Dadurch werden Tätigkeiten aufgewertet, die in linearen Ökonomien oft
+unsichtbar sind: Pflege, Verdauungsinfrastruktur, Kompostierung,
+Mikrobenarbeit, Bodenarbeit und Rückintegration.</p>
+<hr />
+<h2 id="eigentum">12. Eigentum</h2>
+<p>Eigentum ist in dieser Wirtschaft kein absolutes Recht zur
+Zerstörung. Eigentum ist ein <strong>Nutzungsrecht mit
+Rückführungspflicht</strong>.</p>
+<p>Man darf eine Identität besitzen, bearbeiten, verkaufen oder
+konsumieren. Aber wer eine Identität aus dem Kreislauf nimmt, muss ihre
+Rückführung bezahlen oder organisieren.</p>
+<p>Es gibt drei Eigentumsarten:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Eigentum</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Privates Nutzungsrecht</td>
+<td>Eine Person oder Organisation darf eine Identität nutzen</td>
+</tr>
+<tr>
+<td>Kreislaufpflicht</td>
+<td>Die Identität muss rückführbar bleiben</td>
+</tr>
+<tr>
+<td>Gemeingut-Anteil</td>
+<td>Boden, Wasser, Luft, Mikroben und planetare Stabilität bleiben
+teilweise öffentlich</td>
+</tr>
+</tbody>
+</table>
+<p>Boden ist deshalb nie vollständig bloß privates Kapital. Er ist
+Produktionsmittel, Lebensgrundlage und Kreislaufspeicher zugleich.</p>
+<hr />
+<h2 id="banken-und-kredit">13. Banken und Kredit</h2>
+<p>Banken heißen in diesem System <strong>Kreislaufbanken</strong>.</p>
+<p>Sie vergeben keinen Kredit nur gegen Sicherheiten, sondern gegen
+plausible künftige Kreisläufe.</p>
+<p>Ein Kreditvertrag enthält:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">borrower</span><span class="kw">:</span><span class="at"> cooperative-farm-12</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planet_type</span><span class="kw">:</span><span class="at"> EarthType</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">start_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">planned_end_station</span><span class="kw">:</span><span class="at"> </span><span class="dv">17</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">planned_repetition</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expected_raw_SG</span><span class="kw">:</span><span class="at"> </span><span class="dv">55</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">collateral</span><span class="kw">:</span><span class="at"> seed stock + compost contract + harvest insurance</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">verification</span><span class="kw">:</span><span class="at"> field audit + mass balance + soil test</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">failure_mode</span><span class="kw">:</span><span class="at"> converts to cycle debt</span></span></code></pre></div>
+<p>Zins wird nicht als unendliche Geldvermehrung verstanden, sondern als
+<strong>Rhythmusprämie</strong>:</p>
+<pre class="text"><code>Rhythmusprämie = Risiko + Wartezeit + Organisationsaufwand + Ausfallwahrscheinlichkeit</code></pre>
+<p>Zinseszins ohne realen Kreislauffortschritt wird begrenzt, weil er
+Geld von Materie entkoppeln würde.</p>
+<hr />
+<h2 id="märkte">14. Märkte</h2>
+<p>Es gibt nicht nur einen Warenmarkt, sondern Stationsmärkte.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Markt</th>
+<th>Gehandelt wird</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A/B-Markt</td>
+<td>Befruchtung, Saatgut, genetische und ökologische Startfähigkeit</td>
+</tr>
+<tr>
+<td>C/D-Markt</td>
+<td>Keimlinge, Jungpflanzen, Wachstumsdienstleistungen</td>
+</tr>
+<tr>
+<td>E-Markt</td>
+<td>Dünger, Gülle, Mulch, Mist, Bodenaufbau</td>
+</tr>
+<tr>
+<td>F/G-Markt</td>
+<td>Blüte, Ernte, Reife, Erntearbeit</td>
+</tr>
+<tr>
+<td>H/I-Markt</td>
+<td>Nahrung, Fütterung, Ernährung, Körperaufbau</td>
+</tr>
+<tr>
+<td>K-Markt</td>
+<td>Produktionsketten: Müller, Bäcker, Händler, Marktlogistik</td>
+</tr>
+<tr>
+<td>L/M-Markt</td>
+<td>Verdauung, Sanitärsysteme, Gülle, Kot, Biogas</td>
+</tr>
+<tr>
+<td>N/O/P/Q-Markt</td>
+<td>Kreislaufwirtschaft, Zersetzung, Chemie, Rückintegration</td>
+</tr>
+<tr>
+<td>R/S/T-Markt</td>
+<td>Tod, Boden, Erde, geologische Energie</td>
+</tr>
+<tr>
+<td>U/V-Markt</td>
+<td>Vulkanasche, Mineralfruchtbarkeit, geologische Neuordnung</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Märkte machen sichtbar, wo eine Wirtschaft stark oder schwach
+ist. Eine Gesellschaft mit viel Nahrung, aber schlechter Station 13–17
+ist reich im Konsum und arm in Rückführung.</p>
+<hr />
+<h2 id="staat-recht-und-gerechtigkeit">15. Staat, Recht und
+Gerechtigkeit</h2>
+<p>Station 14 enthält ausdrücklich Gesetze, Gerechtigkeit, Signale und
+Kommunikation. Deshalb ist Recht kein äußerer Zusatz, sondern ein
+innerer Bestandteil des Kreislaufs.</p>
+<p>Das politische System hat drei Kammern:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Kammer</th>
+<th>Aufgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biologische Kammer</td>
+<td>Prüft Stoffflüsse, Boden, Mikroben, Gesundheit, ökologische
+Wahrheit</td>
+</tr>
+<tr>
+<td>Ökonomische Kammer</td>
+<td>Prüft Preise, Arbeitsteilung, Effizienz, Versorgung</td>
+</tr>
+<tr>
+<td>Gerechtigkeitskammer</td>
+<td>Prüft Rechte, Ausbeutung, Zugang, Konflikte, Würde</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Vorgang ist nur vollwertig, wenn alle drei Kammern ihn
+grundsätzlich anerkennen können.</p>
+<h3 id="grundrechte">Grundrechte</h3>
+<ol type="1">
+<li>Recht auf Nahrung.</li>
+<li>Recht auf sichere Rückführung von Ausscheidungen und Abfällen.</li>
+<li>Recht auf Zugang zu Boden- oder Kreislaufinfrastruktur.</li>
+<li>Recht auf faire Bezahlung von Rückführungsarbeit.</li>
+<li>Recht auf Schutz vor giftiger Kreislaufschuld anderer.</li>
+<li>Recht auf Transparenz über die Kreislaufbilanz wichtiger Güter.</li>
+</ol>
+<hr />
+<h2 id="steuern">16. Steuern</h2>
+<p>Steuern sind Rückführungsinstrumente.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Steuer</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Austrittssteuer</td>
+<td>Belastet Materie, die den Kreislauf verlässt</td>
+</tr>
+<tr>
+<td>Schadstoffsteuer</td>
+<td>Belastet Stoffe, die Rückintegration erschweren</td>
+</tr>
+<tr>
+<td>Bodenrente</td>
+<td>Öffentlicher Anteil an Bodenfruchtbarkeit und Standortvorteilen</td>
+</tr>
+<tr>
+<td>Entropieabgabe</td>
+<td>Belastet irreversible Zerstreuung von Energie und Materie</td>
+</tr>
+<tr>
+<td>Reparaturabgabe</td>
+<td>Finanziert Heilung historischer Schäden</td>
+</tr>
+</tbody>
+</table>
+<p>Es gibt auch negative Steuern, also Gutschriften:</p>
+<table>
+<thead>
+<tr>
+<th>Gutschrift</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kompostdividende</td>
+<td>Für saubere organische Rückführung</td>
+</tr>
+<tr>
+<td>Bodenaufbauprämie</td>
+<td>Für messbar bessere Fruchtbarkeit</td>
+</tr>
+<tr>
+<td>Mikrobenbonus</td>
+<td>Für gesunde mikrobielle Aktivität</td>
+</tr>
+<tr>
+<td>Wasserreinheitsbonus</td>
+<td>Für Rückführung ohne Gewässerverschmutzung</td>
+</tr>
+<tr>
+<td>Sozialbonus</td>
+<td>Für faire Arbeitsketten</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="außenhandel-zwischen-planetentypen">17. Außenhandel zwischen
+Planetentypen</h2>
+<p>Da unterschiedliche Planetentypen unterschiedliche Kreislauflängen
+haben, braucht Außenhandel zwei Werte:</p>
+<pre class="text"><code>Lokaler Wert = SG_roh
+Universeller Wert = SG_roh / N</code></pre>
+<p>Ein Erde-Typ-Produkt mit <code>73 SG</code> besitzt:</p>
+<pre class="text"><code>73 / 20 = 3,65 UKE</code></pre>
+<p>Ein Vulkan-Typ-Produkt mit <code>79 SG</code> besitzt:</p>
+<pre class="text"><code>79 / 22 = 3,5909 UKE</code></pre>
+<p>Handel kann auf drei Arten stattfinden:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Methode</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rohschritt-Handel</td>
+<td>Jeder Schritt zählt gleich; gut für lokale Buchhaltung</td>
+</tr>
+<tr>
+<td>UKE-Handel</td>
+<td>Volle Kreislaufäquivalente werden verglichen; gut für
+interplanetaren Handel</td>
+</tr>
+<tr>
+<td>Materiequalitäts-Handel</td>
+<td>Qualität, Seltenheit und Rückführbarkeit entscheiden zusätzlich</td>
+</tr>
+</tbody>
+</table>
+<p>Vulkan-Typen dürfen ihren 22er-Zyklus nicht benutzen, um
+Erde-Typ-Werte künstlich zu überhöhen. Umgekehrt dürfen Erde-Typen
+Vulkanasche oder Mineralfruchtbarkeit nicht wie normale 20er-Ware
+behandeln, wenn deren Kreislauf tatsächlich 22 Stationen umfasst.</p>
+<hr />
+<h2 id="inflation-und-geldstabilität">18. Inflation und
+Geldstabilität</h2>
+<p>Inflation entsteht, wenn mehr SG ausgegeben wird, als reale
+Kreisläufe tragen können.</p>
+<p>Das System verhindert Inflation durch:</p>
+<ol type="1">
+<li><strong>Verifikation:</strong> Geld nur für nachweisbare
+Transformation.</li>
+<li><strong>Massenbilanz:</strong> Materie darf nicht mehrfach voll
+gezählt werden.</li>
+<li><strong>Qualitätsprüfung:</strong> Schlechte Rückführung erhält
+weniger Wert.</li>
+<li><strong>Planetare Budgets:</strong> Böden, Wasser, Nahrung und Wärme
+haben Belastungsgrenzen.</li>
+<li><strong>Entwerten leerer Schleifen:</strong> Sinnloses
+Hin-und-Her-Bewegen erzeugt keinen Nutzenfaktor.</li>
+<li><strong>Kreislaufschuld:</strong> Schäden werden nicht versteckt,
+sondern gegengebucht.</li>
+</ol>
+<p>Deflation entsteht, wenn zu wenige Kreisläufe finanziert werden.
+Dagegen helfen öffentliche Investitionen in Boden, Wasser, Kompost,
+Saatgut, Reparatur und Sanitärsysteme.</p>
+<hr />
+<h2 id="unternehmensrechnung">19. Unternehmensrechnung</h2>
+<p>Jedes Unternehmen führt vier Bilanzen.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bilanz</th>
+<th>Frage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Finanzbilanz</td>
+<td>Ist das Unternehmen zahlungsfähig?</td>
+</tr>
+<tr>
+<td>Materialbilanz</td>
+<td>Woher kommt Materie, wohin geht sie?</td>
+</tr>
+<tr>
+<td>Kreislaufbilanz</td>
+<td>Welche Stationen werden geschlossen, welche bleiben offen?</td>
+</tr>
+<tr>
+<td>Gerechtigkeitsbilanz</td>
+<td>Wer trägt Kosten, wer erhält Nutzen?</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Unternehmen ist nur dann gesund, wenn alle vier Bilanzen
+tragfähig sind.</p>
+<h3 id="beispiel-bäckerei">Beispiel: Bäckerei</h3>
+<p>Eine Bäckerei kauft Mehl nicht nur als Ware, sondern als Identität
+mit Kreislaufpass. Sie verkauft Brot mit Produktionskettenwert. Wenn sie
+mit einer Kompost- oder Biogasstruktur verbunden ist, kann sie
+zusätzlich Rückführungswert erzeugen. Wenn Verpackung und Abfall nicht
+rückführbar sind, entstehen Schulden.</p>
+<hr />
+<h2 id="öffentliche-grundversorgung">20. Öffentliche
+Grundversorgung</h2>
+<p>Die Gesellschaft garantiert einen Mindestkreislauf für jede
+Person:</p>
+<pre class="text"><code>Saatgut/Boden → Nahrung → Essen → Verdauung → sichere Ausscheidung → Rückführung → Boden</code></pre>
+<p>Das ist wichtiger als ein abstraktes Grundeinkommen. Geld allein
+hilft nicht, wenn Nahrung, Boden, Wasser und Rückführungssysteme
+fehlen.</p>
+<p>Deshalb gibt es eine <strong>Kreislaufgrundsicherung</strong>:</p>
+<ul>
+<li>Zugang zu Nahrung,</li>
+<li>Zugang zu Wasser,</li>
+<li>Zugang zu hygienischer Verdauungs- und
+Rückführungsinfrastruktur,</li>
+<li>Zugang zu gemeinschaftlichem Boden oder Bodenäquivalent,</li>
+<li>Zugang zu Energie für Kochen, Wärme und Transformation,</li>
+<li>Schutz vor fremder Kreislaufschuld.</li>
+</ul>
+<hr />
+<h2 id="technologie">21. Technologie</h2>
+<p>Technologie ist gut, wenn sie Kreisläufe schließt, Qualität erhöht
+oder gefährliche Übergänge sicher macht.</p>
+<p>Nützliche Technologien:</p>
+<ul>
+<li>Sensoren für Boden, Feuchte, Nährstoffe und Schadstoffe,</li>
+<li>dezentrale Kompostierung,</li>
+<li>Biogas,</li>
+<li>hygienische Nährstoffrückführung,</li>
+<li>Kreislaufpässe für Produkte,</li>
+<li>Laborprüfung von Mikroben und Chemie,</li>
+<li>Wärmerückgewinnung,</li>
+<li>regionale Produktionsketten,</li>
+<li>Datenschutztechnik für Identitätsflüsse.</li>
+</ul>
+<p>Schädliche Technologie ist Technik, die Kreislaufschuld versteckt,
+Ausbeutung verschleiert oder Rückführung unmöglich macht.</p>
+<hr />
+<h2 id="datenschutz-und-überwachung">22. Datenschutz und
+Überwachung</h2>
+<p>Da das System Identitäten verfolgt, besteht Überwachungsgefahr.
+Deshalb gilt:</p>
+<pre class="text"><code>So viel Stofffluss-Transparenz wie nötig.
+So wenig Personen-Transparenz wie möglich.</code></pre>
+<p>Produktchargen, Bodenmengen und Stoffflüsse sollen sichtbar sein.
+Private Lebensdaten, Essverhalten und Körperdaten einzelner Menschen
+dürfen nicht unnötig offengelegt werden.</p>
+<p>Mögliche Lösung:</p>
+<ul>
+<li>Chargen statt Personen verfolgen,</li>
+<li>anonyme Rückführungszertifikate,</li>
+<li>lokale Genossenschaftsprüfung,</li>
+<li>kryptographische Nachweise ohne vollständige Offenlegung,</li>
+<li>strenge Trennung von Gesundheitsdaten und
+Wirtschaftsbuchhaltung.</li>
+</ul>
+<hr />
+<h2 id="betrug-und-gegenmaßnahmen">23. Betrug und Gegenmaßnahmen</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Betrug</th>
+<th>Beschreibung</th>
+<th>Gegenmaßnahme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leerschleifen</td>
+<td>Sinnloses Bewegen zur Geldschöpfung</td>
+<td>Nutzenfaktor <code>U</code> senken</td>
+</tr>
+<tr>
+<td>Doppelzählung</td>
+<td>Gleiche Materie wird mehrfach voll gezählt</td>
+<td>Massenbilanz, Identitätspass</td>
+</tr>
+<tr>
+<td>Fake-Kompost</td>
+<td>Schadstoffbelastete Rückführung wird als fruchtbar verkauft</td>
+<td>Laborprüfung, Bodenhaftung</td>
+</tr>
+<tr>
+<td>Planetentyp-Arbitrage</td>
+<td>20er- und 22er-Zyklen werden falsch umgerechnet</td>
+<td>Pflichtangabe von <code>N</code> und UKE</td>
+</tr>
+<tr>
+<td>Ausbeutung</td>
+<td>Schleifenwert entsteht durch unterbezahlte Arbeit</td>
+<td>Gerechtigkeitsfaktor <code>G</code> senken</td>
+</tr>
+<tr>
+<td>Schadstoffversteck</td>
+<td>Gift wird in andere Regionen ausgelagert</td>
+<td>Kreislaufschuld bleibt beim Ursprung</td>
+</tr>
+<tr>
+<td>Monopol auf Boden</td>
+<td>Zugang zu Rückführung wird blockiert</td>
+<td>Gemeingut-Anteil, Bodenrente</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mathematisches-regelwerk">24. Mathematisches Regelwerk</h2>
+<h3 id="einzelwert">24.1 Einzelwert</h3>
+<pre class="text"><code>SG_roh(P, s, e, r) = (r - 1) * N(P) + e - s</code></pre>
+<p>mit:</p>
+<pre class="text"><code>N(EarthType) = 20
+N(VulcanType) = 22</code></pre>
+<h3 id="stackwert">24.2 Stackwert</h3>
+<pre class="text"><code>SG_stack = Σ_i SG_roh_i * M_i * Q_i * U_i * G_i</code></pre>
+<h3 id="universelle-vergleichseinheit">24.3 Universelle
+Vergleichseinheit</h3>
+<pre class="text"><code>UKE_i = SG_roh_i / N(P_i)</code></pre>
+<h3 id="kreislaufschuld-1">24.4 Kreislaufschuld</h3>
+<pre class="text"><code>Debt = OpenLoopValue * DamageFactor * TimeFactor</code></pre>
+<h3 id="preis">24.5 Preis</h3>
+<pre class="text"><code>Price = Cost + SG_stack + Risk + Scarcity + ExitPenalty - RegenerationCredit</code></pre>
+<h3 id="pseudocode">24.6 Pseudocode</h3>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loop_value(planet_type: <span class="bu">str</span>, start: <span class="bu">int</span>, end: <span class="bu">int</span>, repetition: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> {<span class="st">&quot;EarthType&quot;</span>: <span class="dv">20</span>, <span class="st">&quot;VulcanType&quot;</span>: <span class="dv">22</span>}[planet_type]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> (repetition <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> N <span class="op">+</span> end <span class="op">-</span> start</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;Endstation liegt vor Startstation ohne ausreichenden Umlauf&quot;</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loop_value(<span class="st">&quot;EarthType&quot;</span>, <span class="dv">4</span>, <span class="dv">17</span>, <span class="dv">4</span>))   <span class="co"># 73</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loop_value(<span class="st">&quot;VulcanType&quot;</span>, <span class="dv">4</span>, <span class="dv">17</span>, <span class="dv">4</span>))  <span class="co"># 79</span></span></code></pre></div>
+<hr />
+<h2 id="beispielrechnung-erde-typ">25. Beispielrechnung: Erde-Typ</h2>
+<p>Ein organischer Stoffstrom beginnt bei Station 4: grüne Pflanzen
+wachsen. Er endet bei Station 17: Rückintegration in den Kreislauf. Die
+Endstation wird im vierten Umlauf erreicht.</p>
+<pre class="text"><code>Planetentyp = Erde
+N = 20
+s = 4
+e = 17
+r = 4
+
+SG_roh = (4 - 1) * 20 + 17 - 4
+SG_roh = 60 + 13
+SG_roh = 73</code></pre>
+<p>Wenn die Menge 1 Standardcharge beträgt und alle Faktoren gut
+sind:</p>
+<pre class="text"><code>M = 1,00
+Q = 0,95
+U = 0,90
+G = 1,00
+
+SG_effektiv = 73 * 1,00 * 0,95 * 0,90 * 1,00
+SG_effektiv = 62,415</code></pre>
+<p>Die Wirtschaft erkennt also <code>73 SG_roh</code> als
+Schleifendistanz und <code>62,415 SG_effektiv</code> als handelbaren,
+qualitätsgewichteten Wert an.</p>
+<hr />
+<h2 id="beispielrechnung-vulkan-typ">26. Beispielrechnung:
+Vulkan-Typ</h2>
+<p>Gleicher Start, gleiches Ende, gleicher Umlauf, aber Vulkan-Typ:</p>
+<pre class="text"><code>Planetentyp = Vulkan
+N = 22
+s = 4
+e = 17
+r = 4
+
+SG_roh = (4 - 1) * 22 + 17 - 4
+SG_roh = 66 + 13
+SG_roh = 79</code></pre>
+<p>Der Vulkan-Typ hat mehr lokale Schritte. Das heißt nicht automatisch,
+dass er absolut reicher ist. Für interplanetaren Vergleich wird
+normalisiert:</p>
+<pre class="text"><code>79 / 22 = 3,5909 UKE</code></pre>
+<hr />
+<h2 id="der-sinn-des-systems">27. Der Sinn des Systems</h2>
+<p>Dieses Wirtschaftssystem korrigiert fünf Fehler linearer
+Ökonomien:</p>
+<ol type="1">
+<li><strong>Abfall wird nicht ausgelagert.</strong> Er wird als offene
+Schuld sichtbar.</li>
+<li><strong>Pflege und Rückführung werden bezahlt.</strong> Verdauung,
+Kompost, Mikroben und Bodenarbeit sind produktiv.</li>
+<li><strong>Geld wird an Wirklichkeit gebunden.</strong> Ohne
+Stofffluss, Qualität und Nutzen entsteht kein voller Wert.</li>
+<li><strong>Planetentypen werden respektiert.</strong> Erde und Vulkan
+haben verschiedene Schleifenlängen.</li>
+<li><strong>Gerechtigkeit ist eingebaut.</strong> Ausbeutung reduziert
+den Wert statt ihn zu maximieren.</li>
+</ol>
+<hr />
+<h2 id="übergangsplan-zur-einführung">28. Übergangsplan zur
+Einführung</h2>
+<h3 id="phase-1-lokale-pilotkreise">Phase 1: Lokale Pilotkreise</h3>
+<ul>
+<li>Bauernhöfe, Bäckereien, Kompostsysteme, Märkte verbinden.</li>
+<li>Erst nur Stationen 2–17 bilanzieren.</li>
+<li>Einfache Kreislaufpässe einführen.</li>
+</ul>
+<h3 id="phase-2-öffentliche-rückführungsinfrastruktur">Phase 2:
+Öffentliche Rückführungsinfrastruktur</h3>
+<ul>
+<li>Sanitärsysteme, Kompost, Biogas, Bodenlabore aufbauen.</li>
+<li>Lebensmittelpreise mit Rückführungswert ergänzen.</li>
+<li>Kreislaufschuld für nicht rückführbaren Abfall einführen.</li>
+</ul>
+<h3 id="phase-3-voller-erde-typ">Phase 3: Voller Erde-Typ</h3>
+<ul>
+<li>Alle 20 Stationen bilanzieren.</li>
+<li>Boden, Wärme, geologische Energie und langfristige Fruchtbarkeit
+einbeziehen.</li>
+<li>Öffentliche Grundversorgung als Kreislaufgrundsicherung
+etablieren.</li>
+</ul>
+<h3 id="phase-4-vulkan-typ">Phase 4: Vulkan-Typ</h3>
+<ul>
+<li>Station 21 und 22 für vulkanische oder mineralisch-eruptive Planeten
+aktivieren.</li>
+<li>Vulkanasche, mineralische Neuordnung und geologische Substrate als
+eigene Märkte führen.</li>
+<li>UKE als interplanetare Vergleichseinheit verwenden.</li>
+</ul>
+<hr />
+<h2 id="kurze-verfassung-der-universum-kreislaufwirtschaft">29. Kurze
+Verfassung der Universum-Kreislaufwirtschaft</h2>
+<ol type="1">
+<li>Alles Wirtschaften ist Bewegung von Identität durch Kreisläufe.</li>
+<li>Die Währung ist der gezählte, verifizierte und qualitätsgewichtete
+Schleifenwert.</li>
+<li>Erde-Typen haben 20 Stationen; Vulkan-Typen haben 22 Stationen.</li>
+<li>Geld entsteht durch Rückführung, nicht durch bloße Extraktion.</li>
+<li>Abfall ist offene Schuld, bis er sicher reintegriert ist.</li>
+<li>Boden, Wasser, Mikroben, Nahrung, Verdauung und Tod sind ökonomische
+Kernbereiche.</li>
+<li>Eigentum verpflichtet zur Kreislauffähigkeit.</li>
+<li>Arbeit wird nach ihrem Beitrag zur Bewegung, Erhaltung und Heilung
+des Kreislaufs bewertet.</li>
+<li>Gerechtigkeit ist Teil der Buchhaltung, nicht bloße Moral neben der
+Buchhaltung.</li>
+<li>Eine Wirtschaft ist reich, wenn ihre Kreisläufe geschlossen,
+fruchtbar, fair und wiederholbar sind.</li>
+</ol>
+<hr />
+<h2 id="kompakte-definition">30. Kompakte Definition</h2>
+<pre class="text"><code>Universum-Kreislaufwirtschaft =
+    ein Wirtschaftssystem,
+    in dem jedes Gut als Identität in einem planetentypischen Kreislauf geführt wird,
+    Geld als gestapelte for-Schleifen-Distanz entsteht,
+    Erde-Typen mit 20 Stationen und Vulkan-Typen mit 22 Stationen rechnen,
+    Preise aus Kreislaufarbeit, Qualität, Nutzen und Gerechtigkeit bestehen,
+    und Abfall als Schuld gilt, bis er in Boden, Leben oder planetare Ordnung zurückgeführt ist.</code></pre>
+</body>
+</html>

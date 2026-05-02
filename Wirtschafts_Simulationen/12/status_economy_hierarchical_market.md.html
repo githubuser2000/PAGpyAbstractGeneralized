@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>status_economy_hierarchical_market</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="status-economy-a-hierarchical-market-system">Status Economy: A
+Hierarchical Market System</h1>
+<p>This model does <strong>not</strong> abolish markets. The correction
+is important: the market remains, but the market is no longer based on
+flat money alone. The market itself is converted into hierarchy, and
+hierarchy becomes the currency.</p>
+<p>In such a system, money is not the deepest economic unit. Money is
+only a numerical projection of hierarchy. The real unit of trade is a
+structured hierarchy bundle: a ranked combination of rights, privileges,
+duties, disadvantages, access levels, product claims, office claims,
+market claims, and social position.</p>
+<p>A normal currency says only: <strong>how much</strong>.</p>
+<p>A hierarchy currency says: <strong>how much, of what kind, at what
+level, with which rights, with which duties, with which access
+restrictions, and with which social rank</strong>.</p>
+<p>The system is therefore not anti-market. It is a <strong>hierarchical
+market economy</strong>: everything can be traded, but everything is
+traded as hierarchy.</p>
+<h2 id="the-basic-idea">1. The Basic Idea</h2>
+<p>Every person, company, product, market, institution, country, colony,
+and strategic asset has a hierarchy position. This hierarchy position
+can be converted into a number, but the number is only a compression of
+the full hierarchy.</p>
+<p>The hierarchy contains more information than a flat price. A price
+can tell us that something costs 100 units. A hierarchy tells us whether
+those 100 units are basic consumer access, elite housing access,
+military command access, scientific authority, media reach, legal
+privilege, risk burden, labor obligation, market-entry permission, or
+solar-system-level strategic control.</p>
+<p>That is the decisive difference.</p>
+<p>The system still has trade. It still has buying and selling. It still
+has markets. But instead of trading only money against goods, actors
+trade hierarchy against hierarchy.</p>
+<p>A transaction is not simply:</p>
+<pre class="text"><code>money -&gt; product</code></pre>
+<p>It is closer to:</p>
+<pre class="text"><code>hierarchy bundle A -&gt; hierarchy bundle B</code></pre>
+<p>For example:</p>
+<pre class="text"><code>engineering contribution + risk duty + service time
+-&gt; housing privilege + product access + status credit + future promotion claim</code></pre>
+<p>Or:</p>
+<pre class="text"><code>market-entry right + supply-chain privilege + regional product license
+-&gt; strategic production obligation + tax claim + hierarchy credit</code></pre>
+<p>The market is therefore not removed. It is deepened.</p>
+<h2 id="hierarchy-as-currency">2. Hierarchy as Currency</h2>
+<p>The currency of the system is hierarchy itself. However, for
+settlement, accounting, and comparison, hierarchy can always be
+converted into a number.</p>
+<p>A simple representation is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><msub><mi>h</mi><mn>1</mn></msub><mo>,</mo><msub><mi>q</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>2</mn></msub><mo>,</mo><msub><mi>h</mi><mn>2</mn></msub><mo>,</mo><msub><mi>q</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>n</mi></msub><mo>,</mo><msub><mi>h</mi><mi>n</mi></msub><mo>,</mo><msub><mi>q</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+H(X) = \{(e_1,h_1,q_1), (e_2,h_2,q_2), ..., (e_n,h_n,q_n)\}
+</annotation></semantics></math></p>
+<p>Where:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+<td>the person, product, company, market, privilege, or asset being
+valued</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>i</mi></msub><annotation encoding="application/x-tex">e_i</annotation></semantics></math></td>
+<td>a hierarchy element</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mi>i</mi></msub><annotation encoding="application/x-tex">h_i</annotation></semantics></math></td>
+<td>the height or rank level of that element</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mi>i</mi></msub><annotation encoding="application/x-tex">q_i</annotation></semantics></math></td>
+<td>the quantity, intensity, or strength of that element</td>
+</tr>
+</tbody>
+</table>
+<p>The numerical value can then be calculated as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>q</mi><mi>i</mi></msub><mo>⋅</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>M</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>h</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+N(X) = \sum_i q_i \cdot V(e_i) \cdot M(h_i)
+</annotation></semantics></math></p>
+<p>Where:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">N(X)</annotation></semantics></math></td>
+<td>numerical hierarchy value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(e_i)</annotation></semantics></math></td>
+<td>base value of the hierarchy element</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>h</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">M(h_i)</annotation></semantics></math></td>
+<td>multiplier based on hierarchy height</td>
+</tr>
+</tbody>
+</table>
+<p>In the simplest version, the number is built by <strong>adding
+hierarchy elements</strong> and <strong>multiplying them by a height
+multiplier</strong>.</p>
+<p>So the system could also be written as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>E</mi><mi>k</mi></msub><mo>⋅</mo><msub><mi>M</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">
+N = \sum_k E_k \cdot M_k
+</annotation></semantics></math></p>
+<p>Where:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>k</mi></msub><annotation encoding="application/x-tex">E_k</annotation></semantics></math></td>
+<td>number or weighted amount of hierarchy elements at level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>M</mi><mi>k</mi></msub><annotation encoding="application/x-tex">M_k</annotation></semantics></math></td>
+<td>multiplier for hierarchy level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<table>
+<thead>
+<tr>
+<th>Hierarchy level</th>
+<th>Meaning</th>
+<th style="text-align: right;">Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>basic access</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>local privilege</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>regional command or scarce access</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>planetary strategic importance</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr>
+<td>5</td>
+<td>solar-system mission importance</td>
+<td style="text-align: right;">2,000</td>
+</tr>
+</tbody>
+</table>
+<p>If an actor has 10 hierarchy elements at level 2 and 3 hierarchy
+elements at level 4, then:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>10</mn><mo>⋅</mo><mn>5</mn><mo>+</mo><mn>3</mn><mo>⋅</mo><mn>200</mn><mo>=</mo><mn>650</mn></mrow><annotation encoding="application/x-tex">
+N = 10 \cdot 5 + 3 \cdot 200 = 650
+</annotation></semantics></math></p>
+<p>But the actor does not merely have “650 units.” The actor has:</p>
+<pre class="text"><code>10 local privilege elements + 3 planetary strategic elements</code></pre>
+<p>That is much more precise than ordinary money.</p>
+<h2 id="why-hierarchy-says-more-than-money">3. Why Hierarchy Says More
+Than Money</h2>
+<p>Flat money is highly flexible, but it is semantically poor. It tells
+the system that two things have the same price, but not whether they
+have the same social meaning, strategic meaning, moral weight, risk, or
+institutional function.</p>
+<p>Hierarchy is less flat but more informative.</p>
+<p>Two assets can have the same numerical value while being very
+different as hierarchy bundles.</p>
+<p>Example:</p>
+<pre class="text"><code>A = 500 units of elite housing access
+B = 500 units of military risk duty
+C = 500 units of scientific infrastructure access
+D = 500 units of media reach</code></pre>
+<p>In normal money, all four can be reduced to the same amount. In a
+hierarchy economy, they are not truly identical. They are only
+numerically comparable.</p>
+<p>This is why hierarchy can be more exact than money. It preserves
+type, level, context, permission, and burden.</p>
+<p>The number is useful for clearing trades. The hierarchy is useful for
+understanding what is actually being traded.</p>
+<h2 id="the-market-still-exists">4. The Market Still Exists</h2>
+<p>The market does not disappear. It becomes a hierarchy market.</p>
+<p>People, firms, products, and institutions still exchange value. But
+they exchange structured value rather than merely flat currency.</p>
+<p>A worker does not simply sell labor for wages. The worker sells a
+hierarchy contribution: skill, reliability, risk, loyalty, time,
+scarcity, social usefulness, and possible future leadership.</p>
+<p>An employer does not simply pay money. The employer gives hierarchy:
+income, product access, career rank, training access, team membership,
+institutional protection, office rights, housing rights, mobility
+rights, and promotion pathways.</p>
+<p>A company does not simply sell products. It sells a product
+hierarchy: usefulness, trust, repairability, technical rank, strategic
+importance, brand authority, service guarantees, and compatibility with
+other ranked products.</p>
+<p>A country does not simply sell exports. It trades national hierarchy:
+security guarantees, market access, logistical routes, military
+protection, resource claims, demographic potential, scientific capacity,
+and geopolitical rank.</p>
+<p>Therefore, the system is still a market system. But the traded medium
+is richer.</p>
+<h2 id="markets-themselves-can-be-traded">5. Markets Themselves Can Be
+Traded</h2>
+<p>In this model, even markets can be traded.</p>
+<p>A market is not just a place where trade happens. A market is itself
+a hierarchy object. It has:</p>
+<ul>
+<li>participants</li>
+<li>access rules</li>
+<li>gatekeepers</li>
+<li>liquidity</li>
+<li>reputation</li>
+<li>legal permissions</li>
+<li>product categories</li>
+<li>settlement rules</li>
+<li>tax claims</li>
+<li>information advantages</li>
+<li>infrastructure</li>
+<li>strategic importance</li>
+<li>territorial or orbital relevance</li>
+</ul>
+<p>So a market can have its own hierarchy position:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mi>a</mi><mi>r</mi><mi>k</mi><mi>e</mi><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H(Market)
+</annotation></semantics></math></p>
+<p>This means that the right to enter, operate, tax, regulate, list
+products in, settle trades through, or dominate a market can itself be
+bought, sold, leased, ranked, and exchanged.</p>
+<p>Examples:</p>
+<ul>
+<li>a local food market</li>
+<li>a national housing market</li>
+<li>a military procurement market</li>
+<li>a planetary energy market</li>
+<li>an orbital freight market</li>
+<li>a lunar construction market</li>
+<li>a Mars agriculture market</li>
+<li>a solar-system logistics market</li>
+</ul>
+<p>A stock exchange, for example, is not merely a business. It is a
+hierarchy node. It controls listing, visibility, trust, access,
+liquidity, settlement, and symbolic legitimacy.</p>
+<p>In a solar-system economy, markets would become even more
+hierarchical because location, transport cost, survival risk, and
+strategic value would differ radically between Earth, orbit, the Moon,
+Mars, asteroid industries, and outer-system missions.</p>
+<h2 id="products-are-also-hierarchical">6. Products Are Also
+Hierarchical</h2>
+<p>Products do not merely have prices. They have hierarchy
+positions.</p>
+<p>A product can be ranked by:</p>
+<ul>
+<li>usefulness</li>
+<li>scarcity</li>
+<li>reliability</li>
+<li>repairability</li>
+<li>technological level</li>
+<li>strategic importance</li>
+<li>symbolic value</li>
+<li>safety level</li>
+<li>integration with other products</li>
+<li>military value</li>
+<li>infrastructure value</li>
+<li>ecological effect</li>
+<li>cultural effect</li>
+</ul>
+<p>So a product has a hierarchy bundle:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mi>r</mi><mi>o</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H(Product)
+</annotation></semantics></math></p>
+<p>A high-ranking product receives better supply chains, better workers,
+better financing, better protection, higher visibility, and easier
+integration into other systems.</p>
+<p>This saves time because products do not have to be evaluated only
+through advertising, negotiation, and price discovery. Their hierarchy
+position already contains social and systemic information.</p>
+<p>A medical device, a military component, a school platform, a Mars
+oxygen generator, and a luxury watch may all have market value. But
+their hierarchy positions are not the same. The oxygen generator may
+rank far higher in a Mars colony even if its Earth-market price is lower
+than a luxury good.</p>
+<p>This is exactly where hierarchy is stronger than flat market
+pricing.</p>
+<h2 id="different-people-receive-access-to-different-products">7.
+Different People Receive Access to Different Products</h2>
+<p>In a hierarchy economy, not every person has the same product access.
+Different people are entitled to different products because their
+hierarchy positions differ.</p>
+<p>This does not mean that there is no trade. It means that trade has
+eligibility rules.</p>
+<p>To acquire a product, an actor may need:</p>
+<ol type="1">
+<li>enough numerical hierarchy value,</li>
+<li>the right type of hierarchy credit,</li>
+<li>the right rank category,</li>
+<li>the right age or life-phase status,</li>
+<li>the right professional or institutional role,</li>
+<li>the right location or mission relevance.</li>
+</ol>
+<p>So one person may be allowed to access military tools, another
+medical tools, another media reach, another elite housing, another
+scientific computing power, another mobility privileges, another
+cultural authority.</p>
+<p>The market still works, but access is stratified.</p>
+<p>This is not a simple consumer market. It is a ranked access
+market.</p>
+<h2 id="trading-privileges-and-disadvantages">8. Trading Privileges and
+Disadvantages</h2>
+<p>Privileges can be traded. Disadvantages can also be traded.</p>
+<p>A privilege is a positive hierarchy claim, such as:</p>
+<ul>
+<li>better housing</li>
+<li>better transport</li>
+<li>priority access</li>
+<li>elite education</li>
+<li>better medical options</li>
+<li>higher computing access</li>
+<li>greater media reach</li>
+<li>market-entry rights</li>
+<li>management authority</li>
+<li>access to scarce goods</li>
+<li>symbolic honor</li>
+<li>legal or administrative priority</li>
+</ul>
+<p>A disadvantage is a negative or burdensome hierarchy position, such
+as:</p>
+<ul>
+<li>risk duty</li>
+<li>dangerous work</li>
+<li>remote location</li>
+<li>lower comfort</li>
+<li>rationing</li>
+<li>social burden</li>
+<li>service obligation</li>
+<li>lower priority</li>
+<li>reduced visibility</li>
+<li>harder working conditions</li>
+<li>military exposure</li>
+<li>unattractive but necessary labor</li>
+</ul>
+<p>In this system, a person or organization can trade disadvantage for
+future advantage.</p>
+<p>Example:</p>
+<pre class="text"><code>accept Mars construction risk for 5 years
+-&gt; receive high future housing status + family education privilege + promotion credit</code></pre>
+<p>Or:</p>
+<pre class="text"><code>accept dangerous rescue work
+-&gt; receive increased trust status + healthcare priority + public honor + career acceleration</code></pre>
+<p>This makes burdens economically visible. It prevents the system from
+treating sacrifice as invisible.</p>
+<p>But this part is dangerous. If disadvantages can be traded without
+limits, the strong can buy advantages while the weak sell away their
+future. Therefore, a stable hierarchy economy needs non-tradable
+protections.</p>
+<p>The following should not be tradable:</p>
+<ul>
+<li>basic human status</li>
+<li>bodily integrity</li>
+<li>legal personhood</li>
+<li>basic medical care</li>
+<li>basic food access</li>
+<li>basic shelter</li>
+<li>the right to appeal</li>
+<li>the right to exit abusive contracts</li>
+<li>the right not to be permanently subordinated</li>
+</ul>
+<p>Disadvantages may be traded only if they are temporary, compensated,
+visible, and reversible.</p>
+<p>Without this rule, the system would become a market for
+domination.</p>
+<h2 id="age-as-a-hierarchy-multiplier">9. Age as a Hierarchy
+Multiplier</h2>
+<p>The age curve does not remove the market. It modifies hierarchy
+access and hierarchy multipliers.</p>
+<p>A Gaussian age curve can be used to model the fact that different
+life phases carry different kinds of performance, risk, fertility,
+leadership, experience, dependency, and social function.</p>
+<p>Formally:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mi>g</mi><mi>e</mi><mo>−</mo><mi>μ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac></mrow></msup></mrow><annotation encoding="application/x-tex">
+A(t) = e^{-\frac{(Age - \mu)^2}{2\sigma^2}}
+</annotation></semantics></math></p>
+<p>This age factor can modify the hierarchy value:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>q</mi><mi>i</mi></msub><mo>⋅</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>M</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>h</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+N(X,t) = A(t) \cdot \sum_i q_i \cdot V(e_i) \cdot M(h_i)
+</annotation></semantics></math></p>
+<p>In your model, the curve for women and men can be shifted:</p>
+<ul>
+<li>women may receive earlier high status,</li>
+<li>men may receive later high status.</li>
+</ul>
+<p>The deeper point is that status is not only individual performance.
+It is also life-phase position inside the whole hierarchy.</p>
+<p>A good implementation should be careful, though. If the male/female
+curve is too rigid, the system wastes exceptional individuals. A
+stronger version would allow sex-shifted default curves but also
+individual override by demonstrated performance, responsibility, or
+mission need.</p>
+<p>The age curve should guide the hierarchy. It should not become an
+unbreakable caste rule.</p>
+<h2
+id="people-companies-countries-and-colonies-all-have-hierarchy-positions">10.
+People, Companies, Countries, and Colonies All Have Hierarchy
+Positions</h2>
+<p>Every actor has a hierarchy position.</p>
+<p>A person has hierarchy based on:</p>
+<ul>
+<li>skill</li>
+<li>performance</li>
+<li>responsibility</li>
+<li>risk</li>
+<li>reliability</li>
+<li>age phase</li>
+<li>social usefulness</li>
+<li>strategic value</li>
+<li>moral trust</li>
+<li>institutional role</li>
+</ul>
+<p>A company has hierarchy based on:</p>
+<ul>
+<li>productivity</li>
+<li>innovation</li>
+<li>supply chains</li>
+<li>technological rank</li>
+<li>workforce quality</li>
+<li>strategic relevance</li>
+<li>reliability</li>
+<li>market control</li>
+<li>export power</li>
+<li>military or infrastructural usefulness</li>
+</ul>
+<p>A country has hierarchy based on:</p>
+<ul>
+<li>military strength</li>
+<li>economic strength</li>
+<li>population quality</li>
+<li>scientific output</li>
+<li>resource control</li>
+<li>institutional stability</li>
+<li>alliance value</li>
+<li>industrial depth</li>
+<li>cultural influence</li>
+<li>strategic geography</li>
+</ul>
+<p>A colony or space settlement has hierarchy based on:</p>
+<ul>
+<li>survival difficulty</li>
+<li>distance</li>
+<li>infrastructure</li>
+<li>autonomy</li>
+<li>resource production</li>
+<li>scientific value</li>
+<li>military value</li>
+<li>logistical importance</li>
+<li>expansion potential</li>
+</ul>
+<p>This makes the hierarchy scalable from individual life to
+solar-system civilization.</p>
+<h2 id="automatic-and-manual-rise">11. Automatic and Manual Rise</h2>
+<p>Some actors rise automatically because their strength is visible.</p>
+<p>Examples:</p>
+<ul>
+<li>militarily strong states</li>
+<li>economically productive companies</li>
+<li>technically superior products</li>
+<li>highly demanded workers</li>
+<li>strategically necessary colonies</li>
+<li>efficient logistical systems</li>
+<li>strong research institutions</li>
+</ul>
+<p>They rise because the hierarchy has to recognize real power. A system
+that refuses to recognize real strength becomes detached from reality
+and eventually loses control.</p>
+<p>But not all value is visible through strength.</p>
+<p>Some actors must be manually raised:</p>
+<ul>
+<li>helpers</li>
+<li>care workers</li>
+<li>teachers</li>
+<li>social stabilizers</li>
+<li>honest media creators</li>
+<li>rescuers</li>
+<li>moral exemplars</li>
+<li>long-term researchers</li>
+<li>people who prevent damage before it becomes visible</li>
+<li>people who hold society together without becoming rich or
+powerful</li>
+</ul>
+<p>This manual elevation is necessary because pure measurable strength
+undervalues care, truth, meaning, and prevention.</p>
+<p>However, manual elevation is dangerous because it can become
+favoritism, propaganda, or ideological ranking. Therefore, it needs
+transparency, appeal, rotation, public justification, and independent
+review.</p>
+<h2 id="why-this-can-be-stronger-than-flat-market-capitalism">12. Why
+This Can Be Stronger Than Flat Market Capitalism</h2>
+<p>The system can be stronger than a flat money economy because it
+carries more information.</p>
+<p>A normal price compresses everything into one number. That makes
+trade easy, but it destroys context.</p>
+<p>Hierarchy keeps the context.</p>
+<p>It can show:</p>
+<ul>
+<li>whether value comes from production or risk,</li>
+<li>whether a privilege is local, planetary, or solar-system level,</li>
+<li>whether a person has earned access or merely inherited it,</li>
+<li>whether a product is luxurious or strategically necessary,</li>
+<li>whether a company is profitable or systemically important,</li>
+<li>whether a market is ordinary or civilizationally critical,</li>
+<li>whether a disadvantage is exploitative or honorable,</li>
+<li>whether a trade increases or damages the whole hierarchy.</li>
+</ul>
+<p>This makes the economy more exact.</p>
+<p>A hierarchy market can coordinate careers, products, firms,
+institutions, and strategic missions faster than a system that only sees
+prices.</p>
+<p>Career becomes more rational because advancement directly improves
+hierarchy position. Products become more coordinated because product
+rank determines integration and priority. Companies become more legible
+because they are not judged only by profit, but by systemic place.
+Markets become tradable because their access, rules, and strategic
+importance are themselves hierarchy objects.</p>
+<h2 id="the-main-risk-hierarchy-fraud">13. The Main Risk: Hierarchy
+Fraud</h2>
+<p>The system stands or falls with the integrity of hierarchy
+measurement.</p>
+<p>If hierarchy positions are false, the entire economy becomes
+false.</p>
+<p>People will not merely try to earn status. They will try to
+manipulate the hierarchy number.</p>
+<p>Possible distortions:</p>
+<ul>
+<li>people perform visible work instead of useful work,</li>
+<li>companies optimize hierarchy metrics instead of products,</li>
+<li>media creators become propagandists to gain manual elevation,</li>
+<li>military actors create threats to increase their status,</li>
+<li>bureaucrats protect their hierarchy position,</li>
+<li>old elites block young competitors,</li>
+<li>rich actors buy privileges and sell disadvantages downward,</li>
+<li>low-status people are pressured into bad trades,</li>
+<li>whole regions become permanently subordinated.</li>
+</ul>
+<p>Therefore, hierarchy must be auditable.</p>
+<p>A serious version of the system needs:</p>
+<ul>
+<li>transparent formulas,</li>
+<li>hidden anti-gaming checks,</li>
+<li>public reasoning for high-level rank changes,</li>
+<li>appeal courts,</li>
+<li>independent review institutions,</li>
+<li>competing hierarchy evaluators,</li>
+<li>time limits on privileges,</li>
+<li>anti-corruption rules,</li>
+<li>no permanent sale of basic status,</li>
+<li>protection against inherited caste formation.</li>
+</ul>
+<h2 id="the-best-formulation">14. The Best Formulation</h2>
+<p>The corrected formulation is this:</p>
+<blockquote>
+<p>A status economy is not a system without markets. It is a
+hierarchical market economy in which hierarchy is the real currency, and
+numerical money is only a compressed settlement form of hierarchy.</p>
+</blockquote>
+<p>Everything is traded as hierarchy:</p>
+<ul>
+<li>labor,</li>
+<li>products,</li>
+<li>companies,</li>
+<li>privileges,</li>
+<li>disadvantages,</li>
+<li>access rights,</li>
+<li>market positions,</li>
+<li>states,</li>
+<li>colonies,</li>
+<li>strategic missions,</li>
+<li>media reach,</li>
+<li>military duty,</li>
+<li>social honor,</li>
+<li>future promotion claims.</li>
+</ul>
+<p>The number is created by adding hierarchy elements and multiplying
+them by hierarchy-height multipliers.</p>
+<p>But the number is not the whole truth. The hierarchy bundle is the
+whole truth.</p>
+<p>A flat monetary economy asks:</p>
+<pre class="text"><code>What is the price?</code></pre>
+<p>A hierarchy economy asks:</p>
+<pre class="text"><code>What is the rank, type, level, burden, privilege, access right, and systemic meaning of the thing being traded?</code></pre>
+<p>That is why this system can still have markets, and in fact can have
+more exact markets than a flat money economy.</p>
+<h2 id="the-core-in-one-sentence">15. The Core in One Sentence</h2>
+<p>The market remains, but the traded currency is hierarchy: a
+structured, rank-sensitive, privilege-and-duty-bearing form of value
+that can be converted into a number, while preserving more information
+than money alone.</p>
+</body>
+</html>
