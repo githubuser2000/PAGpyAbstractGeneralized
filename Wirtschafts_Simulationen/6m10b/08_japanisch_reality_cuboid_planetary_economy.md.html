@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>08_japanisch_reality_cuboid_planetary_economy</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="現実直方体による惑星経済">現実直方体による惑星経済</h1>
+<h2 id="数値真理値体積の経済">数値・真理値・体積の経済</h2>
+<p>この文書は、貨幣が単なる数値だけでなく、取引可能な真理値も持つ惑星規模の経済制度を構成する。ここでの真理値は、取引を後から争うための法的な道具ではない。真理値は数値と同じように、取引そのものの構成要素である。二者は数値、真理値、そしてそこから生まれる体積に合意する。場合によっては、数値の符号と真理値の符号を含む体積だけに合意することもできる。</p>
+<p>基本単位は次の通りである。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>f</mi><mo>,</mo><mi>h</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q = (S, z, f, h, d, t, r)
+</annotation></semantics></math></p>
+<ul>
+<li><code>S</code>: 取引される命題、対象、判定、仮説、効果、現象。</li>
+<li><code>z</code>: 数値、価格、金額、費用、効用。</li>
+<li><code>f</code>: <code>-1</code> から <code>+1</code>
+までの真理値。</li>
+<li><code>h</code>: 積み重ね高さ。数量、範囲、再現性、重み。</li>
+<li><code>d</code>:
+次元。物質、時間、因果、空間、影響、偶然性など。</li>
+<li><code>t</code>: 時間参照。</li>
+<li><code>r</code>: 証拠強度、測定品質、信頼度。</li>
+</ul>
+<p>真理体積は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>z</mi><mo>⋅</mo><mi>f</mi><mo>⋅</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V = z \cdot f \cdot h
+</annotation></semantics></math></p>
+<p>ただし数値と真理値の符号は別々に保存する。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">sgn</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mrow><mi mathvariant="normal">sgn</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{sgn}(z), \operatorname{sgn}(f)
+</annotation></semantics></math></p>
+<p><code>(+z)(+f)</code> と <code>(-z)(-f)</code>
+は、積が正でも同じ意味ではない。<code>(+z)(-f)</code> と
+<code>(-z)(+f)</code> も、積が負でも意味が異なる。</p>
+<hr />
+<h2 id="通常の貨幣との違い">1. 通常の貨幣との違い</h2>
+<p>通常の貨幣は「いくらか」だけを問う。</p>
+<p>現実直方体貨幣はさらに問う。</p>
+<ul>
+<li>その対象はどれほど現実的か。</li>
+<li>その命題は検証されたか、反証されたか。</li>
+<li>主張された状態は存在するか。</li>
+<li>どの効果が実際に起こるか。</li>
+<li>効果の強度はどれほどか。</li>
+<li>どの空間と時間で有効か。</li>
+<li>どの因果関係が支持されているか。</li>
+<li>どの可能性が現実的か。</li>
+<li>どの不存在または無効果が証明されたか。</li>
+</ul>
+<p>したがって、この貨幣で買うのは商品やサービスだけではない。買うのは<strong>確定された現実</strong>である。形而上学的な真理そのものではなく、検査可能で取引可能な現実命題を買う。</p>
+<p>例：</p>
+<ul>
+<li>「この材料にはニッケルが 4.2% 含まれる。」</li>
+<li>「この機械はエネルギー消費を 17% 減らす。」</li>
+<li>「このサプライチェーンは実際に存在する。」</li>
+<li>「この治療はこの患者群には効かない。」</li>
+<li>「A と B の間に堅牢な因果関係はない。」</li>
+</ul>
+<p>負の真理値は、必ずしも不正を意味しない。仮説が反証された、効果が出ない、原因が除外された、存在が否定された、という意味でもあり得る。反証は経済的に高い価値を持つ。</p>
+<hr />
+<h2 id="四つの象限">2. 四つの象限</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">数値</th>
+<th style="text-align: right;">真理値</th>
+<th style="text-align: right;">体積方向</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>+z</code></td>
+<td style="text-align: right;"><code>+f</code></td>
+<td style="text-align: right;">正</td>
+<td>検証された命題、存在、効果、対象の正の価値</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>+z</code></td>
+<td style="text-align: right;"><code>-f</code></td>
+<td style="text-align: right;">負</td>
+<td>反証、無効果、不存在、逆真理に対する正の価格</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>-z</code></td>
+<td style="text-align: right;"><code>+f</code></td>
+<td style="text-align: right;">負</td>
+<td>実在する費用、負担、負の効果、消費</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>-z</code></td>
+<td style="text-align: right;"><code>-f</code></td>
+<td style="text-align: right;">正</td>
+<td>反証された負担、回避された費用、取り消された負の効果と結びつく負の金額</td>
+</tr>
+</tbody>
+</table>
+<p>第二象限が特に重要である。市場は反証にも支払うことができる。企業が自社の技術仮説が誤りであることを証明するために支払う場合、真理方向は負だが、誤投資を防ぐため経済的価値は大きい。</p>
+<hr />
+<h2 id="取引可能な現実カテゴリー">3. 取引可能な現実カテゴリー</h2>
+<p>この貨幣で取引できるものは、現象、判定、発見、比較、存在、所在、時間、因果、強度、方向、決定、空間、潜在力、効果、差異、物質、素材、単極性、偶然の一致、変換、ランダム性、引力、最大化、最小化、影響である。</p>
+<h3 id="現象">3.1 現象</h3>
+<p>現象は観察可能な出来事やパターンである。病気の集中、材料効果、技術的故障、市場行動、気象事象、社会反応など。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mrow><mi>現</mi><mi>象</mi></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">現象記述</mtext><mo>,</mo><mi>z</mi><mo>,</mo><mi>f</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q_{現象} = (\text{現象記述}, z, f, h)
+</annotation></semantics></math></p>
+<h3 id="判定">3.2 判定</h3>
+<p>判定は分類である。物質は危険か、支払いは所得か、機械は機能するか、症状は病気に属するか。判定は市場を秩序づけるため、判定自体が取引対象になる。</p>
+<h3 id="発見">3.3 発見</h3>
+<p>発見は新しい知識である。肯定的発見も、誤りを反証する否定的発見も価値を生む。</p>
+<h3 id="比較">3.4 比較</h3>
+<p>比較は関係である。A は B より速い、技術 X は Y より省エネである、国 A
+は国 B より資源効率が高い。市場の選択は差異に依存する。</p>
+<h3 id="存在と不存在">3.5 存在と不存在</h3>
+<p>資源、リスク、需要、買い手、病気、特許障害の存在または不存在が取引される。リスクが存在しないことの証明は、保険料を下げ投資を可能にする。</p>
+<h3 id="時間">3.6 時間</h3>
+<p>時間は労働時間だけではない。有効性、鮮度、順序、持続、遅延、劣化、将来範囲である。早い真理は遅い真理より高価になる。</p>
+<h3 id="因果">3.7 因果</h3>
+<p>因果は最も価値の高いカテゴリーの一つである。A が B
+を引き起こすことを証明すれば因果資本となる。A が B
+を引き起こさないことを証明すれば反証資本となる。</p>
+<h3 id="強度">3.8 強度</h3>
+<p>強度は効果の大きさを表す。「効果がある」だけでなく「効果が 0.63
+の強度である」と取引する。</p>
+<h3 id="方向と決定">3.9 方向と決定</h3>
+<p>方向は発展経路を示す。決定は主張された効果を持つ行為である。政策、投資、技術制御は因果・影響直方体になる。</p>
+<h3 id="空間">3.10 空間</h3>
+<p>空間は位置、距離、アクセス、境界、所有空間、デジタル空間、生産空間、エコロジー空間を含む。土地は面積だけでなく、土壌、気候リスク、インフラ、利用可能性、時間変化で構成される。</p>
+<h3 id="潜在力と効果">3.11 潜在力と効果</h3>
+<p>潜在力はまだ実現していない可能性である。効果は実際または予想される結果である。投資は真理値付きの潜在力を取引する。</p>
+<h3 id="差異">3.12 差異</h3>
+<p>差異はイノベーションを生む。二つの技術、材料、国の実際の差異は、それ自体が資産になりうる。</p>
+<h3 id="物質と素材">3.13 物質と素材</h3>
+<p>素材は数量だけでなく、組成、純度、エネルギー量、安定性、由来、リサイクル性、変換可能性で取引される。</p>
+<h3 id="単極性">3.14 単極性</h3>
+<p>単極性は支配的な極を示す。独占、ボトルネック、一方的依存、プラットフォーム支配、唯一の重要供給者など。</p>
+<h3 id="偶然の一致">3.15 偶然の一致</h3>
+<p>偶然の一致は出来事の同時発生である。システムは一致と因果を分離する。A
+と B が同時に現れても、A が B を引き起こすとは限らない。</p>
+<h3 id="変換">3.16 変換</h3>
+<p>変換とは A から B
+への移行である。原料から製品、データから知識、教育から能力、廃棄物から資源、資本からインフラへ。</p>
+<h3 id="ランダム性">3.17 ランダム性</h3>
+<p>ランダム性は確率構造として取引される。故障、天候、病気、市場変動、供給網リスクなど。</p>
+<h3 id="引力">3.18 引力</h3>
+<p>需要は供給を引き寄せ、賃金は労働を引き寄せ、収益は資本を引き寄せ、信頼は投資を引き寄せ、プラットフォームは利用者を引き寄せる。</p>
+<h3 id="最大化と最小化">3.19 最大化と最小化</h3>
+<p>最適化も商品になる。費用最小化、効果最大化、リスク低減、エネルギー削減、健康改善、排出削減。</p>
+<h3 id="影響">3.20 影響</h3>
+<p>影響は行為の結果である。環境、社会、健康、生産性、教育、地政学、技術への影響が含まれる。</p>
+<hr />
+<h2 id="市場注文の変化">4. 市場注文の変化</h2>
+<p>旧注文：</p>
+<blockquote>
+<p>鋼 1 トンを 800 で買う。</p>
+</blockquote>
+<p>新注文：</p>
+<pre class="text"><code>購入：
+対象：鋼 1 トン
+次元：物質、由来、時間、影響、変換可能性
+数値：+800 惑星単位
+真理値：材料 0.96；由来 0.88；CO₂ 影響 0.74；納期 0.91
+証拠：実験室証明とサプライチェーン証明</code></pre>
+<p>知識注文：</p>
+<pre class="text"><code>購入：
+命題：原因 A がエラー B を生む
+カテゴリー：因果
+数値：+50,000
+真理値：少なくとも +0.80
+有効範囲：工場 X、工程 Y、期間 Z</code></pre>
+<p>反証注文：</p>
+<pre class="text"><code>購入：
+命題：仮説 H は誤りである
+カテゴリー：反証
+数値：+80,000
+真理方向：-0.90 以上</code></pre>
+<hr />
+<h2 id="惑星通貨国家企業">5. 惑星通貨、国家、企業</h2>
+<p>すべての国は一つの惑星通貨を使い、国ごとの表示を維持する。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>k</mi></msub><mo>=</mo><msub><mi>c</mi><mi>k</mi></msub><mo>⋅</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+W_k = c_k \cdot P
+</annotation></semantics></math></p>
+<p><code>P</code> は惑星価値、<code>c_k</code>
+は国係数である。購買力、価格水準、生産性、資源利用、制度安定性、教育、データ品質、平均真理体積を含む。</p>
+<p>国家は GDP
+だけでなく、物質体積、知識体積、因果体積、意思決定体積、影響体積、時間体積、信頼体積で評価される。</p>
+<p>企業は現実バランスシートで評価される。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>Q</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>z</mi><mi>i</mi></msub><mo>⋅</mo><msub><mi>f</mi><mi>i</mi></msub><mo>⋅</mo><msub><mi>h</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+U_Q = \sum_i z_i \cdot f_i \cdot h_i
+</annotation></semantics></math></p>
+<p>製品真理、効果真理、素材真理、因果真理、時間真理、変換真理、環境・社会影響、潜在力真理が評価対象になる。</p>
+<hr />
+<h2 id="市場への影響">6. 市場への影響</h2>
+<p>労働市場では時間だけでなく、生み出した真理体積に賃金が支払われる。検証者、反証者、因果分析者、比較専門家、リスクモデル作成者、現実会計士が重要になる。</p>
+<p>商品市場は性質市場になる。車、電池、鋼は、物質、時間、安全性、由来、リスク、影響、潜在力の束である。</p>
+<p>保険市場はランダム性、時間、因果、強度、影響を取引する。因果保険、反証保険、影響保険、確率空間保険が生まれる。</p>
+<p>資産市場と株式市場は将来の真理体積を価格にする。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>V</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><munder><mo>∑</mo><mi>t</mi></munder><msub><mi>z</mi><mi>t</mi></msub><msub><mi>f</mi><mi>t</mi></msub><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+ShareValue = E\left(\sum_t z_t f_t h_t\right)
+</annotation></semantics></math></p>
+<p>空売りは一部、反証取引になる。企業の中心的主張が反証されれば、市場は再評価する。</p>
+<hr />
+<h2 id="世界経済と惑星への影響">7. 世界経済と惑星への影響</h2>
+<p>世界経済は資本経済から現実経済へ移る。力を持つのは、単に金を持つ者ではなく、現実を測定し、検証し、反証し、変換できる者である。</p>
+<p>安いが未確定な生産は弱くなる。教育、制度、測定、データ品質、因果能力の強い国が強くなる。環境・社会への外部効果は市場外に残らず、影響直方体として価格化される。</p>
+<p>しかし、測定を支配する者が経済的現実を支配する危険がある。そのため、開かれた測定標準、分散検証、独立科学、公共知識コモンズ、プライバシー、反証権、データ・測定市場の反独占、そして人間の尊厳と経済貢献の分離が必要である。</p>
+<hr />
+<h2 id="結論式">8. 結論式</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">𝒫</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo>,</mo><mi>W</mi><mo>,</mo><mi>K</mi><mo>,</mo><mi>T</mi><mo>,</mo><mi>R</mi><mo>,</mo><mi>Z</mi><mo>,</mo><mi>A</mi><mo>,</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathcal{P} = (M, W, K, T, R, Z, A, E)
+</annotation></semantics></math></p>
+<ul>
+<li><code>M</code>: 物質市場</li>
+<li><code>W</code>: 知識市場</li>
+<li><code>K</code>: 因果市場</li>
+<li><code>T</code>: 時間・変換市場</li>
+<li><code>R</code>: 空間・資源市場</li>
+<li><code>Z</code>: ランダム性・保険市場</li>
+<li><code>A</code>: 資産・株式市場</li>
+<li><code>E</code>: 効果・影響市場</li>
+</ul>
+<p>新しい富とは：</p>
+<blockquote>
+<p>物質 + 知識 + 因果 + 時間 + 影響 + 真理。</p>
+</blockquote>
+<p>最重要の生産要素は：</p>
+<blockquote>
+<p>現実を正しく判定し、比較し、検証し、反証し、意味ある形で変換する能力である。</p>
+</blockquote>
+</body>
+</html>
