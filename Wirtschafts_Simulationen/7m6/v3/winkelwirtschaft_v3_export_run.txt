@@ -1,0 +1,493 @@
+WINKELWÄHRUNGSWIRTSCHAFT — BUNTE PYPY3-SIMULATION
+═════════════════════════════════════════════════════════════════════════════════════
+Das Modell simuliert drei Regierungen, drei Märkte und drei konkurrierende Euro-
+Vektoren. EA, EB und EC haben alle dieselbe Vektorlänge: |€⃗| = 1 VE. Konkurrenz
+entsteht nicht durch einen Zahlen-Wechselkurs. Sie entsteht durch Winkel, Richtung,
+Resonanz, Machtbindung und Wohlbefinden.
+
+Ausgewählte EU-Länder: POL=Polen, HRV=Kroatien, AUT=Österreich
+Startparameter: seed=42, ticks=2, detail=short, scenario=Basislauf, lang=de (Deutsch), width=85, colors=off
+
+═════════════════════════════════════════════════════════════════════════════════════
+So liest du diese Ausgabe
+═════════════════════════════════════════════════════════════════════════════════════
+Die Erklärungen werden nicht in einem einzigen globalen Wörterbuch gesammelt. Jeder
+Simulationsteil erklärt nur die Kürzel und Einheiten, die genau dort benutzt werden.
+Das ist Absicht: Der Währungsring erklärt Vektorlänge und Winkelanteil; der
+Arbeitsteil erklärt Arbeitsstunden und Ermüdung; der Güterteil erklärt Bedarf,
+Versorgung und Vektor-Euro-Preise; der Handelsteil erklärt Umlenkungsarbeit; der
+Indexteil erklärt Macht und Wohlbefinden.
+
+Wichtig: Gut gegen Böse bleibt in diesem Modell Gut gegen Böse im Winkelsinn. Es ist
+keine Förderachse, keine Strafachse und nicht positiv gegen negativ. Die Regierung
+setzt eine Gut/Böse-Richtung auf dem Kreis; die Bevölkerung setzt eine orthogonale
+Beliebt/Unbeliebt-Richtung; die Markthandlung liegt zwischen diesen Winkelpolen.
+
+═════════════════════════════════════════════════════════════════════════════════════
+TICK 1: ein simulierter Zeitabschnitt
+═════════════════════════════════════════════════════════════════════════════════════
+Ein Tick kann als Monat, Quartal oder politischer Marktzyklus gelesen werden. Die
+Reihenfolge ist: Währungsring, Arbeit/Produktion, Güter/Preise, Handelsdreieck,
+Indizes, danach Winkeldrift und Ereignisse.
+
+── A) Währungsring: drei gleich lange Euro-Vektoren ─────────────────────────────────
+Dieser Teil simuliert die drei Währungen als Richtungen auf einem Ring. Jede
+Währungseinheit hat dieselbe Euro-Vektorlänge. Die Tabelle erklärt deshalb
+Winkelkonkurrenz, nicht Zahlen-Wechselkurse. Simuliert wird: Welche Vektorrichtung
+zieht in diesem Tick den meisten Handlungsfluss an?
+┌──────────┬──────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel   │ Einheit      │ Bedeutung nur in diesem Teil                                                       │
+├──────────┼──────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ EA/EB/EC │ Währungscode │ Die drei konkurrierenden Euro-Vektoren.                                            │
+│ |€⃗|     │ VE           │ Vektorlänge. Sie muss bei allen Währungen 1.000 bleiben.                           │
+│ θ°       │ Grad         │ Aktuelle Richtung einer Währung auf dem Ring.                                      │
+│ Share    │ 0..100%      │ Anteil des Transaktionsflusses dieses Ticks, der vom Währungswinkel gebunden wird. │
+│ Power    │ 0..100       │ Aufgebaute Bindung von Markthandlung und Heimatregierung an diesen Vektor.         │
+│ WK°      │ Grad         │ Winkelabstand zwischen zwei Währungen; kein Geld-Wechselkurs.                      │
+│ KLG      │ 0..1         │ Winkelklang. 1 bedeutet gleiche Richtung, 0 bedeutet Gegenrichtung.                │
+└──────────┴──────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+┌────────┬────────────────────────┬────────┬──────────┬───────────┬────────┬───────┬───────────┐
+│ Kürzel │ Name                   │ Heimat │ |€⃗|     │ θ°        │ Anteil │ Macht │ Zielθ     │
+├────────┼────────────────────────┼────────┼──────────┼───────────┼────────┼───────┼───────────┤
+│ EA     │ Euro-Vektor Polen      │ POL    │ 1.000 VE │ →  358.2° │  34.2% │  57.4 │ →    0.9° │
+│ EB     │ Euro-Vektor Kroatien   │ HRV    │ 1.000 VE │ ↖  132.7° │  31.7% │  53.8 │ ↖  131.1° │
+│ EC     │ Euro-Vektor Österreich │ AUT    │ 1.000 VE │ ↓  248.0° │  34.2% │  55.7 │ ↓  250.5° │
+└────────┴────────────────────────┴────────┴──────────┴───────────┴────────┴───────┴───────────┘
+┌───────┬─────────┬───────┐
+│ Paar  │ WK°     │ KLG   │
+├───────┼─────────┼───────┤
+│ EA↔EB │  134.5° │ 0.149 │
+│ EA↔EC │  110.1° │ 0.328 │
+│ EB↔EC │  115.4° │ 0.286 │
+└───────┴─────────┴───────┘
+
+── B) Arbeitsmarkt und Produktion ───────────────────────────────────────────────────
+Dieser Teil simuliert Arbeit als Winkelhandlung, nicht nur als bezahlte Zeit. Arbeit
+erzeugt Güter, wenn der Arbeitswinkel mit Währung, Gut-Pol der Regierung und Beliebt-
+Pol der Bevölkerung zusammenklingt. Simuliert wird: Wo erzeugt Arbeit Kapazität, und
+wo erzeugt sie Ermüdung?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                   │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────┤
+│ Workθ  │ Grad           │ Handlungswinkel der Arbeit in einem Sektor.                    │
+│ WC     │ Währungscode   │ Währung, deren Winkel am besten zur Arbeitsentscheidung passt. │
+│ h      │ Stunden        │ Abstrakte Arbeitsstunden dieses Ticks.                         │
+│ Prod   │ Gütereinheiten │ Produktion, die aus Arbeit und Produktivität entsteht.         │
+│ FTD    │ 0..100         │ Ermüdung durch Arbeit nahe am Unbeliebt-Pol.                   │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↖  120.0° │ EB │ 0.988 │ 17.23 h │ 0.47 │   0.6 │
+│ HOU │ Wohnen  │ →  342.5° │ EA │ 0.982 │ 36.47 h │ 0.68 │   0.6 │
+│ FOO │ Nahrung │ →  347.1° │ EA │ 0.991 │ 33.34 h │ 0.84 │   0.6 │
+│ DAT │ Daten   │ ←  183.9° │ EB │ 0.814 │ 20.22 h │ 0.74 │   0.6 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+HRV — Kroatien
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↘  300.8° │ EC │ 0.802 │ 12.73 h │ 0.44 │   0.4 │
+│ ENE │ Energie │ ←  188.7° │ EB │ 0.780 │ 28.64 h │ 0.65 │   0.4 │
+│ HOU │ Wohnen  │ ↖  128.6° │ EB │ 0.999 │ 30.46 h │ 0.70 │   0.4 │
+│ FOO │ Nahrung │ ↖  135.2° │ EB │ 1.000 │ 28.40 h │ 0.91 │   0.4 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+AUT — Österreich
+┌─────┬────────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name       │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼────────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ MOB │ Mobilität  │ ↑   89.6° │ EB │ 0.865 │ 25.45 h │ 0.60 │   0.5 │
+│ HEA │ Gesundheit │ ↓  290.9° │ EC │ 0.865 │ 41.41 h │ 0.88 │   0.5 │
+│ CUL │ Kultur     │ ↗   24.0° │ EA │ 0.950 │ 14.99 h │ 0.64 │   0.5 │
+│ EDU │ Bildung    │ ↘  329.0° │ EA │ 0.937 │ 27.76 h │ 0.81 │   0.5 │
+└─────┴────────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+── C) Gütermarkt und Vektor-Euro-Preise ─────────────────────────────────────────────
+Dieser Teil simuliert Bedarf, Versorgung, Deckung und Vektor-Euro-Preise. Preis ist
+eine Anzahl gleich langer Euro-Vektoren. Er verlängert keinen Vektor. Simuliert wird:
+Wie viele identische Vektor-Euro-Einheiten werden gebraucht, wenn Versorgung,
+Nachfrage und Winkelspannung zusammentreffen?
+┌────────────┬────────────────┬───────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel     │ Einheit        │ Bedeutung nur in diesem Teil                                                  │
+├────────────┼────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ Need       │ Gütereinheiten │ Bevölkerungsbedarf im Sektor.                                                 │
+│ Supply     │ Gütereinheiten │ Produktion minus Exporte plus Importe.                                        │
+│ Sat        │ 0..100%        │ Bedarf, der durch Endversorgung gedeckt wird.                                 │
+│ Price      │ VE/unit        │ Anzahl gleich langer Vektor-Euro-Einheiten pro Gütereinheit.                  │
+│ Buyθ/Sellθ │ Grad           │ Kauf- und Verkaufs-Handlungswinkel.                                           │
+│ BC/SC      │ Währungscode   │ Beste Währung für Kauf-/Verkaufswinkel.                                       │
+│ ODE        │ Grad           │ Mittlere Orthogonalitätsabweichung der Gut/Böse- zur Beliebt/Unbeliebt-Achse. │
+└────────────┴────────────────┴───────────────────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.78   │ 0.47       │  60.7%  │ 1.81 VE │ ←  169.8° │ EB │ ↙  226.0° │ EC │   5.9° │
+│ HOU │ Wohnen  │ 1.14   │ 0.68       │  59.5%  │ 1.79 VE │ →  352.7° │ EA │ ↗   55.4° │ EA │  21.6° │
+│ FOO │ Nahrung │ 1.35   │ 0.85       │  62.8%  │ 1.11 VE │ ↗   25.4° │ EA │ ↗   50.2° │ EA │  10.8° │
+│ DAT │ Daten   │ 1.05   │ 0.81       │  77.5%  │ 2.06 VE │ ↙  235.4° │ EC │ ↓  253.9° │ EC │  13.2° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+HRV — Kroatien
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.68   │ 0.44       │  64.4%  │ 1.68 VE │ →  339.9° │ EA │ →  350.5° │ EA │  13.6° │
+│ ENE │ Energie │ 0.99   │ 0.70       │  70.9%  │ 2.60 VE │ ↙  238.4° │ EC │ ↙  235.2° │ EC │  14.7° │
+│ HOU │ Wohnen  │ 0.94   │ 0.70       │  74.3%  │ 1.69 VE │ ←  158.0° │ EB │ ←  186.3° │ EB │  13.5° │
+│ FOO │ Nahrung │ 1.11   │ 0.91       │  81.9%  │ 1.15 VE │ ←  189.3° │ EB │ ↙  226.7° │ EC │  11.1° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+AUT — Österreich
+┌─────┬────────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name       │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼────────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ MOB │ Mobilität  │ 0.84   │ 0.60       │  72.0%  │ 2.18 VE │ ↖  150.2° │ EB │ ↖  149.2° │ EB │  10.9° │
+│ HEA │ Gesundheit │ 1.16   │ 0.89       │  76.3%  │ 2.19 VE │ ↘  321.8° │ EA │ →  354.6° │ EA │  10.4° │
+│ CUL │ Kultur     │ 0.69   │ 0.64       │  92.1%  │ 1.42 VE │ ↗   42.6° │ EA │ ↑   88.1° │ EB │  14.5° │
+│ EDU │ Bildung    │ 0.90   │ 0.82       │  90.8%  │ 1.80 VE │ →   16.2° │ EA │ ↗   24.7° │ EA │   9.9° │
+└─────┴────────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Handelsdreieck und Umlenkungsarbeit ───────────────────────────────────────────
+Dieser Teil simuliert das Handelsdreieck zwischen drei Ländern. Handel wird möglich,
+wenn Verkaufswinkel des Exportlandes und Kaufwinkel des Importlandes eine gemeinsame
+Handlungsrichtung bilden können. Simuliert wird: Wie viel Umlenkungsarbeit ist nötig,
+um Güter zu bewegen, ohne die gleiche Euro-Vektorlänge zu verändern?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                                               │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Route  │ Land→Land      │ Exportland zu Importland.                                                                  │
+│ Q      │ Gütereinheiten │ Gehandelte Menge.                                                                          │
+│ C      │ Währungscode   │ Währungswinkel, der von der gemeinsamen Handelshandlung genutzt wird.                      │
+│ Jointθ │ Grad           │ Mittlerer Handlungswinkel aus Verkaufswinkel des Exporteurs und Kaufwinkel des Importeurs. │
+│ WK°    │ Grad           │ Winkelabstand zwischen Heimatwährung des Exporteurs und Handelswährung.                    │
+│ UA     │ rad·VE         │ Umlenkungsarbeit: Vektor-Euro-Menge mal Drehung in Radiant.                                │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬───────┬────┬───────────┬────────┬──────────────┐
+│ Route   │ Sek │ Q     │ C  │ Jointθ    │ WK°    │ UA           │
+├─────────┼─────┼───────┼────┼───────────┼────────┼──────────────┤
+│ AUT→POL │ FOO │ 0.010 │ EA │ →  338.8° │ 110.1° │ 0.016 rad·VE │
+│ AUT→HRV │ FOO │ 0.007 │ EC │ ↙  240.8° │   0.0° │ 0.000 rad·VE │
+│ POL→HRV │ ENE │ 0.052 │ EB │ ←  174.5° │ 134.8° │ 0.255 rad·VE │
+│ POL→AUT │ ENE │ 0.028 │ EA │ ↗   28.2° │   0.0° │ 0.000 rad·VE │
+│ HRV→AUT │ HEA │ 0.011 │ EA │ ↘  315.4° │ 134.8° │ 0.057 rad·VE │
+│ HRV→POL │ HEA │ 0.008 │ EA │ ↗   23.6° │ 134.8° │ 0.046 rad·VE │
+│ HRV→AUT │ EDU │ 0.004 │ EA │ →  345.4° │ 134.8° │ 0.016 rad·VE │
+│ POL→AUT │ EDU │ 0.002 │ EB │ ↑   88.3° │ 134.8° │ 0.008 rad·VE │
+│ POL→HRV │ SEC │ 0.004 │ EA │ ↗   42.6° │   0.0° │ 0.000 rad·VE │
+│ AUT→HRV │ SEC │ 0.004 │ EB │ ↖  146.6° │ 115.1° │ 0.008 rad·VE │
+│ AUT→POL │ DAT │ 0.076 │ EB │ ←  174.4° │ 115.1° │ 0.262 rad·VE │
+│ AUT→HRV │ DAT │ 0.032 │ EB │ ↗   65.6° │ 115.1° │ 0.106 rad·VE │
+└─────────┴─────┴───────┴────┴───────────┴────────┴──────────────┘
+Handelssumme: 0.237 Gütereinheiten; Summe Umlenkungsarbeit: 0.775 rad·VE. Hohe UA
+bedeutet: Handel bleibt möglich, benötigt aber mehr symbolische und institutionelle
+Drehung.
+
+── E) Macht, Wohlbefinden und Wirtschaftsstärke ─────────────────────────────────────
+Dieser Teil simuliert das Zielsystem. Die Wirtschaft maximiert nicht Reichtum. Sie
+verfolgt Wohlbefinden, Macht, Wirtschaftsstärke und Spannung. Simuliert wird: Wer
+gewinnt Macht, wer gewinnt Wohlbefinden, und wo wird die Wirtschaft durch fehlenden
+Winkelzusammenhalt schwächer?
+┌────────┬──────────────┬───────────────────────────────────────────────────┐
+│ Kürzel │ Einheit      │ Bedeutung nur in diesem Teil                      │
+├────────┼──────────────┼───────────────────────────────────────────────────┤
+│ WBI    │ 0..100       │ Wohlbefindenindex der Bevölkerung.                │
+│ MPI    │ 0..100       │ Machtindex der Bindung von Regierung und Währung. │
+│ ES     │ 0..100       │ Wirtschaftsstärke unter Winkelkonkurrenz.         │
+│ TD     │ 0..100       │ Spannungsgrad. Niedriger ist ruhiger.             │
+│ OwnS   │ 0..100%      │ Inlandsanteil der eigenen Vektorwährung.          │
+│ DomC   │ Währungscode │ Dominante Währung im lokalen Transaktionsfluss.   │
+└────────┴──────────────┴───────────────────────────────────────────────────┘
+┌──────┬────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Land │ Name       │ WBI                          │ MPI                          │ ES                           │ TD                           │ OwnS   │ DomC │ Prod │ Imp/Exp   │
+├──────┼────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ POL  │ Polen      │ █████████████░░░░░░░░░  61.3 │ ████████████░░░░░░░░░░  56.4 │ █████████████░░░░░░░░░  60.5 │ █████░░░░░░░░░░░░░░░░░  22.6 │  33.8% │ EB   │ 8.17 │ 0.09/0.09 │
+│ HRV  │ Kroatien   │ ████████████████░░░░░░  72.3 │ ██████████░░░░░░░░░░░░  43.7 │ █████████████░░░░░░░░░  59.9 │ █████░░░░░░░░░░░░░░░░░  21.6 │  23.8% │ EC   │ 7.11 │ 0.10/0.02 │
+│ AUT  │ Österreich │ █████████████░░░░░░░░░  60.0 │ ███████████░░░░░░░░░░░  50.4 │ ██████████████░░░░░░░░  63.2 │ ██████░░░░░░░░░░░░░░░░  26.2 │  30.5% │ EA   │ 8.11 │ 0.05/0.13 │
+└──────┴────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── F) Winkeldrift und Ereignisnotizen ───────────────────────────────────────────────
+Dieser Teil simuliert Winkeldrift. Regierungen, Bevölkerungen und Währungen bleiben
+nicht eingefroren. Sie drehen sich langsam zu erfolgreichen, machtvollen oder
+lebbaren Handlungen. Simuliert wird: Welche Richtungen werden Gewohnheit, und welche
+Richtungen driften weg?
+┌─────────┬─────────┬──────────────────────────────────────────────────────────────────────┐
+│ Kürzel  │ Einheit │ Bedeutung nur in diesem Teil                                         │
+├─────────┼─────────┼──────────────────────────────────────────────────────────────────────┤
+│ Targetθ │ Grad    │ Richtung, zu der sich eine Währung langsam dreht.                    │
+│ ΔStart  │ Grad    │ Abstand zwischen aktuellem Währungswinkel und Anfangswinkel.         │
+│ GBW°    │ Grad    │ Gut/Böse-Winkel der Regierung: Richtung des Gut-Pols.                │
+│ BUW°    │ Grad    │ Beliebt/Unbeliebt-Winkel der Bevölkerung: Richtung des Beliebt-Pols. │
+│ ODE     │ Grad    │ Abweichung von idealer 90°-Orthogonalität der Achsen.                │
+└─────────┴─────────┴──────────────────────────────────────────────────────────────────────┘
+┌────┬───────────┬───────────┬───────────┬────────┬──────────┐
+│ C  │ Startθ    │ Jetztθ    │ Zielθ     │ ΔStart │ |€⃗|     │
+├────┼───────────┼───────────┼───────────┼────────┼──────────┤
+│ EA │ →  358.0° │ →  358.2° │ →    0.9° │   0.2° │ 1.000 VE │
+│ EB │ ↖  132.8° │ ↖  132.7° │ ↖  131.1° │   0.1° │ 1.000 VE │
+│ EC │ ↓  247.9° │ ↓  248.0° │ ↓  250.5° │   0.1° │ 1.000 VE │
+└────┴───────────┴───────────┴───────────┴────────┴──────────┘
+POL: Mangelwinkel bei Wohnen (59% Bedarf gedeckt); Fremdwährung EB überklingt die eigene Währung; stabile Deckung bei Energie
+HRV: Mangelwinkel bei Kultur (64% Bedarf gedeckt); Fremdwährung EC überklingt die eigene Währung; stabile Deckung bei Gesundheit
+AUT: Fremdwährung EA überklingt die eigene Währung; stabile Deckung bei Nahrung
+
+═════════════════════════════════════════════════════════════════════════════════════
+TICK 2: ein simulierter Zeitabschnitt
+═════════════════════════════════════════════════════════════════════════════════════
+Ein Tick kann als Monat, Quartal oder politischer Marktzyklus gelesen werden. Die
+Reihenfolge ist: Währungsring, Arbeit/Produktion, Güter/Preise, Handelsdreieck,
+Indizes, danach Winkeldrift und Ereignisse.
+
+── A) Währungsring: drei gleich lange Euro-Vektoren ─────────────────────────────────
+Dieser Teil simuliert die drei Währungen als Richtungen auf einem Ring. Jede
+Währungseinheit hat dieselbe Euro-Vektorlänge. Die Tabelle erklärt deshalb
+Winkelkonkurrenz, nicht Zahlen-Wechselkurse. Simuliert wird: Welche Vektorrichtung
+zieht in diesem Tick den meisten Handlungsfluss an?
+┌──────────┬──────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel   │ Einheit      │ Bedeutung nur in diesem Teil                                                       │
+├──────────┼──────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ EA/EB/EC │ Währungscode │ Die drei konkurrierenden Euro-Vektoren.                                            │
+│ |€⃗|     │ VE           │ Vektorlänge. Sie muss bei allen Währungen 1.000 bleiben.                           │
+│ θ°       │ Grad         │ Aktuelle Richtung einer Währung auf dem Ring.                                      │
+│ Share    │ 0..100%      │ Anteil des Transaktionsflusses dieses Ticks, der vom Währungswinkel gebunden wird. │
+│ Power    │ 0..100       │ Aufgebaute Bindung von Markthandlung und Heimatregierung an diesen Vektor.         │
+│ WK°      │ Grad         │ Winkelabstand zwischen zwei Währungen; kein Geld-Wechselkurs.                      │
+│ KLG      │ 0..1         │ Winkelklang. 1 bedeutet gleiche Richtung, 0 bedeutet Gegenrichtung.                │
+└──────────┴──────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+┌────────┬────────────────────────┬────────┬──────────┬───────────┬────────┬───────┬───────────┐
+│ Kürzel │ Name                   │ Heimat │ |€⃗|     │ θ°        │ Anteil │ Macht │ Zielθ     │
+├────────┼────────────────────────┼────────┼──────────┼───────────┼────────┼───────┼───────────┤
+│ EA     │ Euro-Vektor Polen      │ POL    │ 1.000 VE │ →  358.3° │  34.2% │  53.9 │ →    1.2° │
+│ EB     │ Euro-Vektor Kroatien   │ HRV    │ 1.000 VE │ ↖  132.6° │  31.6% │  49.8 │ ↖  131.1° │
+│ EC     │ Euro-Vektor Österreich │ AUT    │ 1.000 VE │ ↓  248.2° │  34.2% │  52.2 │ ↓  250.6° │
+└────────┴────────────────────────┴────────┴──────────┴───────────┴────────┴───────┴───────────┘
+┌───────┬─────────┬───────┐
+│ Paar  │ WK°     │ KLG   │
+├───────┼─────────┼───────┤
+│ EA↔EB │  134.3° │ 0.151 │
+│ EA↔EC │  110.2° │ 0.328 │
+│ EB↔EC │  115.6° │ 0.284 │
+└───────┴─────────┴───────┘
+
+── B) Arbeitsmarkt und Produktion ───────────────────────────────────────────────────
+Dieser Teil simuliert Arbeit als Winkelhandlung, nicht nur als bezahlte Zeit. Arbeit
+erzeugt Güter, wenn der Arbeitswinkel mit Währung, Gut-Pol der Regierung und Beliebt-
+Pol der Bevölkerung zusammenklingt. Simuliert wird: Wo erzeugt Arbeit Kapazität, und
+wo erzeugt sie Ermüdung?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                   │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────┤
+│ Workθ  │ Grad           │ Handlungswinkel der Arbeit in einem Sektor.                    │
+│ WC     │ Währungscode   │ Währung, deren Winkel am besten zur Arbeitsentscheidung passt. │
+│ h      │ Stunden        │ Abstrakte Arbeitsstunden dieses Ticks.                         │
+│ Prod   │ Gütereinheiten │ Produktion, die aus Arbeit und Produktivität entsteht.         │
+│ FTD    │ 0..100         │ Ermüdung durch Arbeit nahe am Unbeliebt-Pol.                   │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↖  119.9° │ EB │ 0.988 │ 17.23 h │ 0.47 │   1.0 │
+│ HOU │ Wohnen  │ →  342.4° │ EA │ 0.981 │ 36.50 h │ 0.68 │   1.0 │
+│ DAT │ Daten   │ ←  183.7° │ EB │ 0.814 │ 20.25 h │ 0.74 │   1.0 │
+│ FOO │ Nahrung │ →  347.0° │ EA │ 0.991 │ 33.37 h │ 0.84 │   1.0 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+HRV — Kroatien
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↘  300.7° │ EC │ 0.803 │ 12.75 h │ 0.44 │   0.7 │
+│ ENE │ Energie │ ←  188.6° │ EB │ 0.780 │ 28.64 h │ 0.65 │   0.7 │
+│ HOU │ Wohnen  │ ↖  128.5° │ EB │ 0.999 │ 30.48 h │ 0.70 │   0.7 │
+│ FOO │ Nahrung │ ↖  135.2° │ EB │ 1.000 │ 28.41 h │ 0.91 │   0.7 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+AUT — Österreich
+┌─────┬────────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name       │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼────────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ MOB │ Mobilität  │ ↑   89.6° │ EB │ 0.865 │ 25.47 h │ 0.60 │   0.9 │
+│ HEA │ Gesundheit │ ↓  290.9° │ EC │ 0.866 │ 41.45 h │ 0.88 │   0.9 │
+│ CUL │ Kultur     │ ↗   23.7° │ EA │ 0.951 │ 15.02 h │ 0.64 │   0.9 │
+│ EDU │ Bildung    │ ↘  328.9° │ EA │ 0.936 │ 27.76 h │ 0.81 │   0.9 │
+└─────┴────────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+── C) Gütermarkt und Vektor-Euro-Preise ─────────────────────────────────────────────
+Dieser Teil simuliert Bedarf, Versorgung, Deckung und Vektor-Euro-Preise. Preis ist
+eine Anzahl gleich langer Euro-Vektoren. Er verlängert keinen Vektor. Simuliert wird:
+Wie viele identische Vektor-Euro-Einheiten werden gebraucht, wenn Versorgung,
+Nachfrage und Winkelspannung zusammentreffen?
+┌────────────┬────────────────┬───────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel     │ Einheit        │ Bedeutung nur in diesem Teil                                                  │
+├────────────┼────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ Need       │ Gütereinheiten │ Bevölkerungsbedarf im Sektor.                                                 │
+│ Supply     │ Gütereinheiten │ Produktion minus Exporte plus Importe.                                        │
+│ Sat        │ 0..100%        │ Bedarf, der durch Endversorgung gedeckt wird.                                 │
+│ Price      │ VE/unit        │ Anzahl gleich langer Vektor-Euro-Einheiten pro Gütereinheit.                  │
+│ Buyθ/Sellθ │ Grad           │ Kauf- und Verkaufs-Handlungswinkel.                                           │
+│ BC/SC      │ Währungscode   │ Beste Währung für Kauf-/Verkaufswinkel.                                       │
+│ ODE        │ Grad           │ Mittlere Orthogonalitätsabweichung der Gut/Böse- zur Beliebt/Unbeliebt-Achse. │
+└────────────┴────────────────┴───────────────────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.80   │ 0.47       │  59.2%  │ 1.81 VE │ ←  170.3° │ EB │ ↙  226.1° │ EC │   5.5° │
+│ HOU │ Wohnen  │ 1.14   │ 0.68       │  59.5%  │ 1.77 VE │ →  353.1° │ EA │ ↗   55.4° │ EA │  21.4° │
+│ DAT │ Daten   │ 1.08   │ 0.79       │  73.7%  │ 2.09 VE │ ↙  236.0° │ EC │ ↓  254.1° │ EC │  13.3° │
+│ FOO │ Nahrung │ 1.35   │ 0.85       │  63.0%  │ 1.10 VE │ ↗   25.9° │ EA │ ↗   50.2° │ EA │  10.2° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+HRV — Kroatien
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.69   │ 0.44       │  63.2%  │ 1.68 VE │ →  340.8° │ EA │ →  350.7° │ EA │  13.2° │
+│ ENE │ Energie │ 0.99   │ 0.70       │  70.9%  │ 2.59 VE │ ↙  239.0° │ EC │ ↙  235.3° │ EC │  15.2° │
+│ HOU │ Wohnen  │ 0.94   │ 0.70       │  74.4%  │ 1.68 VE │ ←  158.6° │ EB │ ←  186.4° │ EB │  13.0° │
+│ FOO │ Nahrung │ 1.11   │ 0.91       │  82.0%  │ 1.15 VE │ ←  190.0° │ EB │ ↙  226.7° │ EC │  10.8° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+AUT — Österreich
+┌─────┬────────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name       │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼────────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ MOB │ Mobilität  │ 0.87   │ 0.60       │  69.2%  │ 2.18 VE │ ↖  150.6° │ EB │ ↖  149.3° │ EB │  11.2° │
+│ HEA │ Gesundheit │ 1.16   │ 0.89       │  76.4%  │ 2.17 VE │ ↘  322.2° │ EA │ →  354.5° │ EA │  10.1° │
+│ CUL │ Kultur     │ 0.72   │ 0.64       │  88.6%  │ 1.44 VE │ ↗   42.3° │ EA │ ↑   88.0° │ EB │  13.8° │
+│ EDU │ Bildung    │ 0.94   │ 0.82       │  87.3%  │ 1.82 VE │ →   16.1° │ EA │ ↗   24.6° │ EA │   9.8° │
+└─────┴────────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Handelsdreieck und Umlenkungsarbeit ───────────────────────────────────────────
+Dieser Teil simuliert das Handelsdreieck zwischen drei Ländern. Handel wird möglich,
+wenn Verkaufswinkel des Exportlandes und Kaufwinkel des Importlandes eine gemeinsame
+Handlungsrichtung bilden können. Simuliert wird: Wie viel Umlenkungsarbeit ist nötig,
+um Güter zu bewegen, ohne die gleiche Euro-Vektorlänge zu verändern?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                                               │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Route  │ Land→Land      │ Exportland zu Importland.                                                                  │
+│ Q      │ Gütereinheiten │ Gehandelte Menge.                                                                          │
+│ C      │ Währungscode   │ Währungswinkel, der von der gemeinsamen Handelshandlung genutzt wird.                      │
+│ Jointθ │ Grad           │ Mittlerer Handlungswinkel aus Verkaufswinkel des Exporteurs und Kaufwinkel des Importeurs. │
+│ WK°    │ Grad           │ Winkelabstand zwischen Heimatwährung des Exporteurs und Handelswährung.                    │
+│ UA     │ rad·VE         │ Umlenkungsarbeit: Vektor-Euro-Menge mal Drehung in Radiant.                                │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬───────┬────┬───────────┬────────┬──────────────┐
+│ Route   │ Sek │ Q     │ C  │ Jointθ    │ WK°    │ UA           │
+├─────────┼─────┼───────┼────┼───────────┼────────┼──────────────┤
+│ AUT→POL │ FOO │ 0.010 │ EA │ →  339.0° │ 110.1° │ 0.016 rad·VE │
+│ AUT→HRV │ FOO │ 0.007 │ EC │ ↙  241.0° │   0.0° │ 0.000 rad·VE │
+│ POL→HRV │ ENE │ 0.052 │ EB │ ←  174.7° │ 134.5° │ 0.254 rad·VE │
+│ POL→AUT │ ENE │ 0.029 │ EA │ ↗   28.0° │   0.0° │ 0.000 rad·VE │
+│ HRV→AUT │ HEA │ 0.011 │ EA │ ↘  315.6° │ 134.5° │ 0.057 rad·VE │
+│ HRV→POL │ HEA │ 0.008 │ EA │ ↗   23.5° │ 134.5° │ 0.045 rad·VE │
+│ HRV→AUT │ EDU │ 0.006 │ EA │ →  345.4° │ 134.5° │ 0.023 rad·VE │
+│ POL→AUT │ EDU │ 0.001 │ EB │ ↑   88.2° │ 134.5° │ 0.004 rad·VE │
+│ POL→HRV │ SEC │ 0.004 │ EA │ ↗   42.7° │   0.0° │ 0.000 rad·VE │
+│ AUT→HRV │ SEC │ 0.004 │ EB │ ↖  146.6° │ 115.4° │ 0.008 rad·VE │
+│ AUT→POL │ DAT │ 0.055 │ EB │ ←  174.7° │ 115.4° │ 0.188 rad·VE │
+│ AUT→HRV │ DAT │ 0.023 │ EB │ ↗   65.6° │ 115.4° │ 0.077 rad·VE │
+└─────────┴─────┴───────┴────┴───────────┴────────┴──────────────┘
+Handelssumme: 0.210 Gütereinheiten; Summe Umlenkungsarbeit: 0.672 rad·VE. Hohe UA
+bedeutet: Handel bleibt möglich, benötigt aber mehr symbolische und institutionelle
+Drehung.
+
+── E) Macht, Wohlbefinden und Wirtschaftsstärke ─────────────────────────────────────
+Dieser Teil simuliert das Zielsystem. Die Wirtschaft maximiert nicht Reichtum. Sie
+verfolgt Wohlbefinden, Macht, Wirtschaftsstärke und Spannung. Simuliert wird: Wer
+gewinnt Macht, wer gewinnt Wohlbefinden, und wo wird die Wirtschaft durch fehlenden
+Winkelzusammenhalt schwächer?
+┌────────┬──────────────┬───────────────────────────────────────────────────┐
+│ Kürzel │ Einheit      │ Bedeutung nur in diesem Teil                      │
+├────────┼──────────────┼───────────────────────────────────────────────────┤
+│ WBI    │ 0..100       │ Wohlbefindenindex der Bevölkerung.                │
+│ MPI    │ 0..100       │ Machtindex der Bindung von Regierung und Währung. │
+│ ES     │ 0..100       │ Wirtschaftsstärke unter Winkelkonkurrenz.         │
+│ TD     │ 0..100       │ Spannungsgrad. Niedriger ist ruhiger.             │
+│ OwnS   │ 0..100%      │ Inlandsanteil der eigenen Vektorwährung.          │
+│ DomC   │ Währungscode │ Dominante Währung im lokalen Transaktionsfluss.   │
+└────────┴──────────────┴───────────────────────────────────────────────────┘
+┌──────┬────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Land │ Name       │ WBI                          │ MPI                          │ ES                           │ TD                           │ OwnS   │ DomC │ Prod │ Imp/Exp   │
+├──────┼────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ POL  │ Polen      │ ██████████████░░░░░░░░  65.5 │ ███████████░░░░░░░░░░░  51.6 │ ██████████████░░░░░░░░  61.8 │ ████░░░░░░░░░░░░░░░░░░  20.1 │  33.6% │ EB   │ 8.18 │ 0.07/0.09 │
+│ HRV  │ Kroatien   │ █████████████████░░░░░  76.0 │ █████████░░░░░░░░░░░░░  40.7 │ ██████████████░░░░░░░░  62.2 │ ████░░░░░░░░░░░░░░░░░░  20.1 │  23.6% │ EC   │ 7.12 │ 0.09/0.02 │
+│ AUT  │ Österreich │ ███████████████░░░░░░░  66.6 │ ██████████░░░░░░░░░░░░  47.1 │ ██████████████░░░░░░░░  65.5 │ █████░░░░░░░░░░░░░░░░░  22.1 │  30.2% │ EA   │ 8.12 │ 0.05/0.10 │
+└──────┴────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── F) Winkeldrift und Ereignisnotizen ───────────────────────────────────────────────
+Dieser Teil simuliert Winkeldrift. Regierungen, Bevölkerungen und Währungen bleiben
+nicht eingefroren. Sie drehen sich langsam zu erfolgreichen, machtvollen oder
+lebbaren Handlungen. Simuliert wird: Welche Richtungen werden Gewohnheit, und welche
+Richtungen driften weg?
+┌─────────┬─────────┬──────────────────────────────────────────────────────────────────────┐
+│ Kürzel  │ Einheit │ Bedeutung nur in diesem Teil                                         │
+├─────────┼─────────┼──────────────────────────────────────────────────────────────────────┤
+│ Targetθ │ Grad    │ Richtung, zu der sich eine Währung langsam dreht.                    │
+│ ΔStart  │ Grad    │ Abstand zwischen aktuellem Währungswinkel und Anfangswinkel.         │
+│ GBW°    │ Grad    │ Gut/Böse-Winkel der Regierung: Richtung des Gut-Pols.                │
+│ BUW°    │ Grad    │ Beliebt/Unbeliebt-Winkel der Bevölkerung: Richtung des Beliebt-Pols. │
+│ ODE     │ Grad    │ Abweichung von idealer 90°-Orthogonalität der Achsen.                │
+└─────────┴─────────┴──────────────────────────────────────────────────────────────────────┘
+┌────┬───────────┬───────────┬───────────┬────────┬──────────┐
+│ C  │ Startθ    │ Jetztθ    │ Zielθ     │ ΔStart │ |€⃗|     │
+├────┼───────────┼───────────┼───────────┼────────┼──────────┤
+│ EA │ →  358.0° │ →  358.3° │ →    1.2° │   0.3° │ 1.000 VE │
+│ EB │ ↖  132.8° │ ↖  132.6° │ ↖  131.1° │   0.2° │ 1.000 VE │
+│ EC │ ↓  247.9° │ ↓  248.2° │ ↓  250.6° │   0.3° │ 1.000 VE │
+└────┴───────────┴───────────┴───────────┴────────┴──────────┘
+POL: Mangelwinkel bei Kultur (59% Bedarf gedeckt); Fremdwährung EB überklingt die eigene Währung; stabile Deckung bei Energie
+HRV: Mangelwinkel bei Kultur (63% Bedarf gedeckt); Fremdwährung EC überklingt die eigene Währung; stabile Deckung bei Gesundheit
+AUT: Mangelwinkel bei Mobilität (69% Bedarf gedeckt); Fremdwährung EA überklingt die eigene Währung; stabile Deckung bei Nahrung
+
+═════════════════════════════════════════════════════════════════════════════════════
+ABSCHLUSSBERICHT
+═════════════════════════════════════════════════════════════════════════════════════
+Dieser Abschlussteil liest den ganzen Lauf. Er vergleicht Endindizes und
+Verlaufssparks. Er erklärt das Ergebnis über Macht, Wohlbefinden und Winkelschwäche,
+nicht über reich oder arm.
+┌───────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│ Kürzel    │ Einheit                   │ Bedeutung nur in diesem Teil                                │
+├───────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ spark     │ UTF-8-Minikurve           │ Kleine Verlaufslinie von niedrig ▁ bis hoch █.              │
+│ OwnS last │ 0..100%                   │ Anteil der eigenen Vektorwährung im letzten Tick.           │
+│ Avg       │ arithmetischer Mittelwert │ Durchschnitt über drei Länder oder den ganzen Szenariolauf. │
+└───────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+Der Abschlussbericht fragt nicht, welches Land am reichsten wurde. Er fragt, welche
+Vektorwährung Machtbindung gewann, wo Wohlbefinden lebbar blieb und wo
+Wirtschaftsstärke durch Winkelspannung geschwächt wurde.
+┌──────┬────────────┬──────────┬──────────┬──────────┬──────────┬──────────────┐
+│ Land │ Name       │ WBI      │ MPI      │ ES       │ TD       │ OwnS zuletzt │
+├──────┼────────────┼──────────┼──────────┼──────────┼──────────┼──────────────┤
+│ POL  │ Polen      │  65.5 ▅▆ │  51.6 ▅▅ │  61.8 ▅▅ │  20.1 ▂▂ │  33.6%       │
+│ HRV  │ Kroatien   │  76.0 ▆▇ │  40.7 ▄▄ │  62.2 ▅▅ │  20.1 ▂▂ │  23.6%       │
+│ AUT  │ Österreich │  66.6 ▅▆ │  47.1 ▅▄ │  65.5 ▆▆ │  22.1 ▃▂ │  30.2%       │
+└──────┴────────────┴──────────┴──────────┴──────────┴──────────┴──────────────┘
+
+┌─────────┬────────────────────────┬────────┬──────────┬───────────┬────────┬───────┐
+│ Währung │ Name                   │ Heimat │ Länge    │ Endθ      │ Share  │ Power │
+├─────────┼────────────────────────┼────────┼──────────┼───────────┼────────┼───────┤
+│ EA      │ Euro-Vektor Polen      │ POL    │ 1.000 VE │ →  358.3° │  34.2% │  53.9 │
+│ EB      │ Euro-Vektor Kroatien   │ HRV    │ 1.000 VE │ ↖  132.6° │  31.6% │  49.8 │
+│ EC      │ Euro-Vektor Österreich │ AUT    │ 1.000 VE │ ↓  248.2° │  34.2% │  52.2 │
+└─────────┴────────────────────────┴────────┴──────────┴───────────┴────────┴───────┘
+
+Interpretation dieses Laufs: HRV hat das stärkste End-Wohlbefinden, POL den stärksten
+Machtindex, und AUT trägt den höchsten Spannungsgrad. Die stärkste Währung nach
+Machtbindung ist EA. Weil jede Währungslänge exakt 1 VE bleibt, entstehen diese
+Unterschiede nicht dadurch, dass ein Euro länger wäre als ein anderer Euro. Sie
+entstehen durch Winkelpassung, Winkeldrift und dadurch, wie viel Markthandlung jede
+Vektorrichtung bindet.
+
+CSV exportiert: /mnt/data/winkelwirtschaft_v3_demo_verlauf.csv
+Währungs-CSV exportiert: /mnt/data/winkelwirtschaft_v3_demo_waehrungen.csv
+Markdownbericht exportiert: /mnt/data/winkelwirtschaft_v3_demo_report.md

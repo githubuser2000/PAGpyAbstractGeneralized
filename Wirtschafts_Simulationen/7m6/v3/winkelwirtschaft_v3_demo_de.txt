@@ -1,0 +1,675 @@
+WINKELWÄHRUNGSWIRTSCHAFT — BUNTE PYPY3-SIMULATION
+═════════════════════════════════════════════════════════════════════════════════════
+Das Modell simuliert drei Regierungen, drei Märkte und drei konkurrierende Euro-
+Vektoren. EA, EB und EC haben alle dieselbe Vektorlänge: |€⃗| = 1 VE. Konkurrenz
+entsteht nicht durch einen Zahlen-Wechselkurs. Sie entsteht durch Winkel, Richtung,
+Resonanz, Machtbindung und Wohlbefinden.
+
+Ausgewählte EU-Länder: POL=Polen, HRV=Kroatien, AUT=Österreich
+Startparameter: seed=42, ticks=1, detail=short, scenario=Basislauf, lang=de (Deutsch), width=85, colors=off
+
+═════════════════════════════════════════════════════════════════════════════════════
+So liest du diese Ausgabe
+═════════════════════════════════════════════════════════════════════════════════════
+Die Erklärungen werden nicht in einem einzigen globalen Wörterbuch gesammelt. Jeder
+Simulationsteil erklärt nur die Kürzel und Einheiten, die genau dort benutzt werden.
+Das ist Absicht: Der Währungsring erklärt Vektorlänge und Winkelanteil; der
+Arbeitsteil erklärt Arbeitsstunden und Ermüdung; der Güterteil erklärt Bedarf,
+Versorgung und Vektor-Euro-Preise; der Handelsteil erklärt Umlenkungsarbeit; der
+Indexteil erklärt Macht und Wohlbefinden.
+
+Wichtig: Gut gegen Böse bleibt in diesem Modell Gut gegen Böse im Winkelsinn. Es ist
+keine Förderachse, keine Strafachse und nicht positiv gegen negativ. Die Regierung
+setzt eine Gut/Böse-Richtung auf dem Kreis; die Bevölkerung setzt eine orthogonale
+Beliebt/Unbeliebt-Richtung; die Markthandlung liegt zwischen diesen Winkelpolen.
+
+═════════════════════════════════════════════════════════════════════════════════════
+TICK 1: ein simulierter Zeitabschnitt
+═════════════════════════════════════════════════════════════════════════════════════
+Ein Tick kann als Monat, Quartal oder politischer Marktzyklus gelesen werden. Die
+Reihenfolge ist: Währungsring, Arbeit/Produktion, Güter/Preise, Handelsdreieck,
+Indizes, danach Winkeldrift und Ereignisse.
+
+── A) Währungsring: drei gleich lange Euro-Vektoren ─────────────────────────────────
+Dieser Teil simuliert die drei Währungen als Richtungen auf einem Ring. Jede
+Währungseinheit hat dieselbe Euro-Vektorlänge. Die Tabelle erklärt deshalb
+Winkelkonkurrenz, nicht Zahlen-Wechselkurse. Simuliert wird: Welche Vektorrichtung
+zieht in diesem Tick den meisten Handlungsfluss an?
+┌──────────┬──────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel   │ Einheit      │ Bedeutung nur in diesem Teil                                                       │
+├──────────┼──────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ EA/EB/EC │ Währungscode │ Die drei konkurrierenden Euro-Vektoren.                                            │
+│ |€⃗|     │ VE           │ Vektorlänge. Sie muss bei allen Währungen 1.000 bleiben.                           │
+│ θ°       │ Grad         │ Aktuelle Richtung einer Währung auf dem Ring.                                      │
+│ Share    │ 0..100%      │ Anteil des Transaktionsflusses dieses Ticks, der vom Währungswinkel gebunden wird. │
+│ Power    │ 0..100       │ Aufgebaute Bindung von Markthandlung und Heimatregierung an diesen Vektor.         │
+│ WK°      │ Grad         │ Winkelabstand zwischen zwei Währungen; kein Geld-Wechselkurs.                      │
+│ KLG      │ 0..1         │ Winkelklang. 1 bedeutet gleiche Richtung, 0 bedeutet Gegenrichtung.                │
+└──────────┴──────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+┌────────┬────────────────────────┬────────┬──────────┬───────────┬────────┬───────┬───────────┐
+│ Kürzel │ Name                   │ Heimat │ |€⃗|     │ θ°        │ Anteil │ Macht │ Zielθ     │
+├────────┼────────────────────────┼────────┼──────────┼───────────┼────────┼───────┼───────────┤
+│ EA     │ Euro-Vektor Polen      │ POL    │ 1.000 VE │ →  358.2° │  34.2% │  57.4 │ →    0.9° │
+│ EB     │ Euro-Vektor Kroatien   │ HRV    │ 1.000 VE │ ↖  132.7° │  31.7% │  53.8 │ ↖  131.1° │
+│ EC     │ Euro-Vektor Österreich │ AUT    │ 1.000 VE │ ↓  248.0° │  34.2% │  55.7 │ ↓  250.5° │
+└────────┴────────────────────────┴────────┴──────────┴───────────┴────────┴───────┴───────────┘
+┌───────┬─────────┬───────┐
+│ Paar  │ WK°     │ KLG   │
+├───────┼─────────┼───────┤
+│ EA↔EB │  134.5° │ 0.149 │
+│ EA↔EC │  110.1° │ 0.328 │
+│ EB↔EC │  115.4° │ 0.286 │
+└───────┴─────────┴───────┘
+
+── B) Arbeitsmarkt und Produktion ───────────────────────────────────────────────────
+Dieser Teil simuliert Arbeit als Winkelhandlung, nicht nur als bezahlte Zeit. Arbeit
+erzeugt Güter, wenn der Arbeitswinkel mit Währung, Gut-Pol der Regierung und Beliebt-
+Pol der Bevölkerung zusammenklingt. Simuliert wird: Wo erzeugt Arbeit Kapazität, und
+wo erzeugt sie Ermüdung?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                   │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────┤
+│ Workθ  │ Grad           │ Handlungswinkel der Arbeit in einem Sektor.                    │
+│ WC     │ Währungscode   │ Währung, deren Winkel am besten zur Arbeitsentscheidung passt. │
+│ h      │ Stunden        │ Abstrakte Arbeitsstunden dieses Ticks.                         │
+│ Prod   │ Gütereinheiten │ Produktion, die aus Arbeit und Produktivität entsteht.         │
+│ FTD    │ 0..100         │ Ermüdung durch Arbeit nahe am Unbeliebt-Pol.                   │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↖  120.0° │ EB │ 0.988 │ 17.23 h │ 0.47 │   0.6 │
+│ HOU │ Wohnen  │ →  342.5° │ EA │ 0.982 │ 36.47 h │ 0.68 │   0.6 │
+│ FOO │ Nahrung │ →  347.1° │ EA │ 0.991 │ 33.34 h │ 0.84 │   0.6 │
+│ DAT │ Daten   │ ←  183.9° │ EB │ 0.814 │ 20.22 h │ 0.74 │   0.6 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+HRV — Kroatien
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ Kultur  │ ↘  300.8° │ EC │ 0.802 │ 12.73 h │ 0.44 │   0.4 │
+│ ENE │ Energie │ ←  188.7° │ EB │ 0.780 │ 28.64 h │ 0.65 │   0.4 │
+│ HOU │ Wohnen  │ ↖  128.6° │ EB │ 0.999 │ 30.46 h │ 0.70 │   0.4 │
+│ FOO │ Nahrung │ ↖  135.2° │ EB │ 1.000 │ 28.40 h │ 0.91 │   0.4 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+AUT — Österreich
+┌─────┬────────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sek │ Name       │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼────────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ MOB │ Mobilität  │ ↑   89.6° │ EB │ 0.865 │ 25.45 h │ 0.60 │   0.5 │
+│ HEA │ Gesundheit │ ↓  290.9° │ EC │ 0.865 │ 41.41 h │ 0.88 │   0.5 │
+│ CUL │ Kultur     │ ↗   24.0° │ EA │ 0.950 │ 14.99 h │ 0.64 │   0.5 │
+│ EDU │ Bildung    │ ↘  329.0° │ EA │ 0.937 │ 27.76 h │ 0.81 │   0.5 │
+└─────┴────────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+── C) Gütermarkt und Vektor-Euro-Preise ─────────────────────────────────────────────
+Dieser Teil simuliert Bedarf, Versorgung, Deckung und Vektor-Euro-Preise. Preis ist
+eine Anzahl gleich langer Euro-Vektoren. Er verlängert keinen Vektor. Simuliert wird:
+Wie viele identische Vektor-Euro-Einheiten werden gebraucht, wenn Versorgung,
+Nachfrage und Winkelspannung zusammentreffen?
+┌────────────┬────────────────┬───────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel     │ Einheit        │ Bedeutung nur in diesem Teil                                                  │
+├────────────┼────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ Need       │ Gütereinheiten │ Bevölkerungsbedarf im Sektor.                                                 │
+│ Supply     │ Gütereinheiten │ Produktion minus Exporte plus Importe.                                        │
+│ Sat        │ 0..100%        │ Bedarf, der durch Endversorgung gedeckt wird.                                 │
+│ Price      │ VE/unit        │ Anzahl gleich langer Vektor-Euro-Einheiten pro Gütereinheit.                  │
+│ Buyθ/Sellθ │ Grad           │ Kauf- und Verkaufs-Handlungswinkel.                                           │
+│ BC/SC      │ Währungscode   │ Beste Währung für Kauf-/Verkaufswinkel.                                       │
+│ ODE        │ Grad           │ Mittlere Orthogonalitätsabweichung der Gut/Böse- zur Beliebt/Unbeliebt-Achse. │
+└────────────┴────────────────┴───────────────────────────────────────────────────────────────────────────────┘
+
+POL — Polen
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.78   │ 0.47       │  60.7%  │ 1.81 VE │ ←  169.8° │ EB │ ↙  226.0° │ EC │   5.9° │
+│ HOU │ Wohnen  │ 1.14   │ 0.68       │  59.5%  │ 1.79 VE │ →  352.7° │ EA │ ↗   55.4° │ EA │  21.6° │
+│ FOO │ Nahrung │ 1.35   │ 0.85       │  62.8%  │ 1.11 VE │ ↗   25.4° │ EA │ ↗   50.2° │ EA │  10.8° │
+│ DAT │ Daten   │ 1.05   │ 0.81       │  77.5%  │ 2.06 VE │ ↙  235.4° │ EC │ ↓  253.9° │ EC │  13.2° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+HRV — Kroatien
+┌─────┬─────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ Kultur  │ 0.68   │ 0.44       │  64.4%  │ 1.68 VE │ →  339.9° │ EA │ →  350.5° │ EA │  13.6° │
+│ ENE │ Energie │ 0.99   │ 0.70       │  70.9%  │ 2.60 VE │ ↙  238.4° │ EC │ ↙  235.2° │ EC │  14.7° │
+│ HOU │ Wohnen  │ 0.94   │ 0.70       │  74.3%  │ 1.69 VE │ ←  158.0° │ EB │ ←  186.3° │ EB │  13.5° │
+│ FOO │ Nahrung │ 1.11   │ 0.91       │  81.9%  │ 1.15 VE │ ←  189.3° │ EB │ ↙  226.7° │ EC │  11.1° │
+└─────┴─────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+AUT — Österreich
+┌─────┬────────────┬────────┬────────────┬─────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name       │ Bedarf │ Versorgung │ Deckung │ Preis   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼────────────┼────────┼────────────┼─────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ MOB │ Mobilität  │ 0.84   │ 0.60       │  72.0%  │ 2.18 VE │ ↖  150.2° │ EB │ ↖  149.2° │ EB │  10.9° │
+│ HEA │ Gesundheit │ 1.16   │ 0.89       │  76.3%  │ 2.19 VE │ ↘  321.8° │ EA │ →  354.6° │ EA │  10.4° │
+│ CUL │ Kultur     │ 0.69   │ 0.64       │  92.1%  │ 1.42 VE │ ↗   42.6° │ EA │ ↑   88.1° │ EB │  14.5° │
+│ EDU │ Bildung    │ 0.90   │ 0.82       │  90.8%  │ 1.80 VE │ →   16.2° │ EA │ ↗   24.7° │ EA │   9.9° │
+└─────┴────────────┴────────┴────────────┴─────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Handelsdreieck und Umlenkungsarbeit ───────────────────────────────────────────
+Dieser Teil simuliert das Handelsdreieck zwischen drei Ländern. Handel wird möglich,
+wenn Verkaufswinkel des Exportlandes und Kaufwinkel des Importlandes eine gemeinsame
+Handlungsrichtung bilden können. Simuliert wird: Wie viel Umlenkungsarbeit ist nötig,
+um Güter zu bewegen, ohne die gleiche Euro-Vektorlänge zu verändern?
+┌────────┬────────────────┬────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │ Einheit        │ Bedeutung nur in diesem Teil                                                               │
+├────────┼────────────────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Route  │ Land→Land      │ Exportland zu Importland.                                                                  │
+│ Q      │ Gütereinheiten │ Gehandelte Menge.                                                                          │
+│ C      │ Währungscode   │ Währungswinkel, der von der gemeinsamen Handelshandlung genutzt wird.                      │
+│ Jointθ │ Grad           │ Mittlerer Handlungswinkel aus Verkaufswinkel des Exporteurs und Kaufwinkel des Importeurs. │
+│ WK°    │ Grad           │ Winkelabstand zwischen Heimatwährung des Exporteurs und Handelswährung.                    │
+│ UA     │ rad·VE         │ Umlenkungsarbeit: Vektor-Euro-Menge mal Drehung in Radiant.                                │
+└────────┴────────────────┴────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬───────┬────┬───────────┬────────┬──────────────┐
+│ Route   │ Sek │ Q     │ C  │ Jointθ    │ WK°    │ UA           │
+├─────────┼─────┼───────┼────┼───────────┼────────┼──────────────┤
+│ AUT→POL │ FOO │ 0.010 │ EA │ →  338.8° │ 110.1° │ 0.016 rad·VE │
+│ AUT→HRV │ FOO │ 0.007 │ EC │ ↙  240.8° │   0.0° │ 0.000 rad·VE │
+│ POL→HRV │ ENE │ 0.052 │ EB │ ←  174.5° │ 134.8° │ 0.255 rad·VE │
+│ POL→AUT │ ENE │ 0.028 │ EA │ ↗   28.2° │   0.0° │ 0.000 rad·VE │
+│ HRV→AUT │ HEA │ 0.011 │ EA │ ↘  315.4° │ 134.8° │ 0.057 rad·VE │
+│ HRV→POL │ HEA │ 0.008 │ EA │ ↗   23.6° │ 134.8° │ 0.046 rad·VE │
+│ HRV→AUT │ EDU │ 0.004 │ EA │ →  345.4° │ 134.8° │ 0.016 rad·VE │
+│ POL→AUT │ EDU │ 0.002 │ EB │ ↑   88.3° │ 134.8° │ 0.008 rad·VE │
+│ POL→HRV │ SEC │ 0.004 │ EA │ ↗   42.6° │   0.0° │ 0.000 rad·VE │
+│ AUT→HRV │ SEC │ 0.004 │ EB │ ↖  146.6° │ 115.1° │ 0.008 rad·VE │
+│ AUT→POL │ DAT │ 0.076 │ EB │ ←  174.4° │ 115.1° │ 0.262 rad·VE │
+│ AUT→HRV │ DAT │ 0.032 │ EB │ ↗   65.6° │ 115.1° │ 0.106 rad·VE │
+└─────────┴─────┴───────┴────┴───────────┴────────┴──────────────┘
+Handelssumme: 0.237 Gütereinheiten; Summe Umlenkungsarbeit: 0.775 rad·VE. Hohe UA
+bedeutet: Handel bleibt möglich, benötigt aber mehr symbolische und institutionelle
+Drehung.
+
+── E) Macht, Wohlbefinden und Wirtschaftsstärke ─────────────────────────────────────
+Dieser Teil simuliert das Zielsystem. Die Wirtschaft maximiert nicht Reichtum. Sie
+verfolgt Wohlbefinden, Macht, Wirtschaftsstärke und Spannung. Simuliert wird: Wer
+gewinnt Macht, wer gewinnt Wohlbefinden, und wo wird die Wirtschaft durch fehlenden
+Winkelzusammenhalt schwächer?
+┌────────┬──────────────┬───────────────────────────────────────────────────┐
+│ Kürzel │ Einheit      │ Bedeutung nur in diesem Teil                      │
+├────────┼──────────────┼───────────────────────────────────────────────────┤
+│ WBI    │ 0..100       │ Wohlbefindenindex der Bevölkerung.                │
+│ MPI    │ 0..100       │ Machtindex der Bindung von Regierung und Währung. │
+│ ES     │ 0..100       │ Wirtschaftsstärke unter Winkelkonkurrenz.         │
+│ TD     │ 0..100       │ Spannungsgrad. Niedriger ist ruhiger.             │
+│ OwnS   │ 0..100%      │ Inlandsanteil der eigenen Vektorwährung.          │
+│ DomC   │ Währungscode │ Dominante Währung im lokalen Transaktionsfluss.   │
+└────────┴──────────────┴───────────────────────────────────────────────────┘
+┌──────┬────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Land │ Name       │ WBI                          │ MPI                          │ ES                           │ TD                           │ OwnS   │ DomC │ Prod │ Imp/Exp   │
+├──────┼────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ POL  │ Polen      │ █████████████░░░░░░░░░  61.3 │ ████████████░░░░░░░░░░  56.4 │ █████████████░░░░░░░░░  60.5 │ █████░░░░░░░░░░░░░░░░░  22.6 │  33.8% │ EB   │ 8.17 │ 0.09/0.09 │
+│ HRV  │ Kroatien   │ ████████████████░░░░░░  72.3 │ ██████████░░░░░░░░░░░░  43.7 │ █████████████░░░░░░░░░  59.9 │ █████░░░░░░░░░░░░░░░░░  21.6 │  23.8% │ EC   │ 7.11 │ 0.10/0.02 │
+│ AUT  │ Österreich │ █████████████░░░░░░░░░  60.0 │ ███████████░░░░░░░░░░░  50.4 │ ██████████████░░░░░░░░  63.2 │ ██████░░░░░░░░░░░░░░░░  26.2 │  30.5% │ EA   │ 8.11 │ 0.05/0.13 │
+└──────┴────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── F) Winkeldrift und Ereignisnotizen ───────────────────────────────────────────────
+Dieser Teil simuliert Winkeldrift. Regierungen, Bevölkerungen und Währungen bleiben
+nicht eingefroren. Sie drehen sich langsam zu erfolgreichen, machtvollen oder
+lebbaren Handlungen. Simuliert wird: Welche Richtungen werden Gewohnheit, und welche
+Richtungen driften weg?
+┌─────────┬─────────┬──────────────────────────────────────────────────────────────────────┐
+│ Kürzel  │ Einheit │ Bedeutung nur in diesem Teil                                         │
+├─────────┼─────────┼──────────────────────────────────────────────────────────────────────┤
+│ Targetθ │ Grad    │ Richtung, zu der sich eine Währung langsam dreht.                    │
+│ ΔStart  │ Grad    │ Abstand zwischen aktuellem Währungswinkel und Anfangswinkel.         │
+│ GBW°    │ Grad    │ Gut/Böse-Winkel der Regierung: Richtung des Gut-Pols.                │
+│ BUW°    │ Grad    │ Beliebt/Unbeliebt-Winkel der Bevölkerung: Richtung des Beliebt-Pols. │
+│ ODE     │ Grad    │ Abweichung von idealer 90°-Orthogonalität der Achsen.                │
+└─────────┴─────────┴──────────────────────────────────────────────────────────────────────┘
+┌────┬───────────┬───────────┬───────────┬────────┬──────────┐
+│ C  │ Startθ    │ Jetztθ    │ Zielθ     │ ΔStart │ |€⃗|     │
+├────┼───────────┼───────────┼───────────┼────────┼──────────┤
+│ EA │ →  358.0° │ →  358.2° │ →    0.9° │   0.2° │ 1.000 VE │
+│ EB │ ↖  132.8° │ ↖  132.7° │ ↖  131.1° │   0.1° │ 1.000 VE │
+│ EC │ ↓  247.9° │ ↓  248.0° │ ↓  250.5° │   0.1° │ 1.000 VE │
+└────┴───────────┴───────────┴───────────┴────────┴──────────┘
+POL: Mangelwinkel bei Wohnen (59% Bedarf gedeckt); Fremdwährung EB überklingt die eigene Währung; stabile Deckung bei Energie
+HRV: Mangelwinkel bei Kultur (64% Bedarf gedeckt); Fremdwährung EC überklingt die eigene Währung; stabile Deckung bei Gesundheit
+AUT: Fremdwährung EA überklingt die eigene Währung; stabile Deckung bei Nahrung
+
+═════════════════════════════════════════════════════════════════════════════════════
+ABSCHLUSSBERICHT
+═════════════════════════════════════════════════════════════════════════════════════
+Dieser Abschlussteil liest den ganzen Lauf. Er vergleicht Endindizes und
+Verlaufssparks. Er erklärt das Ergebnis über Macht, Wohlbefinden und Winkelschwäche,
+nicht über reich oder arm.
+┌───────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│ Kürzel    │ Einheit                   │ Bedeutung nur in diesem Teil                                │
+├───────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ spark     │ UTF-8-Minikurve           │ Kleine Verlaufslinie von niedrig ▁ bis hoch █.              │
+│ OwnS last │ 0..100%                   │ Anteil der eigenen Vektorwährung im letzten Tick.           │
+│ Avg       │ arithmetischer Mittelwert │ Durchschnitt über drei Länder oder den ganzen Szenariolauf. │
+└───────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+Der Abschlussbericht fragt nicht, welches Land am reichsten wurde. Er fragt, welche
+Vektorwährung Machtbindung gewann, wo Wohlbefinden lebbar blieb und wo
+Wirtschaftsstärke durch Winkelspannung geschwächt wurde.
+┌──────┬────────────┬─────────┬─────────┬─────────┬─────────┬──────────────┐
+│ Land │ Name       │ WBI     │ MPI     │ ES      │ TD      │ OwnS zuletzt │
+├──────┼────────────┼─────────┼─────────┼─────────┼─────────┼──────────────┤
+│ POL  │ Polen      │  61.3 ▅ │  56.4 ▅ │  60.5 ▅ │  22.6 ▂ │  33.8%       │
+│ HRV  │ Kroatien   │  72.3 ▆ │  43.7 ▄ │  59.9 ▅ │  21.6 ▂ │  23.8%       │
+│ AUT  │ Österreich │  60.0 ▅ │  50.4 ▅ │  63.2 ▆ │  26.2 ▃ │  30.5%       │
+└──────┴────────────┴─────────┴─────────┴─────────┴─────────┴──────────────┘
+
+┌─────────┬────────────────────────┬────────┬──────────┬───────────┬────────┬───────┐
+│ Währung │ Name                   │ Heimat │ Länge    │ Endθ      │ Share  │ Power │
+├─────────┼────────────────────────┼────────┼──────────┼───────────┼────────┼───────┤
+│ EA      │ Euro-Vektor Polen      │ POL    │ 1.000 VE │ →  358.2° │  34.2% │  57.4 │
+│ EB      │ Euro-Vektor Kroatien   │ HRV    │ 1.000 VE │ ↖  132.7° │  31.7% │  53.8 │
+│ EC      │ Euro-Vektor Österreich │ AUT    │ 1.000 VE │ ↓  248.0° │  34.2% │  55.7 │
+└─────────┴────────────────────────┴────────┴──────────┴───────────┴────────┴───────┘
+
+Interpretation dieses Laufs: HRV hat das stärkste End-Wohlbefinden, POL den stärksten
+Machtindex, und AUT trägt den höchsten Spannungsgrad. Die stärkste Währung nach
+Machtbindung ist EA. Weil jede Währungslänge exakt 1 VE bleibt, entstehen diese
+Unterschiede nicht dadurch, dass ein Euro länger wäre als ein anderer Euro. Sie
+entstehen durch Winkelpassung, Winkeldrift und dadurch, wie viel Markthandlung jede
+Vektorrichtung bindet.
+
+═════════════════════════════════════════════════════════════════════════════════════
+UTF-8-ART-GALERIE DER WINKELWIRTSCHAFT
+═════════════════════════════════════════════════════════════════════════════════════
+Die Galerie kommt nach dem Zahlenbericht. Sie verwandelt denselben Endzustand in
+bunte UTF-8-Diagramme: Kreise, Vektoren, Winkelteppiche, Handelspfeile und
+Szenariokarten. Unter jedem Bild steht eine Ergebniszusammenfassung, inklusive Lesart
+für verschiedene Szenarien.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 01. Währungskompass: drei gleich lange Euro-Vektoren                              ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+ Endrichtungen der Währungen
+                                │
+                             ◦◦◦│◦◦◦
+                           ◦◦◦  │  ◦◦◦◦
+               EB |€⃗|=1 ◦◦     │     ◦◦
+                        ◦↖      │      ◦◦
+                       ◦◦ •     │       ◦◦
+                       ◦   •    │        ◦
+                      ◦     •   │         ◦
+                      ◦     •   │         ◦
+                     ◦◦      •  │         ◦◦
+                     ◦        • │          ◦
+                     ◦         •│          ◦
+               180°─────────────•••••••••••→── 0°
+                     ◦          •          ◦ EA |€⃗|=1
+                     ◦         •│          ◦
+                     ◦◦        •│         ◦◦
+                      ◦       • │         ◦
+                      ◦       • │         ◦
+                       ◦      • │        ◦◦
+                       ◦◦    •  │       ◦◦
+                        ◦◦   •  │      ◦◦
+                         ◦◦ •   │     ◦◦
+                          ◦◦↓◦  │  ◦◦◦◦
+                  EC |€⃗|=1  ◦◦◦│◦◦◦
+                                │
+                             270°
+Ergebnis: Das Bild zeigt nur Richtung, nicht Geldlänge. EA, EB und EC erscheinen als
+verschiedenfarbige Pfeile, weil ihre Winkel verschieden sind; sie erscheinen nicht
+mit unterschiedlichen Radien, weil ihre Vektorlänge fest bei 1 VE liegt. Eine
+Transaktion gewinnt also die Währung, deren Richtung am besten mit dem
+Handlungswinkel klingt, nicht die Währung mit einem längeren Euro.
+Szenario-Lesart für den Währungskompass: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 02. Gleichlängenbeweis: Preis ist Anzahl, nicht Streckung                         ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+┌────────────────────────────────────────────────────────────────────────┐
+│ EA ████████████████████ |€⃗| = 1.000 VE    θ= 358.2°      │
+│ EB ████████████████████ |€⃗| = 1.000 VE    θ= 132.7°      │
+│ EC ████████████████████ |€⃗| = 1.000 VE    θ= 248.0°      │
+└────────────────────────────────────────────────────────────────────────┘
+┌──────┬─────┬────────────┬────────────────┐
+│ Land │ Sek │ Sektor     │ Höchster Preis │
+├──────┼─────┼────────────┼────────────────┤
+│ POL  │ HEA │ Gesundheit │ 2.51 VE/unit   │
+│ HRV  │ ENE │ Energie    │ 2.60 VE/unit   │
+│ AUT  │ HEA │ Gesundheit │ 2.19 VE/unit   │
+└──────┴─────┴────────────┴────────────────┘
+Ergebnis: Alle drei Balken haben identische Länge. Die Preistabelle darunter zeigt
+eine andere Idee: Hohe Preise bedeuten, dass mehr gleich lange Vektor-Euro-Einheiten
+für ein Gut gezählt werden. Der Preis bedeutet nicht, dass EA, EB oder EC länger
+geworden wäre. In Mangelszenarien steigt diese Anzahl meist; in Resonanzszenarien
+fällt sie oft, weil weniger Winkelumweg nötig ist.
+Szenario-Lesart für gleiche Vektorlänge: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 03. Regierungsachse Gut/Böse und Bevölkerungsachse Beliebt/Unbeliebt              ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+ HRV EDU Kaufmarkt
+                                │    EVIL/BÖ
+                             ◦◦◦│◦◦E
+                           ◦◦◦  │  •◦◦◦
+          UNPOPULAR/UNB  ◦◦     │ •   ◦◦
+                        U◦      │ •    ◦◦
+                       ◦◦•      │ •     ◦◦
+                       ◦  •     │ •      ◦
+                      ◦    •    │•        ◦
+                      ◦     •   │•        ◦
+                     ◦◦      •  │•        ◦◦
+                     ◦        • │•         ◦
+                     ◦         ••          ◦
+               180°─────────────•───────────── 0°
+                     ◦          ••         ◦
+                     ◦         •• •        ◦
+                     ◦◦        •│• •      ◦◦
+                      ◦        •│•  •     ◦
+                      ◦        •│•   •    ◦
+                       ◦      • │•    •  ◦◦
+                       ◦◦     • │•     •◦◦
+                        ◦◦    • │•     ◦P
+                         ◦◦   • │ •   ◦◦  POPULAR/BEL
+                          ◦◦◦•  │ •◦◦◦◦
+                             G◦◦│◦◆◦
+                     GOOD/GT    │   ACTION/HW
+                             270°
+Ergebnis: Dies ist das stärkste Achsendruck-Beispiel im Endzustand: HRV, Sektor
+Bildung, Kaufmarkt. GBW° zeigt zum Gut-Pol der Regierung; GBW°+180° ist der Böse-Pol.
+BUW° zeigt zum Beliebt-Pol der Bevölkerung; BUW°+180° ist der Unbeliebt-Pol. Der
+Handlungswinkel liegt zwischen den Achsen. Die ODE beträgt hier 31.0°, also ist die
+Beliebt/Unbeliebt-Achse so weit von idealer Orthogonalität entfernt.
+Szenario-Bedeutung: Resonanz hält die türkise Beliebt-Achse nahe an einer sauberen
+90°-Beziehung zur grünen Gut-Achse; Machtstreben zieht die gelbe Handlung oft zur
+Regierungs-/Währungsseite; Wohlbefinden zieht Handlung zur Beliebt-Seite;
+zersplitterte Winkel streuen alle Pole und erzeugen hohe Spannung, obwohl die Euro-
+Vektorlänge unverändert bleibt.
+Szenario-Lesart für orthogonale Achsen: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 04. Drei Marktvektoren: Kauf, Verkauf und Arbeit                                  ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+ AUT Mobilität
+                                │ WORK/A EB
+                             ◦◦◦◆◦◦◦
+                           ◦◦◦  •  ◦◦◦◦
+                         ◦◦     •     ◦◦
+                        ◦◦      •      ◦◦
+             SELL/V EB ◦◦       •       ◦◦
+             BUY/K EB  ◆        •        ◦
+                      ◆•••      •         ◦
+                      ◦ •••     •         ◦
+                     ◦◦   •••   •         ◦◦
+                     ◦      ••  •          ◦
+                     ◦        •••          ◦
+               180°─────────────•───────────── 0°
+                     ◦          │          ◦
+                     ◦          │          ◦
+                     ◦◦         │         ◦◦
+                      ◦         │         ◦
+                      ◦         │         ◦
+                       ◦        │        ◦◦
+                       ◦◦       │       ◦◦
+                        ◦◦      │      ◦◦
+                         ◦◦     │     ◦◦
+                          ◦◦◦◦  │  ◦◦◦◦
+                             ◦◦◦│◦◦◦
+                                │
+                             270°
+Ergebnis: Die drei Markthandlungen in AUT/Mobilität müssen nicht in dieselbe Richtung
+zeigen. Kauf, Verkauf und Arbeit können unterschiedliche dominante Währungen nutzen,
+weil jede Handlung ihren eigenen Winkel hat. Im gezeigten Endzustand beträgt die
+Bedarfsdeckung dieses Sektors 72.0% und der Preis 2.18 VE pro Einheit. Ein schwacher
+Sektor ist deshalb nicht einfach 'arm'; er kann winkelmäßig zwischen Kaufen,
+Verkaufen und Arbeiten gespalten sein.
+Szenario-Bedeutung: In Resonanz clustern die drei Rauten und der Sektor wirkt
+kohärent; im Machtstreben kann der Arbeitsvektor nahe an die Staatswährung gezogen
+werden, während Kaufbedarf woanders bleibt; im Mangel werden Kaufvektoren teuer, weil
+Bedarf und Versorgung kollidieren; im Handelsboom werden Verkaufsvektoren wichtiger
+und können den Sektor zu Exportwährungen ziehen.
+Szenario-Lesart für die drei Marktvektoren: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 05. Macht-gegen-Wohlbefinden-Karte                                                ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+
+ MPI ↑
+        │
+        │ Macht                           Resonanz
+        │
+        │
+        │
+        │
+        │
+        │                               ● POL
+        │                              ● AUT
+        │                                     ● HRV
+        │
+        │
+        │
+        │
+        │ schwach                     Wohlbefinden
+        │
+        └────────────────────────────────────────────────────
+          WBI →
+
+
+Ergebnis: Dieses Diagramm trennt die zwei Hauptziele. Nach rechts bedeutet mehr
+Wohlbefinden; nach oben bedeutet stärkere Machtbindung. Ein Land rechts oben ist
+nicht unbedingt reich; es ist in beiden Zielrichtungen kohärent. Links oben bedeutet
+Macht ohne genug Wohlbefinden. Rechts unten bedeutet lebbares Gemeinwesen mit
+schwacher Staats-/Währungsmacht. Links unten bedeutet schwachen Zusammenhalt in
+beiden Dimensionen.
+Szenario-Lesart für Macht gegen Wohlbefinden: Im stillen Vergleich hat Wohlbefinden
+das höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 06. Spannungs-Heatcarpet über die Zeit                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+Legende: Grün niedrige TD, Gelb mittlere TD, Rot hohe TD
+┌──────┬───────────────┬───────────┐
+│ Land │ TD über Ticks │ Final     │
+├──────┼───────────────┼───────────┤
+│ POL  │ ▂             │ last 22.6 │
+│ HRV  │ ▂             │ last 21.6 │
+│ AUT  │ ▂             │ last 26.2 │
+└──────┴───────────────┴───────────┘
+Ergebnis: Der Teppich zeigt, ob Spannung episodisch oder strukturell ist. Einzelne
+gelbe/rote Blöcke bedeuten vorübergehende Winkelreibung. Ein langes rotes Band
+bedeutet dauerhafte Fehlpassung zwischen Gut/Böse-Achsen der Regierung,
+Beliebt/Unbeliebt-Achsen der Bevölkerung, Währungsrichtungen und Markthandlungen. Das
+schwächt im Modell direkt die Wirtschaftsstärke.
+Szenario-Lesart für den Spannungsteppich: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 07. Handelsdreieck: Güter bewegen sich, Vektoren drehen                           ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+
+                             ▲ POL
+                        ╱            ╲
+                  ═▶ 0.01/0.05UA      ═▶ 0.03/0.01UA
+                ╱                            ╲
+HRV ◀                ═▶ 0.02/0.07UA         ▶ AUT
+                ╲                            ╱
+                  ═▶ 0.06/0.25UA      ═▶ 0.09/0.28UA
+                        ╲            ╱
+                             ═▶ 0.04/0.11UA
+Ergebnis: Jeder Pfeil zeigt Menge/Umlenkungsarbeit. Die erste Zahl ist gehandelte
+Gütermenge; die zweite ist UA, die Umlenkungsarbeit in rad·VE. Eine Route kann
+geringe Gütermenge, aber hohe Umlenkungsarbeit haben, wenn die Handelswährung weit
+von der Heimatwährung des Exporteurs entfernt ist. Diese Route ist politisch und
+symbolisch teuer, obwohl jeder Euro-Vektor weiterhin Länge 1 hat.
+Szenario-Lesart für das Handelsdreieck: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 08. Währungsdrift-Spuren                                                          ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+ Endpfeile; Spuren darunter
+                                │
+                             ◦◦◦│◦◦◦
+                           ◦◦◦  │  ◦◦◦◦
+                  EB now ◦◦     │     ◦◦
+                        ◦↖      │      ◦◦
+                       ◦◦ •     │       ◦◦
+                       ◦   •    │        ◦
+                      ◦     •   │         ◦
+                      ◦     •   │         ◦
+                     ◦◦      •  │         ◦◦
+                     ◦        • │          ◦
+                     ◦         •│          ◦
+               180°─────────────•••••••••••→── 0°
+                     ◦          •          ◦ EA now
+                     ◦         •│          ◦
+                     ◦◦        •│         ◦◦
+                      ◦       • │         ◦
+                      ◦       • │         ◦
+                       ◦      • │        ◦◦
+                       ◦◦    •  │       ◦◦
+                        ◦◦   •  │      ◦◦
+                         ◦◦ •   │     ◦◦
+                          ◦◦↓◦  │  ◦◦◦◦
+                     EC now  ◦◦◦│◦◦◦
+                                │
+                             270°
+┌────┬───────────┬───────────┬──────┬──────┐
+│ C  │ Startθ    │ Endθ      │ Δ    │ Spur │
+├────┼───────────┼───────────┼──────┼──────┤
+│ EA │ →  358.0° │ →  358.2° │ 0.2° │ →    │
+│ EB │ ↖  132.8° │ ↖  132.7° │ 0.1° │ ↖    │
+│ EC │ ↓  247.9° │ ↓  248.0° │ 0.1° │ ↓    │
+└────┴───────────┴───────────┴──────┴──────┘
+Ergebnis: Die Spur ist ein Verlauf der Richtungsänderungen, nicht der
+Geldlängenänderungen. Eine stabile Spur bedeutet, dass die Währung ihre
+Winkelidentität hält. Eine drehende Spur bedeutet, dass Markthandlung und
+Regierungsbindung sie in einen neuen Orbit gezogen haben. In Machtszenarien kann
+Drift strategisch sein; in Wohlbefindensszenarien folgt sie lebbarer Nachfrage; in
+zersplitterten Szenarien kann sie instabiles Zickzack werden.
+Szenario-Lesart für Währungsdrift: Im stillen Vergleich hat Wohlbefinden das höchste
+durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI, Resonanz das
+ruhigste Winkelfeld, und zersplitterte Winkel das härteste Spannungsfeld. Nutze
+dieses Bild als Diagnose: Resonanz verkleinert sichtbare Konflikte; Macht zieht
+Vektoren zur Staatswährung; Mangel oder Zersplitterung verdicken rote/gelbe
+Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 09. Sektor-Deckungs-Mosaik                                                        ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+┌──────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Land │ FOO      │ ENE      │ HOU      │ HEA      │ EDU      │ CUL      │ SEC      │ DAT      │ MOB      │
+├──────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ POL  │ ▒▒   63% │ ██  100% │ ▒▒   59% │ ▓▓   82% │ ██  100% │ ▒▒   61% │ ██  100% │ ▓▓   77% │ ▓▓   85% │
+│ HRV  │ ▓▓   82% │ ▒▒   71% │ ▒▒   74% │ ██  100% │ ██  100% │ ▒▒   64% │ ▓▓   82% │ ██   96% │ ▓▓   95% │
+│ AUT  │ ██  100% │ ▓▓   93% │ ▓▓   89% │ ▓▓   76% │ ▓▓   91% │ ▓▓   92% │ ██  100% │ ██  100% │ ▒▒   72% │
+└──────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+Ergebnis: Das Mosaik übersetzt finale Bedarfsdeckung in Blöcke. Grüne Blöcke
+bedeuten, dass ein Sektor materiell gedeckt und winkelmäßig nutzbar genug ist. Rote
+Blöcke bedeuten fehlende Deckung, meist durch niedrige Produktion, schwachen
+Handelszugang, teure Vektoranzahl oder Fehlpassung zwischen
+Kauf-/Verkaufs-/Arbeitswinkeln. Hier wird Wirtschaftsstärke schwach, ohne Geld als
+Reichtumsmaximierung zu behandeln.
+Szenario-Lesart für Sektordeckung: Im stillen Vergleich hat Wohlbefinden das höchste
+durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI, Resonanz das
+ruhigste Winkelfeld, und zersplitterte Winkel das härteste Spannungsfeld. Nutze
+dieses Bild als Diagnose: Resonanz verkleinert sichtbare Konflikte; Macht zieht
+Vektoren zur Staatswährung; Mangel oder Zersplitterung verdicken rote/gelbe
+Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 10. Vektor-Euro-Preiswellen                                                       ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+POL ▁▂▄█▄▄▁▆▅   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=1.11 max=2.51 VE
+HRV ▁█▃█▄▃▁▃▄   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=1.15 max=2.60 VE
+AUT ▁▅▄█▆▄▃▇█   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=0.92 max=2.19 VE
+Ergebnis: Jede Welle ist die finale Vektor-Euro-Anzahl pro Einheit über die Sektoren.
+Spitzen sind keine längeren Euros. Sie sind Stellen, an denen mehr gleich lange
+Vektoreinheiten gebraucht werden, weil Mangel, Winkel-Fehlpassung oder Distanz zur
+lokalen Währung Reibung erzeugt. In Resonanzszenarien glätten sich Wellen; in
+Mangelszenarien steigen sie; in Handelsboom-Szenarien können exportierbare Sektoren
+durch Importe glatter werden oder durch Umlenkungsarbeit ausschlagen.
+Szenario-Lesart für Preiswellen: Im stillen Vergleich hat Wohlbefinden das höchste
+durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI, Resonanz das
+ruhigste Winkelfeld, und zersplitterte Winkel das härteste Spannungsfeld. Nutze
+dieses Bild als Diagnose: Resonanz verkleinert sichtbare Konflikte; Macht zieht
+Vektoren zur Staatswährung; Mangel oder Zersplitterung verdicken rote/gelbe
+Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 11. Szenario-Quadranten: wie die Wirtschaft einzuordnen ist                       ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+┌──────────────────────────────┬──────────────────────────────┐
+│         MACHTKLEMME          │           RESONANZ           │
+│              —               │             POL              │
+├──────────────────────────────┼──────────────────────────────┤
+│            BRUCH             │      WOHLBEFINDENSINSEL      │
+│              —               │           HRV, AUT           │
+└──────────────────────────────┴──────────────────────────────┘
+Ergebnis: Das Quadrantenbild gibt eine politisch-ökonomische Lesart. Resonanz
+bedeutet, dass Macht und Wohlbefinden bei tragbarer Spannung zusammengehen.
+Machtklemme bedeutet, dass Staats-/Währungsseite über gelebtem Wohlbefinden
+dominiert. Wohlbefindensinsel bedeutet, dass Menschen besser leben, als die
+Staatswährung dominiert. Bruch bedeutet, dass die Winkel noch keine stabile Zielform
+bilden.
+Szenario-Lesart für Szenario-Quadranten: Im stillen Vergleich hat Wohlbefinden das
+höchste durchschnittliche WBI, Machtstreben das höchste durchschnittliche MPI,
+Resonanz das ruhigste Winkelfeld, und zersplitterte Winkel das härteste
+Spannungsfeld. Nutze dieses Bild als Diagnose: Resonanz verkleinert sichtbare
+Konflikte; Macht zieht Vektoren zur Staatswährung; Mangel oder Zersplitterung
+verdicken rote/gelbe Spannungszeichen.
+
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║ 12. Stiller Szenariovergleich                                                     ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+┌──────────────────────┬─────────┬─────────┬────────┬────────┬──────────┬───────┐
+│ Szenario             │ Avg WBI │ Avg MPI │ Avg ES │ Avg TD │ Total UA │ Top C │
+├──────────────────────┼─────────┼─────────┼────────┼────────┼──────────┼───────┤
+│ Basislauf            │  64.2   │  50.5   │  61.2  │  24.2  │    0.60  │ EA    │
+│ Resonanz             │  70.7   │  53.1   │  63.2  │  22.9  │    0.93  │ EA    │
+│ Machtstreben         │  59.6   │  59.7   │  62.1  │  24.5  │    0.76  │ EA    │
+│ Wohlbefinden         │  74.4   │  47.2   │  60.7  │  23.4  │    0.58  │ EA    │
+│ zersplitterte Winkel │  57.2   │  47.7   │  58.9  │  28.7  │    0.05  │ EA    │
+│ Mangeldruck          │  49.8   │  50.8   │  54.5  │  26.8  │    0.00  │ EA    │
+│ Handelsboom          │  67.4   │  52.7   │  63.1  │  23.5  │    1.22  │ EA    │
+└──────────────────────┴─────────┴─────────┴────────┴────────┴──────────┴───────┘
+Ergebnis: Diese letzte Tabelle lässt das Modell tatsächlich still unter mehreren
+Szenarien laufen, mit denselben Strukturregeln. Sie ist keine moralische Rangliste.
+Sie zeigt, welches Parameterklima mehr Wohlbefinden, mehr Macht, mehr Stärke oder
+mehr Spannung erzeugt. Da alle Szenarien |€⃗|=1 VE für EA, EB und EC beibehalten,
+sind Unterschiede zwischen den Zeilen Winkel-Systemunterschiede, keine Euro-
+Längenunterschiede.
+So nutzt du es: Wähle --scenario resonance für klareren Winkelzusammenhalt,
+--scenario power für stärkere Staats-/Währungsbindung, --scenario wellbeing für
+Vorrang des Lebbaren, --scenario fragmented für gestreute Achsen, --scenario scarcity
+für hohen Bedarf und niedrige Produktion oder --scenario tradeboom für starke
+Export-/Importbewegung.
