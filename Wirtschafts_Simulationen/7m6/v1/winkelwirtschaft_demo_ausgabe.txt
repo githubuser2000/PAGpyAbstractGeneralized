@@ -1,0 +1,119 @@
+WINKELWÄHRUNGSWIRTSCHAFT — BUNTE PYTHON/PYPY3-SIMULATION
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Dieses Programm simuliert ein System mit drei Länderregierungen, drei konkurrierenden Vektor-
+Währungen und drei Marktarten: Kauf, Verkauf und Arbeit. Die drei Währungen sind keine verschieden
+langen Geldbeträge. Alle sind Euro-Vektoren mit derselben Länge. Der Wettbewerb entsteht aus
+Richtung, Winkelklang, Machtbindung und Wohlbefinden, nicht aus Reichtumsmaximierung.
+
+Startparameter: Seed=7, Ticks=1, Detail=kurz, Farben=aus
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+TICK 1: Simulation eines Zeitabschnitts
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Ein Tick ist eine abstrakte Periode. Er kann einen Monat, ein Quartal oder einen politischen Zyklus
+bedeuten. Die Einheiten bleiben gleich: Winkel in Grad, Preise in VE, Umlenkungsarbeit in rad·VE,
+Indizes von 0 bis 100.
+
+── A) Währungsring: drei gleich lange Euro-Vektoren ────────────────────────────────────────────────
+Die Tabelle zeigt die drei Währungen. Die Spalte |€⃗| bleibt 1.000 für alle. Anteil ist der Anteil
+am gesamten Transaktionsfluss dieses Ticks. Macht ist die akkumulierte Bindung der Währung an
+politische Ordnung und Marktgebrauch.
+┌──────┬──────────┬────────┬──────────┬───────────┬────────┬───────┬─────────────┐
+│ Code │ Name     │ Heimat │ |€⃗|     │ Winkel    │ Anteil │ Macht │ Zieldrehung │
+├──────┼──────────┼────────┼──────────┼───────────┼────────┼───────┼─────────────┤
+│ EA   │ Euro-Aur │ AUR    │ 1.000 VE │ →    8.0° │  31.9% │  57.6 │ →    7.2°   │
+│ EB   │ Euro-Bel │ BEL    │ 1.000 VE │ ↖  128.1° │  32.3% │  45.5 │ ↖  129.9°   │
+│ EC   │ Euro-Cal │ CAL    │ 1.000 VE │ ↓  248.1° │  35.8% │  52.1 │ ↓  250.7°   │
+└──────┴──────────┴────────┴──────────┴───────────┴────────┴───────┴─────────────┘
+┌──────────────┬─────────┬───────┐
+│ Währungspaar │ WK°     │ KLG   │
+├──────────────┼─────────┼───────┤
+│ EA↔EB        │  120.1° │ 0.249 │
+│ EA↔EC        │  119.8° │ 0.251 │
+│ EB↔EC        │  120.0° │ 0.250 │
+└──────────────┴─────────┴───────┘
+
+── B) Länder: Macht, Wohlbefinden, Stärke, Spannung ────────────────────────────────────────────────
+WBI ist das Wohlbefinden der Bevölkerung. MPI ist Machtbindung von Regierung und eigener Währung.
+WSK ist die Wirtschaftsstärke unter Winkelkonkurrenz. SPG ist Spannung; dort ist ein kleinerer Wert
+ruhiger. EigW ist der Anteil der eigenen Winkelwährung im Inland dieses Ticks.
+┌──────┬────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Land │ Name   │ WBI                          │ MPI                          │ WSK                          │ SPG                          │ EigW   │ DomW │ Prod │ Imp/Exp   │
+├──────┼────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ AUR  │ Auron  │ █████████████░░░░░░░░░  60.8 │ ████████████░░░░░░░░░░  55.6 │ █████████████░░░░░░░░░  60.1 │ █████░░░░░░░░░░░░░░░░░  23.3 │  29.9% │ EB   │ 7.72 │ 0.00/0.00 │
+│ BEL  │ Belvar │ ████████████████░░░░░░  70.6 │ █████████░░░░░░░░░░░░░  42.7 │ █████████████░░░░░░░░░  58.9 │ █████░░░░░░░░░░░░░░░░░  22.2 │  22.4% │ EC   │ 6.73 │ 0.00/0.00 │
+│ CAL  │ Caldra │ █████████████░░░░░░░░░  58.8 │ ███████████░░░░░░░░░░░  50.1 │ ██████████████░░░░░░░░  62.0 │ ██████░░░░░░░░░░░░░░░░  25.9 │  27.5% │ EA   │ 7.22 │ 0.00/0.00 │
+└──────┴────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── C) Märkte je Land und Sektor ────────────────────────────────────────────────────────────────────
+Jede Zeile zeigt einen Sektor. Bed ist Bedarf, Prod ist Produktion, Dck ist Bedarfsdeckung, Preis
+ist VE je Einheit. Kauf-HW, Verkauf-HW und Arbeit-HW sind die Handlungswinkel. KW/VW/AW sind die
+jeweils stärksten Winkelwährungen für Kauf, Verkauf und Arbeit. OEA ist die mittlere
+Orthogonalitätsabweichung der drei Marktachsen im Sektor.
+
+Land AUR — Auron
+┌─────┬───────────┬──────┬──────┬────────┬─────────┬───────────┬────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name      │ Bed  │ Prod │ Dck    │ Preis   │ Kauf-HW   │ KW │ Verk-HW   │ VW │ Arb-HW    │ AW │ OEA    │
+├─────┼───────────┼──────┼──────┼────────┼─────────┼───────────┼────┼───────────┼────┼───────────┼────┼────────┤
+│ KUL │ Kultur    │ 0.76 │ 0.56 │  73.8% │ 1.66 VE │ ←  188.0° │ EC │ ↙  210.9° │ EC │ ↖  122.1° │ EB │   7.0° │
+│ DAT │ Daten     │ 1.03 │ 0.78 │  76.3% │ 2.10 VE │ ↙  243.4° │ EC │ ↓  253.5° │ EC │ ←  194.7° │ EC │  16.2° │
+│ WOH │ Wohnen    │ 1.12 │ 0.73 │  65.0% │ 1.74 VE │ →   18.3° │ EA │ ↗   28.7° │ EA │ →  345.5° │ EA │  17.6° │
+│ MOB │ Mobilität │ 0.91 │ 0.70 │  76.8% │ 2.02 VE │ ↓  275.7° │ EC │ ↘  313.5° │ EA │ ↙  230.9° │ EC │   9.8° │
+└─────┴───────────┴──────┴──────┴────────┴─────────┴───────────┴────┴───────────┴────┴───────────┴────┴────────┘
+
+Land BEL — Belvar
+┌─────┬─────────┬──────┬──────┬────────┬─────────┬───────────┬────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name    │ Bed  │ Prod │ Dck    │ Preis   │ Kauf-HW   │ KW │ Verk-HW   │ VW │ Arb-HW    │ AW │ OEA    │
+├─────┼─────────┼──────┼──────┼────────┼─────────┼───────────┼────┼───────────┼────┼───────────┼────┼────────┤
+│ KUL │ Kultur  │ 0.70 │ 0.48 │  68.8% │ 1.69 VE │ ↘  307.3° │ EC │ →    0.6° │ EA │ ↓  267.5° │ EC │  14.6° │
+│ ENE │ Energie │ 1.03 │ 0.74 │  71.7% │ 2.49 VE │ ↙  227.5° │ EC │ ↓  258.4° │ EC │ ←  177.6° │ EB │  17.5° │
+│ DAT │ Daten   │ 0.94 │ 0.72 │  75.9% │ 1.98 VE │ →   11.7° │ EA │ ↗   51.2° │ EA │ ↘  310.7° │ EA │  20.4° │
+│ WOH │ Wohnen  │ 0.98 │ 0.66 │  67.1% │ 2.04 VE │ ←  176.2° │ EB │ ←  189.8° │ EC │ ↑  101.6° │ EB │   6.9° │
+└─────┴─────────┴──────┴──────┴────────┴─────────┴───────────┴────┴───────────┴────┴───────────┴────┴────────┘
+
+Land CAL — Caldra
+┌─────┬───────────┬──────┬──────┬────────┬─────────┬───────────┬────┬───────────┬────┬───────────┬────┬────────┐
+│ Sek │ Name      │ Bed  │ Prod │ Dck    │ Preis   │ Kauf-HW   │ KW │ Verk-HW   │ VW │ Arb-HW    │ AW │ OEA    │
+├─────┼───────────┼──────┼──────┼────────┼─────────┼───────────┼────┼───────────┼────┼───────────┼────┼────────┤
+│ KUL │ Kultur    │ 0.71 │ 0.48 │  67.4% │ 1.69 VE │ ↗   39.3° │ EA │ ↑   71.2° │ EB │ ↗   29.6° │ EA │  14.3° │
+│ WOH │ Wohnen    │ 1.06 │ 0.68 │  64.1% │ 1.77 VE │ ↙  235.3° │ EC │ ↓  261.0° │ EC │ ←  175.2° │ EB │  10.7° │
+│ MOB │ Mobilität │ 0.85 │ 0.66 │  76.7% │ 2.38 VE │ ↖  129.8° │ EB │ ←  177.8° │ EB │ ↑  111.4° │ EB │  19.7° │
+│ ENE │ Energie   │ 1.11 │ 0.79 │  71.3% │ 1.83 VE │ ↘  301.1° │ EC │ →  354.1° │ EA │ ↓  279.5° │ EC │  17.8° │
+└─────┴───────────┴──────┴──────┴────────┴─────────┴───────────┴────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Handelsdreieck und Umlenkungsarbeit ──────────────────────────────────────────────────────────
+In diesem Tick entstand kein nennenswerter Dreieckshandel. Das kann bei sehr niedriger
+Exportfähigkeit oder starker Winkeltrennung passieren.
+
+── E) Ereignisnotizen dieses Ticks ─────────────────────────────────────────────────────────────────
+AUR: Mangelwinkel bei Wohnen (65% Bedarf gedeckt); Fremdwährung EB überklingt eigene Währung; stabile Deckung bei Sicherheit
+BEL: Mangelwinkel bei Wohnen (67% Bedarf gedeckt); Fremdwährung EC überklingt eigene Währung; stabile Deckung bei Sicherheit
+CAL: Mangelwinkel bei Wohnen (64% Bedarf gedeckt); Fremdwährung EA überklingt eigene Währung; stabile Deckung bei Sicherheit
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+ABSCHLUSSBERICHT
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Der Abschlussbericht fasst nicht zusammen, welches Land am reichsten geworden ist. Er zeigt, welche
+Winkelwährung Machtbindung gewann, wo Wohlbefinden stabil war und wo die Wirtschaftsstärke durch
+Winkelspannung geschwächt wurde.
+┌──────┬────────┬─────────────┬─────────────┬─────────────┬─────────────┬──────────────┐
+│ Land │ Name   │ WBI Verlauf │ MPI Verlauf │ WSK Verlauf │ SPG Verlauf │ EigW zuletzt │
+├──────┼────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────┤
+│ AUR  │ Auron  │  60.8 ▅     │  55.6 ▅     │  60.1 ▅     │  23.3 ▂     │  29.9%       │
+│ BEL  │ Belvar │  70.6 ▆     │  42.7 ▄     │  58.9 ▅     │  22.2 ▂     │  22.4%       │
+│ CAL  │ Caldra │  58.8 ▅     │  50.1 ▅     │  62.0 ▅     │  25.9 ▃     │  27.5%       │
+└──────┴────────┴─────────────┴─────────────┴─────────────┴─────────────┴──────────────┘
+
+┌─────────┬──────────┬────────┬──────────┬───────────┬────────┬───────┐
+│ Währung │ Name     │ Heimat │ Länge    │ Endwinkel │ Anteil │ Macht │
+├─────────┼──────────┼────────┼──────────┼───────────┼────────┼───────┤
+│ EA      │ Euro-Aur │ AUR    │ 1.000 VE │ →    8.0° │  31.9% │  57.6 │
+│ EB      │ Euro-Bel │ BEL    │ 1.000 VE │ ↖  128.1° │  32.3% │  45.5 │
+│ EC      │ Euro-Cal │ CAL    │ 1.000 VE │ ↓  248.1° │  35.8% │  52.1 │
+└─────────┴──────────┴────────┴──────────┴───────────┴────────┴───────┘
+
+Interpretation: Wenn ein Land hohe WBI-Werte, aber niedrige MPI-Werte hat, lebt die Bevölkerung
+vergleichsweise gut, während die eigene Regierung oder Währung wenig Machtbindung gewinnt. Wenn MPI
+hoch und WBI niedrig ist, dominiert Macht über Wohlbefinden. Wenn WSK fällt, liegt das meist an
+Mangel, starker UA im Handel oder an auseinanderfallenden GBW-/BUW-/Währungswinkeln. Die Längen der
+Währungen bleiben trotzdem unverändert bei 1 VE.
