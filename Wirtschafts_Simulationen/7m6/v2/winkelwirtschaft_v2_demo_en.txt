@@ -1,0 +1,842 @@
+ANGULAR VECTOR-CURRENCY ECONOMY — COLORFUL PYPY3 SIMULATION
+════════════════════════════════════════════════════════════════════════════════════════════════════
+The model simulates three governments, three markets and three competing Euro vectors. EA, EB and EC
+all have the same vector length: |€⃗| = 1 VE. Competition does not come from a numerical exchange-
+rate multiplier. It comes from angle, direction, resonance, power attachment and well-being.
+
+Run parameters: seed=7, ticks=2, detail=short, scenario=baseline, lang=en, colors=off
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+How to read this output
+════════════════════════════════════════════════════════════════════════════════════════════════════
+The explanations are not collected into one giant global dictionary. Each simulation part prints
+only the abbreviations and units that are used in that part. This is intentional: the currency ring
+explains vector length and angle share; the labor part explains labor hours and fatigue; the goods
+part explains need, supply and vector-Euro prices; the trade part explains angular work; the index
+part explains power and well-being.
+
+Important: good versus evil remains good versus evil in the angular sense of this model. It is not a
+subsidy axis, not a penalty axis, and not positive versus negative. The government sets a good/evil
+direction on a circle; the population sets an orthogonal popular/unpopular direction; the market
+action lies between these angular poles.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+TICK 1: one simulated period
+════════════════════════════════════════════════════════════════════════════════════════════════════
+A tick can be read as a month, a quarter, or a political-market cycle. The order is: currency ring,
+labor/production, goods/prices, trade triangle, indices, then angle drift and events.
+
+── A) Currency ring: three equally long Euro vectors ───────────────────────────────────────────────
+This part simulates the three currencies as directions on one ring. Every currency unit has
+identical Euro-vector length. The table therefore explains angle competition, not numerical exchange
+rates. The simulated question is: which vector direction attracts the most action flow in this tick?
+┌──────────┬───────────────┬─────────────────────────────────────────────────────────────────────────────┐
+│ Code     │ Unit          │ Meaning only in this part                                                   │
+├──────────┼───────────────┼─────────────────────────────────────────────────────────────────────────────┤
+│ EA/EB/EC │ currency code │ The three competing Euro vectors.                                           │
+│ |€⃗|     │ VE            │ Vector length. It must remain 1.000 for all currencies.                     │
+│ θ°       │ degrees       │ Current direction of a currency on the ring.                                │
+│ Share    │ 0..100%       │ Part of this tick's transaction flow captured by the currency angle.        │
+│ Power    │ 0..100        │ Accumulated attachment of market action and home government to this vector. │
+│ WK°      │ degrees       │ Angle distance between two currencies; not a money exchange rate.           │
+│ KLG      │ 0..1          │ Angular resonance. 1 means same direction, 0 means opposite direction.      │
+└──────────┴───────────────┴─────────────────────────────────────────────────────────────────────────────┘
+┌──────┬──────────┬──────┬──────────┬───────────┬────────┬───────┬───────────┐
+│ Code │ Name     │ Home │ |€⃗|     │ θ°        │ Share  │ Power │ Targetθ   │
+├──────┼──────────┼──────┼──────────┼───────────┼────────┼───────┼───────────┤
+│ EA   │ Euro-Aur │ AUR  │ 1.000 VE │ →    8.0° │  30.7% │  57.5 │ →    7.6° │
+│ EB   │ Euro-Bel │ BEL  │ 1.000 VE │ ↖  128.1° │  33.1% │  45.7 │ ↖  129.2° │
+│ EC   │ Euro-Cal │ CAL  │ 1.000 VE │ ↓  248.1° │  36.2% │  52.2 │ ↓  250.5° │
+└──────┴──────────┴──────┴──────────┴───────────┴────────┴───────┴───────────┘
+┌───────┬─────────┬───────┐
+│ Pair  │ WK°     │ KLG   │
+├───────┼─────────┼───────┤
+│ EA↔EB │  120.1° │ 0.249 │
+│ EA↔EC │  119.9° │ 0.251 │
+│ EB↔EC │  120.1° │ 0.249 │
+└───────┴─────────┴───────┘
+
+── B) Labor market and production ──────────────────────────────────────────────────────────────────
+This part simulates labor as an angular action, not merely as paid time. Work produces goods when
+the labor angle resonates with a currency, the government's good pole and the population's popular
+pole. The simulated question is: where does work create capacity, and where does it create fatigue?
+┌───────┬───────────────┬──────────────────────────────────────────────────┐
+│ Code  │ Unit          │ Meaning only in this part                        │
+├───────┼───────────────┼──────────────────────────────────────────────────┤
+│ Workθ │ degrees       │ Action angle of labor in a sector.               │
+│ WC    │ currency code │ Currency whose angle fits the labor action best. │
+│ h     │ hours         │ Abstract labor hours allocated this tick.        │
+│ Prod  │ goods units   │ Production created by labor and productivity.    │
+│ FTD   │ 0..100        │ Fatigue from labor close to the unpopular pole.  │
+└───────┴───────────────┴──────────────────────────────────────────────────┘
+
+AUR — Auron
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ culture │ ↖  122.1° │ EB │ 0.997 │ 17.12 h │ 0.51 │   0.5 │
+│ HOU │ housing │ →  345.5° │ EA │ 0.962 │ 35.29 h │ 0.63 │   0.5 │
+│ DAT │ data    │ ←  194.7° │ EC │ 0.799 │ 19.72 h │ 0.78 │   0.5 │
+│ HEA │ health  │ ↑   80.4° │ EB │ 0.837 │ 43.90 h │ 1.12 │   0.5 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+BEL — Belvar
+┌─────┬──────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name     │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼──────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ culture  │ ↓  267.5° │ EC │ 0.971 │ 14.59 h │ 0.48 │   0.3 │
+│ ENE │ energy   │ ←  177.6° │ EB │ 0.824 │ 30.76 h │ 0.63 │   0.3 │
+│ MOB │ mobility │ →  350.1° │ EA │ 0.976 │ 25.46 h │ 0.64 │   0.3 │
+│ HOU │ housing  │ ↑  101.6° │ EB │ 0.948 │ 31.23 h │ 0.78 │   0.3 │
+└─────┴──────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+CAL — Caldra
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ HOU │ housing │ ←  175.2° │ EB │ 0.839 │ 32.25 h │ 0.68 │   0.5 │
+│ FOO │ food    │ ↙  231.6° │ EC │ 0.980 │ 30.88 h │ 0.84 │   0.5 │
+│ ENE │ energy  │ ↓  279.5° │ EC │ 0.926 │ 33.91 h │ 0.79 │   0.5 │
+│ CUL │ culture │ ↗   29.6° │ EA │ 0.965 │ 14.94 h │ 0.79 │   0.5 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+── C) Goods market and vector-Euro prices ──────────────────────────────────────────────────────────
+This part simulates need, supply, satisfaction and vector-Euro prices. Price is a count of equal-
+length Euro vectors. It does not stretch a vector. The simulated question is: how many identical
+vector-Euro units are needed when supply, demand and angular tension meet?
+┌────────────┬───────────────┬──────────────────────────────────────────────────────────────────────────┐
+│ Code       │ Unit          │ Meaning only in this part                                                │
+├────────────┼───────────────┼──────────────────────────────────────────────────────────────────────────┤
+│ Need       │ goods units   │ Population demand in the sector.                                         │
+│ Supply     │ goods units   │ Production minus exports plus imports.                                   │
+│ Sat        │ 0..100%       │ Need covered by final supply.                                            │
+│ Price      │ VE/unit       │ Number of equal vector-Euro units per goods unit.                        │
+│ Buyθ/Sellθ │ degrees       │ Buy and sell action angles.                                              │
+│ BC/SC      │ currency code │ Best currency for buy/sell angle.                                        │
+│ ODE        │ degrees       │ Average orthogonal deviation of good/evil versus popular/unpopular axes. │
+└────────────┴───────────────┴──────────────────────────────────────────────────────────────────────────┘
+
+AUR — Auron
+┌─────┬─────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name    │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ culture │ 0.76 │ 0.53   │  70.4% │ 1.70 VE │ ←  188.0° │ EC │ ↙  210.9° │ EC │   7.0° │
+│ HOU │ housing │ 1.12 │ 0.63   │  55.9% │ 1.85 VE │ →   18.3° │ EA │ ↗   28.7° │ EA │  17.6° │
+│ DAT │ data    │ 1.03 │ 0.91   │  88.7% │ 1.91 VE │ ↙  243.4° │ EC │ ↓  253.5° │ EC │  15.6° │
+│ HEA │ health  │ 1.25 │ 1.12   │  89.6% │ 2.47 VE │ ↖  114.2° │ EB │ ↖  154.0° │ EB │   5.9° │
+└─────┴─────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+BEL — Belvar
+┌─────┬──────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name     │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼──────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ culture  │ 0.70 │ 0.49   │  70.8% │ 1.67 VE │ ↘  307.3° │ EC │ →    0.6° │ EA │  14.6° │
+│ ENE │ energy   │ 1.03 │ 0.80   │  78.1% │ 2.38 VE │ ↙  227.5° │ EC │ ↓  258.4° │ EC │  17.5° │
+│ MOB │ mobility │ 0.84 │ 0.70   │  82.6% │ 1.82 VE │ ↗   41.7° │ EA │ ↑   82.2° │ EB │  21.2° │
+│ HOU │ housing  │ 0.98 │ 0.78   │  79.2% │ 1.87 VE │ ←  176.2° │ EB │ ←  189.8° │ EC │   6.9° │
+└─────┴──────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+CAL — Caldra
+┌─────┬─────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name    │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ HOU │ housing │ 1.06 │ 0.68   │  64.1% │ 1.77 VE │ ↙  235.3° │ EC │ ↓  261.0° │ EC │  10.7° │
+│ FOO │ food    │ 1.25 │ 0.91   │  72.7% │ 1.01 VE │ ↓  267.4° │ EC │ ↘  322.6° │ EA │  16.3° │
+│ ENE │ energy  │ 1.11 │ 0.89   │  79.8% │ 1.72 VE │ ↘  301.1° │ EC │ →  354.1° │ EA │  17.8° │
+│ CUL │ culture │ 0.71 │ 0.75   │ 100.0% │ 1.32 VE │ ↗   39.3° │ EA │ ↑   71.2° │ EB │  13.8° │
+└─────┴─────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Trade triangle and angular work ──────────────────────────────────────────────────────────────
+This part simulates the trade triangle between three countries. Trade is possible when the
+exporter's sell angle and the importer's buy angle can form a joint action direction. The simulated
+question is: how much angular work is needed to move goods without changing the equal Euro-vector
+length?
+┌────────┬─────────────────┬───────────────────────────────────────────────────────────────────────┐
+│ Code   │ Unit            │ Meaning only in this part                                             │
+├────────┼─────────────────┼───────────────────────────────────────────────────────────────────────┤
+│ Route  │ country→country │ Exporter to importer.                                                 │
+│ Q      │ goods units     │ Traded quantity.                                                      │
+│ C      │ currency code   │ Currency angle used by the joint trade action.                        │
+│ Jointθ │ degrees         │ Mean action angle between exporter sell angle and importer buy angle. │
+│ WK°    │ degrees         │ Angle distance between exporter's home currency and trade currency.   │
+│ UA     │ rad·VE          │ Angular work: vector-Euro amount multiplied by rotation in radians.   │
+└────────┴─────────────────┴───────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬───────┬────┬───────────┬────────┬──────────────┐
+│ Route   │ Sec │ Q     │ C  │ Jointθ    │ WK°    │ UA           │
+├─────────┼─────┼───────┼────┼───────────┼────────┼──────────────┤
+│ BEL→CAL │ FOO │ 0.074 │ EC │ ↙  235.8° │ 120.0° │ 0.147 rad·VE │
+│ BEL→AUR │ FOO │ 0.039 │ EB │ ↖  118.3° │   0.0° │ 0.000 rad·VE │
+│ AUR→BEL │ ENE │ 0.170 │ EB │ ←  159.5° │ 120.0° │ 0.664 rad·VE │
+│ AUR→CAL │ ENE │ 0.095 │ EA │ →   16.3° │   0.0° │ 0.000 rad·VE │
+│ BEL→AUR │ HEA │ 0.007 │ EC │ ↙  203.6° │ 120.0° │ 0.037 rad·VE │
+│ BEL→CAL │ HEA │ 0.005 │ EC │ ↘  307.6° │ 120.0° │ 0.021 rad·VE │
+│ BEL→AUR │ EDU │ 0.002 │ EC │ ↙  217.8° │ 120.0° │ 0.006 rad·VE │
+│ CAL→AUR │ EDU │ 0.002 │ EB │ ↑   84.8° │ 120.0° │ 0.007 rad·VE │
+│ CAL→AUR │ CUL │ 0.019 │ EB │ ↖  129.6° │ 120.0° │ 0.052 rad·VE │
+│ CAL→BEL │ CUL │ 0.014 │ EA │ →    9.2° │ 120.0° │ 0.039 rad·VE │
+│ CAL→AUR │ DAT │ 0.126 │ EB │ ←  180.3° │ 120.0° │ 0.455 rad·VE │
+│ CAL→BEL │ DAT │ 0.122 │ EA │ ↗   64.5° │ 120.0° │ 0.426 rad·VE │
+└─────────┴─────┴───────┴────┴───────────┴────────┴──────────────┘
+Trade sum: 0.731 goods units; angular work sum: 2.029 rad·VE. High UA means trade remains possible,
+but it needs more symbolic and institutional rotation.
+
+── E) Power, well-being and economic strength ──────────────────────────────────────────────────────
+This part simulates the goal system. The economy does not maximize wealth. It tracks well-being,
+power, economic strength and tension. The simulated question is: who gains power, who gains well-
+being, and where does the economy weaken because angles do not cohere?
+┌──────┬───────────────┬────────────────────────────────────────────────┐
+│ Code │ Unit          │ Meaning only in this part                      │
+├──────┼───────────────┼────────────────────────────────────────────────┤
+│ WBI  │ 0..100        │ Well-being index of the population.            │
+│ MPI  │ 0..100        │ Power index of government/currency attachment. │
+│ ES   │ 0..100        │ Economic strength under angular competition.   │
+│ TD   │ 0..100        │ Tension degree. Lower is calmer.               │
+│ OwnS │ 0..100%       │ Domestic share of the home vector currency.    │
+│ DomC │ currency code │ Dominant currency in local transaction flow.   │
+└──────┴───────────────┴────────────────────────────────────────────────┘
+┌─────────┬────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Country │ Name   │ WBI                          │ MPI                          │ ES                           │ TD                           │ OwnS   │ DomC │ Prod │ Imp/Exp   │
+├─────────┼────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ AUR     │ Auron  │ ██████████████░░░░░░░░  61.6 │ ████████████░░░░░░░░░░  56.3 │ ██████████████░░░░░░░░  61.8 │ █████░░░░░░░░░░░░░░░░░  23.0 │  31.4% │ EB   │ 8.81 │ 0.20/0.26 │
+│ BEL     │ Belvar │ ████████████████░░░░░░  72.2 │ ██████████░░░░░░░░░░░░  43.4 │ ██████████████░░░░░░░░  61.4 │ █████░░░░░░░░░░░░░░░░░  21.7 │  23.0% │ EC   │ 7.89 │ 0.36/0.13 │
+│ CAL     │ Caldra │ █████████████░░░░░░░░░  60.1 │ ███████████░░░░░░░░░░░  51.1 │ ██████████████░░░░░░░░  64.4 │ ██████░░░░░░░░░░░░░░░░  25.4 │  30.2% │ EB   │ 8.55 │ 0.17/0.34 │
+└─────────┴────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── F) Angle drift and event notes ──────────────────────────────────────────────────────────────────
+This part simulates angle drift. Governments, populations and currencies do not stay frozen. They
+rotate slowly toward successful, powerful or livable actions. The simulated question is: which
+directions become habits, and which directions drift away?
+┌─────────┬─────────┬────────────────────────────────────────────────────────────────────┐
+│ Code    │ Unit    │ Meaning only in this part                                          │
+├─────────┼─────────┼────────────────────────────────────────────────────────────────────┤
+│ Targetθ │ degrees │ Direction toward which a currency is slowly rotating.              │
+│ ΔStart  │ degrees │ Distance between current currency angle and its initial angle.     │
+│ GBW°    │ degrees │ Government good/evil angle: direction of the good pole.            │
+│ BUW°    │ degrees │ Population popular/unpopular angle: direction of the popular pole. │
+│ ODE     │ degrees │ Deviation from ideal 90° orthogonality between the axes.           │
+└─────────┴─────────┴────────────────────────────────────────────────────────────────────┘
+┌────┬───────────┬───────────┬───────────┬────────┬──────────┐
+│ C  │ Startθ    │ Nowθ      │ Targetθ   │ ΔStart │ |€⃗|     │
+├────┼───────────┼───────────┼───────────┼────────┼──────────┤
+│ EA │ →    8.0° │ →    8.0° │ →    7.6° │   0.0° │ 1.000 VE │
+│ EB │ ↖  128.0° │ ↖  128.1° │ ↖  129.2° │   0.1° │ 1.000 VE │
+│ EC │ ↓  248.0° │ ↓  248.1° │ ↓  250.5° │   0.1° │ 1.000 VE │
+└────┴───────────┴───────────┴───────────┴────────┴──────────┘
+AUR: scarcity angle in housing (56% of need covered); foreign vector currency EB over-sounds the home vector; stable coverage in energy
+BEL: scarcity angle in culture (71% of need covered); foreign vector currency EC over-sounds the home vector; stable coverage in food
+CAL: scarcity angle in housing (64% of need covered); foreign vector currency EB over-sounds the home vector; stable coverage in education
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+TICK 2: one simulated period
+════════════════════════════════════════════════════════════════════════════════════════════════════
+A tick can be read as a month, a quarter, or a political-market cycle. The order is: currency ring,
+labor/production, goods/prices, trade triangle, indices, then angle drift and events.
+
+── A) Currency ring: three equally long Euro vectors ───────────────────────────────────────────────
+This part simulates the three currencies as directions on one ring. Every currency unit has
+identical Euro-vector length. The table therefore explains angle competition, not numerical exchange
+rates. The simulated question is: which vector direction attracts the most action flow in this tick?
+┌──────────┬───────────────┬─────────────────────────────────────────────────────────────────────────────┐
+│ Code     │ Unit          │ Meaning only in this part                                                   │
+├──────────┼───────────────┼─────────────────────────────────────────────────────────────────────────────┤
+│ EA/EB/EC │ currency code │ The three competing Euro vectors.                                           │
+│ |€⃗|     │ VE            │ Vector length. It must remain 1.000 for all currencies.                     │
+│ θ°       │ degrees       │ Current direction of a currency on the ring.                                │
+│ Share    │ 0..100%       │ Part of this tick's transaction flow captured by the currency angle.        │
+│ Power    │ 0..100        │ Accumulated attachment of market action and home government to this vector. │
+│ WK°      │ degrees       │ Angle distance between two currencies; not a money exchange rate.           │
+│ KLG      │ 0..1          │ Angular resonance. 1 means same direction, 0 means opposite direction.      │
+└──────────┴───────────────┴─────────────────────────────────────────────────────────────────────────────┘
+┌──────┬──────────┬──────┬──────────┬───────────┬────────┬───────┬───────────┐
+│ Code │ Name     │ Home │ |€⃗|     │ θ°        │ Share  │ Power │ Targetθ   │
+├──────┼──────────┼──────┼──────────┼───────────┼────────┼───────┼───────────┤
+│ EA   │ Euro-Aur │ AUR  │ 1.000 VE │ →    8.0° │  30.7% │  53.5 │ →    7.6° │
+│ EB   │ Euro-Bel │ BEL  │ 1.000 VE │ ↖  128.1° │  33.1% │  43.6 │ ↖  129.2° │
+│ EC   │ Euro-Cal │ CAL  │ 1.000 VE │ ↓  248.3° │  36.2% │  49.8 │ ↓  250.6° │
+└──────┴──────────┴──────┴──────────┴───────────┴────────┴───────┴───────────┘
+┌───────┬─────────┬───────┐
+│ Pair  │ WK°     │ KLG   │
+├───────┼─────────┼───────┤
+│ EA↔EB │  120.1° │ 0.249 │
+│ EA↔EC │  119.7° │ 0.252 │
+│ EB↔EC │  120.1° │ 0.249 │
+└───────┴─────────┴───────┘
+
+── B) Labor market and production ──────────────────────────────────────────────────────────────────
+This part simulates labor as an angular action, not merely as paid time. Work produces goods when
+the labor angle resonates with a currency, the government's good pole and the population's popular
+pole. The simulated question is: where does work create capacity, and where does it create fatigue?
+┌───────┬───────────────┬──────────────────────────────────────────────────┐
+│ Code  │ Unit          │ Meaning only in this part                        │
+├───────┼───────────────┼──────────────────────────────────────────────────┤
+│ Workθ │ degrees       │ Action angle of labor in a sector.               │
+│ WC    │ currency code │ Currency whose angle fits the labor action best. │
+│ h     │ hours         │ Abstract labor hours allocated this tick.        │
+│ Prod  │ goods units   │ Production created by labor and productivity.    │
+│ FTD   │ 0..100        │ Fatigue from labor close to the unpopular pole.  │
+└───────┴───────────────┴──────────────────────────────────────────────────┘
+
+AUR — Auron
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ culture │ ↖  121.9° │ EB │ 0.997 │ 17.12 h │ 0.51 │   0.9 │
+│ HOU │ housing │ →  345.5° │ EA │ 0.962 │ 35.33 h │ 0.63 │   0.9 │
+│ DAT │ data    │ ←  194.5° │ EC │ 0.797 │ 19.71 h │ 0.78 │   0.9 │
+│ HEA │ health  │ ↑   80.3° │ EB │ 0.836 │ 43.89 h │ 1.12 │   0.9 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+BEL — Belvar
+┌─────┬──────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name     │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼──────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ CUL │ culture  │ ↓  267.4° │ EC │ 0.972 │ 14.60 h │ 0.48 │   0.6 │
+│ ENE │ energy   │ ←  177.6° │ EB │ 0.825 │ 30.77 h │ 0.63 │   0.6 │
+│ MOB │ mobility │ →  350.2° │ EA │ 0.976 │ 25.47 h │ 0.64 │   0.6 │
+│ HOU │ housing  │ ↑  101.6° │ EB │ 0.948 │ 31.25 h │ 0.78 │   0.6 │
+└─────┴──────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+CAL — Caldra
+┌─────┬─────────┬───────────┬────┬───────┬─────────┬──────┬───────┐
+│ Sec │ Name    │ Workθ     │ WC │ KLG   │ h       │ Prod │ FTD   │
+├─────┼─────────┼───────────┼────┼───────┼─────────┼──────┼───────┤
+│ HOU │ housing │ ←  175.3° │ EB │ 0.839 │ 32.26 h │ 0.68 │   0.9 │
+│ FOO │ food    │ ↙  231.5° │ EC │ 0.979 │ 30.90 h │ 0.84 │   0.9 │
+│ ENE │ energy  │ ↓  279.4° │ EC │ 0.927 │ 33.98 h │ 0.80 │   0.9 │
+│ CUL │ culture │ ↗   29.3° │ EA │ 0.966 │ 14.97 h │ 0.79 │   0.9 │
+└─────┴─────────┴───────────┴────┴───────┴─────────┴──────┴───────┘
+
+── C) Goods market and vector-Euro prices ──────────────────────────────────────────────────────────
+This part simulates need, supply, satisfaction and vector-Euro prices. Price is a count of equal-
+length Euro vectors. It does not stretch a vector. The simulated question is: how many identical
+vector-Euro units are needed when supply, demand and angular tension meet?
+┌────────────┬───────────────┬──────────────────────────────────────────────────────────────────────────┐
+│ Code       │ Unit          │ Meaning only in this part                                                │
+├────────────┼───────────────┼──────────────────────────────────────────────────────────────────────────┤
+│ Need       │ goods units   │ Population demand in the sector.                                         │
+│ Supply     │ goods units   │ Production minus exports plus imports.                                   │
+│ Sat        │ 0..100%       │ Need covered by final supply.                                            │
+│ Price      │ VE/unit       │ Number of equal vector-Euro units per goods unit.                        │
+│ Buyθ/Sellθ │ degrees       │ Buy and sell action angles.                                              │
+│ BC/SC      │ currency code │ Best currency for buy/sell angle.                                        │
+│ ODE        │ degrees       │ Average orthogonal deviation of good/evil versus popular/unpopular axes. │
+└────────────┴───────────────┴──────────────────────────────────────────────────────────────────────────┘
+
+AUR — Auron
+┌─────┬─────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name    │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ culture │ 0.78 │ 0.53   │  67.3% │ 1.72 VE │ ←  188.5° │ EC │ ↙  211.0° │ EC │   7.5° │
+│ HOU │ housing │ 1.12 │ 0.63   │  56.0% │ 1.83 VE │ →   18.6° │ EA │ ↗   28.8° │ EA │  17.5° │
+│ DAT │ data    │ 1.06 │ 0.93   │  87.5% │ 1.91 VE │ ↙  243.3° │ EC │ ↓  253.5° │ EC │  14.9° │
+│ HEA │ health  │ 1.25 │ 1.12   │  89.6% │ 2.44 VE │ ↖  114.1° │ EB │ ↖  154.0° │ EB │   5.9° │
+└─────┴─────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+BEL — Belvar
+┌─────┬──────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name     │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼──────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ CUL │ culture  │ 0.72 │ 0.49   │  68.4% │ 1.68 VE │ ↘  308.2° │ EA │ →    0.8° │ EA │  14.1° │
+│ ENE │ energy   │ 1.03 │ 0.80   │  78.1% │ 2.37 VE │ ↙  228.3° │ EC │ ↓  258.4° │ EC │  17.0° │
+│ MOB │ mobility │ 0.86 │ 0.68   │  78.9% │ 1.85 VE │ ↗   41.7° │ EA │ ↑   82.3° │ EB │  20.9° │
+│ HOU │ housing  │ 0.98 │ 0.78   │  79.3% │ 1.86 VE │ ←  176.6° │ EB │ ←  189.8° │ EC │   7.4° │
+└─────┴──────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+CAL — Caldra
+┌─────┬─────────┬──────┬────────┬────────┬─────────┬───────────┬────┬───────────┬────┬────────┐
+│ Sec │ Name    │ Need │ Supply │ Sat    │ Price   │ Buyθ      │ BC │ Sellθ     │ SC │ ODE    │
+├─────┼─────────┼──────┼────────┼────────┼─────────┼───────────┼────┼───────────┼────┼────────┤
+│ HOU │ housing │ 1.06 │ 0.68   │  64.2% │ 1.75 VE │ ↙  235.7° │ EC │ ↓  261.1° │ EC │  10.9° │
+│ FOO │ food    │ 1.25 │ 0.91   │  72.8% │ 1.00 VE │ ↓  267.8° │ EC │ ↘  322.5° │ EA │  16.2° │
+│ ENE │ energy  │ 1.11 │ 0.89   │  80.0% │ 1.70 VE │ ↘  301.7° │ EC │ →  354.1° │ EA │  17.0° │
+│ CUL │ culture │ 0.74 │ 0.77   │ 100.0% │ 1.30 VE │ ↗   39.1° │ EA │ ↑   71.1° │ EB │  13.4° │
+└─────┴─────────┴──────┴────────┴────────┴─────────┴───────────┴────┴───────────┴────┴────────┘
+
+── D) Trade triangle and angular work ──────────────────────────────────────────────────────────────
+This part simulates the trade triangle between three countries. Trade is possible when the
+exporter's sell angle and the importer's buy angle can form a joint action direction. The simulated
+question is: how much angular work is needed to move goods without changing the equal Euro-vector
+length?
+┌────────┬─────────────────┬───────────────────────────────────────────────────────────────────────┐
+│ Code   │ Unit            │ Meaning only in this part                                             │
+├────────┼─────────────────┼───────────────────────────────────────────────────────────────────────┤
+│ Route  │ country→country │ Exporter to importer.                                                 │
+│ Q      │ goods units     │ Traded quantity.                                                      │
+│ C      │ currency code   │ Currency angle used by the joint trade action.                        │
+│ Jointθ │ degrees         │ Mean action angle between exporter sell angle and importer buy angle. │
+│ WK°    │ degrees         │ Angle distance between exporter's home currency and trade currency.   │
+│ UA     │ rad·VE          │ Angular work: vector-Euro amount multiplied by rotation in radians.   │
+└────────┴─────────────────┴───────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬───────┬────┬───────────┬────────┬──────────────┐
+│ Route   │ Sec │ Q     │ C  │ Jointθ    │ WK°    │ UA           │
+├─────────┼─────┼───────┼────┼───────────┼────────┼──────────────┤
+│ BEL→CAL │ FOO │ 0.074 │ EC │ ↙  236.0° │ 120.1° │ 0.146 rad·VE │
+│ BEL→AUR │ FOO │ 0.040 │ EB │ ↖  118.6° │   0.0° │ 0.000 rad·VE │
+│ AUR→BEL │ ENE │ 0.170 │ EB │ ←  159.8° │ 120.1° │ 0.658 rad·VE │
+│ AUR→CAL │ ENE │ 0.095 │ EA │ →   16.6° │   0.0° │ 0.000 rad·VE │
+│ BEL→AUR │ HEA │ 0.007 │ EC │ ↙  203.5° │ 120.1° │ 0.037 rad·VE │
+│ BEL→CAL │ HEA │ 0.004 │ EC │ ↘  307.6° │ 120.1° │ 0.020 rad·VE │
+│ BEL→AUR │ EDU │ 0.003 │ EC │ ↙  217.8° │ 120.1° │ 0.010 rad·VE │
+│ CAL→AUR │ EDU │ 0.002 │ EB │ ↑   84.7° │ 120.1° │ 0.007 rad·VE │
+│ CAL→AUR │ CUL │ 0.013 │ EB │ ↖  129.8° │ 120.1° │ 0.034 rad·VE │
+│ CAL→BEL │ CUL │ 0.009 │ EA │ →    9.7° │ 119.9° │ 0.025 rad·VE │
+│ CAL→AUR │ DAT │ 0.144 │ EB │ ←  180.3° │ 120.1° │ 0.512 rad·VE │
+│ CAL→BEL │ DAT │ 0.135 │ EA │ ↗   64.4° │ 119.9° │ 0.465 rad·VE │
+└─────────┴─────┴───────┴────┴───────────┴────────┴──────────────┘
+Trade sum: 0.752 goods units; angular work sum: 2.044 rad·VE. High UA means trade remains possible,
+but it needs more symbolic and institutional rotation.
+
+── E) Power, well-being and economic strength ──────────────────────────────────────────────────────
+This part simulates the goal system. The economy does not maximize wealth. It tracks well-being,
+power, economic strength and tension. The simulated question is: who gains power, who gains well-
+being, and where does the economy weaken because angles do not cohere?
+┌──────┬───────────────┬────────────────────────────────────────────────┐
+│ Code │ Unit          │ Meaning only in this part                      │
+├──────┼───────────────┼────────────────────────────────────────────────┤
+│ WBI  │ 0..100        │ Well-being index of the population.            │
+│ MPI  │ 0..100        │ Power index of government/currency attachment. │
+│ ES   │ 0..100        │ Economic strength under angular competition.   │
+│ TD   │ 0..100        │ Tension degree. Lower is calmer.               │
+│ OwnS │ 0..100%       │ Domestic share of the home vector currency.    │
+│ DomC │ currency code │ Dominant currency in local transaction flow.   │
+└──────┴───────────────┴────────────────────────────────────────────────┘
+┌─────────┬────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬────────┬──────┬──────┬───────────┐
+│ Country │ Name   │ WBI                          │ MPI                          │ ES                           │ TD                           │ OwnS   │ DomC │ Prod │ Imp/Exp   │
+├─────────┼────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼────────┼──────┼──────┼───────────┤
+│ AUR     │ Auron  │ ███████████████░░░░░░░  66.9 │ ███████████░░░░░░░░░░░  51.6 │ ██████████████░░░░░░░░  64.3 │ ████░░░░░░░░░░░░░░░░░░  19.5 │  31.2% │ EB   │ 8.82 │ 0.22/0.26 │
+│ BEL     │ Belvar │ █████████████████░░░░░  76.6 │ █████████░░░░░░░░░░░░░  40.9 │ ██████████████░░░░░░░░  64.3 │ ████░░░░░░░░░░░░░░░░░░  20.1 │  22.9% │ EC   │ 7.90 │ 0.36/0.13 │
+│ CAL     │ Caldra │ ███████████████░░░░░░░  66.6 │ ██████████░░░░░░░░░░░░  47.6 │ ███████████████░░░░░░░  66.7 │ █████░░░░░░░░░░░░░░░░░  21.5 │  29.9% │ EB   │ 8.56 │ 0.17/0.36 │
+└─────────┴────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴────────┴──────┴──────┴───────────┘
+
+── F) Angle drift and event notes ──────────────────────────────────────────────────────────────────
+This part simulates angle drift. Governments, populations and currencies do not stay frozen. They
+rotate slowly toward successful, powerful or livable actions. The simulated question is: which
+directions become habits, and which directions drift away?
+┌─────────┬─────────┬────────────────────────────────────────────────────────────────────┐
+│ Code    │ Unit    │ Meaning only in this part                                          │
+├─────────┼─────────┼────────────────────────────────────────────────────────────────────┤
+│ Targetθ │ degrees │ Direction toward which a currency is slowly rotating.              │
+│ ΔStart  │ degrees │ Distance between current currency angle and its initial angle.     │
+│ GBW°    │ degrees │ Government good/evil angle: direction of the good pole.            │
+│ BUW°    │ degrees │ Population popular/unpopular angle: direction of the popular pole. │
+│ ODE     │ degrees │ Deviation from ideal 90° orthogonality between the axes.           │
+└─────────┴─────────┴────────────────────────────────────────────────────────────────────┘
+┌────┬───────────┬───────────┬───────────┬────────┬──────────┐
+│ C  │ Startθ    │ Nowθ      │ Targetθ   │ ΔStart │ |€⃗|     │
+├────┼───────────┼───────────┼───────────┼────────┼──────────┤
+│ EA │ →    8.0° │ →    8.0° │ →    7.6° │   0.0° │ 1.000 VE │
+│ EB │ ↖  128.0° │ ↖  128.1° │ ↖  129.2° │   0.1° │ 1.000 VE │
+│ EC │ ↓  248.0° │ ↓  248.3° │ ↓  250.6° │   0.3° │ 1.000 VE │
+└────┴───────────┴───────────┴───────────┴────────┴──────────┘
+AUR: scarcity angle in housing (56% of need covered); foreign vector currency EB over-sounds the home vector; stable coverage in energy
+BEL: scarcity angle in culture (68% of need covered); foreign vector currency EC over-sounds the home vector; stable coverage in food
+CAL: scarcity angle in housing (64% of need covered); foreign vector currency EB over-sounds the home vector; stable coverage in education
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+FINAL REPORT
+════════════════════════════════════════════════════════════════════════════════════════════════════
+This final part reads the whole run. It compares final indices and sparks through time. It explains
+the result in terms of power, well-being and angular weakness, not in terms of being rich or poor.
+┌───────────┬──────────────────┬──────────────────────────────────────────────────────┐
+│ Code      │ Unit             │ Meaning only in this part                            │
+├───────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ spark     │ UTF-8 mini chart │ Tiny history line from low ▁ to high █.              │
+│ OwnS last │ 0..100%          │ Home vector currency share in the final tick.        │
+│ Avg       │ arithmetic mean  │ Average across three countries or full scenario run. │
+└───────────┴──────────────────┴──────────────────────────────────────────────────────┘
+The final report does not ask which country became richest. It asks which vector currency gained
+power attachment, where well-being stayed livable, and where economic strength was weakened by
+angular tension.
+┌─────────┬────────┬──────────┬──────────┬──────────┬──────────┬───────────┐
+│ Country │ Name   │ WBI      │ MPI      │ ES       │ TD       │ OwnS last │
+├─────────┼────────┼──────────┼──────────┼──────────┼──────────┼───────────┤
+│ AUR     │ Auron  │  66.9 ▅▆ │  51.6 ▅▅ │  64.3 ▅▆ │  19.5 ▂▂ │  31.2%    │
+│ BEL     │ Belvar │  76.6 ▆▇ │  40.9 ▄▄ │  64.3 ▅▆ │  20.1 ▂▂ │  22.9%    │
+│ CAL     │ Caldra │  66.6 ▅▆ │  47.6 ▅▄ │  66.7 ▆▆ │  21.5 ▃▂ │  29.9%    │
+└─────────┴────────┴──────────┴──────────┴──────────┴──────────┴───────────┘
+
+┌──────────┬──────────┬──────┬──────────┬───────────┬────────┬───────┐
+│ Currency │ Name     │ Home │ Length   │ Endθ      │ Share  │ Power │
+├──────────┼──────────┼──────┼──────────┼───────────┼────────┼───────┤
+│ EA       │ Euro-Aur │ AUR  │ 1.000 VE │ →    8.0° │  30.7% │  53.5 │
+│ EB       │ Euro-Bel │ BEL  │ 1.000 VE │ ↖  128.1° │  33.1% │  43.6 │
+│ EC       │ Euro-Cal │ CAL  │ 1.000 VE │ ↓  248.3° │  36.2% │  49.8 │
+└──────────┴──────────┴──────┴──────────┴───────────┴────────┴───────┘
+
+Interpretation of this run: BEL has the strongest final well-being, AUR has the strongest power
+index, and CAL carries the highest tension degree. The strongest currency by power attachment is EA.
+Because every currency length remains exactly 1 VE, these differences are not caused by one Euro
+being longer than another Euro. They are caused by angular fit, angular drift, and how much market
+action each vector direction captures.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+UTF-8 ART GALLERY OF THE ANGULAR ECONOMY
+════════════════════════════════════════════════════════════════════════════════════════════════════
+The gallery comes after the numerical report. It turns the same final state into colorful UTF-8
+diagrams: circles, vectors, angle carpets, trade arrows and scenario maps. Each picture has a result
+summary underneath, including how the same picture should be read under different scenarios.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 01. Currency compass: three equal-length Euro vectors                                            ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+ Final currency directions
+                                │
+                             ◦◦◦│◦◦◦
+               EB |€⃗|=1   ◦◦◦  │  ◦◦◦◦
+                         ↖◦     │     ◦◦
+                        ◦◦•     │      ◦◦
+                       ◦◦  •    │       ◦◦
+                       ◦   •    │        ◦
+                      ◦     •   │         ◦
+                      ◦      •  │         ◦
+                     ◦◦       • │         ◦◦ EA |€⃗|=1
+                     ◦        • │        ••→
+                     ◦         •│  ••••••  ◦
+               180°─────────────•••─────────── 0°
+                     ◦          •          ◦
+                     ◦         •│          ◦
+                     ◦◦        •│         ◦◦
+                      ◦       • │         ◦
+                      ◦       • │         ◦
+                       ◦      • │        ◦◦
+                       ◦◦    •  │       ◦◦
+                        ◦◦   •  │      ◦◦
+                         ◦◦ •   │     ◦◦
+                          ◦◦↓◦  │  ◦◦◦◦
+                  EC |€⃗|=1  ◦◦◦│◦◦◦
+                                │
+                             270°
+Result: the picture shows only direction, not monetary length. EA, EB and EC are drawn as different
+colored arrows because their angles differ; they are not drawn with different radii because their
+vector length is fixed at 1 VE. The winner of a transaction is therefore the vector whose direction
+best resonates with the action angle, not the vector with a longer Euro.
+Scenario reading for the currency compass: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 02. Equal vector-length proof: price is count, not stretch                                       ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+┌────────────────────────────────────────────────────────────────────────┐
+│ EA ████████████████████ |€⃗| = 1.000 VE    θ=   8.0°      │
+│ EB ████████████████████ |€⃗| = 1.000 VE    θ= 128.1°      │
+│ EC ████████████████████ |€⃗| = 1.000 VE    θ= 248.3°      │
+└────────────────────────────────────────────────────────────────────────┘
+┌─────────┬─────┬──────────┬───────────────┐
+│ Country │ Sec │ Sector   │ Highest price │
+├─────────┼─────┼──────────┼───────────────┤
+│ AUR     │ HEA │ health   │ 2.44 VE/unit  │
+│ BEL     │ HEA │ health   │ 2.58 VE/unit  │
+│ CAL     │ MOB │ mobility │ 1.96 VE/unit  │
+└─────────┴─────┴──────────┴───────────────┘
+Result: all three bars have identical length. The price table below the bars shows a different idea:
+high prices mean that more equal-length vector-Euro units are counted for a good. The price does not
+mean that EA, EB or EC has become longer. In scarcity scenarios the count usually rises; in
+resonance scenarios the count often falls because less angular detour is needed.
+Scenario reading for equal vector length: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 03. Government good/evil axis and population popular/unpopular axis                              ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+ BEL EDU sell market
+                      EVIL/BÖ   │
+                             ◦E◦│◦◦◦
+                           ◦◦◦• │  ◦◦◦◦
+                         ◦◦   • │     ◦◦
+                        ◦◦     •│      ◦◦
+                       ◦◦      •│       ◦◦
+        UNPOPULAR/UNB  ◦       •│        ◦
+                      U•       •│         ◦
+                      ◦ ••     •│         ◦
+                     ◦◦   ••   •│         ◦◦
+                     ◦      ••  •          ◦
+                     ◦        •••          ◦
+               180°─────────────•───────────── 0°
+                     ◦          •••        ◦
+                     ◦          •• ••      ◦
+                     ◦◦         │••  ••   ◦◦
+                      ◦         │• •   •• ◦
+                      ◦         │• •     •P
+                       ◦        │•  •    ◦◦ POPULAR/BEL
+                       ◦◦       │•   •  ◦◦
+                        ◦◦      │•   • ◦◦
+                         ◦◦     │ •   ◆◦
+                          ◦◦◦◦  │ •◦◦◦◦ ACTION/HW
+                             ◦◦◦│◦G◦
+                                │   GOOD/GT
+                             270°
+Result: this is the strongest axis-pressure example found in the final state: BEL, sector education,
+sell market. GBW° points to the government good pole; GBW°+180° is the evil pole. BUW° points to the
+population popular pole; BUW°+180° is the unpopular pole. The action angle lies between the axes.
+ODE here is 32.9°, so the popular/unpopular axis is that far away from ideal orthogonality.
+Scenario meaning: resonance keeps the cyan popular axis close to a clean 90° relation with the green
+good axis; power pursuit often pulls the yellow action toward the government/currency side; well-
+being pursuit pulls action toward the popular side; fragmented angles scatter all poles and create
+high tension even when the Euro-vector length is unchanged.
+Scenario reading for orthogonal axes: in the silent comparison, well-being pursuit has the highest
+average WBI, power pursuit has the highest average MPI, resonance has the calmest angle field, and
+fragmented angles has the hardest tension field. Use this picture as a diagnostic: harmonious
+scenarios shrink visual conflict; power scenarios pull vectors toward state currency; scarcity or
+fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 04. Three market vectors: buy, sell and labor                                                    ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+ CAL housing
+                                │
+                             ◦◦◦│◦◦◦
+                           ◦◦◦  │  ◦◦◦◦
+                         ◦◦     │     ◦◦
+                        ◦◦      │      ◦◦
+                       ◦◦       │       ◦◦
+                       ◦        │        ◦
+                      ◦         │         ◦
+                      ◦         │         ◦
+                     ◦◦         │         ◦◦
+           WORK/A EB ◦          │          ◦
+                     ◆•••••     │          ◦
+               180°────────••••••───────────── 0°
+                     ◦         ••          ◦
+                     ◦         ••          ◦
+                     ◦◦       ••│         ◦◦
+                      ◦      • •│         ◦
+                      ◦      • •│         ◦
+                       ◦    •  •│        ◦◦
+                       ◦◦  •   •│       ◦◦
+                        ◦◦ •   •│      ◦◦
+                         ◦◆   • │     ◦◦
+                 BUY/K EC ◦◦◦◦• │  ◦◦◦◦
+                             ◦◆◦│◦◦◦
+                    SELL/V EC   │
+                             270°
+Result: the three market actions in CAL/housing do not have to point in the same direction. Buy,
+sell and labor can use different dominant currencies because each action has its own angle. In the
+shown final state, need satisfaction in this sector is 64.2% and the price is 1.75 VE per unit. A
+weak sector is therefore not simply 'poor'; it can be angularly split between buying, selling and
+working.
+Scenario meaning: in resonance, the three diamonds cluster and the sector feels coherent; in power
+pursuit, the work vector may be forced near the state-currency orbit while buy demand remains
+elsewhere; in scarcity, buy vectors become expensive because need and supply collide; in trade boom,
+sell vectors become more important and can pull the sector toward export currencies.
+Scenario reading for the three market vectors: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 05. Power versus well-being map                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+ MPI ↑
+        │
+        │ power                           resonance
+        │
+        │
+        │
+        │
+        │
+        │
+        │                                  ● CAL
+        │                                       ● BEL
+        │
+        │
+        │
+        │
+        │ weak                        well-being
+        │
+        └────────────────────────────────────────────────────
+          WBI →
+
+
+Result: this diagram separates the two main goals. Moving right means higher well-being; moving
+upward means stronger power attachment. A country in the upper right is not necessarily rich; it is
+coherent in both goal dimensions. Upper left means power without enough well-being. Lower right
+means livable society with weak state/currency power. Lower left means weak coherence in both
+dimensions.
+Scenario reading for power versus well-being: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 06. Tension heat carpet through time                                                             ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+Legend: green low TD, yellow medium TD, red high TD
+┌─────────┬───────────────┬───────────┐
+│ Country │ TD over ticks │ Final     │
+├─────────┼───────────────┼───────────┤
+│ AUR     │ ▂▂            │ last 19.5 │
+│ BEL     │ ▂▂            │ last 20.1 │
+│ CAL     │ ▂▂            │ last 21.5 │
+└─────────┴───────────────┴───────────┘
+Result: the carpet shows whether tension is episodic or structural. A few yellow/red blocks mean
+temporary angular friction. A long red band means persistent mismatch between government good/evil
+axes, population popular/unpopular axes, currency directions and market actions. This directly
+weakens economic strength in the model.
+Scenario reading for the tension carpet: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 07. Trade triangle: goods move, vectors rotate                                                   ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+                             ▲ AUR
+                        ╱            ╲
+                  ═▶ 0.10/0.09UA      ═▶ 0.19/0.00UA
+                ╱                            ╲
+BEL ◀                ═▶ 0.16/0.33UA         ▶ CAL
+                ╲                            ╱
+                  ═▶ 0.34/1.32UA      ═▶ 0.32/1.07UA
+                        ╲            ╱
+                             ═▶ 0.38/1.26UA
+Result: each arrow lists quantity/angular work. The first number is traded goods quantity; the
+second is UA, the angular work in rad·VE. A route can have a modest goods flow but high angular work
+when the trade currency is far from the exporter's home vector. That route is politically and
+symbolically expensive even though every Euro-vector still has length 1.
+Scenario reading for the trade triangle: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 08. Currency drift trails                                                                        ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+ Final arrows; trails listed below
+                                │
+                             ◦◦◦│◦◦◦
+                  EB now   ◦◦◦  │  ◦◦◦◦
+                         ↖◦     │     ◦◦
+                        ◦◦•     │      ◦◦
+                       ◦◦  •    │       ◦◦
+                       ◦   •    │        ◦
+                      ◦     •   │         ◦
+                      ◦      •  │         ◦
+                     ◦◦       • │         ◦◦ EA now
+                     ◦        • │        ••→
+                     ◦         •│  ••••••  ◦
+               180°─────────────•••─────────── 0°
+                     ◦          •          ◦
+                     ◦         •│          ◦
+                     ◦◦        •│         ◦◦
+                      ◦       • │         ◦
+                      ◦       • │         ◦
+                       ◦      • │        ◦◦
+                       ◦◦    •  │       ◦◦
+                        ◦◦   •  │      ◦◦
+                         ◦◦ •   │     ◦◦
+                          ◦◦↓◦  │  ◦◦◦◦
+                     EC now  ◦◦◦│◦◦◦
+                                │
+                             270°
+┌────┬───────────┬───────────┬──────┬───────┐
+│ C  │ Startθ    │ Endθ      │ Δ    │ trail │
+├────┼───────────┼───────────┼──────┼───────┤
+│ EA │ →    8.0° │ →    8.0° │ 0.0° │ →→    │
+│ EB │ ↖  128.0° │ ↖  128.1° │ 0.1° │ ↖↖    │
+│ EC │ ↓  248.0° │ ↓  248.3° │ 0.3° │ ↓↓    │
+└────┴───────────┴───────────┴──────┴───────┘
+Result: the trail is a history of direction changes, not of monetary length changes. A stable trail
+means the currency kept its angle identity. A turning trail means market action and government
+attachment pulled it into a new orbit. In power scenarios drift can be strategic; in well-being
+scenarios it can follow livable demand; in fragmented scenarios it can become unstable zigzagging.
+Scenario reading for currency drift: in the silent comparison, well-being pursuit has the highest
+average WBI, power pursuit has the highest average MPI, resonance has the calmest angle field, and
+fragmented angles has the hardest tension field. Use this picture as a diagnostic: harmonious
+scenarios shrink visual conflict; power scenarios pull vectors toward state currency; scarcity or
+fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 09. Sector satisfaction mosaic                                                                   ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+┌─────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Country │ FOO      │ ENE      │ HOU      │ HEA      │ EDU      │ CUL      │ SEC      │ DAT      │ MOB      │
+├─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ AUR     │ ▓▓   81% │ ██  100% │ ▒▒   56% │ ▓▓   90% │ ▓▓   92% │ ▒▒   67% │ ██  100% │ ▓▓   88% │ ██   98% │
+│ BEL     │ ██  100% │ ▓▓   78% │ ▓▓   79% │ ██  100% │ ██  100% │ ▒▒   68% │ ██  100% │ ▓▓   88% │ ▓▓   79% │
+│ CAL     │ ▒▒   73% │ ▓▓   80% │ ▒▒   64% │ ▓▓   95% │ ██  100% │ ██  100% │ ██  100% │ ██  100% │ ██  100% │
+└─────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+Result: the mosaic translates final need coverage into blocks. Green blocks mean that a sector is
+materially covered and angularly usable enough. Red blocks mean missing coverage, usually from low
+production, weak trade access, expensive vector count or mismatch between buy/sell/work angles. This
+is where economic strength weakens even without treating money as wealth maximization.
+Scenario reading for sector satisfaction: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 10. Vector-Euro price waves                                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+AUR ▁▃▅█▅▅▁▆▄   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=0.96 max=2.44 VE
+BEL ▁▇▅█▄▄▁▅▅   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=0.91 max=2.58 VE
+CAL ▁▆▇█▅▃▃██   FOO ENE HOU HEA EDU CUL SEC DAT MOB   min=1.00 max=1.96 VE
+Result: each wave is the final vector-Euro count per unit across sectors. Peaks are not longer
+Euros. They are places where more equal-length vector units are required because scarcity, angular
+mismatch, or local currency distance adds friction. In resonance scenarios waves flatten; in
+scarcity scenarios they rise; in trade-boom scenarios exportable sectors can either flatten through
+imports or spike through angular work.
+Scenario reading for price waves: in the silent comparison, well-being pursuit has the highest
+average WBI, power pursuit has the highest average MPI, resonance has the calmest angle field, and
+fragmented angles has the hardest tension field. Use this picture as a diagnostic: harmonious
+scenarios shrink visual conflict; power scenarios pull vectors toward state currency; scarcity or
+fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 11. Scenario quadrants: how to classify the economy                                              ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+┌──────────────────────────────┬──────────────────────────────┐
+│          POWER LOCK          │          RESONANCE           │
+│              —               │              —               │
+├──────────────────────────────┼──────────────────────────────┤
+│           FRACTURE           │      WELL-BEING ISLAND       │
+│              —               │        AUR, BEL, CAL         │
+└──────────────────────────────┴──────────────────────────────┘
+Result: the quadrant picture gives a political-economic reading. Resonance means power and well-
+being can coexist with tolerable tension. Power lock means the state/currency side dominates over
+lived well-being. Well-being island means people live better than the state currency dominates.
+Fracture means the angles do not yet form a stable goal shape.
+Scenario reading for scenario quadrants: in the silent comparison, well-being pursuit has the
+highest average WBI, power pursuit has the highest average MPI, resonance has the calmest angle
+field, and fragmented angles has the hardest tension field. Use this picture as a diagnostic:
+harmonious scenarios shrink visual conflict; power scenarios pull vectors toward state currency;
+scarcity or fragmentation thickens red/yellow tension signs.
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ 12. Silent scenario comparison                                                                   ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+┌────────────────────┬─────────┬─────────┬────────┬────────┬──────────┬───────┐
+│ Scenario           │ Avg WBI │ Avg MPI │ Avg ES │ Avg TD │ Total UA │ Top C │
+├────────────────────┼─────────┼─────────┼────────┼────────┼──────────┼───────┤
+│ baseline           │  69.8   │  46.1   │  64.8  │  22.0  │    4.02  │ EA    │
+│ resonance          │  75.6   │  49.1   │  67.0  │  19.6  │    4.23  │ EA    │
+│ power pursuit      │  67.7   │  53.8   │  65.8  │  20.9  │    3.36  │ EA    │
+│ well-being pursuit │  77.2   │  43.8   │  65.1  │  20.5  │    3.86  │ EA    │
+│ fragmented angles  │  63.1   │  44.9   │  60.8  │  27.4  │    1.22  │ EA    │
+│ scarcity pressure  │  54.9   │  45.3   │  53.0  │  25.9  │    0.00  │ EA    │
+│ trade boom         │  72.8   │  49.2   │  67.0  │  20.4  │    6.34  │ EA    │
+└────────────────────┴─────────┴─────────┴────────┴────────┴──────────┴───────┘
+Result: this final table actually runs the model silently under several scenarios using the same
+structural rules. It is not a moral ranking. It shows which parameter climate produces more well-
+being, more power, more strength or more tension. Since all scenarios keep |€⃗|=1 VE for EA, EB and
+EC, differences across rows are angle-system differences, not Euro-length differences.
+How to use it: choose --scenario resonance to see cleaner angular coherence, --scenario power to see
+stronger state/currency attachment, --scenario wellbeing to privilege livability, --scenario
+fragmented for scattered axes, --scenario scarcity for high needs and low production, or --scenario
+tradeboom for strong export/import motion.
+
+CSV exported: /mnt/data/winkelwirtschaft_v2_demo_en_history.csv
+Currency CSV exported: /mnt/data/winkelwirtschaft_v2_demo_en_currencies.csv
+Markdown report exported: /mnt/data/winkelwirtschaft_v2_demo_en_report.md
