@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wahrheitsquader_wirtschaft_v2_japanisch</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="真理直方体経済-バージョン2">真理直方体経済 — バージョン2</h1>
+<h2 id="基本修正">基本修正</h2>
+<p>このモデルは、修正された考え方から最初から組み直す。ここでの真理値は、取引後の法的異議申立てではない。取引をあとから取り消すための道具でもない。真理値は、取引そのものの一部である。</p>
+<p>取引は <code>100</code>
+のような数字だけでは成立しない。少なくとも二つの同等な座標を持つ。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+は数値座標である。量、価格、請求権、負債、賃金、費用、資産価値を表す。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+は真理座標である。ある物、主張、知識、サービスがどれほど現実的、本物、正しい、検証済み、または反証済みであるかを表す。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+は
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>
+から
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math>
+までの値を取る。</li>
+<li>取引当事者は
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+と
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+に直接合意できる。</li>
+<li>または、体積
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+と二つの符号だけに合意できる。ひとつは数値の符号、もうひとつは真理の符号である。</li>
+</ul>
+<p>したがって真理は、取引の外側からの評価ではない。真理は<strong>取引可能な成分</strong>である。知識、教育、洞察、証明、検証、反証は経済財になりうる。</p>
+<hr />
+<h2 id="単位数値と真理">1. 単位：数値と真理</h2>
+<p>通常の市場は物を数字や貨幣と交換する。このシステムは物を
+<strong>数値—真理ペア</strong> として交換する。</p>
+<p>取引単位は次の形を取る。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>,</mo><mi>b</mi><mo>,</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(a,\sigma_z,b,\sigma_\tau,h)
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a \geq 0</annotation></semantics></math>：数値の大きさ。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">b \in [0,1]</annotation></semantics></math>：真理の強さ。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>z</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_z \in \{-1,+1\}</annotation></semantics></math>：数値の符号。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>τ</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_\tau \in \{-1,+1\}</annotation></semantics></math>：真理の符号。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>：積み重ねの高さ。数量、時間、反復、重み、層を表す。</li>
+</ul>
+<p>実際の数値は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>⋅</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">
+z=\sigma_z \cdot a
+</annotation></semantics></math></p>
+<p>実際の真理値は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>⋅</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+\tau=\sigma_\tau \cdot b
+</annotation></semantics></math></p>
+<p>体積は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>z</mi><mo>⋅</mo><mi>τ</mi><mo>⋅</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V=z \cdot \tau \cdot h
+</annotation></semantics></math></p>
+<p>重要なのは、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+だけでは情報が足りないという点である。二つの符号を別々に保存しなければならない。正の体積は次の二通りから生じる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(+\tau)
+</annotation></semantics></math></p>
+<p>または：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(-\tau)
+</annotation></semantics></math></p>
+<p>負の体積も次の二通りから生じる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(-\tau)
+</annotation></semantics></math></p>
+<p>または：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(+\tau)
+</annotation></semantics></math></p>
+<p>これが第四の情報、つまり符号の由来である。</p>
+<hr />
+<h2 id="四つの象限">2. 四つの象限</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">数値</th>
+<th style="text-align: right;">真理</th>
+<th style="text-align: right;">体積</th>
+<th>経済的意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>正の数値と正の真理：現実的価値の形成</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>正の数値と負の真理：虚偽、フィクション、誤り、反現実の取引</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>負の数値と正の真理：実際の費用、譲渡、控除、現実のマイナス</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>負の数値と負の真理：虚偽の除去、反証、誤りの修正</td>
+</tr>
+</tbody>
+</table>
+<p>負の真理値は、自動的に違法または道徳的に悪いという意味ではない。それは、取引される主張・性質・内容が現実に対して負の関係を持つという意味である。</p>
+<p>知識市場では、これは非常に価値がある。仮説が間違っていることを示すことも、役に立つ知識である。</p>
+<hr />
+<h2 id="合意の二つの方式">3. 合意の二つの方式</h2>
+<h3 id="方式a数値と真理値に合意する">方式A：数値と真理値に合意する</h3>
+<p>当事者は次のように合意する。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>100</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>τ</mi><mo>=</mo><mn>0.8</mn></mrow><annotation encoding="application/x-tex">
+z=100,\quad \tau=0.8
+</annotation></semantics></math></p>
+<p>すると：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+V=80
+</annotation></semantics></math></p>
+<p>例：ある講座が100単位で販売され、当事者がその講座の真理・洞察座標を
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8</mn><annotation encoding="application/x-tex">0.8</annotation></semantics></math>
+と合意する。これは絶対的真理を意味しない。このシステムの中で、その講座が数値100、真理0.8として取引されるという意味である。</p>
+<h3 id="方式b体積と符号に合意する">方式B：体積と符号に合意する</h3>
+<p>当事者は次のように合意する。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>z</mi></msub><mo>=</mo><mi>+</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>τ</mi></msub><mo>=</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">
+V=80,\quad \sigma_z=+,\quad \sigma_\tau=+
+</annotation></semantics></math></p>
+<p>これは、正の数値と正の真理からなる体積である。分解は契約または市場規則で決められる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>⋅</mo><mn>0.8</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+100 \cdot 0.8 = 80
+</annotation></semantics></math></p>
+<p>または：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+80 \cdot 1 = 80
+</annotation></semantics></math></p>
+<p>または：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mo>⋅</mo><mn>0.4</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+200 \cdot 0.4 = 80
+</annotation></semantics></math></p>
+<p>体積は同じだが、経済的意味は異なる。したがって市場は、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(z,\tau)</annotation></semantics></math>
+のペアを取引しているのか、符号付き体積と分解規則を取引しているのかを示さなければならない。</p>
+<hr />
+<h2 id="真理の意味">4. 真理の意味</h2>
+<p>ここでの真理は絶対的・神学的な真理ではない。現実への近さを表す経済座標である。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=+1
+</annotation></semantics></math></p>
+<p>は、完全に現実的、正確、証明済み、機能する、実践で確認された、という意味である。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\tau=0
+</annotation></semantics></math></p>
+<p>は、未知、中立、未分類、未決定を意味する。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=-1
+</annotation></semantics></math></p>
+<p>は、反証済み、誤り、反事実、取引された主張に関して現実と合わないことを意味する。</p>
+<p>真理は単なる「良い」「悪い」ではない。知識軸上の方向である。</p>
+<p>たとえば童話は、本や文化作品として正の価値を持つことができる。しかし世界についての事実主張としては、中立または負の真理値を持ちうる。したがって市場は常に、<strong>真理座標が何を指すのか</strong>を明示しなければならない。</p>
+<hr />
+<h2 id="真理の参照対象">5. 真理の参照対象</h2>
+<p>すべての真理値には参照対象が必要である。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>対</mi><mi>象</mi><mo>,</mo><mi>主</mi><mi>張</mi><mo>,</mo><mi>文</mi><mi>脈</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+R=(対象, 主張, 文脈)
+</annotation></semantics></math></p>
+<p>例：</p>
+<ul>
+<li>「このパンは1kgである。」</li>
+<li>「この機械は80%の効率で動作する。」</li>
+<li>「この理論はデータを説明する。」</li>
+<li>「この講座は正しい数学を教える。」</li>
+<li>「この診断は患者の状態を記述する。」</li>
+<li>「この仮説は誤りである。」</li>
+<li>「この証明書は出所を確認する。」</li>
+</ul>
+<p>取引単位は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau,R)
+</annotation></semantics></math></p>
+<p>参照対象がなければ、真理値は使えない。</p>
+<hr />
+<h2 id="知識の商品化">6. 知識の商品化</h2>
+<p>知識は単なるテキストではない。真理直方体である。</p>
+<p>知識財は複数の主張から構成される。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>r</mi><mn>1</mn></msub><mo>,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>r</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+W=\{r_1,r_2,\ldots,r_n\}
+</annotation></semantics></math></p>
+<p>各主張は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mi>i</mi></msub><mo>,</mo><msub><mi>τ</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q_i=(z_i,\tau_i)
+</annotation></semantics></math></p>
+<p>総知識体積は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(W)=\sum_i z_i\tau_i
+</annotation></semantics></math></p>
+<p>教科書、データベース、科学報告、公式、設計図、市場分析は、このように取引できる。</p>
+<p>報告書の価格が1000で、総真理値が0.72なら：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>1000</mn><mo>⋅</mo><mn>0.72</mn><mo>=</mo><mn>720</mn></mrow><annotation encoding="application/x-tex">
+V=1000 \cdot 0.72=720
+</annotation></semantics></math></p>
+<p>報告書の価格は1000のままでよい。しかし、それは720の真理体積を運ぶ。</p>
+<hr />
+<h2 id="教育真理能力の取引">7. 教育：真理能力の取引</h2>
+<p>教育は情報だけではない。人や組織が真理を認識し、使い、生み出す能力を変える。</p>
+<p>教育直方体は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi mathvariant="normal">Δ</mi><mi>K</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+B=(z,\Delta K,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>：教育の価格または努力。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\Delta K</annotation></semantics></math>：能力、理解、判断力の増加。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>：内容と方法の真理値。</li>
+</ul>
+<p>悪い教育は高価でありながら、低いまたは負の真理を持つことがある。良い教育は、将来の検証、反証、理解の能力を高める。</p>
+<p>教育は内容だけでなく、<strong>真理能力</strong>を取引する。</p>
+<hr />
+<h2 id="検証の商品化">8. 検証の商品化</h2>
+<p>検証は次のように働く。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>→</mo><msub><mi>τ</mi><mi>R</mi></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+R \rightarrow \tau_R \uparrow
+</annotation></semantics></math></p>
+<p>つまり、ある主張の真理座標を上げる。</p>
+<p>例：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">「このエンジンは90%の効率に達する。」</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{「このエンジンは90%の効率に達する。」}
+</annotation></semantics></math></p>
+<p>検証前：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.3)
+</annotation></semantics></math></p>
+<p>強い検証後：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.85</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.85)
+</annotation></semantics></math></p>
+<p>体積は3000から8500へ増える。検証者は単なる書類を売るのではない。市場が認める現実との一致度を売る。</p>
+<hr />
+<h2 id="反証の商品化">9. 反証の商品化</h2>
+<p>反証は単なる破壊ではない。誤った道を閉じるため、非常に価値がある。</p>
+<p>主張：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">「方法Aはエネルギー費用を40%下げる。」</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{「方法Aはエネルギー費用を40%下げる。」}
+</annotation></semantics></math></p>
+<p>それが誤りなら：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>R</mi></msub><mo>=</mo><mi>−</mi><mn>0.85</mn></mrow><annotation encoding="application/x-tex">
+\tau_R=-0.85
+</annotation></semantics></math></p>
+<p>研究所はその主張に対する負の真理を売る。別の表現として、反対主張を作ることもできる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mo>′</mo></msup><mo>=</mo><mtext mathvariant="normal">「方法Aはエネルギー費用を40%下げない。」</mtext></mrow><annotation encoding="application/x-tex">
+R&#39;=\text{「方法Aはエネルギー費用を40%下げない。」}
+</annotation></semantics></math></p>
+<p>そして：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><msup><mi>R</mi><mo>′</mo></msup></msub><mo>=</mo><mi>+</mi><mn>0.85</mn></mrow><annotation encoding="application/x-tex">
+\tau_{R&#39;}=+0.85
+</annotation></semantics></math></p>
+<p>どちらも可能だが、区別しなければならない。</p>
+<hr />
+<h2 id="市場">10. 市場</h2>
+<p>市場注文には次を含める。</p>
+<pre class="text"><code>対象
+参照主張
+数値 z
+真理 τ
+体積 V
+数値の符号
+真理の符号
+数量 / 高さ h
+文脈
+時間</code></pre>
+<p>提示例：</p>
+<pre class="text"><code>主張 R に対する技術的検証を50単位売る。
+z = 2000,
+τ = +0.8。</code></pre>
+<p>または：</p>
+<pre class="text"><code>教育モデルのために、
+象限（+数値, +真理）の
+真理体積 V = 500 を買う。</code></pre>
+<p>市場価格は商品だけでなく、真理、知識、確認、反証、現実との一致への需要と供給から生まれる。</p>
+<hr />
+<h2 id="口座と積み重ね">11. 口座と積み重ね</h2>
+<p>口座は直方体の積み重ねである。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>Q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>Q</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>Q</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+S=\{Q_1,Q_2,\ldots,Q_n\}
+</annotation></semantics></math></p>
+<p>そこには四つの合計がある。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>+</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>+</mi><mo>−</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>−</mo></mrow></msub></mrow><annotation encoding="application/x-tex">
+S_{++}, S_{+-}, S_{-+}, S_{--}
+</annotation></semantics></math></p>
+<p>さらに：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+Z(S)=\sum z_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+T(S)=\sum \tau_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(S)=\sum z_i\tau_i
+</annotation></semantics></math></p>
+<p>しかし象限は隠してはいけない。正の体積は、真理を作ることからも、誤りを取り除くことからも生じる。どちらも価値がありうるが、同じではない。</p>
+<hr />
+<h2 id="国家数値と惑星真理通貨">12. 国家数値と惑星真理通貨</h2>
+<p>通貨には二つの層がある。</p>
+<ol type="1">
+<li>国家層：地域の価格、賃金、購買力。</li>
+<li>惑星層：数値—真理体積の共通会計単位。</li>
+</ol>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><msub><mi>z</mi><mi>L</mi></msub><msub><mi>c</mi><mi>L</mi></msub></mfrac><mo>⋅</mo><mi>τ</mi></mrow><annotation encoding="application/x-tex">
+P=\frac{z_L}{c_L}\cdot \tau
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mi>L</mi></msub><annotation encoding="application/x-tex">z_L</annotation></semantics></math>：地域の数値。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>L</mi></msub><annotation encoding="application/x-tex">c_L</annotation></semantics></math>：国家係数。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>：真理値。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>：惑星的真理価値。</li>
+</ul>
+<p>これにより、「いくらか」だけでなく、「どれだけ現実的で、機能し、認識された価値が取引されているか」を比較できる。</p>
+<hr />
+<h2 id="生産企業信用">13. 生産、企業、信用</h2>
+<p>生産は商品だけでなく真理直方体を作る。機械の価値は、その機能、寿命、効率に関する真理に依存する。科学モデルの価値は、説明力、予測力、限界に関する真理に依存する。</p>
+<p>企業の貸借対照表には、物理的商品、知識、教育資本、特許、データ、検証、反証、生産手段、負債、未解決の主張が含まれる。特許が誤りまたは無用だと判明すれば、真理体積は下がる。どの道が機能しないかを知っている企業は、その反証知識にも価値を持つ。</p>
+<p>銀行は研究、教育、検証、反証に融資できる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>目</mi><mi>標</mi><mo>=</mo><mi mathvariant="normal">Δ</mi><mi>τ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+z=1{,}000{,}000,\quad 目標=\Delta\tau&gt;0
+</annotation></semantics></math></p>
+<hr />
+<h2 id="国家と公共的真理">14. 国家と公共的真理</h2>
+<p>国家は真理を公共財として資金提供できる。</p>
+<ul>
+<li>基礎研究</li>
+<li>学校と大学</li>
+<li>公開データ</li>
+<li>オープン標準</li>
+<li>測定インフラ</li>
+<li>アーカイブ</li>
+<li>統計</li>
+<li>反証プログラム</li>
+<li>品質検査</li>
+</ul>
+<p>国家は絶対的真理を独占すべきではない。真理座標を明確に取引し、記録し、比較できる市場を整えるべきである。</p>
+<hr />
+<h2 id="結論">15. 結論</h2>
+<p>真理直方体経済は、数値と真理を一緒に取引する市場モデルである。真理は取引後の判断ではなく、取引内部の独立した座標である。</p>
+<p>これにより、知識、教育、洞察、検証、反証は通常の経済財になる。正の真理値は確認された現実を売る。負の真理値は、ある主張が現実と一致しないという知識を売る。どちらも価値を持ちうる。</p>
+<p>第四の情報は不可欠である。同じ体積が異なる符号の組から生じるからである。数値の符号と真理の符号を別々に保存して初めて、市場は現実価値の形成、虚偽の取引、実際のコスト、誤りの除去を区別できる。</p>
+</body>
+</html>

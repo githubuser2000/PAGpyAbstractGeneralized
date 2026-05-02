@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wahrheitsquader_wirtschaft_v2_chinesisch_simplified</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="真值长方体经济-第二版">真值长方体经济 — 第二版</h1>
+<h2 id="核心修正">核心修正</h2>
+<p>本模型从修正后的思想重新开始。这里的“真值”不是交易之后的法律申诉工具，不是自动撤销交易的理由，也不是主要用来事后质疑合同。真值本身就是交易的一部分。</p>
+<p>一个交易不只包含一个数字，例如
+<code>100</code>。它至少包含两个同等重要的坐标：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>：数字坐标，表示数量、价格、债权、债务、工资、成本或资产。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>：真值坐标，表示某物、某个说法、某项知识或服务有多真实、可靠、有效、被验证或被证伪。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+的范围是
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>
+到
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math>。</li>
+<li>双方可以直接约定
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+与
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>。</li>
+<li>双方也可以只约定一个体积
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>，再约定两个符号：数字的符号和真值的符号。</li>
+</ul>
+<p>因此，真值不是外部评价，而是<strong>可交易的成分</strong>。知识、教育、洞见、证明、验证和证伪都可以成为经济商品。</p>
+<hr />
+<h2 id="基本单位数字和真值">1. 基本单位：数字和真值</h2>
+<p>普通市场用数字或货币交换物品。本系统交换的是<strong>数字—真值对</strong>。</p>
+<p>一个交易单位为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>,</mo><mi>b</mi><mo>,</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(a,\sigma_z,b,\sigma_\tau,h)
+</annotation></semantics></math></p>
+<p>其中：</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a \geq 0</annotation></semantics></math>：数字强度或金额。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">b \in [0,1]</annotation></semantics></math>：真值强度。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>z</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_z \in \{-1,+1\}</annotation></semantics></math>：数字符号。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>τ</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_\tau \in \{-1,+1\}</annotation></semantics></math>：真值符号。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>：堆叠高度，表示数量、时间、重复次数、权重或层数。</li>
+</ul>
+<p>实际数字为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>⋅</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">
+z=\sigma_z \cdot a
+</annotation></semantics></math></p>
+<p>实际真值为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>⋅</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+\tau=\sigma_\tau \cdot b
+</annotation></semantics></math></p>
+<p>体积为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>z</mi><mo>⋅</mo><mi>τ</mi><mo>⋅</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V=z \cdot \tau \cdot h
+</annotation></semantics></math></p>
+<p>关键点是：只有
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+不够。两个符号必须分别保存。正体积可以来自：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(+\tau)
+</annotation></semantics></math></p>
+<p>也可以来自：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(-\tau)
+</annotation></semantics></math></p>
+<p>负体积可以来自：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(-\tau)
+</annotation></semantics></math></p>
+<p>也可以来自：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(+\tau)
+</annotation></semantics></math></p>
+<p>这就是第四信息：体积背后的符号来源。</p>
+<hr />
+<h2 id="四个象限">2. 四个象限</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">数字</th>
+<th style="text-align: right;">真值</th>
+<th style="text-align: right;">体积</th>
+<th>经济含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>正数字与正真值：建立真实价值</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>正数字与负真值：交易错误、虚构、误解或反现实内容</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>负数字与正真值：真实成本、让渡、扣除或真实负项</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>负数字与负真值：移除错误、证伪、纠正误解</td>
+</tr>
+</tbody>
+</table>
+<p>负真值不自动等于违法或道德错误。它表示被交易的主张、性质或内容与现实具有负向关系。</p>
+<p>在知识市场中，这一点非常重要。证明某个假设是假的，也是一种有价值的知识。</p>
+<hr />
+<h2 id="两种约定方式">3. 两种约定方式</h2>
+<h3 id="方式-a直接约定数字和真值">方式 A：直接约定数字和真值</h3>
+<p>双方约定：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>100</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>τ</mi><mo>=</mo><mn>0.8</mn></mrow><annotation encoding="application/x-tex">
+z=100,\quad \tau=0.8
+</annotation></semantics></math></p>
+<p>则：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+V=80
+</annotation></semantics></math></p>
+<p>例子：一个课程以 100 单位出售，双方约定该课程的真值或洞见值为
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8</mn><annotation encoding="application/x-tex">0.8</annotation></semantics></math>。这不意味着它绝对正确，而是意味着在本系统中，它以
+100 个数字单位和 0.8 的真值坐标被交易。</p>
+<h3 id="方式-b约定体积和符号">方式 B：约定体积和符号</h3>
+<p>双方约定：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>z</mi></msub><mo>=</mo><mi>+</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>τ</mi></msub><mo>=</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">
+V=80,\quad \sigma_z=+,\quad \sigma_\tau=+
+</annotation></semantics></math></p>
+<p>这表示正数字与正真值的体积。具体分解可以由合同或市场规则规定：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>⋅</mo><mn>0.8</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+100 \cdot 0.8 = 80
+</annotation></semantics></math></p>
+<p>或：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+80 \cdot 1 = 80
+</annotation></semantics></math></p>
+<p>或：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mo>⋅</mo><mn>0.4</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+200 \cdot 0.4 = 80
+</annotation></semantics></math></p>
+<p>它们体积相同，但经济含义不同。因此市场必须说明交易的是
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(z,\tau)</annotation></semantics></math>
+对，还是带符号和分解规则的体积。</p>
+<hr />
+<h2 id="真值的含义">4. 真值的含义</h2>
+<p>这里的真值不是绝对神学真理，而是现实接近度的经济坐标。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=+1
+</annotation></semantics></math></p>
+<p>表示：完全真实、准确、已证实、有效、实践中被确认。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\tau=0
+</annotation></semantics></math></p>
+<p>表示：未知、中性、尚未分类、未决。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=-1
+</annotation></semantics></math></p>
+<p>表示：被反驳、错误、反事实、相对于该主张不真实。</p>
+<p>真值不是简单的“好”或“坏”，而是知识轴上的方向。</p>
+<p>例如，童话作为书籍或文化作品可以有正的商品价值，但如果它被当作世界事实主张，其真值可能是中性或负的。因此市场必须说明：<strong>真值指向什么对象</strong>。</p>
+<hr />
+<h2 id="真值的参考对象">5. 真值的参考对象</h2>
+<p>每个真值都需要参考对象：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>对</mi><mi>象</mi><mo>,</mo><mi>主</mi><mi>张</mi><mo>,</mo><mi>语</mi><mi>境</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+R=(对象, 主张, 语境)
+</annotation></semantics></math></p>
+<p>例如：</p>
+<ul>
+<li>“这块面包重 1 公斤。”</li>
+<li>“这台机器以 80% 效率运行。”</li>
+<li>“这个理论解释了数据。”</li>
+<li>“这个课程教授正确数学。”</li>
+<li>“这个诊断描述了患者状态。”</li>
+<li>“这个假设是假的。”</li>
+<li>“这个证书确认了来源。”</li>
+</ul>
+<p>交易单位为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau,R)
+</annotation></semantics></math></p>
+<p>没有参考对象，真值就无法使用。</p>
+<hr />
+<h2 id="知识作为商品">6. 知识作为商品</h2>
+<p>知识不只是文本，而是真值长方体。</p>
+<p>一个知识商品由许多主张组成：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>r</mi><mn>1</mn></msub><mo>,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>r</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+W=\{r_1,r_2,\ldots,r_n\}
+</annotation></semantics></math></p>
+<p>每个主张有：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mi>i</mi></msub><mo>,</mo><msub><mi>τ</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q_i=(z_i,\tau_i)
+</annotation></semantics></math></p>
+<p>总知识体积为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(W)=\sum_i z_i\tau_i
+</annotation></semantics></math></p>
+<p>教材、数据库、科学报告、公式、蓝图、市场分析都可以这样交易。</p>
+<p>如果一份报告价格为 1000，总真值为 0.72：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>1000</mn><mo>⋅</mo><mn>0.72</mn><mo>=</mo><mn>720</mn></mrow><annotation encoding="application/x-tex">
+V=1000 \cdot 0.72=720
+</annotation></semantics></math></p>
+<p>报告仍然可以卖 1000，但它携带 720 的真值体积。</p>
+<hr />
+<h2 id="教育交易真值能力">7. 教育：交易真值能力</h2>
+<p>教育不只是传递信息。教育改变一个人或系统识别、使用和生成真值的能力。</p>
+<p>教育长方体：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi mathvariant="normal">Δ</mi><mi>K</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+B=(z,\Delta K,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>：教育的价格或投入。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\Delta K</annotation></semantics></math>：能力、理解、判断力的增长。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>：内容和方法的真值。</li>
+</ul>
+<p>好的教育提高未来验证和证伪的能力。错误教育可以有正价格，但真值坐标为负。</p>
+<p>教育交易的不是单纯内容，而是<strong>真值能力</strong>。</p>
+<hr />
+<h2 id="验证作为商品">8. 验证作为商品</h2>
+<p>验证的作用是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>→</mo><msub><mi>τ</mi><mi>R</mi></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+R \rightarrow \tau_R \uparrow
+</annotation></semantics></math></p>
+<p>也就是提高某个主张的真值坐标。</p>
+<p>例子：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">“这台发动机达到 90% 效率。”</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{“这台发动机达到 90% 效率。”}
+</annotation></semantics></math></p>
+<p>测试前：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.3)
+</annotation></semantics></math></p>
+<p>验证后：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.85</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.85)
+</annotation></semantics></math></p>
+<p>体积从 3000 增加到
+8500。验证者出售的不只是文件，而是市场承认的现实对齐度。</p>
+<hr />
+<h2 id="证伪作为商品">9. 证伪作为商品</h2>
+<p>证伪不是单纯破坏。它通常非常有价值，因为它关闭错误道路。</p>
+<p>主张：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">“方法 A 将能源成本降低 40%。”</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{“方法 A 将能源成本降低 40%。”}
+</annotation></semantics></math></p>
+<p>如果该主张错误：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>R</mi></msub><mo>=</mo><mi>−</mi><mn>0.85</mn></mrow><annotation encoding="application/x-tex">
+\tau_R=-0.85
+</annotation></semantics></math></p>
+<p>实验室可以出售这种负真值。另一种方式是创建反主张：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mo>′</mo></msup><mo>=</mo><mtext mathvariant="normal">“方法 A 不能将能源成本降低 40%。”</mtext></mrow><annotation encoding="application/x-tex">
+R&#39;=\text{“方法 A 不能将能源成本降低 40%。”}
+</annotation></semantics></math></p>
+<p>并给它正真值：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><msup><mi>R</mi><mo>′</mo></msup></msub><mo>=</mo><mi>+</mi><mn>0.85</mn></mrow><annotation encoding="application/x-tex">
+\tau_{R&#39;}=+0.85
+</annotation></semantics></math></p>
+<p>两种表达都可以，但必须明确区分。</p>
+<hr />
+<h2 id="市场结构">10. 市场结构</h2>
+<p>市场订单包含：</p>
+<pre class="text"><code>对象
+参考主张
+数字 z
+真值 τ
+体积 V
+数字符号
+真值符号
+数量 / 高度 h
+语境
+时间</code></pre>
+<p>报价可以是：</p>
+<pre class="text"><code>我出售针对主张 R 的 50 单位技术验证，
+z = 2000，
+τ = +0.8。</code></pre>
+<p>也可以是：</p>
+<pre class="text"><code>我购买 V = 500 的真值体积，
+象限为（+数字，+真值），
+用于教育模型。</code></pre>
+<p>因此市场价格不仅来自商品供需，也来自真值、知识、确认、反驳和现实对齐的供需。</p>
+<hr />
+<h2 id="账户和堆叠">11. 账户和堆叠</h2>
+<p>账户是许多长方体的堆叠：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>Q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>Q</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>Q</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+S=\{Q_1,Q_2,\ldots,Q_n\}
+</annotation></semantics></math></p>
+<p>它至少保留四个和：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>+</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>+</mi><mo>−</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>−</mo></mrow></msub></mrow><annotation encoding="application/x-tex">
+S_{++}, S_{+-}, S_{-+}, S_{--}
+</annotation></semantics></math></p>
+<p>并计算：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+Z(S)=\sum z_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+T(S)=\sum \tau_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(S)=\sum z_i\tau_i
+</annotation></semantics></math></p>
+<p>但象限不能隐藏。正体积可能来自建立真值，也可能来自移除错误。二者都可能有价值，但不是同一件事。</p>
+<hr />
+<h2 id="国家数字与星球真值货币">12. 国家数字与星球真值货币</h2>
+<p>货币有两层：</p>
+<ol type="1">
+<li>国家层：本地价格、工资、购买力。</li>
+<li>星球层：数字—真值体积的共同记账单位。</li>
+</ol>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><msub><mi>z</mi><mi>L</mi></msub><msub><mi>c</mi><mi>L</mi></msub></mfrac><mo>⋅</mo><mi>τ</mi></mrow><annotation encoding="application/x-tex">
+P=\frac{z_L}{c_L}\cdot \tau
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mi>L</mi></msub><annotation encoding="application/x-tex">z_L</annotation></semantics></math>：本地数字。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>L</mi></msub><annotation encoding="application/x-tex">c_L</annotation></semantics></math>：国家系数。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>：真值。</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>：星球真值价值。</li>
+</ul>
+<p>这样比较的不只是“多少钱”，而是“交易了多少真实、有效、被认识的价值”。</p>
+<hr />
+<h2 id="生产企业和信用">13. 生产、企业和信用</h2>
+<p>生产不仅创造商品，也创造真值长方体。机器的价值与其功能、寿命、效率的真值有关。科学模型的价值与解释力、预测力和边界的真值有关。</p>
+<p>企业的资产负债表包括实物、知识、教育资本、专利、数据、验证、证伪、生产工具、债务和未解决主张。若大量专利被证明无效，真值体积下降。若企业知道哪些道路不通，这种证伪知识本身也有价值。</p>
+<p>银行不仅可以为货币生产提供贷款，也可以为研究、教育、验证和证伪提供贷款：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>目</mi><mi>标</mi><mo>=</mo><mi mathvariant="normal">Δ</mi><mi>τ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+z=1{,}000{,}000,\quad 目标=\Delta\tau&gt;0
+</annotation></semantics></math></p>
+<hr />
+<h2 id="国家和公共真值">14. 国家和公共真值</h2>
+<p>国家可以把真值作为公共品来资助：</p>
+<ul>
+<li>基础研究</li>
+<li>学校和大学</li>
+<li>公共数据</li>
+<li>开放标准</li>
+<li>测量基础设施</li>
+<li>档案</li>
+<li>统计</li>
+<li>证伪项目</li>
+<li>质量测试</li>
+</ul>
+<p>国家不应垄断绝对真理。它应当建立规则，使真值坐标可以被清楚交易、记录和比较。</p>
+<hr />
+<h2 id="结论">15. 结论</h2>
+<p>真值长方体经济是一种市场模型，在其中数字和真值共同交易。真值不是交易之后的判断，而是交易内部的独立坐标。</p>
+<p>因此，知识、教育、洞见、验证和证伪都成为普通经济商品。正真值出售被确认的现实。负真值出售“某个主张不符合现实”的知识。两者都可以有价值。</p>
+<p>第四信息是必要的，因为同一个体积可以由不同符号对产生。只有分别保存数字符号和真值符号，市场才能区分真实价值的建立、错误的交易、真实负项的表示以及误解的移除。</p>
+</body>
+</html>

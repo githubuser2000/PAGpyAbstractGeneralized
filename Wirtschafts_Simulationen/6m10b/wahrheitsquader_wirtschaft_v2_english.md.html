@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wahrheitsquader_wirtschaft_v2_english</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="truth-cuboid-economy-version-2">Truth-Cuboid Economy — Version
+2</h1>
+<h2 id="core-correction">Core correction</h2>
+<p>This model starts again from the corrected idea. The truth value is
+<strong>not</strong> a later legal challenge, not an automatic appeal
+mechanism, and not mainly a tool for invalidating a trade after the
+fact. The truth value is itself part of the trade.</p>
+<p>A transaction does not consist only of a number such as
+<code>100</code>. It consists of at least two equal coordinates:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+is the numerical coordinate: amount, price, claim, debt, wage, cost,
+asset value.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+is the truth coordinate: how real, genuine, actual, correct, known,
+verified, or falsified something is.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+lies between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math>.</li>
+<li>Both parties may agree directly on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>.</li>
+<li>Or both parties may agree only on a volume
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+plus two signs: one sign for the number and one sign for truth.</li>
+</ul>
+<p>Truth is therefore not merely an evaluation of trade. It is a
+<strong>tradable substance</strong>. Knowledge, education, insight,
+proof, verification, and falsification become economic goods.</p>
+<hr />
+<h2 id="the-unit-number-and-truth-as-two-dimensions-of-trade">1. The
+unit: number and truth as two dimensions of trade</h2>
+<p>A normal market trades objects against numbers. This system trades
+objects against <strong>number-truth pairs</strong>.</p>
+<p>A traded unit is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>,</mo><mi>b</mi><mo>,</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(a,\sigma_z,b,\sigma_\tau,h)
+</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a \geq 0</annotation></semantics></math>:
+amount or numerical strength.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">b \in [0,1]</annotation></semantics></math>:
+truth strength.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>z</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_z \in \{-1,+1\}</annotation></semantics></math>:
+sign of the number.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>τ</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma_\tau \in \{-1,+1\}</annotation></semantics></math>:
+sign of the truth coordinate.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>:
+stack height, meaning quantity, time, repetition, weight, or layer.</li>
+</ul>
+<p>The actual number is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>⋅</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">
+z=\sigma_z \cdot a
+</annotation></semantics></math></p>
+<p>The actual truth value is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>⋅</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+\tau=\sigma_\tau \cdot b
+</annotation></semantics></math></p>
+<p>The volume is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>z</mi><mo>⋅</mo><mi>τ</mi><mo>⋅</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V=z \cdot \tau \cdot h
+</annotation></semantics></math></p>
+<p>or:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msub><mi>σ</mi><mi>z</mi></msub><msub><mi>σ</mi><mi>τ</mi></msub><mi>a</mi><mi>b</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V=\sigma_z \sigma_\tau a b h
+</annotation></semantics></math></p>
+<p>The essential point is that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+alone is not enough information. The two signs must be stored
+separately. A positive volume can arise from:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(+\tau)
+</annotation></semantics></math></p>
+<p>or from:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(-\tau)
+</annotation></semantics></math></p>
+<p>A negative volume can arise from:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+z)(-\tau)
+</annotation></semantics></math></p>
+<p>or from:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-z)(+\tau)
+</annotation></semantics></math></p>
+<p>This origin of the signs is the fourth information.</p>
+<hr />
+<h2 id="the-four-quadrants">2. The four quadrants</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Number</th>
+<th style="text-align: right;">Truth</th>
+<th style="text-align: right;">Volume</th>
+<th>Economic meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>positive number with positive truth: creation of real value</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>positive number with negative truth: trade in falsehood, fiction,
+error, or counter-reality</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td>negative number with positive truth: surrender, cost, removal, real
+negation</td>
+</tr>
+<tr>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>−</mi><annotation encoding="application/x-tex">-</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math></td>
+<td>negative number with negative truth: removal of falsehood,
+falsification, correction of error</td>
+</tr>
+</tbody>
+</table>
+<p>A negative truth value does not automatically mean “illegal” or
+“morally bad”. It means that the traded assertion, property, or claim
+has a negative relation to reality.</p>
+<p>In knowledge markets this can be extremely valuable. Showing that a
+hypothesis is false is useful economic knowledge.</p>
+<hr />
+<h2 id="two-ways-to-agree-on-a-trade">3. Two ways to agree on a
+trade</h2>
+<h3 id="mode-a-agreement-on-number-and-truth-value">Mode A: agreement on
+number and truth value</h3>
+<p>The parties say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>100</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>τ</mi><mo>=</mo><mn>0.8</mn></mrow><annotation encoding="application/x-tex">
+z=100,\quad \tau=0.8
+</annotation></semantics></math></p>
+<p>The volume is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+V=80
+</annotation></semantics></math></p>
+<p>Example: A course is sold for 100 units and both sides agree that the
+course has a truth or insight coordinate of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8</mn><annotation encoding="application/x-tex">0.8</annotation></semantics></math>.
+This does not mean nobody can ever be wrong. It means that within the
+system this course is traded as 100 numerical units with a truth
+coordinate of 0.8.</p>
+<h3 id="mode-b-agreement-on-volume-and-signs">Mode B: agreement on
+volume and signs</h3>
+<p>The parties say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>80</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>z</mi></msub><mo>=</mo><mi>+</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mi>τ</mi></msub><mo>=</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">
+V=80,\quad \sigma_z=+,\quad \sigma_\tau=+
+</annotation></semantics></math></p>
+<p>They now know that the trade concerns positive numerical volume with
+positive truth. The exact decomposition may be specified by the contract
+or by market rules:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>⋅</mo><mn>0.8</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+100 \cdot 0.8 = 80
+</annotation></semantics></math></p>
+<p>or</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+80 \cdot 1 = 80
+</annotation></semantics></math></p>
+<p>or</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mo>⋅</mo><mn>0.4</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">
+200 \cdot 0.4 = 80
+</annotation></semantics></math></p>
+<p>These forms have the same volume but different economic meaning.
+Therefore a market can trade either the pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(z,\tau)</annotation></semantics></math>
+or the volume with a sign pair and a decomposition rule.</p>
+<hr />
+<h2 id="what-truth-means-here">4. What “truth” means here</h2>
+<p>Truth here does not mean absolute divine truth. It is an economic
+coordinate for closeness to reality.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=+1
+</annotation></semantics></math></p>
+<p>means: fully real, accurate, proven, functional, confirmed in
+practice.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\tau=0
+</annotation></semantics></math></p>
+<p>means: neutral, unknown, not yet classified, undecided.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\tau=-1
+</annotation></semantics></math></p>
+<p>means: refuted, false, counterfactual, non-real with respect to the
+traded claim.</p>
+<p>Truth is therefore not simply “good” or “bad”. It is a direction on
+an axis of knowledge.</p>
+<p>A fairy tale, for example, can have positive value as a physical book
+or cultural work, while having neutral or negative truth as a factual
+claim about the world. The market must therefore always specify
+<strong>what the truth coordinate refers to</strong>.</p>
+<hr />
+<h2 id="the-reference-object-of-truth">5. The reference object of
+truth</h2>
+<p>Every truth value needs a reference object:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>o</mi><mi>b</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mo>,</mo><mi>c</mi><mi>l</mi><mi>a</mi><mi>i</mi><mi>m</mi><mo>,</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>x</mi><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+R=(object, claim, context)
+</annotation></semantics></math></p>
+<p>Examples:</p>
+<ul>
+<li>“This bread weighs 1 kg.”</li>
+<li>“This machine operates at 80 % efficiency.”</li>
+<li>“This theory explains the data.”</li>
+<li>“This course teaches correct mathematics.”</li>
+<li>“This diagnosis describes the patient’s condition.”</li>
+<li>“This hypothesis is false.”</li>
+<li>“This certificate confirms the origin.”</li>
+</ul>
+<p>The traded unit is then:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau,R)
+</annotation></semantics></math></p>
+<p>Without a reference object, the truth value is unusable. One must
+know what the truth is about.</p>
+<hr />
+<h2 id="knowledge-as-a-commodity">6. Knowledge as a commodity</h2>
+<p>Knowledge in this system is not merely text. It is a truth
+cuboid.</p>
+<p>A knowledge good consists of claims:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>r</mi><mn>1</mn></msub><mo>,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>r</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+W=\{r_1,r_2,\ldots,r_n\}
+</annotation></semantics></math></p>
+<p>Each claim has:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mi>i</mi></msub><mo>,</mo><msub><mi>τ</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q_i=(z_i,\tau_i)
+</annotation></semantics></math></p>
+<p>The total value of the knowledge is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(W)=\sum_i z_i\tau_i
+</annotation></semantics></math></p>
+<p>A textbook, database, scientific report, formula, blueprint, or
+market analysis can be traded this way.</p>
+<p>Example: A report costs 1000. It contains 10 important claims. Eight
+are strongly confirmed; two are speculative.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mrow><mi>t</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi></mrow></msub><mo>=</mo><mn>0.72</mn></mrow><annotation encoding="application/x-tex">
+\tau_{total}=0.72
+</annotation></semantics></math></p>
+<p>Its knowledge volume is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>1000</mn><mo>⋅</mo><mn>0.72</mn><mo>=</mo><mn>720</mn></mrow><annotation encoding="application/x-tex">
+V=1000 \cdot 0.72=720
+</annotation></semantics></math></p>
+<p>This does not mean the report costs only 720. It means the report
+carries 1000 numerical units and 720 units of truth volume.</p>
+<hr />
+<h2 id="education-as-trade-in-truth-capability">7. Education as trade in
+truth capability</h2>
+<p>Education is more than information. It changes the ability of a
+person or system to recognize, use, and generate truth.</p>
+<p>An education cuboid is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi mathvariant="normal">Δ</mi><mi>K</mi><mo>,</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+B=(z,\Delta K,\tau)
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>:
+price or effort of the education.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\Delta K</annotation></semantics></math>:
+increase in skill, understanding, orientation, or competence.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>:
+truth value of the transmitted contents and methods.</li>
+</ul>
+<p>A bad course can be expensive and still have low or negative truth. A
+good course increases the learner’s capacity for insight.</p>
+<p>Education therefore trades not only content but <strong>truth
+capacity</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>Mathematics instruction: positive truth and high
+transferability.</li>
+<li>Propaganda: positive number, negative relation to truth.</li>
+<li>Critical-thinking training: positive value because it improves
+future verification and falsification.</li>
+<li>Pseudoteaching: may exist as a market good, but with negative truth
+coordinate.</li>
+</ul>
+<hr />
+<h2 id="verification-as-a-commodity">8. Verification as a commodity</h2>
+<p>Verification is trade in positive confirmation.</p>
+<p>A verification performs:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>→</mo><msub><mi>τ</mi><mi>R</mi></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+R \rightarrow \tau_R \uparrow
+</annotation></semantics></math></p>
+<p>It does not necessarily increase the nominal number
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>;
+it increases the truth coordinate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>.</p>
+<p>Example:</p>
+<p>A company owns a technical claim:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">“The engine reaches 90 % efficiency.”</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{“The engine reaches 90 % efficiency.”}
+</annotation></semantics></math></p>
+<p>Before testing:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.3)
+</annotation></semantics></math></p>
+<p>After strong verification:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>10000</mn><mo>,</mo><mn>0.85</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(10000,0.85)
+</annotation></semantics></math></p>
+<p>The volume rises from:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3000</mn><annotation encoding="application/x-tex">
+3000
+</annotation></semantics></math></p>
+<p>to:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8500</mn><annotation encoding="application/x-tex">
+8500
+</annotation></semantics></math></p>
+<p>The verification itself is a tradable service. The verifier does not
+merely sell a document; the verifier sells an increase in
+market-recognized reality alignment.</p>
+<hr />
+<h2 id="falsification-as-a-commodity">9. Falsification as a
+commodity</h2>
+<p>Falsification is not merely destruction. It is often more valuable
+than confirmation because it ends false paths.</p>
+<p>There are two representations.</p>
+<h3 id="representation-1-negative-truth-of-a-claim">Representation 1:
+negative truth of a claim</h3>
+<p>The claim is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">“Treatment X cures disease Y.”</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{“Treatment X cures disease Y.”}
+</annotation></semantics></math></p>
+<p>If the claim is false:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>R</mi></msub><mo>=</mo><mi>−</mi><mn>0.9</mn></mrow><annotation encoding="application/x-tex">
+\tau_R=-0.9
+</annotation></semantics></math></p>
+<p>A report can be sold that demonstrates this negative truth
+coordinate.</p>
+<h3
+id="representation-2-positive-truth-of-the-counterclaim">Representation
+2: positive truth of the counterclaim</h3>
+<p>The counterclaim is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mo>′</mo></msup><mo>=</mo><mtext mathvariant="normal">“Treatment X does not cure disease Y.”</mtext></mrow><annotation encoding="application/x-tex">
+R&#39;=\text{“Treatment X does not cure disease Y.”}
+</annotation></semantics></math></p>
+<p>If that counterclaim is correct:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><msup><mi>R</mi><mo>′</mo></msup></msub><mo>=</mo><mi>+</mi><mn>0.9</mn></mrow><annotation encoding="application/x-tex">
+\tau_{R&#39;}=+0.9
+</annotation></semantics></math></p>
+<p>Both forms are possible, but they must be distinguished.</p>
+<p>Economically, falsification is valuable because it prevents false
+investments, false education, false technology, and false policy.</p>
+<hr />
+<h2 id="the-market">10. The market</h2>
+<p>A market order contains:</p>
+<pre class="text"><code>object
+reference claim
+numerical value z
+truth value τ
+volume V
+sign of the number
+sign of the truth
+quantity / height h
+context
+time</code></pre>
+<p>An offer can say:</p>
+<pre class="text"><code>I sell 50 units of technical verification
+for z = 2000
+with τ = +0.8
+with respect to claim R.</code></pre>
+<p>Or:</p>
+<pre class="text"><code>I buy truth volume V = 500
+in the quadrant (+number, +truth)
+for an educational model.</code></pre>
+<p>The market price therefore arises not only from supply and demand for
+goods, but also from supply and demand for truth, knowledge,
+confirmation, refutation, and reality alignment.</p>
+<hr />
+<h2 id="accounts-and-stacks">11. Accounts and stacks</h2>
+<p>An account is a stack of cuboids:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>Q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>Q</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>Q</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+S=\{Q_1,Q_2,\ldots,Q_n\}
+</annotation></semantics></math></p>
+<p>It contains at least four sums:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>+</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>+</mi><mo>−</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>+</mo></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>−</mi><mo>−</mo></mrow></msub></mrow><annotation encoding="application/x-tex">
+S_{++}, S_{+-}, S_{-+}, S_{--}
+</annotation></semantics></math></p>
+<p>From these follow:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+Z(S)=\sum z_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+T(S)=\sum \tau_i
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>∑</mo><msub><mi>z</mi><mi>i</mi></msub><msub><mi>τ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+V(S)=\sum z_i\tau_i
+</annotation></semantics></math></p>
+<p>But the quadrant sums remain visible. An account with positive volume
+can consist of built truth or removed falsehood. Both can be valuable,
+but they are not the same.</p>
+<hr />
+<h2 id="currency-national-number-and-planetary-truth">12. Currency:
+national number and planetary truth</h2>
+<p>The currency has two layers:</p>
+<ol type="1">
+<li>National coordinate: local number, prices, wages, purchasing
+power.</li>
+<li>Planetary coordinate: common unit of account for number-truth
+volume.</li>
+</ol>
+<p>A country may have local prices, but the planetary calculation
+compares real volumes.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><msub><mi>z</mi><mi>L</mi></msub><msub><mi>c</mi><mi>L</mi></msub></mfrac><mo>⋅</mo><mi>τ</mi></mrow><annotation encoding="application/x-tex">
+P=\frac{z_L}{c_L}\cdot \tau
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mi>L</mi></msub><annotation encoding="application/x-tex">z_L</annotation></semantics></math>:
+local number.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>L</mi></msub><annotation encoding="application/x-tex">c_L</annotation></semantics></math>:
+national coefficient.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>:
+truth value.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>:
+planetary truth-value.</li>
+</ul>
+<p>The comparison is not only “How expensive?” but “How much real, true,
+functional, recognized substance is being traded?”</p>
+<hr />
+<h2 id="production">13. Production</h2>
+<p>Production generates not only goods but cuboids.</p>
+<p>A bread is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>e</mi><mo>,</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>t</mi><mi>h</mi><mspace width="0.222em"></mspace><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>q</mi><mi>u</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>o</mi><mi>r</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>n</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>u</mi><mi>s</mi><mi>e</mi><mi>f</mi><mi>u</mi><mi>l</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(price, truth\ about\ weight,\ quality,\ origin,\ usefulness)
+</annotation></semantics></math></p>
+<p>A machine is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>e</mi><mo>,</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>t</mi><mi>h</mi><mspace width="0.222em"></mspace><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>f</mi><mi>u</mi><mi>n</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>l</mi><mi>i</mi><mi>f</mi><mi>e</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>e</mi><mi>f</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(price, truth\ about\ function,\ lifetime,\ efficiency)
+</annotation></semantics></math></p>
+<p>A scientific model is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>e</mi><mo>,</mo><mi>t</mi><mi>r</mi><mi>u</mi><mi>t</mi><mi>h</mi><mspace width="0.222em"></mspace><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>x</mi><mi>p</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi><mspace width="0.222em"></mspace><mi>p</mi><mi>o</mi><mi>w</mi><mi>e</mi><mi>r</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>p</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>l</mi><mi>i</mi><mi>m</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(price, truth\ about\ explanatory\ power,\ prediction,\ limits)
+</annotation></semantics></math></p>
+<p>Production therefore becomes the creation of numerical value and
+truth value at the same time.</p>
+<hr />
+<h2 id="firms">14. Firms</h2>
+<p>A firm has a cuboid balance sheet:</p>
+<pre class="text"><code>physical goods
+knowledge goods
+education capital
+patents
+data
+verifications
+falsifications
+means of production
+debts
+open claims</code></pre>
+<p>The value of a firm is not only money. It is the sum of its
+truth-capable structures.</p>
+<p>A company with many patents that turn out to be false or unusable
+loses truth volume. A company with strong falsifications can gain value
+because it knows which paths do not work.</p>
+<hr />
+<h2 id="banks-and-credit">15. Banks and credit</h2>
+<p>Credit can finance not only money production but also truth
+production.</p>
+<p>Examples:</p>
+<ul>
+<li>Research credit: financing a path toward new knowledge.</li>
+<li>Education credit: financing truth capability.</li>
+<li>Verification credit: financing testing.</li>
+<li>Falsification credit: financing proof that something does not
+hold.</li>
+</ul>
+<p>A credit contract can say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mi>o</mi><mi>a</mi><mi>l</mi><mo>=</mo><mi mathvariant="normal">Δ</mi><mi>τ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+z=1,000,000,\quad goal=\Delta\tau&gt;0
+</annotation></semantics></math></p>
+<p>Repayment depends not only on revenue, but also on whether usable
+truth volume was created.</p>
+<hr />
+<h2 id="state-and-public-goods">16. State and public goods</h2>
+<p>The state can finance truth as a public good:</p>
+<ul>
+<li>basic research</li>
+<li>schools</li>
+<li>universities</li>
+<li>public data</li>
+<li>open standards</li>
+<li>measurement infrastructure</li>
+<li>archives</li>
+<li>statistics</li>
+<li>falsification programs</li>
+<li>quality testing</li>
+</ul>
+<p>The state should not declare absolute truth. It should make markets
+possible in which truth coordinates can be cleanly traded, documented,
+and compared.</p>
+<hr />
+<h2 id="prices-for-truth">17. Prices for truth</h2>
+<p>The price of truth depends on:</p>
+<ul>
+<li>scarcity of the insight</li>
+<li>usefulness of the insight</li>
+<li>transferability</li>
+<li>cost of testing</li>
+<li>risk of error</li>
+<li>time advantage</li>
+<li>number of buyers</li>
+<li>damage avoided by eliminating error</li>
+</ul>
+<p>Falsification can be very expensive and very valuable. A negative
+result in research can save billions.</p>
+<hr />
+<h2 id="example-trade-in-knowledge">18. Example: trade in knowledge</h2>
+<p>A firm buys a market analysis.</p>
+<p>Agreement:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>50</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>τ</mi><mo>=</mo><mi>+</mi><mn>0.7</mn></mrow><annotation encoding="application/x-tex">
+z=50,000,\quad \tau=+0.7
+</annotation></semantics></math></p>
+<p>Volume:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>35</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">
+V=35,000
+</annotation></semantics></math></p>
+<p>The analysis does not deliver absolute truth, but it provides enough
+real orientation to improve decisions. It is a tradable good because it
+improves action.</p>
+<hr />
+<h2 id="example-trade-in-falsification">19. Example: trade in
+falsification</h2>
+<p>A laboratory tests a hypothesis.</p>
+<p>Claim:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mtext mathvariant="normal">“Procedure A lowers energy costs by 40 %.”</mtext></mrow><annotation encoding="application/x-tex">
+R=\text{“Procedure A lowers energy costs by 40 %.”}
+</annotation></semantics></math></p>
+<p>Result:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>R</mi></msub><mo>=</mo><mi>−</mi><mn>0.85</mn></mrow><annotation encoding="application/x-tex">
+\tau_R=-0.85
+</annotation></semantics></math></p>
+<p>The laboratory sells not positive confirmation but valuable
+refutation. The buyer avoids investment in a false procedure.</p>
+<hr />
+<h2 id="example-education">20. Example: education</h2>
+<p>A person buys a course.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>τ</mi><mo>=</mo><mi>+</mi><mn>0.9</mn><mo>,</mo><mspace width="1.0em"></mspace><mi mathvariant="normal">Δ</mi><mi>K</mi><mo>=</mo><mi>h</mi><mi>i</mi><mi>g</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">
+z=2,000,\quad \tau=+0.9,\quad \Delta K=high
+</annotation></semantics></math></p>
+<p>The course produces not merely consumption but durable truth capital.
+The person can form better models, make better decisions, and generate
+truth in the future.</p>
+<hr />
+<h2 id="simulation">21. Simulation</h2>
+<p>A simulation needs actors:</p>
+<pre class="text"><code>households
+teachers
+researchers
+firms
+banks
+states
+planetary bank
+knowledge markets
+verifiers
+falsifiers
+data providers</code></pre>
+<p>Each round:</p>
+<pre class="text"><code>1. Actors offer goods, knowledge, education, or tests.
+2. Other actors buy number-truth pairs or volumes.
+3. Markets form prices for number and truth.
+4. Education changes truth capability.
+5. Research creates new claims.
+6. Verification raises positive truth coordinates.
+7. Falsification creates negative truth for false claims or positive truth for counterclaims.
+8. Accounts are updated as stacks of cuboids.
+9. National and planetary coordinates are settled.</code></pre>
+<hr />
+<h2 id="central-formula">22. Central formula</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>,</mo><mi>τ</mi><mo>,</mo><mi>R</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(z,\tau,R,h)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>z</mi><mi>τ</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">
+V=z\tau h
+</annotation></semantics></math></p>
+<p>but:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>≠</mo><mi>c</mi><mi>o</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>t</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>i</mi><mi>n</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">
+V \neq complete\ information
+</annotation></semantics></math></p>
+<p>The complete form is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mi>z</mi><mo stretchy="false" form="prefix">|</mo><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>τ</mi><mo stretchy="false" form="prefix">|</mo><mo>,</mo><msub><mi>σ</mi><mi>z</mi></msub><mo>,</mo><msub><mi>σ</mi><mi>τ</mi></msub><mo>,</mo><mi>R</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Q=(|z|,|\tau|,\sigma_z,\sigma_\tau,R,h)
+</annotation></semantics></math></p>
+<p>The system therefore trades not only money, but also the relation to
+reality.</p>
+<hr />
+<h2 id="conclusion">23. Conclusion</h2>
+<p>The truth-cuboid economy is a market model in which number and truth
+are traded together. Truth is not a later judgment about a transaction.
+It is an independent coordinate inside the transaction itself.</p>
+<p>This allows knowledge, education, insight, verification, and
+falsification to become normal economic goods. A positive truth value
+sells confirmed reality. A negative truth value sells the knowledge that
+a claim does not match reality. Both can be valuable.</p>
+<p>The fourth information remains necessary because the same volume can
+arise from different sign pairs. Only by storing the numerical sign and
+the truth sign separately can the market distinguish building real
+value, trading falsehood, representing real negation, and removing
+error.</p>
+</body>
+</html>
