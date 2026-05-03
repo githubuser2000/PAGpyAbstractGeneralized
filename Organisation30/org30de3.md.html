@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>org30de3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="die-schleife-rückkopplung-in-sequentieller-logik-was-sie-alles-ermöglicht">Die
+Schleife (Rückkopplung) in sequentieller Logik – Was sie alles
+ermöglicht</h1>
+<p><strong>Die Gemeinsamkeit ist die Schleife (Rückkopplung /
+Feedback).</strong><br />
+Damit kann man nicht nur <strong>speichern, zählen und
+schalten</strong>, sondern noch viel mehr.<br />
+Statt reiner <strong>Formeln</strong> entstehen echte
+<strong>Algorithmen</strong> in Hardware.</p>
+<h2 id="was-alles-mit-einer-schleife-möglich-wird">Was alles mit einer
+Schleife möglich wird</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Fähigkeit</th>
+<th>Was die Schleife ermöglicht</th>
+<th>Beispiele in der Praxis</th>
+<th>Typische Schaltung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speichern</strong></td>
+<td>Zustand wird festgehalten</td>
+<td>1-Bit-Speicher, Register, RAM</td>
+<td>SR-Latch, SRAM-Zelle</td>
+</tr>
+<tr>
+<td><strong>Zählen</strong></td>
+<td>Impulse werden addiert / dekrementiert</td>
+<td>Binärzähler, Frequenzteiler</td>
+<td>T-Flipflop-Kette</td>
+</tr>
+<tr>
+<td><strong>Schalten / Steuern</strong></td>
+<td>Zustandswechsel nach Regeln</td>
+<td>Verkehrsampel, Automaten, Steuerwerke</td>
+<td>Finite State Machine (FSM)</td>
+</tr>
+<tr>
+<td><strong>Synchronisieren</strong></td>
+<td>Alles passiert zum gleichen Takt</td>
+<td>Prozessoren, Busse, Pipelines</td>
+<td>Getaktete Flipflops + Taktgenerator</td>
+</tr>
+<tr>
+<td><strong>Sequenzieren</strong></td>
+<td>Schritte werden nacheinander ausgeführt</td>
+<td>Befehlsausführung in einer CPU</td>
+<td>Programm-Counter + Steuerwerk</td>
+</tr>
+<tr>
+<td><strong>Verzögern / Timing</strong></td>
+<td>Signale werden zeitlich verschoben</td>
+<td>Ein-Takt-Verzögerung, Pipeline-Stufen</td>
+<td>Schieberegister</td>
+</tr>
+<tr>
+<td><strong>Oszillieren</strong></td>
+<td>Dauerhafte Schwingung (Takt) erzeugen</td>
+<td>Ringoszillatoren, Uhren in Chips</td>
+<td>3–5 invertierte Schleifen</td>
+</tr>
+<tr>
+<td><strong>Multi-Schritt-Berechnung</strong></td>
+<td>Komplexe Operationen über mehrere Takte</td>
+<td>Multiplikation, Division, Gleitkomma-Rechnung</td>
+<td>ALU + Register + FSM</td>
+</tr>
+<tr>
+<td><strong>Algorithmen ausführen</strong></td>
+<td>Hardware führt echte Programme / Algorithmen aus</td>
+<td>Jeder Mikroprozessor, Microcontroller</td>
+<td>CPU (Register + ALU + FSM)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ja-algorithmen-statt-formeln">Ja – Algorithmen statt
+Formeln!</h2>
+<ul>
+<li><p><strong>Kombinatorische Logik</strong> =
+<strong>Formel</strong><br />
+→ Einmal Eingabe → sofort Ausgabe (wie eine mathematische
+Gleichung).</p></li>
+<li><p><strong>Sequentielle Logik (mit Schleife)</strong> =
+<strong>Algorithmus</strong><br />
+→ Eingabe + aktueller Zustand → neuer Zustand + Ausgabe<br />
+→ Das System hat ein „Gedächtnis“ und kann über mehrere Schritte hinweg
+etwas <strong>berechnen</strong>.</p></li>
+</ul>
+<p><strong>Beispiel:</strong><br />
+Eine ALU allein ist nur eine Formel (A + B).<br />
+Aber ALU + Register + Programm-Counter + FSM = ein Prozessor, der einen
+<strong>Algorithmus</strong> (z. B. „Multipliziere zwei Zahlen mit
+Shift-and-Add“) Schritt für Schritt ausführt.</p>
+<h2 id="gibt-es-noch-etwas-anderes">Gibt es noch etwas anderes?</h2>
+<p>Ja, zwei weitere wichtige Dinge, die nur durch Schleifen möglich
+werden:</p>
+<ol type="1">
+<li><p><strong>Turing-Vollständigkeit</strong> (theoretisch)<br />
+Mit genug Flipflops, einer ALU und einer FSM kannst du <strong>jeden
+Algorithmus</strong> ausführen, den ein Computer kann. Die Schleife ist
+der Grund, warum Hardware überhaupt universell programmierbar
+ist.</p></li>
+<li><p><strong>Selbst-Modifikation / Lernfähigkeit</strong> (bei
+Erweiterung)<br />
+In modernen Systemen (z. B. mit konfigurierbaren Logikbausteinen wie
+FPGA) kann die Schleife sogar ihre eigenen Regeln ändern – aber das ist
+schon eher „Reconfigurable Computing“.</p></li>
+</ol>
+<p><strong>Kurz gesagt:</strong><br />
+Die Schleife ist der „Geist in der Maschine“. Ohne sie gäbe es nur
+starre Formeln. Mit ihr entsteht alles, was wir unter „Digitaltechnik“,
+„Computer“ und „programmierbarer Hardware“ verstehen.</p>
+</body>
+</html>

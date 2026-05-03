@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>org30en3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="the-feedback-loop-in-sequential-logic-what-it-enables">The
+Feedback Loop in Sequential Logic – What It Enables</h1>
+<p><strong>The common element is the loop (feedback).</strong><br />
+With it you can not only <strong>store, count and switch</strong>, but
+much more.<br />
+Instead of pure <strong>formulas</strong> you get real
+<strong>algorithms</strong> in hardware.</p>
+<h2 id="what-becomes-possible-with-a-feedback-loop">What becomes
+possible with a feedback loop</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capability</th>
+<th>What the loop enables</th>
+<th>Practical examples</th>
+<th>Typical circuit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Storing</strong></td>
+<td>State is held permanently</td>
+<td>1-bit memory, registers, RAM</td>
+<td>SR-Latch, SRAM cell</td>
+</tr>
+<tr>
+<td><strong>Counting</strong></td>
+<td>Pulses are added / decremented</td>
+<td>Binary counters, frequency dividers</td>
+<td>Chain of T-Flipflops</td>
+</tr>
+<tr>
+<td><strong>Switching / Controlling</strong></td>
+<td>State changes according to rules</td>
+<td>Traffic lights, automata, control units</td>
+<td>Finite State Machine (FSM)</td>
+</tr>
+<tr>
+<td><strong>Synchronizing</strong></td>
+<td>Everything happens at the same clock</td>
+<td>Processors, buses, pipelines</td>
+<td>Clocked flip-flops + clock generator</td>
+</tr>
+<tr>
+<td><strong>Sequencing</strong></td>
+<td>Steps are executed one after another</td>
+<td>Instruction execution in a CPU</td>
+<td>Program Counter + control unit</td>
+</tr>
+<tr>
+<td><strong>Delaying / Timing</strong></td>
+<td>Signals are shifted in time</td>
+<td>One-clock delay, pipeline stages</td>
+<td>Shift register</td>
+</tr>
+<tr>
+<td><strong>Oscillating</strong></td>
+<td>Permanent oscillation (clock generation)</td>
+<td>Ring oscillators, on-chip clocks</td>
+<td>3–5 inverted loops</td>
+</tr>
+<tr>
+<td><strong>Multi-step computation</strong></td>
+<td>Complex operations over multiple clock cycles</td>
+<td>Multiplication, division, floating-point arithmetic</td>
+<td>ALU + registers + FSM</td>
+</tr>
+<tr>
+<td><strong>Executing algorithms</strong></td>
+<td>Hardware runs real programs / algorithms</td>
+<td>Every microprocessor, microcontroller</td>
+<td>CPU (registers + ALU + FSM)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="yes-algorithms-instead-of-formulas">Yes – Algorithms instead of
+formulas!</h2>
+<ul>
+<li><p><strong>Combinational logic</strong> =
+<strong>Formula</strong><br />
+→ One input → immediate output (like a mathematical equation).</p></li>
+<li><p><strong>Sequential logic (with loop)</strong> =
+<strong>Algorithm</strong><br />
+→ Input + current state → new state + output<br />
+→ The system has a “memory” and can compute something over multiple
+steps.</p></li>
+</ul>
+<p><strong>Example:</strong><br />
+An ALU alone is just a formula (A + B).<br />
+But ALU + registers + program counter + FSM = a processor that executes
+a real <strong>algorithm</strong> (e.g. “multiply two numbers with
+shift-and-add”) step by step.</p>
+<h2 id="is-there-anything-else">Is there anything else?</h2>
+<p>Yes, two more important things that only become possible through
+loops:</p>
+<ol type="1">
+<li><p><strong>Turing completeness</strong> (theoretically)<br />
+With enough flip-flops, an ALU and an FSM you can execute <strong>any
+algorithm</strong> a computer can run. The loop is the reason why
+hardware can be universally programmable at all.</p></li>
+<li><p><strong>Self-modification / learning capability</strong> (with
+extensions)<br />
+In modern systems (e.g. with reconfigurable logic blocks like FPGAs) the
+loop can even change its own rules – but that is already more
+“Reconfigurable Computing”.</p></li>
+</ol>
+<p><strong>In short:</strong><br />
+The feedback loop is the “ghost in the machine”. Without it there would
+only be rigid formulas. With it everything arises that we understand as
+“digital technology”, “computers” and “programmable hardware”.</p>
+</body>
+</html>
