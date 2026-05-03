@@ -1,0 +1,1090 @@
+====================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                  Relationale Währungsökonomie — ultra-bunte Unicode-Simulation                   ║
+║              Währung erscheint als strukturierte Relation, nicht als einzelne Zahl.              ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                            Überblick                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieses Programm führt je Simulationsteil mehrere Szenarien aus: geschützt, offen, spekulativ    │
+│  und dunkel. Die Punktwerte sind veranschaulichende Modellwerte, keine empirischen Tatsachen.    │
+│  Ihr Zweck ist, die Struktur sichtbar zu machen: Relationstiefe erzeugt wirtschaftliche Stärke,  │
+│  schwache Grenzen erzeugen Herrschaftsrisiko.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 01: Anatomie der relationalen Währung
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil baut ein kleines RWB mit Relationszeilen, Anspruchszeilen und Gültigkeitsschicht.   │
+│  Ziel ist zu zeigen, dass das Währungsobjekt ein tabellenartiges Bündel ist und keine Zahl.      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird zuerst simuliert, weil alle späteren Märkte ein konkretes Währungsobjekt brauchen.     │
+│  Zeilenzählen allein wäre zu schwach; das Bündel braucht Rechts-, Zeit- und Risikostruktur.      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                             Bedeutung                                                              │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWÖ    │ Relationale Währungsökonomie: das Gesamtsystem, in dem Währung ein strukturiertes Relationenbündel statt einer einzelnen Zahl ist. │
+│ RWB    │ Relationales Wertbündel: eine handelbare Tabelle aus Ansprüchen, Pflichten, Risiken, Zeitfenstern und Nachweisen.                  │
+│ RID    │ Relationskennung: die nachvollziehbare Bezeichnung einer einzelnen Zeile im Bündel.                                                │
+│ VAL    │ Gültigkeitsschicht: der Teil, der sagt, ob eine Relation rechtmäßig, aktuell und durchsetzbar ist.                                 │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────────────┐
+│ Einheit │         Bedeutung          │
+├─────────┼────────────────────────────┤
+│ Rel     │ Anzahl der Relationszeilen │
+│ Anspr   │ Anzahl der Anspruchszeilen │
+│ Tg      │ Tage Gültigkeit            │
+└─────────┴────────────────────────────┘
+Bunte Unicode-Grafik
+╔════════════════════════════════════════════════════════════════════╗
+║ RWB = tabellenförmiges Währungsobjekt innerhalb der RWÖ            ║
+╠══════════╦════════════╦═════════════╦════════════╦═══════════════╣
+║ RID      ║ Anspruch   ║ Pflicht     ║ Risiko     ║ VAL           ║
+╠══════════╬════════════╬═════════════╬════════════╬═══════════════╣
+║ R-01     ║ Lieferung  ║ Zahlung/Sch ║ mittel     ║ gültig + live ║
+║ R-02     ║ Maschinzeit║ Wartung     ║ niedrig    ║ übertragbar   ║
+║ R-03     ║ Arbeitszeit║ Grenze acht ║ Moraltest  ║ beschränkt    ║
+╚══════════╩════════════╩═════════════╩════════════╩═══════════════╝
+          │                         │                         │
+          ▼                         ▼                         ▼
+   Rechte und Ansprüche       Pflichten und Grenzen      Nachweis und Gültigkeit
+Szenario-Lauf
+┌────────────┬────────────┬───────────┬────────────┬────────────────────────────────────┐
+│  Szenario  │ Relationen │ Ansprüche │ Gültigkeit │             Liquidität             │
+├────────────┼────────────┼───────────┼────────────┼────────────────────────────────────┤
+│ Geschützt  │     90 Rel │  46 Anspr │      55 Tg │ [###################.........]  68 │
+│ Offen      │    118 Rel │  60 Anspr │      55 Tg │ [########################....]  85 │
+│ Spekulativ │    129 Rel │  78 Anspr │      55 Tg │ [#########################...]  88 │
+│ Dunkel     │    145 Rel │  91 Anspr │      53 Tg │ [##########################..]  92 │
+└────────────┴────────────┴───────────┴────────────┴────────────────────────────────────┘
+Bündel-Heatmap
+            Struktur  Liquidität   Risiko    Freiheit 
+ Geschützt    ***        ***                   @@@    
+     Offen    ***        ###        :::        +++    
+Spekulativ    ***        ###        +++               
+    Dunkel    +++        %%%        ###               
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 68 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 2 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Das RWB wird am stärksten, wenn genug Relationszeilen die Wirklichkeit abbilden, aber nicht so  │
+│  ungegrenzt, dass die Gültigkeitsschicht im Risiko versinkt. Zeilenzahl allein bestimmt keinen   │
+│  Wert; Gültigkeit, Risiko und Übertragbarkeit verändern das Ergebnis.                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 02: Markt-Matching ohne einzelnen Preis
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil simuliert, wie Annahmetabelle und Gebotstabelle nach Passung verbunden werden,      │
+│  nicht nach einem einzigen Preisschild.                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine relationale Währung wird nur nützlich, wenn Märkte sie verrechnen können. Matching zeigt,  │
+│  warum eine reichere Währung mehr Details koordinieren kann als ein normaler Preis.              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                    Bedeutung                                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MME    │ Markt-Matching-Engine: die simulierte Markteinheit, die Angebote und Nachfragen nach Relationspassung verbindet. │
+│ ASK    │ Annahmetabelle: das, was ein Verkäufer als Bündel akzeptieren würde.                                             │
+│ BID    │ Gebotstabelle: das, was ein Käufer als Bündel übertragen kann.                                                   │
+│ FIT    │ Passungswert: die Übereinstimmung zwischen Annahmetabelle und Gebotstabelle.                                     │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬─────────────────┐
+│ Einheit │    Bedeutung    │
+├─────────┼─────────────────┤
+│ tx      │ Transaktionen   │
+│ Rel     │ Relationszeilen │
+│ Pkt     │ Punktwerte      │
+└─────────┴─────────────────┘
+Bunte Unicode-Grafik
+ASK-Seite                             MME-Kern                              BID-Seite
+Annahmetabelle ─╮                ╭────────────╮                 ╭── Gebotstabelle
+Reparaturanspr ─┼──── FIT-Linien▶│  Matching  │◀─ FIT-Linien ───┼── Zeitanspruch
+Steuergutsch ───┤                │ nach       │                 ├── Lieferrecht
+Risikodeckung ──╯                │ Relation   │                 ╰── Versicherungszeile
+                                  ╰────────────╯
+Liquiditätspfad: #####...  #######.  #######.  #######.
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │             Liquidität             │                Boom                │               Krise                │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  66 │ [###################.........]  66 │ [............................]   2 │ [############################] 100 │
+│ Offen      │ [########################....]  84 │ [#####################.......]  74 │ [########....................]  29 │ [################............]  58 │
+│ Spekulativ │ [##########################..]  92 │ [##################..........]  65 │ [##################..........]  63 │ [............................]   1 │
+│ Dunkel     │ [#########################...]  91 │ [################............]  57 │ [#######################.....]  81 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+FIT-Detail
+┌────────────┬────────────────────────────────────┬─────────┬────────────┐
+│  Szenario  │                FIT                 │ Reihen  │ Verrechnet │
+├────────────┼────────────────────────────────────┼─────────┼────────────┤
+│ Geschützt  │ [####################........]  72 │  89 Rel │       7 tx │
+│ Offen      │ [###################.........]  69 │ 121 Rel │       6 tx │
+│ Spekulativ │ [#################...........]  62 │ 134 Rel │       6 tx │
+│ Dunkel     │ [###############.............]  55 │ 136 Rel │       5 tx │
+└────────────┴────────────────────────────────────┴─────────┴────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 74 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 2 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Passung ersetzt den Einzelpreis als Verrechnungssignal. Das ist stärker, weil der Markt         │
+│  Bedürfnisse, Risiken und Pflichten gleichzeitig abgleichen kann.                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 03: Produktionskette als Relationsfluss
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil verfolgt Eingänge, Kapazität, Zwischenarbeit und Durchsatz durch eine               │
+│  Produktionskette, in der jeder Schritt Rechte und Pflichten trägt.                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  In der Produktion wird das System wirtschaftlich stärker: Es sieht Engpässe, Pflichten und      │
+│  ungenutzte Kapazitäten früher als ein bloßes Preissignal.                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                 Bedeutung                                                 │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ PCN    │ Produktionskettennetz: das Netz aus Eingängen, Arbeit, Maschinen, Lieferpflichten und Ausgangsansprüchen. │
+│ CAP    │ Kapazitätsrelation: nutzbare Produktionsfähigkeit wie Maschinenzeit oder qualifizierte Arbeit.            │
+│ WIP    │ Zwischenarbeit: unfertige Güter oder Leistungen, die bereits Relationen tragen.                           │
+│ THR    │ Durchsatz: wie viel nutzbarer Ausgang pro Schritt durch die Kette fließt.                                 │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌───────────┬────────────────────┐
+│  Einheit  │     Bedeutung      │
+├───────────┼────────────────────┤
+│ Std       │ produktive Stunden │
+│ Einheiten │ Ausgangseinheiten  │
+│ kWh       │ Energieverbrauch   │
+└───────────┴────────────────────┘
+Bunte Unicode-Grafik
+        CAP                 WIP                    THR
+   ╭─────────╮         ╭──────────╮          ╭────────────╮
+   │ Maschine│──Rechte▶│ unfertige│─Pflicht▶│ nutzbarer  │
+   │ Arbeit  │──Zeit──▶│ Leistung │─Beweis─▶│ Ausgang    │
+   ╰─────────╯         ╰──────────╯          ╰────────────╯
+        ▲                    │                       │
+        └──── PCN prüft Engpässe, Ansprüche und Pflichten ────┘
+THR-Spur: ▁▇█▆
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬──────────┬───────────┬────────────────────────────────────┐
+│  Szenario  │                UMK                 │ Energie  │   Last    │                Boom                │
+├────────────┼────────────────────────────────────┼──────────┼───────────┼────────────────────────────────────┤
+│ Geschützt  │ [#################...........]  62 │  967 kWh │ 434 kgCO2 │ [####################........]  70 │
+│ Offen      │ [#########...................]  33 │ 1094 kWh │ 560 kgCO2 │ [#####################.......]  76 │
+│ Spekulativ │ [##..........................]   8 │ 1264 kWh │ 698 kgCO2 │ [##################..........]  65 │
+│ Dunkel     │ [............................]   0 │ 1286 kWh │ 797 kgCO2 │ [################............]  59 │
+└────────────┴────────────────────────────────────┴──────────┴───────────┴────────────────────────────────────┘
+Produktionsdetail
+┌────────────┬────────────────────────────────────┬─────────┬───────────────┬──────────┐
+│  Szenario  │           Produktivität            │  Input  │    Output     │ Energie  │
+├────────────┼────────────────────────────────────┼─────────┼───────────────┼──────────┤
+│ Geschützt  │ [#####################.......]  76 │ 210 Std │ 100 Einheiten │  967 kWh │
+│ Offen      │ [########################....]  87 │ 223 Std │ 100 Einheiten │ 1094 kWh │
+│ Spekulativ │ [#########################...]  88 │ 235 Std │ 100 Einheiten │ 1264 kWh │
+│ Dunkel     │ [########################....]  85 │ 227 Std │ 100 Einheiten │ 1286 kWh │
+└────────────┴────────────────────────────────────┴─────────┴───────────────┴──────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 76 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 4 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Die Kette gewinnt Stärke, weil Pflichten und Kapazität sichtbar sind, bevor das Endprodukt      │
+│  existiert. Die Schwäche ist Komplexität: Schlechte Daten können die ganze Kette falsch lenken.  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 04: Arbeitsmarkt mit Arbeitsschutzschild
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil prüft, wie Arbeit als begrenztes Arbeitsversprechen dargestellt werden kann,        │
+│  während ein Rechtsschild verhindert, dass der Arbeitnehmer zum Handelsobjekt wird.              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Arbeit ist die moralische Prüfung. Die Simulation zeigt die produktive Seite passender Arbeit   │
+│  und zugleich, warum harte Grenzen nötig sind, damit Menschen nicht über Abhängigkeiten          │
+│  gehandelt werden.                                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                       Bedeutung                                                       │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LCS    │ Arbeitsschutzschild: die Regelschicht, die verhindert, dass ein Arbeitnehmer zur handelbaren Person wird.             │
+│ WKR    │ Arbeitskraftrelation: ein freiwilliges und begrenztes Arbeitsversprechen, kein Eigentum an einem Menschen.            │
+│ EMP    │ Arbeitgeberrelation: die Pflicht zu Bezahlung, Schutz und Respekt vor den vereinbarten Grenzen.                       │
+│ NTR    │ Nichtübertragbarkeitsregel: der Arbeitnehmer darf nicht durch Übertragung des ganzen Menschenbündels verkauft werden. │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────┐
+│ Einheit │     Bedeutung      │
+├─────────┼────────────────────┤
+│ Arb     │ Arbeitsversprechen │
+│ Std     │ Arbeitsstunden     │
+│ Pkt     │ Schutzpunkte       │
+└─────────┴────────────────────┘
+Bunte Unicode-Grafik
+                    LCS schützt die Person
+        ╭────────────────────────────────────────╮
+ WKR ──▶│ Arbeitsverspr: begrenzt, bezahlt, kündb│──▶ EMP
+        │ NTR sperrt Verkauf des Menschenbündels │
+        ╰────────────────────────────────────────╯
+              ▲            ▲             ▲
+              │            │             │
+       Höchstzeit     Austritt       Schutzpflicht
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                Boom                │           Menschenrisiko           │             Kontrolle              │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [#################...........]  62 │ [............................]   0 │ [#########...................]  32 │ [############################] 100 │
+│ Offen      │ [####################........]  73 │ [#########...................]  34 │ [##################..........]  64 │ [################............]  57 │
+│ Spekulativ │ [##################..........]  66 │ [#####################.......]  75 │ [#########################...]  89 │ [............................]   0 │
+│ Dunkel     │ [################............]  59 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Arbeitsschutz-Detail
+┌────────────┬────────────────────────────────────┬────────┬─────────┬────────────────────────────────────┐
+│  Szenario  │                LCS                 │ Arbeit │ Stunden │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────┼─────────┼────────────────────────────────────┤
+│ Geschützt  │ [############################] 100 │ 78 Arb │ 196 Std │ [############################] 100 │
+│ Offen      │ [#######################.....]  80 │ 60 Arb │ 208 Std │ [################............]  57 │
+│ Spekulativ │ [#########...................]  33 │ 47 Arb │ 225 Std │ [............................]   0 │
+│ Dunkel     │ [............................]   1 │ 37 Arb │ 214 Std │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────┴─────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 73 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 4 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Das geschützte Szenario beweist die humane Konstruktion: Arbeit kann passend vermittelt         │
+│  werden, ohne den Arbeitnehmer zu verkaufen. Das dunkle Szenario zeigt die Gegengefahr: Werden   │
+│  Arbeit, Schuld und Wohnen gebündelt, kann formale Vertragssprache praktische Herrschaft         │
+│  verstecken.                                                                                     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 05: Kredit als Transformation von Zukunftsrelationen
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil verwandelt Zukunftsansprüche und Sicherheitenrelationen in liquidere Kreditbündel   │
+│  und beobachtet, wie sich Risiko und Vorrang verändern.                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Kredit erzeugt Boomkraft, weil Zukunft heute nutzbar wird. Derselbe Mechanismus kann Krisen     │
+│  erzeugen, wenn schwache Versprechen solide aussehen.                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                 Bedeutung                                                 │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CRT    │ Kreditrelationstransformator: das bankartige Modul, das Zukunftsansprüche in liquidere Bündel verwandelt. │
+│ COL    │ Sicherheitenschicht: Relationen, die zur Absicherung einer Zukunftspflicht verpfändet werden.             │
+│ DRF    │ Ausfallrisikofaktor: der Wahrscheinlichkeitsdruck, dass versprochene Relationen scheitern.                │
+│ SEN    │ Vorrangrang: die Reihenfolge, in der Ansprüche im Scheitern bedient werden.                               │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────────┐
+│ Einheit │       Bedeutung        │
+├─────────┼────────────────────────┤
+│ Anspr   │ Zukunftsansprüche      │
+│ Rel     │ Sicherheitenrelationen │
+│ Pkt     │ Risikopunkte           │
+└─────────┴────────────────────────┘
+Bunte Unicode-Grafik
+Zukunftsanspr      COL-Schicht       CRT-Paket           SEN-Rang
+ ╭────────╮      ╭──────────╮      ╭───────────╮      ╭──────────╮
+ │ kleine │─────▶│ verpfänd │─────▶│ liquider  │─────▶│ zuerst / │
+ │ Anspr  │      │ Sicherh  │      │ Kredit    │      │ danach   │
+ ╰────────╯      ╰──────────╯      ╰───────────╯      ╰──────────╯
+DRF-Spur: ▁▄▇█
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │             Liquidität             │                Boom                │               Krise                │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  63 │ [##################..........]  64 │ [#...........................]   4 │ [############################] 100 │
+│ Offen      │ [#######################.....]  81 │ [####################........]  70 │ [##########..................]  35 │ [###############.............]  52 │
+│ Spekulativ │ [##########################..]  92 │ [###################.........]  66 │ [###################.........]  69 │ [............................]   0 │
+│ Dunkel     │ [#########################...]  88 │ [################............]  58 │ [########################....]  86 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Kreditdetail
+┌────────────┬───────────┬─────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │ Ansprüche │   COL   │                DRF                 │            SEN-Qualität            │
+├────────────┼───────────┼─────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │  48 Anspr │  89 Rel │ [#...........................]   4 │ [############################] 100 │
+│ Offen      │  68 Anspr │ 113 Rel │ [##########..................]  35 │ [#######################.....]  83 │
+│ Spekulativ │  87 Anspr │ 131 Rel │ [###################.........]  69 │ [##############..............]  49 │
+│ Dunkel     │  90 Anspr │ 143 Rel │ [########################....]  86 │ [#########...................]  30 │
+└────────────┴───────────┴─────────┴────────────────────────────────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 70 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 4 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Kredit ist eine Boommaschine, weil er Zukunftsrelationen in gegenwärtige Kapazität verwandelt.  │
+│  Der Preis ist Fragilität: Werden schwache Ansprüche zu hoch gerankt, kommt der Krisenknick      │
+│  plötzlich.                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 06: Der Boom: verborgener Wert wird liquide
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil aktiviert verborgene Werte wie ungenutzte Zeit, Vertrauen und kleine Ansprüche und  │
+│  misst danach Zirkulation und Überlastung.                                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Boom ist besonders, weil ruhende Relationen zu Markttreibstoff werden. Das ist mächtig,     │
+│  aber die Aktivierungsgeschwindigkeit kann Recht, Privatheit und Vertrauen überlasten.           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                           Bedeutung                                                           │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LBM    │ Liquiditäts-Boom-Messer: die simulierte Anzeige dafür, wie viel verborgener Relationswert handelbar wird.                     │
+│ HVA    │ Aktivierung verborgener Werte: Umwandlung ungenutzter Zeit, Vertrauenswerte, Rechte und Mikroansprüche in marktfähige Bündel. │
+│ VEL    │ Relationsgeschwindigkeit: wie schnell Bündel durch Transaktionen zirkulieren.                                                 │
+│ ABS    │ Aufnahmespannung: Überlastung, wenn zu viele Relationen zu schnell gehandelt werden.                                          │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────┐
+│ Einheit │       Bedeutung       │
+├─────────┼───────────────────────┤
+│ Rel     │ aktivierte Relationen │
+│ tx      │ Transaktionen         │
+│ Pkt     │ Spannungspunkte       │
+└─────────┴───────────────────────┘
+Bunte Unicode-Grafik
+           Speicher verborgener Relationen          Marktfluss
+       ╭──────────────────────╮       HVA       ╭═══════════════════╮
+       │ Leerlauf  Vertrauen  │ ───────────────▶║  VEL VEL VEL      ║
+       │ Mikroanspr Rechte    │                 ║  tx tx tx tx      ║
+       ╰──────────────────────╯                 ╚═══════════════════╝
+                         ABS entsteht, wenn der Fluss überläuft
+VEL-Spur: ▁▆█▇
+Szenario-Lauf
+┌────────────┬────────────┬───────────────┬────────────┬────────────────────────────────────┐
+│  Szenario  │ Relationen │ Transaktionen │ Verrechnet │             Liquidität             │
+├────────────┼────────────┼───────────────┼────────────┼────────────────────────────────────┤
+│ Geschützt  │    100 Rel │         24 tx │      18 tx │ [####################........]  72 │
+│ Offen      │    128 Rel │         30 tx │      19 tx │ [#########################...]  91 │
+│ Spekulativ │    145 Rel │         33 tx │      18 tx │ [############################] 100 │
+│ Dunkel     │    142 Rel │         31 tx │      15 tx │ [##########################..]  94 │
+└────────────┴────────────┴───────────────┴────────────┴────────────────────────────────────┘
+Boom-Detail
+┌────────────┬────────────────────────────────────┬─────────┬───────┬────────────────────────────────────┐
+│  Szenario  │                LBM                 │   HVA   │  VEL  │                ABS                 │
+├────────────┼────────────────────────────────────┼─────────┼───────┼────────────────────────────────────┤
+│ Geschützt  │ [####################........]  72 │ 100 Rel │ 18 tx │ [#####.......................]  20 │
+│ Offen      │ [######################......]  78 │ 128 Rel │ 22 tx │ [##############..............]  51 │
+│ Spekulativ │ [####################........]  73 │ 145 Rel │ 24 tx │ [#####################.......]  77 │
+│ Dunkel     │ [#################...........]  62 │ 142 Rel │ 23 tx │ [########################....]  87 │
+└────────────┴────────────────────────────────────┴─────────┴───────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 78 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 2 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Hier übertrifft die relationale Ökonomie eine bloße Marktwirtschaft am sichtbarsten: Ruhende    │
+│  Kapazitäten werden handelbar. Der Preis ist Aufnahmespannung: Recht, Privatheit und Vertrauen   │
+│  müssen viel mehr marktfähige Wirklichkeit verarbeiten.                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 07: Die amoralische Schattenseite: Handel mit Herrschaft
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil simuliert bewusst die gefährliche Version, in der Arbeit, Schuld, Wohnen, Daten     │
+│  und Reputation zu Kontrolle gebündelt werden.                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Schattenseite lässt sich nicht wegwünschen. Wenn jede Relation handelbar ist, entdeckt der  │
+│  Markt Herrschaft als Gewinnquelle, sofern Regierung sie nicht verbietet.                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                       Bedeutung                                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DME    │ Dunkelmarkt-Exposition: die simulierte Aussetzung gegenüber Märkten, die Herrschaft statt nützlicher Leistung handeln. │
+│ TCR    │ Risiko totaler Kommodifizierung: die Gefahr, dass jede menschliche Abhängigkeit zum Marktobjekt wird.                  │
+│ HCP    │ Menschenkontrollportfolio: ein toxisches Bündel aus Arbeit, Schuld, Wohnen, Daten und Reputationskontrolle.            │
+│ OVB    │ Überbindung: zu viele Lebensrelationen werden an dieselbe Gegenpartei gekettet.                                        │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────────────────┐
+│ Einheit │        Bedeutung         │
+├─────────┼──────────────────────────┤
+│ Rel     │ kontrollierte Relationen │
+│ Std     │ gebundene Stunden        │
+│ Pkt     │ Menschenrisiko-Punkte    │
+└─────────┴──────────────────────────┘
+Bunte Unicode-Grafik
+       Arbeit     Schuld      Wohnen       Daten      Reputation
+        │          │           │            │             │
+        └──────────┴───────────┴────────────┴─────────────┘
+                              ▼
+                     ╭────────────────╮
+                     │      HCP       │  DME steigt
+                     │ Menschenkontro │  TCR steigt
+                     ╰────────────────╯
+                              ▲
+                         OVB sperrt Auswege
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                Boom                │           Menschenrisiko           │             Kontrolle              │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  65 │ [............................]   0 │ [#########...................]  34 │ [############################] 100 │
+│ Offen      │ [###################.........]  68 │ [#########...................]  32 │ [#################...........]  61 │ [#################...........]  60 │
+│ Spekulativ │ [##################..........]  63 │ [##########################..]  93 │ [############################] 100 │ [............................]   0 │
+│ Dunkel     │ [################............]  56 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Schattenseiten-Detail
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────┬──────────┐
+│  Szenario  │                TCR                 │                OVB                 │ HCP-Reihen │ Gebunden │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────┼──────────┤
+│ Geschützt  │ [###.........................]   9 │ [#####.......................]  19 │     83 Rel │  198 Std │
+│ Offen      │ [###########.................]  40 │ [###########.................]  39 │    116 Rel │  214 Std │
+│ Spekulativ │ [###########################.]  95 │ [###################.........]  68 │    133 Rel │  216 Std │
+│ Dunkel     │ [############################] 100 │ [####################........]  72 │    139 Rel │  219 Std │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────┴──────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 68 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 4 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Das dunkle Szenario wird simuliert, um die Gefahr sichtbar zu machen, nicht um sie zu           │
+│  befürworten. Das dunkle Szenario kann trotzdem boomen, weil Herrschaft für den Kontrolleur      │
+│  ökonomisch nützlich ist. Genau deshalb muss Recht verweigern, menschliche Abhängigkeit als      │
+│  normale Währung zu behandeln.                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 08: Regierungstore und nicht handelbare Rechte
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil filtert einen Strom von Relationen durch ein Rechtstor und trennt erlaubte          │
+│  Marktrelationen von verbotenen oder unveräußerlichen.                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das System braucht den Staat nicht als Schmuck, sondern als Grenzwächter, der sagt, welche      │
+│  Relationen niemals Währung werden dürfen.                                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                    Bedeutung                                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LBG    │ Rechtsgrenzentor: das staatliche Regel-Tor, das entscheidet, welche Relationen Währung werden dürfen.            │
+│ IAL    │ Unveräußerliche Schicht: Rechte und Freiheiten, die weder verkauft noch verpfändet noch gebündelt werden dürfen. │
+│ SPL    │ Spaltungsregel: ein Rechtsbefehl zur Trennung von Arbeit, Wohnen, Schuld, Daten und Aufenthaltskontrolle.        │
+│ BAN    │ Verbotsliste: Relationen, die abgewiesen werden, selbst wenn ein Markt daran verdienen würde.                    │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────┐
+│ Einheit │       Bedeutung       │
+├─────────┼───────────────────────┤
+│ Rechte  │ geschützte Rechte     │
+│ Rel     │ gefilterte Relationen │
+│ Pkt     │ Grenzpunkte           │
+└─────────┴───────────────────────┘
+Bunte Unicode-Grafik
+eingehender Relationsstrom
+Rechte ─ Arbeit ─ Schuld ─ Daten ─ Stimme ─ Körper ─ Umwelt ─ Wohnen
+                 │
+                 ▼
+          ╭────────────╮
+          │    LBG     │── erlaubte Marktreihen ─▶ handelbares Bündel
+          │ IAL + SPL  │── BAN-Reihen ───────────▶ niemals Währung
+          ╰────────────╯
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                Boom                │           Menschenrisiko           │             Kontrolle              │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  63 │ [............................]   0 │ [#########...................]  31 │ [############################] 100 │
+│ Offen      │ [####################........]  71 │ [#########...................]  32 │ [##################..........]  64 │ [#################...........]  60 │
+│ Spekulativ │ [###################.........]  67 │ [#####################.......]  77 │ [#########################...]  88 │ [............................]   0 │
+│ Dunkel     │ [################............]  57 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Rechtstor-Detail
+┌────────────┬────────────────────────────────────┬───────────┬────────────┬────────────────────────────────────┐
+│  Szenario  │                LBG                 │    IAL    │ BAN-Reihen │             Abgewiesen             │
+├────────────┼────────────────────────────────────┼───────────┼────────────┼────────────────────────────────────┤
+│ Geschützt  │ [############################] 100 │ 30 Rechte │     26 Rel │ [####........................]  13 │
+│ Offen      │ [###################.........]  69 │ 23 Rechte │     42 Rel │ [#############...............]  45 │
+│ Spekulativ │ [####........................]  15 │ 13 Rechte │     60 Rel │ [#######################.....]  81 │
+│ Dunkel     │ [............................]   0 │ 10 Rechte │     70 Rel │ [############################] 100 │
+└────────────┴────────────────────────────────────┴───────────┴────────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 71 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 0 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Dieser Teil zeigt das verfassungsartige Herz des Systems: Der Markt darf reich sein, aber das   │
+│  Tor entscheidet, was außerhalb des Marktes bleiben muss.                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 09: Ökologie an jedem gehandelten Bündel
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil hängt Energie, Emissionen und Regeneration an Produkte, damit ökologische Kosten    │
+│  nicht hinter dem Preis verschwinden.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ökologie gehört hinein, weil ein relationales System externe Kosten im gehandelten Objekt       │
+│  mittragen kann, statt sie außerhalb der Transaktion zu verstecken.                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                             Bedeutung                                             │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ECO    │ Ökologische Mitlast: die Umweltrelation, die jedem Produkt und jeder Pflicht angehängt wird.      │
+│ EMS    │ Emissionsstrang: die Belastungsrelation aus Energieverbrauch, Produktion oder Transport.          │
+│ REG    │ Regenerationsanspruch: eine Relation, die Boden, Wasser, Luft oder Artenvielfalt wiederherstellt. │
+│ LIM    │ Grenzlinie: eine nicht handelbare ökologische Grenze, die nicht weggekauft werden darf.           │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────────┐
+│ Einheit │    Bedeutung     │
+├─────────┼──────────────────┤
+│ kWh     │ Energieverbrauch │
+│ kgCO2   │ Emissionslast    │
+│ Rel     │ Umweltrelationen │
+└─────────┴──────────────────┘
+Bunte Unicode-Grafik
+ Produktbündel trägt ECO-Reihen
+ ╭─────────╮   EMS-Strang     ╭─────────────╮
+ │ Produkt │───────────────▶  │ kgCO2-Last  │
+ ╰─────────╯                  ╰─────────────╯
+      │ REG-Anspruch                    │ LIM-Grenze
+      ▼                                 ▼
+ Boden / Wasser / Luft heilen      nicht wegkaufbar
+EMS-Spur: ▁▃▆█
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬──────────┬───────────┬────────────────────────────────────┐
+│  Szenario  │                UMK                 │ Energie  │   Last    │                Boom                │
+├────────────┼────────────────────────────────────┼──────────┼───────────┼────────────────────────────────────┤
+│ Geschützt  │ [#####################.......]  75 │  857 kWh │ 377 kgCO2 │ [#################...........]  62 │
+│ Offen      │ [##########..................]  36 │ 1083 kWh │ 529 kgCO2 │ [###################.........]  70 │
+│ Spekulativ │ [#####.......................]  16 │ 1227 kWh │ 694 kgCO2 │ [###################.........]  66 │
+│ Dunkel     │ [............................]   0 │ 1279 kWh │ 826 kgCO2 │ [################............]  58 │
+└────────────┴────────────────────────────────────┴──────────┴───────────┴────────────────────────────────────┘
+Ökologie-Detail
+┌────────────┬────────────────────────────────────┬───────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                ECO                 │    EMS    │                REG                 │             LIM-Druck              │
+├────────────┼────────────────────────────────────┼───────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [#####################.......]  75 │ 377 kgCO2 │ [###################.........]  69 │ [##########..................]  36 │
+│ Offen      │ [##########..................]  36 │ 529 kgCO2 │ [##########..................]  35 │ [#####################.......]  77 │
+│ Spekulativ │ [#####.......................]  16 │ 694 kgCO2 │ [#####.......................]  17 │ [###########################.]  96 │
+│ Dunkel     │ [............................]   0 │ 826 kgCO2 │ [............................]   1 │ [############################] 100 │
+└────────────┴────────────────────────────────────┴───────────┴────────────────────────────────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 70 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 4 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Das relationale System ist stärker als reiner Preishandel, weil Umweltlasten mit dem Bündel     │
+│  reisen. Die Gefahr ist, dass reiche Akteure Schaden als handelbare Erlaubnis verpacken;         │
+│  deshalb muss die Grenzlinie nicht handelbar sein.                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 10: Zentralbankkreislauf und Krisenbehandlung
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil lässt einen öffentlichen Zentralbankkreislauf Bündel bewerten, sichere Ansprüche    │
+│  stützen und fragile in Vertrauensstress isolieren.                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Auch eine nicht numerische Währung braucht Makrostabilität. Der Zentralbankkreislauf            │
+│  beobachtet Qualität, Vertrauen und Ansteckung statt nur Geldmenge.                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                           Bedeutung                                                            │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CBC    │ Zentralbankkreislauf: der öffentliche Kreislauf, der Relationsqualität prüft, sichere Bündel garantiert und toxische isoliert. │
+│ QFR    │ Qualitätsboden: die Mindeststufe, die ein Relationsbündel für breite Zirkulation braucht.                                      │
+│ CRK    │ Krisenknick: der Punkt, an dem Vertrauen kippt und viele Bündel nicht mehr verrechnet werden.                                  │
+│ GRT    │ Garantieschiene: der öffentliche Pfad, der Basiszahlungen und Pflichten in der Krise beweglich hält.                           │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬─────────────────────┐
+│ Einheit │      Bedeutung      │
+├─────────┼─────────────────────┤
+│ Rel     │ geprüfte Bündel     │
+│ Anspr   │ gestützte Ansprüche │
+│ Pkt     │ Stabilitätspunkte   │
+└─────────┴─────────────────────┘
+Bunte Unicode-Grafik
+ Relationspool ─▶ CBC ── QFR-Test ─▶ zirkulieren
+       │             │
+       │             ├── GRT öffentliche Garantieschiene
+       │             │
+       └──── CRK-Quarantäne, wenn Vertrauen bricht
+CRK-Spur: ▁▃▆█
+        ╭────────╮       ╭────────╮       ╭────────╮
+        │ sicher │──────▶│ prüfen │──────▶│ toxisch│
+        ╰────────╯       ╰────────╯       ╰────────╯
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │             Liquidität             │                Boom                │               Krise                │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [#################...........]  61 │ [##################..........]  65 │ [##..........................]   6 │ [############################] 100 │
+│ Offen      │ [######################......]  78 │ [###################.........]  67 │ [#########...................]  34 │ [################............]  58 │
+│ Spekulativ │ [#########################...]  90 │ [#################...........]  62 │ [###################.........]  66 │ [............................]   1 │
+│ Dunkel     │ [########################....]  86 │ [################............]  56 │ [#########################...]  88 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Zentralbankdetail
+┌────────────┬─────────┬────────────────────────────────────┬────────────────────────────────────┬────────────┐
+│  Szenario  │ Geprüft │                QFR                 │                CRK                 │ GRT-Stütze │
+├────────────┼─────────┼────────────────────────────────────┼────────────────────────────────────┼────────────┤
+│ Geschützt  │  84 Rel │ [############################] 100 │ [##..........................]   6 │   48 Anspr │
+│ Offen      │ 110 Rel │ [######################......]  80 │ [#########...................]  34 │   60 Anspr │
+│ Spekulativ │ 139 Rel │ [#############...............]  48 │ [###################.........]  66 │   77 Anspr │
+│ Dunkel     │ 140 Rel │ [#######.....................]  26 │ [#########################...]  88 │   84 Anspr │
+└────────────┴─────────┴────────────────────────────────────┴────────────────────────────────────┴────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 67 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 6 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Der Zentralbankkreislauf druckt nicht bloß Geld. Er klassifiziert Relationsqualität. Das ist    │
+│  stärker als gewöhnliche Geldmengensteuerung, gibt öffentlichen Institutionen aber enorme        │
+│  Klassifikationsmacht.                                                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 11: Sozialstaat als Grundrelationsschild
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil gibt jeder Person öffentliche Mindestrelationen für Gesundheit, Bildung, Wohnen,    │
+│  Rechtszugang und Rückkehr in Arbeit.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ohne öffentliche Grundrelationen werden schwache Menschen durch ihr Risikoprofil                │
+│  ausgeschlossen. Der Sozialstaat verhindert, dass Leben zu bloßer Marktsicherheit wird.          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                    Bedeutung                                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ BRS    │ Grundrelationsschild: öffentliche Mindestbeziehungen für Wohnen, Gesundheit, Bildung, Rechtszugang und Teilhabe. │
+│ HLT    │ Gesundheitsrelation: garantierter Zugang, damit Krankheit nicht zum totalen Marktausschluss wird.                │
+│ EDU    │ Bildungsrelation: der öffentliche Weg, Fähigkeiten und Zukunftsoptionen neu aufzubauen.                          │
+│ HOU    │ Wohnrelation: ein grundlegender Schutzanspruch, der Menschen vor sofortigem relationalem Zusammenbruch schützt.  │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬─────────────────────────┐
+│ Einheit │        Bedeutung        │
+├─────────┼─────────────────────────┤
+│ Rechte  │ Grundrechte             │
+│ Arb     │ Rückkehr-Arbeitschancen │
+│ Pkt     │ Teilhabe-Punkte         │
+└─────────┴─────────────────────────┘
+Bunte Unicode-Grafik
+                 ╭──────────── BRS ────────────╮
+                 │  HLT       EDU       HOU    │
+                 │ Gesundh  Bildung   Wohnen   │
+                 │ Rechtszugang + Rückkehr     │
+                 ╰─────────────┬───────────────╯
+                               ▼
+                    Person bleibt marktfähig
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                Boom                │           Menschenrisiko           │             Kontrolle              │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  64 │ [............................]   0 │ [########....................]  29 │ [############################] 100 │
+│ Offen      │ [#####################.......]  73 │ [#######.....................]  26 │ [#################...........]  61 │ [###################.........]  69 │
+│ Spekulativ │ [###################.........]  67 │ [##################..........]  65 │ [#########################...]  89 │ [####........................]  16 │
+│ Dunkel     │ [#################...........]  59 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Sozialschutz-Detail
+┌────────────┬────────────────────────────────────┬─────────────┬──────────┬────────────────────────────────────┐
+│  Szenario  │                BRS                 │ HLT EDU HOU │ Rückkehr │              Teilhabe              │
+├────────────┼────────────────────────────────────┼─────────────┼──────────┼────────────────────────────────────┤
+│ Geschützt  │ [###########################.]  95 │   13 Rechte │   77 Arb │ [#########################...]  90 │
+│ Offen      │ [###################.........]  69 │   11 Rechte │   64 Arb │ [##################..........]  63 │
+│ Spekulativ │ [###########.................]  38 │    8 Rechte │   51 Arb │ [###########.................]  40 │
+│ Dunkel     │ [######......................]  21 │    7 Rechte │   43 Arb │ [######......................]  20 │
+└────────────┴────────────────────────────────────┴─────────────┴──────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 73 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 0 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Grundrelationen sind in diesem Modell keine Wohltätigkeit; sie sind Infrastruktur. Sie          │
+│  verhindern, dass Menschen als kaputte Bündel bewertet werden, und sie halten Teilnehmende im    │
+│  Markt.                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 12: Wettbewerb, Plattformen und Monopoldruck
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil kartiert Plattformmacht und prüft, ob offene Protokolle Monopoldruck in einem       │
+│  Relationsmarkt senken.                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das reichste Matching-System zieht Plattformmonopole an. Wettbewerbspolitik muss daher Zugang,  │
+│  Portabilität und offene Protokolle schützen.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                    Bedeutung                                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CMP    │ Wettbewerbsmachtkarte: die Darstellung, wer den Zugang zu Relationsmärkten kontrolliert.                         │
+│ MPI    │ Monopoldruckindex: der Druck, der entsteht, wenn eine Plattform viele Relationstore kontrolliert.                │
+│ INT    │ Interoperabilitätsregel: die Fähigkeit, Relationen zwischen Systemen zu bewegen, ohne privat gefangen zu werden. │
+│ OPF    │ Offener Protokollboden: der öffentliche Mindeststandard, der Matching-Systeme angreifbar und bestreitbar hält.   │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────────┐
+│ Einheit │       Bedeutung        │
+├─────────┼────────────────────────┤
+│ Rel     │ Zugangsrelationen      │
+│ tx      │ Plattformtransaktionen │
+│ Pkt     │ Machtpunkte            │
+└─────────┴────────────────────────┘
+Bunte Unicode-Grafik
+                           CMP
+        kleine Apps ─╮       │       ╭── Arbeiter
+        Banken ──────┼──▶ Plattform ┼── Verkäufer
+        Staatslink ─╯       │       ╰── Käufer
+                             ▼
+        MPI steigt, wenn ein Knoten viele Tore kontrolliert
+        INT + OPF schneiden Wege durch den Knoten frei
+MPI-Spur: ▁▄▇█
+Szenario-Lauf
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │                Boom                │           Menschenrisiko           │             Kontrolle              │              Freiheit              │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [##################..........]  64 │ [............................]   0 │ [#########...................]  32 │ [############################] 100 │
+│ Offen      │ [####################........]  72 │ [##########..................]  35 │ [##################..........]  64 │ [################............]  56 │
+│ Spekulativ │ [##################..........]  66 │ [######################......]  79 │ [##########################..]  92 │ [............................]   0 │
+│ Dunkel     │ [#################...........]  60 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Wettbewerbsdetail
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬─────────┬───────┐
+│  Szenario  │                MPI                 │                OPF                 │ Zugang  │ Fluss │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼─────────┼───────┤
+│ Geschützt  │ [#######.....................]  25 │ [##########################..]  93 │  84 Rel │ 22 tx │
+│ Offen      │ [###############.............]  54 │ [################............]  57 │ 112 Rel │ 27 tx │
+│ Spekulativ │ [#######################.....]  81 │ [#######.....................]  24 │ 134 Rel │ 29 tx │
+│ Dunkel     │ [##########################..]  91 │ [###.........................]  10 │ 138 Rel │ 29 tx │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴─────────┴───────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 72 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 5 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Je stärker das Matching-System, desto verlockender ist die Monopolisierung der Tore. Offene     │
+│  Protokolle sind deshalb kein technischer Luxus, sondern wirtschaftliche Selbstverteidigung.     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 13: Außenhandel und Übersetzung von Standards
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil übersetzt Relationsstandards über Grenzen hinweg und prüft Anerkennung,             │
+│  Zollrelationen und Qualitätsmarken.                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine vollständige Wirtschaft handelt über Grenzen. Relationsbündel brauchen Übersetzung, sonst  │
+│  erscheinen ausländische Bündel als unklares Risiko.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                      Bedeutung                                                       │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CTL    │ Grenzübersetzungs-Schicht: die Brücke, die Relationsstandards eines Landes in die Standards eines anderen übersetzt. │
+│ STD    │ Standardmarke: ein Kennzeichen für Arbeits-, Daten-, Umwelt- und Rechtsqualität.                                     │
+│ TAR    │ Zollrelation: eine Grenzpflicht oder Genehmigung, die an einem gehandelten Bündel hängt.                             │
+│ REC    │ Anerkennungswert: wie stark eine Rechtsordnung die Relationen einer anderen akzeptiert.                              │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────────────────────┐
+│ Einheit │             Bedeutung              │
+├─────────┼────────────────────────────────────┤
+│ Rel     │ übersetzte Relationen              │
+│ tx      │ grenzüberschreitende Transaktionen │
+│ Pkt     │ Anerkennungspunkte                 │
+└─────────┴────────────────────────────────────┘
+Bunte Unicode-Grafik
+Land-A-Bündel              CTL-Brücke            Land-B-Register
+╭──────────────╮       ╭──────────────╮        ╭───────────────╮
+│ STD Arbeit   │──────▶│ übersetzen   │───────▶│ akzeptierte   │
+│ STD Daten    │       │ TAR geprüft  │        │ REC-Reihen    │
+│ STD Umwelt   │       ╰──────────────╯        ╰───────────────╯
+REC-Spur: ▆█▄▁
+Szenario-Lauf
+┌────────────┬────────────┬───────────────┬────────────┬────────────────────────────────────┐
+│  Szenario  │ Relationen │ Transaktionen │ Verrechnet │             Liquidität             │
+├────────────┼────────────┼───────────────┼────────────┼────────────────────────────────────┤
+│ Geschützt  │     88 Rel │         22 tx │      16 tx │ [###################.........]  67 │
+│ Offen      │    117 Rel │         28 tx │      17 tx │ [########################....]  86 │
+│ Spekulativ │    138 Rel │         30 tx │      16 tx │ [##########################..]  92 │
+│ Dunkel     │    145 Rel │         29 tx │      13 tx │ [#########################...]  89 │
+└────────────┴────────────┴───────────────┴────────────┴────────────────────────────────────┘
+Außenhandelsdetail
+┌────────────┬────────────────────────────────────┬────────────┬──────────┬────────────────────────────────────┐
+│  Szenario  │                REC                 │ STD-Reihen │ Grenz-tx │              TAR-Last              │
+├────────────┼────────────────────────────────────┼────────────┼──────────┼────────────────────────────────────┤
+│ Geschützt  │ [#####################.......]  73 │     88 Rel │    14 tx │ [########....................]  27 │
+│ Offen      │ [################............]  56 │    117 Rel │    11 tx │ [##############..............]  51 │
+│ Spekulativ │ [###########.................]  40 │    138 Rel │     8 tx │ [####################........]  72 │
+│ Dunkel     │ [########....................]  27 │    145 Rel │     5 tx │ [#########################...]  89 │
+└────────────┴────────────────────────────────────┴────────────┴──────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Stärkster Boom: Offen mit 68 Pkt. Höchstes Würderisiko: Dunkel mit 100 Pkt. Geringster          │
+│  Krisendruck: Geschützt mit 2 Pkt. Bestes Gleichgewicht: Geschützt. Das Muster ist gewollt:      │
+│  Wenn Relationen leichter handelbar werden, steigen Produktivität und Liquidität; wenn           │
+│  rechtliche Tore schwächer werden, steigen Kontrollmacht und Menschenrisiko ebenfalls.           │
+│  Außenhandel wird reicher, weil Arbeits-, Daten- und Umweltstandards mit dem Bündel reisen. Der  │
+│  Preis ist Übersetzungsbürokratie und Streit darüber, wessen Standards gelten.                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulationsteil 14: Gesamtvergleich mit einer bloßen Marktwirtschaft
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Was simuliert wird                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil vergleicht RWÖ mit MW: Preisschlichtheit auf der einen Seite, Relationstiefe und    │
+│  staatlich begrenzte Komplexität auf der anderen.                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                     Warum das simuliert wird                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Schluss erklärt, warum das System stärker ist als eine bloße Marktwirtschaft und warum      │
+│  diese Stärke einen gefährlichen Preis hat.                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                   Wie dieser Teil zu lesen ist                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten      │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                              Bedeutung                                              │
+├────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWÖ    │ Relationale Währungsökonomie: das reichere System, das strukturierte Relationenbündel handelt.      │
+│ MW     │ Marktwirtschaft: der konventionelle Vergleichspunkt, der vor allem über Preise kommuniziert.        │
+│ INF    │ Informationstiefe: wie viel Struktur ein System über einen bloßen Preis hinaus sichtbar macht.      │
+│ DGN    │ Würdewächter: die Stärke von Regeln, die verhindern, dass Personen zu Marktobjekten werden.         │
+│ PRD    │ Produktive Koordination: die Fähigkeit, Ressourcen, Pflichten und Bedürfnisse passend zu verbinden. │
+└────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────────┐
+│ Einheit │    Bedeutung     │
+├─────────┼──────────────────┤
+│ Pkt     │ Vergleichspunkte │
+│ Rel     │ Relationszeilen  │
+│ %       │ relativer Anteil │
+└─────────┴──────────────────┘
+Bunte Unicode-Grafik
+MW:  Sache ──▶ Preiszahl ──▶ Handel
+        einfach, schnell, liquide, aber strukturell blind
+
+RWÖ:  Relationstabelle ──▶ Rechtstor ──▶ Matching ──▶ Handel
+        tiefer, stärker, besser steuerbar, aber sozial eindringlicher
+
+INF zeigt Tiefe; PRD zeigt Koordination; DGN zeigt, ob Menschen geschützt bleiben.
+Systemvergleich
+┌────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Szenario  │              RWÖ INF               │              RWÖ PRD               │              RWÖ DGN               │               MW INF               │               MW PRD               │               MW DGN               │
+├────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Geschützt  │ [#######################.....]  82 │ [########################....]  85 │ [############################] 100 │ [###########.................]  38 │ [###############.............]  55 │ [##################..........]  64 │
+│ Offen      │ [#######################.....]  82 │ [##########################..]  91 │ [################............]  59 │ [#############...............]  48 │ [####################........]  73 │ [##################..........]  64 │
+│ Spekulativ │ [#######################.....]  82 │ [############################]  98 │ [............................]   0 │ [###########.................]  38 │ [####################........]  73 │ [###########.................]  40 │
+│ Dunkel     │ [######################......]  80 │ [#########################...]  91 │ [............................]   0 │ [########....................]  30 │ [###############.............]  55 │ [###########.................]  40 │
+└────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Vergleichs-Heatmap
+           RWÖ-INF RWÖ-PRD RWÖ-DGN MW-INF  MW-PRD  MW-DGN 
+ Geschützt   ###     ###     @@@     ---     ===     +++  
+     Offen   ###     %%%     +++     ===     ***     +++  
+Spekulativ   ###     %%%             ---     ***     ---  
+    Dunkel   ###     %%%             :::     ===     ---  
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die RWÖ-Seite ist stärker, wo Informationstiefe und produktive Koordination zählen. Die MW-     │
+│  Seite bleibt stärker bei Einfachheit, Privatheit durch Nichtwissen und schneller anonymer       │
+│  Liquidität. Der gefährliche Preis der RWÖ-Stärke ist soziale Durchdringung: Dieselbe Struktur,  │
+│  die Wirklichkeit koordiniert, kann Menschen klassifizieren, einstufen und kontrollieren, wenn   │
+│  Würdewächter nicht hartes Recht bleiben.                                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                         Schlussbemerkung                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ende der Simulation. Das Modell ist veranschaulichend und keine reale Politikempfehlung.        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+====================================================================================================

@@ -1,0 +1,670 @@
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Radial-hierarchical moral currency simulation ◆
+very colorful PyPy3-compatible UTF-8 terminal report
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Language — English
+Start values — seed 17, steps 4, market objects 40
+
+  This program simulates a currency-like value protocol rather than ordinary money alone. Market objects receive
+  goodness, popularity, hierarchy, risk and claim signals. Each simulation part first explains what and why it
+  simulates, then explains only the abbreviations and units used in that part.
+
+  ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+                   ▲ popular
+                   │
+        ╭──────────┼──────────╮
+        │  toxic  │  civic   │
+        │   hype  │  trust   │
+  harmful ◀───┼──────────┼──────────┼───▶ good
+        │  hidden │  needed  │
+        │  damage │ service  │
+        ╰──────────┼──────────╯
+                   │
+                   ▼ unpopular
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 01 — Radial value map and movable hierarchy ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Each market object receives a point in a circular field: goodness on one axis, popularity on the other, hierarchy as a height-like layer above it.
+Why this is simulated — The model must separate what is liked from what is good; otherwise a harmful but attractive object looks the same as a useful object.
+
+Abbreviations used only in this part
+  GV = Goodness value: positive values mean social benefit, fewer harms, fairer side effects; negative values mean damage or exploitation.
+  PV = Popularity value: public demand, attraction, fashion, habit or approval; it is deliberately not identical to goodness.
+  HV = Hierarchy value: structural rank; high values mean many lower actions, roles or consequences depend on the object.
+  AD = Axis direction: the angle created by goodness and popularity; it reveals the quadrant of the object.
+  RW = Radial width: distance from the neutral center; high values mean a very clear or polarizing position.
+  MW = Moral weight: compressed comparison signal from goodness, popularity, hierarchy and risk.
+Units used only in this part
+  pts = points on a normalized scale
+  deg = angle degrees of the circular direction
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                   ▲ popular
+                   │
+        ╭──────────┼──────────╮
+        │  toxic  │  civic   │
+        │   hype  │  trust   │
+  harmful ◀───┼──────────┼──────────┼───▶ good
+        │  hidden │  needed  │
+        │  damage │ service  │
+        ╰──────────┼──────────╯
+                   │
+                   ▼ unpopular
+
+  Popularity ↑
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│⑫····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│···············⑥②····
+  ·····················│············⑩⑨·⑤·····
+  ·····················│··············⑧······
+  ─────────────────────┼──────────────────③──
+  ·····················│················⑦····
+  ·····················│···········⑪········①
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  Goodness −  ←──────────── center ────────────→  Goodness +
+
+  ① Basic research              68.0 MCU
+  ② SolarWorks                  66.6 MCU
+  ③ ClinicUnion                 64.7 MCU
+  ④ Healing-water filter        63.1 MCU
+  ⑤ NovaCare                    60.8 MCU
+  ⑥ Eco transport               58.0 MCU
+  ⑦ Open learning course        57.1 MCU
+  ⑧ Care robot                  53.9 MCU
+  ⑨ LearningHarbor              53.1 MCU
+  ⑩ Security software           52.8 MCU
+  ⑪ Repairable lamp             40.6 MCU
+  ⑫ Status watch                23.0 MCU
+
+object                    kind          GV             PV             HV             AD             RW             MW             quadrant              
+────────────────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────  ─────────────  ─────────────  ──────────────────────
+Basic research            product          100.0 pts      -25.9 pts       65.9 pts      345.5 deg      103.3 pts       68.0 MCU   good + unpopular      
+SolarWorks                employer          82.0 pts       38.1 pts       72.5 pts       24.9 deg       90.4 pts       66.6 MCU   good + popular        
+ClinicUnion               employer          89.1 pts       -1.3 pts       71.2 pts      359.2 deg       89.1 pts       64.7 MCU   good + unpopular      
+Healing-water filter      product           76.1 pts       29.1 pts       72.3 pts       20.9 deg       81.5 pts       63.1 MCU   good + popular        
+NovaCare                  employer          78.2 pts       26.9 pts       68.6 pts       19.0 deg       82.7 pts       60.8 MCU   good + popular        
+Eco transport             product           77.0 pts       32.6 pts       56.0 pts       22.9 deg       83.6 pts       58.0 MCU   good + popular        
+Open learning course      product           83.0 pts      -12.0 pts       55.0 pts      351.8 deg       83.9 pts       57.1 MCU   good + unpopular      
+Care robot                product           72.4 pts       15.7 pts       64.0 pts       12.2 deg       74.0 pts       53.9 MCU   good + popular        
+LearningHarbor            employer          68.8 pts       23.0 pts       50.7 pts       18.5 deg       72.6 pts       53.1 MCU   good + popular        
+Security software         product           63.1 pts       25.5 pts       66.0 pts       22.0 deg       68.0 pts       52.8 MCU   good + popular        
+Repairable lamp           product           58.2 pts      -21.3 pts       49.3 pts      339.9 deg       62.0 pts       40.6 MCU   good + unpopular      
+Status watch              product            5.1 pts       67.5 pts       50.5 pts       85.7 deg       67.6 pts       23.0 MCU   good + popular        
+
+  Hierarchy stack for Healing-water filter
+  level 5  ▐██████████████████████████ 10
+  level 4  ▐███████████████████████░░░ 9
+  level 3  ▐█████████████░░░░░░░░░░░░░ 5
+  level 2  ▐██████████░░░░░░░░░░░░░░░░ 4
+  level 1  ▐░░░░░░░░░░░░░░░░░░░░░░░░░░ 0
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+cooperative institutions          34.3 MCU                        good but neglected objects become visible earlier   
+pure popularity start             23.6 MCU                        attractive harmful objects gain speed before safeguards react
+risk-aware start                  30.4 MCU                        the average signal improves because hidden costs are priced earlier
+current seed state                25.8 MCU                        mixed field: civic and toxic quadrants both exist   
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 02 — Institution, population and knowledge signals ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Selected products are repeatedly re-scored. Institutions push goodness, population shifts popularity, and knowledge corrects both when measured consequences appear.
+Why this is simulated — A moral market layer is fragile if one actor can define truth alone. This step tests whether separated signals produce a more stable value vector.
+
+Abbreviations used only in this part
+  IS = Institutional signal: law, audit and public authority acting on harm, benefit and fairness.
+  PS = Population signal: collective desire, dislike, fashion, habit and public attention.
+  KS = Knowledge signal: measured consequences, research and evidence correcting both sides.
+  GV = Goodness value after signal pressure.
+  PV = Popularity value after signal pressure.
+  DG = Delta goodness: the change of goodness in the current step.
+  DP = Delta popularity: the change of popularity in the current step.
+Units used only in this part
+  pts = points on the value scale
+  % = signal strength in percent
+  day = simulated decision day
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ╭──────────────────────────────────────────────────────────────────────────────────────────────╮
+  │ IS ━▶ law / audit        ┐                               ┌ PS ◀━ public desire
+  │                            ├──────▶ value vector ◀──────┤
+  │ KS ━▶ evidence           ┘                               └ slow correction
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Decision day   1 day
+object                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Addiction-game box          -18.0 %       +10.0 %       -11.3 %         -8.4 pts       +3.3 pts      -83.3 pts       84.0 pts 
+Open learning course        +11.7 %        +2.1 %        +6.0 %         +5.0 pts       +1.0 pts       88.0 pts      -10.9 pts 
+Private-data trade          -18.0 %        -0.5 %       -10.7 %         -8.2 pts       -0.6 pts      -84.5 pts       66.6 pts 
+Repairable lamp              +7.3 %        -3.7 %        +3.1 %         +2.9 pts       -1.3 pts       61.1 pts      -22.6 pts 
+Short-video app              -9.3 %       +13.4 %        -5.8 %         -4.4 pts       +4.8 pts      -36.6 pts      100.0 pts 
+Basic research               +7.7 %        +9.1 %       +10.3 %         +5.5 pts       +3.9 pts      100.0 pts      -22.0 pts 
+
+Decision day   2 day
+object                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Addiction-game box          -18.0 %        +6.6 %       -13.8 %         -9.3 pts       +2.0 pts      -92.7 pts       85.9 pts 
+Open learning course         +7.9 %       +10.3 %        +6.7 %         +4.3 pts       +4.2 pts       92.4 pts       -6.8 pts 
+Private-data trade          -17.5 %        +0.3 %       -16.0 %        -10.0 pts       -0.5 pts      -94.5 pts       66.1 pts 
+Repairable lamp              +5.3 %        -4.2 %        +2.4 %         +2.2 pts       -1.5 pts       63.3 pts      -24.1 pts 
+Short-video app             -13.8 %        +2.0 %        -7.7 %         -6.1 pts       +0.4 pts      -42.8 pts      100.0 pts 
+Basic research               +6.5 %        -1.0 %        +8.4 %         +4.6 pts       -0.1 pts      100.0 pts      -22.1 pts 
+
+Decision day   3 day
+object                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Addiction-game box          -18.0 %        +3.9 %       -15.1 %         -9.8 pts       +0.9 pts     -100.0 pts       86.8 pts 
+Open learning course         +7.2 %        +4.2 %        +8.8 %         +4.9 pts       +1.9 pts       97.2 pts       -4.8 pts 
+Private-data trade          -18.0 %        +5.9 %       -14.2 %         -9.5 pts       +1.7 pts     -100.0 pts       67.7 pts 
+Repairable lamp              +9.0 %        +3.9 %        +2.7 %         +3.2 pts       +1.6 pts       66.5 pts      -22.5 pts 
+Short-video app             -10.4 %       +14.4 %        -5.1 %         -4.4 pts       +5.3 pts      -47.1 pts      100.0 pts 
+Basic research              +12.0 %        -4.0 %        +6.9 %         +5.4 pts       -1.3 pts      100.0 pts      -23.3 pts 
+
+Decision day   4 day
+object                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Addiction-game box          -18.0 %        +4.2 %       -13.4 %         -9.2 pts       +1.1 pts     -100.0 pts       87.9 pts 
+Open learning course         +9.5 %       +11.2 %        +4.6 %         +4.0 pts       +4.4 pts      100.0 pts       -0.4 pts 
+Private-data trade          -18.0 %        -0.8 %       -14.7 %         -9.7 pts       -0.9 pts     -100.0 pts       66.8 pts 
+Repairable lamp              +3.2 %        -1.0 %        +5.0 %         +2.5 pts       -0.2 pts       69.0 pts      -22.7 pts 
+Short-video app              -8.5 %        +0.7 %        -8.8 %         -5.2 pts       -0.1 pts      -52.4 pts       99.9 pts 
+Basic research               +6.7 %        +6.0 %        +5.6 %         +3.6 pts       +2.5 pts      100.0 pts      -20.8 pts 
+
+  Average path █▄▁▁      8.2 MCU
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+institution-only start            12.0 pts                        more orderly, but unpopular good work may remain under-loved
+population-only start              5.6 pts                        fast attention, weak truth filter, high danger of hype
+knowledge-heavy start             16.1 pts                        slower but more robust because observed damage matters
+balanced start                     8.2 pts                        the run keeps harmful popularity visible instead of hiding it
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 03 — Product market with moral price environment ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Products are sold through demand, supply, tax or relief and moral weight. The price is still numeric, but it is embedded in a colored value context.
+Why this is simulated — A market price can hide exploitation, addiction or external costs. The simulation makes the hidden context visible before transactions are counted.
+
+Abbreviations used only in this part
+  RP = Reference price: end price after popularity, goodness, hierarchy and tax-or-relief pressure.
+  DI = Demand index: current pull of customers toward the product.
+  SU = Supply units: available product pieces in this step.
+  TR = Tax-or-relief rate: positive means surcharge, negative means support.
+  TX = Transactions: simulated completed product exchanges.
+  GV = Goodness value used by the filter.
+  PV = Popularity value used by demand.
+  MW = Moral weight used as context, not as a bare price.
+Units used only in this part
+  EUR = conventional price reference
+  % = rate, index or share
+  pc = counted product pieces
+  tx = counted transactions
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ████████████████████████████  raw demand
+    ████████████████████████    moral filter
+      ████████████████████      tax or relief
+        ████████████████        reference price
+          ████████████          transactions
+product                   RP             DI            SU           TR            TX           GV            PV            MW            filter      
+────────────────────────  ─────────────  ────────────  ───────────  ────────────  ───────────  ────────────  ────────────  ────────────  ────────────
+Short-video app                 0.00 EUR     53.3 %     10000 pc       +33.1 %      4847 tx        -52.4 pts      99.9 pts     -11.2 MCU  surcharged  
+Addiction-game box             31.00 EUR     47.7 %       420 pc       +35.0 %       182 tx       -100.0 pts      87.9 pts     -61.1 MCU  surcharged  
+Cheap fashion bundle           18.57 EUR     39.9 %       900 pc       +31.0 %       327 tx        -56.7 pts      73.3 pts     -26.2 MCU  surcharged  
+Status watch                  596.33 EUR     80.6 %        60 pc        +0.0 %        44 tx          5.1 pts      67.5 pts      23.0 MCU  neutral     
+Private-data trade             52.51 EUR     30.0 %       260 pc       +35.0 %        71 tx       -100.0 pts      66.8 pts     -58.8 MCU  surcharged  
+Eco transport                  93.63 EUR     73.1 %       160 pc        +0.0 %       106 tx         77.0 pts      32.6 pts      58.0 MCU  neutral     
+Healing-water filter           70.36 EUR     57.3 %       180 pc        +0.0 %        94 tx         76.1 pts      29.1 pts      63.1 MCU  neutral     
+Security software              53.05 EUR     54.6 %       340 pc        +0.0 %       169 tx         63.1 pts      25.5 pts      52.8 MCU  neutral     
+Care robot                    253.28 EUR     57.1 %        75 pc        +0.0 %        39 tx         72.4 pts      15.7 pts      53.9 MCU  neutral     
+Open learning course            5.83 EUR     60.0 %      1200 pc       -17.0 %       654 tx        100.0 pts      -0.4 pts      65.9 MCU  supported   
+Basic research                  0.00 EUR     57.2 %       999 pc       -18.0 %       519 tx        100.0 pts     -20.8 pts      68.3 MCU  supported   
+Repairable lamp                25.01 EUR     46.3 %       380 pc       -14.4 %       160 tx         69.0 pts     -22.7 pts      45.7 MCU  supported   
+
+  Demand rhythm ▄▃▂█▁▇▅▄▅▅▅▃
+  Total completed transactions    7212 tx
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+cheap harmful goods             8337 tx                           large volume moves unless the surcharge is strong   
+useful unpopular goods            27.7 MCU                        relief turns neglect into visible protection        
+fashion shock                    72.8 %                           the market reacts quickly, but moral context shows the cost
+balanced basket                 7212 tx                           transactions continue, but not all trades are treated as equally innocent
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 04 — Labor market: workers choose employers too ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Workers and employers are matched by productive ability, selfless contribution, fairness and moral weight. The employer does not monopolize judgment.
+Why this is simulated — Classic labor markets often overrate pay and underrate employer quality. This part tests a more symmetric market relation.
+
+Abbreviations used only in this part
+  WP = Worker potential: skill, reliability and productive capacity of the worker.
+  SE = Selflessness: contribution beyond narrow private gain.
+  FR = Fairness rate: employer-side fairness from wages, risk and goodness.
+  MG = Match grade: quality of the worker-employer fit.
+  WA = Wage adjustment: change in pay caused by match and fairness.
+  MW = Moral weight of worker and employer context.
+Units used only in this part
+  pts = points for skill, fairness and fit
+  % = rate or probability share
+  EUR = monthly wage reference
+  pers = number of people
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ╭────────────╮        ╭──────────────╮
+  │  workers   │  ╲  ╱  ╲  ╱  │  employers   │
+  │ WP  SE  MW │──╳────╳──▶│ FR  HV  MW  │
+  ╰────────────╯        ╰──────────────╯
+worker          employer            WP            SE            FR            MG            WA             MW          
+──────────────  ──────────────────  ────────────  ────────────  ────────────  ────────────  ─────────────  ────────────
+Elif            SolarWorks              84.0 pts     +52.5 pts     72.8 %         76.6 pts        +181 EUR      60.2 MCU
+Mina            SolarWorks              75.1 pts     +71.2 pts     72.8 %         76.0 pts        +177 EUR      53.0 MCU
+Hao             SolarWorks              91.9 pts     +49.7 pts     72.8 %         74.6 pts        +170 EUR      47.6 MCU
+Bela            SolarWorks              76.0 pts     +49.3 pts     72.8 %         74.6 pts        +170 EUR      53.4 MCU
+Sofia           ClinicUnion             76.7 pts     +56.9 pts     75.0 %         74.4 pts        +176 EUR      59.4 MCU
+Taro            ClinicUnion             49.1 pts     +89.0 pts     75.0 %         73.6 pts        +172 EUR      58.0 MCU
+Niko            ClinicUnion             95.1 pts     +10.5 pts     75.0 %         72.6 pts        +167 EUR      42.3 MCU
+Cem             SolarWorks              65.4 pts     +64.8 pts     72.8 %         71.4 pts        +154 EUR      54.3 MCU
+Luan            ClinicUnion             56.8 pts     +70.7 pts     75.0 %         70.3 pts        +155 EUR      55.3 MCU
+Pia             ClinicUnion             58.8 pts     +63.9 pts     75.0 %         69.1 pts        +148 EUR      53.1 MCU
+Daria           SolarWorks              82.6 pts     +31.1 pts     72.8 %         66.6 pts        +129 EUR      61.2 MCU
+Kira            SolarWorks              67.3 pts     +68.0 pts     72.8 %         66.5 pts        +128 EUR      59.7 MCU
+
+  Match quality ████████████████████████████████░░░░░░░░░░░░░░     68.7 pts
+  Fairness level ██████████████████████████████████░░░░░░░░░░░░    73.9 %
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+high fairness employers          88.9 %                           better matches and less wage pressure by threat     
+prestige-only hiring             +57.7 pts                        popular employers attract workers even when moral weight is weaker
+selfless work shortage            2 pers                          necessary care-like roles become underfilled        
+symmetric choice                  68.7 pts                        workers and employers both become legible market objects
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 05 — Stock market: return is tinted by moral context ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Company shares move by earnings, popularity, risk and moral weight. A high profit can still carry a warning color.
+Why this is simulated — Capital allocation is powerful. This step tests whether investors can see when return comes from helpful production or from damaging extraction.
+
+Abbreviations used only in this part
+  SV = Share value: simulated share reference after value-vector pressure.
+  ER = Earnings rate: current profit pressure translated into market movement.
+  ES = Ethical spread: moral premium or discount around the share.
+  RS = Risk shadow: risk and hidden-cost burden on the share.
+  MW = Moral weight of the company behind the share.
+Units used only in this part
+  EUR = share price reference
+  % = rate, spread or burden
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Mini share tracks
+  NovaCare          ▁▂▃▄▅▆▇█      104.8 EUR
+  HypeNet           ▁▂▃▄▅▆▇█       48.0 EUR
+  SolarWorks        ▁▂▃▃▄▆▇█      173.2 EUR
+  FastFashion       ▁▂▃▃▃▄▆█       31.9 EUR
+  DataPilot         ▁▂▃▄▅▆▇█      103.8 EUR
+  LearningHarbor    ▁▂▃▄▅▆▇█       58.4 EUR
+  ClinicUnion       ▁▂▂▄▄▆▇█      148.7 EUR
+  SpeculaBank       ▁▂▃▄▅▆▇█      197.1 EUR
+
+company             SV             ER            ES            RS            MW            market reading    
+──────────────────  ─────────────  ────────────  ────────────  ────────────  ────────────  ──────────────────
+NovaCare                104.80 EUR     +8.8 %        +6.7 %         4.5 %         60.8 MCU  trusted           
+HypeNet                  47.96 EUR    +18.7 %        -0.3 %        18.6 %         -2.9 MCU  contested         
+SolarWorks              173.20 EUR    +16.3 %        +7.3 %         3.9 %         66.6 MCU  trusted           
+FastFashion              31.91 EUR    +13.5 %        -2.2 %        21.8 %        -19.8 MCU  contested         
+DataPilot               103.77 EUR    +20.5 %        -2.2 %        24.3 %        -19.6 MCU  contested         
+LearningHarbor           58.36 EUR     +9.4 %        +5.8 %         1.3 %         53.1 MCU  trusted           
+ClinicUnion             148.68 EUR     +3.1 %        +7.1 %         2.0 %         64.7 MCU  trusted           
+SpeculaBank             197.12 EUR    +25.4 %        +0.6 %        18.5 %          5.9 MCU  contested         
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+profit without context            116.88 EUR                      capital follows earnings and misses hidden damage   
+ethics-weighted capital          88.2 %                           harmful firms face a visible discount               
+panic about risk                 29.8 %                           risk shadows dominate and may punish even useful firms
+current market mix                108.23 EUR                      return remains possible, but moral provenance is no longer hidden
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 06 — Currency market between countries ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Countries receive exchange-like references from trust, risk, hierarchy and moral weight. The output shows a currency field rather than a single neutral number.
+Why this is simulated — If currency reflects only liquidity, large harmful systems may look strong. This part tests a value-aware exchange layer.
+
+Abbreviations used only in this part
+  XR = Exchange rate: simulated rate against the shared moral currency reference.
+  TC = Trust correction: credibility gain or loss from goodness and stability.
+  RR = Risk reserve: extra buffer demanded for risk and harmful popularity.
+  GV = Goodness value of the country-level system.
+  PV = Popularity value of the country-level system.
+  HV = Hierarchy value of the country-level system.
+  MW = Moral weight behind the exchange reference.
+Units used only in this part
+  rate = exchange-rate reference
+  % = correction, reserve or pressure
+  pts = points for value dimensions
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+             ◜──────────────◝
+        ◜────XR────◝    ◜────TC────◝
+     ◜──Albia──◎──Borealis──◎──Cyrenia──◝
+     ◟──Deltora──◎──Eldoria──◎──Feronia──◞
+        ◟────RR────◞    ◟───────────◞
+country       XR             TC            RR            GV            PV            HV            MW            reading       
+────────────  ─────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ──────────────
+Albia            1.258 rate     +8.5 %         7.3 %         56.3 pts      34.4 pts      60.4 pts      49.1 MCU  trusted       
+Borealis         1.136 rate     +1.7 %         9.9 %         25.6 pts      42.1 pts      67.5 pts      36.6 MCU  buffered      
+Cyrenia          1.268 rate     +7.4 %         7.6 %         65.7 pts      -7.6 pts      64.0 pts      48.0 MCU  trusted       
+Deltora          0.896 rate     -4.9 %        32.1 %        -25.5 pts      66.2 pts      46.8 pts      -6.7 MCU  buffered      
+Eldoria          1.232 rate     +6.1 %         9.0 %         54.0 pts       6.3 pts      32.3 pts      32.4 MCU  trusted       
+Feronia          0.859 rate     -5.5 %        32.1 %        -30.1 pts      32.6 pts      65.1 pts      -1.9 MCU  buffered      
+
+  Exchange field █▆█▂▇▁
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+liquidity-only start             1.175 rate                       strong-looking systems may hide risk                
+trust-weighted start             +2.6 %                           credibility improves the exchange reference         
+risk-reserve shock               52.0 %                           buffers rise and low-trust currencies weaken        
+balanced field                   1.108 rate                       currency becomes a trust-and-risk map               
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 07 — Insurance market and solidarity buffer ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Risks are priced, but premiums are modified by need, public usefulness and solidarity. Not every risk is treated as privately deserved.
+Why this is simulated — A value-aware market must distinguish between self-caused harmful risk and socially necessary exposure.
+
+Abbreviations used only in this part
+  RI = Risk index: expected burden from accidents, uncertainty and external damage.
+  SB = Solidarity buffer: relief when need and useful purpose justify shared protection.
+  PR = Premium reference: simulated insurance premium after risk and solidarity.
+  ND = Need: urgency of protection for the insured case.
+  MW = Moral weight of the insured case.
+Units used only in this part
+  EUR = premium reference
+  % = risk or relief share
+  pts = need and value points
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       ╭──────────────────────────────╮
+    ≋≋ │ SB  shared protection pool  │ ≋≋
+       ╰───────┬────────────┬─────────╯
+               ▼            ▼
+            RI risk     PR premium
+case                  RI            SB            PR             ND            MW            effect       
+────────────────────  ────────────  ────────────  ─────────────  ────────────  ────────────  ─────────────
+care collective          29.5 %       +18.8 %            144 EUR      71.0 pts      52.8 MCU  relieved     
+data platform            89.8 %       -16.1 %            807 EUR      42.0 pts     -16.4 MCU  burdened     
+solar fleet              25.7 %       +14.7 %            227 EUR      38.0 pts      48.7 MCU  relieved     
+fashion chain            81.7 %       -16.5 %            621 EUR      29.0 pts     -19.7 MCU  burdened     
+research lab             18.8 %       +26.1 %            338 EUR      88.0 pts      67.3 MCU  relieved     
+free artists             36.8 %        +8.2 %            135 EUR      65.0 pts      22.7 MCU  relieved     
+
+  Premium spread ▁█▂▆▃▁
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+private blame start                  432 EUR                      premiums rise even for socially needed exposure     
+solidarity-heavy start           22.0 %                           shared protection lowers exclusion risk             
+risk-hidden start                31.5 %                           cheap premiums become unstable because damage is underpriced
+balanced pool                        379 EUR                      risk is priced, but social purpose remains visible  
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 08 — Career, ascent and descent across markets ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — Workers, companies and products can rise or fall in hierarchy. Popularity alone is not enough if the moral signal is weak.
+Why this is simulated — The original idea treats hierarchy as movable. This part tests promotion, demotion and unstable status.
+
+Abbreviations used only in this part
+  UP = Upward chance: probability of reaching a higher responsibility layer.
+  DN = Downward pressure: probability of falling because of risk, harm or weak contribution.
+  MT = Movement trend: current productive direction of the object.
+  GV = Goodness value influencing stable ascent.
+  PV = Popularity value influencing fast ascent.
+  HV = Hierarchy value before movement.
+  MW = Moral weight as a final interpretation layer.
+Units used only in this part
+  % = chance or pressure
+  pts = trend and hierarchy points
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+          ╭──────UP──────╮
+  level 5 │  system steering  │
+  level 4 │  coordination     │
+  level 3 │  skilled action   │
+  level 2 │  routine action   │
+  level 1 │  unstable margin  │
+          ╰──────DN──────╯
+object                    kind            UP            DN            MT            GV            HV            MW            movement   
+────────────────────────  ──────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ───────────
+Hao                       worker             51.7 %         3.4 %        +72.0 pts      58.7 pts       4.1 pts      28.7 MCU  ascent     
+Greta                     worker             51.8 %         5.1 %        +57.1 pts      66.9 pts       0.0 pts      39.1 MCU  ascent     
+Bela                      worker             48.7 %         6.0 %        +50.4 pts      76.2 pts      20.1 pts      40.3 MCU  ascent     
+Mina                      worker             46.6 %         3.9 %        +67.9 pts      60.5 pts      34.6 pts      39.5 MCU  ascent     
+Kira                      worker             47.8 %         6.8 %        +49.7 pts      57.4 pts      34.9 pts      52.7 MCU  ascent     
+Taro                      worker             47.1 %         6.1 %        +49.4 pts      90.2 pts      37.1 pts      51.3 MCU  ascent     
+Elif                      worker             45.8 %         5.7 %        +52.3 pts      72.8 pts      63.7 pts      53.7 MCU  ascent     
+Daria                     worker             47.1 %         7.4 %        +45.6 pts      66.9 pts      60.9 pts      55.8 MCU  ascent     
+Luan                      worker             43.7 %         5.0 %        +58.3 pts      66.8 pts      52.1 pts      45.9 MCU  ascent     
+Niko                      worker             41.9 %         4.6 %        +62.0 pts      36.8 pts      30.7 pts      19.8 MCU  ascent     
+Cem                       worker             43.3 %         6.4 %        +46.6 pts      65.7 pts      34.0 pts      42.1 MCU  ascent     
+Pia                       worker             42.5 %         5.9 %        +51.2 pts      53.1 pts      40.0 pts      41.4 MCU  ascent     
+Omar                      worker             41.3 %         5.6 %        +53.7 pts      32.8 pts       8.1 pts      16.8 MCU  ascent     
+Sofia                     worker             40.5 %         6.0 %        +50.1 pts      73.3 pts      79.8 pts      54.0 MCU  ascent     
+Ravi                      worker             40.9 %         6.4 %        +46.5 pts      60.9 pts      45.6 pts      37.9 MCU  ascent     
+Yuna                      worker             40.3 %         6.5 %        +46.1 pts      36.7 pts       6.4 pts      14.3 MCU  ascent     
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+virtue and skill start           44.1 %                           ascent is earned by useful capacity                 
+celebrity start                  39.1 %                           fast ascent becomes unstable if goodness lags       
+risk collapse                    28.8 %                           high shadow costs push demotion                     
+current mobility                +20.3 %                           hierarchy is moving instead of fixed                
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 09 — Manipulation stress test ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — A harmful but attractive product receives artificial popularity. Shielding mechanisms then try to slow the drift into the harmful-popular quadrant.
+Why this is simulated — The model is dangerous if popularity can be manufactured cheaply. This part shows the race between manipulation and protection.
+
+Abbreviations used only in this part
+  MP = Manipulation pressure: artificial popularity from ads, data tricks, bots or habit loops.
+  SP = Shield power: ability of transparency, audit and public learning to slow manipulation.
+  GV = Goodness value during the stress test.
+  PV = Popularity value during the stress test.
+  AD = Axis direction showing the rotation of the object in the field.
+  MW = Moral weight after manipulation and shielding pressure.
+Units used only in this part
+  % = pressure or protection share
+  pts = value points
+  deg = angle degrees
+  day = stress-test day
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Target object: Addiction-game box
+  MP █████████
+  SP █████████
+
+step        MP            SP            GV            PV            AD            MW            state         
+──────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ──────────────
+  1 day        21.1 %        34.5 %       -100.0 pts      86.5 pts     139.1 deg     -62.1 MCU  shield grips  
+  2 day        32.4 %        47.8 %       -100.0 pts      88.1 pts     138.6 deg     -62.2 MCU  hype rises    
+  3 day        42.7 %        57.5 %       -100.0 pts      88.4 pts     138.5 deg     -62.4 MCU  shield grips  
+  4 day        49.4 %        68.7 %       -100.0 pts      88.3 pts     138.6 deg     -62.7 MCU  shield grips  
+  5 day        52.6 %        77.6 %       -100.0 pts      85.9 pts     139.3 deg     -63.2 MCU  shield grips  
+  6 day        59.7 %        86.6 %       -100.0 pts      86.8 pts     139.1 deg     -63.3 MCU  shield grips  
+  7 day        66.1 %        96.5 %       -100.0 pts      87.7 pts     138.8 deg     -63.4 MCU  shield grips  
+  8 day        67.0 %       100.0 %       -100.0 pts      88.0 pts     138.6 deg     -63.3 MCU  shield grips  
+  9 day        70.4 %       100.0 %       -100.0 pts      87.4 pts     138.8 deg     -63.5 MCU  shield grips  
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+weak shield start                70.4 %                           manufactured popularity outruns correction          
+transparent start               100.0 %                           public learning catches the manipulation earlier    
+attention monopoly               137.9 deg                        the object rotates deeper into the harmful-popular zone
+current stress run               -61.2 MCU                        the race is visible instead of hidden inside demand 
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 10 — Allocation of scarce goods by claim ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — A scarce resource is allocated not merely by purchasing power. Need, goodness, hierarchy, popularity and moral weight form a claim level.
+Why this is simulated — This tests the radical core of the idea: a currency-like system should reveal whom something is due to, without destroying minimum protection.
+
+Abbreviations used only in this part
+  CL = Claim level: combined claim from need, value, hierarchy and public relevance.
+  ND = Need: urgency of the recipient or purpose.
+  QU = Quota: share of the scarce resource after minimum protection and claim weighting.
+  GV = Goodness value of the recipient or purpose.
+  PV = Popularity value; included weakly so popularity does not dominate.
+  HV = Hierarchy value; higher if collapse would affect many others.
+  MW = Moral weight entering the claim calculation.
+Units used only in this part
+  pc = pieces of the scarce resource
+  pts = need and value points
+  % = allocation share
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Allocation strip
+  █████████████████████████████████████████████████████████████████████████████
+  ■ research lab                11 pc
+  ■ Basic research              10 pc
+  ■ care collective              9 pc
+  ■ Healing-water filter         9 pc
+  ■ Care robot                   9 pc
+  ■ solar fleet                  8 pc
+  ■ Repairable lamp              8 pc
+  ■ free artists                 7 pc
+  ■ data platform                6 pc
+  ■ Short-video app              6 pc
+  ■ fashion chain                4 pc
+
+recipient                 ND            MW            GV            PV            HV            CL            allocation    QU            rank     
+────────────────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ─────────
+research lab                  92.3 pts      67.3 MCU      91.0 pts       0.0 pts      81.0 pts      84.1 pts     11 pc         12.8 %     high     
+Basic research                65.6 pts      68.3 MCU     100.0 pts     -20.8 pts      65.9 pts      70.4 pts     10 pc         11.6 %     middle   
+Care robot                    71.5 pts      53.9 MCU      72.4 pts      15.7 pts      64.0 pts      66.6 pts      9 pc         10.5 %     middle   
+Healing-water filter          57.1 pts      63.1 MCU      76.1 pts      29.1 pts      72.3 pts      64.7 pts      9 pc         10.5 %     middle   
+care collective               61.0 pts      52.8 MCU      79.0 pts       0.0 pts      62.0 pts      61.4 pts      9 pc         10.5 %     middle   
+Repairable lamp               66.7 pts      45.7 MCU      69.0 pts     -22.7 pts      49.3 pts      58.8 pts      8 pc          9.3 %     middle   
+solar fleet                   47.8 pts      48.7 MCU      72.0 pts       0.0 pts      57.0 pts      52.5 pts      8 pc          9.3 %     middle   
+free artists                  68.7 pts      22.7 MCU      41.0 pts       0.0 pts      31.0 pts      47.5 pts      7 pc          8.1 %     middle   
+data platform                 50.6 pts     -16.4 MCU     -51.0 pts       0.0 pts      73.0 pts      36.4 pts      6 pc          7.0 %     low      
+Short-video app               44.7 pts     -11.2 MCU     -52.4 pts      99.9 pts      60.5 pts      35.4 pts      6 pc          7.0 %     low      
+fashion chain                 28.0 pts     -19.7 MCU     -42.0 pts       0.0 pts      46.0 pts      21.2 pts      4 pc          4.7 %     low      
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+money-only start                 86 pc                            scarcity concentrates where payment is strongest    
+need-only start                   59.4 pts                        urgency is protected, but systemic hierarchy may be ignored
+claim-vector start                54.5 pts                        need, value and dependency are visible together     
+minimum protection                2 pc                            nobody is reduced to zero before ranking begins     
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 11 — Matrix of market segments ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — All market areas are compared: product, labor, stock, currency and insurance. The matrix shows where impact, risk and moral weight pull apart.
+Why this is simulated — A system can fail not in one object, but in the relation between whole markets. This part searches for distorted segments.
+
+Abbreviations used only in this part
+  IM = Impact mean: average segment strength; high values move many other processes.
+  RS = Risk shadow: average distortion from harm, uncertainty and hidden costs.
+  GV = Average goodness value of the segment.
+  PV = Average popularity value of the segment.
+  HV = Average hierarchy value of the segment.
+  MW = Average moral weight of the segment.
+Units used only in this part
+  pts = segment points
+  % = risk or distortion percentage
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Heat map: weak → strong / harmful → beneficial
+                      IM       RS       GV       PV       HV       MW   
+  IM                 [0m        [0m        [0m        [0m        [0m        [0m      
+  RS                 [0m        [0m        [0m        [0m        [0m        [0m      
+  GV                 [0m        [0m        [0m        [0m        [0m        [0m      
+  PV                 [0m        [0m        [0m        [0m        [0m        [0m      
+  HV                 [0m        [0m        [0m        [0m        [0m        [0m      
+
+segment           IM            RS            GV            PV            HV            MW            trace                   
+────────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────────────────
+products              44.8 pts     36.1 %         21.1 pts      37.8 pts      57.4 pts      22.8 MCU  ███████████░░░░░░░░░░░  
+labor                150.0 pts     16.4 %         55.2 pts      16.3 pts      37.4 pts      37.2 MCU  █████████████░░░░░░░░░  
+stocks                41.1 pts     42.0 %         20.7 pts      41.0 pts      66.4 pts      26.1 MCU  ████████████░░░░░░░░░░  
+currencies            34.5 pts     40.0 %         24.3 pts      29.0 pts      56.0 pts      26.3 MCU  ████████████░░░░░░░░░░  
+insurance             50.0 pts     41.5 %         31.7 pts       0.0 pts      58.3 pts      25.9 MCU  ████████████░░░░░░░░░░  
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+one-market blindness              64.1 pts                        local success can hide system-level distortion      
+risk-shadow start                47.2 %                           segments with high impact and high risk need priority review
+moral-weight start                27.7 MCU                        the matrix turns scattered values into a system picture
+balanced supervision             64.8 %                           oversight focuses on distorted segments, not on everything equally
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Part 12 — Final diagnosis: benefit, leverage and danger ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+What is simulated — The final view does not claim perfect justice. It summarizes whether the simulated system makes harmful popularity, useful neglect and hierarchy movement visible.
+Why this is simulated — The construction is powerful and dangerous. It must be judged by its ability to reveal value without becoming a domination machine.
+
+Abbreviations used only in this part
+  TD = Trend direction: final direction of the simulated value system.
+  EL = Ethical leverage: how strongly goodness explains decisions instead of popularity or power alone.
+  RM = Risk marker: warning signal for manipulation, harmful popularity and concentrated judgment power.
+  GV = Final average goodness value.
+  PV = Final average popularity value.
+  HV = Final average hierarchy value.
+  MW = Final average moral weight.
+Units used only in this part
+  pts = final signal points
+  % = leverage or risk percentage
+  MCU = moral currency units
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Final dashboard
+  TD ██████████████████████████████░░░░░░░░░░░░░░░░░░░░░░    +16.3 pts
+  EL ██████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░    49.2 %
+  RM ███████████████████████████████████████████████████░    98.3 %
+
+TD             EL            RM            GV            PV            HV            MW          
+─────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────
+   +16.3 pts      49.2 %        98.3 %         21.0 pts      39.1 pts      61.0 pts      24.1 MCU
+
+  ● Danger quadrant: Addiction-game box, Cheap fashion bundle, Private-data trade, Short-video app, HypeNet, FastFashion
+  ● Protection quadrant: Open learning course, Repairable lamp, Basic research, ClinicUnion
+  ● Main gain: prices remain usable, but their moral and social context becomes legible.
+  ● Main danger: whoever controls goodness labels or popularity channels can bend the whole market.
+
+Evaluation across possible starting scenarios
+Starting scenario             Simulated result                    Reading                                             
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+open review culture              61.2 %                           the model becomes an accountability layer           
+central moral monopoly          100.0 %                           the same tool can become a political command system 
+attention capture               100.0 %                           popularity manipulation corrupts allocation before truth catches up
+transparent plural signals       +16.3 pts                        the currency layer is useful when no single actor owns the whole judgment
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+End of simulation — all values are model values, not claims about real persons, firms or states.
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════

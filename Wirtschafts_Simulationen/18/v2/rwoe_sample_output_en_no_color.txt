@@ -1,0 +1,1084 @@
+====================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                   Relational Currency Economy — ultra-color Unicode simulation                   ║
+║               Currency is shown as structured relations, not as one plain number.                ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                             Overview                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  This program runs several scenarios for each simulation part: guarded, open, speculative and    │
+│  dark. The scores are illustrative model values, not empirical facts. Their purpose is to make   │
+│  the structure visible: relation depth creates economic strength, while weak boundaries create   │
+│  domination risk.                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 01: Anatomy of the relation currency
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part builds a small RVB with relation rows, claim rows and a validity layer. The aim is to  │
+│  show that the currency object is a table-like bundle, not a number.                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  This is simulated first because all later markets need a concrete currency object. Counting     │
+│  rows alone would be too weak; the bundle needs legal, time and risk structure.                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                        Meaning                                                         │
+├──────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RCE  │ Relational Currency Economy: the whole system in which currency is a structured relation bundle instead of one number. │
+│ RVB  │ Relational Value Bundle: a tradable table of claims, duties, risks, time windows and proofs.                           │
+│ RID  │ Relation identifier: the traceable label of one row inside the bundle.                                                 │
+│ VAL  │ Validity layer: the part that says whether a relation is lawful, current and enforceable.                              │
+└──────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌────────┬────────────────────────┐
+│  Unit  │        Meaning         │
+├────────┼────────────────────────┤
+│ rels   │ count of relation rows │
+│ claims │ count of claim rows    │
+│ d      │ days of validity       │
+└────────┴────────────────────────┘
+Colored Unicode diagram
+╔════════════════════════════════════════════════════════════════════╗
+║ RVB = table-shaped currency object inside RCE                       ║
+╠══════════╦════════════╦═════════════╦════════════╦═══════════════╣
+║ RID      ║ claim      ║ duty        ║ risk       ║ VAL           ║
+╠══════════╬════════════╬═════════════╬════════════╬═══════════════╣
+║ R-01     ║ delivery   ║ pay/protect ║ medium     ║ lawful + live ║
+║ R-02     ║ machine use║ maintain    ║ low        ║ transferable  ║
+║ R-03     ║ work time  ║ respect cap ║ moral test ║ restricted    ║
+╚══════════╩════════════╩═════════════╩════════════╩═══════════════╝
+          │                         │                         │
+          ▼                         ▼                         ▼
+   rights and claims          duties and limits          proof and validity
+Scenario run
+┌─────────────┬───────────┬───────────┬──────────┬────────────────────────────────────┐
+│  Scenario   │ Relations │  Claims   │ Validity │             Liquidity              │
+├─────────────┼───────────┼───────────┼──────────┼────────────────────────────────────┤
+│ Guarded     │   90 rels │ 46 claims │     55 d │ [###################.........]  68 │
+│ Open        │  118 rels │ 60 claims │     55 d │ [########################....]  85 │
+│ Speculative │  129 rels │ 78 claims │     55 d │ [#########################...]  88 │
+│ Dark        │  145 rels │ 91 claims │     53 d │ [##########################..]  92 │
+└─────────────┴───────────┴───────────┴──────────┴────────────────────────────────────┘
+Bundle heatmap
+            Structure Liquidity   Risk     Freedom 
+    Guarded    ***       ***                 @@@   
+       Open    ***       ###       :::       +++   
+Speculative    ***       ###       +++             
+       Dark    +++       %%%       ###             
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 68 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 2 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The RVB becomes strongest when relation rows are numerous enough to represent reality, but not  │
+│  so unconstrained that the validity layer is drowned in risk. Row count alone does not define    │
+│  value; validity, risk and transferability change the result.                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 02: Market matching without a single price
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part simulates how an ask table and a bid table are matched by compatibility instead of by  │
+│  a single price tag.                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  A relation currency becomes useful only if markets can clear it. Matching shows why a richer    │
+│  currency can coordinate more details than a normal price.                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                     Meaning                                                     │
+├──────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MME  │ Market Matching Engine: the simulated market device that connects offers and demands by relation compatibility. │
+│ ASK  │ Ask table: what a seller is willing to accept as a bundle.                                                      │
+│ BID  │ Bid table: what a buyer can transfer as a bundle.                                                               │
+│ FIT  │ Fit score: the compatibility between one ask table and one bid table.                                           │
+└──────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬───────────────┐
+│ Unit │    Meaning    │
+├──────┼───────────────┤
+│ tx   │ transactions  │
+│ rels │ relation rows │
+│ pts  │ score points  │
+└──────┴───────────────┘
+Colored Unicode diagram
+ASK side                              MME core                              BID side
+seller table ──╮                 ╭────────────╮                 ╭── buyer table
+repair claim ──┼──── FIT lines ─▶│  match by  │◀─ FIT lines ───┼── time claim
+tax credit  ───┤                 │ relation   │                 ├── delivery right
+risk cover  ───╯                 │ structure  │                 ╰── insurance row
+                                  ╰────────────╯
+Liquidity trail: #####...  #######.  #######.  #######.
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │             Liquidity              │                Boom                │               Crisis               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  66 │ [###################.........]  66 │ [............................]   2 │ [############################] 100 │
+│ Open        │ [########################....]  84 │ [#####################.......]  74 │ [########....................]  29 │ [################............]  58 │
+│ Speculative │ [##########################..]  92 │ [##################..........]  65 │ [##################..........]  63 │ [............................]   1 │
+│ Dark        │ [#########################...]  91 │ [################............]  57 │ [#######################.....]  81 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+FIT detail
+┌─────────────┬────────────────────────────────────┬──────────┬─────────┐
+│  Scenario   │                FIT                 │   Rows   │ Cleared │
+├─────────────┼────────────────────────────────────┼──────────┼─────────┤
+│ Guarded     │ [####################........]  72 │  89 rels │    7 tx │
+│ Open        │ [###################.........]  69 │ 121 rels │    6 tx │
+│ Speculative │ [#################...........]  62 │ 134 rels │    6 tx │
+│ Dark        │ [###############.............]  55 │ 136 rels │    5 tx │
+└─────────────┴────────────────────────────────────┴──────────┴─────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 74 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 2 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  Compatibility replaces the single price as the clearing signal. This is stronger because the    │
+│  market can match needs, risks and duties at the same time.                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 03: Production chain as relation flow
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part follows inputs, capacity, unfinished output and throughput through a production chain  │
+│  where every step carries rights and duties.                                                     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Production is where the system becomes economically stronger: it can see bottlenecks,           │
+│  obligations and unused capacities before a simple price signal would reveal them.               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                              Meaning                                              │
+├──────┼───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ PCN  │ Production Chain Network: the web of inputs, labour, machines, delivery duties and output claims. │
+│ CAP  │ Capacity relation: usable productive ability such as machine time or skilled labour.              │
+│ WIP  │ Work in progress: goods or services that are not finished but already carry relations.            │
+│ THR  │ Throughput: how much useful output flows through the chain per step.                              │
+└──────┴───────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌───────┬──────────────────┐
+│ Unit  │     Meaning      │
+├───────┼──────────────────┤
+│ h     │ productive hours │
+│ units │ output units     │
+│ kWh   │ energy use       │
+└───────┴──────────────────┘
+Colored Unicode diagram
+        CAP                 WIP                    THR
+   ╭─────────╮         ╭──────────╮          ╭────────────╮
+   │ machine │──rights▶│ unfinished│──duties▶│ useful out │
+   │ labour  │──time──▶│ product   │──proof─▶│ claim rows │
+   ╰─────────╯         ╰──────────╯          ╰────────────╯
+        ▲                    │                       │
+        └──── PCN checks bottlenecks, claims and duties ────┘
+THR spark: ▁▇█▆
+Scenario run
+┌─────────────┬────────────────────────────────────┬──────────┬───────────┬────────────────────────────────────┐
+│  Scenario   │                ECO                 │  Energy  │  Burden   │                Boom                │
+├─────────────┼────────────────────────────────────┼──────────┼───────────┼────────────────────────────────────┤
+│ Guarded     │ [#################...........]  62 │  967 kWh │ 434 kgCO2 │ [####################........]  70 │
+│ Open        │ [#########...................]  33 │ 1094 kWh │ 560 kgCO2 │ [#####################.......]  76 │
+│ Speculative │ [##..........................]   8 │ 1264 kWh │ 698 kgCO2 │ [##################..........]  65 │
+│ Dark        │ [............................]   0 │ 1286 kWh │ 797 kgCO2 │ [################............]  59 │
+└─────────────┴────────────────────────────────────┴──────────┴───────────┴────────────────────────────────────┘
+Production detail
+┌─────────────┬────────────────────────────────────┬───────┬───────────┬──────────┐
+│  Scenario   │            Productivity            │ Input │  Output   │  Energy  │
+├─────────────┼────────────────────────────────────┼───────┼───────────┼──────────┤
+│ Guarded     │ [#####################.......]  76 │ 210 h │ 100 units │  967 kWh │
+│ Open        │ [########################....]  87 │ 223 h │ 100 units │ 1094 kWh │
+│ Speculative │ [#########################...]  88 │ 235 h │ 100 units │ 1264 kWh │
+│ Dark        │ [########################....]  85 │ 227 h │ 100 units │ 1286 kWh │
+└─────────────┴────────────────────────────────────┴───────┴───────────┴──────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 76 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 4 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The chain gains strength from seeing duties and capacity before the final product exists. The   │
+│  weakness is complexity: bad data can misroute the whole chain.                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 04: Labour market with a worker shield
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part tests how labour can be represented as limited work promises while a legal shield      │
+│  prevents the worker from becoming a tradable object.                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Labour is the moral test. The simulation shows the productive side of matching work, and also   │
+│  why hard boundaries are needed so people are not traded through their dependencies.             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                Meaning                                                 │
+├──────┼────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LCS  │ Labor Contract Shield: the rule layer that protects a worker from being turned into a tradable person. │
+│ WKR  │ Worker relation: a voluntary, limited work promise, not ownership of a human being.                    │
+│ EMP  │ Employer relation: a duty to pay, protect and respect the agreed limits.                               │
+│ NTR  │ Non-transfer rule: the worker cannot be sold by transferring the whole human relation bundle.          │
+└──────┴────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬───────────────────┐
+│ Unit │      Meaning      │
+├──────┼───────────────────┤
+│ jobs │ work promises     │
+│ h    │ work hours        │
+│ pts  │ protection points │
+└──────┴───────────────────┘
+Colored Unicode diagram
+                    LCS protects the person
+        ╭────────────────────────────────────────╮
+ WKR ──▶│ work promise: limited, paid, revocable │──▶ EMP
+        │ NTR blocks sale of the human bundle    │
+        ╰────────────────────────────────────────╯
+              ▲            ▲             ▲
+              │            │             │
+        max hours      exit right    safety duty
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                Boom                │             Human risk             │              Control               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [#################...........]  62 │ [............................]   0 │ [#########...................]  32 │ [############################] 100 │
+│ Open        │ [####################........]  73 │ [#########...................]  34 │ [##################..........]  64 │ [################............]  57 │
+│ Speculative │ [##################..........]  66 │ [#####################.......]  75 │ [#########################...]  89 │ [............................]   0 │
+│ Dark        │ [################............]  59 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Labour shield detail
+┌─────────────┬────────────────────────────────────┬─────────┬───────┬────────────────────────────────────┐
+│  Scenario   │                LCS                 │  Work   │ Hours │              Freedom               │
+├─────────────┼────────────────────────────────────┼─────────┼───────┼────────────────────────────────────┤
+│ Guarded     │ [############################] 100 │ 78 jobs │ 196 h │ [############################] 100 │
+│ Open        │ [#######################.....]  80 │ 60 jobs │ 208 h │ [################............]  57 │
+│ Speculative │ [#########...................]  33 │ 47 jobs │ 225 h │ [............................]   0 │
+│ Dark        │ [............................]   1 │ 37 jobs │ 214 h │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴─────────┴───────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 73 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 4 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The guarded scenario proves the humane design: labour can be matched without selling the        │
+│  worker. The dark scenario proves the opposite danger: if work, debt and housing are bundled,    │
+│  formal contract language can hide practical domination.                                         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 05: Credit as transformation of future relations
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part turns future claims and collateral relations into liquid credit bundles and observes   │
+│  how risk and priority change.                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Credit creates boom power because the future becomes usable today. The same mechanism can also  │
+│  create crisis if weak promises are made to look solid.                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬──────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                               Meaning                                                │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CRT  │ Credit Relation Transformer: the bank-like module that turns future claims into more liquid bundles. │
+│ COL  │ Collateral layer: relations pledged as security for a future obligation.                             │
+│ DRF  │ Default risk factor: the probability pressure that promised relations may fail.                      │
+│ SEN  │ Seniority rank: the order in which claims are served during failure.                                 │
+└──────┴──────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌────────┬──────────────────────┐
+│  Unit  │       Meaning        │
+├────────┼──────────────────────┤
+│ claims │ future claims        │
+│ rels   │ collateral relations │
+│ pts    │ risk points          │
+└────────┴──────────────────────┘
+Colored Unicode diagram
+future claims      COL layer         CRT package          SEN order
+ ╭────────╮      ╭──────────╮      ╭───────────╮      ╭──────────╮
+ │ small  │─────▶│ pledged  │─────▶│ liquid    │─────▶│ first /  │
+ │ claims │      │ security │      │ credit    │      │ second   │
+ ╰────────╯      ╰──────────╯      ╰───────────╯      ╰──────────╯
+DRF spark: ▁▄▇█
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │             Liquidity              │                Boom                │               Crisis               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  63 │ [##################..........]  64 │ [#...........................]   4 │ [############################] 100 │
+│ Open        │ [#######################.....]  81 │ [####################........]  70 │ [##########..................]  35 │ [###############.............]  52 │
+│ Speculative │ [##########################..]  92 │ [###################.........]  66 │ [###################.........]  69 │ [............................]   0 │
+│ Dark        │ [#########################...]  88 │ [################............]  58 │ [########################....]  86 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Credit detail
+┌─────────────┬───────────┬──────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │  Claims   │   COL    │                DRF                 │            SEN quality             │
+├─────────────┼───────────┼──────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ 48 claims │  89 rels │ [#...........................]   4 │ [############################] 100 │
+│ Open        │ 68 claims │ 113 rels │ [##########..................]  35 │ [#######################.....]  83 │
+│ Speculative │ 87 claims │ 131 rels │ [###################.........]  69 │ [##############..............]  49 │
+│ Dark        │ 90 claims │ 143 rels │ [########################....]  86 │ [#########...................]  30 │
+└─────────────┴───────────┴──────────┴────────────────────────────────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 70 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 4 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  Credit is a boom machine because it turns future relations into present capacity. The cost is   │
+│  fragility: if weak claims are over-ranked, the crisis kink arrives suddenly.                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 06: The boom: hidden value becomes liquid
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part activates hidden value such as unused time, trust and small claims, then measures      │
+│  circulation and overload.                                                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The boom is special because dormant relations become market fuel. This is powerful, but the     │
+│  speed of activation can overload law, privacy and trust.                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                     Meaning                                                     │
+├──────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LBM  │ Liquidity Boom Meter: the simulated gauge for how much hidden relation value becomes tradable.                  │
+│ HVA  │ Hidden value activation: the conversion of unused time, trust, rights and micro-claims into marketable bundles. │
+│ VEL  │ Velocity of relations: how quickly bundles circulate through transactions.                                      │
+│ ABS  │ Absorption strain: the overload created when too many relations are traded too quickly.                         │
+└──────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬─────────────────────┐
+│ Unit │       Meaning       │
+├──────┼─────────────────────┤
+│ rels │ activated relations │
+│ tx   │ transactions        │
+│ pts  │ strain points       │
+└──────┴─────────────────────┘
+Colored Unicode diagram
+           hidden relation vault                    market river
+       ╭──────────────────────╮       HVA       ╭═══════════════════╮
+       │ idle time  trust     │ ───────────────▶║  VEL VEL VEL      ║
+       │ tiny claims rights   │                 ║  tx tx tx tx      ║
+       ╰──────────────────────╯                 ╚═══════════════════╝
+                         ABS appears when the river floods
+VEL spark: ▁▆█▇
+Scenario run
+┌─────────────┬───────────┬──────────────┬─────────┬────────────────────────────────────┐
+│  Scenario   │ Relations │ Transactions │ Cleared │             Liquidity              │
+├─────────────┼───────────┼──────────────┼─────────┼────────────────────────────────────┤
+│ Guarded     │  100 rels │        24 tx │   18 tx │ [####################........]  72 │
+│ Open        │  128 rels │        30 tx │   19 tx │ [#########################...]  91 │
+│ Speculative │  145 rels │        33 tx │   18 tx │ [############################] 100 │
+│ Dark        │  142 rels │        31 tx │   15 tx │ [##########################..]  94 │
+└─────────────┴───────────┴──────────────┴─────────┴────────────────────────────────────┘
+Boom detail
+┌─────────────┬────────────────────────────────────┬──────────┬───────┬────────────────────────────────────┐
+│  Scenario   │                LBM                 │   HVA    │  VEL  │                ABS                 │
+├─────────────┼────────────────────────────────────┼──────────┼───────┼────────────────────────────────────┤
+│ Guarded     │ [####################........]  72 │ 100 rels │ 18 tx │ [#####.......................]  20 │
+│ Open        │ [######################......]  78 │ 128 rels │ 22 tx │ [##############..............]  51 │
+│ Speculative │ [####################........]  73 │ 145 rels │ 24 tx │ [#####################.......]  77 │
+│ Dark        │ [#################...........]  62 │ 142 rels │ 23 tx │ [########################....]  87 │
+└─────────────┴────────────────────────────────────┴──────────┴───────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 78 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 2 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  This is where the relational economy outperforms a plain market economy most visibly: dormant   │
+│  capacities become tradable. The price is absorption strain: law, privacy and trust must         │
+│  process far more marketable reality.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 07: The amoral dark side: trading domination
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part deliberately simulates the dangerous version in which work, debt, housing, data and    │
+│  reputation are bundled into control.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The dark side cannot be wished away. If every relation is tradable, markets will discover       │
+│  domination as a profitable asset unless government forbids it.                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                  Meaning                                                  │
+├──────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DME  │ Dark Market Exposure: the simulated exposure to markets that trade domination rather than useful service. │
+│ TCR  │ Total commodification risk: the danger that every human dependency becomes a market object.               │
+│ HCP  │ Human control portfolio: a toxic bundle of work, debt, housing, data and reputation control.              │
+│ OVB  │ Overbinding: too many life relations are tied to one counterparty.                                        │
+└──────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬──────────────────────┐
+│ Unit │       Meaning        │
+├──────┼──────────────────────┤
+│ rels │ controlled relations │
+│ h    │ bound hours          │
+│ pts  │ human-risk points    │
+└──────┴──────────────────────┘
+Colored Unicode diagram
+       work       debt       housing       data       reputation
+        │          │           │            │             │
+        └──────────┴───────────┴────────────┴─────────────┘
+                              ▼
+                     ╭────────────────╮
+                     │      HCP       │  DME rises
+                     │ human control  │  TCR rises
+                     ╰────────────────╯
+                              ▲
+                         OVB locks exits
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                Boom                │             Human risk             │              Control               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  65 │ [............................]   0 │ [#########...................]  34 │ [############################] 100 │
+│ Open        │ [###################.........]  68 │ [#########...................]  32 │ [#################...........]  61 │ [#################...........]  60 │
+│ Speculative │ [##################..........]  63 │ [##########################..]  93 │ [############################] 100 │ [............................]   0 │
+│ Dark        │ [################............]  56 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Dark-side detail
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬──────────┬───────┐
+│  Scenario   │                TCR                 │                OVB                 │ HCP rows │ Bound │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼──────────┼───────┤
+│ Guarded     │ [###.........................]   9 │ [#####.......................]  19 │  83 rels │ 198 h │
+│ Open        │ [###########.................]  40 │ [###########.................]  39 │ 116 rels │ 214 h │
+│ Speculative │ [###########################.]  95 │ [###################.........]  68 │ 133 rels │ 216 h │
+│ Dark        │ [############################] 100 │ [####################........]  72 │ 139 rels │ 219 h │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴──────────┴───────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 68 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 4 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The dark scenario is simulated to expose the danger, not to endorse it. The dark scenario can   │
+│  still boom because domination is economically useful to the controller. That is precisely why   │
+│  law must refuse to treat human dependency as normal currency.                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 08: Government gates and non-tradable rights
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part filters a stream of relations through a legal gate and separates allowed market        │
+│  relations from banned or inalienable ones.                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The system needs the state not as decoration, but as the gatekeeper that says which relations   │
+│  are never allowed to become currency.                                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                          Meaning                                           │
+├──────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ LBG  │ Legal Boundary Gate: the state rule gate that decides which relations may become currency. │
+│ IAL  │ Inalienable layer: rights and freedoms that cannot be sold, pledged or bundled.            │
+│ SPL  │ Split rule: a legal command to separate work, housing, debt, data and residence control.   │
+│ BAN  │ Ban list: relations that are rejected even if a market would profit from them.             │
+└──────┴────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌────────┬────────────────────┐
+│  Unit  │      Meaning       │
+├────────┼────────────────────┤
+│ rights │ protected rights   │
+│ rels   │ filtered relations │
+│ pts    │ boundary points    │
+└────────┴────────────────────┘
+Colored Unicode diagram
+incoming relation stream
+rights ─ work ─ debt ─ data ─ vote ─ body ─ ecology ─ housing
+                 │
+                 ▼
+          ╭────────────╮
+          │    LBG     │── allowed market rows ──▶ tradable bundle
+          │ IAL + SPL  │── BAN rows ─────────────▶ never currency
+          ╰────────────╯
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                Boom                │             Human risk             │              Control               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  63 │ [............................]   0 │ [#########...................]  31 │ [############################] 100 │
+│ Open        │ [####################........]  71 │ [#########...................]  32 │ [##################..........]  64 │ [#################...........]  60 │
+│ Speculative │ [###################.........]  67 │ [#####################.......]  77 │ [#########################...]  88 │ [............................]   0 │
+│ Dark        │ [################............]  57 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Legal gate detail
+┌─────────────┬────────────────────────────────────┬───────────┬──────────┬────────────────────────────────────┐
+│  Scenario   │                LBG                 │    IAL    │ BAN rows │              Rejected              │
+├─────────────┼────────────────────────────────────┼───────────┼──────────┼────────────────────────────────────┤
+│ Guarded     │ [############################] 100 │ 30 rights │  26 rels │ [####........................]  13 │
+│ Open        │ [###################.........]  69 │ 23 rights │  42 rels │ [#############...............]  45 │
+│ Speculative │ [####........................]  15 │ 13 rights │  60 rels │ [#######################.....]  81 │
+│ Dark        │ [............................]   0 │ 10 rights │  70 rels │ [############################] 100 │
+└─────────────┴────────────────────────────────────┴───────────┴──────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 71 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 0 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  This part shows the constitutional heart of the system: the market may be rich, but the gate    │
+│  decides what must remain outside the market.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 09: Ecology attached to every traded bundle
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part attaches energy, emissions and regeneration relations to products so ecological costs  │
+│  no longer vanish behind price.                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ecology is included because a relational system can carry external costs inside the traded      │
+│  object instead of hiding them outside the transaction.                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬──────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                       Meaning                                        │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────┤
+│ ECO  │ Ecological carry-on: the environmental relation attached to every product and duty.  │
+│ EMS  │ Emission strand: the burden relation carried by energy use, production or transport. │
+│ REG  │ Regeneration claim: a relation that restores soil, water, air or biodiversity.       │
+│ LIM  │ Limit line: a non-tradable ecological boundary that cannot be bought away.           │
+└──────┴──────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌───────┬──────────────────────┐
+│ Unit  │       Meaning        │
+├───────┼──────────────────────┤
+│ kWh   │ energy use           │
+│ kgCO2 │ emission burden      │
+│ rels  │ ecological relations │
+└───────┴──────────────────────┘
+Colored Unicode diagram
+ product bundle carries ECO rows
+ ╭─────────╮   EMS strand     ╭─────────────╮
+ │ product │───────────────▶  │ kgCO2 burden│
+ ╰─────────╯                  ╰─────────────╯
+      │ REG claim                         │ LIM boundary
+      ▼                                   ▼
+ soil / water / air repair          cannot be bought away
+EMS spark: ▁▃▆█
+Scenario run
+┌─────────────┬────────────────────────────────────┬──────────┬───────────┬────────────────────────────────────┐
+│  Scenario   │                ECO                 │  Energy  │  Burden   │                Boom                │
+├─────────────┼────────────────────────────────────┼──────────┼───────────┼────────────────────────────────────┤
+│ Guarded     │ [#####################.......]  75 │  857 kWh │ 377 kgCO2 │ [#################...........]  62 │
+│ Open        │ [##########..................]  36 │ 1083 kWh │ 529 kgCO2 │ [###################.........]  70 │
+│ Speculative │ [#####.......................]  16 │ 1227 kWh │ 694 kgCO2 │ [###################.........]  66 │
+│ Dark        │ [............................]   0 │ 1279 kWh │ 826 kgCO2 │ [################............]  58 │
+└─────────────┴────────────────────────────────────┴──────────┴───────────┴────────────────────────────────────┘
+Ecology detail
+┌─────────────┬────────────────────────────────────┬───────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                ECO                 │    EMS    │                REG                 │            LIM pressure            │
+├─────────────┼────────────────────────────────────┼───────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [#####################.......]  75 │ 377 kgCO2 │ [###################.........]  69 │ [##########..................]  36 │
+│ Open        │ [##########..................]  36 │ 529 kgCO2 │ [##########..................]  35 │ [#####################.......]  77 │
+│ Speculative │ [#####.......................]  16 │ 694 kgCO2 │ [#####.......................]  17 │ [###########################.]  96 │
+│ Dark        │ [............................]   0 │ 826 kgCO2 │ [............................]   1 │ [############################] 100 │
+└─────────────┴────────────────────────────────────┴───────────┴────────────────────────────────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 70 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 4 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The relational system is stronger than price-only trade because environmental burdens travel    │
+│  with the bundle. The danger is that rich actors may try to package harm as tradable             │
+│  permission, so the limit line must be non-tradable.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 10: Central bank circuit and crisis handling
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part lets a central public circuit rate bundles, support safe claims and quarantine         │
+│  fragile ones during trust stress.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  A non-numeric currency still needs macro-stability. The central circuit watches quality, trust  │
+│  and contagion instead of only money quantity.                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                          Meaning                                                          │
+├──────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CBC  │ Central Bank Circuit: the public circuit that tests relation quality, guarantees safe bundles and quarantines toxic ones. │
+│ QFR  │ Quality floor rating: the minimum level a relation bundle needs before broad circulation.                                 │
+│ CRK  │ Crisis kink: the point where trust collapses and many bundles stop clearing.                                              │
+│ GRT  │ Guarantee rail: the public path that keeps basic payments and duties moving during crisis.                                │
+└──────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌────────┬──────────────────┐
+│  Unit  │     Meaning      │
+├────────┼──────────────────┤
+│ rels   │ bundles tested   │
+│ claims │ claims supported │
+│ pts    │ stability points │
+└────────┴──────────────────┘
+Colored Unicode diagram
+ relation pool ──▶ CBC ── QFR test ──▶ circulate
+       │             │
+       │             ├── GRT public guarantee rail
+       │             │
+       └──── CRK quarantine when trust breaks
+CRK spark: ▁▃▆█
+        ╭────────╮       ╭────────╮       ╭────────╮
+        │ safe   │──────▶│ watch  │──────▶│ toxic  │
+        ╰────────╯       ╰────────╯       ╰────────╯
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │             Liquidity              │                Boom                │               Crisis               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [#################...........]  61 │ [##################..........]  65 │ [##..........................]   6 │ [############################] 100 │
+│ Open        │ [######################......]  78 │ [###################.........]  67 │ [#########...................]  34 │ [################............]  58 │
+│ Speculative │ [#########################...]  90 │ [#################...........]  62 │ [###################.........]  66 │ [............................]   1 │
+│ Dark        │ [########################....]  86 │ [################............]  56 │ [#########################...]  88 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Central circuit detail
+┌─────────────┬──────────┬────────────────────────────────────┬────────────────────────────────────┬─────────────┐
+│  Scenario   │  Tested  │                QFR                 │                CRK                 │ GRT support │
+├─────────────┼──────────┼────────────────────────────────────┼────────────────────────────────────┼─────────────┤
+│ Guarded     │  84 rels │ [############################] 100 │ [##..........................]   6 │   48 claims │
+│ Open        │ 110 rels │ [######################......]  80 │ [#########...................]  34 │   60 claims │
+│ Speculative │ 139 rels │ [#############...............]  48 │ [###################.........]  66 │   77 claims │
+│ Dark        │ 140 rels │ [#######.....................]  26 │ [#########################...]  88 │   84 claims │
+└─────────────┴──────────┴────────────────────────────────────┴────────────────────────────────────┴─────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 67 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 6 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The central circuit does not merely print money. It classifies relation quality. That is        │
+│  stronger than ordinary monetary control, but it gives public institutions enormous              │
+│  classification power.                                                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 11: Social state as basic relation shield
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part gives each person public minimum relations for health, education, housing, legal       │
+│  access and re-entry into work.                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Without basic public relations, weak people are excluded by their risk profile. The social      │
+│  state keeps human life from becoming pure market collateral.                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                     Meaning                                                     │
+├──────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ BRS  │ Basic Relation Shield: public minimum relations for housing, health, education, legal access and participation. │
+│ HLT  │ Health relation: guaranteed access that prevents sickness from becoming total market exclusion.                 │
+│ EDU  │ Education relation: the public path to rebuild skills and future options.                                       │
+│ HOU  │ Housing relation: a basic shelter claim that protects people from immediate relational collapse.                │
+└──────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌────────┬───────────────────────┐
+│  Unit  │        Meaning        │
+├────────┼───────────────────────┤
+│ rights │ basic rights          │
+│ jobs   │ re-entry work chances │
+│ pts    │ inclusion points      │
+└────────┴───────────────────────┘
+Colored Unicode diagram
+                 ╭──────────── BRS ────────────╮
+                 │  HLT       EDU       HOU    │
+                 │ health   learning   shelter │
+                 │ legal access + re-entry     │
+                 ╰─────────────┬───────────────╯
+                               ▼
+                    person stays market-capable
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                Boom                │             Human risk             │              Control               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  64 │ [............................]   0 │ [########....................]  29 │ [############################] 100 │
+│ Open        │ [#####################.......]  73 │ [#######.....................]  26 │ [#################...........]  61 │ [###################.........]  69 │
+│ Speculative │ [###################.........]  67 │ [##################..........]  65 │ [#########################...]  89 │ [####........................]  16 │
+│ Dark        │ [#################...........]  59 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Social shield detail
+┌─────────────┬────────────────────────────────────┬─────────────┬──────────┬────────────────────────────────────┐
+│  Scenario   │                BRS                 │ HLT EDU HOU │ Re-entry │             Inclusion              │
+├─────────────┼────────────────────────────────────┼─────────────┼──────────┼────────────────────────────────────┤
+│ Guarded     │ [###########################.]  95 │   13 rights │  77 jobs │ [#########################...]  90 │
+│ Open        │ [###################.........]  69 │   11 rights │  64 jobs │ [##################..........]  63 │
+│ Speculative │ [###########.................]  38 │    8 rights │  51 jobs │ [###########.................]  40 │
+│ Dark        │ [######......................]  21 │    7 rights │  43 jobs │ [######......................]  20 │
+└─────────────┴────────────────────────────────────┴─────────────┴──────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 73 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 0 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  Basic relations are not charity in this model; they are infrastructure. They keep people from   │
+│  being priced as broken bundles and keep the whole market from losing participants.              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 12: Competition, platforms and monopoly pressure
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part maps platform power and tests whether open protocols reduce monopoly pressure in a     │
+│  relation market.                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The richest matching system will attract platform monopolies. Competition policy must           │
+│  therefore protect access, portability and open protocols.                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬─────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                             Meaning                                             │
+├──────┼─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CMP  │ Competition Power Map: the diagram of who controls access to relation markets.                  │
+│ MPI  │ Monopoly pressure index: the pressure created when one platform controls many relation gates.   │
+│ INT  │ Interoperability rule: the ability to move relations between systems without private captivity. │
+│ OPF  │ Open protocol floor: the minimum public standard that keeps matching systems contestable.       │
+└──────┴─────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬───────────────────────┐
+│ Unit │        Meaning        │
+├──────┼───────────────────────┤
+│ rels │ access relations      │
+│ tx   │ platform transactions │
+│ pts  │ power points          │
+└──────┴───────────────────────┘
+Colored Unicode diagram
+                           CMP
+        small apps ──╮       │       ╭── workers
+        banks    ────┼──▶ platform ─┼── sellers
+        state link ──╯       │       ╰── buyers
+                             ▼
+        MPI rises when one hub controls many gates
+        INT + OPF cut paths through the hub
+MPI spark: ▁▄▇█
+Scenario run
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │                Boom                │             Human risk             │              Control               │              Freedom               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [##################..........]  64 │ [............................]   0 │ [#########...................]  32 │ [############################] 100 │
+│ Open        │ [####################........]  72 │ [##########..................]  35 │ [##################..........]  64 │ [################............]  56 │
+│ Speculative │ [##################..........]  66 │ [######################......]  79 │ [##########################..]  92 │ [............................]   0 │
+│ Dark        │ [#################...........]  60 │ [############################] 100 │ [############################] 100 │ [............................]   0 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Competition detail
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬──────────┬───────┐
+│  Scenario   │                MPI                 │                OPF                 │  Access  │ Flow  │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼──────────┼───────┤
+│ Guarded     │ [#######.....................]  25 │ [##########################..]  93 │  84 rels │ 22 tx │
+│ Open        │ [###############.............]  54 │ [################............]  57 │ 112 rels │ 27 tx │
+│ Speculative │ [#######################.....]  81 │ [#######.....................]  24 │ 134 rels │ 29 tx │
+│ Dark        │ [##########################..]  91 │ [###.........................]  10 │ 138 rels │ 29 tx │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴──────────┴───────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 72 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 5 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  The stronger the matching system, the more tempting it is to monopolize the gates. Open         │
+│  protocols are therefore not a technical luxury; they are economic self-defense.                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 13: Foreign trade and translation of standards
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part translates relation standards across borders and tests recognition, tariffs and        │
+│  quality tags.                                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  A complete economy trades across borders. Relation bundles need translation, otherwise each     │
+│  country sees the other country's bundles as unclear risk.                                       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                                 Meaning                                                 │
+├──────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CTL  │ Cross-border Translation Layer: the bridge translating one country's relation standards into another's. │
+│ STD  │ Standard tag: a label for labour, data, ecological and legal quality.                                   │
+│ TAR  │ Tariff relation: a border duty or permission attached to a traded bundle.                               │
+│ REC  │ Recognition score: how much one jurisdiction accepts another jurisdiction's relations.                  │
+└──────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬───────────────────────────┐
+│ Unit │          Meaning          │
+├──────┼───────────────────────────┤
+│ rels │ translated relations      │
+│ tx   │ cross-border transactions │
+│ pts  │ recognition points        │
+└──────┴───────────────────────────┘
+Colored Unicode diagram
+Country A bundle           CTL bridge             Country B register
+╭──────────────╮       ╭──────────────╮        ╭───────────────╮
+│ STD labour   │──────▶│ translate    │───────▶│ accepted rows │
+│ STD data     │       │ TAR checked  │        │ REC score     │
+│ STD ecology  │       ╰──────────────╯        ╰───────────────╯
+REC spark: ▆█▄▁
+Scenario run
+┌─────────────┬───────────┬──────────────┬─────────┬────────────────────────────────────┐
+│  Scenario   │ Relations │ Transactions │ Cleared │             Liquidity              │
+├─────────────┼───────────┼──────────────┼─────────┼────────────────────────────────────┤
+│ Guarded     │   88 rels │        22 tx │   16 tx │ [###################.........]  67 │
+│ Open        │  117 rels │        28 tx │   17 tx │ [########################....]  86 │
+│ Speculative │  138 rels │        30 tx │   16 tx │ [##########################..]  92 │
+│ Dark        │  145 rels │        29 tx │   13 tx │ [#########################...]  89 │
+└─────────────┴───────────┴──────────────┴─────────┴────────────────────────────────────┘
+Foreign trade detail
+┌─────────────┬────────────────────────────────────┬──────────┬──────────┬────────────────────────────────────┐
+│  Scenario   │                REC                 │ STD rows │ Cross tx │              TAR load              │
+├─────────────┼────────────────────────────────────┼──────────┼──────────┼────────────────────────────────────┤
+│ Guarded     │ [#####################.......]  73 │  88 rels │    14 tx │ [########....................]  27 │
+│ Open        │ [################............]  56 │ 117 rels │    11 tx │ [##############..............]  51 │
+│ Speculative │ [###########.................]  40 │ 138 rels │     8 tx │ [####################........]  72 │
+│ Dark        │ [########....................]  27 │ 145 rels │     5 tx │ [#########################...]  89 │
+└─────────────┴────────────────────────────────────┴──────────┴──────────┴────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Highest boom: Open with 68 pts. Highest dignity risk: Dark with 100 pts. Lowest crisis          │
+│  pressure: Guarded with 2 pts. Best balance: Guarded. The pattern is deliberate: once relations  │
+│  become easier to trade, productivity and liquidity rise; once legal gates weaken, control       │
+│  power and human-risk also rise.                                                                 │
+│  Foreign trade becomes richer because labour, data and ecology standards travel with the         │
+│  bundle. The cost is translation bureaucracy and conflict about whose standards count.           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+Simulation part 14: Full comparison with a plain market economy
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        What is simulated                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The part compares RCE with ME: price simplicity on one side, relation depth and state-bounded   │
+│  complexity on the other.                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      Why this is simulated                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The conclusion explains why the system is stronger than a plain market economy and why that     │
+│  strength has a dangerous price.                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                      How to read this part                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Only the abbreviations that actually occur below are explained here. Units are visual markers;  │
+│  they are not the currency itself.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Abbreviations used in this part only
+┌──────┬────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Code │                                          Meaning                                           │
+├──────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RCE  │ Relational Currency Economy: the richer system that trades structured relation bundles.    │
+│ ME   │ Market Economy: the conventional comparison point that mainly communicates through prices. │
+│ INF  │ Information depth: how much structure a system reveals beyond a plain price.               │
+│ DGN  │ Dignity guard: the strength of rules that keep persons from becoming market objects.       │
+│ PRD  │ Productive coordination: the system's ability to match resources, duties and needs.        │
+└──────┴────────────────────────────────────────────────────────────────────────────────────────────┘
+Units colored in this part
+┌──────┬───────────────────┐
+│ Unit │      Meaning      │
+├──────┼───────────────────┤
+│ pts  │ comparison points │
+│ rels │ relation rows     │
+│ %    │ relative share    │
+└──────┴───────────────────┘
+Colored Unicode diagram
+ME:  thing ──▶ price number ──▶ trade
+        simple, fast, liquid, but structurally blind
+
+RCE:  relation table ──▶ legal gate ──▶ matching ──▶ trade
+        deeper, stronger, more governable, but socially invasive
+
+INF shows depth; PRD shows coordination; DGN shows whether humans stay protected.
+System comparison
+┌─────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┬────────────────────────────────────┐
+│  Scenario   │              RCE INF               │              RCE PRD               │              RCE DGN               │               ME INF               │               ME PRD               │               ME DGN               │
+├─────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┼────────────────────────────────────┤
+│ Guarded     │ [#######################.....]  82 │ [########################....]  85 │ [############################] 100 │ [###########.................]  38 │ [###############.............]  55 │ [##################..........]  64 │
+│ Open        │ [#######################.....]  82 │ [##########################..]  91 │ [################............]  59 │ [#############...............]  48 │ [####################........]  73 │ [##################..........]  64 │
+│ Speculative │ [#######################.....]  82 │ [############################]  98 │ [............................]   0 │ [###########.................]  38 │ [####################........]  73 │ [###########.................]  40 │
+│ Dark        │ [######################......]  80 │ [#########################...]  91 │ [............................]   0 │ [########....................]  30 │ [###############.............]  55 │ [###########.................]  40 │
+└─────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┴────────────────────────────────────┘
+Comparison heatmap
+            RCE-INF RCE-PRD RCE-DGN ME-INF  ME-PRD  ME-DGN 
+    Guarded   ###     ###     @@@     ---     ===     +++  
+       Open   ###     %%%     +++     ===     ***     +++  
+Speculative   ###     %%%             ---     ***     ---  
+       Dark   ###     %%%             :::     ===     ---  
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                               Evaluation of the simulated outcomes                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  The RCE side is stronger wherever information depth and productive coordination matter. The ME  │
+│  side remains stronger in simplicity, privacy by ignorance and fast anonymous liquidity. The     │
+│  dangerous price of RCE strength is social penetration: the same structure that coordinates      │
+│  reality can also classify, rank and control people unless dignity guards remain hard law.       │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+====================================================================================================
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                            Final note                                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  End of simulation. The model is illustrative, not a real policy recommendation.                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+====================================================================================================

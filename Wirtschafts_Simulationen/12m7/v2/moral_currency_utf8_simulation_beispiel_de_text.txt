@@ -1,0 +1,671 @@
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Radial-hierarchische Moralwährungs-Simulation ◆
+sehr bunter PyPy3-kompatibler UTF-8-Terminalbericht
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Sprache — Deutsch
+Startwerte — Zufallsstart 17, Schritte 4, Marktobjekte 40
+
+  Dieses Programm simuliert ein währungsähnliches Wertprotokoll statt bloß gewöhnlichem Geld. Marktgegenstände
+  erhalten Güte-, Popularitäts-, Hierarchie-, Risiko- und Anspruchssignale. Jeder Simulationsteil erklärt
+  zuerst, was und warum simuliert wird, und danach nur die Kürzel und Einheiten, die genau in diesem Teil
+  vorkommen.
+
+  ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+                   ▲ beliebt
+                   │
+        ╭──────────┼──────────╮
+        │ toxisch │ bürgerl. │
+        │   Hype  │Vertrauen │
+  schädlich ◀───┼──────────┼──────────┼───▶ gut
+        │ verdeckt│  nötig   │
+        │ Schaden │  Dienst  │
+        ╰──────────┼──────────╯
+                   │
+                   ▼ unbeliebt
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 01 — Radiale Wertkarte und bewegliche Hierarchie ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Jeder Marktgegenstand erhält einen Punkt im Kreisfeld: Güte auf einer Achse, Popularität auf der anderen, Hierarchie als höhenartige Schicht darüber.
+Warum das simuliert wird — Das Modell muss trennen, was gemocht wird, von dem, was gut ist; sonst sieht ein schädliches, aber attraktives Objekt genauso aus wie ein nützliches Objekt.
+
+Kürzel nur in diesem Simulationsteil
+  GV = Gütewert: positive Werte bedeuten gesellschaftlichen Nutzen, weniger Schäden und fairere Nebenwirkungen; negative Werte bedeuten Schaden oder Ausbeutung.
+  PV = Popularitätswert: Nachfrage, Anziehung, Mode, Gewöhnung oder Zustimmung; er ist absichtlich nicht identisch mit Güte.
+  HV = Hierarchiewert: struktureller Rang; hohe Werte bedeuten, dass viele niedrigere Handlungen, Rollen oder Folgen vom Objekt abhängen.
+  AD = Achsendrehung: der Winkel aus Güte und Popularität; er zeigt den Quadranten des Objekts.
+  RW = Radialweite: Entfernung vom neutralen Mittelpunkt; hohe Werte bedeuten eine sehr klare oder polarisierende Lage.
+  MW = Moralwert: verdichtetes Vergleichssignal aus Güte, Popularität, Hierarchie und Risiko.
+Einheiten nur in diesem Simulationsteil
+  Pkt = Punkte auf einer normalisierten Skala
+  Grad = Winkelgrade der Kreisrichtung
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                   ▲ beliebt
+                   │
+        ╭──────────┼──────────╮
+        │ toxisch │ bürgerl. │
+        │   Hype  │Vertrauen │
+  schädlich ◀───┼──────────┼──────────┼───▶ gut
+        │ verdeckt│  nötig   │
+        │ Schaden │  Dienst  │
+        ╰──────────┼──────────╯
+                   │
+                   ▼ unbeliebt
+
+  Beliebtheit ↑
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│⑫····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│···············⑥②····
+  ·····················│············⑩⑨·⑤·····
+  ·····················│··············⑧······
+  ─────────────────────┼──────────────────③──
+  ·····················│················⑦····
+  ·····················│···········⑪········①
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  ·····················│·····················
+  Güte −  ←──────────── Mitte ────────────→  Güte +
+
+  ① Grundlagenforschung         68.0 MWU
+  ② SolarWerk                   66.6 MWU
+  ③ KlinikBund                  64.7 MWU
+  ④ Heilwasser-Filter           63.1 MWU
+  ⑤ NovaPflege                  60.8 MWU
+  ⑥ Öko-Transport               58.0 MWU
+  ⑦ Offener Lernkurs            57.1 MWU
+  ⑧ Pflege-Roboter              53.9 MWU
+  ⑨ LernHafen                   53.1 MWU
+  ⑩ Sicherheitssoftware         52.8 MWU
+  ⑪ Reparierbare Lampe          40.6 MWU
+  ⑫ Statusuhr                   23.0 MWU
+
+Objekt                    Art           GV             PV             HV             AD             RW             MW             Quadrant              
+────────────────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────  ─────────────  ─────────────  ──────────────────────
+Grundlagenforschung       Produkt          100.0 Pkt      -25.9 Pkt       65.9 Pkt      345.5 Grad     103.3 Pkt       68.0 MWU   gut + unbeliebt       
+SolarWerk                 Arbeitgeber       82.0 Pkt       38.1 Pkt       72.5 Pkt       24.9 Grad      90.4 Pkt       66.6 MWU   gut + beliebt         
+KlinikBund                Arbeitgeber       89.1 Pkt       -1.3 Pkt       71.2 Pkt      359.2 Grad      89.1 Pkt       64.7 MWU   gut + unbeliebt       
+Heilwasser-Filter         Produkt           76.1 Pkt       29.1 Pkt       72.3 Pkt       20.9 Grad      81.5 Pkt       63.1 MWU   gut + beliebt         
+NovaPflege                Arbeitgeber       78.2 Pkt       26.9 Pkt       68.6 Pkt       19.0 Grad      82.7 Pkt       60.8 MWU   gut + beliebt         
+Öko-Transport             Produkt           77.0 Pkt       32.6 Pkt       56.0 Pkt       22.9 Grad      83.6 Pkt       58.0 MWU   gut + beliebt         
+Offener Lernkurs          Produkt           83.0 Pkt      -12.0 Pkt       55.0 Pkt      351.8 Grad      83.9 Pkt       57.1 MWU   gut + unbeliebt       
+Pflege-Roboter            Produkt           72.4 Pkt       15.7 Pkt       64.0 Pkt       12.2 Grad      74.0 Pkt       53.9 MWU   gut + beliebt         
+LernHafen                 Arbeitgeber       68.8 Pkt       23.0 Pkt       50.7 Pkt       18.5 Grad      72.6 Pkt       53.1 MWU   gut + beliebt         
+Sicherheitssoftware       Produkt           63.1 Pkt       25.5 Pkt       66.0 Pkt       22.0 Grad      68.0 Pkt       52.8 MWU   gut + beliebt         
+Reparierbare Lampe        Produkt           58.2 Pkt      -21.3 Pkt       49.3 Pkt      339.9 Grad      62.0 Pkt       40.6 MWU   gut + unbeliebt       
+Statusuhr                 Produkt            5.1 Pkt       67.5 Pkt       50.5 Pkt       85.7 Grad      67.6 Pkt       23.0 MWU   gut + beliebt         
+
+  Hierarchiestapel für Heilwasser-Filter
+  Stufe 5  ▐██████████████████████████ 10
+  Stufe 4  ▐███████████████████████░░░ 9
+  Stufe 3  ▐█████████████░░░░░░░░░░░░░ 5
+  Stufe 2  ▐██████████░░░░░░░░░░░░░░░░ 4
+  Stufe 1  ▐░░░░░░░░░░░░░░░░░░░░░░░░░░ 0
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+kooperative Institutionen         34.3 MWU                        gute, aber vernachlässigte Objekte werden früher sichtbar
+reiner Popularitätsstart          23.6 MWU                        attraktive schädliche Objekte gewinnen Tempo, bevor Sicherungen reagieren
+risikobewusster Start             30.4 MWU                        das Durchschnittssignal verbessert sich, weil verdeckte Kosten früher eingepreist werden
+aktueller Seed-Zustand            25.8 MWU                        gemischtes Feld: bürgerliche und toxische Quadranten existieren zugleich
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 02 — Institutionen-, Bevölkerungs- und Wissenssignale ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Ausgewählte Produkte werden wiederholt neu bewertet. Institutionen verschieben Güte, Bevölkerung verschiebt Popularität, Wissen korrigiert beide Seiten, sobald messbare Folgen sichtbar werden.
+Warum das simuliert wird — Eine moralische Marktschicht ist fragil, wenn ein Akteur allein Wahrheit definieren kann. Dieser Schritt testet, ob getrennte Signale einen stabileren Wertvektor erzeugen.
+
+Kürzel nur in diesem Simulationsteil
+  IS = Institutionensignal: Recht, Prüfung und öffentliche Autorität wirken auf Schaden, Nutzen und Fairness.
+  PS = Popularitätssignal: kollektiver Wunsch, Abneigung, Mode, Gewöhnung und öffentliche Aufmerksamkeit.
+  KS = Kenntnissignal: gemessene Folgen, Forschung und Evidenz korrigieren beide Seiten.
+  GV = Gütewert nach Signaldruck.
+  PV = Popularitätswert nach Signaldruck.
+  DG = Differenz Güte: die Veränderung der Güte im aktuellen Schritt.
+  DP = Differenz Popularität: die Veränderung der Popularität im aktuellen Schritt.
+Einheiten nur in diesem Simulationsteil
+  Pkt = Punkte auf der Wertskala
+  % = Signalstärke in Prozent
+  Tag = simulierter Entscheidungstag
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ╭──────────────────────────────────────────────────────────────────────────────────────────────╮
+  │ IS ━▶ Recht / Prüfung    ┐                               ┌ PS ◀━ öffentlicher Wunsch
+  │                            ├──────▶ Wertvektor ◀──────┤
+  │ KS ━▶ Evidenz            ┘                               └ langsame Korrektur
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Entscheidungstag   1 Tag
+Objekt                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Suchtspiel-Box              -18.0 %       +10.0 %       -11.3 %         -8.4 Pkt       +3.3 Pkt      -83.3 Pkt       84.0 Pkt 
+Offener Lernkurs            +11.7 %        +2.1 %        +6.0 %         +5.0 Pkt       +1.0 Pkt       88.0 Pkt      -10.9 Pkt 
+Privatdaten-Handel          -18.0 %        -0.5 %       -10.7 %         -8.2 Pkt       -0.6 Pkt      -84.5 Pkt       66.6 Pkt 
+Reparierbare Lampe           +7.3 %        -3.7 %        +3.1 %         +2.9 Pkt       -1.3 Pkt       61.1 Pkt      -22.6 Pkt 
+Kurzvideo-App                -9.3 %       +13.4 %        -5.8 %         -4.4 Pkt       +4.8 Pkt      -36.6 Pkt      100.0 Pkt 
+Grundlagenforschung          +7.7 %        +9.1 %       +10.3 %         +5.5 Pkt       +3.9 Pkt      100.0 Pkt      -22.0 Pkt 
+
+Entscheidungstag   2 Tag
+Objekt                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Suchtspiel-Box              -18.0 %        +6.6 %       -13.8 %         -9.3 Pkt       +2.0 Pkt      -92.7 Pkt       85.9 Pkt 
+Offener Lernkurs             +7.9 %       +10.3 %        +6.7 %         +4.3 Pkt       +4.2 Pkt       92.4 Pkt       -6.8 Pkt 
+Privatdaten-Handel          -17.5 %        +0.3 %       -16.0 %        -10.0 Pkt       -0.5 Pkt      -94.5 Pkt       66.1 Pkt 
+Reparierbare Lampe           +5.3 %        -4.2 %        +2.4 %         +2.2 Pkt       -1.5 Pkt       63.3 Pkt      -24.1 Pkt 
+Kurzvideo-App               -13.8 %        +2.0 %        -7.7 %         -6.1 Pkt       +0.4 Pkt      -42.8 Pkt      100.0 Pkt 
+Grundlagenforschung          +6.5 %        -1.0 %        +8.4 %         +4.6 Pkt       -0.1 Pkt      100.0 Pkt      -22.1 Pkt 
+
+Entscheidungstag   3 Tag
+Objekt                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Suchtspiel-Box              -18.0 %        +3.9 %       -15.1 %         -9.8 Pkt       +0.9 Pkt     -100.0 Pkt       86.8 Pkt 
+Offener Lernkurs             +7.2 %        +4.2 %        +8.8 %         +4.9 Pkt       +1.9 Pkt       97.2 Pkt       -4.8 Pkt 
+Privatdaten-Handel          -18.0 %        +5.9 %       -14.2 %         -9.5 Pkt       +1.7 Pkt     -100.0 Pkt       67.7 Pkt 
+Reparierbare Lampe           +9.0 %        +3.9 %        +2.7 %         +3.2 Pkt       +1.6 Pkt       66.5 Pkt      -22.5 Pkt 
+Kurzvideo-App               -10.4 %       +14.4 %        -5.1 %         -4.4 Pkt       +5.3 Pkt      -47.1 Pkt      100.0 Pkt 
+Grundlagenforschung         +12.0 %        -4.0 %        +6.9 %         +5.4 Pkt       -1.3 Pkt      100.0 Pkt      -23.3 Pkt 
+
+Entscheidungstag   4 Tag
+Objekt                    IS            PS            KS            DG             DP             GV             PV           
+────────────────────────  ────────────  ────────────  ────────────  ─────────────  ─────────────  ─────────────  ─────────────
+Suchtspiel-Box              -18.0 %        +4.2 %       -13.4 %         -9.2 Pkt       +1.1 Pkt     -100.0 Pkt       87.9 Pkt 
+Offener Lernkurs             +9.5 %       +11.2 %        +4.6 %         +4.0 Pkt       +4.4 Pkt      100.0 Pkt       -0.4 Pkt 
+Privatdaten-Handel          -18.0 %        -0.8 %       -14.7 %         -9.7 Pkt       -0.9 Pkt     -100.0 Pkt       66.8 Pkt 
+Reparierbare Lampe           +3.2 %        -1.0 %        +5.0 %         +2.5 Pkt       -0.2 Pkt       69.0 Pkt      -22.7 Pkt 
+Kurzvideo-App                -8.5 %        +0.7 %        -8.8 %         -5.2 Pkt       -0.1 Pkt      -52.4 Pkt       99.9 Pkt 
+Grundlagenforschung          +6.7 %        +6.0 %        +5.6 %         +3.6 Pkt       +2.5 Pkt      100.0 Pkt      -20.8 Pkt 
+
+  Durchschnittspfad █▄▁▁      8.2 MWU
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+nur Institutionen                 12.0 Pkt                        ordentlicher, aber unpopuläre gute Arbeit bleibt möglicherweise ungeliebt
+nur Bevölkerung                    5.6 Pkt                        schnelle Aufmerksamkeit, schwacher Wahrheitsfilter, hohe Hype-Gefahr
+wissensstarker Start              16.1 Pkt                        langsamer, aber robuster, weil beobachteter Schaden zählt
+balancierter Start                 8.2 Pkt                        der Lauf hält schädliche Popularität sichtbar, statt sie zu verdecken
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 03 — Produktmarkt mit moralischer Preisumgebung ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Produkte werden durch Nachfrage, Angebot, Steuer oder Entlastung und Moralwert verkauft. Der Preis bleibt numerisch, liegt aber in einem farbigen Wertkontext.
+Warum das simuliert wird — Ein Marktpreis kann Ausbeutung, Sucht oder externe Kosten verstecken. Die Simulation macht diesen Kontext sichtbar, bevor Transaktionen gezählt werden.
+
+Kürzel nur in diesem Simulationsteil
+  RP = Referenzpreis: Endpreis nach Popularität, Güte, Hierarchie und Steuer- oder Entlastungsdruck.
+  DI = Nachfrageindex: aktueller Zug der Kundschaft zum Produkt.
+  SU = Angebotseinheiten: verfügbare Produktstücke in diesem Schritt.
+  TR = Steuer-Entlastungsrate: positiv bedeutet Aufschlag, negativ bedeutet Förderung.
+  TX = Transaktionen: simulierte abgeschlossene Produktwechsel.
+  GV = Gütewert, der vom Filter verwendet wird.
+  PV = Popularitätswert, der die Nachfrage beeinflusst.
+  MW = Moralwert als Kontext, nicht als bloßer Preis.
+Einheiten nur in diesem Simulationsteil
+  EUR = konventionelle Preisreferenz
+  % = Rate, Index oder Anteil
+  Stk = gezählte Produktstücke
+  Tx = gezählte Transaktionen
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ████████████████████████████  rohe Nachfrage
+    ████████████████████████    moralischer Filter
+      ████████████████████      Steuer oder Entlastung
+        ████████████████        Referenzpreis
+          ████████████          Transaktionen
+Produkt                   RP             DI            SU           TR            TX           GV            PV            MW            Filter      
+────────────────────────  ─────────────  ────────────  ───────────  ────────────  ───────────  ────────────  ────────────  ────────────  ────────────
+Kurzvideo-App                   0.00 EUR     53.3 %     10000 Stk      +33.1 %      4847 Tx        -52.4 Pkt      99.9 Pkt     -11.2 MWU  belastet    
+Suchtspiel-Box                 31.00 EUR     47.7 %       420 Stk      +35.0 %       182 Tx       -100.0 Pkt      87.9 Pkt     -61.1 MWU  belastet    
+Billig-Modepaket               18.57 EUR     39.9 %       900 Stk      +31.0 %       327 Tx        -56.7 Pkt      73.3 Pkt     -26.2 MWU  belastet    
+Statusuhr                     596.33 EUR     80.6 %        60 Stk       +0.0 %        44 Tx          5.1 Pkt      67.5 Pkt      23.0 MWU  neutral     
+Privatdaten-Handel             52.51 EUR     30.0 %       260 Stk      +35.0 %        71 Tx       -100.0 Pkt      66.8 Pkt     -58.8 MWU  belastet    
+Öko-Transport                  93.63 EUR     73.1 %       160 Stk       +0.0 %       106 Tx         77.0 Pkt      32.6 Pkt      58.0 MWU  neutral     
+Heilwasser-Filter              70.36 EUR     57.3 %       180 Stk       +0.0 %        94 Tx         76.1 Pkt      29.1 Pkt      63.1 MWU  neutral     
+Sicherheitssoftware            53.05 EUR     54.6 %       340 Stk       +0.0 %       169 Tx         63.1 Pkt      25.5 Pkt      52.8 MWU  neutral     
+Pflege-Roboter                253.28 EUR     57.1 %        75 Stk       +0.0 %        39 Tx         72.4 Pkt      15.7 Pkt      53.9 MWU  neutral     
+Offener Lernkurs                5.83 EUR     60.0 %      1200 Stk      -17.0 %       654 Tx        100.0 Pkt      -0.4 Pkt      65.9 MWU  gefördert   
+Grundlagenforschung             0.00 EUR     57.2 %       999 Stk      -18.0 %       519 Tx        100.0 Pkt     -20.8 Pkt      68.3 MWU  gefördert   
+Reparierbare Lampe             25.01 EUR     46.3 %       380 Stk      -14.4 %       160 Tx         69.0 Pkt     -22.7 Pkt      45.7 MWU  gefördert   
+
+  Nachfragerhythmus ▄▃▂█▁▇▅▄▅▅▅▃
+  Gesamtzahl abgeschlossener Transaktionen    7212 Tx
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+billige schädliche Güter        8337 Tx                           großes Volumen bewegt sich, wenn der Aufschlag nicht stark ist
+nützliche unbeliebte Güter        27.7 MWU                        Entlastung verwandelt Vernachlässigung in sichtbaren Schutz
+Modeschock                       72.8 %                           der Markt reagiert schnell, aber moralischer Kontext zeigt die Kosten
+balancierter Warenkorb          7212 Tx                           Transaktionen laufen weiter, aber nicht alle Tauschakte gelten als gleich unschuldig
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 04 — Arbeitsmarkt: Arbeitskräfte bewerten Arbeitgeber ebenfalls ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Arbeitskräfte und Arbeitgeber werden über Produktivität, Selbstlosigkeit, Fairness und Moralwert gematcht. Der Arbeitgeber monopolisiert das Urteil nicht.
+Warum das simuliert wird — Klassische Arbeitsmärkte überschätzen oft Lohn und unterschätzen Arbeitgeberqualität. Dieser Teil testet eine symmetrischere Marktbeziehung.
+
+Kürzel nur in diesem Simulationsteil
+  WP = Arbeitskräftepotenzial: Können, Verlässlichkeit und produktive Fähigkeit der Arbeitskraft.
+  SE = Selbstlosigkeit: Beitrag über engen Eigennutz hinaus.
+  FR = Fairnessrate: arbeitgeberseitige Fairness aus Lohn, Risiko und Güte.
+  MG = Matchinggrad: Qualität der Passung zwischen Arbeitskraft und Arbeitgeber.
+  WA = Lohnanpassung: Lohnänderung durch Passung und Fairness.
+  MW = Moralwert des Arbeitskraft- und Arbeitgeberkontexts.
+Einheiten nur in diesem Simulationsteil
+  Pkt = Punkte für Fähigkeit, Fairness und Passung
+  % = Rate oder Wahrscheinlichkeitsanteil
+  EUR = monatliche Lohnreferenz
+  Pers = Anzahl von Personen
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ╭────────────╮        ╭──────────────╮
+  │ Arbeitskräfte │  ╲  ╱  ╲  ╱  │ Arbeitgeber  │
+  │ WP  SE  MW │──╳────╳──▶│ FR  HV  MW  │
+  ╰────────────╯        ╰──────────────╯
+Arbeitskraft    Arbeitgeber         WP            SE            FR            MG            WA             MW          
+──────────────  ──────────────────  ────────────  ────────────  ────────────  ────────────  ─────────────  ────────────
+Elif            SolarWerk               84.0 Pkt     +52.5 Pkt     72.8 %         76.6 Pkt        +181 EUR      60.2 MWU
+Mina            SolarWerk               75.1 Pkt     +71.2 Pkt     72.8 %         76.0 Pkt        +177 EUR      53.0 MWU
+Hao             SolarWerk               91.9 Pkt     +49.7 Pkt     72.8 %         74.6 Pkt        +170 EUR      47.6 MWU
+Bela            SolarWerk               76.0 Pkt     +49.3 Pkt     72.8 %         74.6 Pkt        +170 EUR      53.4 MWU
+Sofia           KlinikBund              76.7 Pkt     +56.9 Pkt     75.0 %         74.4 Pkt        +176 EUR      59.4 MWU
+Taro            KlinikBund              49.1 Pkt     +89.0 Pkt     75.0 %         73.6 Pkt        +172 EUR      58.0 MWU
+Niko            KlinikBund              95.1 Pkt     +10.5 Pkt     75.0 %         72.6 Pkt        +167 EUR      42.3 MWU
+Cem             SolarWerk               65.4 Pkt     +64.8 Pkt     72.8 %         71.4 Pkt        +154 EUR      54.3 MWU
+Luan            KlinikBund              56.8 Pkt     +70.7 Pkt     75.0 %         70.3 Pkt        +155 EUR      55.3 MWU
+Pia             KlinikBund              58.8 Pkt     +63.9 Pkt     75.0 %         69.1 Pkt        +148 EUR      53.1 MWU
+Daria           SolarWerk               82.6 Pkt     +31.1 Pkt     72.8 %         66.6 Pkt        +129 EUR      61.2 MWU
+Kira            SolarWerk               67.3 Pkt     +68.0 Pkt     72.8 %         66.5 Pkt        +128 EUR      59.7 MWU
+
+  Matchingqualität ████████████████████████████████░░░░░░░░░░░░░░     68.7 Pkt
+  Fairnessniveau ██████████████████████████████████░░░░░░░░░░░░    73.9 %
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+faire Arbeitgeber stark          88.9 %                           bessere Passungen und weniger Lohndruck durch Drohung
+reines Prestige-Hiring           +57.7 Pkt                        populäre Arbeitgeber ziehen Menschen an, auch wenn der Moralwert schwächer ist
+Mangel an selbstloser Arbeit      2 Pers                          notwendige pflegeähnliche Rollen werden unterbesetzt
+symmetrische Wahl                 68.7 Pkt                        Arbeitskräfte und Arbeitgeber werden beide lesbare Marktobjekte
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 05 — Aktienmarkt: Rendite wird moralisch eingefärbt ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Unternehmensanteile bewegen sich durch Ertrag, Popularität, Risiko und Moralwert. Hoher Profit kann trotzdem eine Warnfarbe tragen.
+Warum das simuliert wird — Kapitalallokation ist mächtig. Dieser Schritt testet, ob Anleger sehen, ob Rendite aus hilfreicher Produktion oder aus schädlicher Abschöpfung stammt.
+
+Kürzel nur in diesem Simulationsteil
+  SV = Aktienwert: simulierte Aktienreferenz nach Wertvektordruck.
+  ER = Ertragsrate: aktueller Gewinndruck als Marktbewegung.
+  ES = Ethikspread: moralischer Auf- oder Abschlag rund um die Aktie.
+  RS = Risikoschatten: Risiko- und Folgekostenlast auf der Aktie.
+  MW = Moralwert des Unternehmens hinter der Aktie.
+Einheiten nur in diesem Simulationsteil
+  EUR = Aktienpreisreferenz
+  % = Rate, Spread oder Belastung
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Mini-Aktienverläufe
+  NovaPflege        ▁▂▃▄▅▆▇█      104.8 EUR
+  HypeNet           ▁▂▃▄▅▆▇█       48.0 EUR
+  SolarWerk         ▁▂▃▃▄▆▇█      173.2 EUR
+  SchnellMode       ▁▂▃▃▃▄▆█       31.9 EUR
+  DatenLotse        ▁▂▃▄▅▆▇█      103.8 EUR
+  LernHafen         ▁▂▃▄▅▆▇█       58.4 EUR
+  KlinikBund        ▁▂▂▄▄▆▇█      148.7 EUR
+  SpekulaBank       ▁▂▃▄▅▆▇█      197.1 EUR
+
+Unternehmen         SV             ER            ES            RS            MW            Marktlesart       
+──────────────────  ─────────────  ────────────  ────────────  ────────────  ────────────  ──────────────────
+NovaPflege              104.80 EUR     +8.8 %        +6.7 %         4.5 %         60.8 MWU  vertrauensnah     
+HypeNet                  47.96 EUR    +18.7 %        -0.3 %        18.6 %         -2.9 MWU  umstritten        
+SolarWerk               173.20 EUR    +16.3 %        +7.3 %         3.9 %         66.6 MWU  vertrauensnah     
+SchnellMode              31.91 EUR    +13.5 %        -2.2 %        21.8 %        -19.8 MWU  umstritten        
+DatenLotse              103.77 EUR    +20.5 %        -2.2 %        24.3 %        -19.6 MWU  umstritten        
+LernHafen                58.36 EUR     +9.4 %        +5.8 %         1.3 %         53.1 MWU  vertrauensnah     
+KlinikBund              148.68 EUR     +3.1 %        +7.1 %         2.0 %         64.7 MWU  vertrauensnah     
+SpekulaBank             197.12 EUR    +25.4 %        +0.6 %        18.5 %          5.9 MWU  umstritten        
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+Profit ohne Kontext               116.88 EUR                      Kapital folgt Ertrag und übersieht verdeckten Schaden
+ethisch gewichtetes Kapital      88.2 %                           schädliche Firmen erhalten einen sichtbaren Abschlag
+Risikopanik                      29.8 %                           Risikoschatten dominieren und können auch nützliche Firmen bestrafen
+aktueller Marktmix                108.23 EUR                      Rendite bleibt möglich, aber moralische Herkunft ist nicht mehr versteckt
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 06 — Währungsmarkt zwischen Ländern ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Länder erhalten wechselkursähnliche Referenzen aus Vertrauen, Risiko, Hierarchie und Moralwert. Die Ausgabe zeigt ein Währungsfeld statt einer einzigen neutralen Zahl.
+Warum das simuliert wird — Wenn Währung nur Liquidität spiegelt, können große schädliche Systeme stark aussehen. Dieser Teil testet eine wertbewusste Wechselkursschicht.
+
+Kürzel nur in diesem Simulationsteil
+  XR = Wechselkurs: simulierter Kurs gegenüber der gemeinsamen Moralwährungsreferenz.
+  TC = Vertrauenskorridor: Glaubwürdigkeitsgewinn oder -verlust aus Güte und Stabilität.
+  RR = Risikoreserve: zusätzlicher Puffer für Risiko und schädliche Popularität.
+  GV = Gütewert des länderbezogenen Systems.
+  PV = Popularitätswert des länderbezogenen Systems.
+  HV = Hierarchiewert des länderbezogenen Systems.
+  MW = Moralwert hinter der Wechselkursreferenz.
+Einheiten nur in diesem Simulationsteil
+  Kurs = Wechselkursreferenz
+  % = Korrektur, Reserve oder Druck
+  Pkt = Punkte für Wertdimensionen
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+             ◜──────────────◝
+        ◜────XR────◝    ◜────TC────◝
+     ◜──Albia──◎──Borealis──◎──Cyrenia──◝
+     ◟──Deltora──◎──Eldoria──◎──Feronia──◞
+        ◟────RR────◞    ◟───────────◞
+Land          XR             TC            RR            GV            PV            HV            MW            Lesart        
+────────────  ─────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ──────────────
+Albia            1.258 Kurs     +8.5 %         7.3 %         56.3 Pkt      34.4 Pkt      60.4 Pkt      49.1 MWU  vertrauensstark
+Borealis         1.136 Kurs     +1.7 %         9.9 %         25.6 Pkt      42.1 Pkt      67.5 Pkt      36.6 MWU  gepuffert     
+Cyrenia          1.268 Kurs     +7.4 %         7.6 %         65.7 Pkt      -7.6 Pkt      64.0 Pkt      48.0 MWU  vertrauensstark
+Deltora          0.896 Kurs     -4.9 %        32.1 %        -25.5 Pkt      66.2 Pkt      46.8 Pkt      -6.7 MWU  gepuffert     
+Eldoria          1.232 Kurs     +6.1 %         9.0 %         54.0 Pkt       6.3 Pkt      32.3 Pkt      32.4 MWU  vertrauensstark
+Feronia          0.859 Kurs     -5.5 %        32.1 %        -30.1 Pkt      32.6 Pkt      65.1 Pkt      -1.9 MWU  gepuffert     
+
+  Wechselkursfeld █▆█▂▇▁
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+nur Liquidität                   1.175 Kurs                       stark wirkende Systeme können Risiko verstecken     
+vertrauensgewichteter Start      +2.6 %                           Glaubwürdigkeit verbessert die Wechselkursreferenz  
+Risikoreserveschock              52.0 %                           Puffer steigen und schwache Vertrauenswährungen sinken
+balanciertes Feld                1.108 Kurs                       Währung wird zur Vertrauens- und Risikokarte        
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 07 — Versicherungsmarkt und Solidaritätspuffer ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Risiken werden bepreist, aber Prämien werden durch Bedarf, öffentlichen Nutzen und Solidarität verändert. Nicht jedes Risiko gilt als privat verdient.
+Warum das simuliert wird — Ein wertbewusster Markt muss selbstverursachtes schädliches Risiko von gesellschaftlich notwendiger Belastung unterscheiden.
+
+Kürzel nur in diesem Simulationsteil
+  RI = Risikoindex: erwartete Belastung durch Unfälle, Unsicherheit und externe Schäden.
+  SB = Solidaritätspuffer: Entlastung, wenn Bedarf und nützlicher Zweck gemeinsamen Schutz rechtfertigen.
+  PR = Prämienreferenz: simulierte Versicherungsprämie nach Risiko und Solidarität.
+  ND = Bedarf: Dringlichkeit des Schutzes für den Versicherungsfall.
+  MW = Moralwert des versicherten Falls.
+Einheiten nur in diesem Simulationsteil
+  EUR = Prämienreferenz
+  % = Risiko- oder Entlastungsanteil
+  Pkt = Bedarfs- und Wertpunkte
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       ╭──────────────────────────────╮
+    ≋≋ │ SB  gemeinsamer Schutzpool  │ ≋≋
+       ╰───────┬────────────┬─────────╯
+               ▼            ▼
+            RI Risiko     PR Prämie
+Fall                  RI            SB            PR             ND            MW            Wirkung      
+────────────────────  ────────────  ────────────  ─────────────  ────────────  ────────────  ─────────────
+Pflegekollektiv          29.5 %       +18.8 %            144 EUR      71.0 Pkt      52.8 MWU  entlastet    
+Datenplattform           89.8 %       -16.1 %            807 EUR      42.0 Pkt     -16.4 MWU  belastet     
+Solarflotte              25.7 %       +14.7 %            227 EUR      38.0 Pkt      48.7 MWU  entlastet    
+Modekette                81.7 %       -16.5 %            621 EUR      29.0 Pkt     -19.7 MWU  belastet     
+Forschungslabor          18.8 %       +26.1 %            338 EUR      88.0 Pkt      67.3 MWU  entlastet    
+Freie Künstler           36.8 %        +8.2 %            135 EUR      65.0 Pkt      22.7 MWU  entlastet    
+
+  Prämienspanne ▁█▂▆▃▁
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+Privatschuld-Start                   432 EUR                      Prämien steigen auch bei gesellschaftlich notwendiger Belastung
+solidaritätsstarker Start        22.0 %                           gemeinsamer Schutz senkt Ausschlussrisiko           
+risikoverdeckter Start           31.5 %                           billige Prämien werden instabil, weil Schäden unterbewertet sind
+balancierter Pool                    379 EUR                      Risiko wird bepreist, aber sozialer Zweck bleibt sichtbar
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 08 — Karriere, Aufstieg und Abstieg über Märkte hinweg ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Arbeitskräfte, Unternehmen und Produkte können in der Hierarchie steigen oder fallen. Popularität allein reicht nicht, wenn das moralische Signal schwach ist.
+Warum das simuliert wird — Die Ausgangsidee behandelt Hierarchie als beweglich. Dieser Teil testet Aufstieg, Abstieg und instabilen Status.
+
+Kürzel nur in diesem Simulationsteil
+  UP = Aufstiegschance: Wahrscheinlichkeit, eine höhere Verantwortungsschicht zu erreichen.
+  DN = Abstiegsdruck: Wahrscheinlichkeit zu fallen, weil Risiko, Schaden oder schwacher Beitrag wirken.
+  MT = Bewegungstrend: aktuelle produktive Richtung des Objekts.
+  GV = Gütewert, der stabilen Aufstieg beeinflusst.
+  PV = Popularitätswert, der schnellen Aufstieg beeinflusst.
+  HV = Hierarchiewert vor der Bewegung.
+  MW = Moralwert als abschließende Deutungsschicht.
+Einheiten nur in diesem Simulationsteil
+  % = Chance oder Druck
+  Pkt = Trend- und Hierarchiepunkte
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+          ╭──────UP──────╮
+  Stufe 5 │  Systemsteuerung  │
+  Stufe 4 │  Koordination     │
+  Stufe 3 │  Fachhandlung     │
+  Stufe 2 │  Routinehandlung  │
+  Stufe 1 │  instabiler Rand  │
+          ╰──────DN──────╯
+Objekt                    Art             UP            DN            MT            GV            HV            MW            Bewegung   
+────────────────────────  ──────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ───────────
+Hao                       Arbeitskraft       51.7 %         3.4 %        +72.0 Pkt      58.7 Pkt       4.1 Pkt      28.7 MWU  Aufstieg   
+Greta                     Arbeitskraft       51.8 %         5.1 %        +57.1 Pkt      66.9 Pkt       0.0 Pkt      39.1 MWU  Aufstieg   
+Bela                      Arbeitskraft       48.7 %         6.0 %        +50.4 Pkt      76.2 Pkt      20.1 Pkt      40.3 MWU  Aufstieg   
+Mina                      Arbeitskraft       46.6 %         3.9 %        +67.9 Pkt      60.5 Pkt      34.6 Pkt      39.5 MWU  Aufstieg   
+Kira                      Arbeitskraft       47.8 %         6.8 %        +49.7 Pkt      57.4 Pkt      34.9 Pkt      52.7 MWU  Aufstieg   
+Taro                      Arbeitskraft       47.1 %         6.1 %        +49.4 Pkt      90.2 Pkt      37.1 Pkt      51.3 MWU  Aufstieg   
+Elif                      Arbeitskraft       45.8 %         5.7 %        +52.3 Pkt      72.8 Pkt      63.7 Pkt      53.7 MWU  Aufstieg   
+Daria                     Arbeitskraft       47.1 %         7.4 %        +45.6 Pkt      66.9 Pkt      60.9 Pkt      55.8 MWU  Aufstieg   
+Luan                      Arbeitskraft       43.7 %         5.0 %        +58.3 Pkt      66.8 Pkt      52.1 Pkt      45.9 MWU  Aufstieg   
+Niko                      Arbeitskraft       41.9 %         4.6 %        +62.0 Pkt      36.8 Pkt      30.7 Pkt      19.8 MWU  Aufstieg   
+Cem                       Arbeitskraft       43.3 %         6.4 %        +46.6 Pkt      65.7 Pkt      34.0 Pkt      42.1 MWU  Aufstieg   
+Pia                       Arbeitskraft       42.5 %         5.9 %        +51.2 Pkt      53.1 Pkt      40.0 Pkt      41.4 MWU  Aufstieg   
+Omar                      Arbeitskraft       41.3 %         5.6 %        +53.7 Pkt      32.8 Pkt       8.1 Pkt      16.8 MWU  Aufstieg   
+Sofia                     Arbeitskraft       40.5 %         6.0 %        +50.1 Pkt      73.3 Pkt      79.8 Pkt      54.0 MWU  Aufstieg   
+Ravi                      Arbeitskraft       40.9 %         6.4 %        +46.5 Pkt      60.9 Pkt      45.6 Pkt      37.9 MWU  Aufstieg   
+Yuna                      Arbeitskraft       40.3 %         6.5 %        +46.1 Pkt      36.7 Pkt       6.4 Pkt      14.3 MWU  Aufstieg   
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+Tugend-und-Können-Start          44.1 %                           Aufstieg wird durch nützliche Fähigkeit verdient    
+Prominenzstart                   39.1 %                           schneller Aufstieg wird instabil, wenn Güte zurückbleibt
+Risikokollaps                    28.8 %                           hohe Schattenkosten treiben Abstieg                 
+aktuelle Mobilität              +20.3 %                           Hierarchie bewegt sich, statt festzustehen          
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 09 — Manipulations-Stresstest ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Ein schädliches, aber attraktives Produkt erhält künstliche Popularität. Schutzmechanismen versuchen danach, das Wandern in den schädlich-beliebten Quadranten zu bremsen.
+Warum das simuliert wird — Das Modell ist gefährlich, wenn Popularität billig hergestellt werden kann. Dieser Teil zeigt das Rennen zwischen Manipulation und Schutz.
+
+Kürzel nur in diesem Simulationsteil
+  MP = Manipulationsdruck: künstliche Popularität aus Werbung, Datentricks, Bots oder Gewöhnungsschleifen.
+  SP = Schutzpower: Fähigkeit von Transparenz, Prüfung und öffentlichem Lernen, Manipulation zu bremsen.
+  GV = Gütewert während des Stresstests.
+  PV = Popularitätswert während des Stresstests.
+  AD = Achsendrehung, die die Rotation des Objekts im Feld zeigt.
+  MW = Moralwert nach Manipulations- und Schutzdruck.
+Einheiten nur in diesem Simulationsteil
+  % = Druck- oder Schutzanteil
+  Pkt = Wertpunkte
+  Grad = Winkelgrade
+  Tag = Stresstesttag
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Zielobjekt: Suchtspiel-Box
+  MP █████████
+  SP █████████
+
+Schritt     MP            SP            GV            PV            AD            MW            Zustand       
+──────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ──────────────
+  1 Tag        21.1 %        34.5 %       -100.0 Pkt      86.5 Pkt     139.1 Grad     -62.1 MWU  Schutz greift 
+  2 Tag        32.4 %        47.8 %       -100.0 Pkt      88.1 Pkt     138.6 Grad     -62.2 MWU  Hype steigt   
+  3 Tag        42.7 %        57.5 %       -100.0 Pkt      88.4 Pkt     138.5 Grad     -62.4 MWU  Schutz greift 
+  4 Tag        49.4 %        68.7 %       -100.0 Pkt      88.3 Pkt     138.6 Grad     -62.7 MWU  Schutz greift 
+  5 Tag        52.6 %        77.6 %       -100.0 Pkt      85.9 Pkt     139.3 Grad     -63.2 MWU  Schutz greift 
+  6 Tag        59.7 %        86.6 %       -100.0 Pkt      86.8 Pkt     139.1 Grad     -63.3 MWU  Schutz greift 
+  7 Tag        66.1 %        96.5 %       -100.0 Pkt      87.7 Pkt     138.8 Grad     -63.4 MWU  Schutz greift 
+  8 Tag        67.0 %       100.0 %       -100.0 Pkt      88.0 Pkt     138.6 Grad     -63.3 MWU  Schutz greift 
+  9 Tag        70.4 %       100.0 %       -100.0 Pkt      87.4 Pkt     138.8 Grad     -63.5 MWU  Schutz greift 
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+schwacher Schutzstart            70.4 %                           hergestellte Popularität überholt die Korrektur     
+transparenter Start             100.0 %                           öffentliches Lernen erkennt die Manipulation früher 
+Aufmerksamkeitsmonopol           137.9 Grad                       das Objekt dreht tiefer in die schädlich-beliebte Zone
+aktueller Stresslauf             -61.2 MWU                        das Rennen ist sichtbar statt in Nachfrage versteckt
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 10 — Zuteilung knapper Güter nach Anspruch ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Eine knappe Ressource wird nicht bloß nach Kaufkraft verteilt. Bedarf, Güte, Hierarchie, Popularität und Moralwert bilden eine Anspruchsstufe.
+Warum das simuliert wird — Dies testet den radikalen Kern der Idee: Ein währungsähnliches System soll sichtbar machen, wem etwas zusteht, ohne Mindestschutz zu zerstören.
+
+Kürzel nur in diesem Simulationsteil
+  CL = Anspruchsstufe: kombinierter Anspruch aus Bedarf, Wert, Hierarchie und öffentlicher Relevanz.
+  ND = Bedarf: Dringlichkeit des Empfängers oder Zwecks.
+  QU = Quote: Anteil an der knappen Ressource nach Mindestschutz und Anspruchsgewichtung.
+  GV = Gütewert des Empfängers oder Zwecks.
+  PV = Popularitätswert; schwach einbezogen, damit Popularität nicht dominiert.
+  HV = Hierarchiewert; höher, wenn Ausfall viele andere betreffen würde.
+  MW = Moralwert, der in die Anspruchsrechnung eingeht.
+Einheiten nur in diesem Simulationsteil
+  Stk = Stücke der knappen Ressource
+  Pkt = Bedarfs- und Wertpunkte
+  % = Zuteilungsanteil
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Zuteilungsstreifen
+  █████████████████████████████████████████████████████████████████████████████
+  ■ Forschungslabor             11 Stk
+  ■ Grundlagenforschung         10 Stk
+  ■ Pflegekollektiv              9 Stk
+  ■ Heilwasser-Filter            9 Stk
+  ■ Pflege-Roboter               9 Stk
+  ■ Solarflotte                  8 Stk
+  ■ Reparierbare Lampe           8 Stk
+  ■ Freie Künstler               7 Stk
+  ■ Datenplattform               6 Stk
+  ■ Kurzvideo-App                6 Stk
+  ■ Modekette                    4 Stk
+
+Empfänger                 ND            MW            GV            PV            HV            CL            Zuteilung     QU            Rang     
+────────────────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ─────────
+Forschungslabor               92.3 Pkt      67.3 MWU      91.0 Pkt       0.0 Pkt      81.0 Pkt      84.1 Pkt     11 Stk        12.8 %     hoch     
+Grundlagenforschung           65.6 Pkt      68.3 MWU     100.0 Pkt     -20.8 Pkt      65.9 Pkt      70.4 Pkt     10 Stk        11.6 %     mittel   
+Pflege-Roboter                71.5 Pkt      53.9 MWU      72.4 Pkt      15.7 Pkt      64.0 Pkt      66.6 Pkt      9 Stk        10.5 %     mittel   
+Heilwasser-Filter             57.1 Pkt      63.1 MWU      76.1 Pkt      29.1 Pkt      72.3 Pkt      64.7 Pkt      9 Stk        10.5 %     mittel   
+Pflegekollektiv               61.0 Pkt      52.8 MWU      79.0 Pkt       0.0 Pkt      62.0 Pkt      61.4 Pkt      9 Stk        10.5 %     mittel   
+Reparierbare Lampe            66.7 Pkt      45.7 MWU      69.0 Pkt     -22.7 Pkt      49.3 Pkt      58.8 Pkt      8 Stk         9.3 %     mittel   
+Solarflotte                   47.8 Pkt      48.7 MWU      72.0 Pkt       0.0 Pkt      57.0 Pkt      52.5 Pkt      8 Stk         9.3 %     mittel   
+Freie Künstler                68.7 Pkt      22.7 MWU      41.0 Pkt       0.0 Pkt      31.0 Pkt      47.5 Pkt      7 Stk         8.1 %     mittel   
+Datenplattform                50.6 Pkt     -16.4 MWU     -51.0 Pkt       0.0 Pkt      73.0 Pkt      36.4 Pkt      6 Stk         7.0 %     niedrig  
+Kurzvideo-App                 44.7 Pkt     -11.2 MWU     -52.4 Pkt      99.9 Pkt      60.5 Pkt      35.4 Pkt      6 Stk         7.0 %     niedrig  
+Modekette                     28.0 Pkt     -19.7 MWU     -42.0 Pkt       0.0 Pkt      46.0 Pkt      21.2 Pkt      4 Stk         4.7 %     niedrig  
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+nur Kaufkraft                    86 Stk                           Knappheit konzentriert sich dort, wo Zahlung am stärksten ist
+nur Bedarf                        59.4 Pkt                        Dringlichkeit wird geschützt, aber Systemhierarchie kann fehlen
+Anspruchsvektor-Start             54.5 Pkt                        Bedarf, Wert und Abhängigkeit werden zusammen sichtbar
+Mindestschutz                     2 Stk                           niemand wird vor der Rangordnung auf null gesetzt   
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 11 — Matrix der Marktsegmente ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Alle Marktbereiche werden verglichen: Produkt-, Arbeits-, Aktien-, Währungs- und Versicherungsmarkt. Die Matrix zeigt, wo Wirkung, Risiko und Moralwert auseinanderlaufen.
+Warum das simuliert wird — Ein System kann nicht nur an einem Objekt scheitern, sondern an der Beziehung ganzer Märkte. Dieser Teil sucht verzerrte Segmente.
+
+Kürzel nur in diesem Simulationsteil
+  IM = Wirkungsmittel: durchschnittliche Segmentstärke; hohe Werte bewegen viele andere Prozesse.
+  RS = Risikoschatten: durchschnittliche Verzerrung durch Schaden, Unsicherheit und verdeckte Kosten.
+  GV = Durchschnittlicher Gütewert des Segments.
+  PV = Durchschnittlicher Popularitätswert des Segments.
+  HV = Durchschnittlicher Hierarchiewert des Segments.
+  MW = Durchschnittlicher Moralwert des Segments.
+Einheiten nur in diesem Simulationsteil
+  Pkt = Segmentpunkte
+  % = Risiko- oder Verzerrungsprozent
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Heatmap: schwach → stark / schädlich → nützlich
+                      IM       RS       GV       PV       HV       MW   
+  IM                 [0m        [0m        [0m        [0m        [0m        [0m      
+  RS                 [0m        [0m        [0m        [0m        [0m        [0m      
+  GV                 [0m        [0m        [0m        [0m        [0m        [0m      
+  PV                 [0m        [0m        [0m        [0m        [0m        [0m      
+  HV                 [0m        [0m        [0m        [0m        [0m        [0m      
+
+Segment           IM            RS            GV            PV            HV            MW            Spur                    
+────────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────────────────
+Produkte              44.8 Pkt     36.1 %         21.1 Pkt      37.8 Pkt      57.4 Pkt      22.8 MWU  ███████████░░░░░░░░░░░  
+Arbeit               150.0 Pkt     16.4 %         55.2 Pkt      16.3 Pkt      37.4 Pkt      37.2 MWU  █████████████░░░░░░░░░  
+Aktien                41.1 Pkt     42.0 %         20.7 Pkt      41.0 Pkt      66.4 Pkt      26.1 MWU  ████████████░░░░░░░░░░  
+Währungen             34.5 Pkt     40.0 %         24.3 Pkt      29.0 Pkt      56.0 Pkt      26.3 MWU  ████████████░░░░░░░░░░  
+Versicherung          50.0 Pkt     41.5 %         31.7 Pkt       0.0 Pkt      58.3 Pkt      25.9 MWU  ████████████░░░░░░░░░░  
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+Einmarkt-Blindheit                64.1 Pkt                        lokaler Erfolg kann systemweite Verzerrung verstecken
+Risikoschatten-Start             47.2 %                           Segmente mit hoher Wirkung und hohem Risiko brauchen Vorrangprüfung
+Moralwert-Start                   27.7 MWU                        die Matrix macht aus Einzelwerten ein Systembild    
+balancierte Aufsicht             64.8 %                           Aufsicht fokussiert verzerrte Segmente, nicht alles gleich
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 12 — Finale Diagnose: Nutzen, Hebel und Gefahr ◆
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was simuliert wird — Die Endansicht behauptet keine perfekte Gerechtigkeit. Sie fasst zusammen, ob das simulierte System schädliche Popularität, nützliche Vernachlässigung und Hierarchiebewegung sichtbar macht.
+Warum das simuliert wird — Die Konstruktion ist mächtig und gefährlich. Sie muss daran gemessen werden, ob sie Wert sichtbar macht, ohne zur Herrschaftsmaschine zu werden.
+
+Kürzel nur in diesem Simulationsteil
+  TD = Trendrichtung: abschließende Richtung des simulierten Wertsystems.
+  EL = Ethikhebel: wie stark Güte Entscheidungen erklärt, statt bloßer Popularität oder Macht.
+  RM = Risikomarker: Warnsignal für Manipulation, schädliche Popularität und konzentrierte Urteilsmacht.
+  GV = Abschließender durchschnittlicher Gütewert.
+  PV = Abschließender durchschnittlicher Popularitätswert.
+  HV = Abschließender durchschnittlicher Hierarchiewert.
+  MW = Abschließender durchschnittlicher Moralwert.
+Einheiten nur in diesem Simulationsteil
+  Pkt = abschließende Signalpunkte
+  % = Hebel- oder Risikoprozent
+  MWU = Moralwährungseinheiten
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Finales Armaturenbrett
+  TD ██████████████████████████████░░░░░░░░░░░░░░░░░░░░░░    +16.3 Pkt
+  EL ██████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░    49.2 %
+  RM ███████████████████████████████████████████████████░    98.3 %
+
+TD             EL            RM            GV            PV            HV            MW          
+─────────────  ────────────  ────────────  ────────────  ────────────  ────────────  ────────────
+   +16.3 Pkt      49.2 %        98.3 %         21.0 Pkt      39.1 Pkt      61.0 Pkt      24.1 MWU
+
+  ● Gefahrenquadrant: Suchtspiel-Box, Billig-Modepaket, Privatdaten-Handel, Kurzvideo-App, HypeNet, SchnellMode
+  ● Schutzquadrant: Offener Lernkurs, Reparierbare Lampe, Grundlagenforschung, KlinikBund
+  ● Hauptgewinn: Preise bleiben nutzbar, aber ihr moralischer und sozialer Kontext wird lesbar.
+  ● Hauptgefahr: wer Güteetiketten oder Popularitätskanäle kontrolliert, kann den ganzen Markt verbiegen.
+
+Auswertung mehrerer möglicher Ausgangsszenarien
+Ausgangsszenario              Simulationsergebnis                 Lesart                                              
+────────────────────────────  ──────────────────────────────────  ────────────────────────────────────────────────────
+offene Prüfungskultur            61.2 %                           das Modell wird zur Rechenschaftsschicht            
+zentrales Moralmonopol          100.0 %                           dasselbe Werkzeug kann zum politischen Kommandosystem werden
+Aufmerksamkeitsfang             100.0 %                           Popularitätsmanipulation korrumpiert Zuteilung, bevor Wahrheit aufholt
+transparente plurale Signale     +16.3 Pkt                        die Währungsschicht ist nützlich, wenn kein Einzelakteur das ganze Urteil besitzt
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Ende der Simulation — alle Werte sind Modellwerte, keine Behauptungen über reale Personen, Firmen oder Staaten.
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
