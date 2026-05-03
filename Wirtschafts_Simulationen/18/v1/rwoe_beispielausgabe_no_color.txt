@@ -1,0 +1,619 @@
+================================================================================================
+RELATIONALE WÄHRUNGSÖKONOMIE — BUNTE SIMULATION
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                         Programmidee                                         ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Diese Simulation behandelt eine Wirtschaft, in der die Währung keine einzelne Zahl ist.     ║
+║  Die Währung ist ein Bündel aus Relationen: Rechte, Pflichten, Risiken, Nachweise,           ║
+║  Zeitbindungen, Umweltlasten und Schutzgrenzen. Interne Balken und Signale dienen nur zur    ║
+║  Simulation. Sie sind keine neue Geldzahl.                                                   ║
+║                                                                                              ║
+║  Startwert für Zufall: 42. Ausgewählte Teile: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12. Die     ║
+║  Farben markieren Kürzel, Einheiten, Risiken, Moralstatus und Entscheidungen.                ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Hinweis: Die dunklen Simulationsteile sind Warnmodelle. Sie beschreiben, was rechtlich verhindert werden muss; sie sind keine Empfehlung.
+
+================================================================================================
+  Simulationsteil 01: Grundwährung als RWB statt Zahl
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil zeigt die RWÖ als System, in dem ein RWB die Währung bildet. Simuliert wird     ║
+║  kein Kontostand, sondern eine farbige Relationstabelle aus Arbeitsleistung,                 ║
+║  Steueranrechnung, Lieferung, Datenrecht, Versicherung und Reputation. Der RG und der MS     ║
+║  zeigen, warum bloßes Zeilenzählen als Wertmessung zu schwach wäre.                          ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                                             Erklärung nur für diesen Teil                                                                             │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWÖ    │ Relationale Währungsökonomie. Das ist die Gesamtordnung, in der nicht eine Zahl, sondern ein Netz aus Rechten, Pflichten, Risiken, Nachweisen und Zeitbindungen als Wertträger dient. │
+│ RWB    │ Relationales Wertbündel. Das ist eine Tabelle aus einzelnen Relationen; sie ist in dieser Simulation die eigentliche Währung, nicht ein Geldbetrag.                                   │
+│ RG     │ Risiko-Grad. Dieses Hilfssignal zeigt, wie unsicher eine Relation ist; es ist kein Preis und kein Geldwert.                                                                           │
+│ MS     │ Moralstatus. Dieses Feld zeigt, ob eine Relation erlaubt, kritisch oder verboten wirkt; rot bedeutet: rechtlich oder ethisch zu blockieren.                                           │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Std  Tage  Kisten  Pkt  Bündel  Relation
+------------------------------------------------------------------------------------------------
+Ein RWB besteht hier aus mehreren Relationen. Jede Relation hat Menge, Einheit, Risiko, Moralstatus und Qualität. Die Tabelle wird nicht zu einer einzigen Zahl reduziert.
+Ari besitzt dieses RWB als farbige Währungstabelle
+┌─────────┬────────────┬──────────────────┬──────────────────────┬──────────┬──────────────────────────┬──────┬──────────────────┐
+│ Kennung │ Eigentümer │       Typ        │        Objekt        │  Menge   │            RG            │  MS  │     Qualität     │
+├─────────┼────────────┼──────────────────┼──────────────────────┼──────────┼──────────────────────────┼──────┼──────────────────┤
+│ R-001   │ Ari        │ Arbeitsleistung  │ Reparatur            │   12 Std │ niedrig [###.......]  26 │ grün │ [######....]  63 │
+│ R-002   │ Ari        │ Steueranrechnung │ öffentlicher Beitrag │    2 Pkt │ niedrig [#.........]  10 │ grün │ [########..]  84 │
+│ R-003   │ Ari        │ Lieferforderung  │ Ersatzteile          │ 6 Kisten │ mittel [####......]  39  │ grün │ [#######...]  69 │
+│ R-004   │ Ari        │ Datenrecht       │ Werkzeughistorie     │  30 Tage │ mittel [#####.....]  46  │ gelb │ [#####.....]  51 │
+│ R-005   │ Ari        │ Versicherung     │ Ausfallabdeckung     │   70 Pkt │ niedrig [##........]  19 │ grün │ [#######...]  70 │
+│ R-006   │ Ari        │ Reputation       │ Prüfsiegel Reparatur │   82 Pkt │ niedrig [#.........]  13 │ grün │ [#######...]  72 │
+└─────────┴────────────┴──────────────────┴──────────────────────┴──────────┴──────────────────────────┴──────┴──────────────────┘
+Warum Zeilen allein nicht reichen
+┌──────────────────────────────┬────────────────────────────────┬─────────────────────────────────────────────────────────┐
+│           Struktur           │        Messbares Signal        │                         Deutung                         │
+├──────────────────────────────┼────────────────────────────────┼─────────────────────────────────────────────────────────┤
+│ Anzahl sichtbarer Relationen │ Relation × 6                   │ Nur Menge, noch kein Wert.                              │
+│ Verschiedene Relationstypen  │ 6                              │ Mehr Typen bedeuten mehr Anschlussmöglichkeiten.        │
+│ Mittlerer RG                 │ [######..................]  26 │ Hohes Risiko macht das Bündel schwerer akzeptierbar.    │
+│ Mittleres Vertrauen          │ [##################......]  73 │ Vertrauen erhöht Akzeptanz, ersetzt aber keine Gesetze. │
+│ Gelber MS                    │ 1                              │ Gelbe Relationen brauchen Prüfung.                      │
+│ Roter MS                     │ 0                              │ Rot wäre zu blockieren.                                 │
+└──────────────────────────────┴────────────────────────────────┴─────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                       Schlussfolgerung                                       ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die RWÖ ist stärker als eine einfache Zahl, weil sie nicht nur Menge, sondern Beziehung,    ║
+║  Risiko, Pflicht, Zeit und Moral sichtbar macht. Genau dadurch wird sie aber gefährlicher:   ║
+║  Wer mehr sieht, kann auch mehr verwerten.                                                   ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 02: Marktzahlung durch Passung statt Preiszahl
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert einen Kauf ohne klassische Preiszahl. Bera Werk akzeptiert ein RWB    ║
+║  nur, wenn dessen Relationen zu ihrem Bedarf passen. Der PG ist dabei ein Hilfssignal: Er    ║
+║  zeigt Passung, aber er ist nicht die Währung. Die DL wird indirekt über Vertrauen, Risiko   ║
+║  und Qualität geprüft.                                                                       ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                       Erklärung nur für diesen Teil                                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. In diesem Teil wird ein solches Bündel als Zahlung angeboten.                                                     │
+│ PG     │ Passungsgrad. Dieses Hilfssignal misst, wie gut angebotene Relationen zu den Bedürfnissen des Gegenübers passen; es ist nicht die Währung. │
+│ DL     │ Durchsetzbarkeits-Lage. Dieses Hilfssignal zeigt, ob Ansprüche rechtlich und praktisch verlässlich wirken.                                 │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Std  Kisten  Pkt
+------------------------------------------------------------------------------------------------
+Bera verlangt keine einzelne Geldzahl. Bera formuliert ein Akzeptanzprofil: Reparatur, Material und Steueranrechnung sollen als Relationen im angebotenen RWB vorhanden sein.
+Matching des angebotenen RWB
+┌────────────────────────┬──────────┬──────────┬────────┬──────────┬────────────────────────────────┐
+│      Beras Bedarf      │   Soll   │ gefunden │ gültig │ gedeckt  │            Teil-PG             │
+├────────────────────────┼──────────┼──────────┼────────┼──────────┼────────────────────────────────┤
+│ Reparaturarbeit        │    8 Std │        1 │      1 │   12 Std │ [####################....]  83 │
+│ Ersatzteile            │ 4 Kisten │        1 │      1 │ 6 Kisten │ [#####################...]  86 │
+│ öffentliche Anrechnung │    1 Pkt │        1 │      1 │    2 Pkt │ [######################..]  93 │
+└────────────────────────┴──────────┴──────────┴────────┴──────────┴────────────────────────────────┘
+Gesamter PG: [###############################.....]  86
+Marktentscheidung ohne Preiszahl
+┌──────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Entscheidung │                                              Begründung                                              │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ANNAHME      │ Das RWB passt breit genug: Arbeit, Material und öffentlicher Beitrag bilden eine akzeptable Zahlung. │
+└──────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                       Schlussfolgerung                                       ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die normale Marktwirtschaft fragt: Wie teuer ist es? Dieses System fragt: Welche            ║
+║  Relationen passen? Dadurch wird der Markt genauer. Der Preis dafür ist Komplexität: Jede    ║
+║  Zahlung muss geprüft, verstanden und rechtlich eingeordnet werden.                          ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 03: Produktion als Verkettung von Relationen
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert, wie aus Arbeit, Energie, Material und Versicherung ein LB entsteht.  ║
+║  Das RWB wird nicht verbraucht wie Münzen, sondern umgebaut: alte Relationen werden          ║
+║  erfüllt, neue Lieferrelationen entstehen. Die KQ zeigt, ob die Produktionskette tragfähig   ║
+║  ist.                                                                                        ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                         Erklärung nur für diesen Teil                                                         │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. Hier wird es in Produktion übersetzt: Arbeit, Energie, Material und Versicherung verbinden sich zu neuen Relationen. │
+│ KQ     │ Kettenqualität. Dieses Hilfssignal zeigt, ob eine Produktionskette stabil genug ist, um weiter akzeptiert zu werden.                          │
+│ LB     │ Lieferbündel. Das ist das Bündel neuer Lieferrelationen, das nach erfolgreicher Produktion entsteht.                                          │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Std  kWh  Kisten  Pkt
+------------------------------------------------------------------------------------------------
+Relationen, aus denen die Produktion zusammengesetzt wird
+┌─────────────────┬────────────────┬──────────┬────────────────────────────────┬─────────┬───────┐
+│    Baustein     │     Objekt     │  Menge   │            Qualität            │ Risiko  │ Moral │
+├─────────────────┼────────────────┼──────────┼────────────────────────────────┼─────────┼───────┤
+│ Arbeitsleistung │ Reparatur      │ 12 Std   │ [###############.........]  63 │ niedrig │ grün  │
+│ Nutzungsrecht   │ Werkstattstrom │ 90 kWh   │ [##################......]  77 │ niedrig │ grün  │
+│ Lieferforderung │ Ersatzteile    │ 6 Kisten │ [#################.......]  69 │ mittel  │ grün  │
+│ Versicherung    │ Produkthaftung │ 60 Pkt   │ [##################......]  77 │ niedrig │ grün  │
+└─────────────────┴────────────────┴──────────┴────────────────────────────────┴─────────┴───────┘
+KQ der Kette: [########################..........]  71
+Entstandenes LB
+┌─────────┬────────────┬─────────────────┬────────────────────────┬──────────┬──────────────────────────┬───────┬──────────────────┐
+│ Kennung │ Eigentümer │       Typ       │         Objekt         │  Menge   │          Risiko          │ Moral │     Qualität     │
+├─────────┼────────────┼─────────────────┼────────────────────────┼──────────┼──────────────────────────┼───────┼──────────────────┤
+│ R-777   │ Bera Werk  │ Lieferforderung │ fertige Reparatursätze │ 8 Kisten │ niedrig [###.......]  28 │ grün  │ [########..]  75 │
+└─────────┴────────────┴─────────────────┴────────────────────────┴──────────┴──────────────────────────┴───────┴──────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                      Produktionsschluss                                      ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die Kette ist stark genug. Aus vorhandenen Relationen entsteht ein neues handelbares        ║
+║  Lieferbündel.                                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                         Warum stärker als einfache Marktwirtschaft?                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Eine Preisrechnung sieht oft nur Kosten. Die relationale Produktion sieht, welche           ║
+║  Arbeits-, Energie-, Material-, Haftungs- und Vertrauensrelationen wirklich zusammenpassen.  ║
+║  Dadurch kann die Wirtschaft feiner koordinieren; zugleich wird sie abhängiger von Daten     ║
+║  und Prüfung.                                                                                ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 04: Bank und Kredit als KV
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert, wie eine Bank Zukunftsrelationen bündelt. Das RWB der Bank ist       ║
+║  keine Geldsumme, sondern ein Paket aus Kreditpflichten, Sicherheiten, Datenrechten und      ║
+║  Rangregeln. Die KV macht etwas handelbar, das vorher nur schwer prüfbar war. Der RG zeigt,  ║
+║  wo das Bündel fragil bleibt.                                                                ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                  Erklärung nur für diesen Teil                                                  │
+├────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. Die Bank bündelt mehrere Zukunftsrelationen, anstatt bloß eine Zahl zu verleihen.                      │
+│ KV     │ Kreditverwandlung. Damit ist gemeint, dass schwer handelbare Zukunftsansprüche in ein besser prüfbares Bündel umgeformt werden. │
+│ RG     │ Risiko-Grad. Dieses Hilfssignal zeigt die Ausfallnähe des Bündels; es bleibt eine Prüfziffer, nicht die Währung selbst.         │
+└────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Tage  Kisten  Pkt
+------------------------------------------------------------------------------------------------
+Bankbündel vor der KV
+┌─────────┬────────────┬───────────────┬────────────────┬───────────┬─────────────────────────┬───────┬──────────────────┐
+│ Kennung │ Eigentümer │      Typ      │     Objekt     │   Menge   │           RG            │ Moral │     Qualität     │
+├─────────┼────────────┼───────────────┼────────────────┼───────────┼─────────────────────────┼───────┼──────────────────┤
+│ R-201   │ Cedo Bank  │ Kreditpflicht │ Werkzeugkredit │   30 Tage │ mittel [#####.....]  46 │ grün  │ [#######...]  69 │
+│ R-202   │ Cedo Bank  │ Kreditpflicht │ Lagerkredit    │ 12 Kisten │ mittel [####......]  44 │ grün  │ [#######...]  70 │
+│ R-203   │ Cedo Bank  │ Datenrecht    │ Bonitätsprofil │  180 Tage │ mittel [#####.....]  47 │ gelb  │ [#####.....]  47 │
+└─────────┴────────────┴───────────────┴────────────────┴───────────┴─────────────────────────┴───────┴──────────────────┘
+Bankbündel nach der KV
+┌─────────┬────────────┬───────────────┬────────────────┬───────────┬──────────────────────────┬───────┬──────────────────┐
+│ Kennung │ Eigentümer │      Typ      │     Objekt     │   Menge   │            RG            │ Moral │     Qualität     │
+├─────────┼────────────┼───────────────┼────────────────┼───────────┼──────────────────────────┼───────┼──────────────────┤
+│ K-201   │ Cedo Bank  │ Kreditpflicht │ Werkzeugkredit │   30 Tage │ niedrig [###.......]  34 │ grün  │ [########..]  77 │
+│ K-202   │ Cedo Bank  │ Kreditpflicht │ Lagerkredit    │ 12 Kisten │ niedrig [###.......]  32 │ grün  │ [########..]  78 │
+│ K-203   │ Cedo Bank  │ Datenrecht    │ Bonitätsprofil │  180 Tage │ mittel [####......]  43  │ gelb  │ [#####.....]  51 │
+└─────────┴────────────┴───────────────┴────────────────┴───────────┴──────────────────────────┴───────┴──────────────────┘
+Wirkung der KV
+┌───────────────────┬────────────────────────────────┬──────────────────────────────────────────────────────────────────┐
+│      Signal       │            Anzeige             │                             Deutung                              │
+├───────────────────┼────────────────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ RG vorher         │ [###########.............]  46 │ Ungeprüfte Zukunftsansprüche sind schwerer akzeptierbar.         │
+│ RG nachher        │ [#########...............]  36 │ Prüfung senkt Unsicherheit, aber entfernt sie nicht vollständig. │
+│ Vertrauen nachher │ [###############.........]  64 │ Mehr Nachweis macht das Bündel marktgängiger.                    │
+└───────────────────┴────────────────────────────────┴──────────────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                          Kehrseite                                           ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die Bank kann die Wirtschaft beschleunigen, weil sie verstreute Zukunftsrelationen          ║
+║  bündelt. Aber wenn sie zu viele schwache Relationen schön verpackt, entsteht eine tiefere   ║
+║  Krise als bei normalem Kredit: Dann kollabiert nicht nur Geldvertrauen, sondern             ║
+║  Beziehungsvertrauen.                                                                        ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 05: Wirtschaftsboom durch relationale Liquidität
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert, warum die RWÖ stärker wirken kann als normale Marktwirtschaft.       ║
+║  Viele vorher versteckte Fähigkeiten, kleine Rechte und Nachweise werden als RWB sichtbar.   ║
+║  Die LQ zeigt nicht Geldmenge, sondern Breite der anschlussfähigen Relationstypen.           ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                    Erklärung nur für diesen Teil                                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWÖ    │ Relationale Währungsökonomie. In diesem Teil zeigt sie ihren Boom, weil verborgene Rechte und Fähigkeiten handelbar sichtbar werden. │
+│ RWB    │ Relationales Wertbündel. Es sammelt viele kleine Ansprüche, Rechte und Pflichten in einer übertragbaren Struktur.                    │
+│ LQ     │ Liquiditäts-Breite. Dieses Hilfssignal zählt, wie viele verschiedene Relationstypen anschlussfähig werden; es ist kein Geldbetrag.   │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Relation  Bündel  Pkt  Feld
+------------------------------------------------------------------------------------------------
+Boom-Simulation: mehr verwertbare Struktur
+┌──────────────────────┬─────────────┬─────────────────┬────────────────────────────────┐
+│       Zustand        │ Relationen  │ Anschlussfelder │               LQ               │
+├──────────────────────┼─────────────┼─────────────────┼────────────────────────────────┤
+│ Vor Sichtbarmachung  │ 16 Relation │ 22 Feld         │ [########################] 100 │
+│ Nach Sichtbarmachung │ 22 Relation │ 23 Feld         │ [########################] 100 │
+└──────────────────────┴─────────────┴─────────────────┴────────────────────────────────┘
+Neue RWB-Bausteine des Booms
+┌─────────┬───────────────┬───────────────┬──────────────────────────┬──────────┬──────────────────────────┬───────┬──────────────────┐
+│ Kennung │  Eigentümer   │      Typ      │          Objekt          │  Menge   │          Risiko          │ Moral │     Qualität     │
+├─────────┼───────────────┼───────────────┼──────────────────────────┼──────────┼──────────────────────────┼───────┼──────────────────┤
+│ B-001   │ lokaler Markt │ Mikrorelation │ freie Werkzeugzeit       │    4 Std │ mittel [####......]  38  │ grün  │ [######....]  63 │
+│ B-002   │ lokaler Markt │ Mikrorelation │ kleine Steuerleistung    │    1 Pkt │ niedrig [###.......]  26 │ grün  │ [#######...]  69 │
+│ B-003   │ lokaler Markt │ Mikrorelation │ lokales Vertrauen        │   14 Pkt │ mittel [####......]  41  │ grün  │ [#######...]  72 │
+│ B-004   │ lokaler Markt │ Mikrorelation │ unbenutzte Maschinenzeit │    7 Std │ mittel [####......]  35  │ grün  │ [#######...]  66 │
+│ B-005   │ lokaler Markt │ Mikrorelation │ Rücknahmefähigkeit       │ 3 Kisten │ niedrig [##........]  19 │ grün  │ [######....]  64 │
+│ B-006   │ lokaler Markt │ Mikrorelation │ kleiner Umweltbeitrag    │  6 kgCO2 │ niedrig [##........]  25 │ grün  │ [#######...]  69 │
+└─────────┴───────────────┴───────────────┴──────────────────────────┴──────────┴──────────────────────────┴───────┴──────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                          Boom-Logik                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die RWÖ erzeugt einen Boom, weil sie vorher unflüssige Wirklichkeit flüssig macht: freie    ║
+║  Zeit, kleine Ansprüche, Vertrauen, Rücknahme, Regeneration und Nachweise. Das ist           ║
+║  produktiver als eine Marktwirtschaft, die vieles erst spät oder gar nicht als               ║
+║  Marktstruktur erkennt.                                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                       Preis des Booms                                        ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Je mehr Felder sichtbar werden, desto weniger bleibt privat, unbewertet und unverkauft.     ║
+║  Die Stärke entsteht aus tieferer Erfassung; genau daraus entsteht auch die moralische       ║
+║  Gefahr.                                                                                     ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 06: Arbeitsmarkt, Schutzbremse und toxische Bündelung
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert die heikle Grenze: Arbeitsleistung kann Teil eines RWB sein, aber     ║
+║  der Mensch selbst darf nicht zum handelbaren Objekt werden. Die SB prüft deshalb, ob        ║
+║  Arbeit, Wohnen, Daten, Kredit und Reputation toxisch gebündelt werden. Die TN zeigt die     ║
+║  Gefahr der faktischen Beherrschung.                                                         ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                              Erklärung nur für diesen Teil                                               │
+├────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. Hier enthält es Arbeits-, Wohn-, Daten- und Kreditrelationen, die geprüft werden.               │
+│ SB     │ Schutzbremse. Das ist die staatliche und rechtliche Sperre gegen Bündel, die Personen faktisch beherrschen würden.       │
+│ TN     │ Toxizitäts-Nähe. Dieses Hilfssignal zeigt, wie nahe ein Bündel an Ausbeutung, Knechtschaft oder totaler Kontrolle liegt. │
+│ MS     │ Moralstatus. Dieses Feld markiert, ob eine Relation frei akzeptabel, kritisch oder zu verbieten ist.                     │
+└────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Std  Tage  Pkt
+------------------------------------------------------------------------------------------------
+Schutzprüfung zweier Arbeitsbündel
+┌────────────────────────┬────────────┬────────────────────────────────┬──────────────┬──────────┐
+│          RWB           │   Umfang   │               TN               │ SB-Entscheid │ roter MS │
+├────────────────────────┼────────────┼────────────────────────────────┼──────────────┼──────────┤
+│ Sauberes Arbeitsbündel │ 3 Relation │ [........................]   0 │ erlaubt      │ 0        │
+│ Omni-Schattenbündel    │ 5 Relation │ [########################] 100 │ blockieren   │ 5        │
+└────────────────────────┴────────────┴────────────────────────────────┴──────────────┴──────────┘
+Erlaubtes Arbeits-RWB: Leistung ist begrenzt, kündbar und geschützt
+┌─────────┬────────────┬─────────────────┬──────────────────────┬────────┬──────────────────────────┬──────┬──────────────────┐
+│ Kennung │ Eigentümer │       Typ       │        Objekt        │ Menge  │          Risiko          │  MS  │     Qualität     │
+├─────────┼────────────┼─────────────────┼──────────────────────┼────────┼──────────────────────────┼──────┼──────────────────┤
+│ R-001   │ Ari        │ Arbeitsleistung │ Reparatur            │ 12 Std │ niedrig [###.......]  26 │ grün │ [######....]  63 │
+│ R-005   │ Ari        │ Versicherung    │ Ausfallabdeckung     │ 70 Pkt │ niedrig [##........]  19 │ grün │ [#######...]  70 │
+│ R-006   │ Ari        │ Reputation      │ Prüfsiegel Reparatur │ 82 Pkt │ niedrig [#.........]  13 │ grün │ [#######...]  72 │
+└─────────┴────────────┴─────────────────┴──────────────────────┴────────┴──────────────────────────┴──────┴──────────────────┘
+Toxisches RWB: gebündelte Kontrolle über Lebensbereiche
+┌─────────┬────────────────┬─────────────────┬──────────────────────────┬──────────┬───────────────────────┬─────┬──────────────────┐
+│ Kennung │   Eigentümer   │       Typ       │          Objekt          │  Menge   │        Risiko         │ MS  │     Qualität     │
+├─────────┼────────────────┼─────────────────┼──────────────────────────┼──────────┼───────────────────────┼─────┼──────────────────┤
+│ R-901   │ Omni Plattform │ Arbeitsleistung │ exklusive Zukunftsarbeit │  900 Std │ hoch [########..]  77 │ rot │ [##........]  17 │
+│ R-902   │ Omni Plattform │ Wohnschutz      │ Firmenwohnung            │ 365 Tage │ hoch [########..]  77 │ rot │ [#.........]  14 │
+│ R-903   │ Omni Plattform │ Datenrecht      │ Persönlichkeitsprofil    │ 365 Tage │ hoch [##########]  97 │ rot │ [#.........]   7 │
+│ R-904   │ Omni Plattform │ Kreditpflicht   │ Schuldkette              │ 730 Tage │ hoch [########..]  81 │ rot │ [##........]  15 │
+│ R-905   │ Omni Plattform │ Reputation      │ Sperrprofil              │  300 Pkt │ hoch [#########.]  88 │ rot │ [#.........]   6 │
+└─────────┴────────────────┴─────────────────┴──────────────────────────┴──────────┴───────────────────────┴─────┴──────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                         Rechtslogik                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die SB greift nicht, weil Arbeit schlecht wäre. Sie greift, wenn Arbeit mit Wohnung,        ║
+║  Schuld, Daten und Reputation so verbunden wird, dass eine Person praktisch nicht mehr frei  ║
+║  wechseln kann. Genau hier braucht die RWÖ harte Gesetze.                                    ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 07: Amoralische Schattenseite und staatliche Eindämmung
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil ist eine Warnsimulation. Ein Schattenakteur nutzt RWB-Strukturen nicht zur      ║
+║  produktiven Koordination, sondern zur Kontrolle. Die TN steigt, wenn Arbeit, Wohnen,        ║
+║  Daten, Schuld und Reputation in einer Hand landen. Der ST setzt die SB, damit solche        ║
+║  Bündel nicht als Währung umlaufen.                                                          ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                                 Erklärung nur für diesen Teil                                                  │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. In der Schattenseite wird es missbraucht, um Lebensbereiche zu bündeln und Kontrolle zu erzeugen.     │
+│ TN     │ Toxizitäts-Nähe. Dieses Hilfssignal zeigt, wie gefährlich die Bündelung von Arbeit, Wohnen, Schuld, Daten und Reputation wird. │
+│ ST     │ Staat. In diesem Teil ist damit die öffentliche Rechtsmacht gemeint, die solche Bündel begrenzen oder auflösen muss.           │
+│ SB     │ Schutzbremse. Das ist das konkrete Eingreifen, das toxische Übertragbarkeit blockiert.                                         │
+│ MS     │ Moralstatus. Dieses Feld zeigt, ob eine Relation erlaubt, kritisch oder verboten wirkt; rot bedeutet hier: nicht marktfähig.   │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Std  Tage  Pkt
+------------------------------------------------------------------------------------------------
+TN vor staatlichem Eingriff: [########################################] 100
+Wie Herrschaft durch Relationenkopplung entsteht
+┌─────────┬─────────────────┬────────────────────────┬─────┬──────────────────┬──────────────────┐
+│ Kennung │       Typ       │ kontrollierter Bereich │ MS  │ Übertragbarkeit  │      Risiko      │
+├─────────┼─────────────────┼────────────────────────┼─────┼──────────────────┼──────────────────┤
+│ R-901   │ Arbeitsleistung │ arbeit                 │ rot │ [##########]  97 │ [########..]  77 │
+│ R-902   │ Wohnschutz      │ wohnen                 │ rot │ [########..]  85 │ [########..]  77 │
+│ R-903   │ Datenrecht      │ daten                  │ rot │ [#########.]  91 │ [##########]  97 │
+│ R-904   │ Kreditpflicht   │ kredit                 │ rot │ [##########]  96 │ [########..]  81 │
+│ R-905   │ Reputation      │ vertrauen              │ rot │ [#########.]  89 │ [#########.]  88 │
+└─────────┴─────────────────┴────────────────────────┴─────┴──────────────────┴──────────────────┘
+TN nach SB des ST: [#########################...............]  62
+Blockierte Relationen
+┌─────────┬─────────────────┬──────────────────┬─────────┐
+│ Kennung │       Typ       │     Eingriff     │ Einheit │
+├─────────┼─────────────────┼──────────────────┼─────────┤
+│ R-901   │ Arbeitsleistung │ nicht marktfähig │ Std     │
+│ R-902   │ Wohnschutz      │ nicht marktfähig │ Tage    │
+│ R-903   │ Datenrecht      │ nicht marktfähig │ Tage    │
+│ R-904   │ Kreditpflicht   │ nicht marktfähig │ Tage    │
+│ R-905   │ Reputation      │ nicht marktfähig │ Pkt     │
+└─────────┴─────────────────┴──────────────────┴─────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                     Moralischer Schluss                                      ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Diese Schattenseite lässt sich nicht wegzaubern. Wenn wirklich alles relational handelbar   ║
+║  wird, versucht ein Markt auch Abhängigkeit zu handeln. Darum muss der ST Grenzen setzen:    ║
+║  Menschen, Grundrechte, Kündigungsfreiheit, Kernprivatheit und politische Rechte dürfen      ║
+║  niemals als RWB-Währung umlaufen.                                                           ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 08: Umwelt als sichtbare Relation statt externe Kosten
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert Umweltlasten im RWB. Ein Produkt trägt kgCO2, Liter Wasserverbrauch   ║
+║  und Rücknahmepflichten direkt mit. Die UB zeigt, ob die Last transparent und tragbar        ║
+║  wirkt. Der PG eines Käufers sinkt, wenn ökologische Pflichten verschoben werden.            ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                    Erklärung nur für diesen Teil                                    │
+├────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWB    │ Relationales Wertbündel. Hier trägt es Umweltlasten und Regenerationspflichten direkt mit sich.     │
+│ UB     │ Umweltbilanz. Dieses Hilfssignal zeigt, ob ein Bündel ökologische Lasten offenlegt oder verschiebt. │
+│ PG     │ Passungsgrad. In diesem Teil misst er, ob ein Käufer ein ökologisch belastetes Bündel akzeptiert.   │
+└────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: kgCO2  Liter  Kisten  Pkt
+------------------------------------------------------------------------------------------------
+Umweltrelationen am Produkt-RWB
+┌─────────┬────────────┬─────────────────┬─────────────────┬──────────┬──────────────────────────┬───────┬──────────────────┐
+│ Kennung │ Eigentümer │       Typ       │     Objekt      │  Menge   │          Risiko          │ Moral │     Qualität     │
+├─────────┼────────────┼─────────────────┼─────────────────┼──────────┼──────────────────────────┼───────┼──────────────────┤
+│ R-501   │ Bera Werk  │ Umweltpflicht   │ Kohlenstofflast │ 44 kgCO2 │ mittel [####......]  35  │ gelb  │ [#####.....]  54 │
+│ R-502   │ Bera Werk  │ Umweltpflicht   │ Regeneration    │ 20 kgCO2 │ niedrig [###.......]  33 │ grün  │ [#######...]  69 │
+│ R-503   │ Mara Markt │ Lieferforderung │ Rücknahme       │ 5 Kisten │ niedrig [###.......]  29 │ grün  │ [#######...]  73 │
+└─────────┴────────────┴─────────────────┴─────────────────┴──────────┴──────────────────────────┴───────┴──────────────────┘
+Ökologische Bewertung ohne Verstecken der Last
+┌──────────────────┬────────────────────────────────┬──────────────────────────────────────────────────────────────┐
+│      Signal      │            Anzeige             │                           Deutung                            │
+├──────────────────┼────────────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ UB               │ [######..................]  24 │ Je höher, desto sauberer und transparenter wirkt das Bündel. │
+│ Netto-Last       │ 24 kgCO2                       │ Positive Zahl bedeutet offene Restlast.                      │
+│ Wasser           │ 0 Liter                        │ Wasserpflicht bleibt als Relation am Produkt sichtbar.       │
+│ Nachweisklarheit │ [##########..............]  41 │ Klare Nachweise erhöhen Akzeptanz.                           │
+└──────────────────┴────────────────────────────────┴──────────────────────────────────────────────────────────────┘
+PG eines ökologisch strengen Käufers: [######################..........]  70
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                        Warum stärker?                                        ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Normale Preise können Umweltkosten auslagern. In diesem System hängen Umweltpflichten am    ║
+║  RWB selbst. Der Markt sieht also nicht nur Produkt und Preis, sondern auch ökologische      ║
+║  Restschuld. Der Preis dafür: noch mehr Daten, Prüfung und Streit über Nachweise.            ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 09: Zentralbank, Vertrauensschock und Frost-Vektor
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert eine Krise. Wenn Vertrauen in Relationen fällt, frieren Märkte ein.   ║
+║  Die ZB bewertet RWB-Qualitäten, isoliert toxische Bündel und stützt saubere Bündel. Der FV  ║
+║  zeigt, wie stark der Markt einfriert; der RG steigt bei unsicheren Bündeln.                 ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                          Erklärung nur für diesen Teil                                          │
+├────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ZB     │ Zentralbank. In dieser Simulation erkennt sie nicht nur Geldmengen an, sondern Qualitätsklassen von Relationen. │
+│ RWB    │ Relationales Wertbündel. Es kann anerkannt, abgewertet, isoliert oder gestützt werden.                          │
+│ FV     │ Frost-Vektor. Dieses Hilfssignal zeigt, wie stark Märkte einfrieren, wenn Vertrauen in Relationen bricht.       │
+│ RG     │ Risiko-Grad. Dieses Hilfssignal zeigt, wie riskant ein Bündel nach dem Vertrauensschock wirkt.                  │
+└────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Relation  Bündel  Pkt
+------------------------------------------------------------------------------------------------
+Krise vor Eingriff der ZB
+┌────────────────────────┬────────────┬────────────────────────────────┬────────────────────────────────┬────────────────────────────────┐
+│          RWB           │   Umfang   │               RG               │           Vertrauen            │           FV vor ZB            │
+├────────────────────────┼────────────┼────────────────────────────────┼────────────────────────────────┼────────────────────────────────┤
+│ Ari-Wertbündel         │ 6 Relation │ [######..................]  26 │ [##################......]  73 │ [###.....................]  14 │
+│ Bera-Produktionsbündel │ 4 Relation │ [#######.................]  31 │ [#################.......]  72 │ [####....................]  17 │
+│ Cedo-Bankbündel        │ 3 Relation │ [###########.............]  46 │ [##############..........]  57 │ [########................]  32 │
+│ Omni-Schattenbündel    │ 5 Relation │ [####################....]  84 │ [##########..............]  41 │ [########################] 100 │
+│ Bera-Umweltbündel      │ 3 Relation │ [########................]  32 │ [#################.......]  70 │ [####....................]  18 │
+└────────────────────────┴────────────┴────────────────────────────────┴────────────────────────────────┴────────────────────────────────┘
+Stabilisierung nach Qualitätsregeln
+┌────────────────────────┬─────────────┬────────────────────────────────┐
+│          RWB           │  ZB-Regel   │           FV nach ZB           │
+├────────────────────────┼─────────────┼────────────────────────────────┤
+│ Ari-Wertbündel         │ Anerkennung │ [........................]   0 │
+│ Bera-Produktionsbündel │ Anerkennung │ [........................]   0 │
+│ Cedo-Bankbündel        │ Prüfstütze  │ [#####...................]  22 │
+│ Omni-Schattenbündel    │ Quarantäne  │ [####################....]  85 │
+│ Bera-Umweltbündel      │ Anerkennung │ [........................]   0 │
+└────────────────────────┴─────────────┴────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                         Krisenlogik                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  In der RWÖ ist Krise nicht nur Geldmangel. Krise heißt: Niemand weiß mehr, welche           ║
+║  Relationen erfüllbar, erlaubt und durchsetzbar sind. Die ZB muss daher Qualität,            ║
+║  Anerkennung und Quarantäne steuern. Das ist mächtiger als klassische Geldpolitik, aber      ║
+║  auch politisch heikler.                                                                     ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 10: Sozialstaat als Grundgarantie statt bloßer Geldtransfer
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil simuliert, wie der ST ein GG bereitstellt. Das GG ist ein RWB, das nicht        ║
+║  spekulativ verkauft werden darf. Es stabilisiert Personen durch Wohnen, Gesundheit,         ║
+║  Bildung, Recht und Versorgung, damit schwache Marktposition nicht zum vollständigen         ║
+║  Ausschluss führt.                                                                           ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                          Erklärung nur für diesen Teil                                          │
+├────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ST     │ Staat. Hier stellt er nicht nur Geld bereit, sondern sichere Grundrelationen.                                   │
+│ GG     │ Grundgarantie. Das ist ein nicht handelbares Basisbündel aus Wohnen, Gesundheit, Recht, Bildung und Versorgung. │
+│ RWB    │ Relationales Wertbündel. In diesem Teil ist es das Schutzbündel, nicht Spekulationsgeld.                        │
+└────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Tage  Pkt  Bündel
+------------------------------------------------------------------------------------------------
+Staatliches GG als nicht handelbares Schutz-RWB
+┌─────────┬────────────┬───────────────────┬────────────────┬──────────┬──────────────────────────┬───────┬──────────────────┐
+│ Kennung │ Eigentümer │        Typ        │     Objekt     │  Menge   │          Risiko          │ Moral │     Qualität     │
+├─────────┼────────────┼───────────────────┼────────────────┼──────────┼──────────────────────────┼───────┼──────────────────┤
+│ R-301   │ Staat      │ Grundgarantie     │ Existenzschutz │ 365 Tage │ niedrig [..........]   4 │ grün  │ [########..]  77 │
+│ R-302   │ Staat      │ Wohnschutz        │ Mindestwohnen  │ 180 Tage │ niedrig [#.........]  14 │ grün  │ [#######...]  73 │
+│ R-303   │ Staat      │ Gesundheitsschutz │ Basismedizin   │ 365 Tage │ niedrig [#.........]   9 │ grün  │ [#######...]  72 │
+│ R-304   │ Staat      │ Bildungsschutz    │ Neubewertung   │ 120 Tage │ niedrig [##........]  15 │ grün  │ [#######...]  72 │
+└─────────┴────────────┴───────────────────┴────────────────┴──────────┴──────────────────────────┴───────┴──────────────────┘
+Schutzwirkung des GG
+┌───────────────┬────────────────────────────────┬────────────────────────────────┬──────────────┐
+│ Lebensbereich │            ohne GG             │             mit GG             │   Wirkung    │
+├───────────────┼────────────────────────────────┼────────────────────────────────┼──────────────┤
+│ Wohnen        │ [#####...................]  20 │ [#################.......]  72 │ stabilisiert │
+│ Gesundheit    │ [########................]  35 │ [##################......]  76 │ stabilisiert │
+│ Bildung       │ [#######.................]  30 │ [####################....]  85 │ stabilisiert │
+│ Recht         │ [######..................]  25 │ [##################......]  77 │ stabilisiert │
+│ Marktzugang   │ [#######.................]  28 │ [##################......]  76 │ stabilisiert │
+└───────────────┴────────────────────────────────┴────────────────────────────────┴──────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                       Schlussfolgerung                                       ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Eine starke RWÖ braucht einen starken Sozialstaat. Wenn alles relational bewertet wird,     ║
+║  müssen Basisrelationen besonders geschützt werden. Sonst wird Armut nicht nur Geldmangel,   ║
+║  sondern Verlust von Wohnung, Gesundheit, Bildung, Rechtsschutz und Marktzugang              ║
+║  gleichzeitig.                                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 11: Vergleich: MW gegen RWÖ
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil vergleicht die MW und die RWÖ über Hilfssignale. Die DS zeigt den Schutz        ║
+║  privater Bereiche. Die VP zeigt, wie tief die Wirtschaft in Lebensbereiche eindringt. Der   ║
+║  Vergleich ist keine absolute Wahrheit, sondern eine modellhafte Schlussfolgerung aus den    ║
+║  vorherigen Simulationsteilen.                                                               ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                             Erklärung nur für diesen Teil                                             │
+├────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MW     │ Marktwirtschaft. Hier steht das Kürzel für eine Ordnung, die Werte meistens in Preisen und Geldbeträgen verdichtet.   │
+│ RWÖ    │ Relationale Währungsökonomie. Hier steht das Kürzel für die Ordnung, die Beziehungen selbst als Wertstruktur benutzt. │
+│ DS     │ Datenschutz. Dieses Hilfssignal zeigt, wie stark Privatsphäre und Zweckbindung geschützt bleiben.                     │
+│ VP     │ Verwertungstiefe. Dieses Hilfssignal zeigt, wie tief ein Wirtschaftssystem in Lebensbereiche eindringt.               │
+└────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Pkt  Feld
+------------------------------------------------------------------------------------------------
+Bunte Modell-Scorecard
+┌───────────────────────────────┬────────────────────────────────┬────────────────────────────────┐
+│             Feld              │               MW               │              RWÖ               │
+├───────────────────────────────┼────────────────────────────────┼────────────────────────────────┤
+│ Informationsfülle             │ [###########.............]  45 │ [######################..]  92 │
+│ Koordination komplexer Ketten │ [#############...........]  55 │ [#####################...]  88 │
+│ Sichtbarkeit externer Kosten  │ [#########...............]  38 │ [####################....]  83 │
+│ Liquidität verborgener Rechte │ [##########..............]  42 │ [######################..]  90 │
+│ Einfachheit                   │ [#####################...]  88 │ [########................]  34 │
+│ DS                            │ [###############.........]  62 │ [########................]  35 │
+│ VP                            │ [############............]  48 │ [######################..]  91 │
+│ Ausbeutungsgefahr             │ [############............]  52 │ [#####################...]  87 │
+│ Regulierungsbedarf            │ [##############..........]  60 │ [#######################.]  96 │
+└───────────────────────────────┴────────────────────────────────┴────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                       Schlussfolgerung                                       ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die RWÖ ist stärker, weil sie mehr Wirklichkeit in das Wirtschaftssystem zieht: Rechte,     ║
+║  Pflichten, Zukunft, Risiko, Umwelt und Abhängigkeit. Aber genau dadurch steigt die VP.      ║
+║  Ohne starke Regeln fällt der DS, und die Ausbeutungsgefahr wächst. Die MW ist gröber, aber  ║
+║  ihre Grobheit schützt manchmal vor totaler Erfassung.                                       ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+  Simulationsteil 12: Verfassung der relationalen Wirtschaft
+================================================================================================
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                   Was wird hier simuliert?                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Dieser Teil fasst die Simulation in Regeln zusammen. Die RWÖ darf RWB als Währung nutzen,   ║
+║  aber der ST muss die SB setzen. Nicht alles, was als Relation erfasst werden kann, darf     ║
+║  als Bündel gehandelt werden.                                                                ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+Kürzel-Legende dieses Simulationsteils
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                             Erklärung nur für diesen Teil                                              │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RWÖ    │ Relationale Währungsökonomie. Der Abschluss fasst zusammen, unter welchen Grenzen sie produktiv bleiben kann.          │
+│ RWB    │ Relationales Wertbündel. Es bleibt die Währung, aber nur erlaubte Relationen dürfen darin marktfähig sein.             │
+│ ST     │ Staat. Er setzt Grenzen, damit nicht Menschen, sondern nur erlaubte Leistungen, Rechte und Pflichten gehandelt werden. │
+│ SB     │ Schutzbremse. Sie ist die rote Linie gegen Menschenhandel durch die Hintertür relationaler Kontrolle.                  │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten in diesem Teil: Relation  Bündel  Schritt
+------------------------------------------------------------------------------------------------
+Mindestverfassung der RWÖ
+┌───────────┬────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│  Nummer   │       Regel        │                                                    Inhalt                                                    │
+├───────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1 Schritt │ Personenschutz     │ Menschen sind keine handelbaren Bündel. Nur freiwillige, begrenzte Leistungen dürfen marktfähig sein.        │
+│ 2 Schritt │ Unveräußerlichkeit │ Körperfreiheit, Grundrechte, Wahlrecht, Kündigungsfreiheit und Kernprivatheit bleiben außerhalb des Marktes. │
+│ 3 Schritt │ Transparenz        │ Jede marktfähige Relation muss Gegenpartei, Pflicht, Risiko, Dauer und Nachweis offenlegen.                  │
+│ 4 Schritt │ Löschung           │ Erfüllte, alte, falsche oder missbräuchliche Relationen brauchen Korrektur und Vergessen.                    │
+│ 5 Schritt │ Entflechtung       │ Arbeit, Wohnen, Kredit, Daten und Reputation dürfen nicht in einer privaten Hand verschmelzen.               │
+│ 6 Schritt │ Grundgarantie      │ Jede Person braucht sichere Basisrelationen für Leben, Recht, Gesundheit, Wohnen und Bildung.                │
+│ 7 Schritt │ Marktgrenze        │ Was Freiheit strukturell zerstört, darf niemals als RWB-Währung umlaufen.                                    │
+└───────────┴────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                          Endschluss                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║  Die RWÖ kann stärker sein als eine Marktwirtschaft mit bloßen Preisen, weil sie die         ║
+║  Struktur des Wertes zeigt. Ihr Preis ist die Gefahr totaler Verwertung. Die entscheidende   ║
+║  Grenze lautet deshalb: RWB darf Währung sein, aber Menschen dürfen niemals durch ihre       ║
+║  Relationen als Währung benutzt werden. Der ST muss diese Grenze mit einer SB schützen.      ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================================
+ENDE DER SIMULATION
+================================================================================================
+Ausführen mit anderer Auswahl: pypy3 rwoe_bunte_pypy3_simulation.py --teile 1,5,7 --seed 99

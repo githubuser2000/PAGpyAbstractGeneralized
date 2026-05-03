@@ -1,0 +1,514 @@
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Radial-hierarchische Moralwährungs-Simulation ◆
+Sehr bunte Terminalsimulation
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Startwerte — Seed 42, Schritte 6, Objekte 40
+
+  Das Modell ordnet Marktgegenstände nicht nur nach Preis. Es kombiniert Gutartigkeit, Beliebtheit,
+  Hierarchie, Risiko und Anspruch. Die Ausgabe erklärt vor jedem Simulationsteil nur die dort verwendeten
+  Kürzel und färbt alle mehrbuchstabigen Kürzel sowie alle Einheiten farbig ein.
+
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 01 — Radiale Wertkarte und veränderliche Hierarchie ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Jeder Marktgegenstand erhält eine Lage im Kreisfeld: eine Achse bewertet Gutartigkeit, die andere Beliebtheit; die Hierarchie sitzt als zusätzliche Höhe darüber. Daraus entstehen Winkel, Radius und ein mehrdimensionaler Wertwährungswert.
+
+Kürzel in diesem Teil
+  GV = Gutartigkeitswert: zeigt, ob ein Gegenstand Nutzen stiftet, Schäden mindert und faire Nebenwirkungen erzeugt. Positive Werte bedeuten gesellschaftliche Güte; negative Werte bedeuten Schaden oder Ausbeutung.
+  BV = Beliebtheitswert: zeigt, wie stark Bevölkerung, Kundschaft oder Öffentlichkeit ein Objekt nachfragen, mögen oder kulturell tragen. Er ist bewusst nicht dasselbe wie Gutartigkeit.
+  HV = Hierarchiewert: zeigt die strukturelle Stufe eines Objekts. Hohe Werte bedeuten, dass viele untere Vorgänge, Rollen oder Folgewirkungen davon abhängen.
+  AR = Achsenrichtung: der Winkel aus Gutartigkeit und Beliebtheit. Er macht sichtbar, in welchem Quadranten ein Objekt liegt: gut-beliebt, gut-unbeliebt, schädlich-beliebt oder schädlich-unbeliebt.
+  RW = Radialweite: die Entfernung vom neutralen Mittelpunkt. Hohe Werte bedeuten, dass ein Objekt stark polarisiert oder sehr klar positioniert ist.
+  VW = Wertwährungswert: verdichteter, aber nicht alleiniger Vergleichswert. Er kombiniert Gutartigkeit, Beliebtheit, Hierarchie und Risiko zu einer moralisch-sozialen Marktsignatur.
+Einheiten in diesem Teil
+  Pkt = Punkte auf einer normierten Skala.
+  Grad = Winkelgrade der Kreisrichtung.
+  MWU = Moralwährungseinheiten als farbig dargestellte Vergleichseinheit.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Objekt                  Art            GV               BV               HV               AR                RW               VW               Lagebild                  
+──────────────────────  ─────────────  ───────────────  ───────────────  ───────────────  ────────────────  ───────────────  ───────────────  ──────────────────────────
+KlinikBund              Arbeitgeber       89.3 Pkt         -6.1 Pkt         79.6 Pkt        356.1 Grad         89.5 Pkt         65.1 MWU      gut + unbeliebt           
+Heilwasser-Filter       Produkt           83.4 Pkt         29.2 Pkt         63.9 Pkt         19.3 Grad         88.3 Pkt         64.8 MWU      gut + beliebt             
+SolarWerk               Arbeitgeber       77.3 Pkt         36.2 Pkt         70.5 Pkt         25.1 Grad         85.3 Pkt         63.9 MWU      gut + beliebt             
+Offener Lernkurs        Produkt           95.0 Pkt         -4.8 Pkt         54.3 Pkt        357.1 Grad         95.1 Pkt         63.1 MWU      gut + unbeliebt           
+Grundlagenforschung     Produkt           86.4 Pkt        -31.3 Pkt         69.1 Pkt        340.1 Grad         91.9 Pkt         62.9 MWU      gut + unbeliebt           
+NovaPflege              Arbeitgeber       79.4 Pkt         14.4 Pkt         61.8 Pkt         10.3 Grad         80.7 Pkt         56.9 MWU      gut + beliebt             
+Öko-Transport           Produkt           74.7 Pkt         31.1 Pkt         59.9 Pkt         22.6 Grad         80.9 Pkt         56.7 MWU      gut + beliebt             
+Sicherheitssoftware     Produkt           68.8 Pkt         19.3 Pkt         73.6 Pkt         15.7 Grad         71.5 Pkt         56.6 MWU      gut + beliebt             
+LernHafen               Arbeitgeber       76.1 Pkt         19.7 Pkt         51.4 Pkt         14.5 Grad         78.6 Pkt         55.3 MWU      gut + beliebt             
+Pflege-Roboter          Produkt           71.4 Pkt         21.9 Pkt         63.5 Pkt         17.0 Grad         74.6 Pkt         53.9 MWU      gut + beliebt             
+Reparierbare Lampe      Produkt           67.9 Pkt        -12.3 Pkt         55.4 Pkt        349.8 Grad         69.0 Pkt         48.9 MWU      gut + unbeliebt           
+Statusuhr               Produkt            1.2 Pkt         59.4 Pkt         48.7 Pkt         88.9 Grad         59.4 Pkt         19.0 MWU      gut + beliebt             
+Kurzvideo-App           Produkt          -21.7 Pkt         99.5 Pkt         56.9 Pkt        102.3 Grad        101.9 Pkt         10.1 MWU      schädlich + beliebt       
+SpekulaBank             Arbeitgeber      -20.7 Pkt         40.6 Pkt         76.8 Pkt        117.0 Grad         45.6 Pkt          4.7 MWU      schädlich + beliebt       
+HypeNet                 Arbeitgeber      -32.1 Pkt         71.4 Pkt         70.2 Pkt        114.2 Grad         78.3 Pkt          1.9 MWU      schädlich + beliebt       
+SchnellMode             Arbeitgeber      -40.9 Pkt         58.1 Pkt         48.1 Pkt        125.1 Grad         71.1 Pkt        -15.7 MWU      schädlich + beliebt       
+DatenLotse              Arbeitgeber      -50.4 Pkt         49.4 Pkt         68.9 Pkt        135.6 Grad         70.6 Pkt        -21.5 MWU      schädlich + beliebt       
+Billig-Modepaket        Produkt          -49.7 Pkt         67.3 Pkt         47.7 Pkt        126.4 Grad         83.6 Pkt        -21.5 MWU      schädlich + beliebt       
+Suchtspiel-Box          Produkt          -69.8 Pkt         85.1 Pkt         51.2 Pkt        129.3 Grad        110.1 Pkt        -36.0 MWU      schädlich + beliebt       
+Privatdaten-Handel      Produkt          -84.2 Pkt         52.3 Pkt         58.3 Pkt        148.2 Grad         99.1 Pkt        -51.1 MWU      schädlich + beliebt       
+
+Bunte Lesart: Je weiter ein Objekt vom Mittelpunkt entfernt ist, desto weniger neutral ist es. Ein hoher VW bedeutet nicht bloß hohen Preis, sondern ein starkes Anspruchs- und Vertrauenssignal.
+
+  KlinikBund             GV ░░░░░░░░░░░░███████████░  BV ░░░░░░░░░░░█░░░░░░░░░░░░  HV ███████████████████░░░░░
+  Heilwasser-Filter      GV ░░░░░░░░░░░░██████████░░  BV ░░░░░░░░░░░░████░░░░░░░░  HV ███████████████░░░░░░░░░
+  SolarWerk              GV ░░░░░░░░░░░░█████████░░░  BV ░░░░░░░░░░░░████░░░░░░░░  HV █████████████████░░░░░░░
+  Offener Lernkurs       GV ░░░░░░░░░░░░███████████░  BV ░░░░░░░░░░░█░░░░░░░░░░░░  HV █████████████░░░░░░░░░░░
+  Grundlagenforschung    GV ░░░░░░░░░░░░██████████░░  BV ░░░░░░░░████░░░░░░░░░░░░  HV █████████████████░░░░░░░
+  NovaPflege             GV ░░░░░░░░░░░░██████████░░  BV ░░░░░░░░░░░░██░░░░░░░░░░  HV ███████████████░░░░░░░░░
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 02 — Regierungssignal, Bevölkerungssignal und Wissenssignal ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Die Simulation trennt die normative Bewertung von der Popularität. Regierungen und Prüfstellen drücken Gutartigkeit nach oben oder unten; die Bevölkerung verschiebt Beliebtheit; ein Wissenssignal korrigiert beide Seiten, sobald Folgen messbar werden.
+
+Kürzel in diesem Teil
+  REG = Regierungssignal: institutionelle Einschätzung von Nutzen, Schaden, Fairness und zulässigen Nebenwirkungen. Es verändert vor allem den Gutartigkeitswert.
+  BEV = Bevölkerungssignal: kollektive Nachfrage, Zustimmung, Ablehnung, Mode und Gewöhnung. Es verändert vor allem den Beliebtheitswert.
+  WIS = Wissenssignal: sachliche Korrektur aus Forschung, Messdaten und Schadensbeobachtung. Es verhindert, dass bloße Propaganda dauerhaft als Wahrheit zählt.
+  GV = Gutartigkeitswert: Zielgröße, die hier durch Regierungssignal und Wissenssignal angepasst wird.
+  BV = Beliebtheitswert: Zielgröße, die hier durch Bevölkerungssignal und messbare Gewöhnung angepasst wird.
+  DG = Differenz des Gutartigkeitswerts: die farbig markierte Veränderung des Gutartigkeitswerts in einem Simulationsschritt.
+  DB = Differenz des Beliebtheitswerts: die farbig markierte Veränderung des Beliebtheitswerts in einem Simulationsschritt.
+Einheiten in diesem Teil
+  Pkt = Punkte auf der Wertskala.
+  % = Prozentanteile für Signalstärke.
+  Tag = Simulierter Entscheidungstag.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Tag  1 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -16.2 %         +7.6 %        -12.8 %          -8.5 Pkt         +2.4 Pkt        -78.3 Pkt         87.5 Pkt    
+Offener Lernkurs           +5.4 %         -3.4 %         +9.6 %          +4.7 Pkt         -0.9 Pkt         99.7 Pkt         -5.7 Pkt    
+Privatdaten-Handel        -18.0 %         +4.9 %        -11.9 %          -8.7 Pkt         +1.4 Pkt        -92.9 Pkt         53.7 Pkt    
+Reparierbare Lampe         +7.0 %         -3.9 %         +2.5 %          +2.6 Pkt         -1.4 Pkt         70.6 Pkt        -13.6 Pkt    
+Kurzvideo-App              -8.5 %        +14.3 %         -4.1 %          -3.6 Pkt         +5.3 Pkt        -25.3 Pkt        100.0 Pkt    
+Grundlagenforschung       +11.5 %         +7.3 %         +5.1 %          +4.7 Pkt         +3.0 Pkt         91.0 Pkt        -28.3 Pkt    
+
+Tag  2 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -18.0 %         +0.6 %        -11.3 %          -8.5 Pkt         -0.2 Pkt        -86.7 Pkt         87.3 Pkt    
+Offener Lernkurs          +12.9 %         +2.0 %         +8.5 %          +6.2 Pkt         +1.1 Pkt        100.0 Pkt         -4.6 Pkt    
+Privatdaten-Handel        -18.0 %        +11.2 %        -12.4 %          -8.8 Pkt         +3.7 Pkt       -100.0 Pkt         57.4 Pkt    
+Reparierbare Lampe        +10.5 %         +6.7 %         +7.3 %          +5.2 Pkt         +2.8 Pkt         75.7 Pkt        -10.8 Pkt    
+Kurzvideo-App             -11.5 %        +11.8 %         -7.2 %          -5.4 Pkt         +4.2 Pkt        -30.7 Pkt        100.0 Pkt    
+Grundlagenforschung       +12.5 %         +6.2 %         +9.4 %          +6.4 Pkt         +2.7 Pkt         97.4 Pkt        -25.6 Pkt    
+
+Tag  3 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -18.0 %         +3.3 %        -12.0 %          -8.7 Pkt         +0.8 Pkt        -95.4 Pkt         88.1 Pkt    
+Offener Lernkurs           +6.7 %         +9.6 %         +9.9 %          +5.1 Pkt         +4.0 Pkt        100.0 Pkt         -0.6 Pkt    
+Privatdaten-Handel        -18.0 %         +9.7 %        -15.4 %          -9.9 Pkt         +3.1 Pkt       -100.0 Pkt         60.5 Pkt    
+Reparierbare Lampe         +5.6 %         +6.9 %         +3.8 %          +2.7 Pkt         +2.8 Pkt         78.4 Pkt         -8.0 Pkt    
+Kurzvideo-App             -12.6 %         +3.1 %         -7.7 %          -5.8 Pkt         +0.9 Pkt        -36.5 Pkt        100.0 Pkt    
+Grundlagenforschung       +12.6 %         +9.3 %         +6.4 %          +5.4 Pkt         +3.8 Pkt        100.0 Pkt        -21.8 Pkt    
+
+Tag  4 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -18.0 %         +5.4 %        -11.5 %          -8.5 Pkt         +1.6 Pkt       -100.0 Pkt         89.7 Pkt    
+Offener Lernkurs          +10.1 %        +11.0 %         +5.4 %          +4.4 Pkt         +4.4 Pkt        100.0 Pkt          3.8 Pkt    
+Privatdaten-Handel        -18.0 %         -0.3 %        -12.4 %          -8.8 Pkt         -0.6 Pkt       -100.0 Pkt         59.9 Pkt    
+Reparierbare Lampe         +5.6 %         -3.8 %         +5.2 %          +3.2 Pkt         -1.2 Pkt         81.7 Pkt         -9.3 Pkt    
+Kurzvideo-App              -8.1 %         +5.0 %         -6.5 %          -4.3 Pkt         +1.6 Pkt        -40.8 Pkt        100.0 Pkt    
+Grundlagenforschung       +10.0 %         +0.4 %         +8.4 %          +5.5 Pkt         +0.5 Pkt        100.0 Pkt        -21.3 Pkt    
+
+Tag  5 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -18.0 %        +10.5 %        -16.0 %         -10.1 Pkt         +3.4 Pkt       -100.0 Pkt         93.0 Pkt    
+Offener Lernkurs          +13.3 %         +4.9 %         +9.1 %          +6.5 Pkt         +2.2 Pkt        100.0 Pkt          6.1 Pkt    
+Privatdaten-Handel        -18.0 %         +7.5 %        -16.0 %         -10.1 Pkt         +2.2 Pkt       -100.0 Pkt         62.1 Pkt    
+Reparierbare Lampe         +4.3 %         +5.2 %         +4.9 %          +2.8 Pkt         +2.2 Pkt         84.4 Pkt         -7.1 Pkt    
+Kurzvideo-App             -12.3 %        +13.6 %         -6.1 %          -5.2 Pkt         +4.9 Pkt        -46.0 Pkt        100.0 Pkt    
+Grundlagenforschung        +8.4 %         -0.8 %         +7.4 %          +4.7 Pkt         +0.0 Pkt        100.0 Pkt        -21.2 Pkt    
+
+Tag  6 Tag — Signale prallen aufeinander
+Objekt                   REG            BEV            WIS            DG               DB               GV               BV             
+───────────────────────  ─────────────  ─────────────  ─────────────  ───────────────  ───────────────  ───────────────  ───────────────
+Suchtspiel-Box            -18.0 %         +4.2 %        -16.0 %         -10.1 Pkt         +0.9 Pkt       -100.0 Pkt         94.0 Pkt    
+Offener Lernkurs           +9.2 %        +11.5 %         +8.8 %          +5.4 Pkt         +4.7 Pkt        100.0 Pkt         10.8 Pkt    
+Privatdaten-Handel        -18.0 %         +6.8 %        -16.0 %         -10.1 Pkt         +1.9 Pkt       -100.0 Pkt         64.0 Pkt    
+Reparierbare Lampe         +8.4 %         -5.2 %         +4.8 %          +3.8 Pkt         -1.8 Pkt         88.2 Pkt         -8.9 Pkt    
+Kurzvideo-App             -12.4 %         +9.3 %         -6.9 %          -5.5 Pkt         +3.2 Pkt        -51.5 Pkt        100.0 Pkt    
+Grundlagenforschung        +9.7 %         +1.4 %         +6.2 %          +4.6 Pkt         +0.8 Pkt        100.0 Pkt        -20.5 Pkt    
+
+Zwischenbefund: Beliebtheit bewegt sich schneller als Gutartigkeit. Darum können schädliche, beliebte Objekte kurzfristig steigen, bevor REG und WIS sie bremsen.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 03 — Produktmarkt mit moralischer Preisumgebung ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Produkte werden nicht nur nach Zahlungsbereitschaft verkauft. Nachfrage, Angebot, Steuer oder Förderung und Wertwährungswert bestimmen gemeinsam, ob ein Produkt künstlich gebremst, gestützt oder normal gehandelt wird.
+
+Kürzel in diesem Teil
+  PR = Preisreferenz: der simulierte Endpreis nach Beliebtheit, Gutartigkeit, Hierarchie und Steuer- oder Förderwirkung.
+  NA = Nachfrageindex: zeigt, wie stark die Kundschaft ein Produkt im aktuellen Schritt zieht. Beliebtheit erhöht den Index, moralische Bremsen können ihn senken.
+  AN = Angebotseinheiten: verfügbare Stückzahl des Produkts, die in diesem Schritt in den Markt gelangt.
+  SF = Steuer-Förder-Satz: positiver Wert bedeutet Aufschlag für schädliche oder riskante Ware; negativer Wert bedeutet Förderung für nützliche, aber unterbewertete Ware.
+  GV = Gutartigkeitswert: bestimmt, ob das Produkt eher gefördert, neutral behandelt oder belastet wird.
+  BV = Beliebtheitswert: bestimmt, ob Nachfrage aus Zustimmung, Mode, Sucht oder kultureller Gewöhnung entsteht.
+  VW = Wertwährungswert: verdichtetes Signal der moralisch-sozialen Qualität des Produkts.
+Einheiten in diesem Teil
+  EUR = Konventionelle Preisreferenz.
+  % = Prozentwert für Nachfrage und Steuer oder Förderung.
+  Stk = Stückzahl im simulierten Angebot.
+  MWU = Moralwährungseinheiten.
+  Trans = Gezählte Transaktionen.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Produkt                   PR               NA              AN            SF             VW              Eingriff     
+────────────────────────  ───────────────  ──────────────  ────────────  ─────────────  ──────────────  ─────────────
+Kurzvideo-App                  0.00 EUR      95.2 %          7787 Stk     +32.9 %         -11.2 MWU     belasten     
+Suchtspiel-Box                32.33 EUR      85.6 %           384 Stk     +35.0 %         -56.2 MWU     belasten     
+Billig-Modepaket              17.65 EUR      77.8 %           554 Stk     +28.5 %         -21.5 MWU     belasten     
+Privatdaten-Handel            57.81 EUR      70.0 %           219 Stk     +35.0 %         -60.4 MWU     belasten     
+Statusuhr                    702.63 EUR      88.5 %            55 Stk      +0.0 %          19.0 MWU     neutral      
+Öko-Transport                120.89 EUR      74.3 %           138 Stk      +0.0 %          56.7 MWU     neutral      
+Heilwasser-Filter             90.61 EUR      73.7 %           119 Stk      +0.0 %          64.8 MWU     neutral      
+Pflege-Roboter               339.52 EUR      69.6 %            51 Stk      +0.0 %          53.9 MWU     neutral      
+Sicherheitssoftware           68.55 EUR      69.4 %           318 Stk      +0.0 %          56.6 MWU     neutral      
+Offener Lernkurs               7.47 EUR      62.5 %           904 Stk      +0.0 %          67.7 MWU     neutral      
+Reparierbare Lampe            36.27 EUR      51.8 %           251 Stk     -16.0 %          58.8 MWU     fördern      
+Grundlagenforschung            0.00 EUR      47.0 %           786 Stk     -18.0 %          70.1 MWU     fördern      
+
+Transaktionsbilanz:     2254 Trans wurden simuliert. Der Marktpreis bleibt sichtbar, aber SF und VW machen die Nebenwirkungen farbig lesbar.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 04 — Arbeitsmarkt: Arbeitgeber und Arbeitskräfte bewerten einander ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Arbeitskräfte werden nicht allein über Lohn einsortiert, und Arbeitgeber nicht allein über Profit. Leistung, Selbstlosigkeit, hierarchische Verantwortung und moralische Unternehmensqualität bestimmen das Matching.
+
+Kürzel in diesem Teil
+  AG = Arbeitgeber: Organisation, die Arbeitskraft nachfragt. Ihr eigener Gutartigkeits- und Hierarchiewert beeinflusst, welche Arbeitskräfte sie verdient und anzieht.
+  AK = Arbeitskraft: Person, die Leistung, Selbstlosigkeit, Beliebtheit und Aufstiegspotenzial in den Markt einbringt.
+  LF = Leistungsfaktor: fachliche, organisatorische und ausdauerbezogene Fähigkeit einer Arbeitskraft.
+  SE = Selbstlosigkeitsenergie: Anteil der Arbeitshaltung, der nicht nur persönlichen Gewinn, sondern auch Nutzen für andere berücksichtigt.
+  LO = Lohnangebot: simulierte Geldzahlung, die aus Leistung, Hierarchie und Arbeitgeberqualität entsteht.
+  GV = Gutartigkeitswert: hier sowohl persönliche als auch organisationale Güte der Handlung.
+  BV = Beliebtheitswert: soziale Anschlussfähigkeit, Ruf und öffentliche Attraktivität.
+  HV = Hierarchiewert: Verantwortungsstufe der Arbeitskraft oder des Arbeitgebers.
+Einheiten in diesem Teil
+  EUR = Monatliche Lohnreferenz.
+  Pkt = Punkte für Leistung, Güte, Beliebtheit und Hierarchie.
+  Pers = Anzahl von Personen.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+AK               AG                LF              SE              LO               GV AG           HV Δ        
+───────────────  ────────────────  ──────────────  ──────────────  ───────────────  ──────────────  ────────────
+Omar             KlinikBund           87.2 Pkt        94.8 Pkt          9672 EUR       89.3 Pkt        +1.6 Pkt 
+Luan             KlinikBund           59.0 Pkt        86.3 Pkt          8481 EUR       89.3 Pkt        +1.2 Pkt 
+Pia              KlinikBund           62.8 Pkt        59.1 Pkt          7957 EUR       89.3 Pkt        +1.2 Pkt 
+Daria            KlinikBund           67.2 Pkt        95.4 Pkt          7890 EUR       89.3 Pkt        +1.7 Pkt 
+Jona             KlinikBund           96.2 Pkt        47.8 Pkt          7593 EUR       89.3 Pkt        +2.7 Pkt 
+Sofia            NovaPflege           63.3 Pkt        70.0 Pkt          7584 EUR       79.4 Pkt        +0.9 Pkt 
+Taro             KlinikBund           79.9 Pkt        58.7 Pkt          7407 EUR       89.3 Pkt        +2.0 Pkt 
+Mina             KlinikBund           35.1 Pkt        36.0 Pkt          7300 EUR       89.3 Pkt        +0.2 Pkt 
+Bela             LernHafen            88.1 Pkt        47.0 Pkt          6964 EUR       76.1 Pkt        +1.4 Pkt 
+Elif             KlinikBund           64.1 Pkt        59.4 Pkt          6923 EUR       89.3 Pkt        +2.0 Pkt 
+Falk             NovaPflege           66.1 Pkt        34.6 Pkt          6793 EUR       79.4 Pkt        +1.1 Pkt 
+Kira             SolarWerk            49.6 Pkt        49.4 Pkt          6682 EUR       77.3 Pkt        +1.1 Pkt 
+Cem              SolarWerk            49.4 Pkt        72.9 Pkt          6606 EUR       77.3 Pkt        +1.1 Pkt 
+Greta            SolarWerk            58.5 Pkt        15.4 Pkt          6556 EUR       77.3 Pkt        +1.1 Pkt 
+Hao              LernHafen            70.8 Pkt        35.3 Pkt          6465 EUR       76.1 Pkt        +1.0 Pkt 
+Ravi             KlinikBund           41.2 Pkt        62.2 Pkt          5804 EUR       89.3 Pkt        +1.6 Pkt 
+Amina            KlinikBund           51.0 Pkt        55.0 Pkt          5558 EUR       89.3 Pkt        +1.9 Pkt 
+Ida              NovaPflege           62.0 Pkt        97.9 Pkt          5474 EUR       79.4 Pkt        +1.7 Pkt 
+Yuna             LernHafen            58.0 Pkt        99.0 Pkt          5375 EUR       76.1 Pkt        +1.2 Pkt 
+Niko             SolarWerk            33.2 Pkt        38.4 Pkt          5077 EUR       77.3 Pkt        +1.3 Pkt 
+
+Arbeitsmarkt-Befund:   20 Pers wurden zugeordnet. Durchschnittliches LO =      6908 EUR ; ethisch passende Kopplungen:  12 Pers
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 05 — Aktienmarkt: Rendite, Moralvektor und Blasenlast ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Unternehmen steigen nicht nur wegen Profit. Kapital sucht Gewinn, aber die Simulation markiert zusätzlich, ob ein profitabler Anstieg aus guter Wirkung oder aus gefährlicher Beliebtheit stammt.
+
+Kürzel in diesem Teil
+  AS = Aktienstand: simulierter Kurswert einer Unternehmensbeteiligung.
+  RN = Renditenähe: kurzfristiger Gewinnimpuls aus Profit und Nachfrage nach der Aktie.
+  BL = Blasenlast: Warnwert für schädliche, aber beliebte Unternehmen. Hohe Blasenlast bedeutet: Preis steigt, obwohl die moralische Grundlage schwach ist.
+  GV = Gutartigkeitswert: moralischer Gegenpol zur rein finanziellen Rendite.
+  BV = Beliebtheitswert: kann legitimes Vertrauen oder gefährlichen Hype anzeigen.
+  HV = Hierarchiewert: zeigt die Systemrelevanz eines Unternehmens.
+  VW = Wertwährungswert: zusammengesetzte Einordnung des Unternehmens jenseits des Aktienpreises.
+Einheiten in diesem Teil
+  EUR = Simulierter Aktienkurs.
+  % = Prozentwert für Rendite und Blasenlast.
+  Pkt = Punkte für Wertdimensionen.
+  MWU = Moralwährungseinheiten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Unternehmen       AS               RN             BL             GV              BV              HV              VW              Lesart     
+────────────────  ───────────────  ─────────────  ─────────────  ──────────────  ──────────────  ──────────────  ──────────────  ───────────
+SpekulaBank          146.35 EUR      +3.0 %         13.4 %         -20.7 Pkt        40.6 Pkt        76.8 Pkt         4.7 MWU     neutral    
+SolarWerk            103.61 EUR      +2.2 %          2.6 %          77.3 Pkt        36.2 Pkt        70.5 Pkt        63.9 MWU     solide     
+KlinikBund            95.83 EUR      +0.6 %          3.2 %          89.3 Pkt        -6.1 Pkt        79.6 Pkt        65.1 MWU     solide     
+DatenLotse            95.01 EUR      +1.7 %         27.8 %         -50.4 Pkt        49.4 Pkt        68.9 Pkt       -21.5 MWU     neutral    
+NovaPflege            79.19 EUR      +1.2 %          3.5 %          79.4 Pkt        14.4 Pkt        61.8 Pkt        56.9 MWU     solide     
+HypeNet               42.68 EUR      +1.4 %         29.0 %         -32.1 Pkt        71.4 Pkt        70.2 Pkt         1.9 MWU     neutral    
+LernHafen             41.26 EUR      +1.4 %          1.6 %          76.1 Pkt        19.7 Pkt        51.4 Pkt        55.3 MWU     solide     
+SchnellMode           25.59 EUR      +1.1 %         27.2 %         -40.9 Pkt        58.1 Pkt        48.1 Pkt       -15.7 MWU     neutral    
+
+Kapitaldiagnose: BL trennt profitable Güte von profitabler Verführung. Dadurch kann ein steigender AS gleichzeitig rot markiert werden.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 06 — Währungsmarkt: Staaten als aggregierte Wertvektoren ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Die Simulation übersetzt nationale Güte, Beliebtheit, Hierarchiestruktur und Risiko in Wechselkurse. Der Kurs ist dadurch nicht nur Kaufkraft, sondern auch institutionelles Vertrauen.
+
+Kürzel in diesem Teil
+  WK = Währungskurs: simulierter Außenwert einer Landeswährung gegenüber einer neutralen Referenz.
+  RS = Risiko-Schatten: Belastung durch instabile Institutionen, Manipulierbarkeit, Krisenanfälligkeit oder hohe Schadenswerte.
+  GV = Gutartigkeitswert: Qualität der öffentlichen Regeln, Produktionsfolgen und Schutzmechanismen.
+  BV = Beliebtheitswert: Vertrauen, kulturelle Attraktivität und Nachfrage nach der Währung.
+  HV = Hierarchiewert: strukturelle Bedeutung des Landes im simulierten Netz.
+  VW = Wertwährungswert: verdichtetes Ländersignal aus Güte, Beliebtheit, Hierarchie und Risiko.
+Einheiten in diesem Teil
+  Kurs = Wechselkurszahl gegen eine neutrale Referenz.
+  Pkt = Punkte für Wertdimensionen.
+  MWU = Moralwährungseinheiten.
+  % = Prozent für Risiko-Schatten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Land          WK               RS             GV              BV              HV              VW              Vertrauensband          
+────────────  ───────────────  ─────────────  ──────────────  ──────────────  ──────────────  ──────────────  ────────────────────────
+Albia           1.804 Kurs       29.8 %          68.7 Pkt        31.1 Pkt        56.8 Pkt        51.3 MWU     ██████████████░░░░░░    
+Cyrenia         1.628 Kurs       19.9 %          67.7 Pkt       -16.7 Pkt        64.7 Pkt        49.1 MWU     ██████████████░░░░░░    
+Borealis        1.565 Kurs       35.6 %          24.2 Pkt        50.3 Pkt        57.8 Pkt        32.5 MWU     ████████████░░░░░░░░    
+Eldoria         1.549 Kurs       21.5 %          48.8 Pkt        20.1 Pkt        42.5 Pkt        36.8 MWU     ████████████░░░░░░░░    
+Deltora         0.902 Kurs       77.6 %         -21.9 Pkt        75.4 Pkt        45.3 Pkt        -2.0 MWU     ███████░░░░░░░░░░░░░    
+Feronia         0.719 Kurs       87.2 %         -43.5 Pkt        28.1 Pkt        67.3 Pkt        -9.2 MWU     ██████░░░░░░░░░░░░░░    
+
+Währungsbefund: Hoher BV allein reicht nicht. Sobald RS zu hoch wird, verliert WK trotz Popularität Stabilität.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 07 — Versicherungsmarkt: Risiko, Solidarität und Prämie ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Versicherung wird als Markt für Schutz simuliert. Hohe Risiken erhöhen die Prämie; gesellschaftlich nützliche oder systemrelevante Fälle erhalten solidarische Glättung, damit Schutz nicht nur Reichen zusteht.
+
+Kürzel in diesem Teil
+  RP = Risikoprofil: erwartete Schadenslast eines Falls. Es umfasst technische, soziale und moralische Risiken.
+  PB = Prämienbetrag: zu zahlender Beitrag nach Risiko, Hierarchie und solidarischer Korrektur.
+  SA = Solidarausgleich: Entlastung für nützliche, notwendige oder verletzliche Fälle; Belastung für riskante Ausbeutung.
+  GV = Gutartigkeitswert: zeigt, ob der versicherte Fall gesellschaftlich nützlich oder schädlich wirkt.
+  HV = Hierarchiewert: zeigt, ob der Fall systemisch wichtig ist und Ausfälle viele andere treffen würden.
+  VW = Wertwährungswert: Gesamtlesart des Falls im Schutzmarkt.
+Einheiten in diesem Teil
+  EUR = Simulierter Monatsbeitrag.
+  % = Prozentwert für Risiko und Solidarausgleich.
+  Pkt = Punkte für Wertdimensionen.
+  MWU = Moralwährungseinheiten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Fall                RP             SA             PB               GV              HV              VW              Wirkung     
+──────────────────  ─────────────  ─────────────  ───────────────  ──────────────  ──────────────  ──────────────  ────────────
+Pflegekollektiv       29.5 %        +18.8 %             144 EUR       79.0 Pkt        62.0 Pkt        52.8 MWU     entlasten   
+Datenplattform        89.8 %        -16.1 %             807 EUR      -51.0 Pkt        73.0 Pkt       -16.4 MWU     belasten    
+Solarflotte           25.7 %        +14.7 %             227 EUR       72.0 Pkt        57.0 Pkt        48.7 MWU     entlasten   
+Modekette             81.7 %        -16.5 %             621 EUR      -42.0 Pkt        46.0 Pkt       -19.7 MWU     belasten    
+Forschungslabor       18.8 %        +26.1 %             338 EUR       91.0 Pkt        81.0 Pkt        67.3 MWU     entlasten   
+Freie Künstler        36.8 %         +8.2 %             135 EUR       41.0 Pkt        31.0 Pkt        22.7 MWU     entlasten   
+
+Versicherungsbefund: PB ist kein nackter Risikopreis. Durch SA wird sichtbar, wann Risiko privat verursacht und wann Schutz gesellschaftlich begründet ist.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 08 — Karriere, Aufstieg und Abstieg über Märkte hinweg ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Hierarchie ist beweglich. Arbeitskräfte, Unternehmen und Produkte steigen, wenn Leistung, Güte und tragfähige Beliebtheit zusammenkommen; sie fallen, wenn Risiko, Schaden oder leere Popularität dominieren.
+
+Kürzel in diesem Teil
+  AU = Aufstiegschance: Wahrscheinlichkeit, dass ein Objekt in der Hierarchie eine höhere Verantwortungsebene erreicht.
+  AB = Abstiegsdruck: Wahrscheinlichkeit, dass ein Objekt wegen Schaden, Risiko, schwacher Leistung oder kollabierender Beliebtheit fällt.
+  LT = Leistungstrend: aktuelle Richtung der produktiven Wirkung, berechnet aus Leistungsnähe, Profit oder Nachfrage.
+  GV = Gutartigkeitswert: hebt Aufstieg, wenn Wirkung positiv ist; senkt Aufstieg, wenn Erfolg auf Schaden beruht.
+  BV = Beliebtheitswert: kann Aufstieg beschleunigen, aber nur stabil, wenn der Gutartigkeitswert nicht dagegenarbeitet.
+  HV = Hierarchiewert: veränderliche Ranghöhe des Objekts.
+  VW = Wertwährungswert: Gesamtlesart für die Entscheidung, ob Aufstieg verdient oder riskant ist.
+Einheiten in diesem Teil
+  % = Prozentwert für Aufstiegschance und Abstiegsdruck.
+  Pkt = Punkte für Trend und Hierarchie.
+  MWU = Moralwährungseinheiten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Objekt                  Art             AU             AB             LT              GV              HV              VW              Bewegung    
+──────────────────────  ──────────────  ─────────────  ─────────────  ──────────────  ──────────────  ──────────────  ──────────────  ────────────
+Omar                    Arbeitskraft      55.9 %          2.3 %         +80.7 Pkt        77.0 Pkt        61.8 Pkt        66.2 MWU     Aufstieg    
+Jona                    Arbeitskraft      56.7 %          5.1 %         +63.2 Pkt        81.6 Pkt        25.0 Pkt        51.5 MWU     Aufstieg    
+Ida                     Arbeitskraft      52.9 %          5.1 %         +57.7 Pkt        83.3 Pkt        22.3 Pkt        56.0 MWU     Aufstieg    
+Daria                   Arbeitskraft      51.8 %          6.0 %         +50.3 Pkt        98.4 Pkt        45.4 Pkt        66.1 MWU     Aufstieg    
+Yuna                    Arbeitskraft      51.8 %          6.4 %         +46.8 Pkt        98.3 Pkt        27.3 Pkt        60.7 MWU     Aufstieg    
+Elif                    Arbeitskraft      47.0 %          4.7 %         +60.4 Pkt        76.8 Pkt        31.2 Pkt        38.9 MWU     Aufstieg    
+Taro                    Arbeitskraft      47.5 %          6.5 %         +46.1 Pkt        84.1 Pkt        39.9 Pkt        50.7 MWU     Aufstieg    
+Sofia                   Arbeitskraft      46.1 %          5.3 %         +55.9 Pkt        73.8 Pkt        53.8 Pkt        51.0 MWU     Aufstieg    
+Bela                    Arbeitskraft      45.3 %          4.6 %         +61.7 Pkt        59.2 Pkt        38.4 Pkt        36.0 MWU     Aufstieg    
+Amina                   Arbeitskraft      44.2 %          5.4 %         +55.1 Pkt        55.0 Pkt        27.9 Pkt        34.8 MWU     Aufstieg    
+Pia                     Arbeitskraft      43.7 %          6.4 %         +46.6 Pkt        74.4 Pkt        63.3 Pkt        53.6 MWU     Aufstieg    
+Cem                     Arbeitskraft      42.5 %          5.9 %         +50.9 Pkt        55.0 Pkt        45.9 Pkt        46.1 MWU     Aufstieg    
+Greta                   Arbeitskraft      41.8 %          6.4 %         +46.4 Pkt        47.9 Pkt        49.7 Pkt        37.0 MWU     Aufstieg    
+SolarWerk               Unternehmen       42.0 %          7.9 %         +45.8 Pkt        77.3 Pkt        70.5 Pkt        63.9 MWU     Aufstieg    
+Offener Lernkurs        Produkt           41.5 %         11.5 %         +36.4 Pkt       100.0 Pkt        54.3 Pkt        67.7 MWU     Aufstieg    
+Hao                     Arbeitskraft      35.9 %          6.0 %         +49.8 Pkt        36.6 Pkt        44.9 Pkt        26.3 MWU     Aufstieg    
+Luan                    Arbeitskraft      36.2 %          7.0 %         +41.5 Pkt        75.2 Pkt        60.2 Pkt        52.1 MWU     Aufstieg    
+Kira                    Arbeitskraft      37.2 %          8.3 %         +30.8 Pkt        45.9 Pkt        45.4 Pkt        43.4 MWU     Aufstieg    
+Ravi                    Arbeitskraft      37.3 %          8.8 %         +26.3 Pkt        55.6 Pkt        34.7 Pkt        43.1 MWU     Aufstieg    
+Falk                    Arbeitskraft      33.5 %          6.6 %         +44.8 Pkt        31.1 Pkt        47.0 Pkt        25.7 MWU     Aufstieg    
+LernHafen               Unternehmen       35.6 %          9.0 %         +24.8 Pkt        76.1 Pkt        51.4 Pkt        55.3 MWU     Aufstieg    
+Heilwasser-Filter       Produkt           37.3 %         13.0 %         +27.4 Pkt        83.4 Pkt        63.9 Pkt        64.8 MWU     halten      
+NovaPflege              Unternehmen       34.2 %         11.4 %         +18.4 Pkt        79.4 Pkt        61.8 Pkt        56.9 MWU     halten      
+Mina                    Arbeitskraft      29.5 %          7.1 %         +40.6 Pkt        23.2 Pkt        83.6 Pkt        36.7 MWU     halten      
+Öko-Transport           Produkt           36.2 %         14.4 %         +29.5 Pkt        74.7 Pkt        59.9 Pkt        56.7 MWU     halten      
+KlinikBund              Unternehmen       33.3 %         11.7 %         +13.6 Pkt        89.3 Pkt        79.6 Pkt        65.1 MWU     halten      
+Reparierbare Lampe      Produkt           34.4 %         13.5 %         +18.7 Pkt        88.2 Pkt        55.4 Pkt        58.8 MWU     halten      
+Grundlagenforschung     Produkt           33.8 %         13.4 %          +8.4 Pkt       100.0 Pkt        69.1 Pkt        70.1 MWU     halten      
+Niko                    Arbeitskraft      27.0 %          8.7 %         +27.2 Pkt        20.6 Pkt        28.6 Pkt        16.3 MWU     halten      
+Pflege-Roboter          Produkt           32.7 %         15.7 %         +18.4 Pkt        71.4 Pkt        63.5 Pkt        53.9 MWU     halten      
+Sicherheitssoftware     Produkt           30.8 %         15.7 %         +12.5 Pkt        68.8 Pkt        73.6 Pkt        56.6 MWU     halten      
+Statusuhr               Produkt           23.6 %         16.5 %         +29.2 Pkt         1.2 Pkt        48.7 Pkt        19.0 MWU     halten      
+SpekulaBank             Unternehmen       26.5 %         20.6 %         +45.6 Pkt       -20.7 Pkt        76.8 Pkt         4.7 MWU     halten      
+HypeNet                 Unternehmen       23.0 %         23.9 %         +31.5 Pkt       -32.1 Pkt        70.2 Pkt         1.9 MWU     halten      
+SchnellMode             Unternehmen       18.2 %         28.3 %         +20.9 Pkt       -40.9 Pkt        48.1 Pkt       -15.7 MWU     halten      
+DatenLotse              Unternehmen       20.7 %         32.1 %         +39.1 Pkt       -50.4 Pkt        68.9 Pkt       -21.5 MWU     halten      
+Kurzvideo-App           Produkt           14.0 %         31.4 %         +21.9 Pkt       -51.5 Pkt        56.9 Pkt       -11.2 MWU     Abstieg     
+Billig-Modepaket        Produkt           11.4 %         32.8 %         +15.8 Pkt       -49.7 Pkt        47.7 Pkt       -21.5 MWU     Abstieg     
+Suchtspiel-Box          Produkt            0.2 %         48.9 %          +2.4 Pkt      -100.0 Pkt        51.2 Pkt       -56.2 MWU     Abstieg     
+Privatdaten-Handel      Produkt            0.0 %         50.7 %         -11.4 Pkt      -100.0 Pkt        58.3 Pkt       -60.4 MWU     Abstieg     
+
+Karrierebefund: Der HV ist nicht starr. Ein beliebtes, aber schädliches Objekt kann kurzfristig oben stehen, doch hoher AB macht die Position instabil.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 09 — Manipulations-Stresstest: schädliche Beliebtheit gegen Schutzkraft ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Ein beliebtes, aber schädliches Objekt erhält künstliche Popularität. Danach greifen Schutzmechanismen: Transparenz, Prüfpflicht, Verzögerung gegen Hype und stärkere Gewichtung messbarer Schäden.
+
+Kürzel in diesem Teil
+  MP = Manipulationspegel: künstlich erzeugte Beliebtheit durch Werbung, Gewöhnung, Datentricks oder koordinierte Verstärkung.
+  SK = Schutzkraft: institutionelle und gesellschaftliche Fähigkeit, Manipulation zu erkennen und abzubremsen.
+  GV = Gutartigkeitswert: fällt, wenn reale Schäden sichtbarer werden.
+  BV = Beliebtheitswert: steigt durch Manipulation, kann aber durch Schutzkraft wieder sinken.
+  AR = Achsenrichtung: zeigt, ob das Objekt in Richtung schädlich-beliebt kippt.
+  VW = Wertwährungswert: wird durch Schaden und Manipulationsrisiko belastet.
+Einheiten in diesem Teil
+  % = Prozentwert für Manipulation und Schutzkraft.
+  Pkt = Punkte für Wertdimensionen.
+  Grad = Winkelgrad der Achsenrichtung.
+  MWU = Moralwährungseinheiten.
+  Tag = Simulierter Stresstesttag.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Zielobjekt: Suchtspiel-Box — hohe Beliebtheit trifft auf niedrige Güte.
+
+Schritt     MP             SK             GV              BV              AR               VW              Zustand       
+──────────  ─────────────  ─────────────  ──────────────  ──────────────  ───────────────  ──────────────  ──────────────
+ 1 Tag        27.0 %         32.9 %        -100.0 Pkt        92.8 Pkt       137.1 Grad       -57.3 MWU     Schutz greift 
+ 2 Tag        30.3 %         41.0 %        -100.0 Pkt        92.4 Pkt       137.2 Grad       -57.5 MWU     Schutz greift 
+ 3 Tag        38.0 %         50.7 %        -100.0 Pkt        91.2 Pkt       137.6 Grad       -58.0 MWU     Schutz greift 
+ 4 Tag        46.4 %         62.9 %        -100.0 Pkt        90.8 Pkt       137.7 Grad       -58.3 MWU     Schutz greift 
+ 5 Tag        54.1 %         76.5 %        -100.0 Pkt        91.6 Pkt       137.5 Grad       -58.4 MWU     Schutz greift 
+ 6 Tag        60.6 %         88.4 %        -100.0 Pkt        92.7 Pkt       137.2 Grad       -58.4 MWU     Schutz greift 
+ 7 Tag        64.9 %         99.7 %        -100.0 Pkt        92.3 Pkt       137.3 Grad       -58.7 MWU     Schutz greift 
+ 8 Tag        73.1 %        100.0 %        -100.0 Pkt        90.2 Pkt       137.9 Grad       -59.3 MWU     Schutz greift 
+ 9 Tag        74.6 %        100.0 %        -100.0 Pkt        91.0 Pkt       137.7 Grad       -59.2 MWU     Schutz greift 
+10 Tag        79.7 %        100.0 %        -100.0 Pkt        89.5 Pkt       138.2 Grad       -59.6 MWU     Schutz greift 
+
+Stresstest-Befund: Wenn MP schneller wächst als SK wandert das Objekt in Richtung schädlich-beliebt. Der farbige AR macht diese Drehung sichtbar.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 10 — Anspruchsverteilung knapper Güter ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Ein knappes Gut wird nicht bloß an die höchste Zahlungsfähigkeit verteilt. Bedarf, Gutartigkeit, Hierarchie, Beliebtheit und Mindestschutz bilden eine Anspruchszahl; daraus entsteht eine Quote.
+
+Kürzel in diesem Teil
+  AZ = Anspruchszahl: kombinierter Anspruch aus Bedarf, Wertwährungswert und Hierarchieverantwortung. Sie soll anzeigen, wem ein knappes Gut eher zusteht.
+  BR = Bedarf: Dringlichkeit des Falles. Hoher Bedarf kann auch bei niedriger Popularität einen Anspruch begründen.
+  QT = Quote: Anteil am knappen Gut nach Mindestschutz und Anspruchsgewichtung.
+  GV = Gutartigkeitswert: erhöht die Anspruchszahl, wenn der Empfänger oder Zweck positive Wirkung erzeugt.
+  BV = Beliebtheitswert: fließt schwächer ein, damit bloße Popularität nicht alles dominiert.
+  HV = Hierarchiewert: erhöht Anspruch, wenn ein Ausfall viele andere schädigen würde.
+  VW = Wertwährungswert: Gesamtwert, der in die Anspruchszahl eingeht.
+Einheiten in diesem Teil
+  Stk = Stückzahl des knappen Guts.
+  Pkt = Punkte für Bedarf und Wertdimensionen.
+  % = Quote der Zuteilung.
+  MWU = Moralwährungseinheiten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Empfänger               BR              VW              GV              BV              HV              AZ              Zuteilung     QT             Rang     
+──────────────────────  ──────────────  ──────────────  ──────────────  ──────────────  ──────────────  ──────────────  ────────────  ─────────────  ─────────
+Forschungslabor            87.9 Pkt        67.3 MWU        91.0 Pkt         0.0 Pkt        81.0 Pkt        82.1 Pkt       10 Stk        12.2 %       hoch     
+Grundlagenforschung        67.6 Pkt        70.1 MWU       100.0 Pkt       -20.5 Pkt        69.1 Pkt        72.4 Pkt        9 Stk        11.0 %       mittel   
+Pflegekollektiv            74.8 Pkt        52.8 MWU        79.0 Pkt         0.0 Pkt        62.0 Pkt        67.7 Pkt        9 Stk        11.0 %       mittel   
+Reparierbare Lampe         67.7 Pkt        58.8 MWU        88.2 Pkt        -8.9 Pkt        55.4 Pkt        65.8 Pkt        9 Stk        11.0 %       mittel   
+Heilwasser-Filter          58.1 Pkt        64.8 MWU        83.4 Pkt        29.2 Pkt        63.9 Pkt        65.0 Pkt        9 Stk        11.0 %       mittel   
+Pflege-Roboter             63.4 Pkt        53.9 MWU        71.4 Pkt        21.9 Pkt        63.5 Pkt        62.9 Pkt        8 Stk         9.8 %       mittel   
+Solarflotte                46.9 Pkt        48.7 MWU        72.0 Pkt         0.0 Pkt        57.0 Pkt        52.1 Pkt        7 Stk         8.5 %       mittel   
+Freie Künstler             56.6 Pkt        22.7 MWU        41.0 Pkt         0.0 Pkt        31.0 Pkt        42.0 Pkt        6 Stk         7.3 %       niedrig  
+Datenplattform             46.0 Pkt       -16.4 MWU       -51.0 Pkt         0.0 Pkt        73.0 Pkt        34.3 Pkt        5 Stk         6.1 %       niedrig  
+Kurzvideo-App              34.0 Pkt       -11.2 MWU       -51.5 Pkt       100.0 Pkt        56.9 Pkt        29.9 Pkt        5 Stk         6.1 %       niedrig  
+Modekette                  29.0 Pkt       -19.7 MWU       -42.0 Pkt         0.0 Pkt        46.0 Pkt        21.6 Pkt        4 Stk         4.9 %       niedrig  
+
+Verteilungsbefund: Der Mindestschutz verhindert Ausschluss. Darüber entscheidet AZ stärker als Kaufkraft. So wird sichtbar, wem etwas zusteht, ohne Grundansprüche zu zerstören.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 11 — Vergleich der Marktsegmente ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Alle Teilmärkte werden zusammengefasst. Die Matrix zeigt, wo der Wertvektor besonders stark reguliert, wo Popularität dominiert und wo Risiko die Ordnung verzerrt.
+
+Kürzel in diesem Teil
+  WM = Wirkungsmittel: mittlere Stärke des jeweiligen Marktsegments im System. Hohe Werte bedeuten, dass Entscheidungen in diesem Segment viele andere Vorgänge bewegen.
+  RS = Risiko-Schatten: mittlere Verzerrung durch Schaden, Unsicherheit, Manipulation oder externe Kosten.
+  GV = Gutartigkeitswert: durchschnittliche Güte des Marktsegments.
+  BV = Beliebtheitswert: durchschnittliche öffentliche Attraktivität des Marktsegments.
+  HV = Hierarchiewert: durchschnittliche strukturelle Höhe des Marktsegments.
+  VW = Wertwährungswert: zusammenfassendes Signal des Marktsegments.
+Einheiten in diesem Teil
+  Pkt = Punkte für Mittelwerte.
+  MWU = Moralwährungseinheiten.
+  % = Prozentwert für Risiko-Schatten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Segment           WM              RS             GV              BV              HV              VW              Farbspur                
+────────────────  ──────────────  ─────────────  ──────────────  ──────────────  ──────────────  ──────────────  ────────────────────────
+Produktmarkt         45.5 Pkt       35.4 %          23.9 Pkt        38.6 Pkt        58.5 Pkt        24.8 MWU     ████████████░░░░░░░░░░  
+Arbeitsmarkt        150.0 Pkt       17.6 %          62.7 Pkt        17.1 Pkt        43.8 Pkt        44.6 MWU     ██████████████░░░░░░░░  
+Aktienmarkt          39.2 Pkt       40.5 %          22.2 Pkt        35.5 Pkt        65.9 Pkt        26.3 MWU     ████████████░░░░░░░░░░  
+Währungsmarkt        36.0 Pkt       41.7 %          24.0 Pkt        31.4 Pkt        55.7 Pkt        26.4 MWU     ████████████░░░░░░░░░░  
+Versicherung         50.0 Pkt       41.5 %          31.7 Pkt         0.0 Pkt        58.3 Pkt        25.9 MWU     ████████████░░░░░░░░░░  
+
+Matrixbefund: Ein Marktsegment mit hohem WM und hohem RS ist besonders gefährlich, weil dort viele Folgen an einem verzerrten Signal hängen.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+◆ Teil 12 — Finale Diagnose: Nutzen, Hebel und Risikomarker ◆
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Was hier simuliert wird — Am Ende wird kein perfektes Urteil behauptet. Die Simulation zeigt, welche Tendenz das System erzeugt, wo ethische Hebel wirken und wo Machtmissbrauch, Hype oder falsche Hierarchie drohen.
+
+Kürzel in diesem Teil
+  ST = Systemtendenz: zusammenfassende Richtung des simulierten Markts nach allen Teilbewegungen.
+  EH = Ethik-Hebel: Anteil der Wertentscheidungen, der tatsächlich durch Gutartigkeit statt durch bloße Beliebtheit oder Macht erklärt wird.
+  RM = Risikomarker: Warnsignal für Manipulation, schädliche Popularität und zu starke staatliche oder private Bewertungsmacht.
+  GV = Gutartigkeitswert: abschließender Durchschnitt über Produkte und Unternehmen.
+  BV = Beliebtheitswert: abschließender Durchschnitt über Produkte und Unternehmen.
+  HV = Hierarchiewert: abschließender Durchschnitt über Produkte und Unternehmen.
+  VW = Wertwährungswert: abschließender Durchschnitt über Produkte und Unternehmen.
+Einheiten in diesem Teil
+  Pkt = Punkte für Gesamtsignale.
+  % = Prozent für Hebel und Risikomarker.
+  MWU = Moralwährungseinheiten.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ST              EH             RM             GV              BV              HV              VW            
+──────────────  ─────────────  ─────────────  ──────────────  ──────────────  ──────────────  ──────────────
+   17.4 Pkt       47.3 %         96.9 %          23.2 Pkt        37.3 Pkt        61.5 Pkt        25.4 MWU   
+
+Farbiges Endbild
+  ST ██████████████████████████░░░░░░░░░░░░░░░░░░    +17.4 Pkt
+  EH █████████████████████░░░░░░░░░░░░░░░░░░░░░░░    47.3 %
+  RM ███████████████████████████████████████████░    96.9 %
+
+Interpretation:
+  Die Simulation zeigt eine Währung, die nicht nur zählt, sondern liest: Sie liest Güte, Beliebtheit,
+  Hierarchie, Risiko und Anspruch. Ihr größter Vorteil ist Sichtbarkeit. Ihr größtes Risiko ist
+  Machtkonzentration bei den Stellen, die Gutartigkeit definieren oder Beliebtheit manipulieren können.
+
+Rote Beobachtung: Schädlich-beliebte Objekte bleiben der gefährlichste Quadrant: Suchtspiel-Box, Billig-Modepaket, Privatdaten-Handel, Kurzvideo-App, HypeNet
+Türkise Beobachtung: Gut-unbeliebte Objekte brauchen Schutz vor Unterbewertung: Reparierbare Lampe, Grundlagenforschung, KlinikBund
+
+Praktische Regel: Preis darf handeln helfen, aber er darf nicht allein entscheiden. Der Wertvektor macht sichtbar, welche Transaktionen verdient, riskant, manipuliert oder schutzwürdig sind.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Ende der Simulation — alle Werte sind Modellwerte, keine Behauptung über reale Personen, Firmen oder Staaten.
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════
