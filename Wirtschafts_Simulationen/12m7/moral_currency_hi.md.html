@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>moral_currency_hi</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="रडयल-हइररककल-नतक-मदर">रेडियल-हाइरार्किकल नैतिक मुद्रा</h1>
+<h2 id="परशन">प्रश्न</h2>
+<p>एक अक्ष अच्छा बनाम बुरा है और दूसरा अक्ष लोकप्रिय बनाम अलोकप्रिय है। फिर इसे एक
+संख्या में बदला जा सकता है: “हाइरार्की-स्तरों: किसी एक हाइरार्की-स्तर के सभी तत्वों
+का योग गुणा उस हाइरार्की-स्तर” का योग; और कोणीय दिशाएँ भी मनचाहे ढंग से निकाली
+जा सकती हैं। फिर इस संरचना को मुद्रा की तरह उपयोग किया जा सकता है और इस निर्माण
+को सभी बाज़ार-वस्तुओं से जोड़ा जा सकता है: श्रम बाज़ार, उत्पाद बाज़ार, शेयर बाज़ार,
+मुद्रा बाज़ार, बीमा बाज़ार। तब मुद्रा केवल संख्या नहीं रहती; मुद्रा यह बताती है कि
+किसे क्या मिलना चाहिए: जो बहुत योगदान देता है; और उत्पादों की अच्छाई या
+निःस्वार्थता पहचानी जा सकती है, क्योंकि इसे दुनिया की सरकारें निर्धारित करती हैं,
+जबकि जनसंख्या लोकप्रिय बनाम अलोकप्रिय निर्धारित करती है। हाइरार्की बदलने योग्य है:
+नीचे उतरना, करियर में ऊपर उठना, चढ़ना—उन सभी चीज़ों के लिए जो बाज़ारों में व्यापारित
+होती हैं, जैसे नियोक्ता और कर्मचारी।</p>
+<h2 id="उततर">उत्तर</h2>
+<p>हाँ। तुम जो वर्णन कर रहे हो, उसका मूल एक <strong>बहु-आयामी
+मूल्य-मुद्रा</strong> या एक <strong>नियामक बाज़ार-निर्देशांक प्रणाली</strong>
+है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">बाज़ार मूल्य</mtext><mo>≠</mo><mtext mathvariant="normal">कीमत</mtext></mrow><annotation encoding="application/x-tex">
+\text{बाज़ार मूल्य} \neq \text{कीमत}
+</annotation></semantics></math></p>
+<p>बल्कि अधिक सही रूप में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">बाज़ार मूल्य</mtext><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">हाइरार्की</mtext><mo>,</mo><mtext mathvariant="normal">अच्छाई</mtext><mo>,</mo><mtext mathvariant="normal">लोकप्रियता</mtext><mo>,</mo><mtext mathvariant="normal">बाज़ार-संदर्भ</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{बाज़ार मूल्य} = f(\text{हाइरार्की}, \text{अच्छाई}, \text{लोकप्रियता}, \text{बाज़ार-संदर्भ})
+</annotation></semantics></math></p>
+<p>यहाँ पैसा केवल एक तटस्थ संख्या नहीं रहता, बल्कि एक <strong>कोडित
+अधिकार-स्थिति</strong> बन जाता है: कौन कुछ पाता है, बेचता है, खोता है, कमाता है
+या ऊपर उठता है—यह केवल कीमत पर निर्भर नहीं रहता, बल्कि सिस्टम में उसकी मूल्यांकित
+स्थिति पर निर्भर होता है।</p>
+<h2 id="द-अकष-चर-मल-परकर-बनत-ह">1. दो अक्ष चार मूल प्रकार बनाते हैं</h2>
+<p>यदि एक अक्ष <strong>अच्छा ↔︎ बुरा</strong> है और दूसरा <strong>लोकप्रिय ↔︎
+अलोकप्रिय</strong>, तो चार चतुर्थांश बनते हैं:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>चतुर्थांश</th>
+<th>अर्थ</th>
+<th>उदाहरणात्मक व्याख्या</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>अच्छा + लोकप्रिय</strong></td>
+<td>सामाजिक रूप से वांछित और स्वीकार्य</td>
+<td>उपयोगी, न्यायपूर्ण, माँग वाले उत्पाद; सम्मानित काम</td>
+</tr>
+<tr>
+<td><strong>अच्छा + अलोकप्रिय</strong></td>
+<td>मूल्यवान लेकिन कम आँका गया</td>
+<td>देखभाल-कार्य, मूलभूत अनुसंधान, अलोकप्रिय लेकिन आवश्यक आधारभूत ढाँचा</td>
+</tr>
+<tr>
+<td><strong>बुरा + लोकप्रिय</strong></td>
+<td>खतरनाक रूप से आकर्षक</td>
+<td>लत पैदा करने वाले उत्पाद, हेरफेर, सट्टा बुलबुले, विषैले प्लेटफ़ॉर्म</td>
+</tr>
+<tr>
+<td><strong>बुरा + अलोकप्रिय</strong></td>
+<td>सामाजिक रूप से अवांछित</td>
+<td>शोषण, धोखाधड़ी, हानिकारक उत्पाद</td>
+</tr>
+</tbody>
+</table>
+<p>यह शक्तिशाली है क्योंकि यह उन चीज़ों को अलग करता है जिन्हें सामान्य बाज़ार अक्सर
+मिला देते हैं:<br />
+<strong>लोकप्रियता अच्छाई के समान नहीं है।</strong></p>
+<p>कोई उत्पाद लोकप्रिय और हानिकारक दोनों हो सकता है। कोई गतिविधि अलोकप्रिय और
+अत्यंत मूल्यवान दोनों हो सकती है। यही भेद तुम्हारे मॉडल के केंद्र में है।</p>
+<h2 id="हइररक-तसर-आयम-हग">2. हाइरार्की तीसरा आयाम होगी</h2>
+<p>“अच्छा/बुरा” और “लोकप्रिय/अलोकप्रिय” अक्ष <strong>दिशा</strong> देते हैं।
+हाइरार्की <strong>गहराई, ऊँचाई या रैंक-स्थिति</strong> देती है।</p>
+<p>औपचारिक रूप से किसी वस्तु को ऐसे वर्णित किया जा सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V(x) = (G(x), B(x), H(x))
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math>
+= अच्छाई, लगभग −1 से +1 तक<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B(x)</annotation></semantics></math>
+= लोकप्रियता, लगभग −1 से +1 तक<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math>
+= हाइरार्की-मूल्य, रैंक, स्तर, प्रभाव, योगदान की गहराई या संरचनात्मक स्थिति</li>
+</ul>
+<p>फिर एक कोणीय दिशा भी निकाली जा सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta(x) = \operatorname{atan2}(B(x), G(x))
+</annotation></semantics></math></p>
+<p>और एक परिमाण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r(x) = \sqrt{G(x)^2 + B(x)^2}
+</annotation></semantics></math></p>
+<p>तब कोई बाज़ार-वस्तु केवल “100 यूरो की” नहीं रहती, बल्कि उदाहरण के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">बहुत अच्छी</mtext><mo>,</mo><mtext mathvariant="normal">मध्यम लोकप्रिय</mtext><mo>,</mo><mtext mathvariant="normal">हाइरार्की स्तर 7</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+x = (\text{बहुत अच्छी}, \text{मध्यम लोकप्रिय}, \text{हाइरार्की स्तर 7})
+</annotation></semantics></math></p>
+<p>यह वास्तव में संख्या-मुद्रा से अधिक एक <strong>वेक्टर-मुद्रा</strong> होगी।</p>
+<h2 id="तमहर-हइररक-सतर-सभव-ह-लकन-उस-समनयकरण-चहए">3. तुम्हारा हाइरार्की सूत्र
+संभव है, लेकिन उसे सामान्यीकरण चाहिए</h2>
+<p>तुम लगभग यह कह रहे हो:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+H = \sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i
+</annotation></semantics></math></p>
+<p>अर्थात: हर हाइरार्की-स्तर
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+के लिए उस स्तर के सभी तत्वों
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>i</mi></msub><annotation encoding="application/x-tex">e_i</annotation></semantics></math>
+को जोड़ा जाता है और फिर उस स्तर से गुणा किया जाता है।</p>
+<p>इससे एक भारित हाइरार्की-मूल्य मिलता है।</p>
+<p>उदाहरण:</p>
+<ul>
+<li>स्तर 1: सरल गतिविधि</li>
+<li>स्तर 2: विशेषज्ञ गतिविधि</li>
+<li>स्तर 3: समन्वयकारी गतिविधि</li>
+<li>स्तर 4: रणनीतिक गतिविधि</li>
+<li>स्तर 5: सिस्टम को आकार देने वाली गतिविधि</li>
+</ul>
+<p>तब किसी व्यक्ति या वस्तु का हाइरार्की-मूल्य अधिक होगा यदि वह केवल कई तत्वों को
+छूती नहीं, बल्कि ऊँचे स्तरों के तत्वों को प्रभावित करती है।</p>
+<p>लेकिन यहाँ समस्या है: बड़े संगठन स्वतः विशाल मूल्य पा लेंगे, सिर्फ इसलिए कि उनके पास
+बहुत सारे तत्व हैं। इसलिए शायद तुम्हें एक सामान्यीकृत रूप चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mtext mathvariant="normal">norm</mtext></msub><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+H_{\text{norm}} = \frac{\sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i}{\sum_{k=1}^{n} \sum_{i \in L_k} e_i}
+</annotation></semantics></math></p>
+<p>तब तुम केवल द्रव्यमान नहीं, बल्कि औसत हाइरार्किकल गुणवत्ता मापते हो।</p>
+<p>अन्यथा हमेशा सबसे बड़ा निगम, सबसे बड़ा प्राधिकरण या सबसे बड़ा प्लेटफ़ॉर्म जीत
+जाएगा।</p>
+<h2 id="मदर-क-रप-म-यह-आज-क-अरथ-म-पस-नह-हग">4. मुद्रा के रूप में यह आज के अर्थ में
+पैसा नहीं होगा</h2>
+<p>सामान्य पैसे के तीन मुख्य कार्य होते हैं:</p>
+<ol type="1">
+<li><strong>विनिमय का माध्यम</strong></li>
+<li><strong>लेखा-इकाई</strong></li>
+<li><strong>मूल्य-संग्रह</strong></li>
+</ol>
+<p>तुम्हारी प्रणाली अधिक इस तरह होगी:</p>
+<ol type="1">
+<li><strong>विनिमय का माध्यम</strong></li>
+<li><strong>लेखा-इकाई</strong></li>
+<li><strong>मूल्य-संग्रह</strong></li>
+<li><strong>नैतिक संकेतक</strong></li>
+<li><strong>स्थिति संकेतक</strong></li>
+<li><strong>अधिकार संकेतक</strong></li>
+<li><strong>नियंत्रण उपकरण</strong></li>
+</ol>
+<p>यह बहुत बड़ा विस्तार है।</p>
+<p>तब मुद्रा केवल यह नहीं कहेगी:</p>
+<blockquote>
+<p>इसकी कीमत कितनी है?</p>
+</blockquote>
+<p>बल्कि यह भी कहेगी:</p>
+<blockquote>
+<p>क्या यह अच्छा है?<br />
+क्या यह लोकप्रिय है?<br />
+इससे कौन कमाता है?<br />
+यह किसे मिलना चाहिए?<br />
+सामाजिक हाइरार्की में इसकी स्थिति क्या है?<br />
+क्या इसे बढ़ावा देना, दंडित करना, कर लगाना, प्राथमिकता देना या बाहर करना
+चाहिए?</p>
+</blockquote>
+<p>विचार के स्तर पर यह शक्तिशाली है, लेकिन राजनीतिक रूप से अत्यंत खतरनाक है।</p>
+<h2 id="सबस-मजबत-बद-बजर-मलय-नतक-रप-स-दखई-दग">5. सबसे मजबूत बिंदु: बाज़ार-मूल्य
+नैतिक रूप से दिखाई देंगे</h2>
+<p>आज बाज़ार-कीमत बहुत कुछ छिपा सकती है।</p>
+<p>सस्ता उत्पाद सस्ता हो सकता है क्योंकि मजदूरों को खराब भुगतान किया जाता
+है।<br />
+महँगा उत्पाद महँगा हो सकता है, जबकि वह सामाजिक रूप से बेकार हो।<br />
+लोकप्रिय कंपनी हानिकारक हो सकती है।<br />
+अलोकप्रिय काम अनिवार्य हो सकता है।</p>
+<p>तुम्हारा मॉडल कहेगा:</p>
+<blockquote>
+<p>किसी बाज़ार-वस्तु को केवल कीमत नहीं मिलती, बल्कि एक दृश्यमान नैतिक-सामाजिक
+हस्ताक्षर मिलता है।</p>
+</blockquote>
+<p>उदाहरण के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">उत्पाद A</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">अच्छा: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.8</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">लोकप्रिय: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.6</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">हाइरार्की: </mtext><mspace width="0.333em"></mspace></mrow><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{उत्पाद A} = (\text{अच्छा: }0.8,\ \text{लोकप्रिय: }0.6,\ \text{हाइरार्की: }4)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">उत्पाद B</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">अच्छा: </mtext><mspace width="0.333em"></mspace></mrow><mo>−</mo><mn>0.7</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">लोकप्रिय: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">हाइरार्की: </mtext><mspace width="0.333em"></mspace></mrow><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{उत्पाद B} = (\text{अच्छा: }-0.7,\ \text{लोकप्रिय: }0.9,\ \text{हाइरार्की: }6)
+</annotation></semantics></math></p>
+<p>उत्पाद B लोकप्रिय और प्रभावशाली होगा, लेकिन नैतिक रूप से नकारात्मक। तुम्हारी
+प्रणाली में उस पर अधिक कर लगाया जा सकता है, उसे सीमित किया जा सकता है या उसका
+मूल्य घटाया जा सकता है।</p>
+<p>यह उस बाज़ार की तुलना में स्पष्ट सुधार है जो केवल माँग और भुगतान-क्षमता देखता
+है।</p>
+<h2 id="सबस-खतरनक-बद-अचछ-कन-परभषत-करत-ह">6. सबसे खतरनाक बिंदु: “अच्छा” कौन
+परिभाषित करता है?</h2>
+<p>तुम कहते हो: दुनिया की सरकारें अच्छा/बुरा निर्धारित करती हैं, और जनसंख्या
+लोकप्रिय/अलोकप्रिय निर्धारित करती है।</p>
+<p>यह विभाजन तार्किक रूप से साफ़ है, लेकिन राजनीतिक रूप से संवेदनशील है।</p>
+<p>क्योंकि यदि सरकारें “अच्छा” और “बुरा” तय करती हैं, तो प्रश्न तुरंत उठता है:</p>
+<blockquote>
+<p>क्या “अच्छा” सचमुच अच्छा है — या केवल सरकार के अनुकूल है?</p>
+</blockquote>
+<p>कोई राज्य असहमति को “बुरा” चिह्नित कर सकता है।<br />
+कोई सरकार अपने उद्योगों को कृत्रिम रूप से “अच्छा” रेट कर सकती है।<br />
+विपक्ष, अल्पसंख्यक या असुविधाजनक शोध का मूल्य घटाया जा सकता है।</p>
+<p>तब मुद्रा केवल बाज़ार-उपकरण नहीं रहेगी, बल्कि <strong>शासन का उपकरण</strong>
+बन जाएगी।</p>
+<p>लोकप्रियता के स्रोत के रूप में जनसंख्या की भी अलग समस्या है:</p>
+<blockquote>
+<p>लोकप्रियता को हेरफेर किया जा सकता है।</p>
+</blockquote>
+<p>जिसके पास मीडिया-शक्ति, प्लेटफ़ॉर्म-शक्ति, विज्ञापन, बॉट्स, सांस्कृतिक प्रभाव या
+प्रसिद्धि है, वह कृत्रिम रूप से लोकप्रियता बना सकता है। तब अच्छा लोकप्रिय नहीं होगा,
+बल्कि सबसे अच्छी तरह से हेरफेर किया गया लोकप्रिय होगा।</p>
+<p>इसलिए तुम्हारे मॉडल को सुरक्षा-व्यवस्थाएँ चाहिए:</p>
+<ul>
+<li>अच्छा/बुरा मूल्यांकन के लिए पारदर्शी कारण</li>
+<li>अपील के अधिकार</li>
+<li>स्वतंत्र जाँच संस्थाएँ</li>
+<li>अल्पसंख्यक संरक्षण</li>
+<li>लोकप्रियता-हेरफेर के विरुद्ध नियम</li>
+<li>नैतिक मूल्यांकन और राजनीतिक निष्ठा का पृथक्करण</li>
+<li>प्रचार और घबराहट के विरुद्ध समय-विलंब</li>
+<li>पूर्ण निर्णयों के बजाय अनिश्चितता-मूल्य</li>
+</ul>
+<p>अन्यथा यह बहुत जल्दी एक पूर्ण सामाजिक-क्रेडिट प्रणाली बन जाएगा।</p>
+<h2 id="कस-कय-मलन-चहए-असल-करतकर-कदर-ह">7. “किसे क्या मिलना चाहिए” असली
+क्रांतिकारी केंद्र है</h2>
+<p>तुम्हारे विचार में सबसे महत्वपूर्ण वाक्य ज्यामिति नहीं, बल्कि यह है:</p>
+<blockquote>
+<p>मुद्रा बताती है कि किसे क्या मिलना चाहिए।</p>
+</blockquote>
+<p>इसके साथ तुम सामान्य बाज़ार को छोड़ देते हो।</p>
+<p>शास्त्रीय बाज़ार कहता है:</p>
+<blockquote>
+<p>जो भुगतान कर सकता है, वही पाता है।</p>
+</blockquote>
+<p>तुम्हारी प्रणाली अधिक यह कहती है:</p>
+<blockquote>
+<p>जो योग्य है, अच्छाई से काम करता है, सामाजिक रूप से उपयोगी है और हाइरार्की में
+उपयुक्त स्थिति में है, उसे अधिक मजबूत दावा मिलता है।</p>
+</blockquote>
+<p>यह इन चीज़ों का मिश्रण है:</p>
+<ul>
+<li>मेरिटोक्रेसी</li>
+<li>नैतिक अर्थव्यवस्था</li>
+<li>प्रतिष्ठा-प्रणाली</li>
+<li>राजनीतिक आवंटन</li>
+<li>बाज़ार-तंत्र</li>
+<li>स्थिति-व्यवस्था</li>
+</ul>
+<p>यह शुद्ध पूँजीवाद से अधिक न्यायपूर्ण हो सकता है, लेकिन केवल तभी जब मूल्यांकन-तर्क
+बहुत मजबूत हो। अन्यथा एक नई वर्ग-व्यवस्था बनेगी: उच्च स्कोर वाले लोग और संगठन सब कुछ
+पा लेंगे; निम्न स्कोर वाले बाहर कर दिए जाएँगे।</p>
+<p>एक स्वस्थ संस्करण को शायद यह कहना होगा:</p>
+<blockquote>
+<p>मौलिक अधिकार और बुनियादी आपूर्ति कभी भी पूरी तरह इस मुद्रा पर निर्भर नहीं होने
+चाहिए।</p>
+</blockquote>
+<p>अन्यथा नैतिक बाज़ार-व्यवस्था जाति-व्यवस्था बन जाएगी।</p>
+<h2 id="शरम-बजर-म-यह-वशष-रप-स-रचक-हग">8. श्रम बाज़ार में यह विशेष रूप से रोचक
+होगा</h2>
+<p>नियोक्ता और कर्मचारी दोनों का मूल्यांकन किया जा सकता है।</p>
+<p>उदाहरण के लिए एक कर्मचारी के पास हो सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">प्रदर्शन</mtext><mo>,</mo><mtext mathvariant="normal">अच्छाई</mtext><mo>,</mo><mtext mathvariant="normal">लोकप्रियता</mtext><mo>,</mo><mtext mathvariant="normal">हाइरार्की स्तर</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+A = (\text{प्रदर्शन}, \text{अच्छाई}, \text{लोकप्रियता}, \text{हाइरार्की स्तर})
+</annotation></semantics></math></p>
+<p>और नियोक्ता के पास भी:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">उत्पादकता</mtext><mo>,</mo><mtext mathvariant="normal">न्यायपूर्णता</mtext><mo>,</mo><mtext mathvariant="normal">सामाजिक उपयोग</mtext><mo>,</mo><mtext mathvariant="normal">लोकप्रियता</mtext><mo>,</mo><mtext mathvariant="normal">शक्ति स्तर</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = (\text{उत्पादकता}, \text{न्यायपूर्णता}, \text{सामाजिक उपयोग}, \text{लोकप्रियता}, \text{शक्ति स्तर})
+</annotation></semantics></math></p>
+<p>तब प्रश्न केवल यह नहीं रहेगा:</p>
+<blockquote>
+<p>नियोक्ता कितना भुगतान करता है?</p>
+</blockquote>
+<p>बल्कि यह भी होगा:</p>
+<blockquote>
+<p>क्या यह नियोक्ता अच्छा है?<br />
+क्या इसके उत्पाद अच्छे हैं?<br />
+क्या यह लोगों के साथ न्यायपूर्ण व्यवहार करता है?<br />
+इसकी लोकप्रियता अर्जित है या हेरफेर की गई है?<br />
+इसकी नैतिक बाज़ार-स्थिति ऊपर जा रही है या नीचे?</p>
+</blockquote>
+<p>इससे श्रम बाज़ार अधिक सममित होंगे। आज नियोक्ता कर्मचारी का मूल्यांकन अधिक करता
+है, उल्टा कम। तुम्हारे मॉडल में दोनों पक्ष हाइरार्किकल और नैतिक रूप से दिखाई देंगे।</p>
+<h2 id="शयर-बजर-म-यह-सटटबज-क-नतक-रग-दग">9. शेयर बाज़ार में यह सट्टेबाज़ी को
+नैतिक रंग देगा</h2>
+<p>तब एक शेयर केवल यह नहीं होगा:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">कीमत</mtext><mo>+</mo><mtext mathvariant="normal">अपेक्षित प्रतिफल</mtext></mrow><annotation encoding="application/x-tex">
+\text{कीमत} + \text{अपेक्षित प्रतिफल}
+</annotation></semantics></math></p>
+<p>बल्कि:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">कीमत</mtext><mo>+</mo><mtext mathvariant="normal">प्रतिफल</mtext><mo>+</mo><mtext mathvariant="normal">अच्छाई</mtext><mo>+</mo><mtext mathvariant="normal">लोकप्रियता</mtext><mo>+</mo><mtext mathvariant="normal">सिस्टम-रैंक</mtext></mrow><annotation encoding="application/x-tex">
+\text{कीमत} + \text{प्रतिफल} + \text{अच्छाई} + \text{लोकप्रियता} + \text{सिस्टम-रैंक}
+</annotation></semantics></math></p>
+<p>कोई कंपनी लाभदायक लेकिन हानिकारक हो सकती है; तब उसका आर्थिक मूल्य ऊँचा होगा,
+पर नैतिक वेक्टर नकारात्मक होगा।</p>
+<p>निवेशक अदृश्य रूप से यह नहीं कह सकेंगे:</p>
+<blockquote>
+<p>मुझे परवाह नहीं, बस प्रतिफल अच्छा हो।</p>
+</blockquote>
+<p>मुद्रा दिखाएगी:</p>
+<blockquote>
+<p>यह प्रतिफल एक नकारात्मक रूप से मूल्यांकित क्षेत्र से आता है।</p>
+</blockquote>
+<p>यह पूँजी-प्रवाह को बहुत बदल सकता है।</p>
+<h2 id="उतपद-बजर-म-नसवरथत-कठन-ह-लकन-असभव-नह">10. उत्पाद बाज़ारों में
+“निःस्वार्थता” कठिन है, लेकिन असंभव नहीं</h2>
+<p>उत्पाद स्वयं निःस्वार्थ नहीं होते। लोग, संगठन या डिज़ाइन निःस्वार्थ या शोषणकारी
+हो सकते हैं। उत्पादों के लिए बेहतर होगा कि मापा जाए:</p>
+<ul>
+<li>खरीदार के लिए उपयोग</li>
+<li>तीसरे पक्ष को नुकसान</li>
+<li>पर्यावरणीय लागत</li>
+<li>काम की परिस्थितियाँ</li>
+<li>निर्भरता/लत की संभावना</li>
+<li>मरम्मत-योग्यता</li>
+<li>पारदर्शिता</li>
+<li>लाभ का वितरण</li>
+<li>दीर्घकालिक सामाजिक प्रभाव</li>
+</ul>
+<p>तब “उत्पाद की अच्छाई” मनोवैज्ञानिक अर्थ में नहीं, बल्कि <strong>बाह्यताओं की
+प्रोफ़ाइल</strong> के रूप में समझी जाएगी।</p>
+<p>जीवन बचाने वाली दवा अच्छी होगी।<br />
+आक्रामक मार्केटिंग वाला लत पैदा करने वाला उत्पाद लोकप्रिय हो सकता है, पर नकारात्मक
+रूप से अच्छा।<br />
+उबाऊ लेकिन महत्वपूर्ण आधारभूत संरचना उत्पाद अच्छा हो सकता है, लेकिन शायद
+अलोकप्रिय।</p>
+<p>तुम्हारी अक्ष-प्रणाली इसी के लिए उपयोगी है।</p>
+<h2 id="बजर-समपत-नह-हग-बलक-फलटर-हग">11. बाज़ार समाप्त नहीं होगा, बल्कि फ़िल्टर
+होगा</h2>
+<p>तुम्हारी प्रणाली बाज़ारों को पूरी तरह प्रतिस्थापित नहीं करती। यह उनके ऊपर एक
+नियामक परत रखती है।</p>
+<p>आज:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">यदि कीमत चुकाई जाती है, तो लेन-देन अनुमत है</mtext><annotation encoding="application/x-tex">
+\text{यदि कीमत चुकाई जाती है, तो लेन-देन अनुमत है}
+</annotation></semantics></math></p>
+<p>तुम्हारी प्रणाली में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लेन-देन वेक्टर-स्थिति के अनुसार अनुमत/सस्ता/कठिन किया जाता है</mtext><annotation encoding="application/x-tex">
+\text{लेन-देन वेक्टर-स्थिति के अनुसार अनुमत/सस्ता/कठिन किया जाता है}
+</annotation></semantics></math></p>
+<p>अर्थात:</p>
+<ul>
+<li>अच्छी और लोकप्रिय चीज़ों को आसान बनाया जाता है।</li>
+<li>अच्छी लेकिन अलोकप्रिय चीज़ों को संरक्षित या सब्सिडी दी जाती है।</li>
+<li>बुरी लेकिन लोकप्रिय चीज़ों को धीमा किया जाता है।</li>
+<li>बुरी और अलोकप्रिय चीज़ों को बाहर किया जाता है या भारी बोझ डाला जाता
+है।</li>
+</ul>
+<p>यह काफ़ी सुंदर तर्क है।</p>
+<h2 id="लकन-वसतवक-मदर-क-सगतत-चहए">12. लेकिन वास्तविक मुद्रा को संगतता
+चाहिए</h2>
+<p>एक समस्या: यदि मुद्रा संख्या नहीं है, तो दो चीज़ों की तुलना कैसे होगी?</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">अच्छा </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">लोकप्रिय </mtext><mspace width="0.333em"></mspace></mrow><mn>0.1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{अच्छा }0.9,\ \text{लोकप्रिय }0.1,\ H=3)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">अच्छा </mtext><mspace width="0.333em"></mspace></mrow><mn>0.2</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">लोकप्रिय </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Y = (\text{अच्छा }0.2,\ \text{लोकप्रिय }0.9,\ H=7)
+</annotation></semantics></math></p>
+<p>कौन अधिक मूल्यवान है?</p>
+<p>जब तक कोई तुलना-नियम नहीं है, इसका वस्तुनिष्ठ निर्णय नहीं हो सकता। तुम्हें इनमें से
+किसी चीज़ की ज़रूरत होगी:</p>
+<h3 id="वकलप-a-सकलरइजशन">विकल्प A: स्केलराइज़ेशन</h3>
+<p>सब कुछ एक संख्या में बदलना:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mi>α</mi><mi>G</mi><mo>+</mo><mi>β</mi><mi>B</mi><mo>+</mo><mi>γ</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">
+S = \alpha G + \beta B + \gamma H
+</annotation></semantics></math></p>
+<p>लाभ: व्यापार करना आसान।<br />
+हानि: बहु-आयामिता खो जाती है।</p>
+<h3 id="वकलप-b-वकटर-मदर">विकल्प B: वेक्टर-मुद्रा</h3>
+<p>सभी आयाम बनाए रखना:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo>,</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = (G, B, H)
+</annotation></semantics></math></p>
+<p>लाभ: अधिक समृद्ध जानकारी।<br />
+हानि: विनिमय कठिन, क्योंकि सब कुछ स्पष्ट रूप से तुलनीय नहीं है।</p>
+<h3 id="वकलप-c-सदरभ-नरभर-तलन-नयम">विकल्प C: संदर्भ-निर्भर तुलना-नियम</h3>
+<p>विभिन्न बाज़ारों में अलग-अलग भार लागू होते हैं।</p>
+<p>स्वास्थ्य बाज़ार में अच्छाई अधिक गिनी जाती है।<br />
+मनोरंजन बाज़ार में लोकप्रियता अधिक गिनी जाती है।<br />
+श्रम बाज़ार में प्रदर्शन/हाइरार्की अधिक गिनी जाती है।<br />
+बीमा बाज़ार में जोखिम और ज़िम्मेदारी अधिक गिनी जाती है।</p>
+<p>शायद यह सबसे अच्छा विकल्प होगा।</p>
+<h2 id="सबस-सदर-रप-एकल-मदर-नह-बलक-मलय-परटकल-हग">13. सबसे सुंदर रूप एकल मुद्रा
+नहीं, बल्कि मूल्य-प्रोटोकॉल होगा</h2>
+<p>मैं तुम्हारे मॉडल को ऐसे सूत्रबद्ध करूँगा:</p>
+<blockquote>
+<p>मुद्रा स्वयं बहु-आयामी नहीं है; बल्कि प्रत्येक बाज़ार-इकाई एक मूल्य-वेक्टर रखती है, और
+हर लेन-देन सामाजिक मूल्यांकन-प्रोटोकॉल से फ़िल्टर होता है।</p>
+</blockquote>
+<p>अर्थात:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">लेन-देन</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">कीमत</mtext><mo>,</mo><mtext mathvariant="normal">मूल्य-वेक्टर</mtext><mo>,</mo><mtext mathvariant="normal">अधिकार-नियम</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{लेन-देन} = (\text{कीमत}, \text{मूल्य-वेक्टर}, \text{अधिकार-नियम})
+</annotation></semantics></math></p>
+<p>इससे पैसा व्यावहारिक रूप से उपयोगी रहता है, लेकिन अंधा नहीं रहता।</p>
+<p>यह कहने से अधिक मजबूत है कि “मुद्रा संख्या नहीं है।”<br />
+अधिक सटीक रूप से:</p>
+<blockquote>
+<p>कीमत संख्या बनी रहती है, लेकिन कीमत की वैधता, गुणवत्ता और वैधानिकता बहु-आयामी
+मूल्य-वेक्टर पर निर्भर करती है।</p>
+</blockquote>
+<h2 id="मर-आकलन">14. मेरा आकलन</h2>
+<p>यह विचार वैचारिक रूप से मजबूत है, क्योंकि यह तीन चीज़ों को जोड़ता है जिन्हें आम तौर
+पर अलग रखा जाता है:</p>
+<ol type="1">
+<li><strong>हाइरार्की / प्रदर्शन / रैंक</strong></li>
+<li><strong>नैतिक गुणवत्ता</strong></li>
+<li><strong>सामाजिक स्वीकार्यता</strong></li>
+</ol>
+<p>इससे बाज़ारों को केवल कीमत की तुलना में बहुत अधिक बुद्धिमानी से दर्शाया जा सकता
+है।</p>
+<p>लेकिन इसमें एक कठोर टूटन-बिंदु है:</p>
+<blockquote>
+<p>जैसे ही “अच्छा” को केंद्रीय रूप से परिभाषित किया जाता है और आर्थिक दावे उस पर
+निर्भर होते हैं, एक विशाल शक्ति-तंत्र बनता है।</p>
+</blockquote>
+<p>इसलिए सबसे अच्छा संस्करण यह नहीं होगा:</p>
+<blockquote>
+<p>सरकार अच्छा/बुरा बिल्कुल तय करती है।</p>
+</blockquote>
+<p>बल्कि:</p>
+<blockquote>
+<p>सरकार, जनसंख्या, विज्ञान, अदालतें, बाज़ार-व्यवहार और सत्यापनीय प्रभाव-डेटा
+अलग-अलग संकेत देते हैं, जिनसे एक पारदर्शी मूल्य-वेक्टर बनता है।</p>
+</blockquote>
+<p>तब प्रणाली कम निरंकुश और अधिक ज्ञान-उन्मुख होगी।</p>
+<p>एक वाक्य में:</p>
+<p><strong>तुम एक रेडियल-हाइरार्किकल, वेक्टरात्मक नैतिक मुद्रा का वर्णन कर रहे हो,
+जो बाज़ारों को केवल कीमत से नहीं, बल्कि अच्छाई, लोकप्रियता और रैंक-स्थिति से क्रमबद्ध
+करती है — सिद्धांततः बहुत शक्तिशाली, लेकिन व्यवहार में तभी सुरक्षित जब मूल्यांकन,
+अपील, अल्पसंख्यक संरक्षण और हेरफेर-रोध को अत्यंत गंभीरता से लिया जाए।</strong></p>
+</body>
+</html>

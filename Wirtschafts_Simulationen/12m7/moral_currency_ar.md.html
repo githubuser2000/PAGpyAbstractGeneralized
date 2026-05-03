@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>moral_currency_ar</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="عملة-أخلاقية-شعاعية-هرمية">عملة أخلاقية شعاعية-هرمية</h1>
+<div dir="rtl">
+<h2 id="السؤال">السؤال</h2>
+<p>محورٌ واحد هو الخير مقابل الشر، والمحور الآخر هو الشعبية مقابل عدم
+الشعبية. ثم يمكن تحويل ذلك إلى رقم: مجموع “درجات الهرمية: مجموع كل
+العناصر في درجة هرمية واحدة مضروبًا في تلك الدرجة الهرمية”، ويمكن أيضًا
+استخراج الاتجاهات الزاوية كما نشاء. بعد ذلك يمكن استخدام هذا البناء
+كعملة، وإسناد هذا التصور إلى جميع موضوعات السوق: سوق العمل، سوق
+المنتجات، سوق الأسهم، سوق العملات، سوق التأمين. عندئذٍ لا تكون العملة
+رقمًا فقط، بل تعطي معلومات عن مَن يحق له الحصول على شيء: مَن يؤدي كثيرًا؛
+كما تصبح خيريّة المنتجات أو نكرانها للذات قابلة للتمييز، لأن حكومات
+العالم تحدد ذلك، بينما تحدد الشعوب الشعبية وعدم الشعبية. والهرمية قابلة
+للتغير: الهبوط، التقدم المهني، الصعود، لكل ما يُتداول في الأسواق، مثل
+أصحاب العمل والموظفين.</p>
+<h2 id="الجواب">الجواب</h2>
+<p>نعم. ما تصفه هو في جوهره <strong>عملة قيمة متعددة الأبعاد</strong>،
+أو <strong>نظام إحداثيات سوقي معياري</strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">قيمة السوق</mtext><mo>≠</mo><mtext mathvariant="normal">السعر</mtext></mrow><annotation encoding="application/x-tex">
+\text{قيمة السوق} \neq \text{السعر}
+</annotation></semantics></math></p>
+<p>بل أقرب إلى:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">قيمة السوق</mtext><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">الهرمية</mtext><mo>,</mo><mtext mathvariant="normal">الخيرية</mtext><mo>,</mo><mtext mathvariant="normal">الشعبية</mtext><mo>,</mo><mtext mathvariant="normal">سياق السوق</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{قيمة السوق} = f(\text{الهرمية}, \text{الخيرية}, \text{الشعبية}, \text{سياق السوق})
+</annotation></semantics></math></p>
+<p>هنا لا يعود المال مجرد رقم محايد، بل يصبح <strong>حالة استحقاق
+مشفّرة</strong>: مَن يحصل على شيء، أو يبيع شيئًا، أو يخسر شيئًا، أو يربح
+شيئًا، أو يصعد في المكانة، لا يعتمد على السعر فقط، بل على موقع مُقيَّم داخل
+النظام.</p>
+<h2 id="المحوران-ينتجان-أربعة-أنواع-أساسية">1. المحوران ينتجان أربعة
+أنواع أساسية</h2>
+<p>إذا كان محورٌ هو <strong>خير ↔︎ شر</strong> والآخر هو <strong>شعبي ↔︎
+غير شعبي</strong>، فستحصل على أربعة أرباع:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>الربع</th>
+<th>المعنى</th>
+<th>تفسير مثالي</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>خير + شعبي</strong></td>
+<td>مرغوب ومقبول اجتماعيًا</td>
+<td>منتجات نافعة وعادلة ومطلوبة؛ عمل محترم</td>
+</tr>
+<tr>
+<td><strong>خير + غير شعبي</strong></td>
+<td>قيّم لكنه مُستخفّ به</td>
+<td>الرعاية، البحث الأساسي، البنية التحتية الضرورية غير الشعبية</td>
+</tr>
+<tr>
+<td><strong>شر + شعبي</strong></td>
+<td>جذاب على نحو خطير</td>
+<td>منتجات إدمانية، تلاعب، فقاعات مضاربية، منصات سامة</td>
+</tr>
+<tr>
+<td><strong>شر + غير شعبي</strong></td>
+<td>غير مرغوب اجتماعيًا</td>
+<td>استغلال، احتيال، منتجات ضارة</td>
+</tr>
+</tbody>
+</table>
+<p>هذه نقطة قوية لأنها تفصل بين أمرين تخلطهما الأسواق العادية
+كثيرًا:<br />
+<strong>الشعبية ليست هي الخيرية.</strong></p>
+<p>قد يكون المنتج شعبيًا وضارًا في الوقت نفسه. وقد تكون ممارسة ما غير
+شعبية لكنها شديدة القيمة. هذا التمييز هو مركز نموذجك.</p>
+<h2 id="الهرمية-ستكون-البعد-الثالث">2. الهرمية ستكون البعد الثالث</h2>
+<p>محورا “الخير/الشر” و“الشعبية/عدم الشعبية” يعطيان
+<strong>الاتجاه</strong>. أما الهرمية فتعطي <strong>العمق أو الارتفاع أو
+موضع الرتبة</strong>.</p>
+<p>رسميًا، يمكن وصف أي موضوع هكذا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V(x) = (G(x), B(x), H(x))
+</annotation></semantics></math></p>
+<p>حيث:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math>
+= الخيرية، تقريبًا من −1 إلى +1<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B(x)</annotation></semantics></math>
+= الشعبية، تقريبًا من −1 إلى +1<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math>
+= قيمة الهرمية، الرتبة، المستوى، التأثير، عمق الأداء، أو الموقع
+البنيوي</li>
+</ul>
+<p>ثم يمكن أيضًا تحديد اتجاه زاوي:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta(x) = \operatorname{atan2}(B(x), G(x))
+</annotation></semantics></math></p>
+<p>وكذلك شدة أو مقدار:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r(x) = \sqrt{G(x)^2 + B(x)^2}
+</annotation></semantics></math></p>
+<p>عندئذٍ لا يكون موضوع السوق ببساطة “قيمته 100 يورو”، بل مثلًا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">خير بدرجة عالية</mtext><mo>,</mo><mtext mathvariant="normal">شعبي بدرجة متوسطة</mtext><mo>,</mo><mtext mathvariant="normal">المستوى الهرمي 7</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+x = (\text{خير بدرجة عالية}, \text{شعبي بدرجة متوسطة}, \text{المستوى الهرمي 7})
+</annotation></semantics></math></p>
+<p>وهذا سيكون فعلًا أقرب إلى <strong>عملة متجهية</strong> لا إلى عملة
+رقمية.</p>
+<h2 id="صيغة-الهرمية-التي-تقترحها-ممكنة-لكنها-تحتاج-إلى-تطبيع">3. صيغة
+الهرمية التي تقترحها ممكنة، لكنها تحتاج إلى تطبيع</h2>
+<p>أنت تقصد تقريبًا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+H = \sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i
+</annotation></semantics></math></p>
+<p>أي: لكل مستوى هرمي
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>،
+تجمع كل العناصر
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>i</mi></msub><annotation encoding="application/x-tex">e_i</annotation></semantics></math>
+في ذلك المستوى، ثم تضربها في رقم المستوى.</p>
+<p>ينتج عن ذلك قيمة هرمية موزونة.</p>
+<p>مثال:</p>
+<ul>
+<li>المستوى 1: نشاط بسيط</li>
+<li>المستوى 2: نشاط متخصص</li>
+<li>المستوى 3: نشاط تنسيقي</li>
+<li>المستوى 4: نشاط استراتيجي</li>
+<li>المستوى 5: نشاط يشكّل النظام</li>
+</ul>
+<p>عندها يكون لشخص أو شيء ما قيمة هرمية أعلى إذا لم يكن يؤثر في عناصر
+كثيرة فقط، بل في عناصر تقع في مستويات أعلى.</p>
+<p>لكن هنا توجد مشكلة: المنظمات الكبيرة ستحصل تلقائيًا على قيم ضخمة فقط
+لأنها تضم عناصر كثيرة. لذلك ستحتاج غالبًا إلى صيغة مطبّعة:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mtext mathvariant="normal">norm</mtext></msub><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+H_{\text{norm}} = \frac{\sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i}{\sum_{k=1}^{n} \sum_{i \in L_k} e_i}
+</annotation></semantics></math></p>
+<p>عندها لا تقيس الكتلة فقط، بل الجودة الهرمية المتوسطة.</p>
+<p>وإلا فسيفوز دائمًا أكبر تكتل تجاري، أو أكبر سلطة، أو أكبر منصة.</p>
+<h2 id="كعملة-هذا-ليس-مالا-بالمعنى-الحالي">4. كعملة، هذا ليس مالًا
+بالمعنى الحالي</h2>
+<p>للمال العادي ثلاث وظائف رئيسية:</p>
+<ol type="1">
+<li><strong>وسيط تبادل</strong></li>
+<li><strong>وحدة حساب</strong></li>
+<li><strong>مخزن قيمة</strong></li>
+</ol>
+<p>أما نظامك فسيكون أقرب إلى:</p>
+<ol type="1">
+<li><strong>وسيط تبادل</strong></li>
+<li><strong>وحدة حساب</strong></li>
+<li><strong>مخزن قيمة</strong></li>
+<li><strong>مؤشر أخلاقي</strong></li>
+<li><strong>مؤشر مكانة</strong></li>
+<li><strong>مؤشر استحقاق</strong></li>
+<li><strong>أداة توجيه وتحكم</strong></li>
+</ol>
+<p>وهذا توسع هائل.</p>
+<p>عندها لا تقول العملة فقط:</p>
+<blockquote>
+<p>كم يكلف هذا؟</p>
+</blockquote>
+<p>بل تقول أيضًا:</p>
+<blockquote>
+<p>هل هذا خير؟<br />
+هل هو شعبي؟<br />
+مَن يربح منه؟<br />
+مَن يحق له الحصول عليه؟<br />
+ما موقعه في الهرمية الاجتماعية؟<br />
+هل ينبغي دعمه أو معاقبته أو فرض ضرائب عليه أو تفضيله أو استبعاده؟</p>
+</blockquote>
+<p>هذا قوي من الناحية المفهومية، لكنه شديد الخطورة سياسيًا.</p>
+<h2 id="أقوى-نقطة-قيم-السوق-ستصبح-مرئية-أخلاقيا">5. أقوى نقطة: قيم السوق
+ستصبح مرئية أخلاقيًا</h2>
+<p>اليوم يمكن لسعر السوق أن يخفي الكثير.</p>
+<p>قد يكون المنتج رخيصًا لأن العمال يتقاضون أجورًا سيئة.<br />
+وقد يكون المنتج غاليًا رغم أنه عديم الفائدة اجتماعيًا.<br />
+وقد تكون شركة شعبية ضارة.<br />
+وقد يكون عمل غير شعبي لا غنى عنه.</p>
+<p>نموذجك يقول:</p>
+<blockquote>
+<p>موضوع السوق لا يحصل على سعر فقط، بل على توقيع أخلاقي-اجتماعي
+مرئي.</p>
+</blockquote>
+<p>مثلًا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">المنتج A</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">خير: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.8</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">شعبي: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.6</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">هرمية: </mtext><mspace width="0.333em"></mspace></mrow><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{المنتج A} = (\text{خير: }0.8,\ \text{شعبي: }0.6,\ \text{هرمية: }4)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">المنتج B</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">خير: </mtext><mspace width="0.333em"></mspace></mrow><mo>−</mo><mn>0.7</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">شعبي: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">هرمية: </mtext><mspace width="0.333em"></mspace></mrow><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{المنتج B} = (\text{خير: }-0.7,\ \text{شعبي: }0.9,\ \text{هرمية: }6)
+</annotation></semantics></math></p>
+<p>عندها يكون المنتج B شعبيًا ومؤثرًا، لكنه سلبي أخلاقيًا. في نظامك يمكن
+فرض ضريبة أعلى عليه، أو تقييده، أو خفض قيمته.</p>
+<p>هذا تحسن واضح مقارنة بسوق لا يرى إلا الطلب والقدرة الشرائية.</p>
+<h2 id="أخطر-نقطة-من-يعرف-الخير">6. أخطر نقطة: من يعرّف “الخير”؟</h2>
+<p>أنت تقول إن حكومات العالم تحدد الخير/الشر، وأن الشعوب تحدد
+الشعبية/عدم الشعبية.</p>
+<p>هذا تقسيم نظيف منطقيًا، لكنه حساس سياسيًا.</p>
+<p>فإذا كانت الحكومات تحدد “الخير” و“الشر”، يظهر السؤال فورًا:</p>
+<blockquote>
+<p>هل “الخير” خير فعلًا، أم مجرد ما يوافق الحكومة؟</p>
+</blockquote>
+<p>يمكن للدولة أن تصنّف المعارضة أو الاختلاف كـ“شر”.<br />
+ويمكن للحكومة أن تقيّم صناعاتها الخاصة اصطناعيًا كـ“خير”.<br />
+وقد تُخفّض قيمة المعارضة أو الأقليات أو الأبحاث غير المريحة.</p>
+<p>عندها لا تعود العملة أداة سوقية فقط، بل تصبح <strong>أداة حكم
+وسيطرة</strong>.</p>
+<p>أما جعل السكان مصدر الشعبية فله مشكلة أخرى:</p>
+<blockquote>
+<p>الشعبية قابلة للتلاعب.</p>
+</blockquote>
+<p>من يملك قوة إعلامية أو قوة منصات أو إعلانًا أو روبوتات أو تأثيرًا
+ثقافيًا أو شهرة، يستطيع صناعة الشعبية اصطناعيًا. عندها لا يصبح الخير
+شعبيًا، بل يصبح الأكثر تلاعبًا هو الشعبي.</p>
+<p>لذلك يحتاج نموذجك إلى آليات حماية:</p>
+<ul>
+<li>تبريرات شفافة لتقييمات الخير/الشر</li>
+<li>حقوق اعتراض واستئناف</li>
+<li>هيئات مراجعة مستقلة</li>
+<li>حماية للأقليات</li>
+<li>قواعد ضد التلاعب بالشعبية</li>
+<li>فصل التقييم الأخلاقي عن الولاء السياسي</li>
+<li>تأخيرات زمنية ضد الضجيج والذعر</li>
+<li>قيم عدم يقين بدلًا من أحكام مطلقة</li>
+</ul>
+<p>وإلا سيتحول سريعًا إلى نظام ائتمان اجتماعي متقن.</p>
+<h2 id="من-يحق-له-شيء-هو-الجوهر-الراديكالي-الحقيقي">7. “مَن يحق له شيء”
+هو الجوهر الراديكالي الحقيقي</h2>
+<p>أهم جملة في فكرتك ليست الهندسة، بل هذه:</p>
+<blockquote>
+<p>العملة تعطي معلومات عمّن يحق له الحصول على شيء.</p>
+</blockquote>
+<p>بهذا تخرج من السوق العادي.</p>
+<p>السوق الكلاسيكي يقول:</p>
+<blockquote>
+<p>مَن يستطيع الدفع يحصل عليه.</p>
+</blockquote>
+<p>أما نظامك فيقول بالأحرى:</p>
+<blockquote>
+<p>مَن يستحق، ويتصرف بخيرية، ويكون نافعًا اجتماعيًا، ومتموضعًا بشكل مناسب في
+الهرمية، يحصل على مطالبة أقوى.</p>
+</blockquote>
+<p>هذا خليط من:</p>
+<ul>
+<li>الجدارة</li>
+<li>الاقتصاد الأخلاقي</li>
+<li>نظام السمعة</li>
+<li>التخصيص السياسي</li>
+<li>آلية السوق</li>
+<li>نظام المكانة</li>
+</ul>
+<p>قد يكون هذا أعدل من الرأسمالية الصرفة، لكن فقط إذا كانت منطقية
+التقييم قوية جدًا. وإلا ينشأ نظام طبقي جديد: أصحاب الدرجات العالية يحصلون
+على كل شيء؛ وأصحاب الدرجات المنخفضة يُستبعدون.</p>
+<p>النسخة الصحية ينبغي أن تقول غالبًا:</p>
+<blockquote>
+<p>الحقوق الأساسية والإمداد الأساسي يجب ألا يعتمدا أبدًا بالكامل على هذه
+العملة.</p>
+</blockquote>
+<p>وإلا يتحول النظام السوقي الأخلاقي إلى نظام طبقات مغلق.</p>
+<h2 id="في-أسواق-العمل-سيكون-ذلك-مثيرا-خصوصا">8. في أسواق العمل سيكون
+ذلك مثيرًا خصوصًا</h2>
+<p>يمكن تقييم أصحاب العمل والموظفين معًا.</p>
+<p>قد يكون للموظف مثلًا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">الأداء</mtext><mo>,</mo><mtext mathvariant="normal">الخيرية</mtext><mo>,</mo><mtext mathvariant="normal">الشعبية</mtext><mo>,</mo><mtext mathvariant="normal">المستوى الهرمي</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+A = (\text{الأداء}, \text{الخيرية}, \text{الشعبية}, \text{المستوى الهرمي})
+</annotation></semantics></math></p>
+<p>ولصاحب العمل أيضًا:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">الإنتاجية</mtext><mo>,</mo><mtext mathvariant="normal">الإنصاف</mtext><mo>,</mo><mtext mathvariant="normal">النفع الاجتماعي</mtext><mo>,</mo><mtext mathvariant="normal">الشعبية</mtext><mo>,</mo><mtext mathvariant="normal">مستوى السلطة</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = (\text{الإنتاجية}, \text{الإنصاف}, \text{النفع الاجتماعي}, \text{الشعبية}, \text{مستوى السلطة})
+</annotation></semantics></math></p>
+<p>عندها لا يكون السؤال فقط:</p>
+<blockquote>
+<p>كم يدفع صاحب العمل؟</p>
+</blockquote>
+<p>بل أيضًا:</p>
+<blockquote>
+<p>هل هذا صاحب عمل جيد؟<br />
+هل منتجاته خيّرة؟<br />
+هل يعامل الناس بعدل؟<br />
+هل شعبيته مستحقة أم مُتلاعب بها؟<br />
+هل موقعه الأخلاقي في السوق يصعد أم يهبط؟</p>
+</blockquote>
+<p>هذا يجعل أسواق العمل أكثر تماثلًا. اليوم غالبًا ما يقيّم صاحب العمل
+الموظف أكثر مما يحدث بالعكس. في نموذجك يصبح الطرفان مرئيين هرميًا
+وأخلاقيًا.</p>
+<h2 id="في-أسواق-الأسهم-سيصبغ-المضاربة-أخلاقيا">9. في أسواق الأسهم سيصبغ
+المضاربة أخلاقيًا</h2>
+<p>لن يكون السهم عندئذٍ مجرد:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">السعر</mtext><mo>+</mo><mtext mathvariant="normal">توقع العائد</mtext></mrow><annotation encoding="application/x-tex">
+\text{السعر} + \text{توقع العائد}
+</annotation></semantics></math></p>
+<p>بل:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">السعر</mtext><mo>+</mo><mtext mathvariant="normal">العائد</mtext><mo>+</mo><mtext mathvariant="normal">الخيرية</mtext><mo>+</mo><mtext mathvariant="normal">الشعبية</mtext><mo>+</mo><mtext mathvariant="normal">رتبة النظام</mtext></mrow><annotation encoding="application/x-tex">
+\text{السعر} + \text{العائد} + \text{الخيرية} + \text{الشعبية} + \text{رتبة النظام}
+</annotation></semantics></math></p>
+<p>قد تكون شركة مربحة لكنها ضارة، ولها قيمة اقتصادية عالية، لكنها تحمل
+متجهًا أخلاقيًا سلبيًا.</p>
+<p>لن يستطيع المستثمرون أن يقولوا خفية:</p>
+<blockquote>
+<p>لا يهمني، المهم العائد.</p>
+</blockquote>
+<p>ستُظهر العملة:</p>
+<blockquote>
+<p>هذا العائد يأتي من مجال مُقيَّم سلبيًا.</p>
+</blockquote>
+<p>وهذا قد يغير تدفقات رأس المال بقوة.</p>
+<h2 id="في-أسواق-المنتجات-نكران-الذات-صعب-لكنه-ليس-مستحيلا">10. في أسواق
+المنتجات، “نكران الذات” صعب لكنه ليس مستحيلًا</h2>
+<p>المنتجات نفسها ليست نكرانًا للذات. البشر أو المنظمات أو التصاميم يمكن
+أن تكون نكرانية أو استغلالية. أما المنتجات فينبغي قياس أمور مثل:</p>
+<ul>
+<li>الفائدة للمشترين</li>
+<li>الضرر على أطراف ثالثة</li>
+<li>التكاليف البيئية</li>
+<li>ظروف العمل</li>
+<li>احتمال الاعتماد أو الإدمان</li>
+<li>قابلية الإصلاح</li>
+<li>الشفافية</li>
+<li>توزيع الربح</li>
+<li>الأثر الاجتماعي طويل المدى</li>
+</ul>
+<p>عندها لا تكون “خيرية المنتج” نفسية المعنى، بل <strong>ملفًا للآثار
+الخارجية</strong>.</p>
+<p>دواء ينقذ الأرواح سيكون خيّرًا.<br />
+منتج إدماني بتسويق عدواني قد يكون شعبيًا، لكنه سلبي الخيرية.<br />
+منتج بنية تحتية ممل لكنه مهم قد يكون خيّرًا، لكنه غير شعبي.</p>
+<p>ولهذا بالضبط يصلح نظام المحاور الذي تقترحه.</p>
+<h2 id="السوق-لن-يختفي-بل-سيفلتر">11. السوق لن يختفي، بل سيُفلتر</h2>
+<p>نظامك لا يستبدل الأسواق بالكامل. إنه يضع فوقها طبقة معيارية.</p>
+<p>اليوم:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">التعامل مسموح إذا دُفع السعر</mtext><annotation encoding="application/x-tex">
+\text{التعامل مسموح إذا دُفع السعر}
+</annotation></semantics></math></p>
+<p>في نظامك:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">التعامل مسموح/مخفّض/مُصعّب بحسب موضع المتجه</mtext><annotation encoding="application/x-tex">
+\text{التعامل مسموح/مخفّض/مُصعّب بحسب موضع المتجه}
+</annotation></semantics></math></p>
+<p>أي:</p>
+<ul>
+<li>الأشياء الخيّرة والشعبية تُسهَّل.</li>
+<li>الأشياء الخيّرة غير الشعبية تُحمى أو تُدعَم.</li>
+<li>الأشياء الشريرة الشعبية تُبطَّأ.</li>
+<li>الأشياء الشريرة غير الشعبية تُستبعد أو تُحمَّل أعباء شديدة.</li>
+</ul>
+<p>هذه منطقية أنيقة جدًا.</p>
+<h2 id="لكن-العملة-الحقيقية-تحتاج-إلى-قابلية-مقارنة">12. لكن العملة
+الحقيقية تحتاج إلى قابلية مقارنة</h2>
+<p>هناك مشكلة: إذا لم تكن العملة رقمًا، فكيف نقارن بين شيئين؟</p>
+<p>مثال:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">خير </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">شعبي </mtext><mspace width="0.333em"></mspace></mrow><mn>0.1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{خير }0.9,\ \text{شعبي }0.1,\ H=3)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">خير </mtext><mspace width="0.333em"></mspace></mrow><mn>0.2</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">شعبي </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Y = (\text{خير }0.2,\ \text{شعبي }0.9,\ H=7)
+</annotation></semantics></math></p>
+<p>أيهما أكثر قيمة؟</p>
+<p>لا يمكن تقرير ذلك موضوعيًا ما لم تكن لديك قاعدة مقارنة. تحتاج إلى أحد
+الخيارات التالية:</p>
+<h3 id="الخيار-a-التحويل-إلى-مقدار-عددي-واحد">الخيار A: التحويل إلى
+مقدار عددي واحد</h3>
+<p>تحوّل كل شيء إلى رقم:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mi>α</mi><mi>G</mi><mo>+</mo><mi>β</mi><mi>B</mi><mo>+</mo><mi>γ</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">
+S = \alpha G + \beta B + \gamma H
+</annotation></semantics></math></p>
+<p>الميزة: سهل التداول.<br />
+العيب: تفقد التعددية الأبعادية.</p>
+<h3 id="الخيار-b-عملة-متجهية">الخيار B: عملة متجهية</h3>
+<p>تحتفظ بكل الأبعاد:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo>,</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = (G, B, H)
+</annotation></semantics></math></p>
+<p>الميزة: معلومات أغنى.<br />
+العيب: التبادل أصعب، لأن كل شيء ليس قابلًا للمقارنة بوضوح.</p>
+<h3 id="الخيار-c-قاعدة-مقارنة-تعتمد-على-السياق">الخيار C: قاعدة مقارنة
+تعتمد على السياق</h3>
+<p>في كل سوق تُستخدم أوزان مختلفة.</p>
+<p>في سوق الصحة، الخيرية أهم.<br />
+في سوق الترفيه، الشعبية أهم.<br />
+في سوق العمل، الأداء/الهرمية أهم.<br />
+في سوق التأمين، المخاطر والمسؤولية أهم.</p>
+<p>هذه ربما أفضل صيغة.</p>
+<h2 id="الصيغة-الأكثر-أناقة-ليست-عملة-واحدة-بل-بروتوكول-قيمة">13. الصيغة
+الأكثر أناقة ليست عملة واحدة، بل بروتوكول قيمة</h2>
+<p>سأصوغ نموذجك هكذا:</p>
+<blockquote>
+<p>ليست العملة نفسها متعددة الأبعاد؛ بل كل وحدة سوقية تحمل متجه قيمة،
+وكل تعامل يُفلتر عبر بروتوكول تقييم اجتماعي.</p>
+</blockquote>
+<p>أي:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">التعامل</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">السعر</mtext><mo>,</mo><mtext mathvariant="normal">متجه القيمة</mtext><mo>,</mo><mtext mathvariant="normal">قاعدة الاستحقاق</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{التعامل} = (\text{السعر}, \text{متجه القيمة}, \text{قاعدة الاستحقاق})
+</annotation></semantics></math></p>
+<p>بهذا يبقى المال قابلًا للاستخدام عمليًا، لكنه لا يعود أعمى.</p>
+<p>هذا أقوى من القول: “العملة ليست رقمًا.”<br />
+والأدق:</p>
+<blockquote>
+<p>السعر يبقى رقمًا، لكن صلاحية السعر وجودته وشرعيته تعتمد على متجه قيمة
+متعدد الأبعاد.</p>
+</blockquote>
+<h2 id="تقييمي">14. تقييمي</h2>
+<p>الفكرة قوية مفهوميًا لأنها تربط ثلاثة أمور تُفصل عادةً:</p>
+<ol type="1">
+<li><strong>الهرمية / الأداء / الرتبة</strong></li>
+<li><strong>الجودة الأخلاقية</strong></li>
+<li><strong>القبول الاجتماعي</strong></li>
+</ol>
+<p>وبذلك يمكن تمثيل الأسواق بذكاء أكبر بكثير من السعر وحده.</p>
+<p>لكن لديها نقطة انكسار صلبة:</p>
+<blockquote>
+<p>بمجرد أن يُعرَّف “الخير” مركزيًا وتصبح المطالب الاقتصادية معتمدة عليه،
+ينشأ جهاز سلطة هائل.</p>
+</blockquote>
+<p>لذلك ليست أفضل نسخة هي:</p>
+<blockquote>
+<p>الحكومة تحدد الخير/الشر بشكل مطلق.</p>
+</blockquote>
+<p>بل:</p>
+<blockquote>
+<p>الحكومة، السكان، العلم، المحاكم، سلوك السوق، وبيانات الأثر القابلة
+للتحقق تقدم إشارات منفصلة، ومنها ينشأ متجه قيمة شفاف.</p>
+</blockquote>
+<p>عندها يصبح النظام أقل استبدادًا وأكثر توجهًا نحو المعرفة.</p>
+<p>في جملة واحدة:</p>
+<p><strong>أنت تصف عملة أخلاقية شعاعية-هرمية ومتجهية ترتب الأسواق لا
+بحسب السعر فقط، بل بحسب الخيرية والشعبية وموضع الرتبة — وهي قوية جدًا
+نظريًا، لكنها لا تكون آمنة عمليًا إلا إذا أُخذت التقييمات، وحقوق الاعتراض،
+وحماية الأقليات، ومقاومة التلاعب بجدية شديدة.</strong></p>
+</div>
+</body>
+</html>

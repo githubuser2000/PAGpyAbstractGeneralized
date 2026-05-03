@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>moral_currency_pt</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="moeda-moral-radial-hierárquica">Moeda moral
+radial-hierárquica</h1>
+<h2 id="pergunta">Pergunta</h2>
+<p>Um eixo é bom vs. mau e o outro eixo é popular vs. impopular. Então
+isso pode ser convertido em um número: soma de “níveis hierárquicos:
+soma de todos os elementos de um nível hierárquico multiplicada pelo
+nível hierárquico”, e direções angulares também podem ser extraídas
+livremente. Então essa estrutura pode ser usada como moeda, e esse
+constructo pode ser atribuído a todos os objetos de mercado: mercado de
+trabalho, mercado de produtos, mercado de ações, mercado cambial,
+mercado de seguros. A moeda então não é um número, e a moeda informa a
+quem algo cabe: a quem realiza muito; e a bondade ou abnegação dos
+produtos torna-se reconhecível, porque os governos do mundo definem
+isso, enquanto as populações definem popular vs. impopular. A hierarquia
+é variável: descer, subir na carreira, ascender, para tudo o que é
+negociado nos mercados, por exemplo empregadores e empregados.</p>
+<h2 id="resposta">Resposta</h2>
+<p>Sim. O que você descreve é, no fundo, uma <strong>moeda de valor
+multidimensional</strong> ou um <strong>sistema normativo de coordenadas
+de mercado</strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">valor de mercado</mtext><mo>≠</mo><mtext mathvariant="normal">preço</mtext></mrow><annotation encoding="application/x-tex">
+\text{valor de mercado} \neq \text{preço}
+</annotation></semantics></math></p>
+<p>mas antes:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">valor de mercado</mtext><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">hierarquia</mtext><mo>,</mo><mtext mathvariant="normal">bondade</mtext><mo>,</mo><mtext mathvariant="normal">popularidade</mtext><mo>,</mo><mtext mathvariant="normal">contexto de mercado</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{valor de mercado} = f(\text{hierarquia}, \text{bondade}, \text{popularidade}, \text{contexto de mercado})
+</annotation></semantics></math></p>
+<p>Nesse caso, o dinheiro deixa de ser apenas um número neutro e passa a
+ser um <strong>estado codificado de direito ou reivindicação</strong>:
+quem recebe algo, vende algo, perde algo, ganha algo ou sobe de posição
+não depende apenas do preço, mas de uma posição avaliada dentro do
+sistema.</p>
+<h2 id="os-dois-eixos-geram-quatro-tipos-básicos">1. Os dois eixos geram
+quatro tipos básicos</h2>
+<p>Se um eixo é <strong>bom ↔︎ mau</strong> e o outro <strong>popular ↔︎
+impopular</strong>, surgem quatro quadrantes:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Quadrante</th>
+<th>Significado</th>
+<th>Interpretação exemplificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bom + popular</strong></td>
+<td>socialmente desejado e aceito</td>
+<td>produtos úteis, justos e desejados; trabalho respeitado</td>
+</tr>
+<tr>
+<td><strong>bom + impopular</strong></td>
+<td>valioso, mas subestimado</td>
+<td>cuidados, pesquisa básica, infraestrutura necessária porém
+impopular</td>
+</tr>
+<tr>
+<td><strong>mau + popular</strong></td>
+<td>perigosamente atraente</td>
+<td>produtos viciantes, manipulação, bolhas especulativas, plataformas
+tóxicas</td>
+</tr>
+<tr>
+<td><strong>mau + impopular</strong></td>
+<td>socialmente indesejado</td>
+<td>exploração, fraude, produtos nocivos</td>
+</tr>
+</tbody>
+</table>
+<p>Isso é forte porque separa algo que mercados normais frequentemente
+misturam:<br />
+<strong>Popularidade não é a mesma coisa que bondade.</strong></p>
+<p>Um produto pode ser popular e nocivo. Uma atividade pode ser
+impopular e extremamente valiosa. Essa distinção é central no seu
+modelo.</p>
+<h2 id="a-hierarquia-seria-a-terceira-dimensão">2. A hierarquia seria a
+terceira dimensão</h2>
+<p>Os eixos “bom/mau” e “popular/impopular” dão a
+<strong>direção</strong>. A hierarquia dá a <strong>profundidade, altura
+ou posição de classificação</strong>.</p>
+<p>Formalmente, um objeto poderia ser descrito assim:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V(x) = (G(x), B(x), H(x))
+</annotation></semantics></math></p>
+<p>onde:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math>
+= bondade, aproximadamente de −1 a +1<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B(x)</annotation></semantics></math>
+= popularidade, aproximadamente de −1 a +1<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math>
+= valor hierárquico, posição, nível, influência, profundidade de
+contribuição ou posição estrutural</li>
+</ul>
+<p>Então também é possível determinar uma direção angular:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta(x) = \operatorname{atan2}(B(x), G(x))
+</annotation></semantics></math></p>
+<p>e uma magnitude:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r(x) = \sqrt{G(x)^2 + B(x)^2}
+</annotation></semantics></math></p>
+<p>Assim, um objeto de mercado deixa de ser simplesmente “vale 100
+euros” e passa a ser, por exemplo:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">muito bom</mtext><mo>,</mo><mtext mathvariant="normal">medianamente popular</mtext><mo>,</mo><mtext mathvariant="normal">nível hierárquico 7</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+x = (\text{muito bom}, \text{medianamente popular}, \text{nível hierárquico 7})
+</annotation></semantics></math></p>
+<p>Isso seria de fato mais uma <strong>moeda vetorial</strong> do que
+uma moeda numérica.</p>
+<h2
+id="sua-fórmula-hierárquica-é-possível-mas-precisa-de-normalização">3.
+Sua fórmula hierárquica é possível, mas precisa de normalização</h2>
+<p>Você quer dizer aproximadamente:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+H = \sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i
+</annotation></semantics></math></p>
+<p>Ou seja: para cada nível hierárquico
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>,
+somam-se todos os elementos
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>i</mi></msub><annotation encoding="application/x-tex">e_i</annotation></semantics></math>
+desse nível e multiplica-se pelo próprio nível.</p>
+<p>Isso gera um valor hierárquico ponderado.</p>
+<p>Exemplo:</p>
+<ul>
+<li>Nível 1: atividade simples</li>
+<li>Nível 2: atividade especializada</li>
+<li>Nível 3: atividade coordenadora</li>
+<li>Nível 4: atividade estratégica</li>
+<li>Nível 5: atividade que molda o sistema</li>
+</ul>
+<p>Então alguém ou algo teria mais valor hierárquico se não apenas
+tocasse muitos elementos, mas influenciasse elementos em níveis mais
+altos.</p>
+<p>Mas há um problema: grandes organizações obteriam automaticamente
+valores enormes apenas por terem muitos elementos. Por isso você
+provavelmente precisaria de uma forma normalizada:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mtext mathvariant="normal">norm</mtext></msub><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+H_{\text{norm}} = \frac{\sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i}{\sum_{k=1}^{n} \sum_{i \in L_k} e_i}
+</annotation></semantics></math></p>
+<p>Assim você mede não apenas massa, mas qualidade hierárquica
+média.</p>
+<p>Caso contrário, sempre vence a maior corporação, a maior autoridade
+ou a maior plataforma.</p>
+<h2 id="como-moeda-isso-não-seria-dinheiro-no-sentido-atual">4. Como
+moeda, isso não seria dinheiro no sentido atual</h2>
+<p>O dinheiro normal tem três funções principais:</p>
+<ol type="1">
+<li><strong>Meio de troca</strong></li>
+<li><strong>Unidade de conta</strong></li>
+<li><strong>Reserva de valor</strong></li>
+</ol>
+<p>O seu sistema seria mais parecido com:</p>
+<ol type="1">
+<li><strong>Meio de troca</strong></li>
+<li><strong>Unidade de conta</strong></li>
+<li><strong>Reserva de valor</strong></li>
+<li><strong>Indicador moral</strong></li>
+<li><strong>Indicador de status</strong></li>
+<li><strong>Indicador de direito</strong></li>
+<li><strong>Instrumento de controle</strong></li>
+</ol>
+<p>Isso é uma ampliação enorme.</p>
+<p>A moeda então não diria apenas:</p>
+<blockquote>
+<p>Quanto isso custa?</p>
+</blockquote>
+<p>Mas também:</p>
+<blockquote>
+<p>Isso é bom?<br />
+Isso é popular?<br />
+Quem ganha com isso?<br />
+A quem isso cabe?<br />
+Qual posição isso ocupa na hierarquia social?<br />
+Deve ser promovido, punido, tributado, priorizado ou excluído?</p>
+</blockquote>
+<p>Conceitualmente é poderoso, mas politicamente extremamente
+perigoso.</p>
+<h2
+id="o-ponto-mais-forte-valores-de-mercado-se-tornariam-moralmente-visíveis">5.
+O ponto mais forte: valores de mercado se tornariam moralmente
+visíveis</h2>
+<p>Hoje um preço de mercado pode esconder muita coisa.</p>
+<p>Um produto barato pode ser barato porque trabalhadores são mal
+pagos.<br />
+Um produto caro pode ser caro embora seja socialmente inútil.<br />
+Uma empresa popular pode ser nociva.<br />
+Um trabalho impopular pode ser indispensável.</p>
+<p>Seu modelo diria:</p>
+<blockquote>
+<p>Um objeto de mercado recebe não apenas um preço, mas uma assinatura
+moral-social visível.</p>
+</blockquote>
+<p>Por exemplo:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Produto A</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">bom: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.8</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">popular: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.6</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">hierarquia: </mtext><mspace width="0.333em"></mspace></mrow><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{Produto A} = (\text{bom: }0.8,\ \text{popular: }0.6,\ \text{hierarquia: }4)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Produto B</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">bom: </mtext><mspace width="0.333em"></mspace></mrow><mo>−</mo><mn>0.7</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">popular: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">hierarquia: </mtext><mspace width="0.333em"></mspace></mrow><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{Produto B} = (\text{bom: }-0.7,\ \text{popular: }0.9,\ \text{hierarquia: }6)
+</annotation></semantics></math></p>
+<p>O Produto B seria popular e influente, mas moralmente negativo. No
+seu sistema, ele poderia ser tributado mais pesadamente, limitado ou
+desvalorizado.</p>
+<p>Isso é uma melhoria clara em relação a um mercado que enxerga apenas
+demanda e poder de compra.</p>
+<h2 id="o-ponto-mais-perigoso-quem-define-bom">6. O ponto mais perigoso:
+quem define “bom”?</h2>
+<p>Você diz: os governos do mundo definem bom/mau, e as populações
+definem popular/impopular.</p>
+<p>Essa divisão é logicamente limpa, mas politicamente delicada.</p>
+<p>Porque, se governos definem “bom” e “mau”, surge imediatamente a
+pergunta:</p>
+<blockquote>
+<p>“Bom” é realmente bom — ou apenas conforme ao governo?</p>
+</blockquote>
+<p>Um Estado poderia marcar dissidência como “má”.<br />
+Um governo poderia avaliar artificialmente suas próprias indústrias como
+“boas”.<br />
+Oposição, minorias ou pesquisas incômodas poderiam ser
+desvalorizadas.</p>
+<p>Então a moeda deixaria de ser apenas um instrumento de mercado e se
+tornaria um <strong>instrumento de dominação</strong>.</p>
+<p>A população como fonte de popularidade tem outro problema:</p>
+<blockquote>
+<p>Popularidade é manipulável.</p>
+</blockquote>
+<p>Quem possui poder midiático, poder de plataforma, publicidade, bots,
+influência cultural ou celebridade pode fabricar popularidade
+artificialmente. Então o que se torna popular não é o bom, mas o mais
+bem manipulado.</p>
+<p>Por isso seu modelo precisaria de salvaguardas:</p>
+<ul>
+<li>justificativas transparentes para avaliações de bom/mau</li>
+<li>direitos de recurso</li>
+<li>órgãos independentes de revisão</li>
+<li>proteção de minorias</li>
+<li>regras contra manipulação de popularidade</li>
+<li>separação entre avaliação moral e lealdade política</li>
+<li>atrasos temporais contra euforia e pânico</li>
+<li>valores de incerteza em vez de julgamentos absolutos</li>
+</ul>
+<p>Caso contrário, ele rapidamente se torna um sistema de crédito social
+aperfeiçoado.</p>
+<h2 id="a-quem-algo-cabe-é-o-verdadeiro-núcleo-radical">7. “A quem algo
+cabe” é o verdadeiro núcleo radical</h2>
+<p>A frase mais importante da sua ideia não é a geometria, mas esta:</p>
+<blockquote>
+<p>A moeda informa a quem algo cabe.</p>
+</blockquote>
+<p>Com isso, você sai do mercado normal.</p>
+<p>Um mercado clássico diz:</p>
+<blockquote>
+<p>Quem pode pagar, recebe.</p>
+</blockquote>
+<p>Seu sistema diz mais ou menos:</p>
+<blockquote>
+<p>Quem merece, age com bondade, é socialmente útil e está adequadamente
+posicionado na hierarquia recebe uma reivindicação mais forte.</p>
+</blockquote>
+<p>É uma mistura de:</p>
+<ul>
+<li>meritocracia</li>
+<li>economia moral</li>
+<li>sistema de reputação</li>
+<li>alocação política</li>
+<li>mecanismo de mercado</li>
+<li>ordem de status</li>
+</ul>
+<p>Isso pode ser mais justo que o capitalismo puro, mas somente se a
+lógica de avaliação for muito robusta. Caso contrário surge uma nova
+ordem de classes: pessoas e organizações com pontuação alta recebem
+tudo; pessoas com pontuação baixa são excluídas.</p>
+<p>Uma versão saudável provavelmente teria de dizer:</p>
+<blockquote>
+<p>Direitos fundamentais e provisão básica jamais devem depender
+totalmente dessa moeda.</p>
+</blockquote>
+<p>Caso contrário, a ordem moral de mercado se transforma em sistema de
+castas.</p>
+<h2 id="no-mercado-de-trabalho-isso-seria-especialmente-interessante">8.
+No mercado de trabalho, isso seria especialmente interessante</h2>
+<p>Empregadores e empregados poderiam ambos ser avaliados.</p>
+<p>Um empregado poderia ter, por exemplo:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">desempenho</mtext><mo>,</mo><mtext mathvariant="normal">bondade</mtext><mo>,</mo><mtext mathvariant="normal">popularidade</mtext><mo>,</mo><mtext mathvariant="normal">nível hierárquico</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+A = (\text{desempenho}, \text{bondade}, \text{popularidade}, \text{nível hierárquico})
+</annotation></semantics></math></p>
+<p>Um empregador também:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">produtividade</mtext><mo>,</mo><mtext mathvariant="normal">justiça</mtext><mo>,</mo><mtext mathvariant="normal">benefício social</mtext><mo>,</mo><mtext mathvariant="normal">popularidade</mtext><mo>,</mo><mtext mathvariant="normal">nível de poder</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = (\text{produtividade}, \text{justiça}, \text{benefício social}, \text{popularidade}, \text{nível de poder})
+</annotation></semantics></math></p>
+<p>Então a pergunta não seria apenas:</p>
+<blockquote>
+<p>Quanto o empregador paga?</p>
+</blockquote>
+<p>Mas também:</p>
+<blockquote>
+<p>Esse empregador é bom?<br />
+Seus produtos são bons?<br />
+Ele trata as pessoas de forma justa?<br />
+Sua popularidade é merecida ou manipulada?<br />
+Sua posição moral de mercado está subindo ou descendo?</p>
+</blockquote>
+<p>Isso tornaria os mercados de trabalho mais simétricos. Hoje o
+empregador costuma avaliar o empregado mais fortemente do que o inverso.
+No seu modelo, ambos os lados se tornariam hierárquica e moralmente
+visíveis.</p>
+<h2 id="no-mercado-de-ações-isso-coloriria-moralmente-a-especulação">9.
+No mercado de ações, isso coloriria moralmente a especulação</h2>
+<p>Uma ação então não seria apenas:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">preço</mtext><mo>+</mo><mtext mathvariant="normal">expectativa de retorno</mtext></mrow><annotation encoding="application/x-tex">
+\text{preço} + \text{expectativa de retorno}
+</annotation></semantics></math></p>
+<p>mas:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">preço</mtext><mo>+</mo><mtext mathvariant="normal">retorno</mtext><mo>+</mo><mtext mathvariant="normal">bondade</mtext><mo>+</mo><mtext mathvariant="normal">popularidade</mtext><mo>+</mo><mtext mathvariant="normal">posição sistêmica</mtext></mrow><annotation encoding="application/x-tex">
+\text{preço} + \text{retorno} + \text{bondade} + \text{popularidade} + \text{posição sistêmica}
+</annotation></semantics></math></p>
+<p>Uma empresa lucrativa, mas nociva, poderia ter alto valor econômico,
+mas um vetor moral negativo.</p>
+<p>Investidores não poderiam mais dizer invisivelmente:</p>
+<blockquote>
+<p>Não me importo, desde que o retorno seja bom.</p>
+</blockquote>
+<p>A moeda mostraria:</p>
+<blockquote>
+<p>Esse retorno vem de uma área avaliada negativamente.</p>
+</blockquote>
+<p>Isso poderia alterar fortemente os fluxos de capital.</p>
+<h2
+id="nos-mercados-de-produtos-abnegação-é-difícil-mas-não-impossível">10.
+Nos mercados de produtos, “abnegação” é difícil, mas não impossível</h2>
+<p>Produtos em si não são abnegados. Pessoas, organizações ou designs
+podem ser abnegados ou exploradores. Em produtos, seria melhor
+medir:</p>
+<ul>
+<li>benefício para compradores</li>
+<li>dano a terceiros</li>
+<li>custos ambientais</li>
+<li>condições de trabalho</li>
+<li>potencial de dependência/vício</li>
+<li>reparabilidade</li>
+<li>transparência</li>
+<li>distribuição do lucro</li>
+<li>efeito social de longo prazo</li>
+</ul>
+<p>Então a “bondade do produto” não seria psicológica, mas um
+<strong>perfil de externalidades</strong>.</p>
+<p>Um medicamento que salva vidas seria bom.<br />
+Um produto viciante com marketing agressivo talvez seja popular, mas
+negativamente bom.<br />
+Um produto de infraestrutura entediante, porém importante, seria bom,
+mas talvez impopular.</p>
+<p>É exatamente para isso que seu sistema de eixos é útil.</p>
+<h2 id="o-mercado-não-desapareceria-mas-seria-filtrado">11. O mercado
+não desapareceria, mas seria filtrado</h2>
+<p>Seu sistema não substitui totalmente os mercados. Ele coloca uma
+camada normativa sobre eles.</p>
+<p>Hoje:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">transação permitida se o preço for pago</mtext><annotation encoding="application/x-tex">
+\text{transação permitida se o preço for pago}
+</annotation></semantics></math></p>
+<p>No seu sistema:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">transação permitida/barateada/dificultada conforme a posição vetorial</mtext><annotation encoding="application/x-tex">
+\text{transação permitida/barateada/dificultada conforme a posição vetorial}
+</annotation></semantics></math></p>
+<p>Ou seja:</p>
+<ul>
+<li>Coisas boas e populares são facilitadas.</li>
+<li>Coisas boas, mas impopulares, são protegidas ou subsidiadas.</li>
+<li>Coisas más, mas populares, são desaceleradas.</li>
+<li>Coisas más e impopulares são excluídas ou fortemente oneradas.</li>
+</ul>
+<p>Essa é uma lógica bastante elegante.</p>
+<h2 id="mas-uma-moeda-real-precisa-de-compatibilidade">12. Mas uma moeda
+real precisa de compatibilidade</h2>
+<p>Um problema: se a moeda não é um número, como comparar duas
+coisas?</p>
+<p>Exemplo:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">bom </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">popular </mtext><mspace width="0.333em"></mspace></mrow><mn>0.1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{bom }0.9,\ \text{popular }0.1,\ H=3)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">bom </mtext><mspace width="0.333em"></mspace></mrow><mn>0.2</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">popular </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Y = (\text{bom }0.2,\ \text{popular }0.9,\ H=7)
+</annotation></semantics></math></p>
+<p>Qual vale mais?</p>
+<p>Isso não pode ser decidido objetivamente enquanto não houver uma
+regra de comparação. Você precisa de uma destas opções:</p>
+<h3 id="variante-a-escalarização">Variante A: Escalarização</h3>
+<p>Você transforma tudo em um número:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mi>α</mi><mi>G</mi><mo>+</mo><mi>β</mi><mi>B</mi><mo>+</mo><mi>γ</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">
+S = \alpha G + \beta B + \gamma H
+</annotation></semantics></math></p>
+<p>Vantagem: fácil de negociar.<br />
+Desvantagem: perde-se a multidimensionalidade.</p>
+<h3 id="variante-b-moeda-vetorial">Variante B: Moeda vetorial</h3>
+<p>Você mantém todas as dimensões:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo>,</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = (G, B, H)
+</annotation></semantics></math></p>
+<p>Vantagem: informação mais rica.<br />
+Desvantagem: troca mais difícil, porque nem tudo é claramente
+comparável.</p>
+<h3 id="variante-c-regra-de-comparação-dependente-do-contexto">Variante
+C: Regra de comparação dependente do contexto</h3>
+<p>Em mercados diferentes, valem pesos diferentes.</p>
+<p>No mercado de saúde, a bondade pesa mais.<br />
+No mercado de entretenimento, a popularidade pesa mais.<br />
+No mercado de trabalho, desempenho/hierarquia pesa mais.<br />
+No mercado de seguros, risco e responsabilidade pesam mais.</p>
+<p>Essa provavelmente seria a melhor variante.</p>
+<h2
+id="a-forma-mais-elegante-não-seria-uma-moeda-única-mas-um-protocolo-de-valor">13.
+A forma mais elegante não seria uma moeda única, mas um protocolo de
+valor</h2>
+<p>Eu formularia seu modelo assim:</p>
+<blockquote>
+<p>A moeda em si não é multidimensional; em vez disso, cada unidade de
+mercado carrega um vetor de valor, e cada transação é filtrada por um
+protocolo social de avaliação.</p>
+</blockquote>
+<p>Então:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">transação</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">preço</mtext><mo>,</mo><mtext mathvariant="normal">vetor de valor</mtext><mo>,</mo><mtext mathvariant="normal">regra de direito</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{transação} = (\text{preço}, \text{vetor de valor}, \text{regra de direito})
+</annotation></semantics></math></p>
+<p>Assim o dinheiro continua praticamente utilizável, mas deixa de ser
+cego.</p>
+<p>Isso é mais forte do que dizer: “A moeda não é um número.”<br />
+Mais precisamente:</p>
+<blockquote>
+<p>O preço continua sendo um número, mas a validade, qualidade e
+legitimidade do preço dependem de um vetor de valor
+multidimensional.</p>
+</blockquote>
+<h2 id="minha-avaliação">14. Minha avaliação</h2>
+<p>A ideia é conceitualmente forte porque conecta três coisas que
+normalmente são separadas:</p>
+<ol type="1">
+<li><strong>Hierarquia / desempenho / posição</strong></li>
+<li><strong>Qualidade moral</strong></li>
+<li><strong>Aceitação social</strong></li>
+</ol>
+<p>Assim, mercados podem ser representados de forma muito mais
+inteligente do que apenas pelo preço.</p>
+<p>Mas ela tem um ponto de ruptura duro:</p>
+<blockquote>
+<p>Assim que “bom” é definido centralmente e reivindicações econômicas
+dependem disso, surge um enorme aparato de poder.</p>
+</blockquote>
+<p>Portanto, a melhor versão não seria:</p>
+<blockquote>
+<p>O governo determina absolutamente bom/mau.</p>
+</blockquote>
+<p>Mas sim:</p>
+<blockquote>
+<p>Governo, população, ciência, tribunais, comportamento de mercado e
+dados verificáveis de impacto fornecem sinais separados, a partir dos
+quais surge um vetor de valor transparente.</p>
+</blockquote>
+<p>Então o sistema se torna menos tirânico e mais orientado ao
+conhecimento.</p>
+<p>Em uma frase:</p>
+<p><strong>Você descreve uma moeda moral radial-hierárquica e vetorial
+que ordena mercados não apenas por preço, mas por bondade, popularidade
+e posição hierárquica — teoricamente muito poderosa, mas na prática
+segura apenas se avaliação, recurso, proteção de minorias e resistência
+à manipulação forem levados extremamente a sério.</strong></p>
+</body>
+</html>

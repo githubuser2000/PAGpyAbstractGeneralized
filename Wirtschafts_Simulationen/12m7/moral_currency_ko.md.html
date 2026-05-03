@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>moral_currency_ko</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="방사형-위계적-도덕-화폐">방사형 위계적 도덕 화폐</h1>
+<h2 id="질문">질문</h2>
+<p>한 축은 선함 대 악함이고, 다른 축은 인기 있음 대 인기 없음입니다.
+그러면 이것을 숫자로 변환할 수 있습니다. 즉 “위계 단계: 한 위계 단계에
+있는 모든 요소의 합에 그 위계 단계를 곱한 것”의 합이며, 각도 방향도
+임의로 추출할 수 있습니다. 그러면 이 구조물을 화폐로 사용할 수 있고, 이
+구성을 모든 시장 대상에 배정할 수 있습니다. 노동시장, 제품시장,
+주식시장, 통화시장, 보험시장 등입니다. 그러면 화폐는 더 이상 숫자가
+아니며, 화폐는 누구에게 무엇이 돌아가야 하는지를 알려 줍니다. 많이
+성과를 내는 사람에게 무엇이 돌아가야 하는지, 그리고 제품의 선함이나
+이타성이 인식 가능해집니다. 왜냐하면 이것은 세계 각국 정부가 정하고,
+인기 있음/인기 없음은 각국 국민이 정하기 때문입니다. 위계는 변할 수
+있습니다. 하강, 경력 상승, 승진 등 시장에서 거래되는 모든 것에 대해,
+예를 들어 고용주와 노동자에 대해 적용됩니다.</p>
+<h2 id="답변">답변</h2>
+<p>맞습니다. 당신이 설명하는 것은 핵심적으로 <strong>다차원 가치
+화폐</strong>이거나 <strong>규범적 시장 좌표계</strong>입니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">시장가치</mtext><mo>≠</mo><mtext mathvariant="normal">가격</mtext></mrow><annotation encoding="application/x-tex">
+\text{시장가치} \neq \text{가격}
+</annotation></semantics></math></p>
+<p>오히려 다음에 가깝습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">시장가치</mtext><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">위계</mtext><mo>,</mo><mtext mathvariant="normal">선함</mtext><mo>,</mo><mtext mathvariant="normal">인기도</mtext><mo>,</mo><mtext mathvariant="normal">시장 맥락</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{시장가치} = f(\text{위계}, \text{선함}, \text{인기도}, \text{시장 맥락})
+</annotation></semantics></math></p>
+<p>이때 돈은 더 이상 중립적인 숫자만이 아니라 <strong>코딩된 권리
+상태</strong>가 됩니다. 누가 무엇을 얻고, 팔고, 잃고, 벌고, 상승하는지는
+가격만이 아니라 시스템 안에서 평가된 위치에 달려 있습니다.</p>
+<h2 id="두-축은-네-가지-기본-유형을-만든다">1. 두 축은 네 가지 기본
+유형을 만든다</h2>
+<p>한 축이 <strong>선함 ↔︎ 악함</strong>이고 다른 축이 <strong>인기 있음
+↔︎ 인기 없음</strong>이면 네 개의 사분면이 생깁니다.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>사분면</th>
+<th>의미</th>
+<th>예시적 해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>선함 + 인기 있음</strong></td>
+<td>사회적으로 바람직하고 수용됨</td>
+<td>유용하고 공정하며 선호되는 제품; 존중받는 일</td>
+</tr>
+<tr>
+<td><strong>선함 + 인기 없음</strong></td>
+<td>가치 있지만 과소평가됨</td>
+<td>돌봄 노동, 기초 연구, 인기는 없지만 필요한 인프라</td>
+</tr>
+<tr>
+<td><strong>악함 + 인기 있음</strong></td>
+<td>위험하게 매력적임</td>
+<td>중독성 제품, 조작, 투기 거품, 유해한 플랫폼</td>
+</tr>
+<tr>
+<td><strong>악함 + 인기 없음</strong></td>
+<td>사회적으로 원치 않음</td>
+<td>착취, 사기, 해로운 제품</td>
+</tr>
+</tbody>
+</table>
+<p>이것이 강력한 이유는 일반 시장이 자주 뒤섞는 것을 분리하기
+때문입니다.<br />
+<strong>인기는 선함과 같지 않습니다.</strong></p>
+<p>어떤 제품은 인기 있으면서도 해로울 수 있습니다. 어떤 활동은 인기가
+없지만 극도로 가치 있을 수 있습니다. 바로 이 구분이 당신 모델의
+핵심입니다.</p>
+<h2 id="위계는-세-번째-차원이-된다">2. 위계는 세 번째 차원이 된다</h2>
+<p>“선함/악함”과 “인기 있음/인기 없음”의 축은 <strong>방향</strong>을
+줍니다. 위계는 <strong>깊이, 높이, 또는 순위 위치</strong>를 줍니다.</p>
+<p>형식적으로 한 대상을 다음처럼 설명할 수 있습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V(x) = (G(x), B(x), H(x))
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math>
+= 선함, 대략 −1에서 +1까지<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B(x)</annotation></semantics></math>
+= 인기도, 대략 −1에서 +1까지<br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math>
+= 위계 가치, 순위, 단계, 영향력, 기여의 깊이 또는 구조적 위치</li>
+</ul>
+<p>그다음 각도 방향도 정할 수 있습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta(x) = \operatorname{atan2}(B(x), G(x))
+</annotation></semantics></math></p>
+<p>그리고 크기는 다음과 같습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r(x) = \sqrt{G(x)^2 + B(x)^2}
+</annotation></semantics></math></p>
+<p>그러면 시장 대상은 단순히 “100유로 가치”가 아니라, 예를 들어 다음처럼
+표현됩니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">매우 선함</mtext><mo>,</mo><mtext mathvariant="normal">중간 정도 인기 있음</mtext><mo>,</mo><mtext mathvariant="normal">위계 단계 7</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+x = (\text{매우 선함}, \text{중간 정도 인기 있음}, \text{위계 단계 7})
+</annotation></semantics></math></p>
+<p>이는 실제로 숫자 화폐라기보다 <strong>벡터 화폐</strong>에
+가깝습니다.</p>
+<h2 id="당신의-위계-공식은-가능하지만-정규화가-필요하다">3. 당신의 위계
+공식은 가능하지만 정규화가 필요하다</h2>
+<p>당신이 말하는 것은 대략 다음과 같습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+H = \sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i
+</annotation></semantics></math></p>
+<p>즉, 각 위계 단계
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>마다
+그 단계의 모든 요소
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>i</mi></msub><annotation encoding="application/x-tex">e_i</annotation></semantics></math>를
+합산하고, 거기에 그 단계를 곱합니다.</p>
+<p>이렇게 하면 가중된 위계 가치가 나옵니다.</p>
+<p>예:</p>
+<ul>
+<li>단계 1: 단순 활동</li>
+<li>단계 2: 전문 활동</li>
+<li>단계 3: 조정 활동</li>
+<li>단계 4: 전략 활동</li>
+<li>단계 5: 시스템을 형성하는 활동</li>
+</ul>
+<p>그러면 누군가 또는 무언가는 단지 많은 요소에 닿는 것이 아니라 더 높은
+단계의 요소에 영향을 줄 때 더 높은 위계 가치를 갖습니다.</p>
+<p>하지만 문제가 있습니다. 큰 조직은 요소가 많다는 이유만으로 자동으로
+엄청난 값을 얻게 됩니다. 그래서 아마 정규화된 형태가 필요합니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mtext mathvariant="normal">norm</mtext></msub><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>⋅</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>k</mi></msub></mrow></munder><msub><mi>e</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+H_{\text{norm}} = \frac{\sum_{k=1}^{n} k \cdot \sum_{i \in L_k} e_i}{\sum_{k=1}^{n} \sum_{i \in L_k} e_i}
+</annotation></semantics></math></p>
+<p>그러면 단순한 규모가 아니라 평균적인 위계적 품질을 측정합니다.</p>
+<p>그렇지 않으면 항상 가장 큰 기업, 가장 큰 기관, 가장 큰 플랫폼이
+이기게 됩니다.</p>
+<h2 id="화폐로서-이것은-오늘날-의미의-돈이-아니다">4. 화폐로서 이것은
+오늘날 의미의 돈이 아니다</h2>
+<p>보통 돈에는 세 가지 주요 기능이 있습니다.</p>
+<ol type="1">
+<li><strong>교환 수단</strong></li>
+<li><strong>계산 단위</strong></li>
+<li><strong>가치 저장 수단</strong></li>
+</ol>
+<p>당신의 시스템은 오히려 다음에 가깝습니다.</p>
+<ol type="1">
+<li><strong>교환 수단</strong></li>
+<li><strong>계산 단위</strong></li>
+<li><strong>가치 저장 수단</strong></li>
+<li><strong>도덕 지표</strong></li>
+<li><strong>지위 지표</strong></li>
+<li><strong>권리 지표</strong></li>
+<li><strong>통제 도구</strong></li>
+</ol>
+<p>이것은 엄청난 확장입니다.</p>
+<p>그때 화폐는 단지 이렇게 묻지 않습니다.</p>
+<blockquote>
+<p>이것은 얼마인가?</p>
+</blockquote>
+<p>또한 이렇게 묻습니다.</p>
+<blockquote>
+<p>이것은 선한가?<br />
+이것은 인기 있는가?<br />
+누가 여기서 이익을 얻는가?<br />
+누구에게 이것이 돌아가야 하는가?<br />
+사회적 위계에서 어떤 위치에 있는가?<br />
+이것은 촉진, 처벌, 과세, 우선권 부여 또는 배제의 대상이어야 하는가?</p>
+</blockquote>
+<p>개념적으로 강력하지만, 정치적으로는 극도로 위험합니다.</p>
+<h2 id="가장-강한-지점-시장가치가-도덕적으로-보이게-된다">5. 가장 강한
+지점: 시장가치가 도덕적으로 보이게 된다</h2>
+<p>오늘날 시장가격은 많은 것을 숨길 수 있습니다.</p>
+<p>싼 제품은 노동자가 낮은 임금을 받기 때문에 쌀 수 있습니다.<br />
+비싼 제품은 사회적으로 쓸모없는데도 비쌀 수 있습니다.<br />
+인기 있는 기업은 해로울 수 있습니다.<br />
+인기 없는 일은 필수적일 수 있습니다.</p>
+<p>당신의 모델은 이렇게 말할 것입니다.</p>
+<blockquote>
+<p>시장 대상은 가격만 받는 것이 아니라, 보이는 도덕-사회적 서명을
+받는다.</p>
+</blockquote>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">제품 A</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">선함: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.8</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">인기도: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.6</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">위계: </mtext><mspace width="0.333em"></mspace></mrow><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{제품 A} = (\text{선함: }0.8,\ \text{인기도: }0.6,\ \text{위계: }4)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">제품 B</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">선함: </mtext><mspace width="0.333em"></mspace></mrow><mo>−</mo><mn>0.7</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">인기도: </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">위계: </mtext><mspace width="0.333em"></mspace></mrow><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{제품 B} = (\text{선함: }-0.7,\ \text{인기도: }0.9,\ \text{위계: }6)
+</annotation></semantics></math></p>
+<p>제품 B는 인기 있고 영향력이 있지만 도덕적으로는 부정적입니다. 당신의
+시스템에서는 더 높은 세금이 부과되거나, 제한되거나, 평가절하될 수
+있습니다.</p>
+<p>이는 수요와 구매력만 보는 시장에 비해 분명한 개선입니다.</p>
+<h2 id="가장-위험한-지점-누가-선함을-정의하는가">6. 가장 위험한 지점:
+누가 “선함”을 정의하는가?</h2>
+<p>당신은 세계 각국 정부가 선함/악함을 정하고, 국민들이 인기 있음/인기
+없음을 정한다고 말합니다.</p>
+<p>이 구분은 논리적으로 깔끔하지만 정치적으로는 민감합니다.</p>
+<p>정부가 “선함”과 “악함”을 정의하면 즉시 이런 질문이 생깁니다.</p>
+<blockquote>
+<p>“선함”은 정말 선한 것인가, 아니면 단지 정부에 맞는 것인가?</p>
+</blockquote>
+<p>국가는 반대 의견을 “악함”으로 표시할 수 있습니다.<br />
+정부는 자국 산업을 인위적으로 “선함”으로 평가할 수 있습니다.<br />
+야당, 소수자, 불편한 연구는 평가절하될 수 있습니다.</p>
+<p>그러면 화폐는 더 이상 시장 도구가 아니라 <strong>지배 도구</strong>가
+됩니다.</p>
+<p>인기도의 원천을 국민에게 두는 것도 다른 문제가 있습니다.</p>
+<blockquote>
+<p>인기는 조작될 수 있습니다.</p>
+</blockquote>
+<p>미디어 권력, 플랫폼 권력, 광고, 봇, 문화적 영향력, 유명세를 가진
+사람은 인기를 인위적으로 만들 수 있습니다. 그러면 선한 것이 인기를 얻는
+것이 아니라 가장 잘 조작된 것이 인기를 얻습니다.</p>
+<p>그래서 당신의 모델에는 보호장치가 필요합니다.</p>
+<ul>
+<li>선함/악함 평가에 대한 투명한 근거</li>
+<li>이의제기 권리</li>
+<li>독립적인 검토 기관</li>
+<li>소수자 보호</li>
+<li>인기 조작 방지 규칙</li>
+<li>도덕 평가와 정치적 충성의 분리</li>
+<li>과열과 공포에 대한 시간 지연</li>
+<li>절대 판단 대신 불확실성 값</li>
+</ul>
+<p>그렇지 않으면 매우 빠르게 완성형 사회신용 시스템이 됩니다.</p>
+<h2 id="누구에게-무엇이-돌아가야-하는가가-진짜-급진적-핵심이다">7.
+“누구에게 무엇이 돌아가야 하는가”가 진짜 급진적 핵심이다</h2>
+<p>당신의 아이디어에서 가장 중요한 문장은 기하학이 아니라
+이것입니다.</p>
+<blockquote>
+<p>화폐는 누구에게 무엇이 돌아가야 하는지를 알려 준다.</p>
+</blockquote>
+<p>이로써 당신은 일반 시장을 벗어납니다.</p>
+<p>고전적 시장은 이렇게 말합니다.</p>
+<blockquote>
+<p>지불할 수 있는 사람이 얻는다.</p>
+</blockquote>
+<p>당신의 시스템은 오히려 이렇게 말합니다.</p>
+<blockquote>
+<p>자격이 있고, 선하게 행동하며, 사회적으로 유용하고, 위계에서 적절히
+위치한 사람이 더 강한 권리를 가진다.</p>
+</blockquote>
+<p>이것은 다음의 혼합입니다.</p>
+<ul>
+<li>능력주의</li>
+<li>도덕경제</li>
+<li>평판 시스템</li>
+<li>정치적 배분</li>
+<li>시장 메커니즘</li>
+<li>지위 질서</li>
+</ul>
+<p>이는 순수 자본주의보다 더 공정할 수 있지만, 평가 논리가 매우 튼튼할
+때만 그렇습니다. 그렇지 않으면 새로운 계급질서가 생깁니다. 높은 점수를
+가진 사람과 조직은 모든 것을 얻고, 낮은 점수를 가진 사람은
+배제됩니다.</p>
+<p>건강한 버전은 아마 이렇게 말해야 합니다.</p>
+<blockquote>
+<p>기본권과 기본 공급은 결코 이 화폐에 완전히 의존해서는 안 된다.</p>
+</blockquote>
+<p>그렇지 않으면 도덕적 시장질서는 카스트 제도가 됩니다.</p>
+<h2 id="노동시장에서는-특히-흥미롭다">8. 노동시장에서는 특히
+흥미롭다</h2>
+<p>고용주와 노동자 모두 평가될 수 있습니다.</p>
+<p>예를 들어 노동자는 다음을 가질 수 있습니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">성과</mtext><mo>,</mo><mtext mathvariant="normal">선함</mtext><mo>,</mo><mtext mathvariant="normal">인기도</mtext><mo>,</mo><mtext mathvariant="normal">위계 단계</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+A = (\text{성과}, \text{선함}, \text{인기도}, \text{위계 단계})
+</annotation></semantics></math></p>
+<p>고용주도 마찬가지입니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">생산성</mtext><mo>,</mo><mtext mathvariant="normal">공정성</mtext><mo>,</mo><mtext mathvariant="normal">사회적 효용</mtext><mo>,</mo><mtext mathvariant="normal">인기도</mtext><mo>,</mo><mtext mathvariant="normal">권력 단계</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = (\text{생산성}, \text{공정성}, \text{사회적 효용}, \text{인기도}, \text{권력 단계})
+</annotation></semantics></math></p>
+<p>그러면 질문은 단지 다음이 아닙니다.</p>
+<blockquote>
+<p>고용주는 얼마를 지급하는가?</p>
+</blockquote>
+<p>또한 다음입니다.</p>
+<blockquote>
+<p>이 고용주는 선한가?<br />
+그 제품들은 선한가?<br />
+사람들을 공정하게 대하는가?<br />
+그 인기는 정당하게 얻은 것인가, 조작된 것인가?<br />
+도덕적 시장 위치가 상승하는가, 하락하는가?</p>
+</blockquote>
+<p>이것은 노동시장을 더 대칭적으로 만듭니다. 오늘날에는 고용주가
+노동자를 평가하는 정도가 그 반대보다 큽니다. 당신의 모델에서는 양쪽 모두
+위계적·도덕적으로 보이게 됩니다.</p>
+<h2 id="주식시장에서는-투기에-도덕적-색을-입힌다">9. 주식시장에서는
+투기에 도덕적 색을 입힌다</h2>
+<p>주식은 더 이상 단지 다음이 아닙니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가격</mtext><mo>+</mo><mtext mathvariant="normal">기대수익</mtext></mrow><annotation encoding="application/x-tex">
+\text{가격} + \text{기대수익}
+</annotation></semantics></math></p>
+<p>오히려 다음입니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가격</mtext><mo>+</mo><mtext mathvariant="normal">수익</mtext><mo>+</mo><mtext mathvariant="normal">선함</mtext><mo>+</mo><mtext mathvariant="normal">인기도</mtext><mo>+</mo><mtext mathvariant="normal">시스템 순위</mtext></mrow><annotation encoding="application/x-tex">
+\text{가격} + \text{수익} + \text{선함} + \text{인기도} + \text{시스템 순위}
+</annotation></semantics></math></p>
+<p>수익성은 높지만 해로운 기업은 경제적 가치는 높지만 도덕 벡터는
+부정적일 수 있습니다.</p>
+<p>투자자들은 더 이상 보이지 않게 이렇게 말할 수 없습니다.</p>
+<blockquote>
+<p>수익만 좋으면 상관없다.</p>
+</blockquote>
+<p>화폐가 보여 줄 것입니다.</p>
+<blockquote>
+<p>이 수익은 부정적으로 평가된 영역에서 나온다.</p>
+</blockquote>
+<p>이는 자본 흐름을 크게 바꿀 수 있습니다.</p>
+<h2 id="제품시장에서는-이타성이-어렵지만-불가능하지는-않다">10.
+제품시장에서는 “이타성”이 어렵지만 불가능하지는 않다</h2>
+<p>제품 자체는 이타적이지 않습니다. 사람, 조직, 설계가 이타적이거나
+착취적일 수 있습니다. 제품의 경우에는 오히려 다음을 측정해야 합니다.</p>
+<ul>
+<li>구매자에게 주는 효용</li>
+<li>제3자에게 주는 피해</li>
+<li>환경 비용</li>
+<li>노동 조건</li>
+<li>의존성/중독 가능성</li>
+<li>수리 가능성</li>
+<li>투명성</li>
+<li>이익 분배</li>
+<li>장기적 사회 효과</li>
+</ul>
+<p>그러면 “제품의 선함”은 심리적 의미가 아니라 <strong>외부효과
+프로필</strong>이 됩니다.</p>
+<p>생명을 구하는 약은 선합니다.<br />
+공격적 마케팅을 가진 중독성 제품은 인기 있을 수 있지만 선함은 부정적일
+수 있습니다.<br />
+지루하지만 중요한 인프라 제품은 선하지만 인기가 없을 수 있습니다.</p>
+<p>바로 이런 데 당신의 축 시스템이 유용합니다.</p>
+<h2 id="시장은-사라지는-것이-아니라-필터링된다">11. 시장은 사라지는 것이
+아니라 필터링된다</h2>
+<p>당신의 시스템은 시장을 완전히 대체하지 않습니다. 시장 위에 규범적
+층을 올립니다.</p>
+<p>오늘날:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">가격이 지불되면 거래가 허용된다</mtext><annotation encoding="application/x-tex">
+\text{가격이 지불되면 거래가 허용된다}
+</annotation></semantics></math></p>
+<p>당신의 시스템에서는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">벡터 위치에 따라 거래가 허용/할인/어렵게 된다</mtext><annotation encoding="application/x-tex">
+\text{벡터 위치에 따라 거래가 허용/할인/어렵게 된다}
+</annotation></semantics></math></p>
+<p>즉:</p>
+<ul>
+<li>선하고 인기 있는 것은 쉽게 만든다.</li>
+<li>선하지만 인기 없는 것은 보호하거나 보조한다.</li>
+<li>악하지만 인기 있는 것은 늦춘다.</li>
+<li>악하고 인기 없는 것은 배제하거나 강하게 부담시킨다.</li>
+</ul>
+<p>꽤 우아한 논리입니다.</p>
+<h2 id="하지만-진짜-화폐에는-호환성이-필요하다">12. 하지만 진짜 화폐에는
+호환성이 필요하다</h2>
+<p>문제가 하나 있습니다. 화폐가 숫자가 아니라면 두 대상을 어떻게
+비교합니까?</p>
+<p>예:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">선함 </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">인기 </mtext><mspace width="0.333em"></mspace></mrow><mn>0.1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{선함 }0.9,\ \text{인기 }0.1,\ H=3)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mtext mathvariant="normal">선함 </mtext><mspace width="0.333em"></mspace></mrow><mn>0.2</mn><mo>,</mo><mspace width="0.222em"></mspace><mrow><mtext mathvariant="normal">인기 </mtext><mspace width="0.333em"></mspace></mrow><mn>0.9</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>H</mi><mo>=</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Y = (\text{선함 }0.2,\ \text{인기 }0.9,\ H=7)
+</annotation></semantics></math></p>
+<p>어느 쪽이 더 가치 있습니까?</p>
+<p>비교 규칙이 없는 한 객관적으로 결정할 수 없습니다. 다음 중 하나가
+필요합니다.</p>
+<h3 id="변형-a-스칼라화">변형 A: 스칼라화</h3>
+<p>모든 것을 하나의 숫자로 바꿉니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mi>α</mi><mi>G</mi><mo>+</mo><mi>β</mi><mi>B</mi><mo>+</mo><mi>γ</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">
+S = \alpha G + \beta B + \gamma H
+</annotation></semantics></math></p>
+<p>장점: 거래가 쉽다.<br />
+단점: 다차원성을 잃는다.</p>
+<h3 id="변형-b-벡터-화폐">변형 B: 벡터 화폐</h3>
+<p>모든 차원을 유지합니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo>,</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = (G, B, H)
+</annotation></semantics></math></p>
+<p>장점: 정보가 풍부하다.<br />
+단점: 모든 것이 명확히 비교되지 않기 때문에 교환이 어렵다.</p>
+<h3 id="변형-c-맥락-의존적-비교-규칙">변형 C: 맥락 의존적 비교 규칙</h3>
+<p>시장마다 다른 가중치를 적용합니다.</p>
+<p>의료시장에서는 선함이 더 중요합니다.<br />
+엔터테인먼트 시장에서는 인기도가 더 중요합니다.<br />
+노동시장에서는 성과/위계가 더 중요합니다.<br />
+보험시장에서는 위험과 책임이 더 중요합니다.</p>
+<p>아마 이것이 가장 좋은 변형일 것입니다.</p>
+<h2 id="가장-우아한-형태는-단일-화폐가-아니라-가치-프로토콜이다">13.
+가장 우아한 형태는 단일 화폐가 아니라 가치 프로토콜이다</h2>
+<p>나는 당신의 모델을 이렇게 공식화하겠습니다.</p>
+<blockquote>
+<p>화폐 자체가 다차원적인 것이 아니라, 모든 시장 단위가 가치 벡터를
+지니고, 모든 거래가 사회적 평가 프로토콜을 통해 필터링된다.</p>
+</blockquote>
+<p>즉:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">거래</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">가격</mtext><mo>,</mo><mtext mathvariant="normal">가치 벡터</mtext><mo>,</mo><mtext mathvariant="normal">권리 규칙</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{거래} = (\text{가격}, \text{가치 벡터}, \text{권리 규칙})
+</annotation></semantics></math></p>
+<p>이렇게 하면 돈은 실용적으로 사용할 수 있지만 더 이상 눈먼 것이
+아닙니다.</p>
+<p>이는 “화폐는 숫자가 아니다”라고 말하는 것보다 더 강합니다.<br />
+더 정확히 말하면:</p>
+<blockquote>
+<p>가격은 숫자로 남아 있지만, 가격의 유효성, 품질, 정당성은 다차원 가치
+벡터에 달려 있다.</p>
+</blockquote>
+<h2 id="나의-평가">14. 나의 평가</h2>
+<p>이 아이디어는 개념적으로 강합니다. 보통 분리되는 세 가지를 연결하기
+때문입니다.</p>
+<ol type="1">
+<li><strong>위계 / 성과 / 순위</strong></li>
+<li><strong>도덕적 품질</strong></li>
+<li><strong>사회적 수용</strong></li>
+</ol>
+<p>그래서 시장을 가격만으로 보는 것보다 훨씬 더 지적으로 표현할 수
+있습니다.</p>
+<p>하지만 단단한 파열점이 있습니다.</p>
+<blockquote>
+<p>“선함”이 중앙에서 정의되고 경제적 권리가 그것에 의존하는 순간 거대한
+권력 장치가 생긴다.</p>
+</blockquote>
+<p>따라서 최선의 버전은 다음이 아닙니다.</p>
+<blockquote>
+<p>정부가 선함/악함을 절대적으로 결정한다.</p>
+</blockquote>
+<p>오히려 다음입니다.</p>
+<blockquote>
+<p>정부, 국민, 과학, 법원, 시장행동, 검증 가능한 영향 데이터가 각각
+별도의 신호를 제공하고, 거기서 투명한 가치 벡터가 생긴다.</p>
+</blockquote>
+<p>그러면 시스템은 덜 폭압적이고 더 지식 지향적이 됩니다.</p>
+<p>한 문장으로:</p>
+<p><strong>당신은 방사형-위계적이고 벡터적인 도덕 화폐를 설명하고
+있습니다. 이 화폐는 시장을 가격뿐 아니라 선함, 인기도, 순위 위치에 따라
+배열합니다. 이론적으로 매우 강력하지만, 실제로 안전하려면 평가,
+이의제기, 소수자 보호, 조작 방지가 극도로 진지하게 다뤄져야
+합니다.</strong></p>
+</body>
+</html>
