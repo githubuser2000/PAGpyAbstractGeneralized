@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>org30en2</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="logic-circuits-that-cannot-be-formalized-as-a-static-boolean-formula">Logic
+Circuits That Cannot Be Formalized as a Static Boolean Formula</h1>
+<p>The condition mentioned („<strong>cannot be formalized as a static
+boolean formula</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">inputs</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Q = f(\text{inputs})</annotation></semantics></math>“)
+applies <strong>exclusively to sequential logic circuits</strong>.</p>
+<p><strong>Reason:</strong> There is <strong>feedback</strong> or an
+internal <strong>state memory</strong>. The output therefore depends not
+only on the current inputs, but also on the previous state.<br />
+Formula:<br />
+<code>Output(t) = f(Inputs(t), State(t-1))</code></p>
+<h2 id="alu-no-it-does-not-meet-the-condition">1. ALU –
+<strong>No</strong>, it does <strong>not</strong> meet the
+condition!</h2>
+<p>An <strong>ALU</strong> (Arithmetic Logic Unit) is <strong>purely
+combinational</strong>.<br />
+It has no feedback and no internal memory. Every result can be fully
+described as a Boolean formula or truth table.</p>
+<h2 id="other-sequential-logic-circuits-examples">2. Other Sequential
+Logic Circuits (Examples)</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 38%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Circuit</th>
+<th>Why no pure formula?</th>
+<th>Typical Complexity</th>
+<th>Example Input/Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D-Latch / D-Flipflop</strong></td>
+<td>Feedback + clock → state memory</td>
+<td>Small</td>
+<td>D + CLK → Q stores D on clock edge</td>
+</tr>
+<tr>
+<td><strong>JK-Flipflop</strong></td>
+<td>Feedback + J/K → toggle mode</td>
+<td>Medium</td>
+<td>J=1, K=1 → toggles on clock</td>
+</tr>
+<tr>
+<td><strong>T-Flipflop</strong></td>
+<td>Feedback → toggles when T=1</td>
+<td>Small</td>
+<td>T=1 + clock → Q changes</td>
+</tr>
+<tr>
+<td><strong>Shift Register</strong> (e.g. 4-Bit)</td>
+<td>Chain of flip-flops with shift</td>
+<td>Medium</td>
+<td>Serial input → parallel output</td>
+</tr>
+<tr>
+<td><strong>Binary Counter</strong></td>
+<td>Chain of flip-flops with feedback</td>
+<td>Medium–large</td>
+<td>CLK pulses → counts 0…15</td>
+</tr>
+<tr>
+<td><strong>Finite State Machine (FSM)</strong></td>
+<td>Internal states + transition table</td>
+<td>Medium–very large</td>
+<td>State + input → new state + output</td>
+</tr>
+<tr>
+<td><strong>Register</strong> (e.g. 8-Bit)</td>
+<td>Multiple flip-flops in parallel + CLK</td>
+<td>Medium</td>
+<td>8 data + CLK → stores byte</td>
+</tr>
+<tr>
+<td><strong>SRAM Memory Cell</strong></td>
+<td>Cross-coupled inverters</td>
+<td>Very small</td>
+<td>Write/read stores 1 bit</td>
+</tr>
+<tr>
+<td><strong>Full Microprocessor / CPU</strong></td>
+<td>Registers + FSM + pipeline</td>
+<td>Very large</td>
+<td>Instructions → sequential state changes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rule-of-thumb">Rule of Thumb</h2>
+<ul>
+<li><strong>With feedback or clock + memory</strong> → <strong>no
+formula possible</strong><br />
+</li>
+<li><strong>Without feedback (combinational)</strong> → <strong>always
+possible as formula</strong> (ALU, adder, multiplexer …)</li>
+</ul>
+<p>All these circuits are sequential and require a state description
+(e.g. state diagram or next-state equations).</p>
+</body>
+</html>
