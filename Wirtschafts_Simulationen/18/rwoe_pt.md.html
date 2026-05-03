@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>rwoe_pt</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="economia-monetária-relacional-um-sistema-econômico-completo-baseado-em-uma-moeda-que-não-é-um-número">Economia
+Monetária Relacional: um sistema econômico completo baseado em uma moeda
+que não é um número</h1>
+<h2 id="ideia-básica-uma-moeda-que-não-é-um-número">1. Ideia básica: uma
+moeda que não é um número</h2>
+<p>Chamo este sistema de:</p>
+<h1 id="economia-monetária-relacional"><strong>Economia Monetária
+Relacional</strong></h1>
+<p>ou, de forma abreviada:</p>
+<pre class="text"><code>EMR</code></pre>
+<p>A moeda dessa economia não é um número como “100 euros”, mas uma
+<strong>tabela relacional negociável</strong>.</p>
+<p>Não:</p>
+<pre class="text"><code>Eu tenho 100.</code></pre>
+<p>Mas:</p>
+<pre class="text"><code>Eu tenho um conjunto de direitos, deveres, reivindicações, riscos, contrapartes, vínculos temporais, relações com recursos, capacidades, garantias e custos sociais.</code></pre>
+<p>O dinheiro, portanto, não é entendido como um valor unidimensional,
+mas como um <strong>estado de mercado estruturado</strong>.</p>
+<p>A unidade básica não é a moeda metálica, nem a cédula, nem o saldo da
+conta, mas uma <strong>tabela de relações</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID da relação</th>
+<th>Sujeito</th>
+<th>Objeto</th>
+<th>Tipo de relação</th>
+<th>Reivindicação</th>
+<th>Dever</th>
+<th>Período</th>
+<th>Condição</th>
+<th>Transferibilidade</th>
+<th>Risco</th>
+<th>Status jurídico</th>
+<th>Prova</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-001</td>
+<td>Pessoa A</td>
+<td>Empresa B</td>
+<td>Trabalho</td>
+<td>20 h de trabalho qualificado</td>
+<td>Pagamento/proteção</td>
+<td>Junho</td>
+<td>Contrato ativo</td>
+<td>limitada</td>
+<td>médio</td>
+<td>válido</td>
+<td>assinado</td>
+</tr>
+<tr>
+<td>R-002</td>
+<td>Empresa B</td>
+<td>Máquina C</td>
+<td>Uso</td>
+<td>100 h de tempo de máquina</td>
+<td>Manutenção</td>
+<td>T3</td>
+<td>apenas oficina</td>
+<td>sim</td>
+<td>baixo</td>
+<td>válido</td>
+<td>verificado</td>
+</tr>
+<tr>
+<td>R-003</td>
+<td>Estado</td>
+<td>Cidadão A</td>
+<td>Reivindicação fiscal</td>
+<td>Contribuição</td>
+<td>Infraestrutura</td>
+<td>anual</td>
+<td>renda/consumo</td>
+<td>não</td>
+<td>baixo</td>
+<td>legal</td>
+<td>registro</td>
+</tr>
+<tr>
+<td>R-004</td>
+<td>Pessoa D</td>
+<td>Pessoa A</td>
+<td>Dívida</td>
+<td>Reembolso</td>
+<td>Obrigação de pagamento</td>
+<td>6 meses</td>
+<td>vencida</td>
+<td>sim</td>
+<td>alto</td>
+<td>contestado</td>
+<td>contrato</td>
+</tr>
+</tbody>
+</table>
+<p>Essa tabela não é mera documentação. Ela própria é o portador de
+valor.</p>
+<p>Um pagamento não seria:</p>
+<pre class="text"><code>A paga 500 a B.</code></pre>
+<p>Mas:</p>
+<pre class="text"><code>A transfere a B um conjunto de relações válidas:
+- direito de entrega
+- direito a prestação de trabalho
+- crédito contra terceiro
+- direito de uso de recurso
+- crédito fiscal
+- cobertura de seguro
+- garantia reputacional</code></pre>
+<p>Esse é o núcleo.</p>
+<h2
+id="o-que-há-de-diferente-em-relação-à-economia-de-mercado-normal">2. O
+que há de diferente em relação à economia de mercado normal?</h2>
+<p>A economia de mercado normal condensa quase tudo em um preço.</p>
+<pre class="text"><code>Bem → preço
+Trabalho → salário
+Risco → juros
+Dano → custo
+Recurso → valor de mercado</code></pre>
+<p>Isso é poderoso porque é simples.</p>
+<p>Mas também é cego. Um número não mostra <strong>por que</strong> algo
+é valioso, <strong>a quem</strong> algo é devido, <strong>quais
+riscos</strong> estão ligados, <strong>quais custos sociais</strong>
+surgem, <strong>quais dependências</strong> são criadas e <strong>quais
+relações de poder</strong> são vendidas junto com aquilo.</p>
+<p>A economia monetária relacional diz:</p>
+<pre class="text"><code>O preço é pobre demais.
+O mercado precisa de mais do que números.
+O mercado precisa de relações estruturadas.</code></pre>
+<p>Por isso esse sistema é, em certo sentido, mais forte que a economia
+de mercado:</p>
+<pre class="text"><code>A economia de mercado negocia preços.
+A economia monetária relacional negocia realidade estruturada.</code></pre>
+<p>Mas é exatamente aí que está também o perigo.</p>
+<p>Se tudo for registrado como relação e tornado negociável, não apenas
+os bens serão negociados de modo mais eficiente. Dependências,
+biografias, força de trabalho, vínculos sociais, dívidas, acesso,
+controle e vulnerabilidade humana também se tornam negociáveis.</p>
+<p>Isso cria um enorme boom econômico — e uma enorme ameaça moral.</p>
+<h2 id="a-tese-central">3. A tese central</h2>
+<p>A EMR funciona segundo esta tese:</p>
+<pre class="text"><code>Tudo que é econômico é uma relação.</code></pre>
+<p>Não apenas coisas têm valor, relações também têm valor:</p>
+<pre class="text"><code>Uma pessoa possui uma coisa.
+Uma pessoa deve uma prestação.
+Uma empresa precisa de força de trabalho.
+O Estado cobra imposto.
+O cliente confia no fornecedor.
+A máquina gera produto.
+A terra gera rendimento.
+Os dados geram previsões.
+O dano gera responsabilidade.
+O risco gera necessidade de seguro.
+A escassez gera poder de troca.</code></pre>
+<p>Na economia de mercado clássica, essas relações costumam ficar
+ocultas e, no fim, são comprimidas em um preço.</p>
+<p>Na EMR elas permanecem visíveis e se tornam a própria moeda.</p>
+<h2 id="a-moeda-o-pacote-relacional-de-valor">4. A moeda: o Pacote
+Relacional de Valor</h2>
+<p>A verdadeira moeda se chama aqui:</p>
+<pre class="text"><code>Pacote Relacional de Valor</code></pre>
+<p>Abreviado:</p>
+<pre class="text"><code>PRV</code></pre>
+<p>Um PRV é uma tabela de relações negociáveis.</p>
+<p>Ele contém não apenas “valor”, mas a estrutura do valor.</p>
+<p>Um PRV pode conter:</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relações de propriedade</td>
+<td>A possui a máquina X</td>
+</tr>
+<tr>
+<td>Direitos de uso</td>
+<td>B pode usar o armazém Y por 30 dias</td>
+</tr>
+<tr>
+<td>Reivindicações de trabalho</td>
+<td>C deve 10 horas de trabalho</td>
+</tr>
+<tr>
+<td>Reivindicações de entrega</td>
+<td>D entrega 500 unidades de matéria-prima</td>
+</tr>
+<tr>
+<td>Créditos de dívida</td>
+<td>E deve reembolsar F</td>
+</tr>
+<tr>
+<td>Relações de seguro</td>
+<td>G cobre o risco H</td>
+</tr>
+<tr>
+<td>Relações fiscais</td>
+<td>O Estado aceita a reivindicação como contribuição</td>
+</tr>
+<tr>
+<td>Relações reputacionais</td>
+<td>Um auditor confirma a qualidade</td>
+</tr>
+<tr>
+<td>Relações de responsabilidade</td>
+<td>O causador suporta o dano</td>
+</tr>
+<tr>
+<td>Relações de dados</td>
+<td>Um conjunto de dados autoriza análise/uso</td>
+</tr>
+<tr>
+<td>Relações ambientais</td>
+<td>Uma atividade gera emissão ou compensação</td>
+</tr>
+<tr>
+<td>Relações sociais</td>
+<td>Dependência, dever de cuidado, dever de proteção</td>
+</tr>
+</tbody>
+</table>
+<p>Importante:</p>
+<pre class="text"><code>A moeda não é um número.
+A moeda é um conjunto de relações.</code></pre>
+<p>Números podem aparecer em células, como horas, quantidades, prazos ou
+valores de risco. Mas a moeda em si não é esse número. Ela é a tabela
+inteira.</p>
+<h2 id="a-estrutura-básica-de-toda-tabela-monetária">5. A estrutura
+básica de toda tabela monetária</h2>
+<p>Toda tabela monetária precisa, no mínimo, destas colunas:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sujeito</td>
+<td>Quem tem uma reivindicação ou um dever?</td>
+</tr>
+<tr>
+<td>Contraparte</td>
+<td>Contra quem a relação se dirige?</td>
+</tr>
+<tr>
+<td>Objeto</td>
+<td>A que a relação se refere?</td>
+</tr>
+<tr>
+<td>Tipo de relação</td>
+<td>Propriedade, trabalho, dívida, uso, responsabilidade, entrega
+etc.</td>
+</tr>
+<tr>
+<td>Reivindicação</td>
+<td>O que pode ser exigido?</td>
+</tr>
+<tr>
+<td>Dever</td>
+<td>O que deve ser cumprido?</td>
+</tr>
+<tr>
+<td>Período</td>
+<td>Quando vale?</td>
+</tr>
+<tr>
+<td>Condição</td>
+<td>Sob quais circunstâncias vale?</td>
+</tr>
+<tr>
+<td>Transferibilidade</td>
+<td>A relação pode ser revendida?</td>
+</tr>
+<tr>
+<td>Divisibilidade</td>
+<td>Ela pode ser dividida?</td>
+</tr>
+<tr>
+<td>Exigibilidade</td>
+<td>Pode ser exigida juridicamente?</td>
+</tr>
+<tr>
+<td>Risco</td>
+<td>Qual a probabilidade de inadimplência, fraude ou disputa?</td>
+</tr>
+<tr>
+<td>Prova</td>
+<td>Quem confirma a relação?</td>
+</tr>
+<tr>
+<td>Prioridade</td>
+<td>Ela tem prioridade sobre outras reivindicações?</td>
+</tr>
+<tr>
+<td>Status moral</td>
+<td>permitido, restrito, proibido, inalienável</td>
+</tr>
+<tr>
+<td>Publicidade</td>
+<td>privado, semipúblico, estatal, anonimizado</td>
+</tr>
+<tr>
+<td>Apagabilidade</td>
+<td>termina por cumprimento, expiração, revogação, morte etc.</td>
+</tr>
+</tbody>
+</table>
+<p>Assim, cada “unidade monetária” vira um minicontrato, um
+minirregistro patrimonial e um miniperfil de risco.</p>
+<h2 id="pagamento-nesse-sistema">6. Pagamento nesse sistema</h2>
+<p>Na economia normal:</p>
+<pre class="text"><code>A compra mercadoria de B.
+A paga 100 euros.
+B entrega a mercadoria.</code></pre>
+<p>Na economia monetária relacional:</p>
+<pre class="text"><code>A compra mercadoria de B.
+A transfere a B um pacote relacional adequado.
+B o aceita porque ele corresponde à necessidade de B.</code></pre>
+<p>Exemplo:</p>
+<p>B vende uma bicicleta. B não exige “300 euros”, mas:</p>
+<pre class="text"><code>B aceita:
+- uma reivindicação válida de 5 horas de trabalho de reparo
+- mais uma relação fiscal aceita pelo Estado
+- mais uma reivindicação transferível contra C
+- mais uma garantia contra inadimplência</code></pre>
+<p>A, portanto, não paga com um número, mas com uma tabela
+estruturada:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Relação</th>
+<th>Conteúdo</th>
+<th>Por que B aceita</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reivindicação de trabalho</td>
+<td>A repara máquinas por 5 horas</td>
+<td>B precisa de reparo</td>
+</tr>
+<tr>
+<td>Relação fiscal</td>
+<td>reivindicação pública computável</td>
+<td>B pode reduzir obrigação fiscal</td>
+</tr>
+<tr>
+<td>Reivindicação</td>
+<td>C deve uma entrega</td>
+<td>B pode revendê-la</td>
+</tr>
+<tr>
+<td>Garantia</td>
+<td>inadimplência coberta</td>
+<td>risco reduzido</td>
+</tr>
+</tbody>
+</table>
+<p>O preço não é mais um número. O preço é um <strong>padrão de
+aceitação</strong>.</p>
+<pre class="text"><code>Um preço é uma tabela que o vendedor aceita.
+Um pagamento é uma tabela que o comprador transfere.
+Um mercado é um sistema que junta tabelas compatíveis.</code></pre>
+<h2 id="como-surgem-os-valores">7. Como surgem os valores?</h2>
+<p>Valor não surge simplesmente pela contagem de linhas.</p>
+<p>Uma tabela com 1.000 relações inúteis, arriscadas ou proibidas pode
+valer menos que uma tabela com 3 relações muito fortes.</p>
+<p>O valor surge de:</p>
+<pre class="text"><code>utilidade
+escassez
+exigibilidade
+confiança
+transferibilidade
+proximidade temporal
+conteúdo de risco
+aceitação social
+reconhecimento estatal
+produtividade
+clareza jurídica</code></pre>
+<p>Um pacote relacional é forte quando muitos participantes de mercado o
+aceitam.</p>
+<p>Um pacote relacional é fraco quando é difícil de exigir, moralmente
+carregado, arriscado, ilíquido ou juridicamente proibido.</p>
+<h2 id="o-papel-dos-números">8. O papel dos números</h2>
+<p>A EMR não proíbe números. Ela apenas os rebaixa.</p>
+<p>Números já não são a moeda em si. São apenas valores auxiliares
+dentro das tabelas.</p>
+<p>Exemplos:</p>
+<pre class="text"><code>10 horas
+3 meses
+50 quilowatt-hora
+2 hectares
+5% de risco de inadimplência
+40 toneladas de CO₂
+8 entregas</code></pre>
+<p>Mas o valor não está no número isolado, e sim na relação:</p>
+<pre class="text"><code>10 horas de quem?
+Para quem?
+Que trabalho?
+Sob quais condições?
+Com que qualidade?
+Com que risco?
+Com que proteção jurídica?
+Transferível ou não?
+Voluntário ou forçado?</code></pre>
+<p>Essa é a diferença.</p>
+<p>A economia de mercado pergunta:</p>
+<pre class="text"><code>Quanto custa?</code></pre>
+<p>A EMR pergunta:</p>
+<pre class="text"><code>Que relação é transferida?
+Que poder é transferido?
+Que dever é transferido?
+Que futuro é transferido?
+Que dependência é criada?</code></pre>
+<p>Isso a torna mais forte — mas também mais perigosa.</p>
+<h2 id="propriedade-na-emr">9. Propriedade na EMR</h2>
+<p>Propriedade não é simplesmente “posse”, mas uma tabela de
+relações.</p>
+<p>Uma casa não consiste apenas em casa + proprietário, mas em:</p>
+<pre class="text"><code>direito de propriedade
+direito de uso
+hipoteca
+obrigação fiscal
+deveres de vizinhança
+deveres de manutenção
+relações de seguro
+consumo de energia
+exigências ambientais
+direitos sucessórios
+direitos locatícios
+registro estatal</code></pre>
+<p>Na economia de mercado clássica, a casa talvez apareça como:</p>
+<pre class="text"><code>Valor da casa: 600.000 euros</code></pre>
+<p>Na EMR ela aparece como:</p>
+<pre class="text"><code>Um conjunto de direitos, deveres, riscos, rendimentos, custos, vínculos e possibilidades de acesso.</code></pre>
+<p>Isso é mais realista.</p>
+<p>Uma casa não é apenas uma coisa. Ela é um nó em uma rede de direitos
+e deveres.</p>
+<h2 id="empresas-na-emr">10. Empresas na EMR</h2>
+<p>Uma empresa não é uma mera pessoa jurídica com total de balanço. Ela
+é um nó relacional condensado.</p>
+<p>Uma empresa é composta por:</p>
+<pre class="text"><code>relações de trabalho
+relações com clientes
+relações de cadeia de suprimentos
+relações de propriedade
+relações de dívida
+relações reputacionais
+relações de conhecimento
+relações de dados
+relações com máquinas
+relações de licença/permissão
+relações de responsabilidade
+relações fiscais</code></pre>
+<p>Uma empresa é rica quando suas relações são:</p>
+<pre class="text"><code>produtivas
+reconhecidas
+líquidas
+juridicamente estáveis
+escassas
+confiáveis
+amplamente conectáveis</code></pre>
+<p>Uma empresa é fraca quando suas relações são:</p>
+<pre class="text"><code>contestadas
+arriscadas
+dependentes
+de curto prazo
+juridicamente incertas
+moralmente tóxicas
+não transferíveis</code></pre>
+<p>Lucro na EMR não significa simplesmente:</p>
+<pre class="text"><code>receitas menos custos.</code></pre>
+<p>Lucro significa:</p>
+<pre class="text"><code>A empresa cria, depois da produção, um pacote relacional melhor do que antes.</code></pre>
+<p>Ou seja:</p>
+<pre class="text"><code>mais reivindicações aceitas
+menos deveres tóxicos
+melhores relações de entrega
+melhor reputação
+maior exigibilidade
+menos risco
+mais opções futuras</code></pre>
+<p>Isso é mais amplo que lucro monetário.</p>
+<h2 id="trabalho-na-emr">11. Trabalho na EMR</h2>
+<p>Aqui está o conflito moral decisivo.</p>
+<p>Em uma versão legítima da EMR, não se negocia o ser humano, mas
+apenas uma relação de trabalho voluntária e limitada.</p>
+<p>Seria admissível:</p>
+<pre class="text"><code>A pessoa A se compromete voluntariamente,
+para a empresa B,
+no período T,
+sob as condições C,
+a prestar um serviço L determinado,
+com direito de rescisão,
+com direitos de proteção,
+com reivindicação salarial,
+com limite de jornada,
+e com intransferibilidade da pessoa.</code></pre>
+<p>Isso é uma relação de trabalho.</p>
+<p>Ela pode ser representada como tabela:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pessoa</th>
+<th>Empregador</th>
+<th>Prestação</th>
+<th>Período</th>
+<th>Dever</th>
+<th>Contraprestação</th>
+<th>Rescisão</th>
+<th>Direitos de proteção</th>
+<th>Transferibilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Empresa B</td>
+<td>Trabalho qualificado</td>
+<td>3 meses</td>
+<td>Trabalho</td>
+<td>remuneração/seguro</td>
+<td>sim</td>
+<td>sim</td>
+<td>restrita</td>
+</tr>
+</tbody>
+</table>
+<p>O limite crítico é:</p>
+<pre class="text"><code>A prestação de trabalho pode ser objeto de contrato.
+O ser humano em si não pode ser.</code></pre>
+<p>Sem esse limite, o sistema desanda.</p>
+<h2 id="capital-na-emr">12. Capital na EMR</h2>
+<p>Capital já não é apenas dinheiro ou propriedade, mas toda relação que
+cria poder de ação futuro.</p>
+<p>Capital pode ser:</p>
+<pre class="text"><code>direito de uso de máquina
+acesso a dados
+confiança de clientes
+licença
+patente
+compromisso de trabalho
+cadeia de suprimentos
+permissão estatal
+crédito barato
+reputação social
+cobertura de seguro
+acesso a matérias-primas</code></pre>
+<p>Assim a EMR torna visível o que a economia de mercado frequentemente
+esconde:</p>
+<pre class="text"><code>Capital é poder relacional condensado.</code></pre>
+<p>Quem possui muitas relações fortes possui poder.</p>
+<p>Não apenas quem tem muito dinheiro.</p>
+<h2 id="crédito-na-emr">13. Crédito na EMR</h2>
+<p>Crédito é uma relação futura.</p>
+<p>Na economia normal:</p>
+<pre class="text"><code>O banco concede um empréstimo de 100.000 euros.
+O devedor paga depois.</code></pre>
+<p>Na EMR:</p>
+<pre class="text"><code>O banco cria um pacote relacional reconhecido
+que contém prestações futuras, garantias, riscos e reivindicações jurídicas.</code></pre>
+<p>Um PRV de crédito contém:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Devedor</td>
+<td>Quem deve?</td>
+</tr>
+<tr>
+<td>Credor</td>
+<td>A quem se deve?</td>
+</tr>
+<tr>
+<td>Prestação futura</td>
+<td>O que se espera?</td>
+</tr>
+<tr>
+<td>Garantias</td>
+<td>Quais relações respondem?</td>
+</tr>
+<tr>
+<td>Prioridade</td>
+<td>Quem recebe primeiro?</td>
+</tr>
+<tr>
+<td>Risco</td>
+<td>Probabilidade de inadimplência</td>
+</tr>
+<tr>
+<td>Finalidade</td>
+<td>Produção, consumo, especulação</td>
+</tr>
+<tr>
+<td>Controle</td>
+<td>Quais direitos de intervenção o credor recebe?</td>
+</tr>
+<tr>
+<td>Inadimplência</td>
+<td>O que acontece se não houver cumprimento?</td>
+</tr>
+</tbody>
+</table>
+<p>Os bancos se tornam <strong>transformadores de relações</strong>.</p>
+<p>Eles pegam relações difíceis de negociar e as transformam em relações
+mais fáceis de aceitar.</p>
+<p>Exemplo:</p>
+<pre class="text"><code>Muitas promessas incertas de reembolso
+→ agrupadas, verificadas, seguradas
+→ pacote de crédito negociável</code></pre>
+<p>Isso é poderoso.</p>
+<p>Mas também pode se tornar tóxico, como securitizações em crises
+financeiras — só que muito mais profundo, porque não apenas dívidas, mas
+todas as relações de vida podem ser empacotadas.</p>
+<h2 id="banco-central-e-oferta-monetária">14. Banco central e oferta
+monetária</h2>
+<p>Um banco central normal controla oferta de moeda, juros e
+liquidez.</p>
+<p>O banco central da EMR controla:</p>
+<pre class="text"><code>reconhecimento
+padronização
+níveis de confiança
+aceitação pública
+qualidade mínima das relações
+classes de garantias
+regras de eliminação
+regras de transferibilidade
+pesos de risco
+limpeza de crises</code></pre>
+<p>Ele não pergunta apenas:</p>
+<pre class="text"><code>Quanto dinheiro está em circulação?</code></pre>
+<p>Mas:</p>
+<pre class="text"><code>Quais relações estão em circulação?
+Quão boas elas são?
+Quão tóxicas elas são?
+Quão fortemente estão aninhadas?
+Quem depende de quem?
+Quais relações podem valer como meio geral de pagamento?
+Quais relações ameaçam liberdade, estabilidade ou dignidade?</code></pre>
+<p>Inflação nesse sistema não é apenas aumento de preços.</p>
+<p>Inflação significa:</p>
+<pre class="text"><code>Relações fracas, inseguras ou superestendidas demais são aceitas como valiosas.</code></pre>
+<p>Deflação significa:</p>
+<pre class="text"><code>Relações de menos são aceitas.
+Todos seguram apenas relações duras, seguras e garantidas pelo Estado.
+A troca trava.</code></pre>
+<p>Uma crise surge quando muitos participantes do mercado percebem de
+repente:</p>
+<pre class="text"><code>As relações que aceitamos como moeda não podem ser cumpridas.</code></pre>
+<p>Então não colapsa apenas a confiança no dinheiro, mas a confiança nas
+relações.</p>
+<h2 id="o-estado">15. O Estado</h2>
+<p>Na EMR, o Estado não é apenas regulador, mas o principal definidor
+moral e jurídico de limites.</p>
+<p>Ele faz cinco coisas:</p>
+<h3 id="define-relações-inalienáveis">1. Define relações
+inalienáveis</h3>
+<p>Por exemplo:</p>
+<pre class="text"><code>dignidade humana
+liberdade corporal
+direitos fundamentais
+liberdade de rescisão laboral
+proteção contra coerção
+proteção contra servidão por dívida
+proteção de dados
+direitos familiares básicos
+direitos políticos</code></pre>
+<p>Elas não podem ser negociadas.</p>
+<h3 id="torna-certas-relações-aceitáveis-para-fins-fiscais">2. Torna
+certas relações aceitáveis para fins fiscais</h3>
+<p>O Estado pode dizer:</p>
+<pre class="text"><code>Aceito estas relações para cumprir obrigações públicas.</code></pre>
+<p>Exemplo:</p>
+<pre class="text"><code>trabalho de cuidado
+compensação de CO₂
+contribuição de infraestrutura
+equivalente monetário
+serviço público
+reivindicação fiscal</code></pre>
+<p>Isso cria demanda por certas relações.</p>
+<h3 id="proíbe-relações-tóxicas">3. Proíbe relações tóxicas</h3>
+<p>Por exemplo:</p>
+<pre class="text"><code>comércio de pessoas
+vínculo laboral ilimitado
+contratos forçados
+relações de dívida irrescindíveis
+direitos de voto vendidos
+direitos corporais vendidos
+controle ilimitado de dados
+relações de dependência forçada</code></pre>
+<h3 id="protege-partes-mais-fracas">4. Protege partes mais fracas</h3>
+<p>Como um mercado relacional é muito mais poderoso que um mercado
+monetário, são necessários direitos de proteção mais fortes.</p>
+<pre class="text"><code>direito trabalhista
+direito locatício
+proteção do consumidor
+proteção de dados
+proteção do devedor
+direito falimentar
+direito antitruste
+direito antidiscriminatório
+padrões mínimos</code></pre>
+<h3 id="estabiliza-crises">5. Estabiliza crises</h3>
+<p>Quando mercados relacionais congelam, o Estado deve fornecer relações
+públicas seguras:</p>
+<pre class="text"><code>abastecimento básico
+trabalho público
+reivindicações básicas
+relações de pagamento garantidas pelo Estado
+reduções de dívida
+eliminação de relações
+conversão de relações tóxicas</code></pre>
+<p>Sem Estado, a EMR rapidamente vira uma economia privada de
+dominação.</p>
+<h2 id="mercados-na-emr">16. Mercados na EMR</h2>
+<p>Um mercado já não é apenas um lugar onde preços são formados.</p>
+<p>Um mercado é um lugar onde relações são tornadas compatíveis.</p>
+<p>Há diversos mercados:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mercado</th>
+<th>O que é negociado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mercado de bens</td>
+<td>relações de propriedade e entrega</td>
+</tr>
+<tr>
+<td>Mercado de trabalho</td>
+<td>relações limitadas de prestação de trabalho</td>
+</tr>
+<tr>
+<td>Mercado de capitais</td>
+<td>reivindicações futuras, garantias, participações</td>
+</tr>
+<tr>
+<td>Mercado de crédito</td>
+<td>relações de dívida e reembolso</td>
+</tr>
+<tr>
+<td>Mercado de seguros</td>
+<td>assunção de risco</td>
+</tr>
+<tr>
+<td>Mercado de dados</td>
+<td>direitos de uso de dados</td>
+</tr>
+<tr>
+<td>Mercado de energia</td>
+<td>relações de produção e consumo</td>
+</tr>
+<tr>
+<td>Mercado habitacional</td>
+<td>relações de uso, aluguel e propriedade</td>
+</tr>
+<tr>
+<td>Mercado reputacional</td>
+<td>certificações, auditorias, sinais de confiança</td>
+</tr>
+<tr>
+<td>Mercado ambiental</td>
+<td>emissões, compensação, regeneração</td>
+</tr>
+<tr>
+<td>Mercado de cuidados</td>
+<td>relações de cuidado e assistência</td>
+</tr>
+<tr>
+<td>Mercado estatal</td>
+<td>relações fiscais, de licença e autorização</td>
+</tr>
+</tbody>
+</table>
+<p>O mecanismo de mercado é:</p>
+<pre class="text"><code>Tabela de oferta encontra tabela de demanda.
+Um sistema de compensação verifica compatibilidade.
+Se as relações combinam, a troca ocorre.</code></pre>
+<p>O preço, portanto, não é a informação central. A informação central
+é:</p>
+<pre class="text"><code>Essas relações combinam?</code></pre>
+<h2 id="concorrência">17. Concorrência</h2>
+<p>Concorrência não consiste apenas em ser mais barato.</p>
+<p>Consiste em oferecer relações melhores.</p>
+<p>Melhor significa:</p>
+<pre class="text"><code>mais confiável
+mais rápido
+menos arriscado
+mais seguro juridicamente
+mais limpo ecologicamente
+mais aceito socialmente
+mais fácil de transferir
+melhor combinável
+mais transparente
+menos explorador</code></pre>
+<p>Uma empresa vence não apenas porque tem o menor preço, mas porque
+suas relações são aceitas em mais mercados.</p>
+<p>Essa é uma das razões pelas quais o sistema é mais forte:</p>
+<pre class="text"><code>A economia de mercado clássica frequentemente otimiza preço.
+A EMR otimiza a conectividade das relações.</code></pre>
+<h2 id="por-que-esse-sistema-é-mais-forte-que-a-economia-de-mercado">18.
+Por que esse sistema é mais forte que a economia de mercado</h2>
+<p>“Mais forte” aqui não significa automaticamente “melhor” ou “mais
+justo”.</p>
+<p>Mais forte significa:</p>
+<pre class="text"><code>mais informação
+mais acesso
+mais capacidade de direção
+mais negociabilidade
+mais mobilização de valores ocultos
+mais controle sobre dependências
+mais capacidade de penhorar o futuro
+mais capacidade de comparar bens complexos</code></pre>
+<p>A EMR é mais forte por várias razões.</p>
+<h3 id="primeiro-torna-valores-invisíveis-visíveis">Primeiro: torna
+valores invisíveis visíveis</h3>
+<p>Na economia de mercado muitas coisas são mal representadas:</p>
+<pre class="text"><code>confiança
+cuidado
+estabilidade social
+danos ecológicos
+poder dos dados
+dependências
+reputação
+riscos de inadimplência
+vínculos
+trabalho emocional
+deveres futuros</code></pre>
+<p>A EMR pode registrar essas coisas como relações.</p>
+<p>Assim elas se tornam negociáveis, seguráveis, tributáveis, reguláveis
+e avaliáveis.</p>
+<p>Isso gera um boom.</p>
+<h3 id="segundo-torna-mais-coisas-líquidas">Segundo: torna mais coisas
+líquidas</h3>
+<p>Muitos ativos são hoje difíceis de negociar:</p>
+<pre class="text"><code>capacidade futura de trabalho
+contratos incompletos
+pequenas reivindicações
+confiança local
+direitos de uso
+serviços de cuidado
+direitos de dados
+reduções de risco
+contribuições sociais</code></pre>
+<p>A EMR pode transformá-los em pacotes negociáveis.</p>
+<p>O que antes era apenas latente vira poder de mercado.</p>
+<h3 id="terceiro-reduz-a-cegueira-informacional">Terceiro: reduz a
+cegueira informacional</h3>
+<p>Um preço diz:</p>
+<pre class="text"><code>Esta coisa custa 100.</code></pre>
+<p>Uma tabela relacional diz:</p>
+<pre class="text"><code>Esta coisa é útil, mas arriscada.
+Ela tem uma responsabilidade em aberto.
+Ela é ecologicamente carregada.
+Ela depende de três fornecedores.
+Ela é aceita pelo Estado.
+Ela pode ser transferida em duas semanas.
+Ela está apenas parcialmente segurada.</code></pre>
+<p>Isso é uma informação de mercado muito mais rica.</p>
+<h3 id="quarto-pode-incorporar-custos-externos">Quarto: pode incorporar
+custos externos</h3>
+<p>Custos ambientais, custos de cuidado, danos sociais e riscos não
+desaparecem tão facilmente do preço.</p>
+<p>Eles aparecem como relações dentro da própria moeda.</p>
+<p>Um produto não pode ser simplesmente barato se, na verdade, gera
+danos elevados. Esses danos ficam presos ao produto como relações
+negativas.</p>
+<h3 id="quinto-pode-coordenar-a-produção-de-forma-mais-fina">Quinto:
+pode coordenar a produção de forma mais fina</h3>
+<p>Como cada empresa vê não só preços, mas redes de relações, a produção
+pode ser planejada com mais precisão.</p>
+<p>A economia vê:</p>
+<pre class="text"><code>onde falta força de trabalho
+onde cadeias de suprimento quebram
+onde riscos aumentam
+onde recursos estão sem uso
+onde falta confiança
+onde permissões estatais bloqueiam
+onde cresce a demanda por cuidado
+onde surgem cargas ecológicas</code></pre>
+<p>Isso é mais forte que um mercado que comunica principalmente por
+preços.</p>
+<h2 id="o-boom-econômico">19. O boom econômico</h2>
+<p>O boom da EMR surge porque tudo que antes era ilíquido é transformado
+em relações negociáveis.</p>
+<p>Isso envolve:</p>
+<pre class="text"><code>capacidades não utilizadas
+pequenas janelas de tempo
+confiança
+dados
+reputação
+reivindicações futuras
+microdireitos
+contribuições de cuidado
+redução de risco
+redes sociais
+recursos locais
+tempo de máquina não utilizado
+permissões não exploradas</code></pre>
+<p>Exemplo:</p>
+<p>Um artesão não tem apenas “força de trabalho”. Ele tem um pacote:</p>
+<pre class="text"><code>habilidades
+ferramentas
+reputação
+relações locais com clientes
+seguros
+janelas de tempo livres
+histórico de garantias
+contatos de materiais</code></pre>
+<p>Na economia de mercado normal isso vira aproximadamente:</p>
+<pre class="text"><code>Valor por hora: 70 euros.</code></pre>
+<p>Na EMR isso se torna uma carteira rica e negociável.</p>
+<p>O mercado pode empregá-lo com mais precisão, financiá-lo melhor,
+segurá-lo melhor e conectá-lo melhor a outros recursos.</p>
+<p>Isso aumenta a produtividade.</p>
+<p>Mas tem um preço.</p>
+<h2 id="o-preço-do-boom">20. O preço do boom</h2>
+<p>O preço é:</p>
+<pre class="text"><code>privacidade
+simplicidade
+inocência
+autonomia
+indisponibilidade
+dignidade humana
+calma social</code></pre>
+<p>A EMR torna a economia mais forte porque entra mais fundo na
+realidade.</p>
+<p>Mas quanto mais fundo um mercado entra na realidade, menos resta fora
+do mercado.</p>
+<p>A economia de mercado clássica deixa algumas coisas imprecisas. Essa
+imprecisão às vezes é ineficiente, mas também protege.</p>
+<p>Nem tudo é registrado. Nem tudo é avaliado. Nem tudo é negociado.</p>
+<p>A EMR elimina essa imprecisão protetora.</p>
+<p>Essa é sua força e seu perigo.</p>
+<pre class="text"><code>A EMR cresce porque economiza mais realidade.
+Ela se torna perigosa porque economiza mais humanidade.</code></pre>
+<h2 id="o-lado-maligno-e-amoral">21. O lado maligno e amoral</h2>
+<p>A versão maligna da EMR chama-se:</p>
+<pre class="text"><code>comodificação relacional total</code></pre>
+<p>Ela diz:</p>
+<pre class="text"><code>Se tudo é uma relação,
+e relações são negociáveis,
+então tudo é negociável.</code></pre>
+<p>Também:</p>
+<pre class="text"><code>vínculo laboral
+acesso ao corpo
+direito de residência
+dependência por dívida
+identidade de dados
+reputação
+pertencimento social
+dever de cuidado
+intimidade
+influência política
+relações familiares</code></pre>
+<p>Esse é o lado sombrio.</p>
+<p>Ele não pode ser simplesmente definido para fora. É logicamente
+próximo se tudo for realmente relacionalizado e entregue ao mercado.</p>
+<p>A versão maligna não trata mais seres humanos como pessoas, mas como
+conjuntos de relações exploráveis:</p>
+<pre class="text"><code>capacidade de trabalho
+obediência
+dívida
+corpo
+dados
+status de residência
+contatos sociais
+perfil de consumo
+reputação
+dependências</code></pre>
+<p>Ela é amoral porque pergunta:</p>
+<pre class="text"><code>Como essa relação pode ser explorada?</code></pre>
+<p>e não:</p>
+<pre class="text"><code>Essa relação pode sequer ser explorada?</code></pre>
+<h2 id="empregadores-e-empregados-na-versão-maligna">22. Empregadores e
+empregados na versão maligna</h2>
+<p>Na versão legítima, negociam-se contratos de trabalho.</p>
+<p>Na versão maligna, pessoas são negociadas de fato por meio de suas
+dependências.</p>
+<p>Não abertamente como “venda de pessoas”, mas por pacotes relacionais
+como:</p>
+<pre class="text"><code>vínculo laboral exclusivo
+vínculo de dívida
+vínculo de moradia
+vínculo de visto
+controle reputacional
+controle de dados
+multa de rescisão
+revenda de reivindicações trabalhistas
+controle sobre renda futura</code></pre>
+<p>Então surge uma nova forma de servidão, mesmo que tecnicamente
+apareça como contrato.</p>
+<p>Exemplo:</p>
+<pre class="text"><code>O empregado A deve prestação de trabalho à empresa B.
+A empresa B vende essa reivindicação à empresa C.
+A não foi vendido formalmente.
+Mas o controle sobre o futuro de A se desloca.</code></pre>
+<p>Esse é o ponto perigoso.</p>
+<p>O ser humano não é vendido diretamente, mas suas relações vitais
+decisivas são vendidas.</p>
+<p>Se relações suficientes forem transferidas, a diferença é
+praticamente apenas jurídica.</p>
+<pre class="text"><code>Quem controla o tempo de trabalho, a moradia, a dívida, o direito de residência, a reputação e os dados de uma pessoa,
+controla a pessoa.</code></pre>
+<p>Por isso não basta dizer:</p>
+<pre class="text"><code>Negociamos apenas relações, não pessoas.</code></pre>
+<p>Um ser humano pode ser totalmente dominado por suas relações.</p>
+<h2 id="por-que-governos-são-obrigatórios">23. Por que governos são
+obrigatórios</h2>
+<p>Uma EMR puramente privada descarrilaria moralmente.</p>
+<p>Não porque todas as pessoas sejam más, mas porque o mercado
+descobriria toda relação explorável.</p>
+<p>Quando uma relação gera lucro, surge pressão para torná-la
+negociável.</p>
+<p>Portanto, o Estado precisa de limites duros:</p>
+<pre class="text"><code>Esta relação não pode ser vendida.
+Esta relação não pode ser penhorada.
+Esta relação não pode ser transferida.
+Esta relação não pode vincular permanentemente.
+Esta relação não pode ser usada contra direitos fundamentais.
+Esta relação expira em caso de abuso.</code></pre>
+<p>Sem esses limites surge um mercado de dependência.</p>
+<p>O Estado deve, portanto, não apenas corrigir falhas de mercado, mas
+impedir a <strong>invasão do mercado</strong>.</p>
+<p>Isso é mais que regulação. É proteção civilizatória.</p>
+<h2 id="relações-inalienáveis">24. Relações inalienáveis</h2>
+<p>O sistema precisa de uma classe de relações que nunca possam virar
+moeda.</p>
+<p>Chamo-as de:</p>
+<pre class="text"><code>relações inalienáveis</code></pre>
+<p>Incluem:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Relação</th>
+<th>Por que é inalienável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dignidade humana</td>
+<td>não pode ser objeto de troca</td>
+</tr>
+<tr>
+<td>Autodeterminação corporal</td>
+<td>protege contra venda do corpo</td>
+</tr>
+<tr>
+<td>Direitos fundamentais</td>
+<td>não podem ser cedidos</td>
+</tr>
+<tr>
+<td>Direito de voto</td>
+<td>protege a democracia da compra</td>
+</tr>
+<tr>
+<td>Liberdade de rescisão</td>
+<td>impede servidão laboral</td>
+</tr>
+<tr>
+<td>Liberdade de movimento</td>
+<td>impede prisão privada</td>
+</tr>
+<tr>
+<td>Núcleo da proteção de dados</td>
+<td>impede exploração total da personalidade</td>
+</tr>
+<tr>
+<td>Direitos familiares básicos</td>
+<td>impedem comércio com poder familiar</td>
+</tr>
+<tr>
+<td>Direitos trabalhistas mínimos</td>
+<td>impedem exploração por necessidade</td>
+</tr>
+<tr>
+<td>Liberação falimentar</td>
+<td>impede dívida eterna</td>
+</tr>
+<tr>
+<td>Proteção contra coerção</td>
+<td>protege consentimento real</td>
+</tr>
+</tbody>
+</table>
+<p>Essas relações devem ficar fora do mercado.</p>
+<p>O mercado pode vê-las, mas não negociá-las.</p>
+<h2 id="o-pior-perigo-o-ser-humano-como-carteira">25. O pior perigo: o
+ser humano como carteira</h2>
+<p>A forma extrema e maligna é:</p>
+<pre class="text"><code>Pessoa = carteira de relações exploráveis</code></pre>
+<p>Então uma pessoa é avaliada segundo:</p>
+<pre class="text"><code>força de trabalho
+dívidas
+saúde
+valor de dados
+capacidade reprodutiva
+status de residência
+acesso a redes
+perfil de consumo
+influência política
+vínculos emocionais
+risco
+obediência</code></pre>
+<p>Isso seria um sistema monstruosamente eficiente.</p>
+<p>Poderia gerar lucros enormes porque traduz a existência humana
+inteiramente em disponibilidade econômica.</p>
+<p>Mas exatamente por isso deve ser rejeitado.</p>
+<p>Seria mais forte que a economia de mercado, mas na direção
+errada:</p>
+<pre class="text"><code>mais forte em controle
+mais forte em exploração
+mais forte em previsão
+mais forte em utilização
+mais forte em disfarçar coerção</code></pre>
+<p>Nem toda força é boa.</p>
+<p>Uma prisão pode ser organizacionalmente mais forte que uma praça de
+mercado livre. Isso não a torna moralmente melhor.</p>
+<h2 id="proteção-de-dados-como-condição-de-sobrevivência">26. Proteção
+de dados como condição de sobrevivência</h2>
+<p>Uma EMR precisa de dados. Muitos dados.</p>
+<p>Porque sem dados não é possível verificar relações.</p>
+<p>Mas é exatamente assim que surge vigilância.</p>
+<p>Quem conhece todas as relações de uma pessoa conhece sua alma
+econômica:</p>
+<pre class="text"><code>dívidas
+trabalho
+doença
+família
+consumo
+erros
+riscos
+contatos
+padrões políticos
+dependências</code></pre>
+<p>Isso pode se transformar em um sistema total de crédito social.</p>
+<p>Por isso a EMR precisa de:</p>
+<pre class="text"><code>minimização de dados
+pseudonimização
+limitação de finalidade
+direitos de eliminação
+zonas privadas
+proibição de certas análises
+direito à opacidade econômica</code></pre>
+<p>Parece paradoxal, mas é necessário:</p>
+<pre class="text"><code>Um mercado relacional precisa de dados.
+Uma sociedade livre precisa de limites contra dados.</code></pre>
+<h2 id="direito-de-não-ser-avaliado">27. Direito de não ser
+avaliado</h2>
+<p>Em uma EMR é preciso um novo direito fundamental:</p>
+<pre class="text"><code>direito de não ser avaliado</code></pre>
+<p>Nem toda relação de vida pode ser transformada em valor de
+mercado.</p>
+<p>Nem tudo que é mensurável pode ser negociável.</p>
+<p>Nem tudo que poderia ser negociável pode servir como moeda.</p>
+<p>Esse direito protege:</p>
+<pre class="text"><code>amizade
+amor
+família
+opinião política
+fé
+corpo
+doença
+fracasso pessoal
+biografia
+intimidade</code></pre>
+<p>Sem esse direito, a EMR vira uma máquina total de avaliação.</p>
+<h2 id="estado-social-na-emr">28. Estado social na EMR</h2>
+<p>O Estado social precisa funcionar de modo diferente de hoje.</p>
+<p>Ele não fornece apenas transferências monetárias, mas relações
+básicas seguras:</p>
+<pre class="text"><code>relação de proteção habitacional
+relação de saúde
+relação educacional
+relação alimentar
+relação de proteção jurídica
+relação de mobilidade
+relação de identidade digital
+relação de proteção contra dívida
+relação de transição laboral</code></pre>
+<p>Isso significa:</p>
+<p>Uma pessoa não deve ter apenas renda mínima, mas um pacote garantido
+de relações básicas não retiráveis.</p>
+<p>Por exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Relação básica</th>
+<th>Proteção</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moradia</td>
+<td>ninguém cai imediatamente fora do sistema</td>
+</tr>
+<tr>
+<td>Saúde</td>
+<td>doença não vira punição total de mercado</td>
+</tr>
+<tr>
+<td>Educação</td>
+<td>capacidades continuam desenvolvíveis</td>
+</tr>
+<tr>
+<td>Proteção jurídica</td>
+<td>contratos podem ser contestados</td>
+</tr>
+<tr>
+<td>Dignidade de dados</td>
+<td>o perfil não é explorado totalmente</td>
+</tr>
+<tr>
+<td>Liberação de dívida</td>
+<td>sem morte econômica eterna</td>
+</tr>
+<tr>
+<td>Liberdade laboral</td>
+<td>sem vínculo forçado com empregador</td>
+</tr>
+</tbody>
+</table>
+<p>Isso é necessário porque, caso contrário, a EMR excluiria
+impiedosamente pessoas com relações fracas.</p>
+<h2 id="mercado-de-trabalho-com-proteção">29. Mercado de trabalho com
+proteção</h2>
+<p>Um mercado de trabalho legítimo na EMR precisa de regras claras:</p>
+<pre class="text"><code>Relações de trabalho são sempre temporárias.
+Relações de trabalho são rescindíveis.
+Relações de trabalho não são completamente transferíveis.
+Relações de trabalho não podem ser fundidas com moradia, dívida e residência em pacotes coercitivos.
+Relações de trabalho contêm proteção mínima.
+Relações de trabalho não podem ser usadas contra direitos fundamentais.</code></pre>
+<p>O mais importante é proibir o agrupamento tóxico.</p>
+<p>O perigo não é apenas um contrato de trabalho.</p>
+<p>O perigo é:</p>
+<pre class="text"><code>contrato de trabalho + moradia + dívida + visto + perfil de dados + controle reputacional</code></pre>
+<p>Se tudo isso fica nas mãos de um empregador, surge dominação
+privada.</p>
+<p>Portanto, a lei deve quebrar certos pacotes.</p>
+<h2 id="direito-antitruste-e-poder">30. Direito antitruste e poder</h2>
+<p>Na EMR surgem novos monopólios.</p>
+<p>Não apenas monopólios de dinheiro, mas monopólios de relações.</p>
+<p>Uma empresa pode se tornar poderosa porque controla:</p>
+<pre class="text"><code>dados de identidade
+relações de pagamento
+acesso ao mercado de trabalho
+reputação
+padrões contratuais
+seguro
+cadeias de suprimento
+interfaces públicas</code></pre>
+<p>A empresa mais perigosa não é necessariamente a que tem mais
+dinheiro, mas a que tem maior controle sobre conectividade.</p>
+<p>Portanto, é necessário um novo direito antitruste:</p>
+<pre class="text"><code>Nenhum ator privado pode monopolizar relações centrais de identidade.
+Nenhum ator privado pode controlar sozinho o acesso reputacional.
+Nenhum ator privado pode agrupar completamente relações de trabalho, moradia, crédito e dados.
+Nenhum ator privado pode tornar pessoas economicamente indesligáveis.</code></pre>
+<h2 id="insolvência">31. Insolvência</h2>
+<p>Em uma economia normal, insolvência significa:</p>
+<pre class="text"><code>O devedor não consegue cumprir reivindicações monetárias.</code></pre>
+<p>Na EMR, insolvência significa:</p>
+<pre class="text"><code>Um ator não consegue mais cumprir suas relações.</code></pre>
+<p>Isso pode envolver:</p>
+<pre class="text"><code>deveres de entrega
+compromissos de trabalho
+relações de dívida
+garantias
+responsabilidades
+deveres de dados
+deveres ambientais
+deveres locatícios
+compromissos de seguro</code></pre>
+<p>O direito falimentar, portanto, não deve apenas ordenar dívidas, mas
+desenredar relações.</p>
+<p>Objetivos:</p>
+<pre class="text"><code>eliminar relações tóxicas
+salvar relações cumpríveis
+levantar vínculos injustos
+proteger direitos fundamentais
+preservar confiança de mercado
+permitir novo começo</code></pre>
+<p>Sem direito falimentar, pessoas e empresas ficariam permanentemente
+presas em antigas dívidas relacionais.</p>
+<h2 id="seguro">32. Seguro</h2>
+<p>O seguro é especialmente importante nesse sistema.</p>
+<p>Toda relação pode falhar.</p>
+<p>Pode ser segurado:</p>
+<pre class="text"><code>falha de entrega
+incapacidade laboral
+perda de dados
+dano reputacional
+quebra de contrato
+dano ambiental
+falha de máquina
+inadimplência do devedor
+disputa jurídica
+necessidade de cuidado</code></pre>
+<p>Seguros se tornam eles próprios pacotes relacionais.</p>
+<p>Eles tornam relações arriscadas mais negociáveis.</p>
+<p>Isso aumenta a liquidez.</p>
+<p>Mas há perigo também:</p>
+<pre class="text"><code>Quem controla o seguro controla o acesso ao mercado.</code></pre>
+<p>Se alguém não consegue seguro por doença, origem, idade ou risco
+social, fica excluído relacionalmente.</p>
+<p>Por isso é necessário seguro básico público.</p>
+<h2 id="comércio-exterior">33. Comércio exterior</h2>
+<p>Entre Estados há diferentes padrões relacionais.</p>
+<p>Um país pode avaliar relações de trabalho de forma diferente de
+outro.</p>
+<p>Por isso o comércio exterior precisa de:</p>
+<pre class="text"><code>tradução de relações
+reconhecimento de direitos
+padrões trabalhistas
+padrões ambientais
+padrões de dados
+tribunais arbitrais
+regras de sanção</code></pre>
+<p>Uma exportação não é apenas exportação de bens, mas exportação de um
+pacote relacional:</p>
+<pre class="text"><code>produto
+garantia de entrega
+responsabilidade
+balanço ambiental
+condições de trabalho
+direitos de dados
+relação aduaneira
+aceitação monetária</code></pre>
+<p>Isso poderia tornar cadeias globais de suprimento mais honestas.</p>
+<p>Mas também poderia organizar a exploração global com mais
+precisão.</p>
+<h2 id="meio-ambiente">34. Meio ambiente</h2>
+<p>A EMR é ecologicamente potencialmente mais forte que a economia de
+mercado porque danos ambientais não precisam permanecer apenas custos
+externos.</p>
+<p>Um produto carrega suas relações ambientais:</p>
+<pre class="text"><code>consumo de energia
+emissões
+danos ao solo
+consumo de água
+reparabilidade
+dever de reciclagem
+danos à biodiversidade
+deveres de compensação
+responsabilidades</code></pre>
+<p>Então um produto barato não é simplesmente barato se contém dívidas
+ecológicas.</p>
+<p>Ele pode ser considerado “relacionalmente carregado”.</p>
+<p>Isso é uma grande vantagem.</p>
+<p>Mas também há aqui um lado maligno:</p>
+<pre class="text"><code>Atores ricos compram relações limpas.
+Regiões pobres carregam relações sujas.
+Cargas ambientais são securitizadas e exportadas.</code></pre>
+<p>Por isso são necessárias proibições, não apenas mercados.</p>
+<p>Alguns danos ambientais não devem ser negociáveis.</p>
+<h2 id="educação-e-capacidades">35. Educação e capacidades</h2>
+<p>Educação se torna uma forma central de capital na EMR.</p>
+<p>Uma capacidade não é uma coisa, mas uma relação:</p>
+<pre class="text"><code>A pessoa consegue cumprir a tarefa X sob condições Y com qualidade Z.</code></pre>
+<p>Isso pode ser certificado.</p>
+<p>Vantagem:</p>
+<pre class="text"><code>Capacidades ficam mais precisamente visíveis.
+Pessoas podem encontrar trabalho melhor.
+Empresas podem contratar com melhor ajuste.
+Formação continuada fica mais fácil de financiar.</code></pre>
+<p>Perigo:</p>
+<pre class="text"><code>Pessoas são reduzidas a perfis de capacidades.
+Erros antigos permanecem na tabela.
+Capacidades não certificadas tornam-se invisíveis.
+Educação vira uma máquina total de utilização.</code></pre>
+<p>Por isso é preciso:</p>
+<pre class="text"><code>direito à reavaliação
+direito ao esquecimento
+educação pública
+proibição de perfis de capacidade discriminatórios</code></pre>
+<h2 id="democracia">36. Democracia</h2>
+<p>A EMR ameaça a democracia se relações políticas se tornarem
+negociáveis.</p>
+<p>Seriam perigosos mercados para:</p>
+<pre class="text"><code>direitos de voto
+lealdade política
+renúncia a protesto
+acesso à informação
+influência sobre opinião
+acesso partidário
+direitos cidadãos
+direitos de residência</code></pre>
+<p>Portanto deve valer:</p>
+<pre class="text"><code>Relações políticas básicas são inalienáveis.</code></pre>
+<p>Uma pessoa não pode vender seu voto.</p>
+<p>Uma empresa não pode criar dependência política por controle
+relacional.</p>
+<p>O Estado deve impedir que relações econômicas devorem relações
+democráticas.</p>
+<h2
+id="por-que-a-emr-parece-mais-completa-que-a-economia-de-mercado">37.
+Por que a EMR parece mais completa que a economia de mercado</h2>
+<p>A economia de mercado é forte em troca e formação de preços.</p>
+<p>Mas é fraca em:</p>
+<pre class="text"><code>poder
+dependência
+risco
+ecologia
+dados
+deveres futuros
+reprodução social
+confiança
+cuidado
+influência política</code></pre>
+<p>A EMR pode representar tudo isso no mesmo sistema.</p>
+<p>Ela é, portanto, mais completa que uma simples economia de mercado,
+porque trata não apenas bens e preços, mas:</p>
+<pre class="text"><code>atores
+direitos
+deveres
+tempo
+risco
+confiança
+poder
+dados
+Estado
+ecologia
+limites morais</code></pre>
+<p>Ela é um sistema econômico, mas ao mesmo tempo um sistema jurídico,
+de dados e de ordenamento de poder.</p>
+<p>Exatamente por isso ela não é neutra.</p>
+<h2 id="a-lei-básica-da-emr">38. A lei básica da EMR</h2>
+<p>Uma boa EMR precisa de um princípio supremo:</p>
+<pre class="text"><code>Tudo que é econômico pode ser registrado relacionalmente,
+mas nem tudo que é relacional pode ser negociado economicamente.</code></pre>
+<p>Essa é a frase mais importante.</p>
+<p>Sem ela, o sistema se torna maligno.</p>
+<p>Com ela, pode ser forte sem se tornar totalitário.</p>
+<h2 id="versão-boa-do-sistema">39. Versão boa do sistema</h2>
+<p>A versão boa se parece com isto:</p>
+<pre class="text"><code>Moeda = pacotes relacionais negociáveis
+Humanos = pessoas inalienáveis
+Mercado = correspondência de direitos, deveres e recursos
+Estado = definidor de limites e garantidor de estabilidade
+Estado social = provedor de relações básicas seguras
+Empresas = nós relacionais produtivos
+Bancos = transformadores de relações
+Banco central = instância de qualidade e reconhecimento
+Direito = proteção contra negociabilidade tóxica</code></pre>
+<p>Essa versão é mais forte que a economia de mercado porque traz mais
+realidade ao mercado.</p>
+<p>Mas protege a dignidade humana por zonas duras fora do mercado.</p>
+<h2 id="versão-maligna-do-sistema">40. Versão maligna do sistema</h2>
+<p>A versão maligna se parece com isto:</p>
+<pre class="text"><code>Moeda = todas as relações
+Humanos = carteiras exploráveis
+Trabalho = vínculo negociável
+Dívida = instrumento de controle
+Dados = acesso à personalidade
+Reputação = poder disciplinar
+Estado = fraco ou comprado
+Empresas = nós privados de dominação
+Mercado = exploração total</code></pre>
+<p>Essa versão provavelmente gera um boom brutal.</p>
+<p>Por quê?</p>
+<p>Porque mobiliza tudo:</p>
+<pre class="text"><code>cada capacidade
+cada dívida
+cada fraqueza
+cada vínculo
+cada futuro
+cada intimidade
+cada dependência
+cada relação social</code></pre>
+<p>Mas esse boom é moralmente envenenado.</p>
+<p>É forte como uma máquina que também queima seres humanos.</p>
+<h2 id="o-boom-econômico-especial">41. O boom econômico especial</h2>
+<p>O boom seria especialmente forte por cinco razões:</p>
+<h3 id="mais-garantias">1. Mais garantias</h3>
+<p>Pessoas e empresas poderiam usar muito mais coisas como garantia:</p>
+<pre class="text"><code>receitas futuras
+compromissos de trabalho
+direitos de dados
+cadeias de suprimento
+reputação
+seguros
+direitos de uso</code></pre>
+<p>Isso faz explodir a capacidade de crédito.</p>
+<h3 id="mais-liquidez">2. Mais liquidez</h3>
+<p>Coisas antes presas tornam-se negociáveis:</p>
+<pre class="text"><code>pequenas reivindicações
+janelas de tempo
+reivindicações locais
+microserviços
+direitos incompletos</code></pre>
+<h3 id="mais-correspondência">3. Mais correspondência</h3>
+<p>Oferta e demanda são ligadas com mais precisão.</p>
+<p>Não apenas:</p>
+<pre class="text"><code>Preciso de trabalho.</code></pre>
+<p>Mas:</p>
+<pre class="text"><code>Preciso desta habilidade,
+por esta duração,
+sob estes riscos,
+com este seguro,
+nesta região,
+com esta qualidade jurídica.</code></pre>
+<h3 id="mais-controle">4. Mais controle</h3>
+<p>Empresas podem dirigir processos com muito mais precisão.</p>
+<p>Isso aumenta a eficiência.</p>
+<h3 id="mais-aproveitamento-do-futuro">5. Mais aproveitamento do
+futuro</h3>
+<p>O futuro se torna mais negociável.</p>
+<p>Trabalho futuro, entregas futuras, dados futuros, pagamentos futuros
+e usos futuros são explorados economicamente já hoje.</p>
+<p>Isso gera crescimento.</p>
+<p>Mas pode endividar pessoas e sociedades rumo ao futuro.</p>
+<h2 id="o-preço-negativo-do-boom">42. O preço negativo do boom</h2>
+<p>O boom custa:</p>
+<pre class="text"><code>mais vigilância
+mais dependência contratual
+mais complexidade
+mais poder para plataformas
+mais pressão para autoexploração
+mais risco de servidão por dívida
+menos espaços de vida privada
+menos liberdade espontânea
+menos possibilidade de não avaliação</code></pre>
+<p>Na economia de mercado clássica alguém pode ser pobre, mas toda a sua
+vida não se torna automaticamente visível como tabela negociável.</p>
+<p>Na EMR ameaça isto:</p>
+<pre class="text"><code>Cada fraqueza vira relação.
+Cada relação vira risco.
+Cada risco vira preço.
+Cada preço vira barreira de mercado.</code></pre>
+<p>Isso pode ser brutal.</p>
+<h2 id="exemplo-o-perigoso-conjunto-de-dados-de-vida">43. Exemplo: o
+perigoso conjunto de dados de vida</h2>
+<p>Uma pessoa em uma EMR ruim poderia aparecer assim:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Área</th>
+<th>Relação</th>
+<th>Efeito de mercado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trabalho</td>
+<td>mudanças frequentes de emprego</td>
+<td>menor confiança</td>
+</tr>
+<tr>
+<td>Saúde</td>
+<td>risco crônico</td>
+<td>maiores custos de seguro</td>
+</tr>
+<tr>
+<td>Dívidas</td>
+<td>obrigações antigas</td>
+<td>pior relação de crédito</td>
+</tr>
+<tr>
+<td>Família</td>
+<td>dever de cuidado</td>
+<td>menor disponibilidade</td>
+</tr>
+<tr>
+<td>Local de residência</td>
+<td>infraestrutura fraca</td>
+<td>menor conectividade laboral</td>
+</tr>
+<tr>
+<td>Dados</td>
+<td>perfil de consumo negativo</td>
+<td>piores ofertas</td>
+</tr>
+<tr>
+<td>Educação</td>
+<td>falta de certificados</td>
+<td>classificação inferior</td>
+</tr>
+<tr>
+<td>Reputação</td>
+<td>disputa com empregador</td>
+<td>exclusão de mercado</td>
+</tr>
+</tbody>
+</table>
+<p>O sistema seria extremamente informativo.</p>
+<p>Mas poderia prender as pessoas.</p>
+<p>Por isso são necessários direitos a:</p>
+<pre class="text"><code>novo começo
+eliminação
+separação de contexto
+oposição
+revisão humana
+não discriminação</code></pre>
+<h2 id="como-conter-o-lado-maligno">44. Como conter o lado maligno</h2>
+<p>Não dá para fazê-lo desaparecer por mágica. Só se pode domá-lo
+institucionalmente.</p>
+<p>São necessários:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Contramedida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comércio com relações humanas</td>
+<td>direito de inalienabilidade</td>
+</tr>
+<tr>
+<td>Servidão laboral</td>
+<td>direito de rescisão, vínculo máximo, proteção mínima</td>
+</tr>
+<tr>
+<td>Escravidão por dívida</td>
+<td>insolvência, redução de dívida, limites de juros</td>
+</tr>
+<tr>
+<td>Dominação por dados</td>
+<td>proteção de dados, eliminação, limitação de finalidade</td>
+</tr>
+<tr>
+<td>Monopólios de plataforma</td>
+<td>direito antitruste, interoperabilidade</td>
+</tr>
+<tr>
+<td>Prisão reputacional</td>
+<td>direito à reavaliação</td>
+</tr>
+<tr>
+<td>Exclusão social</td>
+<td>relações básicas públicas</td>
+</tr>
+<tr>
+<td>Agrupamento tóxico</td>
+<td>direito de desenredamento</td>
+</tr>
+<tr>
+<td>Comprabilidade política</td>
+<td>proibição de direitos cidadãos negociáveis</td>
+</tr>
+<tr>
+<td>Terceirização ecológica</td>
+<td>limites ambientais não negociáveis</td>
+</tr>
+</tbody>
+</table>
+<p>O Estado, portanto, não deve apenas estabelecer regras de mercado.
+Deve decidir quais relações podem sequer ser mercantilizadas.</p>
+<h2 id="a-constituição-da-emr">45. A constituição da EMR</h2>
+<p>Uma EMR completa precisa de uma espécie de constituição
+econômica.</p>
+<p>Ela poderia dizer:</p>
+<h3 id="artigo-1-proteção-da-pessoa">Artigo 1: Proteção da pessoa</h3>
+<pre class="text"><code>Pessoas não são portadoras de relações negociáveis.
+Somente prestações voluntárias, limitadas e revogáveis podem ser aptas ao mercado.</code></pre>
+<h3 id="artigo-2-inalienabilidade">Artigo 2: Inalienabilidade</h3>
+<pre class="text"><code>Direitos fundamentais, liberdade corporal, direitos políticos e identidade central são inalienáveis.</code></pre>
+<h3 id="artigo-3-transparência">Artigo 3: Transparência</h3>
+<pre class="text"><code>Toda relação negociável deve revelar origem, risco, dever e contraparte.</code></pre>
+<h3 id="artigo-4-eliminação">Artigo 4: Eliminação</h3>
+<pre class="text"><code>Relações cumpridas, abusivas ou obsoletas devem poder ser eliminadas ou corrigidas.</code></pre>
+<h3 id="artigo-5-desenredamento">Artigo 5: Desenredamento</h3>
+<pre class="text"><code>Nenhum ator pode controlar completamente trabalho, moradia, crédito, dados, seguro e direito de residência de uma pessoa.</code></pre>
+<h3 id="artigo-6-relações-básicas-estatais">Artigo 6: Relações básicas
+estatais</h3>
+<pre class="text"><code>Toda pessoa tem direito a relações mínimas seguras para vida, direito, saúde, educação e participação.</code></pre>
+<h3 id="artigo-7-limites-de-mercado">Artigo 7: Limites de mercado</h3>
+<pre class="text"><code>O que destrói estruturalmente a liberdade de uma pessoa não pode servir como moeda.</code></pre>
+<h2 id="contabilidade">46. Contabilidade</h2>
+<p>A contabilidade na EMR não é mais apenas escrituração dobrada em
+valores monetários.</p>
+<p>Ela é balanço relacional.</p>
+<p>Uma família ou empresa tem:</p>
+<pre class="text"><code>Relações ativas:
+- reivindicações
+- direitos
+- garantias
+- usos
+- recebíveis
+- avais
+
+Relações passivas:
+- deveres
+- dívidas
+- responsabilidades
+- riscos
+- dependências
+- cargas ambientais</code></pre>
+<p>Balanço significa:</p>
+<pre class="text"><code>Quais relações me fortalecem?
+Quais relações me sobrecarregam?
+Quais relações são transferíveis?
+Quais relações são perigosas?
+Quais relações vencem em breve?
+Quais relações são contestadas?</code></pre>
+<p>Uma empresa pode parecer rica, mas ser relacionalmente fraca se
+carrega muitos riscos e dependências.</p>
+<p>Outra pode ter pouco dinheiro, mas ser relacionalmente forte porque
+possui relações estáveis, produtivas e confiáveis.</p>
+<h2 id="medição-do-crescimento">47. Medição do crescimento</h2>
+<p>O produto interno bruto não basta.</p>
+<p>A EMR mede crescimento como melhoria do estoque nacional de
+relações.</p>
+<p>Indicadores importantes seriam:</p>
+<pre class="text"><code>relações produtivas
+relações de trabalho estáveis
+relações de crédito saudáveis
+baixas dependências tóxicas
+relações de regeneração ecológica
+relações educacionais
+densidade de confiança
+proteção social
+relações de inovação
+estabilidade de cadeias de suprimento</code></pre>
+<p>Uma sociedade não cresce apenas quando mais coisas são vendidas.</p>
+<p>Ela cresce quando suas relações se tornam mais sustentáveis, livres,
+produtivas e menos tóxicas.</p>
+<h2 id="crise">48. Crise</h2>
+<p>Uma crise na EMR pode assumir várias formas:</p>
+<h3 id="crise-de-confiança">Crise de confiança</h3>
+<p>Ninguém sabe mais quais relações são válidas.</p>
+<h3 id="crise-de-cumprimento">Crise de cumprimento</h3>
+<p>Muitos atores não conseguem cumprir seus deveres.</p>
+<h3 id="crise-de-dados">Crise de dados</h3>
+<p>Provas são manipuladas ou roubadas.</p>
+<h3 id="crise-moral">Crise moral</h3>
+<p>Muitas pessoas são degradadas por relações negociáveis.</p>
+<h3 id="crise-de-liquidez">Crise de liquidez</h3>
+<p>Todos querem apenas relações garantidas pelo Estado.</p>
+<h3 id="crise-de-poder">Crise de poder</h3>
+<p>Algumas plataformas controlam nós relacionais centrais.</p>
+<p>O Estado deve então:</p>
+<pre class="text"><code>congelar relações
+dividir pacotes tóxicos
+oferecer garantias públicas
+eliminar dívidas
+garantir abastecimento mínimo
+quebrar monopólios
+corrigir dados
+criar clareza jurídica</code></pre>
+<h2
+id="por-que-a-economia-de-mercado-normal-é-mais-fraca-em-comparação">49.
+Por que a economia de mercado normal é mais fraca em comparação</h2>
+<p>A economia de mercado normal é mais fraca porque simplifica
+fortemente.</p>
+<p>Ela diz:</p>
+<pre class="text"><code>Tudo tem um preço.</code></pre>
+<p>A EMR diz:</p>
+<pre class="text"><code>Tudo tem uma estrutura.</code></pre>
+<p>A economia de mercado normal costuma perceber tarde:</p>
+<pre class="text"><code>Cadeias de suprimento quebram.
+O trabalho é explorado.
+O meio ambiente é destruído.
+O poder dos dados cresce.
+Dívidas se tornam tóxicas.
+Pessoas se tornam dependentes.</code></pre>
+<p>A EMR pode tornar essas coisas visíveis mais cedo, porque aparecem
+como relações dentro da própria moeda.</p>
+<p>Isso a torna analítica, organizacional e financeiramente mais
+forte.</p>
+<p>Mas o preço é que o sistema penetra mais profundamente na
+sociedade.</p>
+<h2 id="a-contradição-decisiva">50. A contradição decisiva</h2>
+<p>A EMR quer tornar tudo visível.</p>
+<p>Mas a liberdade precisa de áreas que não sejam totalmente visíveis
+nem totalmente negociáveis.</p>
+<p>Daí surge o conflito básico:</p>
+<pre class="text"><code>Quanto mais completo economicamente é o sistema,
+mais perigoso ele se torna humanamente.</code></pre>
+<p>Uma máquina perfeita de mercado relacional provavelmente seria
+desumana.</p>
+<p>Uma EMR humana precisa, portanto, ser incompleta.</p>
+<p>Ela deve permitir conscientemente pontos cegos:</p>
+<pre class="text"><code>privacidade
+não avaliação
+não transferibilidade
+perdão
+novo começo
+dignidade não paga
+direitos invendáveis</code></pre>
+<p>Isso não é uma fraqueza. É a condição de sua legitimidade.</p>
+<h2 id="modelo-final-arquitetura-completa">51. Modelo final: arquitetura
+completa</h2>
+<p>A EMR completa consiste nestes níveis:</p>
+<pre class="text"><code>1. Nível da pessoa
+   seres humanos, identidades, direitos fundamentais, relações de proteção
+
+2. Nível dos bens
+   propriedade, uso, entrega, consumo
+
+3. Nível do trabalho
+   relações voluntárias e limitadas de prestação
+
+4. Nível empresarial
+   produção, cadeias de suprimento, capital, clientes, dados
+
+5. Nível financeiro
+   crédito, garantias, seguro, reivindicações
+
+6. Nível estatal
+   impostos, leis, relações inalienáveis, garantias públicas
+
+7. Nível social
+   abastecimento básico, educação, saúde, moradia, proteção jurídica
+
+8. Nível ambiental
+   emissões, regeneração, danos, limites
+
+9. Nível dos dados
+   provas, registros, proteção de dados, eliminação
+
+10. Nível do mercado
+    correspondência, compensação, troca, aceitação, concorrência
+
+11. Nível de crise
+    insolvência, desenredamento, garantia, eliminação, estabilização
+
+12. Nível moral
+    O que nunca deve virar moeda?</code></pre>
+<p>Esse é um sistema econômico completo porque explica não apenas a
+troca, mas também:</p>
+<pre class="text"><code>moeda
+propriedade
+trabalho
+capital
+crédito
+Estado
+impostos
+proteção social
+empresas
+mercados
+concorrência
+comércio exterior
+meio ambiente
+dados
+crises
+direito
+poder
+limites morais</code></pre>
+<h2 id="conclusão">52. Conclusão</h2>
+<p>A economia monetária relacional é mais forte que a economia de
+mercado porque não reduz o mercado a preços.</p>
+<p>Ela pode ver mais:</p>
+<pre class="text"><code>direitos
+deveres
+riscos
+dependências
+confiança
+futuro
+dados
+meio ambiente
+poder</code></pre>
+<p>Ela pode negociar mais:</p>
+<pre class="text"><code>reivindicações
+usos
+garantias
+prestações de trabalho
+seguros
+direitos de dados
+cadeias de suprimento
+reputação
+deveres ecológicos</code></pre>
+<p>Ela pode dirigir mais:</p>
+<pre class="text"><code>produção
+crédito
+risco
+política social
+danos ambientais
+mercados de trabalho
+bens públicos</code></pre>
+<p>Por isso gera um boom econômico especial.</p>
+<p>Mas esse boom tem um reverso escuro:</p>
+<pre class="text"><code>Tudo que se torna visível pode ser avaliado.
+Tudo que é avaliado pode ser negociado.
+Tudo que é negociado pode virar poder sobre seres humanos.</code></pre>
+<p>Por isso a tarefa política central não é apenas tornar esse sistema
+eficiente.</p>
+<p>A tarefa central é:</p>
+<pre class="text"><code>decidir quais relações nunca podem virar moeda.</code></pre>
+<p>A melhor versão da EMR seria uma economia mais complexa, mais honesta
+e mais produtiva que a economia de mercado normal.</p>
+<p>A pior versão seria um mercado total no qual pessoas não são
+oficialmente vendidas, mas, na prática, são dominadas por suas relações
+de trabalho, dívida, dados, moradia, reputação e dependência.</p>
+<p>A diferença entre as duas versões não é técnica.</p>
+<p>A diferença é o direito.</p>
+<p>E ainda mais profundamente:</p>
+<pre class="text"><code>A diferença é a decisão
+se o mercado serve ao ser humano
+ou se o ser humano, como relação, pertence ao mercado.</code></pre>
+</body>
+</html>

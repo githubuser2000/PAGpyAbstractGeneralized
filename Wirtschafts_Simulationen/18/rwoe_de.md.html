@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>rwoe_de</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="relationale-währungsökonomie-ein-vollständiges-wirtschaftssystem-auf-grundlage-einer-währung-die-keine-zahl-ist">Relationale
+Währungsökonomie: ein vollständiges Wirtschaftssystem auf Grundlage
+einer Währung, die keine Zahl ist</h1>
+<h2 id="grundidee-eine-währung-die-keine-zahl-ist">1. Grundidee: eine
+Währung, die keine Zahl ist</h2>
+<p>Ich nenne das System hier:</p>
+<h1 id="relationale-währungsökonomie"><strong>Relationale
+Währungsökonomie</strong></h1>
+<p>oder kurz:</p>
+<pre class="text"><code>RWÖ</code></pre>
+<p>Die Währung dieser Ökonomie ist keine Zahl wie „100 Euro“, sondern
+eine <strong>handelbare relationale Tabelle</strong>.</p>
+<p>Nicht:</p>
+<pre class="text"><code>Ich habe 100.</code></pre>
+<p>Sondern:</p>
+<pre class="text"><code>Ich habe ein Bündel aus Rechten, Pflichten, Ansprüchen, Risiken, Gegenparteien, Zeitbindungen, Ressourcenbezügen, Fähigkeiten, Sicherheiten und sozialen Kosten.</code></pre>
+<p>Geld wird also nicht als eindimensionaler Betrag verstanden, sondern
+als <strong>strukturierter Marktzustand</strong>.</p>
+<p>Die Basiseinheit ist nicht die Münze, nicht der Schein, nicht der
+Kontostand, sondern eine <strong>Relationstabelle</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr>
+<th>Relation-ID</th>
+<th>Subjekt</th>
+<th>Objekt</th>
+<th>Beziehungstyp</th>
+<th>Anspruch</th>
+<th>Pflicht</th>
+<th>Zeitraum</th>
+<th>Bedingung</th>
+<th>Übertragbarkeit</th>
+<th>Risiko</th>
+<th>Rechtsstatus</th>
+<th>Nachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-001</td>
+<td>Person A</td>
+<td>Firma B</td>
+<td>Arbeit</td>
+<td>20 Std. Facharbeit</td>
+<td>Bezahlung/Schutz</td>
+<td>Juni</td>
+<td>Vertrag aktiv</td>
+<td>begrenzt</td>
+<td>mittel</td>
+<td>gültig</td>
+<td>signiert</td>
+</tr>
+<tr>
+<td>R-002</td>
+<td>Firma B</td>
+<td>Maschine C</td>
+<td>Nutzung</td>
+<td>100 Std. Maschinenzeit</td>
+<td>Wartung</td>
+<td>Q3</td>
+<td>nur Werkhalle</td>
+<td>ja</td>
+<td>niedrig</td>
+<td>gültig</td>
+<td>geprüft</td>
+</tr>
+<tr>
+<td>R-003</td>
+<td>Staat</td>
+<td>Bürger A</td>
+<td>Steueranspruch</td>
+<td>Abgabe</td>
+<td>Infrastruktur</td>
+<td>jährlich</td>
+<td>Einkommen/Verbrauch</td>
+<td>nein</td>
+<td>niedrig</td>
+<td>gesetzlich</td>
+<td>Register</td>
+</tr>
+<tr>
+<td>R-004</td>
+<td>Person D</td>
+<td>Person A</td>
+<td>Schuld</td>
+<td>Rückzahlung</td>
+<td>Zahlungspflicht</td>
+<td>6 Monate</td>
+<td>fällig</td>
+<td>ja</td>
+<td>hoch</td>
+<td>strittig</td>
+<td>Vertrag</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Tabelle ist nicht bloß Dokumentation. Sie ist selbst der
+Wertträger.</p>
+<p>Eine Zahlung wäre dann nicht:</p>
+<pre class="text"><code>A zahlt B 500.</code></pre>
+<p>Sondern:</p>
+<pre class="text"><code>A überträgt B ein Bündel gültiger Relationen:
+- Anspruch auf Lieferung
+- Anspruch auf Arbeitsleistung
+- Forderung gegen Dritte
+- Nutzungsrecht an Ressource
+- Steueranrechnung
+- Versicherungsdeckung
+- Reputationsgarantie</code></pre>
+<p>Das ist der Kern.</p>
+<h2 id="was-ist-daran-anders-als-normale-marktwirtschaft">2. Was ist
+daran anders als normale Marktwirtschaft?</h2>
+<p>Die normale Marktwirtschaft verdichtet fast alles zu einem Preis.</p>
+<pre class="text"><code>Ware → Preis
+Arbeit → Lohn
+Risiko → Zins
+Schaden → Kosten
+Ressource → Marktwert</code></pre>
+<p>Das ist stark, weil es einfach ist.</p>
+<p>Aber es ist auch blind. Eine Zahl zeigt nicht, <strong>warum</strong>
+etwas wertvoll ist, <strong>wem</strong> etwas geschuldet wird,
+<strong>welche Risiken</strong> dranhängen, <strong>welche sozialen
+Kosten</strong> entstehen, <strong>welche Abhängigkeiten</strong>
+erzeugt werden und <strong>welche Machtverhältnisse</strong> mitverkauft
+werden.</p>
+<p>Die relationale Währungsökonomie sagt:</p>
+<pre class="text"><code>Der Preis ist zu arm.
+Der Markt braucht nicht nur Zahlen.
+Der Markt braucht strukturierte Beziehungen.</code></pre>
+<p>Deshalb ist dieses System in einem bestimmten Sinn stärker als
+Marktwirtschaft:</p>
+<pre class="text"><code>Marktwirtschaft handelt Preise.
+Relationale Währungsökonomie handelt strukturierte Wirklichkeit.</code></pre>
+<p>Aber genau darin liegt auch die Gefahr.</p>
+<p>Denn wenn wirklich alles als Relation erfasst und handelbar gemacht
+wird, dann werden nicht nur Güter effizienter gehandelt. Dann werden
+auch Abhängigkeiten, Biografien, Arbeitskraft, soziale Bindungen,
+Schuld, Zugriff, Kontrolle und menschliche Verletzlichkeit
+handelbar.</p>
+<p>Das erzeugt einen enormen Wirtschaftsboom — und eine enorme
+moralische Bedrohung.</p>
+<h2 id="die-zentrale-these">3. Die zentrale These</h2>
+<p>Die RWÖ funktioniert nach dieser These:</p>
+<pre class="text"><code>Alles Wirtschaftliche ist eine Relation.</code></pre>
+<p>Nicht nur Dinge haben Wert, sondern Beziehungen:</p>
+<pre class="text"><code>Person besitzt Sache.
+Person schuldet Leistung.
+Firma braucht Arbeitskraft.
+Staat erhebt Steuer.
+Kunde vertraut Anbieter.
+Maschine erzeugt Produkt.
+Boden trägt Ertrag.
+Daten erzeugen Prognosen.
+Schaden erzeugt Haftung.
+Risiko erzeugt Versicherungsbedarf.
+Knappheit erzeugt Tauschmacht.</code></pre>
+<p>In der klassischen Marktwirtschaft werden diese Relationen oft
+versteckt und am Ende in einen Preis gepresst.</p>
+<p>In der RWÖ bleiben sie sichtbar und werden selbst zur Währung.</p>
+<h2 id="die-währung-das-relationale-wertbündel">4. Die Währung: das
+Relationale Wertbündel</h2>
+<p>Die eigentliche Währung heißt hier:</p>
+<pre class="text"><code>Relationales Wertbündel</code></pre>
+<p>Kurz:</p>
+<pre class="text"><code>RWB</code></pre>
+<p>Ein RWB ist eine Tabelle aus handelbaren Relationen.</p>
+<p>Es enthält nicht nur „Wert“, sondern die Struktur des Wertes.</p>
+<p>Ein RWB kann enthalten:</p>
+<table>
+<thead>
+<tr>
+<th>Kategorie</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eigentumsrelationen</td>
+<td>A besitzt Maschine X</td>
+</tr>
+<tr>
+<td>Nutzungsrechte</td>
+<td>B darf Lagerhalle Y für 30 Tage nutzen</td>
+</tr>
+<tr>
+<td>Arbeitsansprüche</td>
+<td>C schuldet 10 Stunden Arbeit</td>
+</tr>
+<tr>
+<td>Lieferansprüche</td>
+<td>D liefert 500 Einheiten Rohstoff</td>
+</tr>
+<tr>
+<td>Schuldforderungen</td>
+<td>E schuldet F Rückzahlung</td>
+</tr>
+<tr>
+<td>Versicherungsrelationen</td>
+<td>G deckt Risiko H ab</td>
+</tr>
+<tr>
+<td>Steuerrelationen</td>
+<td>Staat akzeptiert Anspruch als Abgabe</td>
+</tr>
+<tr>
+<td>Reputationsrelationen</td>
+<td>Prüfer bestätigt Qualität</td>
+</tr>
+<tr>
+<td>Haftungsrelationen</td>
+<td>Verursacher trägt Schaden</td>
+</tr>
+<tr>
+<td>Datenrelationen</td>
+<td>Datensatz berechtigt zu Analyse/Nutzung</td>
+</tr>
+<tr>
+<td>Umweltrelationen</td>
+<td>Tätigkeit erzeugt Emission oder Kompensation</td>
+</tr>
+<tr>
+<td>Sozialrelationen</td>
+<td>Abhängigkeit, Fürsorgepflicht, Schutzpflicht</td>
+</tr>
+</tbody>
+</table>
+<p>Wichtig:</p>
+<pre class="text"><code>Die Währung ist nicht eine Zahl.
+Die Währung ist ein Bündel von Beziehungen.</code></pre>
+<p>Zahlen können in Zellen stehen, etwa Stunden, Mengen, Fristen oder
+Risikowerte. Aber die Währung selbst ist nicht diese Zahl. Sie ist die
+ganze Tabelle.</p>
+<h2 id="die-grundstruktur-jeder-währungstabelle">5. Die Grundstruktur
+jeder Währungstabelle</h2>
+<p>Jede Währungstabelle braucht mindestens diese Spalten:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Spalte</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subjekt</td>
+<td>Wer hat einen Anspruch oder eine Pflicht?</td>
+</tr>
+<tr>
+<td>Gegenpartei</td>
+<td>Gegen wen richtet sich die Relation?</td>
+</tr>
+<tr>
+<td>Objekt</td>
+<td>Worauf bezieht sich die Relation?</td>
+</tr>
+<tr>
+<td>Beziehungstyp</td>
+<td>Eigentum, Arbeit, Schuld, Nutzung, Haftung, Lieferung usw.</td>
+</tr>
+<tr>
+<td>Anspruch</td>
+<td>Was darf verlangt werden?</td>
+</tr>
+<tr>
+<td>Pflicht</td>
+<td>Was muss geleistet werden?</td>
+</tr>
+<tr>
+<td>Zeitraum</td>
+<td>Wann gilt es?</td>
+</tr>
+<tr>
+<td>Bedingung</td>
+<td>Unter welchen Umständen gilt es?</td>
+</tr>
+<tr>
+<td>Übertragbarkeit</td>
+<td>Darf die Relation weiterverkauft werden?</td>
+</tr>
+<tr>
+<td>Teilbarkeit</td>
+<td>Darf sie aufgeteilt werden?</td>
+</tr>
+<tr>
+<td>Durchsetzbarkeit</td>
+<td>Kann sie rechtlich erzwungen werden?</td>
+</tr>
+<tr>
+<td>Risiko</td>
+<td>Wie wahrscheinlich ist Ausfall, Betrug, Streit?</td>
+</tr>
+<tr>
+<td>Nachweis</td>
+<td>Wer bestätigt die Relation?</td>
+</tr>
+<tr>
+<td>Rang</td>
+<td>Hat die Relation Vorrang vor anderen Ansprüchen?</td>
+</tr>
+<tr>
+<td>Moralstatus</td>
+<td>erlaubt, eingeschränkt, verboten, unveräußerlich</td>
+</tr>
+<tr>
+<td>Öffentlichkeit</td>
+<td>privat, halböffentlich, staatlich, anonymisiert</td>
+</tr>
+<tr>
+<td>Löschbarkeit</td>
+<td>endet bei Erfüllung, Fristablauf, Widerruf, Tod usw.</td>
+</tr>
+</tbody>
+</table>
+<p>Dadurch wird jede „Geldeinheit“ zu einem Mini-Vertrag,
+Mini-Vermögensverzeichnis und Mini-Risikoprofil.</p>
+<h2 id="zahlung-in-diesem-system">6. Zahlung in diesem System</h2>
+<p>In der normalen Wirtschaft:</p>
+<pre class="text"><code>A kauft Ware von B.
+A zahlt 100 Euro.
+B übergibt Ware.</code></pre>
+<p>In der relationalen Währungsökonomie:</p>
+<pre class="text"><code>A kauft Ware von B.
+A überträgt B ein passendes Relationenbündel.
+B akzeptiert es, weil es zu Bs Bedarf passt.</code></pre>
+<p>Beispiel:</p>
+<p>B verkauft ein Fahrrad. B verlangt nicht „300 Euro“, sondern:</p>
+<pre class="text"><code>B akzeptiert:
+- einen gültigen Anspruch auf 5 Stunden Reparaturarbeit
+- plus eine staatlich akzeptierte Steuerrelation
+- plus eine übertragbare Forderung gegen C
+- plus eine Garantie gegen Ausfall</code></pre>
+<p>A zahlt also nicht mit einer Zahl, sondern mit einer strukturierten
+Tabelle:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Relation</th>
+<th>Inhalt</th>
+<th>Warum B sie akzeptiert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arbeitsanspruch</td>
+<td>A repariert 5 Stunden Maschinen</td>
+<td>B braucht Reparatur</td>
+</tr>
+<tr>
+<td>Steuerrelation</td>
+<td>anrechenbarer öffentlicher Anspruch</td>
+<td>B kann Steuerpflicht senken</td>
+</tr>
+<tr>
+<td>Forderung</td>
+<td>C schuldet Lieferung</td>
+<td>B kann sie weiterverkaufen</td>
+</tr>
+<tr>
+<td>Garantie</td>
+<td>Ausfall wird gedeckt</td>
+<td>Risiko wird reduziert</td>
+</tr>
+</tbody>
+</table>
+<p>Der Preis ist nicht mehr eine Zahl. Der Preis ist ein
+<strong>Akzeptanzmuster</strong>.</p>
+<pre class="text"><code>Ein Preis ist eine Tabelle, die der Verkäufer akzeptiert.
+Eine Zahlung ist eine Tabelle, die der Käufer überträgt.
+Ein Markt ist ein System, das passende Tabellen zusammenführt.</code></pre>
+<h2 id="wie-entstehen-werte">7. Wie entstehen Werte?</h2>
+<p>Wert entsteht nicht einfach durch Zählen von Zeilen.</p>
+<p>Eine Tabelle mit 1.000 wertlosen, riskanten oder verbotenen
+Relationen kann weniger wert sein als eine Tabelle mit 3 sehr starken
+Relationen.</p>
+<p>Wert entsteht aus:</p>
+<pre class="text"><code>Nützlichkeit
+Knappheit
+Durchsetzbarkeit
+Vertrauen
+Übertragbarkeit
+Zeitnähe
+Risikogehalt
+sozialer Akzeptanz
+staatlicher Anerkennung
+Produktivität
+Rechtsklarheit</code></pre>
+<p>Ein Relationenbündel ist stark, wenn viele Marktteilnehmer es
+akzeptieren.</p>
+<p>Ein Relationenbündel ist schwach, wenn es schwer durchsetzbar,
+moralisch belastet, riskant, illiquide oder rechtlich verboten ist.</p>
+<h2 id="die-rolle-von-zahlen">8. Die Rolle von Zahlen</h2>
+<p>Die RWÖ verbietet Zahlen nicht. Sie degradiert sie nur.</p>
+<p>Zahlen sind nicht mehr die Währung selbst. Zahlen sind nur Hilfswerte
+innerhalb der Tabellen.</p>
+<p>Beispiele:</p>
+<pre class="text"><code>10 Stunden
+3 Monate
+50 Kilowattstunden
+2 Hektar
+5 % Ausfallrisiko
+40 Tonnen CO₂
+8 Lieferungen</code></pre>
+<p>Aber der Wert liegt nicht in der einzelnen Zahl, sondern in der
+Relation:</p>
+<pre class="text"><code>10 Stunden von wem?
+Für wen?
+Welche Arbeit?
+Unter welchen Bedingungen?
+Mit welcher Qualität?
+Mit welchem Risiko?
+Mit welchem Rechtsschutz?
+Übertragbar oder nicht?
+Freiwillig oder erzwungen?</code></pre>
+<p>Das ist der Unterschied.</p>
+<p>Die Marktwirtschaft sagt:</p>
+<pre class="text"><code>Was kostet es?</code></pre>
+<p>Die RWÖ fragt:</p>
+<pre class="text"><code>Welche Beziehung wird übertragen?
+Welche Macht wird übertragen?
+Welche Pflicht wird übertragen?
+Welche Zukunft wird übertragen?
+Welche Abhängigkeit wird erzeugt?</code></pre>
+<p>Das macht sie stärker — aber auch gefährlicher.</p>
+<h2 id="eigentum-in-der-rwö">9. Eigentum in der RWÖ</h2>
+<p>Eigentum ist nicht einfach „Besitz“, sondern eine
+Relationstabelle.</p>
+<p>Ein Haus besteht dann nicht nur aus Haus + Eigentümer, sondern
+aus:</p>
+<pre class="text"><code>Eigentumsrecht
+Nutzungsrecht
+Hypothek
+Steuerpflicht
+Nachbarschaftspflichten
+Instandhaltungspflichten
+Versicherungsrelationen
+Energieverbrauch
+Umweltauflagen
+Erbrechte
+Mietrechte
+staatliche Registrierung</code></pre>
+<p>In klassischer Marktwirtschaft erscheint das Haus vielleicht als:</p>
+<pre class="text"><code>Hauswert: 600.000 Euro</code></pre>
+<p>In der RWÖ erscheint es als:</p>
+<pre class="text"><code>Bündel aus Rechten, Pflichten, Risiken, Erträgen, Kosten, Bindungen und Zugriffsmöglichkeiten.</code></pre>
+<p>Das ist realistischer.</p>
+<p>Ein Haus ist nicht nur ein Ding. Es ist ein Knoten in einem Netz aus
+Rechten und Pflichten.</p>
+<h2 id="unternehmen-in-der-rwö">10. Unternehmen in der RWÖ</h2>
+<p>Ein Unternehmen ist keine bloße juristische Person mit Bilanzsumme.
+Es ist ein verdichteter Relationenknoten.</p>
+<p>Ein Unternehmen besteht aus:</p>
+<pre class="text"><code>Arbeitsrelationen
+Kundenrelationen
+Lieferkettenrelationen
+Eigentumsrelationen
+Schuldenrelationen
+Reputationsrelationen
+Wissensrelationen
+Datenrelationen
+Maschinenrelationen
+Genehmigungsrelationen
+Haftungsrelationen
+Steuerrelationen</code></pre>
+<p>Ein Unternehmen ist reich, wenn seine Relationen:</p>
+<pre class="text"><code>produktiv
+anerkannt
+liquide
+rechtlich stabil
+knapp
+vertrauenswürdig
+vielseitig anschlussfähig</code></pre>
+<p>sind.</p>
+<p>Ein Unternehmen ist schwach, wenn seine Relationen:</p>
+<pre class="text"><code>strittig
+riskant
+abhängig
+kurzfristig
+rechtlich unsicher
+moralisch toxisch
+nicht übertragbar</code></pre>
+<p>sind.</p>
+<p>Profit bedeutet in der RWÖ nicht einfach:</p>
+<pre class="text"><code>Einnahmen minus Kosten.</code></pre>
+<p>Profit bedeutet:</p>
+<pre class="text"><code>Das Unternehmen erzeugt nach der Produktion ein besseres Relationenbündel als vorher.</code></pre>
+<p>Also:</p>
+<pre class="text"><code>mehr akzeptierte Ansprüche
+weniger toxische Pflichten
+bessere Lieferbeziehungen
+bessere Reputation
+höhere Durchsetzbarkeit
+weniger Risiko
+mehr Zukunftsoptionen</code></pre>
+<p>Das ist breiter als Geldprofit.</p>
+<h2 id="arbeit-in-der-rwö">11. Arbeit in der RWÖ</h2>
+<p>Hier liegt der entscheidende moralische Konflikt.</p>
+<p>In einer legitimen Version der RWÖ wird nicht der Mensch gehandelt,
+sondern nur eine freiwillig begrenzte Arbeitsrelation.</p>
+<p>Zulässig wäre:</p>
+<pre class="text"><code>Person A verpflichtet sich freiwillig,
+für Firma B
+in Zeitraum T
+unter Bedingungen C
+eine bestimmte Leistung L zu erbringen,
+mit Kündigungsrecht,
+Schutzrechten,
+Lohnanspruch,
+Arbeitszeitgrenze,
+Nichtübertragbarkeit der Person.</code></pre>
+<p>Das ist eine Arbeitsrelation.</p>
+<p>Sie kann als Tabelle dargestellt werden:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Person</th>
+<th>Arbeitgeber</th>
+<th>Leistung</th>
+<th>Zeitraum</th>
+<th>Pflicht</th>
+<th>Gegenleistung</th>
+<th>Kündigung</th>
+<th>Schutzrechte</th>
+<th>Übertragbarkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Firma B</td>
+<td>Facharbeit</td>
+<td>3 Monate</td>
+<td>Arbeit</td>
+<td>Vergütung/Versicherung</td>
+<td>ja</td>
+<td>ja</td>
+<td>eingeschränkt</td>
+</tr>
+</tbody>
+</table>
+<p>Die kritische Grenze lautet:</p>
+<pre class="text"><code>Die Arbeitsleistung kann Vertragsgegenstand sein.
+Der Mensch selbst darf es nicht sein.</code></pre>
+<p>Ohne diese Grenze kippt das System.</p>
+<h2 id="kapital-in-der-rwö">12. Kapital in der RWÖ</h2>
+<p>Kapital ist nicht mehr nur Geld oder Eigentum, sondern jede Relation,
+die zukünftige Handlungsmacht erzeugt.</p>
+<p>Kapital kann sein:</p>
+<pre class="text"><code>Maschinennutzungsrecht
+Zugriff auf Daten
+Kundenvertrauen
+Lizenz
+Patent
+Arbeitszusage
+Lieferkette
+staatliche Genehmigung
+günstiger Kredit
+soziale Reputation
+Versicherungsschutz
+Rohstoffzugang</code></pre>
+<p>Damit macht die RWÖ sichtbar, was in der Marktwirtschaft oft verdeckt
+ist:</p>
+<pre class="text"><code>Kapital ist geronnene Beziehungsmacht.</code></pre>
+<p>Wer viele starke Relationen besitzt, besitzt Macht.</p>
+<p>Nicht nur wer viel Geld hat.</p>
+<h2 id="kredit-in-der-rwö">13. Kredit in der RWÖ</h2>
+<p>Kredit ist eine Zukunftsrelation.</p>
+<p>In der normalen Wirtschaft:</p>
+<pre class="text"><code>Bank gibt Kredit über 100.000 Euro.
+Schuldner zahlt später zurück.</code></pre>
+<p>In der RWÖ:</p>
+<pre class="text"><code>Bank erzeugt ein anerkanntes Relationenbündel,
+das zukünftige Leistungen, Sicherheiten, Risiken und Rechtsansprüche enthält.</code></pre>
+<p>Ein Kredit-RWB enthält:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schuldner</td>
+<td>Wer schuldet?</td>
+</tr>
+<tr>
+<td>Gläubiger</td>
+<td>Wem wird geschuldet?</td>
+</tr>
+<tr>
+<td>zukünftige Leistung</td>
+<td>Was wird erwartet?</td>
+</tr>
+<tr>
+<td>Sicherheiten</td>
+<td>Welche Relationen haften?</td>
+</tr>
+<tr>
+<td>Rang</td>
+<td>Wer wird zuerst bedient?</td>
+</tr>
+<tr>
+<td>Risiko</td>
+<td>Ausfallwahrscheinlichkeit</td>
+</tr>
+<tr>
+<td>Zweck</td>
+<td>Produktion, Konsum, Spekulation</td>
+</tr>
+<tr>
+<td>Kontrolle</td>
+<td>Welche Eingriffsrechte erhält der Gläubiger?</td>
+</tr>
+<tr>
+<td>Verzug</td>
+<td>Was passiert bei Nichterfüllung?</td>
+</tr>
+</tbody>
+</table>
+<p>Banken werden in diesem System zu
+<strong>Relationstransformatoren</strong>.</p>
+<p>Sie nehmen schwer handelbare Relationen und machen daraus leichter
+akzeptierbare Relationen.</p>
+<p>Beispiel:</p>
+<pre class="text"><code>Viele unsichere Rückzahlungsversprechen
+→ gebündelt, geprüft, versichert
+→ handelbares Kreditbündel</code></pre>
+<p>Das ist mächtig.</p>
+<p>Aber es kann auch toxisch werden, genau wie Verbriefungen in
+Finanzkrisen — nur viel tiefer, weil nicht nur Schulden, sondern alle
+Lebensbeziehungen verpackt werden können.</p>
+<h2 id="zentralbank-und-geldmenge">14. Zentralbank und Geldmenge</h2>
+<p>Eine normale Zentralbank steuert Geldmenge, Zins und Liquidität.</p>
+<p>Die Zentralbank der RWÖ steuert:</p>
+<pre class="text"><code>Anerkennung
+Standardisierung
+Vertrauensränge
+öffentliche Akzeptanz
+Mindestqualität von Relationen
+Sicherheitenklassen
+Löschungsregeln
+Übertragbarkeitsregeln
+Risikogewichte
+Krisenbereinigung</code></pre>
+<p>Sie fragt nicht nur:</p>
+<pre class="text"><code>Wie viel Geld ist im Umlauf?</code></pre>
+<p>Sondern:</p>
+<pre class="text"><code>Welche Relationen sind im Umlauf?
+Wie gut sind sie?
+Wie toxisch sind sie?
+Wie stark sind sie verschachtelt?
+Wer hängt von wem ab?
+Welche Relationen dürfen als allgemeines Zahlungsmittel gelten?
+Welche Relationen gefährden Freiheit, Stabilität oder Würde?</code></pre>
+<p>Inflation ist in diesem System nicht bloß Preissteigerung.</p>
+<p>Inflation bedeutet:</p>
+<pre class="text"><code>Zu viele schwache, unsichere oder überdehnte Relationen werden als wertvoll akzeptiert.</code></pre>
+<p>Deflation bedeutet:</p>
+<pre class="text"><code>Zu wenige Relationen werden akzeptiert.
+Alle halten nur noch harte, sichere, staatlich garantierte Relationen.
+Der Tausch stockt.</code></pre>
+<p>Eine Krise entsteht, wenn plötzlich viele Marktteilnehmer
+erkennen:</p>
+<pre class="text"><code>Die Relationen, die wir als Währung akzeptiert haben, sind nicht erfüllbar.</code></pre>
+<p>Dann kollabiert nicht nur Geldvertrauen, sondern
+Beziehungsvertrauen.</p>
+<h2 id="der-staat">15. Der Staat</h2>
+<p>Der Staat ist in der RWÖ nicht nur Regulierer, sondern der wichtigste
+moralische und rechtliche Grenzsetzer.</p>
+<p>Er tut fünf Dinge:</p>
+<h3 id="er-definiert-unveräußerliche-relationen">1. Er definiert
+unveräußerliche Relationen</h3>
+<p>Zum Beispiel:</p>
+<pre class="text"><code>Menschenwürde
+Körperfreiheit
+Grundrechte
+Kündigungsfreiheit
+Schutz vor Zwang
+Schutz vor Schuldknechtschaft
+Datenschutz
+Familiengrundrechte
+politische Rechte</code></pre>
+<p>Diese dürfen nicht gehandelt werden.</p>
+<h3 id="er-macht-bestimmte-relationen-steuerlich-akzeptiert">2. Er macht
+bestimmte Relationen steuerlich akzeptiert</h3>
+<p>Der Staat kann sagen:</p>
+<pre class="text"><code>Diese Relationen akzeptiere ich zur Erfüllung öffentlicher Pflichten.</code></pre>
+<p>Beispiel:</p>
+<pre class="text"><code>Pflegeleistung
+CO₂-Kompensation
+Infrastrukturbeitrag
+Geldäquivalent
+öffentliche Dienstleistung
+Steueranspruch</code></pre>
+<p>Dadurch entsteht Nachfrage nach bestimmten Relationen.</p>
+<h3 id="er-verbietet-toxische-relationen">3. Er verbietet toxische
+Relationen</h3>
+<p>Etwa:</p>
+<pre class="text"><code>Handel mit Personen
+unbegrenzte Arbeitsbindung
+Zwangsverträge
+nicht kündbare Schuldverhältnisse
+verkaufte Stimmrechte
+verkaufte Körperrechte
+unbegrenzte Datenkontrolle
+erzwungene Abhängigkeitsrelationen</code></pre>
+<h3 id="er-schützt-schwächere-parteien">4. Er schützt schwächere
+Parteien</h3>
+<p>Weil ein relationaler Markt viel mächtiger ist als ein Geldmarkt,
+braucht man stärkere Schutzrechte.</p>
+<pre class="text"><code>Arbeitsrecht
+Mietrecht
+Verbraucherschutz
+Datenschutz
+Schuldnerschutz
+Insolvenzrecht
+Kartellrecht
+Antidiskriminierungsrecht
+Mindeststandards</code></pre>
+<h3 id="er-stabilisiert-krisen">5. Er stabilisiert Krisen</h3>
+<p>Wenn Relationenmärkte einfrieren, muss der Staat sichere öffentliche
+Relationen bereitstellen:</p>
+<pre class="text"><code>Grundversorgung
+öffentliche Arbeit
+Basisansprüche
+staatlich garantierte Zahlungsrelationen
+Schuldenschnitte
+Relationenlöschung
+Umwandlung toxischer Relationen</code></pre>
+<p>Ohne Staat wird die RWÖ schnell zur privaten Herrschaftsökonomie.</p>
+<h2 id="märkte-in-der-rwö">16. Märkte in der RWÖ</h2>
+<p>Ein Markt ist nicht mehr nur ein Ort, an dem Preise gebildet
+werden.</p>
+<p>Ein Markt ist ein Ort, an dem Relationen kompatibel gemacht
+werden.</p>
+<p>Es gibt verschiedene Märkte:</p>
+<table>
+<thead>
+<tr>
+<th>Markt</th>
+<th>Was gehandelt wird</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gütermarkt</td>
+<td>Eigentums- und Lieferrelationen</td>
+</tr>
+<tr>
+<td>Arbeitsmarkt</td>
+<td>begrenzte Arbeitsleistungsrelationen</td>
+</tr>
+<tr>
+<td>Kapitalmarkt</td>
+<td>Zukunftsansprüche, Sicherheiten, Beteiligungen</td>
+</tr>
+<tr>
+<td>Kreditmarkt</td>
+<td>Schuld- und Rückzahlungsrelationen</td>
+</tr>
+<tr>
+<td>Versicherungsmarkt</td>
+<td>Risikoübernahme</td>
+</tr>
+<tr>
+<td>Datenmarkt</td>
+<td>Nutzungsrechte an Daten</td>
+</tr>
+<tr>
+<td>Energiemarkt</td>
+<td>Produktions- und Verbrauchsrelationen</td>
+</tr>
+<tr>
+<td>Wohnungsmarkt</td>
+<td>Nutzungs-, Miet-, Eigentumsrelationen</td>
+</tr>
+<tr>
+<td>Reputationsmarkt</td>
+<td>Zertifizierungen, Prüfungen, Vertrauenssignale</td>
+</tr>
+<tr>
+<td>Umweltmarkt</td>
+<td>Emissionen, Ausgleich, Regeneration</td>
+</tr>
+<tr>
+<td>Pflegemarkt</td>
+<td>Fürsorge- und Betreuungsrelationen</td>
+</tr>
+<tr>
+<td>Staatsmarkt</td>
+<td>Steuer-, Lizenz- und Genehmigungsrelationen</td>
+</tr>
+</tbody>
+</table>
+<p>Der Marktmechanismus lautet:</p>
+<pre class="text"><code>Angebotstabelle trifft Nachfragetabelle.
+Ein Clearing-System prüft Kompatibilität.
+Wenn die Relationen passen, findet Tausch statt.</code></pre>
+<p>Der Preis ist also nicht die zentrale Information. Die zentrale
+Information ist:</p>
+<pre class="text"><code>Passen diese Relationen zusammen?</code></pre>
+<h2 id="wettbewerb">17. Wettbewerb</h2>
+<p>Wettbewerb besteht nicht nur darin, billiger zu sein.</p>
+<p>Wettbewerb besteht darin, bessere Relationen anzubieten.</p>
+<p>Besser heißt:</p>
+<pre class="text"><code>verlässlicher
+schneller
+risikoärmer
+rechtssicherer
+ökologisch sauberer
+sozial akzeptierter
+leichter übertragbar
+besser kombinierbar
+transparenter
+weniger ausbeuterisch</code></pre>
+<p>Ein Unternehmen gewinnt nicht nur, weil es den niedrigsten Preis hat,
+sondern weil seine Relationen auf mehr Märkten akzeptiert werden.</p>
+<p>Das ist einer der Gründe, warum dieses System stärker ist:</p>
+<pre class="text"><code>Die klassische Marktwirtschaft optimiert oft auf Preis.
+Die RWÖ optimiert auf Anschlussfähigkeit von Beziehungen.</code></pre>
+<h2 id="warum-dieses-system-stärker-als-marktwirtschaft-ist">18. Warum
+dieses System stärker als Marktwirtschaft ist</h2>
+<p>„Stärker“ heißt hier nicht automatisch „besser“ oder „gerechter“.</p>
+<p>Stärker heißt:</p>
+<pre class="text"><code>mehr Information
+mehr Zugriff
+mehr Steuerbarkeit
+mehr Handelbarkeit
+mehr Mobilisierung verborgener Werte
+mehr Kontrolle über Abhängigkeiten
+mehr Fähigkeit, Zukunft zu verpfänden
+mehr Fähigkeit, komplexe Güter zu vergleichen</code></pre>
+<p>Die RWÖ ist stärker aus mehreren Gründen.</p>
+<h3 id="erstens-sie-macht-unsichtbare-werte-sichtbar">Erstens: Sie macht
+unsichtbare Werte sichtbar</h3>
+<p>In der Marktwirtschaft werden viele Dinge schlecht abgebildet:</p>
+<pre class="text"><code>Vertrauen
+Pflege
+soziale Stabilität
+ökologische Schäden
+Datenmacht
+Abhängigkeiten
+Reputation
+Ausfallrisiken
+Bindungen
+emotionale Arbeit
+Zukunftspflichten</code></pre>
+<p>Die RWÖ kann diese Dinge als Relationen erfassen.</p>
+<p>Dadurch werden sie handelbar, versicherbar, besteuerbar, regulierbar
+und bewertbar.</p>
+<p>Das erzeugt einen Boom.</p>
+<h3 id="zweitens-sie-macht-mehr-dinge-liquide">Zweitens: Sie macht mehr
+Dinge liquide</h3>
+<p>Viele Vermögenswerte sind heute schwer handelbar:</p>
+<pre class="text"><code>zukünftige Arbeitsfähigkeit
+unvollständige Verträge
+kleine Forderungen
+lokales Vertrauen
+Nutzungsrechte
+Pflegeleistungen
+Datenrechte
+Risikoreduktionen
+soziale Beiträge</code></pre>
+<p>Die RWÖ kann daraus handelbare Bündel machen.</p>
+<p>Was früher nur latent vorhanden war, wird zu Marktmacht.</p>
+<h3 id="drittens-sie-reduziert-informationsblindheit">Drittens: Sie
+reduziert Informationsblindheit</h3>
+<p>Ein Preis sagt:</p>
+<pre class="text"><code>Dieses Ding kostet 100.</code></pre>
+<p>Eine Relationstabelle sagt:</p>
+<pre class="text"><code>Dieses Ding ist nützlich, aber riskant.
+Es hat eine offene Haftung.
+Es ist ökologisch belastet.
+Es hängt von drei Lieferanten ab.
+Es ist staatlich akzeptiert.
+Es kann in zwei Wochen übertragen werden.
+Es ist nur teilweise versichert.</code></pre>
+<p>Das ist eine viel reichere Marktinformation.</p>
+<h3 id="viertens-sie-kann-externe-kosten-einbauen">Viertens: Sie kann
+externe Kosten einbauen</h3>
+<p>Umweltkosten, Pflegekosten, soziale Schäden und Risiken verschwinden
+nicht mehr so leicht aus dem Preis.</p>
+<p>Sie stehen als Relationen in der Währung selbst.</p>
+<p>Ein Produkt kann dann nicht bloß billig sein, wenn es in Wahrheit
+hohe Schäden erzeugt. Diese Schäden hängen als negative Relationen am
+Produkt.</p>
+<h3 id="fünftens-sie-kann-produktion-feiner-koordinieren">Fünftens: Sie
+kann Produktion feiner koordinieren</h3>
+<p>Weil jedes Unternehmen nicht nur Preise sieht, sondern
+Beziehungsnetzwerke, kann Produktion genauer geplant werden.</p>
+<p>Die Wirtschaft sieht:</p>
+<pre class="text"><code>wo Arbeitskraft fehlt
+wo Lieferketten brechen
+wo Risiken steigen
+wo Ressourcen ungenutzt sind
+wo Vertrauen fehlt
+wo staatliche Genehmigungen blockieren
+wo Pflegebedarf wächst
+wo ökologische Lasten entstehen</code></pre>
+<p>Das ist stärker als ein Markt, der vor allem über Preise
+kommuniziert.</p>
+<h2 id="der-wirtschaftsboom">19. Der Wirtschaftsboom</h2>
+<p>Der Boom der RWÖ entsteht, weil plötzlich alles, was bisher nicht
+flüssig war, in handelbare Relationen verwandelt wird.</p>
+<p>Das betrifft:</p>
+<pre class="text"><code>ungenutzte Fähigkeiten
+kleine Zeitfenster
+Vertrauen
+Daten
+Reputation
+Zukunftsansprüche
+Mikrorechte
+Pflegebeiträge
+Risikoreduktion
+soziale Netzwerke
+lokale Ressourcen
+ungenutzte Maschinenzeit
+nicht ausgeschöpfte Genehmigungen</code></pre>
+<p>Beispiel:</p>
+<p>Ein Handwerker hat nicht nur „Arbeitskraft“. Er hat ein Bündel:</p>
+<pre class="text"><code>Fähigkeiten
+Werkzeuge
+Reputation
+lokale Kundenbeziehungen
+Versicherungen
+freie Zeitfenster
+Garantiehistorie
+Materialkontakte</code></pre>
+<p>In der normalen Marktwirtschaft wird daraus ungefähr:</p>
+<pre class="text"><code>Stundensatz 70 Euro.</code></pre>
+<p>In der RWÖ wird daraus ein reiches, handelbares Portfolio.</p>
+<p>Dadurch kann der Markt ihn genauer einsetzen, besser finanzieren,
+besser versichern und besser mit anderen Ressourcen verbinden.</p>
+<p>Das steigert Produktivität.</p>
+<p>Aber es hat einen Preis.</p>
+<h2 id="der-preis-des-booms">20. Der Preis des Booms</h2>
+<p>Der Preis ist:</p>
+<pre class="text"><code>Privatheit
+Einfachheit
+Unschuld
+Autonomie
+Nichtverfügbarkeit
+menschliche Würde
+soziale Ruhe</code></pre>
+<p>Die RWÖ macht die Wirtschaft stärker, weil sie tiefer in die
+Wirklichkeit hineingreift.</p>
+<p>Aber je tiefer ein Markt in die Wirklichkeit greift, desto weniger
+bleibt außerhalb des Marktes.</p>
+<p>Die klassische Marktwirtschaft lässt manches ungenau. Diese
+Ungenauigkeit ist manchmal ineffizient, aber sie schützt auch.</p>
+<p>Nicht alles wird erfasst. Nicht alles wird bewertet. Nicht alles wird
+gehandelt.</p>
+<p>Die RWÖ beseitigt diese Schutzunschärfe.</p>
+<p>Das ist ihre Macht und ihre Gefahr.</p>
+<pre class="text"><code>Die RWÖ boomt, weil sie mehr Wirklichkeit ökonomisiert.
+Sie wird gefährlich, weil sie mehr Menschlichkeit ökonomisiert.</code></pre>
+<h2 id="die-böse-amoralische-seite">21. Die böse amoralische Seite</h2>
+<p>Die böse Version der RWÖ heißt:</p>
+<pre class="text"><code>totale relationale Kommodifizierung</code></pre>
+<p>Sie sagt:</p>
+<pre class="text"><code>Wenn alles eine Relation ist,
+und Relationen handelbar sind,
+dann ist alles handelbar.</code></pre>
+<p>Auch:</p>
+<pre class="text"><code>Arbeitsbindung
+Körperzugriff
+Aufenthaltsrecht
+Schuldabhängigkeit
+Datenidentität
+Reputation
+soziale Zugehörigkeit
+Pflegepflicht
+Intimität
+politischer Einfluss
+Familienbeziehungen</code></pre>
+<p>Das ist die dunkle Seite.</p>
+<p>Man kann sie nicht einfach wegdefinieren. Sie ist logisch
+naheliegend, wenn man wirklich alles relationalisiert und dem Markt
+überlässt.</p>
+<p>Die böse Version behandelt Menschen nicht mehr als Personen, sondern
+als Bündel verwertbarer Relationen:</p>
+<pre class="text"><code>Arbeitsfähigkeit
+Gehorsam
+Schuld
+Körper
+Daten
+Aufenthaltsstatus
+soziale Kontakte
+Konsumprofil
+Reputation
+Abhängigkeiten</code></pre>
+<p>Das ist amoralisch, weil es fragt:</p>
+<pre class="text"><code>Wie kann man diese Relation verwerten?</code></pre>
+<p>und nicht:</p>
+<pre class="text"><code>Darf diese Relation überhaupt verwertet werden?</code></pre>
+<h2 id="arbeitgeber-und-arbeitnehmer-in-der-bösen-version">22.
+Arbeitgeber und Arbeitnehmer in der bösen Version</h2>
+<p>In der legitimen Version handelt man Arbeitsverträge.</p>
+<p>In der bösen Version handelt man faktisch Menschen über ihre
+Abhängigkeiten.</p>
+<p>Nicht offen als „Menschenverkauf“, sondern über relationale Bündel
+wie:</p>
+<pre class="text"><code>exklusive Arbeitsbindung
+Schuldenbindung
+Wohnungsbindung
+Visumsbindung
+Reputationskontrolle
+Datenkontrolle
+Kündigungsstrafe
+Weiterverkauf von Arbeitsansprüchen
+Kontrolle über zukünftige Einkommen</code></pre>
+<p>Dann entsteht eine neue Form von Knechtschaft, auch wenn sie
+technisch als Vertrag erscheint.</p>
+<p>Beispielhaft:</p>
+<pre class="text"><code>Arbeitnehmer A schuldet Firma B Arbeitsleistung.
+Firma B verkauft diese Forderung an Firma C.
+A ist formal nicht verkauft.
+Aber die Kontrolle über As Zukunft wandert.</code></pre>
+<p>Das ist der gefährliche Punkt.</p>
+<p>Der Mensch wird nicht direkt verkauft, aber seine entscheidenden
+Lebensrelationen werden verkauft.</p>
+<p>Wenn genug Relationen übertragen werden, ist der Unterschied
+praktisch nur noch juristisch.</p>
+<pre class="text"><code>Wer Arbeitszeit, Wohnraum, Schuld, Aufenthaltsrecht, Reputation und Daten einer Person kontrolliert,
+kontrolliert die Person.</code></pre>
+<p>Deshalb reicht es nicht zu sagen:</p>
+<pre class="text"><code>Wir handeln ja nur Relationen, keine Menschen.</code></pre>
+<p>Denn ein Mensch kann durch seine Relationen vollständig beherrscht
+werden.</p>
+<h2 id="warum-regierungen-zwingend-nötig-sind">23. Warum Regierungen
+zwingend nötig sind</h2>
+<p>Eine rein private RWÖ würde moralisch entgleisen.</p>
+<p>Nicht, weil alle Menschen böse sind, sondern weil der Markt jede
+verwertbare Relation entdecken würde.</p>
+<p>Wenn eine Relation Gewinn bringt, entsteht Druck, sie handelbar zu
+machen.</p>
+<p>Also braucht der Staat harte Grenzen:</p>
+<pre class="text"><code>Diese Relation darf nicht verkauft werden.
+Diese Relation darf nicht verpfändet werden.
+Diese Relation darf nicht übertragen werden.
+Diese Relation darf nicht dauerhaft gebunden werden.
+Diese Relation darf nicht gegen Grundrechte verwendet werden.
+Diese Relation erlischt bei Missbrauch.</code></pre>
+<p>Ohne solche Grenzen entsteht ein Markt für Abhängigkeit.</p>
+<p>Der Staat muss daher nicht nur Marktversagen korrigieren, sondern
+<strong>Marktübergriff</strong> verhindern.</p>
+<p>Das ist mehr als Regulierung. Das ist Zivilisationsschutz.</p>
+<h2 id="unveräußerliche-relationen">24. Unveräußerliche Relationen</h2>
+<p>Das System braucht eine Klasse von Relationen, die niemals Währung
+werden dürfen.</p>
+<p>Ich nenne sie:</p>
+<pre class="text"><code>unveräußerliche Relationen</code></pre>
+<p>Dazu gehören:</p>
+<table>
+<thead>
+<tr>
+<th>Relation</th>
+<th>Warum unveräußerlich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menschenwürde</td>
+<td>darf nicht Gegenstand von Tausch sein</td>
+</tr>
+<tr>
+<td>Körperliche Selbstbestimmung</td>
+<td>schützt vor Verkauf des Körpers</td>
+</tr>
+<tr>
+<td>Grundrechte</td>
+<td>dürfen nicht abgetreten werden</td>
+</tr>
+<tr>
+<td>Wahlrecht</td>
+<td>schützt Demokratie vor Kauf</td>
+</tr>
+<tr>
+<td>Kündigungsfreiheit</td>
+<td>verhindert Arbeitsknechtschaft</td>
+</tr>
+<tr>
+<td>Bewegungsfreiheit</td>
+<td>verhindert private Gefangenschaft</td>
+</tr>
+<tr>
+<td>Datenschutzkern</td>
+<td>verhindert totale Persönlichkeitsverwertung</td>
+</tr>
+<tr>
+<td>Familiengrundrechte</td>
+<td>verhindert Handel mit familiärer Macht</td>
+</tr>
+<tr>
+<td>Mindestarbeitsrechte</td>
+<td>verhindert Verwertung durch Not</td>
+</tr>
+<tr>
+<td>Insolvenzbefreiung</td>
+<td>verhindert ewige Schuld</td>
+</tr>
+<tr>
+<td>Schutz vor Zwang</td>
+<td>schützt echte Zustimmung</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Relationen müssen außerhalb des Marktes stehen.</p>
+<p>Der Markt darf sie sehen, aber nicht handeln.</p>
+<h2 id="die-schlimmste-gefahr-der-mensch-als-portfolio">25. Die
+schlimmste Gefahr: der Mensch als Portfolio</h2>
+<p>Die extreme böse Form lautet:</p>
+<pre class="text"><code>Person = Portfolio aus verwertbaren Relationen</code></pre>
+<p>Dann wird ein Mensch bewertet nach:</p>
+<pre class="text"><code>Arbeitskraft
+Schulden
+Gesundheit
+Datenwert
+Reproduktionsfähigkeit
+Aufenthaltsstatus
+Netzwerkzugang
+Konsumprofil
+politischer Einfluss
+emotionale Bindungen
+Risiko
+Gehorsam</code></pre>
+<p>Das wäre ein monströs effizientes System.</p>
+<p>Es könnte enorme Gewinne erzeugen, weil es menschliche Existenz
+vollständig in wirtschaftliche Verfügbarkeit übersetzt.</p>
+<p>Aber genau deshalb ist es abzulehnen.</p>
+<p>Es wäre stärker als Marktwirtschaft, aber in der falschen
+Richtung:</p>
+<pre class="text"><code>stärker in Kontrolle
+stärker in Ausbeutung
+stärker in Prognose
+stärker in Verwertung
+stärker in Zwangsverschleierung</code></pre>
+<p>Nicht jede Stärke ist gut.</p>
+<p>Ein Gefängnis kann organisatorisch stärker sein als ein freier
+Marktplatz. Das macht es nicht moralisch besser.</p>
+<h2 id="datenschutz-als-überlebensbedingung">26. Datenschutz als
+Überlebensbedingung</h2>
+<p>Eine RWÖ braucht Daten. Viele Daten.</p>
+<p>Denn ohne Daten kann man Relationen nicht prüfen.</p>
+<p>Aber genau dadurch entsteht Überwachung.</p>
+<p>Wer alle Relationen einer Person kennt, kennt ihre wirtschaftliche
+Seele:</p>
+<pre class="text"><code>Schulden
+Arbeit
+Krankheit
+Familie
+Konsum
+Fehler
+Risiken
+Kontakte
+politische Muster
+Abhängigkeiten</code></pre>
+<p>Das kann zu einem totalen Sozialkreditsystem werden.</p>
+<p>Deshalb braucht die RWÖ:</p>
+<pre class="text"><code>Datenminimierung
+Pseudonymisierung
+Zweckbindung
+Löschrechte
+private Zonen
+Verbot bestimmter Auswertungen
+Recht auf wirtschaftliche Undurchsichtigkeit</code></pre>
+<p>Das klingt paradox, ist aber nötig:</p>
+<pre class="text"><code>Ein relationaler Markt braucht Daten.
+Eine freie Gesellschaft braucht Grenzen gegen Daten.</code></pre>
+<h2 id="recht-auf-nicht-bewertung">27. Recht auf Nicht-Bewertung</h2>
+<p>In einer RWÖ muss es ein neues Grundrecht geben:</p>
+<pre class="text"><code>Recht auf Nicht-Bewertung</code></pre>
+<p>Nicht jede Lebensbeziehung darf in einen Marktwert verwandelt
+werden.</p>
+<p>Nicht alles, was messbar ist, darf handelbar sein.</p>
+<p>Nicht alles, was handelbar wäre, darf als Währung dienen.</p>
+<p>Dieses Recht schützt:</p>
+<pre class="text"><code>Freundschaft
+Liebe
+Familie
+politische Meinung
+Glaube
+Körper
+Krankheit
+persönliches Scheitern
+Biografie
+Intimität</code></pre>
+<p>Ohne dieses Recht wird die RWÖ zur totalen Bewertungsmaschine.</p>
+<h2 id="sozialstaat-in-der-rwö">28. Sozialstaat in der RWÖ</h2>
+<p>Der Sozialstaat muss anders funktionieren als heute.</p>
+<p>Er gibt nicht nur Geldtransfers, sondern stellt sichere
+Basisrelationen bereit:</p>
+<pre class="text"><code>Wohnschutzrelation
+Gesundheitsrelation
+Bildungsrelation
+Ernährungsrelation
+Rechtsschutzrelation
+Mobilitätsrelation
+digitale Identitätsrelation
+Schuldenschutzrelation
+Arbeitsübergangsrelation</code></pre>
+<p>Das bedeutet:</p>
+<p>Eine Person soll nicht nur ein Mindesteinkommen haben, sondern ein
+garantiertes Bündel nicht entziehbarer Grundrelationen.</p>
+<p>Zum Beispiel:</p>
+<table>
+<thead>
+<tr>
+<th>Grundrelation</th>
+<th>Schutz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wohnung</td>
+<td>niemand fällt sofort aus dem System</td>
+</tr>
+<tr>
+<td>Gesundheit</td>
+<td>Krankheit wird nicht zur totalen Marktstrafe</td>
+</tr>
+<tr>
+<td>Bildung</td>
+<td>Fähigkeiten bleiben entwickelbar</td>
+</tr>
+<tr>
+<td>Rechtsschutz</td>
+<td>Verträge können angefochten werden</td>
+</tr>
+<tr>
+<td>Datenwürde</td>
+<td>Profil wird nicht vollständig verwertet</td>
+</tr>
+<tr>
+<td>Schuldenbefreiung</td>
+<td>kein ewiger wirtschaftlicher Tod</td>
+</tr>
+<tr>
+<td>Arbeitsfreiheit</td>
+<td>keine Zwangsbindung an Arbeitgeber</td>
+</tr>
+</tbody>
+</table>
+<p>Das ist notwendig, weil die RWÖ sonst Menschen mit schwachen
+Relationen gnadenlos aussortiert.</p>
+<h2 id="arbeitsmarkt-mit-schutz">29. Arbeitsmarkt mit Schutz</h2>
+<p>Ein legitimer Arbeitsmarkt in der RWÖ braucht klare Regeln:</p>
+<pre class="text"><code>Arbeitsrelationen sind immer befristet.
+Arbeitsrelationen sind kündbar.
+Arbeitsrelationen sind nicht vollständig übertragbar.
+Arbeitsrelationen dürfen nicht mit Wohnung, Schuld und Aufenthalt zu Zwangsbündeln verschmolzen werden.
+Arbeitsrelationen enthalten Mindestschutz.
+Arbeitsrelationen dürfen nicht gegen Grundrechte verwendet werden.</code></pre>
+<p>Wichtig ist vor allem das Verbot toxischer Bündelung.</p>
+<p>Gefährlich ist nicht nur ein Arbeitsvertrag.</p>
+<p>Gefährlich ist:</p>
+<pre class="text"><code>Arbeitsvertrag + Wohnung + Schuld + Visum + Datenprofil + Reputationskontrolle</code></pre>
+<p>Wenn alles zusammen bei einem Arbeitgeber liegt, entsteht private
+Herrschaft.</p>
+<p>Also muss das Recht bestimmte Bündel aufbrechen.</p>
+<h2 id="kartellrecht-und-macht">30. Kartellrecht und Macht</h2>
+<p>In der RWÖ entstehen neue Monopole.</p>
+<p>Nicht nur Geldmonopole, sondern Relationsmonopole.</p>
+<p>Ein Unternehmen kann mächtig werden, weil es kontrolliert:</p>
+<pre class="text"><code>Identitätsdaten
+Zahlungsrelationen
+Arbeitsmarktzugang
+Reputation
+Vertragsstandards
+Versicherung
+Lieferketten
+öffentliche Schnittstellen</code></pre>
+<p>Das gefährlichste Unternehmen ist nicht unbedingt das mit dem meisten
+Geld, sondern das mit der größten Kontrolle über Anschlussfähigkeit.</p>
+<p>Also braucht man ein neues Kartellrecht:</p>
+<pre class="text"><code>Kein privater Akteur darf zentrale Identitätsrelationen monopolisieren.
+Kein privater Akteur darf Reputationszugang allein kontrollieren.
+Kein privater Akteur darf Arbeits-, Wohn-, Kredit- und Datenrelationen vollständig bündeln.
+Kein privater Akteur darf Menschen wirtschaftlich unabschaltbar machen.</code></pre>
+<h2 id="insolvenz">31. Insolvenz</h2>
+<p>In einer normalen Wirtschaft bedeutet Insolvenz:</p>
+<pre class="text"><code>Schuldner kann Geldforderungen nicht erfüllen.</code></pre>
+<p>In der RWÖ bedeutet Insolvenz:</p>
+<pre class="text"><code>Ein Akteur kann seine Relationen nicht mehr erfüllen.</code></pre>
+<p>Das kann betreffen:</p>
+<pre class="text"><code>Lieferpflichten
+Arbeitszusagen
+Schuldrelationen
+Garantien
+Haftungen
+Datenpflichten
+Umweltpflichten
+Mietpflichten
+Versicherungszusagen</code></pre>
+<p>Das Insolvenzrecht muss daher nicht nur Schulden ordnen, sondern
+Relationen entflechten.</p>
+<p>Ziele:</p>
+<pre class="text"><code>toxische Relationen löschen
+erfüllbare Relationen retten
+unfaire Bindungen aufheben
+Grundrechte schützen
+Marktvertrauen erhalten
+Neustart ermöglichen</code></pre>
+<p>Ohne Insolvenzrecht würden Menschen und Firmen dauerhaft in alten
+Relationenschulden gefangen bleiben.</p>
+<h2 id="versicherung">32. Versicherung</h2>
+<p>Versicherung ist in diesem System besonders wichtig.</p>
+<p>Denn jede Relation kann ausfallen.</p>
+<p>Versichert werden kann:</p>
+<pre class="text"><code>Lieferausfall
+Arbeitsunfähigkeit
+Datenverlust
+Reputationsschaden
+Vertragsbruch
+Umweltschaden
+Maschinenausfall
+Schuldnerausfall
+Rechtsstreit
+Pflegebedarf</code></pre>
+<p>Versicherungen werden selbst zu Relationenbündeln.</p>
+<p>Sie machen riskante Relationen handelbarer.</p>
+<p>Das steigert Liquidität.</p>
+<p>Aber auch hier gibt es Gefahr:</p>
+<pre class="text"><code>Wer Versicherung kontrolliert, kontrolliert Marktzugang.</code></pre>
+<p>Wenn jemand wegen Krankheit, Herkunft, Alter oder sozialem Risiko
+keine Versicherung bekommt, wird er relational ausgeschlossen.</p>
+<p>Daher braucht es öffentliche Grundversicherung.</p>
+<h2 id="außenhandel">33. Außenhandel</h2>
+<p>Zwischen Staaten gibt es verschiedene relationale Standards.</p>
+<p>Ein Land könnte Arbeitsrelationen anders bewerten als ein
+anderes.</p>
+<p>Also braucht Außenhandel:</p>
+<pre class="text"><code>Relationenübersetzung
+Anerkennung von Rechten
+Arbeitsstandards
+Umweltstandards
+Datenstandards
+Schiedsgerichte
+Sanktionsregeln</code></pre>
+<p>Ein Export ist nicht nur Warenexport, sondern Export eines
+Relationenbündels:</p>
+<pre class="text"><code>Produkt
+Liefergarantie
+Haftung
+Umweltbilanz
+Arbeitsbedingungen
+Datenrechte
+Zollrelation
+Währungsakzeptanz</code></pre>
+<p>Dadurch könnte die RWÖ globale Lieferketten ehrlicher machen.</p>
+<p>Aber sie könnte auch globale Ausbeutung präziser organisieren.</p>
+<h2 id="umwelt">34. Umwelt</h2>
+<p>Die RWÖ ist ökologisch potenziell stärker als Marktwirtschaft, weil
+Umweltschäden nicht mehr nur externe Kosten bleiben müssen.</p>
+<p>Ein Produkt trägt seine Umweltrelationen mit sich:</p>
+<pre class="text"><code>Energieverbrauch
+Emissionen
+Bodenschäden
+Wasserverbrauch
+Reparierbarkeit
+Recyclingpflicht
+Biodiversitätsschäden
+Kompensationspflichten
+Haftungen</code></pre>
+<p>Dann ist ein billiges Produkt nicht einfach billig, wenn es
+ökologische Schulden enthält.</p>
+<p>Es kann als „relational belastet“ gelten.</p>
+<p>Das ist ein großer Vorteil.</p>
+<p>Aber auch hier gibt es die böse Seite:</p>
+<pre class="text"><code>Reiche Akteure kaufen sich saubere Relationen.
+Arme Regionen tragen schmutzige Relationen.
+Umweltlasten werden verbrieft und exportiert.</code></pre>
+<p>Deshalb braucht man Verbote, nicht nur Märkte.</p>
+<p>Manche Umweltschäden dürfen nicht handelbar sein.</p>
+<h2 id="bildung-und-fähigkeiten">35. Bildung und Fähigkeiten</h2>
+<p>Bildung wird in der RWÖ zu einer zentralen Kapitalform.</p>
+<p>Eine Fähigkeit ist keine Sache, sondern eine Relation:</p>
+<pre class="text"><code>Person kann Aufgabe X unter Bedingungen Y mit Qualität Z erfüllen.</code></pre>
+<p>Das kann zertifiziert werden.</p>
+<p>Vorteil:</p>
+<pre class="text"><code>Fähigkeiten werden genauer sichtbar.
+Menschen können bessere Arbeit finden.
+Unternehmen können passender einstellen.
+Weiterbildung wird leichter finanzierbar.</code></pre>
+<p>Gefahr:</p>
+<pre class="text"><code>Menschen werden auf Fähigkeitsprofile reduziert.
+Alte Fehler bleiben in der Tabelle.
+Nicht-zertifizierte Fähigkeiten werden unsichtbar.
+Bildung wird zur totalen Verwertungsmaschine.</code></pre>
+<p>Darum braucht es:</p>
+<pre class="text"><code>Recht auf Neubewertung
+Recht auf Vergessen
+öffentliche Bildung
+Verbot diskriminierender Fähigkeitsprofile</code></pre>
+<h2 id="demokratie">36. Demokratie</h2>
+<p>Die RWÖ bedroht Demokratie, wenn politische Relationen handelbar
+werden.</p>
+<p>Gefährlich wären Märkte für:</p>
+<pre class="text"><code>Stimmrechte
+politische Loyalität
+Protestverzicht
+Informationszugang
+Meinungsbeeinflussung
+Parteizugang
+Bürgerrechte
+Aufenthaltsrechte</code></pre>
+<p>Deshalb muss gelten:</p>
+<pre class="text"><code>Politische Grundrelationen sind unveräußerlich.</code></pre>
+<p>Eine Person darf ihre Stimme nicht verkaufen.</p>
+<p>Ein Unternehmen darf nicht über relationale Kontrolle politische
+Abhängigkeit erzeugen.</p>
+<p>Der Staat muss verhindern, dass ökonomische Relationen demokratische
+Relationen verschlingen.</p>
+<h2 id="warum-die-rwö-kompletter-als-marktwirtschaft-wirkt">37. Warum
+die RWÖ kompletter als Marktwirtschaft wirkt</h2>
+<p>Die Marktwirtschaft ist stark in Tausch und Preisbildung.</p>
+<p>Aber sie ist schwach bei:</p>
+<pre class="text"><code>Macht
+Abhängigkeit
+Risiko
+Ökologie
+Daten
+Zukunftspflichten
+sozialer Reproduktion
+Vertrauen
+Pflege
+politischer Einflussnahme</code></pre>
+<p>Die RWÖ kann all das im selben System abbilden.</p>
+<p>Sie ist daher kompletter als bloße Marktwirtschaft, weil sie nicht
+nur Güter und Preise behandelt, sondern:</p>
+<pre class="text"><code>Akteure
+Rechte
+Pflichten
+Zeit
+Risiko
+Vertrauen
+Macht
+Daten
+Staat
+Ökologie
+Moralgrenzen</code></pre>
+<p>Sie ist ein Wirtschaftssystem, aber zugleich ein Rechts-, Daten- und
+Machtordnungssystem.</p>
+<p>Genau deshalb ist sie nicht neutral.</p>
+<h2 id="das-grundgesetz-der-rwö">38. Das Grundgesetz der RWÖ</h2>
+<p>Eine gute RWÖ braucht ein oberstes Prinzip:</p>
+<pre class="text"><code>Alles Wirtschaftliche darf relational erfasst werden,
+aber nicht alles Relationale darf wirtschaftlich gehandelt werden.</code></pre>
+<p>Das ist der wichtigste Satz.</p>
+<p>Ohne ihn wird das System böse.</p>
+<p>Mit ihm kann es stark sein, ohne totalitär zu werden.</p>
+<h2 id="gute-version-des-systems">39. Gute Version des Systems</h2>
+<p>Die gute Version sieht so aus:</p>
+<pre class="text"><code>Währung = handelbare Relationenbündel
+Menschen = unveräußerliche Personen
+Markt = Matching von Rechten, Pflichten und Ressourcen
+Staat = Grenzsetzer und Stabilitätsgarant
+Sozialstaat = Bereitsteller sicherer Grundrelationen
+Unternehmen = produktive Relationenknoten
+Banken = Relationentransformatoren
+Zentralbank = Qualitäts- und Anerkennungsinstanz
+Recht = Schutz vor toxischer Handelbarkeit</code></pre>
+<p>Diese Version ist stärker als Marktwirtschaft, weil sie mehr
+Wirklichkeit in den Markt einbringt.</p>
+<p>Aber sie schützt menschliche Würde durch harte Nicht-Markt-Zonen.</p>
+<h2 id="böse-version-des-systems">40. Böse Version des Systems</h2>
+<p>Die böse Version sieht so aus:</p>
+<pre class="text"><code>Währung = alle Relationen
+Menschen = verwertbare Portfolios
+Arbeit = handelbare Bindung
+Schuld = Kontrollinstrument
+Daten = Persönlichkeitszugriff
+Reputation = Disziplinarmacht
+Staat = schwach oder gekauft
+Unternehmen = private Herrschaftsknoten
+Markt = Totalverwertung</code></pre>
+<p>Diese Version erzeugt wahrscheinlich einen brutalen Boom.</p>
+<p>Warum?</p>
+<p>Weil sie alles mobilisiert:</p>
+<pre class="text"><code>jede Fähigkeit
+jede Schuld
+jede Schwäche
+jede Bindung
+jede Zukunft
+jede Intimität
+jede Abhängigkeit
+jede soziale Beziehung</code></pre>
+<p>Aber dieser Boom ist moralisch vergiftet.</p>
+<p>Er ist stark wie eine Maschine, die auch Menschen verheizt.</p>
+<h2 id="der-besondere-wirtschaftsboom">41. Der besondere
+Wirtschaftsboom</h2>
+<p>Der Boom wäre besonders stark aus fünf Gründen:</p>
+<h3 id="mehr-sicherheiten">1. Mehr Sicherheiten</h3>
+<p>Menschen und Firmen könnten viel mehr als Sicherheit verwenden:</p>
+<pre class="text"><code>zukünftige Einnahmen
+Arbeitszusagen
+Datenrechte
+Lieferketten
+Reputation
+Versicherungen
+Nutzungsrechte</code></pre>
+<p>Dadurch explodiert Kreditfähigkeit.</p>
+<h3 id="mehr-liquidität">2. Mehr Liquidität</h3>
+<p>Dinge, die bisher festhängen, werden handelbar:</p>
+<pre class="text"><code>kleine Forderungen
+Zeitfenster
+lokale Ansprüche
+Mikroleistungen
+unvollständige Rechte</code></pre>
+<h3 id="mehr-matching">3. Mehr Matching</h3>
+<p>Angebot und Nachfrage werden genauer verbunden.</p>
+<p>Nicht nur:</p>
+<pre class="text"><code>Ich brauche Arbeit.</code></pre>
+<p>Sondern:</p>
+<pre class="text"><code>Ich brauche diese Fähigkeit,
+für diese Dauer,
+unter diesen Risiken,
+mit dieser Versicherung,
+in dieser Region,
+mit dieser Rechtsqualität.</code></pre>
+<h3 id="mehr-kontrolle">4. Mehr Kontrolle</h3>
+<p>Unternehmen können Prozesse sehr viel genauer steuern.</p>
+<p>Das erhöht Effizienz.</p>
+<h3 id="mehr-zukunftsverwertung">5. Mehr Zukunftsverwertung</h3>
+<p>Die Zukunft wird stärker handelbar.</p>
+<p>Zukünftige Arbeit, zukünftige Lieferungen, zukünftige Daten,
+zukünftige Zahlungen und zukünftige Nutzungen werden heute schon
+ökonomisch verwertet.</p>
+<p>Das erzeugt Wachstum.</p>
+<p>Aber es kann Menschen und Gesellschaften in die Zukunft hinein
+verschulden.</p>
+<h2 id="der-negative-preis-des-booms">42. Der negative Preis des
+Booms</h2>
+<p>Der Boom kostet:</p>
+<pre class="text"><code>mehr Überwachung
+mehr Vertragsabhängigkeit
+mehr Komplexität
+mehr Macht für Plattformen
+mehr Druck zur Selbstverwertung
+mehr Risiko von Schuldknechtschaft
+weniger private Lebensräume
+weniger spontane Freiheit
+weniger Unbewertbarkeit</code></pre>
+<p>In der klassischen Marktwirtschaft kann jemand arm sein, aber sein
+gesamtes Leben ist nicht automatisch als handelbare Tabelle
+sichtbar.</p>
+<p>In der RWÖ droht:</p>
+<pre class="text"><code>Jede Schwäche wird eine Relation.
+Jede Relation wird ein Risiko.
+Jedes Risiko wird ein Preis.
+Jeder Preis wird eine Marktschranke.</code></pre>
+<p>Das kann brutal werden.</p>
+<h2 id="beispiel-der-gefährliche-lebensdatensatz">43. Beispiel: Der
+gefährliche Lebensdatensatz</h2>
+<p>Eine Person könnte in einer schlechten RWÖ so erscheinen:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Relation</th>
+<th>Marktwirkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arbeit</td>
+<td>häufige Jobwechsel</td>
+<td>geringeres Vertrauen</td>
+</tr>
+<tr>
+<td>Gesundheit</td>
+<td>chronisches Risiko</td>
+<td>höhere Versicherungskosten</td>
+</tr>
+<tr>
+<td>Schulden</td>
+<td>alte Verpflichtungen</td>
+<td>schlechtere Kreditrelation</td>
+</tr>
+<tr>
+<td>Familie</td>
+<td>Pflegepflicht</td>
+<td>geringere Verfügbarkeit</td>
+</tr>
+<tr>
+<td>Wohnort</td>
+<td>schwache Infrastruktur</td>
+<td>geringere Arbeitsanschlussfähigkeit</td>
+</tr>
+<tr>
+<td>Daten</td>
+<td>negatives Konsumprofil</td>
+<td>schlechtere Angebote</td>
+</tr>
+<tr>
+<td>Bildung</td>
+<td>fehlende Zertifikate</td>
+<td>niedrigere Einstufung</td>
+</tr>
+<tr>
+<td>Reputation</td>
+<td>Streitfall mit Arbeitgeber</td>
+<td>Marktausschluss</td>
+</tr>
+</tbody>
+</table>
+<p>Das System wäre extrem informativ.</p>
+<p>Aber es könnte Menschen festnageln.</p>
+<p>Deshalb braucht es Rechte auf:</p>
+<pre class="text"><code>Neuanfang
+Löschung
+Kontexttrennung
+Widerspruch
+menschliche Prüfung
+Nichtdiskriminierung</code></pre>
+<h2 id="wie-man-die-böse-seite-besänftigt">44. Wie man die böse Seite
+besänftigt</h2>
+<p>Man kann sie nicht wegzaubern. Man kann sie nur institutionell
+bändigen.</p>
+<p>Nötig sind:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Gegenmittel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handel mit Menschenrelationen</td>
+<td>Unveräußerlichkeitsrecht</td>
+</tr>
+<tr>
+<td>Arbeitsknechtschaft</td>
+<td>Kündigungsrecht, Maximalbindung, Mindestschutz</td>
+</tr>
+<tr>
+<td>Schuldsklaverei</td>
+<td>Insolvenz, Schuldenschnitt, Zinsgrenzen</td>
+</tr>
+<tr>
+<td>Datenherrschaft</td>
+<td>Datenschutz, Löschung, Zweckbindung</td>
+</tr>
+<tr>
+<td>Plattformmonopole</td>
+<td>Kartellrecht, Interoperabilität</td>
+</tr>
+<tr>
+<td>Reputationsgefängnis</td>
+<td>Recht auf Neubewertung</td>
+</tr>
+<tr>
+<td>soziale Ausgrenzung</td>
+<td>öffentliche Grundrelationen</td>
+</tr>
+<tr>
+<td>toxische Bündelung</td>
+<td>Entflechtungsrecht</td>
+</tr>
+<tr>
+<td>politische Käuflichkeit</td>
+<td>Verbot handelbarer Bürgerrechte</td>
+</tr>
+<tr>
+<td>ökologische Auslagerung</td>
+<td>nicht handelbare Umweltgrenzen</td>
+</tr>
+</tbody>
+</table>
+<p>Der Staat muss also nicht nur Marktregeln setzen. Er muss bestimmen,
+welche Relationen überhaupt marktfähig sind.</p>
+<h2 id="die-verfassung-der-rwö">45. Die Verfassung der RWÖ</h2>
+<p>Eine vollständige RWÖ braucht eine Art Wirtschaftsverfassung.</p>
+<p>Sie könnte so lauten:</p>
+<h3 id="artikel-1-personenschutz">Artikel 1: Personenschutz</h3>
+<pre class="text"><code>Personen sind keine handelbaren Relationenträger.
+Nur freiwillige, begrenzte und widerrufbare Leistungen dürfen marktfähig sein.</code></pre>
+<h3 id="artikel-2-unveräußerlichkeit">Artikel 2: Unveräußerlichkeit</h3>
+<pre class="text"><code>Grundrechte, Körperfreiheit, politische Rechte und Kernidentität sind unveräußerlich.</code></pre>
+<h3 id="artikel-3-transparenz">Artikel 3: Transparenz</h3>
+<pre class="text"><code>Jede handelbare Relation muss Herkunft, Risiko, Pflicht und Gegenpartei offenlegen.</code></pre>
+<h3 id="artikel-4-löschung">Artikel 4: Löschung</h3>
+<pre class="text"><code>Erfüllte, missbräuchliche oder veraltete Relationen müssen löschbar oder korrigierbar sein.</code></pre>
+<h3 id="artikel-5-entflechtung">Artikel 5: Entflechtung</h3>
+<pre class="text"><code>Kein Akteur darf Arbeit, Wohnen, Kredit, Daten, Versicherung und Aufenthaltsrecht einer Person vollständig kontrollieren.</code></pre>
+<h3 id="artikel-6-staatliche-basisrelationen">Artikel 6: Staatliche
+Basisrelationen</h3>
+<pre class="text"><code>Jede Person hat Anspruch auf minimale sichere Relationen für Leben, Recht, Gesundheit, Bildung und Teilnahme.</code></pre>
+<h3 id="artikel-7-marktgrenzen">Artikel 7: Marktgrenzen</h3>
+<pre class="text"><code>Was die Freiheit einer Person strukturell zerstört, darf nicht als Währung dienen.</code></pre>
+<h2 id="buchhaltung">46. Buchhaltung</h2>
+<p>Buchhaltung in der RWÖ ist nicht mehr nur doppelte Buchführung in
+Geldbeträgen.</p>
+<p>Sie ist relationale Bilanzierung.</p>
+<p>Ein Haushalt oder Unternehmen hat:</p>
+<pre class="text"><code>Aktive Relationen:
+- Ansprüche
+- Rechte
+- Sicherheiten
+- Nutzungen
+- Forderungen
+- Garantien
+
+Passive Relationen:
+- Pflichten
+- Schulden
+- Haftungen
+- Risiken
+- Abhängigkeiten
+- Umweltlasten</code></pre>
+<p>Bilanz bedeutet:</p>
+<pre class="text"><code>Welche Relationen stärken mich?
+Welche Relationen belasten mich?
+Welche Relationen sind übertragbar?
+Welche Relationen sind gefährlich?
+Welche Relationen laufen bald aus?
+Welche Relationen sind strittig?</code></pre>
+<p>Ein Unternehmen kann reich aussehen, aber relational schwach sein,
+wenn es viele Risiken und Abhängigkeiten trägt.</p>
+<p>Ein anderes kann wenig Geld haben, aber relational stark sein, weil
+es stabile, produktive und vertrauenswürdige Beziehungen besitzt.</p>
+<h2 id="wachstumsmessung">47. Wachstumsmessung</h2>
+<p>Das Bruttoinlandsprodukt reicht nicht.</p>
+<p>Die RWÖ misst Wachstum als Verbesserung des nationalen
+Relationenbestands.</p>
+<p>Wichtige Kennzahlen wären:</p>
+<pre class="text"><code>Produktive Relationen
+stabile Arbeitsrelationen
+gesunde Kreditrelationen
+geringe toxische Abhängigkeiten
+ökologische Regenerationsrelationen
+Bildungsrelationen
+Vertrauensdichte
+soziale Absicherung
+Innovationsrelationen
+Lieferkettenstabilität</code></pre>
+<p>Eine Gesellschaft wächst nicht nur, wenn mehr verkauft wird.</p>
+<p>Sie wächst, wenn ihre Relationen tragfähiger, freier, produktiver und
+weniger toxisch werden.</p>
+<h2 id="krise">48. Krise</h2>
+<p>Eine Krise in der RWÖ kann verschiedene Formen haben:</p>
+<h3 id="vertrauenskrise">Vertrauenskrise</h3>
+<p>Niemand weiß mehr, welche Relationen gültig sind.</p>
+<h3 id="erfüllungskrise">Erfüllungskrise</h3>
+<p>Viele Akteure können ihre Pflichten nicht erfüllen.</p>
+<h3 id="datenkrise">Datenkrise</h3>
+<p>Nachweise werden manipuliert oder gestohlen.</p>
+<h3 id="moralische-krise">Moralische Krise</h3>
+<p>Zu viele Menschen werden durch handelbare Relationen entwürdigt.</p>
+<h3 id="liquiditätskrise">Liquiditätskrise</h3>
+<p>Alle wollen nur noch staatlich garantierte Relationen.</p>
+<h3 id="machtkrise">Machtkrise</h3>
+<p>Einige Plattformen kontrollieren zentrale Relationenknoten.</p>
+<p>Der Staat muss dann:</p>
+<pre class="text"><code>Relationen einfrieren
+toxische Bündel aufspalten
+öffentliche Garantien geben
+Schulden löschen
+Mindestversorgung sichern
+Monopole zerschlagen
+Daten korrigieren
+Rechtsklarheit schaffen</code></pre>
+<h2 id="warum-normale-marktwirtschaft-dagegen-schwächer-ist">49. Warum
+normale Marktwirtschaft dagegen schwächer ist</h2>
+<p>Die normale Marktwirtschaft ist schwächer, weil sie stark
+vereinfacht.</p>
+<p>Sie sagt:</p>
+<pre class="text"><code>Alles hat einen Preis.</code></pre>
+<p>Die RWÖ sagt:</p>
+<pre class="text"><code>Alles hat eine Struktur.</code></pre>
+<p>Die normale Marktwirtschaft erkennt oft erst spät:</p>
+<pre class="text"><code>Lieferketten brechen.
+Arbeit wird ausgebeutet.
+Umwelt wird zerstört.
+Datenmacht wächst.
+Schulden werden toxisch.
+Menschen werden abhängig.</code></pre>
+<p>Die RWÖ kann diese Dinge früher sichtbar machen, weil sie als
+Relationen in der Währung selbst auftauchen.</p>
+<p>Das macht sie analytisch, organisatorisch und finanztechnisch
+stärker.</p>
+<p>Aber der Preis ist, dass das System tiefer in die Gesellschaft
+eindringt.</p>
+<h2 id="der-entscheidende-widerspruch">50. Der entscheidende
+Widerspruch</h2>
+<p>Die RWÖ will alles sichtbar machen.</p>
+<p>Freiheit braucht aber Bereiche, die nicht vollständig sichtbar und
+nicht vollständig handelbar sind.</p>
+<p>Daraus entsteht der Grundkonflikt:</p>
+<pre class="text"><code>Je vollständiger das System wirtschaftlich ist,
+desto gefährlicher wird es menschlich.</code></pre>
+<p>Eine perfekte relationale Marktmaschine wäre wahrscheinlich
+unmenschlich.</p>
+<p>Eine menschliche RWÖ muss daher unvollständig sein.</p>
+<p>Sie muss bewusst blinde Flecken erlauben:</p>
+<pre class="text"><code>Privatsphäre
+Nichtbewertung
+Nichtübertragbarkeit
+Vergebung
+Neuanfang
+unbezahlte Würde
+unverkäufliche Rechte</code></pre>
+<p>Das ist keine Schwäche. Das ist die Bedingung ihrer Legitimität.</p>
+<h2 id="endmodell-vollständige-architektur">51. Endmodell: vollständige
+Architektur</h2>
+<p>Die komplette RWÖ besteht aus diesen Ebenen:</p>
+<pre class="text"><code>1. Personenebene
+   Menschen, Identitäten, Grundrechte, Schutzrelationen
+
+2. Güterebene
+   Eigentum, Nutzung, Lieferung, Verbrauch
+
+3. Arbeitsebene
+   freiwillige, begrenzte Leistungsrelationen
+
+4. Unternehmensebene
+   Produktion, Lieferketten, Kapital, Kunden, Daten
+
+5. Finanzebene
+   Kredit, Sicherheiten, Versicherung, Forderungen
+
+6. Staatsebene
+   Steuern, Gesetze, unveräußerliche Relationen, öffentliche Garantien
+
+7. Sozialebene
+   Grundversorgung, Bildung, Gesundheit, Wohnen, Rechtsschutz
+
+8. Umweltebene
+   Emissionen, Regeneration, Schäden, Grenzen
+
+9. Datenebene
+   Nachweise, Register, Datenschutz, Löschung
+
+10. Marktebene
+    Matching, Clearing, Tausch, Akzeptanz, Wettbewerb
+
+11. Krisenebene
+    Insolvenz, Entflechtung, Garantie, Löschung, Stabilisierung
+
+12. Moralebene
+    Was darf niemals Währung werden?</code></pre>
+<p>Das ist ein vollständiges Wirtschaftssystem, weil es nicht nur Tausch
+erklärt, sondern auch:</p>
+<pre class="text"><code>Währung
+Eigentum
+Arbeit
+Kapital
+Kredit
+Staat
+Steuern
+Sozialschutz
+Unternehmen
+Märkte
+Wettbewerb
+Außenhandel
+Umwelt
+Daten
+Krisen
+Recht
+Macht
+Moralgrenzen</code></pre>
+<h2 id="schlussfolgerung">52. Schlussfolgerung</h2>
+<p>Die relationale Währungsökonomie ist stärker als Marktwirtschaft,
+weil sie den Markt nicht auf Preise reduziert.</p>
+<p>Sie kann mehr sehen:</p>
+<pre class="text"><code>Rechte
+Pflichten
+Risiken
+Abhängigkeiten
+Vertrauen
+Zukunft
+Daten
+Umwelt
+Macht</code></pre>
+<p>Sie kann mehr handeln:</p>
+<pre class="text"><code>Ansprüche
+Nutzungen
+Sicherheiten
+Arbeitsleistungen
+Versicherungen
+Datenrechte
+Lieferketten
+Reputation
+ökologische Pflichten</code></pre>
+<p>Sie kann mehr steuern:</p>
+<pre class="text"><code>Produktion
+Kredit
+Risiko
+Sozialpolitik
+Umweltschäden
+Arbeitsmärkte
+öffentliche Güter</code></pre>
+<p>Deshalb erzeugt sie einen besonderen Wirtschaftsboom.</p>
+<p>Aber dieser Boom hat eine dunkle Kehrseite:</p>
+<pre class="text"><code>Alles, was sichtbar wird, kann bewertet werden.
+Alles, was bewertet wird, kann gehandelt werden.
+Alles, was gehandelt wird, kann zur Macht über Menschen werden.</code></pre>
+<p>Darum ist die zentrale politische Aufgabe nicht, dieses System nur
+effizient zu machen.</p>
+<p>Die zentrale Aufgabe ist:</p>
+<pre class="text"><code>zu entscheiden, welche Relationen niemals Währung sein dürfen.</code></pre>
+<p>Die beste Version der RWÖ wäre eine Wirtschaft, die komplexer,
+ehrlicher und produktiver ist als die normale Marktwirtschaft.</p>
+<p>Die schlechteste Version wäre ein totaler Markt, in dem Menschen
+nicht offiziell verkauft werden, aber praktisch durch ihre Arbeits-,
+Schuld-, Daten-, Wohn-, Reputations- und Abhängigkeitsrelationen
+beherrscht werden.</p>
+<p>Der Unterschied zwischen beiden Versionen ist nicht Technik.</p>
+<p>Der Unterschied ist Recht.</p>
+<p>Und noch tiefer:</p>
+<pre class="text"><code>Der Unterschied ist die Entscheidung,
+ob der Markt dem Menschen dient
+oder der Mensch als Relation dem Markt gehört.</code></pre>
+</body>
+</html>
