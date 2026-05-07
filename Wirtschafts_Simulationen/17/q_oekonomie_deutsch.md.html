@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>q_oekonomie_deutsch</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="q-ökonomie-vollständiges-wirtschaftssystem-einer-zeilenwert-währung">Q-Ökonomie:
+vollständiges Wirtschaftssystem einer Zeilenwert-Währung</h1>
+<p><strong>Sprache:</strong> Deutsch<br />
+<strong>Version:</strong> 1.0<br />
+<strong>Grundlage:</strong> Die Währung besteht aus Q-Münzen. Die
+Zeilenhöhe ist der Münzenwert.</p>
+<hr />
+<h2 id="grundidee">1. Grundidee</h2>
+<p>Die Q-Ökonomie ist eine semantische Geld-, Kredit- und
+Produktionsordnung. Sie behandelt nicht nur Geld als ökonomische
+Einheit, sondern auch Schwierigkeit, Struktur, Code, Schnittstellen,
+Architektur, Betrieb und fertige Module.</p>
+<p>Eine Münze ist eine Tabellenzeile. <strong>Die Zeilenhöhe</strong>
+ist ihr Wert. <strong>Die Nummerierung</strong> ist ihre Prägung. Der
+Text im Kontinuum ist ihre semantische Deckung.</p>
+<pre class="text"><code>Münze Qn = (Nummer n, Wert h, Bedeutung B)
+Wert(Qn) = Zeilenhöhe h
+Bedeutung(Qn) = semantischer Inhalt im Kontinuum</code></pre>
+<p>Q20 bedeutet deshalb nicht „zwanzig Einheiten“. Q20 ist die Münze mit
+der Prägung 20 und dem Wert 4. Vier Q1-Münzen können denselben
+Nominalwert wie eine Q20-Münze haben, aber sie erfüllen nicht dieselbe
+Funktion.</p>
+<hr />
+<h2 id="basiseinheiten">2. Basiseinheiten</h2>
+<p>Die Basiseinheit heißt <strong>Zeilenwert</strong>.</p>
+<pre class="text"><code>1 ZW = 1 Zeilenwert</code></pre>
+<p>Als kleinere Untereinheit kann das <strong>Oktadegramm</strong>
+verwendet werden:</p>
+<pre class="text"><code>1 ZW = 18 Oktadegramm</code></pre>
+<p>Damit gilt:</p>
+<pre class="text"><code>Wert 1 = 1 ZW = 18 Oktadegramm
+Wert 2 = 2 ZW = 36 Oktadegramm
+Wert 3 = 3 ZW = 54 Oktadegramm
+Wert 4 = 4 ZW = 72 Oktadegramm</code></pre>
+<hr />
+<h2 id="münzkatalog">3. Münzkatalog</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Münze</th>
+<th style="text-align: right;">Wert</th>
+<th>Schicht</th>
+<th>Wirtschaftliche Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q1</td>
+<td style="text-align: right;">1</td>
+<td>Grundschwierigkeit</td>
+<td>Aufgabe, Schwierigkeit, Knoten, Problemkern</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q2</td>
+<td style="text-align: right;">1</td>
+<td>Komplexität</td>
+<td>Teil, Kompliziertheit, Molekülelement, Teilstruktur</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q3</td>
+<td style="text-align: right;">1</td>
+<td>Abstraktion</td>
+<td>Theorie, Modell, Zwischenzustand zwischen locker und fest</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q4</td>
+<td style="text-align: right;">1</td>
+<td>Kristallisation</td>
+<td>formales Objekt, Faden, mathematische Gestalt</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q5</td>
+<td style="text-align: right;">2</td>
+<td>Operation</td>
+<td>Enkodieren, Befehl, Kommando, imperatives Programmieren</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q6</td>
+<td style="text-align: right;">2</td>
+<td>Deklaration</td>
+<td>deklarative Beschreibung, Regel, Faden statt Befehl</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q7</td>
+<td style="text-align: right;">2</td>
+<td>Delegation</td>
+<td>Delegieren, Referenzieren, Verantwortungsübertragung</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q8</td>
+<td style="text-align: right;">2</td>
+<td>Bibliothek</td>
+<td>wiederverwendbarer Stein, Wabe, Mineral, Bausteinsammlung</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q9</td>
+<td style="text-align: right;">2</td>
+<td>Framework</td>
+<td>Rahmen, Organisches, Struktur allgemeiner Intelligenz</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q10</td>
+<td style="text-align: right;">3</td>
+<td>Constraint</td>
+<td>Beschränkung, Struktur, Strick, Möglichkeitsraum</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q11</td>
+<td style="text-align: right;">3</td>
+<td>Schnittstelle</td>
+<td>Eingriff, Interface, Gedankeneinsatz</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q12</td>
+<td style="text-align: right;">3</td>
+<td>Toolbox</td>
+<td>Methoden, Mathematik, Algebra, Analysis, Topologie,
+Kategorien-Theorie</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q13</td>
+<td style="text-align: right;">3</td>
+<td>Programm</td>
+<td>Service, Paradigma, Dienst, Gedankenansatz</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q14</td>
+<td style="text-align: right;">3</td>
+<td>Orchestrierung</td>
+<td>Komposition, Choreographie, Dirigieren, Meisterung</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q15</td>
+<td style="text-align: right;">3</td>
+<td>Anwendung</td>
+<td>Applikation, Werk, Opus</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q16</td>
+<td style="text-align: right;">3</td>
+<td>Betrieb</td>
+<td>Menü, Kernel, Betriebssystem, Ausführung</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q17</td>
+<td style="text-align: right;">4</td>
+<td>Kompression</td>
+<td>Komprimieren; inverse Operation: Dekomprimieren</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q18</td>
+<td style="text-align: right;">4</td>
+<td>Architektur</td>
+<td>Konstruktion, Bauplan, tragende Gesamtform</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q19</td>
+<td style="text-align: right;">4</td>
+<td>Generierung</td>
+<td>Erzeugung; inverse Bewegung: Degenerierung oder Dekadenz</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q20</td>
+<td style="text-align: right;">4</td>
+<td>Modul/Maschine</td>
+<td>fertige Entwicklung, Gerät, Muster, Schwierigkeitsmaschine</td>
+</tr>
+</tbody>
+</table>
+<p>Die vier Wertschichten:</p>
+<pre class="text"><code>Wert 1: Q1–Q4     Grundmünzen
+Wert 2: Q5–Q9     Operationsmünzen
+Wert 3: Q10–Q16   Systemmünzen
+Wert 4: Q17–Q20   Kapitalmünzen</code></pre>
+<hr />
+<h2 id="addition-vermögen-und-portfolio">4. Addition, Vermögen und
+Portfolio</h2>
+<p>Münzen können addiert werden. Addiert wird zuerst der Zeilenwert.</p>
+<p>Beispiel:</p>
+<pre class="text"><code>2 × Q1
+1 × Q8
+3 × Q10
+1 × Q20</code></pre>
+<p>Nominalwert:</p>
+<pre class="text"><code>2 × 1 ZW = 2 ZW
+1 × 2 ZW = 2 ZW
+3 × 3 ZW = 9 ZW
+1 × 4 ZW = 4 ZW
+Gesamtwert = 17 ZW</code></pre>
+<p>In Oktadegramm:</p>
+<pre class="text"><code>17 ZW × 18 = 306 Oktadegramm</code></pre>
+<p>Portfolio:</p>
+<pre class="text"><code>Wallet = (Q1:2, Q8:1, Q10:3, Q20:1)
+Wert = 17 ZW</code></pre>
+<p>Wichtig: Gleicher Nominalwert bedeutet nicht gleiche semantische
+Funktion.</p>
+<pre class="text"><code>4 × Q1 = 4 ZW
+1 × Q20 = 4 ZW
+aber: 4 × Q1 ≠ 1 × Q20</code></pre>
+<p>Vier Aufgabenkerne sind noch keine fertige Maschine. Eine fertige
+Maschine kann in Aufgabenkerne zerlegt werden, aber sie ist ihnen nicht
+gleich.</p>
+<hr />
+<h2 id="schulden-und-inverse-operationen">5. Schulden und inverse
+Operationen</h2>
+<p>Schulden sind negative Münzbestände.</p>
+<pre class="text"><code>-1 × Q18 = ich schulde eine Architektureinheit</code></pre>
+<p>Ein Konto kann nominal positiv, aber semantisch gefährdet sein:</p>
+<pre class="text"><code>+3 × Q5 -1 × Q10</code></pre>
+<p>Nominal:</p>
+<pre class="text"><code>3 × Q5 = 6 ZW
+-1 × Q10 = -3 ZW
+Netto = +3 ZW</code></pre>
+<p>Semantisch fehlt aber Q10, also Struktur und Beschränkung.</p>
+<blockquote>
+<p>Ein Akteur kann nominal reich und semantisch illiquide sein.</p>
+</blockquote>
+<p>Schuld und inverse Operation sind verschieden:</p>
+<pre class="text"><code>-Q17  = Schuld an Kompression
+1/Q17 = Dekompression
+-Q19  = Schuld an Generierung
+1/Q19 = Degenerierung</code></pre>
+<p>Vier Schuldarten:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Schuldart</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wertschuld</td>
+<td>nur ein Wertbetrag wird geschuldet</td>
+<td>10 ZW</td>
+</tr>
+<tr>
+<td>Höhenschuld</td>
+<td>eine Wertklasse wird geschuldet</td>
+<td>drei Münzen der Höhe 2</td>
+</tr>
+<tr>
+<td>Typenschuld</td>
+<td>eine bestimmte Münzart wird geschuldet</td>
+<td>2 × Q10</td>
+</tr>
+<tr>
+<td>Projektschuld</td>
+<td>eine konkrete Leistung wird geschuldet</td>
+<td>Q13-Service mit Q11-Schnittstelle</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="konten-bilanz-und-reichtum">6. Konten, Bilanz und Reichtum</h2>
+<p>Ein Konto ist kein einzelner Kontostand, sondern ein Vektor aus 20
+Münzarten.</p>
+<pre class="text"><code>Konto A:
+Q1:  10
+Q2:   5
+Q3:   2
+Q5:   8
+Q6:  -1
+Q8:   3
+Q9:   1
+Q10: -2
+Q20:  1</code></pre>
+<p>Negative Werte sind Schulden. Das Konto wird zweifach gelesen:</p>
+<pre class="text"><code>Nominale Lesart = Summe aller Bestände × Zeilenwert
+Semantische Bilanz = Überschüsse und Mängel je Münzart</code></pre>
+<p>Drei Reichtumsformen:</p>
+<ol type="1">
+<li><strong>Nominaler Reichtum:</strong> Gesamtwert in ZW.</li>
+<li><strong>Semantischer Reichtum:</strong> Besitz der richtigen
+Münzarten für reale Handlungsfähigkeit.</li>
+<li><strong>Liquiditätsreichtum:</strong> Fähigkeit, fällige Schulden in
+der richtigen Münzart zu bedienen.</li>
+</ol>
+<p>Eine Firma mit viel Q5 und Q13 besitzt viel Code und viele Services.
+Wenn sie zugleich Q10, Q16 und Q18 schuldet, hat sie Struktur-,
+Betriebs- und Architekturschulden.</p>
+<hr />
+<h2 id="märkte">7. Märkte</h2>
+<p>Die Q-Ökonomie braucht mehrere Märkte.</p>
+<h3 id="münzmarkt">Münzmarkt</h3>
+<p>Q-Münzen werden gegeneinander getauscht:</p>
+<pre class="text"><code>1 × Q20 gegen 4 × Q1
+1 × Q18 gegen 2 × Q5
+1 × Q13 gegen 1 × Q10</code></pre>
+<p>Ein Tausch kann nominal ausgeglichen, aber semantisch unausgeglichen
+sein.</p>
+<h3 id="arbeitsmarkt">Arbeitsmarkt</h3>
+<p>Menschen oder Agenten verkaufen Leistungen:</p>
+<pre class="text"><code>Q5-Arbeit: Kodieren
+Q6-Arbeit: Spezifikation
+Q10-Arbeit: Constraints und Struktur
+Q11-Arbeit: Schnittstellen
+Q18-Arbeit: Architektur
+Q20-Arbeit: Modulbau</code></pre>
+<h3 id="gütermarkt">Gütermarkt</h3>
+<p>Produkte und Dienste haben eine Q-Signatur. Beispiel:</p>
+<pre class="text"><code>Analyse-Service:
+Q10: 2
+Q11: 1
+Q12: 1
+Q13: 2
+Q16: 1</code></pre>
+<h3 id="kreditmarkt">Kreditmarkt</h3>
+<p>Hier werden Forderungen und Schulden gehandelt.</p>
+<pre class="text"><code>A schuldet B 5 × Q18.
+B verkauft die Forderung an C.
+C zahlt wegen Ausfallrisiko weniger als den Nennwert.</code></pre>
+<h3 id="terminmarkt">Terminmarkt</h3>
+<p>Hier werden zukünftige Lieferungen gehandelt.</p>
+<pre class="text"><code>Lieferung in 30 Tagen: 3 × Q13 + 1 × Q16
+Preis heute: 12 ZW</code></pre>
+<h3 id="versicherungsmarkt">Versicherungsmarkt</h3>
+<p>Versicherungen decken Ausfälle bestimmter Münzarten, besonders Q16,
+Q18 und Q20.</p>
+<h3 id="gemeingütermarkt">Gemeingütermarkt</h3>
+<p>Q8, Q9, Q12 und Q16 sind häufig Gemeingüter. Bibliotheken,
+Frameworks, Werkzeuge und Infrastruktur müssen teilweise öffentlich oder
+gemeinschaftlich finanziert werden.</p>
+<hr />
+<h2 id="preise-und-wechselkurse">8. Preise und Wechselkurse</h2>
+<p>Es gibt Nominalpreis und Marktpreis.</p>
+<pre class="text"><code>Nominalpreis(Qi) = Zeilenwert h(Qi)</code></pre>
+<p>Der Marktpreis entsteht aus Knappheit, Qualität, Dringlichkeit und
+Vertrauen:</p>
+<pre class="text"><code>Marktpreis(Qi) =
+Nominalwert(Qi)
+× Knappheit
+× Qualitätsfaktor
+× Dringlichkeitsfaktor
+× Vertrauensfaktor</code></pre>
+<p>Beispiel:</p>
+<pre class="text"><code>Q18 nominal = 4 ZW
+Knappheit: ×1,5
+Qualität: ×1,2
+Dringlichkeit: ×1,3
+Vertrauen: ×1,1
+Marktpreis = 4 × 1,5 × 1,2 × 1,3 × 1,1 = 10,296 ZW</code></pre>
+<p>Bei Typenschulden reicht gleicher Nominalwert nicht aus. Wer Q18
+schuldet, kann nicht automatisch mit Q17 zahlen. Der Gläubiger kann
+einen semantischen Abschlag festlegen:</p>
+<pre class="text"><code>1 × Q17 zählt als 60 % Ersatz für 1 × Q18</code></pre>
+<p>Das heißt <strong>semantischer Haircut</strong>.</p>
+<hr />
+<h2 id="produktion-und-produktionsrezepte">9. Produktion und
+Produktionsrezepte</h2>
+<p>Produktion heißt: Schwierigkeit wird in strukturierte, ausführbare
+und wiederverwendbare Formen verwandelt.</p>
+<p>Hauptwertkette:</p>
+<pre class="text"><code>Q1 Aufgabe
+→ Q2 Zerlegung
+→ Q3 Abstraktion
+→ Q4 formale Gestalt
+→ Q5/Q6 Programmierung oder Spezifikation
+→ Q8/Q9 Wiederverwendung und Rahmen
+→ Q10/Q11 Struktur und Schnittstelle
+→ Q13 Service
+→ Q15 Anwendung
+→ Q18 Architektur
+→ Q20 Maschine/Modul</code></pre>
+<p>Produktionsrezepte:</p>
+<pre class="text"><code>Output Q5 Kodierleistung:
+Q1 Aufgabe + Q3 Modell + Arbeitszeit
+
+Output Q6 Spezifikation:
+Q1 Aufgabe + Q3 Abstraktion + Q10 Constraint
+
+Output Q8 Bibliothek:
+mehrere Q5 + mindestens ein Q6 + Q12 Werkzeugkompetenz + Q17 Kompression
+
+Output Q9 Framework:
+Q8 Bibliotheken + Q10 Constraints + Q11 Schnittstellen + Q13 Dienstlogik
+
+Output Q13 Service:
+Q5 Code + Q6 Spezifikation + Q10 Constraints + Q11 Schnittstelle + Q8 Bibliothek
+
+Output Q18 Architektur:
+Q10 Constraints + Q11 Schnittstellen + Q14 Orchestrierung + Q17 Kompression + Q3/Q4 Gestalt
+
+Output Q20 Modul/Maschine:
+Q13 Programm + Q15 Anwendung + Q16 Betrieb + Q18 Architektur + Q19 Generierung</code></pre>
+<hr />
+<h2 id="geldschöpfung-und-münzamt">10. Geldschöpfung und Münzamt</h2>
+<p>Neue Münzen entstehen nicht willkürlich. Sie werden geprägt, wenn
+eine Leistung geprüft und anerkannt wurde.</p>
+<pre class="text"><code>validierte Architektur → neue Q18-Münzen
+validierter Service → neue Q13-Münzen
+validiertes Modul → neue Q20-Münzen</code></pre>
+<p>Das Münzamt hat fünf Aufgaben:</p>
+<pre class="text"><code>1. Münzen prägen
+2. Münzen vernichten
+3. Münzarten klassifizieren
+4. Fälschungen verhindern
+5. Preisstabilität sichern</code></pre>
+<p>Die Währung ist nicht durch Gold gedeckt, sondern durch
+<strong>verifizierte semantische Arbeit</strong>.</p>
+<p>Validatoren prüfen Arbeit:</p>
+<pre class="text"><code>Q5-Validator prüft Code.
+Q6-Validator prüft Spezifikationen.
+Q10-Validator prüft Constraints.
+Q18-Validator prüft Architektur.
+Q20-Validator prüft Modulreife.</code></pre>
+<p>Falsche Validierung führt zu Reputationsverlust und
+Strafschulden.</p>
+<hr />
+<h2 id="banken-kredit-und-zinsen">11. Banken, Kredit und Zinsen</h2>
+<p>Banken vergeben Kredit, erzeugen aber nicht automatisch echten Wert.
+Kredit schafft Zahlungsfähigkeit; Deckung entsteht erst durch produktive
+Arbeit.</p>
+<p>Beispiel:</p>
+<pre class="text"><code>Bank leiht Firma F:
+3 × Q18
+2 × Q13
+
+Firma F erhält:
++3 Q18 +2 Q13
+
+Gleichzeitig entsteht:
+-3 Q18 -2 Q13 plus Zinsen</code></pre>
+<p>Zinsen entstehen aus Zeit, Risiko, Knappheit und semantischer
+Schwierigkeit:</p>
+<pre class="text"><code>Zins(Qi) =
+Basiszins
++ Ausfallrisiko
++ Knappheitszuschlag
++ Komplexitätszuschlag
+- Sicherheitenabschlag</code></pre>
+<p>Hohe Münzen wie Q18 und Q20 tragen oft höhere Zinsen, weil ihr
+Ausfall ganze Systeme beschädigen kann.</p>
+<hr />
+<h2 id="technische-schuld-als-echte-schuld">12. Technische Schuld als
+echte Schuld</h2>
+<p>Technische Schuld wird als reale Q-Schuld gebucht.</p>
+<table>
+<thead>
+<tr>
+<th>Schuld</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-Q1</td>
+<td>ungelöste Grundaufgabe</td>
+</tr>
+<tr>
+<td>-Q2</td>
+<td>unzerlegtes Problem</td>
+</tr>
+<tr>
+<td>-Q3</td>
+<td>fehlendes Modell</td>
+</tr>
+<tr>
+<td>-Q4</td>
+<td>fehlende formale Präzision</td>
+</tr>
+<tr>
+<td>-Q5</td>
+<td>fehlende Implementierung</td>
+</tr>
+<tr>
+<td>-Q6</td>
+<td>fehlende Spezifikation</td>
+</tr>
+<tr>
+<td>-Q7</td>
+<td>ungeklärte Verantwortung</td>
+</tr>
+<tr>
+<td>-Q8</td>
+<td>fehlende Bibliothek oder Wiederverwendung</td>
+</tr>
+<tr>
+<td>-Q9</td>
+<td>fehlender Rahmen</td>
+</tr>
+<tr>
+<td>-Q10</td>
+<td>fehlende Constraints</td>
+</tr>
+<tr>
+<td>-Q11</td>
+<td>kaputte Schnittstelle</td>
+</tr>
+<tr>
+<td>-Q12</td>
+<td>fehlendes Werkzeug</td>
+</tr>
+<tr>
+<td>-Q13</td>
+<td>fehlender Dienst</td>
+</tr>
+<tr>
+<td>-Q14</td>
+<td>Koordinationsschuld</td>
+</tr>
+<tr>
+<td>-Q15</td>
+<td>nicht gelieferte Anwendung</td>
+</tr>
+<tr>
+<td>-Q16</td>
+<td>Betriebs- oder Laufzeitschuld</td>
+</tr>
+<tr>
+<td>-Q17</td>
+<td>unkomprimierte Komplexität</td>
+</tr>
+<tr>
+<td>-Q18</td>
+<td>Architekturschuld</td>
+</tr>
+<tr>
+<td>-Q19</td>
+<td>fehlende Generierungsfähigkeit</td>
+</tr>
+<tr>
+<td>-Q20</td>
+<td>fehlendes Modul oder unfertige Maschine</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Projekt mit viel Q5, aber negativen Q10 und Q18, wirkt produktiv,
+ist aber strukturell krank.</p>
+<pre class="text"><code>+20 Q5
+-10 Q10
+-5 Q18</code></pre>
+<p>Das heißt: viel Code, schlechte Struktur, schlechte Architektur.</p>
+<hr />
+<h2 id="akteure-arbeitsteilung-und-fähigkeiten">13. Akteure,
+Arbeitsteilung und Fähigkeiten</h2>
+<p>Akteure sind Haushalte, Firmen, Banken, Validatoren, Staat,
+Gemeingüterfonds und Außenhandelspartner.</p>
+<p>Fähigkeiten werden als Q-Profil beschrieben:</p>
+<pre class="text"><code>Agent A:
+Q1: 0.8
+Q2: 0.7
+Q3: 0.5
+Q5: 0.9
+Q6: 0.4
+Q10: 0.3
+Q18: 0.1</code></pre>
+<p>Das bedeutet: stark im Erkennen und Codieren, schwach in Struktur und
+Architektur.</p>
+<p>Berufe entstehen entlang der Münzarten:</p>
+<pre class="text"><code>Q1/Q2-Analyst: findet und zerlegt Probleme
+Q3/Q4-Theoretiker: modelliert und formalisiert
+Q5-Programmierer: implementiert
+Q6-Spezifizierer: beschreibt deklarativ
+Q7-Koordinator: delegiert und referenziert
+Q8-Bibliothekar: baut wiederverwendbare Komponenten
+Q9-Frameworkbauer: schafft Rahmen
+Q10-Constraint-Ingenieur: setzt Grenzen und Struktur
+Q11-Interface-Designer: verbindet Systeme
+Q12-Toolsmith: baut Werkzeuge
+Q13-Servicebauer: erstellt Dienste
+Q14-Orchestrator: komponiert Abläufe
+Q15-Anwendungsbauer: macht Gebrauchswerke
+Q16-Betriebsingenieur: hält Ausführung stabil
+Q17-Kompressor: verdichtet Komplexität
+Q18-Architekt: konstruiert tragende Formen
+Q19-Generatorbauer: baut Erzeugungssysteme
+Q20-Modulbauer: liefert fertige Maschinen</code></pre>
+<hr />
+<h2 id="staat-steuern-und-gemeingüter">14. Staat, Steuern und
+Gemeingüter</h2>
+<p>Der Staat schützt die Währung, stabilisiert Krisen und finanziert
+Gemeingüter. Steuern können in ZW erhoben werden:</p>
+<pre class="text"><code>Einkommensteuer: Prozentsatz des Nominalwerts
+Transaktionssteuer: kleine Abgabe auf Marktgeschäfte
+Schuldenabgabe: Zuschlag auf riskante Q18/Q20-Hebelung</code></pre>
+<p>Öffentliche Ausgaben fördern besonders:</p>
+<pre class="text"><code>Q8 Bibliotheken
+Q9 Frameworks
+Q12 Werkzeuge
+Q16 Infrastruktur
+Bildung
+Validierung
+öffentliche Sicherheit</code></pre>
+<p>Antimonopol-Regeln sind wichtig, weil Q8, Q9, Q16, Q18 und Q20
+Produktionsbedingungen kontrollieren können. Mittel sind offene
+Schnittstellen, Interoperabilitätspflicht, Zwangslizenzen,
+Gemeingüterabgaben und notfalls Aufspaltung.</p>
+<hr />
+<h2 id="inflation-deflation-und-krisen">15. Inflation, Deflation und
+Krisen</h2>
+<p>Inflation bedeutet hier nicht nur steigende Preise. Sie bedeutet,
+dass eine Münzart ohne ausreichende semantische Deckung vermehrt
+wird.</p>
+<pre class="text"><code>Q5-Inflation  = viel Code ohne Spezifikation, Constraints und Architektur
+Q13-Inflation = viele Services ohne Zuverlässigkeit
+Q18-Inflation = behauptete Architektur ohne tragende Konstruktion
+Q20-Inflation = unfertige Module werden als Maschinen verkauft</code></pre>
+<p>Deflation bedeutet: Es gibt zu wenige gültige Münzen für vorhandene
+Aufgaben. Beispiel: viele Q1-Aufgaben, aber zu wenig Q5, Q10 und
+Q18.</p>
+<p>Typische Krise:</p>
+<pre class="text"><code>Q5:  sehr hoch
+Q13: hoch
+Q15: hoch
+Q10: niedrig
+Q16: niedrig
+Q18: niedrig</code></pre>
+<p>Das heißt: viel Code und viele Anwendungen, aber zu wenig Struktur,
+Betrieb und Architektur. Die Krise zeigt sich als Ausfälle,
+Integrationsprobleme, Sicherheitslücken und Wartungsstau.</p>
+<p>Krisenpolitik darf nicht blind Geld drucken. Sie muss die fehlenden
+Münzarten stärken.</p>
+<hr />
+<h2 id="qualität-reputation-und-eigentum">16. Qualität, Reputation und
+Eigentum</h2>
+<p>Nicht jede Münze gleicher Art hat dieselbe Qualität.
+Qualitätsklassen:</p>
+<pre class="text"><code>A = geprüft, stabil, wiederverwendbar
+B = brauchbar, aber begrenzt
+C = experimentell
+D = problematisch
+F = ungültig oder gescheitert</code></pre>
+<p>Q18-A ist wertvoller als Q18-C, obwohl beide nominal 4 ZW haben.</p>
+<p>Reputation wird je Münzart geführt:</p>
+<pre class="text"><code>Agent A:
+Q5-Reputation: 90
+Q6-Reputation: 60
+Q10-Reputation: 45
+Q18-Reputation: 20</code></pre>
+<p>Eigentum besteht an Münzen, Artefakten und Nutzungsrechten:</p>
+<pre class="text"><code>Münzeigentum: 5 × Q10
+Artefakteigentum: Programm, Bibliothek, Maschine
+Nutzungsrecht: Lizenz auf Q8, Q9 oder Q20</code></pre>
+<hr />
+<h2 id="lizenzökonomie-und-handel-mit-aufgaben">17. Lizenzökonomie und
+Handel mit Aufgaben</h2>
+<p>Q8-Bibliotheken, Q9-Frameworks, Q13-Services, Q15-Anwendungen und
+Q20-Module können lizenziert werden.</p>
+<p>Beispiel:</p>
+<pre class="text"><code>Q8-Bibliothek:
+Einmalige Nutzung: 1 ZW
+Kommerzielle Nutzung: 2 Q5 pro Monat
+Open-Commons-Lizenz: öffentlich finanziert</code></pre>
+<p>Auch Aufgaben können gehandelt werden. Q1 ist Rohstoff: Eine gute
+Aufgabe, Forschungsfrage oder Kundenanforderung kann gekauft und
+verkauft werden. Eine gute Aufgabe ist wertvoll, weil sie Grundlage
+einer Q1→Q20-Kette werden kann.</p>
+<hr />
+<h2 id="wertkette-q1-q20-und-intelligenz">18. Wertkette Q1 → Q20 und
+Intelligenz</h2>
+<p>Die zentrale Wirtschaftsbewegung:</p>
+<pre class="text"><code>Q1 → Q20
+Aufgabe → Maschine</code></pre>
+<p>Vollständige Kette:</p>
+<pre class="text"><code>Q1  Aufgabe erkennen
+Q2  Aufgabe zerlegen
+Q3  Modell bilden
+Q4  formalisieren
+Q5  implementieren
+Q6  deklarieren
+Q7  delegieren
+Q8  Bibliothek bauen
+Q9  Framework schaffen
+Q10 Constraints setzen
+Q11 Schnittstellen bauen
+Q12 Werkzeuge bereitstellen
+Q13 Service erstellen
+Q14 Dienste orchestrieren
+Q15 Anwendung bauen
+Q16 Betrieb sichern
+Q17 Komplexität komprimieren
+Q18 Architektur konstruieren
+Q19 Generierung ermöglichen
+Q20 Modul/Maschine liefern</code></pre>
+<p>Intelligenz ist Transformationsfähigkeit:</p>
+<pre class="text"><code>Intelligenz = Fähigkeit, Q1 in höhere Q-Formen zu verwandeln</code></pre>
+<p>Niedrige Transformation:</p>
+<pre class="text"><code>Q1 → Q5 = Aufgabe wird Code</code></pre>
+<p>Hohe Transformation:</p>
+<pre class="text"><code>Q1 → Q18 → Q19 → Q20 = Aufgabe wird architektonisch gefasst, generativ gemacht und als Maschine geliefert</code></pre>
+<hr />
+<h2 id="börse-preisindex-geldmenge-und-insolvenz">19. Börse, Preisindex,
+Geldmenge und Insolvenz</h2>
+<p>An der Q-Börse haben Münzen Marktpreise. Beispiel:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Münze</th>
+<th style="text-align: right;">Nominal</th>
+<th style="text-align: right;">Marktpreis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,8</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2,4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3,1</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q10</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5,0</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3,6</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q18</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9,5</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7,8</td>
+</tr>
+</tbody>
+</table>
+<p>Der Q-Preisindex misst einen typischen Entwicklungszyklus:</p>
+<pre class="text"><code>4 × Q1
+2 × Q5
+2 × Q8
+2 × Q10
+1 × Q13
+1 × Q16
+1 × Q18
+1 × Q20</code></pre>
+<p>Geldmenge wird je Münzart gemessen:</p>
+<pre class="text"><code>M(Q18) = Menge gültiger Q18-Münzen
+L(Q18) = offene Schulden in Q18</code></pre>
+<p>Gefährlich:</p>
+<pre class="text"><code>L(Q18) sehr hoch
+M(Q18) niedrig</code></pre>
+<p>Das ist eine Architekturschuldenkrise.</p>
+<p>Insolvenz kann nominal oder semantisch sein. Nominale Insolvenz
+heißt: Gesamtschulden übersteigen Gesamtvermögen. Semantische Insolvenz
+heißt: Gesamtwert reicht, aber die richtigen Münzarten fehlen.</p>
+<hr />
+<h2 id="forschung-außenhandel-und-r-kontinuum">20. Forschung,
+Außenhandel und R-Kontinuum</h2>
+<p>Forschung erzeugt vor allem:</p>
+<pre class="text"><code>Q1 neue Aufgaben
+Q3 neue Abstraktionen
+Q4 neue formale Objekte
+Q12 neue Werkzeuge
+Q17 Kompressionen
+Q19 Generierungsprinzipien</code></pre>
+<p>Außenhandel verbindet die Q-Ökonomie mit anderen Wirtschaften.
+Exportiert werden besonders Q8, Q9, Q13, Q15, Q18 und Q20. Importiert
+werden Rohstoffe, Hardware, Energie, Daten, Arbeit und Kapital.</p>
+<p>Das R-Kontinuum ist reale Ausführung oder praktische Wirklichkeit.
+Q-Wert wird besonders stark, wenn er in R-Wirkung übergeht:</p>
+<pre class="text"><code>Q18 Architektur + Q20 Modul → reale Maschine → R-Wert
+Q13 Service + Q16 Betrieb → laufender Dienst → R-Nutzen</code></pre>
+<hr />
+<h2 id="triple-store-ledger-verträge-und-simulation">21.
+Triple-Store-Ledger, Verträge und Simulation</h2>
+<p>Die Buchhaltung erfolgt als semantisches Triple-Store-Ledger:</p>
+<pre class="text"><code>(Subjekt, Prädikat, Objekt)</code></pre>
+<p>Beispiele:</p>
+<pre class="text"><code>(Agent A, besitzt, 3 × Q10)
+(Agent A, schuldet, 1 × Q18 an Agent B)
+(Projekt P, benötigt, 2 × Q5)
+(Projekt P, erzeugt, 1 × Q13)
+(Q17, inverse Operation, Dekompression)</code></pre>
+<p>Ein Vertrag enthält:</p>
+<pre class="text"><code>Parteien
+Lieferobjekt
+Q-Signatur
+Preis
+Fälligkeit
+Qualitätsgrad
+Sanktion
+Validierung</code></pre>
+<p>Simulation läuft in Perioden:</p>
+<pre class="text"><code>1. Aufgaben entstehen.
+2. Akteure wählen Handlungen.
+3. Märkte öffnen.
+4. Produktion findet statt.
+5. Ergebnisse werden validiert.
+6. Münzen werden geprägt oder abgelehnt.
+7. Zahlungen werden gebucht.
+8. Schulden werden aktualisiert.
+9. Preise werden angepasst.
+10. Reputation wird aktualisiert.
+11. Staat und Münzamt reagieren.</code></pre>
+<hr />
+<h2 id="gesetze-der-q-ökonomie">22. Gesetze der Q-Ökonomie</h2>
+<pre class="text"><code>1. Münzgesetz: Jede Q-Münze hat Nummer, Zeilenwert und Bedeutung.
+2. Additionsgesetz: Münzenwerte addieren sich nach Zeilenhöhe.
+3. Semantikgesetz: Gleicher Nominalwert bedeutet nicht gleiche Funktion.
+4. Schuldgesetz: Negative Münzbestände sind Schulden.
+5. Inversionsgesetz: 1/Qi ist inverse Operation, -Qi ist Schuld.
+6. Produktionsgesetz: Produktion verwandelt Q1-Schwierigkeit in höhere Q-Formen.
+7. Validierungsgesetz: Neue Münzen entstehen nur durch geprüfte Leistung.
+8. Preisgesetz: Marktpreise entstehen aus Nominalwert, Knappheit, Qualität, Risiko und Vertrauen.
+9. Solvenzgesetz: Gesundheit braucht nominale und semantische Zahlungsfähigkeit.
+10. Stabilitätsgesetz: Hohe Münzen müssen durch Struktur, Betrieb und Architektur gedeckt sein.</code></pre>
+<hr />
+<h2 id="schlussdefinition">23. Schlussdefinition</h2>
+<p>Die Q-Ökonomie ist eine semantische Geld-, Kredit- und
+Produktionsordnung.</p>
+<p>Ihre Währung besteht aus Q1 bis Q20. Der Wert jeder Münze ist ihre
+Zeilenhöhe. Münzen können addiert, getauscht, verliehen und geschuldet
+werden. Schulden sind negative Q-Bestände. Inverse Operationen werden
+als 1/Qi geschrieben und sind keine Schulden.</p>
+<p>Produktion ist die Transformation von Schwierigkeit in strukturierte,
+ausführbare und wiederverwendbare Formen. Wohlstand entsteht, wenn
+Q1-Aufgaben über Q5-Code, Q10-Struktur, Q13-Dienste, Q18-Architektur und
+Q20-Module in reale Wirkung überführt werden.</p>
+<p>Krisen entstehen, wenn nominaler Reichtum und semantische
+Zahlungsfähigkeit auseinanderfallen. Stabilität entsteht durch
+Validierung, offene Schnittstellen, gute Architektur, sichtbare Schulden
+und öffentliche Gemeingüter.</p>
+<p><strong>Kernsatz:</strong> Diese Wirtschaft bezahlt nicht bloß
+Arbeit. Sie bezahlt die gelungene Verwandlung von Schwierigkeit in
+funktionsfähige Intelligenz.</p>
+</body>
+</html>

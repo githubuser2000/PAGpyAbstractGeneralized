@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>q_economy_english</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="q-economy-a-complete-economic-system-for-a-line-value-currency">Q-Economy:
+A Complete Economic System for a Line-Value Currency</h1>
+<p><strong>Language:</strong> English<br />
+<strong>Version:</strong> 1.0<br />
+<strong>Basis:</strong> The currency consists of Q-coins. The row height
+is the coin value.</p>
+<hr />
+<h2 id="core-idea">1. Core Idea</h2>
+<p>The Q-Economy is a semantic monetary, credit, and production order.
+It treats not only money as an economic unit, but also difficulty,
+structure, code, interfaces, architecture, operation, and finished
+modules.</p>
+<p>One coin is one table row. <strong>The row height</strong> is its
+value. <strong>The numbering</strong> is its mint mark. The continuum
+text is its semantic backing.</p>
+<pre class="text"><code>Coin Qn = (number n, value h, meaning B)
+Value(Qn) = row height h
+Meaning(Qn) = semantic content in the continuum</code></pre>
+<p>Q20 therefore does not mean “twenty units.” Q20 is the coin stamped
+with number 20 and valued at 4. Four Q1 coins may have the same nominal
+value as one Q20 coin, but they do not perform the same function.</p>
+<hr />
+<h2 id="base-units">2. Base Units</h2>
+<p>The base unit is called the <strong>line value</strong>.</p>
+<pre class="text"><code>1 LV = 1 line value</code></pre>
+<p>A smaller unit can be the <strong>octadegram</strong>:</p>
+<pre class="text"><code>1 LV = 18 octadegrams</code></pre>
+<p>Therefore:</p>
+<pre class="text"><code>Value 1 = 1 LV = 18 octadegrams
+Value 2 = 2 LV = 36 octadegrams
+Value 3 = 3 LV = 54 octadegrams
+Value 4 = 4 LV = 72 octadegrams</code></pre>
+<hr />
+<h2 id="coin-catalog">3. Coin Catalog</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Coin</th>
+<th style="text-align: right;">Value</th>
+<th>Layer</th>
+<th>Economic meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q1</td>
+<td style="text-align: right;">1</td>
+<td>Basic difficulty</td>
+<td>task, difficulty, knot, problem core</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q2</td>
+<td style="text-align: right;">1</td>
+<td>Complexity</td>
+<td>part, complication, molecular element, substructure</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q3</td>
+<td style="text-align: right;">1</td>
+<td>Abstraction</td>
+<td>theory, model, intermediate state between loose and fixed</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q4</td>
+<td style="text-align: right;">1</td>
+<td>Crystallization</td>
+<td>formal object, thread, mathematical form</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q5</td>
+<td style="text-align: right;">2</td>
+<td>Operation</td>
+<td>encoding, command, imperative programming</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q6</td>
+<td style="text-align: right;">2</td>
+<td>Declaration</td>
+<td>declarative description, rule, thread instead of command</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q7</td>
+<td style="text-align: right;">2</td>
+<td>Delegation</td>
+<td>delegating, referencing, transfer of responsibility</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q8</td>
+<td style="text-align: right;">2</td>
+<td>Library</td>
+<td>reusable stone, honeycomb, mineral, collection of building
+blocks</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q9</td>
+<td style="text-align: right;">2</td>
+<td>Framework</td>
+<td>frame, organic structure, general intelligence structure</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q10</td>
+<td style="text-align: right;">3</td>
+<td>Constraint</td>
+<td>limitation, structure, rope, possibility space</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q11</td>
+<td style="text-align: right;">3</td>
+<td>Interface</td>
+<td>intervention, interface, insertion of thought</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q12</td>
+<td style="text-align: right;">3</td>
+<td>Toolbox</td>
+<td>methods, mathematics, algebra, analysis, topology, category
+theory</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q13</td>
+<td style="text-align: right;">3</td>
+<td>Program</td>
+<td>service, paradigm, thought approach</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q14</td>
+<td style="text-align: right;">3</td>
+<td>Orchestration</td>
+<td>composition, choreography, conducting, mastery</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q15</td>
+<td style="text-align: right;">3</td>
+<td>Application</td>
+<td>application, work, opus</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q16</td>
+<td style="text-align: right;">3</td>
+<td>Operation</td>
+<td>menu, kernel, operating system, execution</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q17</td>
+<td style="text-align: right;">4</td>
+<td>Compression</td>
+<td>compression; inverse operation: decompression</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q18</td>
+<td style="text-align: right;">4</td>
+<td>Architecture</td>
+<td>construction, blueprint, load-bearing whole form</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q19</td>
+<td style="text-align: right;">4</td>
+<td>Generation</td>
+<td>generation; inverse movement: degeneration or decadence</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q20</td>
+<td style="text-align: right;">4</td>
+<td>Module/Machine</td>
+<td>finished development, device, pattern, difficulty machine</td>
+</tr>
+</tbody>
+</table>
+<p>The four value layers:</p>
+<pre class="text"><code>Value 1: Q1–Q4     base coins
+Value 2: Q5–Q9     operation coins
+Value 3: Q10–Q16   system coins
+Value 4: Q17–Q20   capital coins</code></pre>
+<hr />
+<h2 id="addition-wealth-and-portfolios">4. Addition, Wealth, and
+Portfolios</h2>
+<p>Coins can be added. The first addition is the line value.</p>
+<p>Example:</p>
+<pre class="text"><code>2 × Q1
+1 × Q8
+3 × Q10
+1 × Q20</code></pre>
+<p>Nominal value:</p>
+<pre class="text"><code>2 × 1 LV = 2 LV
+1 × 2 LV = 2 LV
+3 × 3 LV = 9 LV
+1 × 4 LV = 4 LV
+Total value = 17 LV</code></pre>
+<p>In octadegrams:</p>
+<pre class="text"><code>17 LV × 18 = 306 octadegrams</code></pre>
+<p>Portfolio:</p>
+<pre class="text"><code>Wallet = (Q1:2, Q8:1, Q10:3, Q20:1)
+Value = 17 LV</code></pre>
+<p>Important: equal nominal value does not mean equal semantic
+function.</p>
+<pre class="text"><code>4 × Q1 = 4 LV
+1 × Q20 = 4 LV
+but: 4 × Q1 ≠ 1 × Q20</code></pre>
+<p>Four task cores are not yet a finished machine. A finished machine
+may be decomposed into task cores, but it is not identical to them.</p>
+<hr />
+<h2 id="debts-and-inverse-operations">5. Debts and Inverse
+Operations</h2>
+<p>Debts are negative coin balances.</p>
+<pre class="text"><code>-1 × Q18 = I owe one architecture unit</code></pre>
+<p>An account may be nominally positive but semantically endangered:</p>
+<pre class="text"><code>+3 × Q5 -1 × Q10</code></pre>
+<p>Nominally:</p>
+<pre class="text"><code>3 × Q5 = 6 LV
+-1 × Q10 = -3 LV
+Net = +3 LV</code></pre>
+<p>Semantically, Q10 is missing: structure and constraint are
+missing.</p>
+<blockquote>
+<p>An actor can be nominally rich and semantically illiquid.</p>
+</blockquote>
+<p>Debt and inverse operation are different:</p>
+<pre class="text"><code>-Q17  = debt of compression
+1/Q17 = decompression
+-Q19  = debt of generation
+1/Q19 = degeneration</code></pre>
+<p>Four kinds of debt:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Debt type</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value debt</td>
+<td>only an amount of value is owed</td>
+<td>10 LV</td>
+</tr>
+<tr>
+<td>Height debt</td>
+<td>a value class is owed</td>
+<td>three coins of height 2</td>
+</tr>
+<tr>
+<td>Type debt</td>
+<td>a specific coin type is owed</td>
+<td>2 × Q10</td>
+</tr>
+<tr>
+<td>Project debt</td>
+<td>a concrete deliverable is owed</td>
+<td>Q13 service with Q11 interface</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="accounts-balance-sheets-and-wealth">6. Accounts, Balance Sheets,
+and Wealth</h2>
+<p>An account is not a single balance but a vector of 20 coin types.</p>
+<pre class="text"><code>Account A:
+Q1:  10
+Q2:   5
+Q3:   2
+Q5:   8
+Q6:  -1
+Q8:   3
+Q9:   1
+Q10: -2
+Q20:  1</code></pre>
+<p>Negative values are debts. The account is read in two ways:</p>
+<pre class="text"><code>Nominal reading = sum of all balances × line value
+Semantic balance = surpluses and deficits by coin type</code></pre>
+<p>Three forms of wealth:</p>
+<ol type="1">
+<li><strong>Nominal wealth:</strong> total value in LV.</li>
+<li><strong>Semantic wealth:</strong> ownership of the right coin types
+for real action.</li>
+<li><strong>Liquidity wealth:</strong> ability to pay due debts in the
+correct coin type.</li>
+</ol>
+<p>A company with much Q5 and Q13 owns much code and many services. If
+it owes Q10, Q16, and Q18, it carries structural, operational, and
+architectural debt.</p>
+<hr />
+<h2 id="markets">7. Markets</h2>
+<p>The Q-Economy needs several markets.</p>
+<h3 id="coin-market">Coin Market</h3>
+<p>Q-coins are exchanged against one another:</p>
+<pre class="text"><code>1 × Q20 for 4 × Q1
+1 × Q18 for 2 × Q5
+1 × Q13 for 1 × Q10</code></pre>
+<p>A trade can be nominally balanced but semantically unbalanced.</p>
+<h3 id="labor-market">Labor Market</h3>
+<p>Humans or agents sell work:</p>
+<pre class="text"><code>Q5 work: coding
+Q6 work: specification
+Q10 work: constraints and structure
+Q11 work: interfaces
+Q18 work: architecture
+Q20 work: module building</code></pre>
+<h3 id="goods-market">Goods Market</h3>
+<p>Products and services have a Q-signature. Example:</p>
+<pre class="text"><code>Analysis service:
+Q10: 2
+Q11: 1
+Q12: 1
+Q13: 2
+Q16: 1</code></pre>
+<h3 id="credit-market">Credit Market</h3>
+<p>Claims and debts are traded here.</p>
+<pre class="text"><code>A owes B 5 × Q18.
+B sells the claim to C.
+C pays less than nominal value because of default risk.</code></pre>
+<h3 id="futures-market">Futures Market</h3>
+<p>Future deliveries are traded.</p>
+<pre class="text"><code>Delivery in 30 days: 3 × Q13 + 1 × Q16
+Price today: 12 LV</code></pre>
+<h3 id="insurance-market">Insurance Market</h3>
+<p>Insurance covers failures of specific coin types, especially Q16,
+Q18, and Q20.</p>
+<h3 id="commons-market">Commons Market</h3>
+<p>Q8, Q9, Q12, and Q16 are often commons. Libraries, frameworks, tools,
+and infrastructure need partly public or collective funding.</p>
+<hr />
+<h2 id="prices-and-exchange-rates">8. Prices and Exchange Rates</h2>
+<p>There is a nominal price and a market price.</p>
+<pre class="text"><code>Nominal price(Qi) = line value h(Qi)</code></pre>
+<p>The market price arises from scarcity, quality, urgency, and
+trust:</p>
+<pre class="text"><code>Market price(Qi) =
+Nominal value(Qi)
+× scarcity
+× quality factor
+× urgency factor
+× trust factor</code></pre>
+<p>Example:</p>
+<pre class="text"><code>Q18 nominal = 4 LV
+scarcity: ×1.5
+quality: ×1.2
+urgency: ×1.3
+trust: ×1.1
+market price = 4 × 1.5 × 1.2 × 1.3 × 1.1 = 10.296 LV</code></pre>
+<p>For type debts, equal nominal value is not enough. Whoever owes Q18
+cannot automatically pay with Q17. The creditor may define a semantic
+haircut:</p>
+<pre class="text"><code>1 × Q17 counts as 60% substitute for 1 × Q18</code></pre>
+<hr />
+<h2 id="production-and-production-recipes">9. Production and Production
+Recipes</h2>
+<p>Production means transforming difficulty into structured, executable,
+and reusable forms.</p>
+<p>Main value chain:</p>
+<pre class="text"><code>Q1 task
+→ Q2 decomposition
+→ Q3 abstraction
+→ Q4 formal form
+→ Q5/Q6 programming or specification
+→ Q8/Q9 reuse and framework
+→ Q10/Q11 structure and interface
+→ Q13 service
+→ Q15 application
+→ Q18 architecture
+→ Q20 machine/module</code></pre>
+<p>Production recipes:</p>
+<pre class="text"><code>Output Q5 coding:
+Q1 task + Q3 model + labor time
+
+Output Q6 specification:
+Q1 task + Q3 abstraction + Q10 constraint
+
+Output Q8 library:
+several Q5 + at least one Q6 + Q12 tool competence + Q17 compression
+
+Output Q9 framework:
+Q8 libraries + Q10 constraints + Q11 interfaces + Q13 service logic
+
+Output Q13 service:
+Q5 code + Q6 specification + Q10 constraints + Q11 interface + Q8 library
+
+Output Q18 architecture:
+Q10 constraints + Q11 interfaces + Q14 orchestration + Q17 compression + Q3/Q4 form
+
+Output Q20 module/machine:
+Q13 program + Q15 application + Q16 operation + Q18 architecture + Q19 generation</code></pre>
+<hr />
+<h2 id="money-creation-and-the-mint">10. Money Creation and the
+Mint</h2>
+<p>New coins are not created arbitrarily. They are minted when a
+performance has been verified and recognized.</p>
+<pre class="text"><code>validated architecture → new Q18 coins
+validated service → new Q13 coins
+validated module → new Q20 coins</code></pre>
+<p>The mint has five tasks:</p>
+<pre class="text"><code>1. mint coins
+2. destroy coins
+3. classify coin types
+4. prevent counterfeiting
+5. secure price stability</code></pre>
+<p>The currency is backed not by gold but by <strong>verified semantic
+work</strong>.</p>
+<p>Validators inspect work:</p>
+<pre class="text"><code>Q5 validator checks code.
+Q6 validator checks specifications.
+Q10 validator checks constraints.
+Q18 validator checks architecture.
+Q20 validator checks module maturity.</code></pre>
+<p>False validation leads to reputation loss and penalty debts.</p>
+<hr />
+<h2 id="banks-credit-and-interest">11. Banks, Credit, and Interest</h2>
+<p>Banks issue credit, but they do not automatically create real value.
+Credit creates purchasing power; backing arises only through productive
+work.</p>
+<p>Example:</p>
+<pre class="text"><code>Bank lends firm F:
+3 × Q18
+2 × Q13
+
+Firm F receives:
++3 Q18 +2 Q13
+
+At the same time there arises:
+-3 Q18 -2 Q13 plus interest</code></pre>
+<p>Interest arises from time, risk, scarcity, and semantic
+difficulty:</p>
+<pre class="text"><code>Interest(Qi) =
+base rate
++ default risk
++ scarcity surcharge
++ complexity surcharge
+- collateral discount</code></pre>
+<p>High coins such as Q18 and Q20 often carry higher interest because
+their failure can damage entire systems.</p>
+<hr />
+<h2 id="technical-debt-as-real-debt">12. Technical Debt as Real
+Debt</h2>
+<p>Technical debt is booked as real Q-debt.</p>
+<table>
+<thead>
+<tr>
+<th>Debt</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-Q1</td>
+<td>unsolved basic task</td>
+</tr>
+<tr>
+<td>-Q2</td>
+<td>undecomposed problem</td>
+</tr>
+<tr>
+<td>-Q3</td>
+<td>missing model</td>
+</tr>
+<tr>
+<td>-Q4</td>
+<td>missing formal precision</td>
+</tr>
+<tr>
+<td>-Q5</td>
+<td>missing implementation</td>
+</tr>
+<tr>
+<td>-Q6</td>
+<td>missing specification</td>
+</tr>
+<tr>
+<td>-Q7</td>
+<td>unclear responsibility</td>
+</tr>
+<tr>
+<td>-Q8</td>
+<td>missing library or reuse</td>
+</tr>
+<tr>
+<td>-Q9</td>
+<td>missing framework</td>
+</tr>
+<tr>
+<td>-Q10</td>
+<td>missing constraints</td>
+</tr>
+<tr>
+<td>-Q11</td>
+<td>broken interface</td>
+</tr>
+<tr>
+<td>-Q12</td>
+<td>missing tool</td>
+</tr>
+<tr>
+<td>-Q13</td>
+<td>missing service</td>
+</tr>
+<tr>
+<td>-Q14</td>
+<td>coordination debt</td>
+</tr>
+<tr>
+<td>-Q15</td>
+<td>undelivered application</td>
+</tr>
+<tr>
+<td>-Q16</td>
+<td>operational or runtime debt</td>
+</tr>
+<tr>
+<td>-Q17</td>
+<td>uncompressed complexity</td>
+</tr>
+<tr>
+<td>-Q18</td>
+<td>architectural debt</td>
+</tr>
+<tr>
+<td>-Q19</td>
+<td>missing generative capability</td>
+</tr>
+<tr>
+<td>-Q20</td>
+<td>missing module or unfinished machine</td>
+</tr>
+</tbody>
+</table>
+<p>A project with much Q5 but negative Q10 and Q18 looks productive but
+is structurally sick.</p>
+<pre class="text"><code>+20 Q5
+-10 Q10
+-5 Q18</code></pre>
+<p>This means: much code, bad structure, bad architecture.</p>
+<hr />
+<h2 id="actors-division-of-labor-and-capabilities">13. Actors, Division
+of Labor, and Capabilities</h2>
+<p>Actors are households, firms, banks, validators, the state, commons
+funds, and foreign trade partners.</p>
+<p>Capabilities are described as a Q-profile:</p>
+<pre class="text"><code>Agent A:
+Q1: 0.8
+Q2: 0.7
+Q3: 0.5
+Q5: 0.9
+Q6: 0.4
+Q10: 0.3
+Q18: 0.1</code></pre>
+<p>This means: strong in recognizing and coding, weak in structure and
+architecture.</p>
+<p>Professions emerge along coin types:</p>
+<pre class="text"><code>Q1/Q2 analyst: finds and decomposes problems
+Q3/Q4 theorist: models and formalizes
+Q5 programmer: implements
+Q6 specifier: describes declaratively
+Q7 coordinator: delegates and references
+Q8 librarian: builds reusable components
+Q9 framework builder: creates frames
+Q10 constraint engineer: sets limits and structure
+Q11 interface designer: connects systems
+Q12 toolsmith: builds tools
+Q13 service builder: creates services
+Q14 orchestrator: composes processes
+Q15 application builder: builds usable works
+Q16 operations engineer: keeps execution stable
+Q17 compressor: condenses complexity
+Q18 architect: constructs load-bearing forms
+Q19 generator builder: builds generative systems
+Q20 module builder: delivers finished machines</code></pre>
+<hr />
+<h2 id="state-taxes-and-commons">14. State, Taxes, and Commons</h2>
+<p>The state protects the currency, stabilizes crises, and funds
+commons. Taxes can be collected in LV:</p>
+<pre class="text"><code>income tax: percentage of nominal value
+transaction tax: small levy on market trades
+debt levy: surcharge on risky Q18/Q20 leverage</code></pre>
+<p>Public spending especially supports:</p>
+<pre class="text"><code>Q8 libraries
+Q9 frameworks
+Q12 tools
+Q16 infrastructure
+education
+validation
+public safety</code></pre>
+<p>Antimonopoly rules matter because Q8, Q9, Q16, Q18, and Q20 can
+control the conditions of production. Tools include open interfaces,
+interoperability obligations, compulsory licenses, commons
+contributions, and, if necessary, break-ups.</p>
+<hr />
+<h2 id="inflation-deflation-and-crises">15. Inflation, Deflation, and
+Crises</h2>
+<p>Inflation here does not only mean rising prices. It means a coin type
+is multiplied without sufficient semantic backing.</p>
+<pre class="text"><code>Q5 inflation  = much code without specification, constraints, and architecture
+Q13 inflation = many services without reliability
+Q18 inflation = claimed architecture without load-bearing construction
+Q20 inflation = unfinished modules sold as machines</code></pre>
+<p>Deflation means: there are too few valid coins for existing tasks.
+Example: many Q1 tasks, but too little Q5, Q10, and Q18.</p>
+<p>Typical crisis:</p>
+<pre class="text"><code>Q5:  very high
+Q13: high
+Q15: high
+Q10: low
+Q16: low
+Q18: low</code></pre>
+<p>This means: much code and many applications, but too little
+structure, operation, and architecture. The crisis appears as outages,
+integration problems, security gaps, and maintenance backlog.</p>
+<p>Crisis policy must not blindly print money. It must strengthen the
+missing coin types.</p>
+<hr />
+<h2 id="quality-reputation-and-ownership">16. Quality, Reputation, and
+Ownership</h2>
+<p>Not every coin of the same type has the same quality. Quality
+classes:</p>
+<pre class="text"><code>A = verified, stable, reusable
+B = usable, but limited
+C = experimental
+D = problematic
+F = invalid or failed</code></pre>
+<p>Q18-A is more valuable than Q18-C, although both are nominally worth
+4 LV.</p>
+<p>Reputation is tracked by coin type:</p>
+<pre class="text"><code>Agent A:
+Q5 reputation: 90
+Q6 reputation: 60
+Q10 reputation: 45
+Q18 reputation: 20</code></pre>
+<p>Ownership exists in coins, artifacts, and usage rights:</p>
+<pre class="text"><code>coin ownership: 5 × Q10
+artifact ownership: program, library, machine
+usage right: license to Q8, Q9, or Q20</code></pre>
+<hr />
+<h2 id="licensing-economy-and-task-trading">17. Licensing Economy and
+Task Trading</h2>
+<p>Q8 libraries, Q9 frameworks, Q13 services, Q15 applications, and Q20
+modules can be licensed.</p>
+<p>Example:</p>
+<pre class="text"><code>Q8 library:
+one-time use: 1 LV
+commercial use: 2 Q5 per month
+open commons license: publicly funded</code></pre>
+<p>Tasks can also be traded. Q1 is raw material: a good task, research
+question, or customer requirement can be bought and sold. A good task is
+valuable because it can become the basis of a Q1→Q20 chain.</p>
+<hr />
+<h2 id="value-chain-q1-q20-and-intelligence">18. Value Chain Q1 → Q20
+and Intelligence</h2>
+<p>The central economic movement:</p>
+<pre class="text"><code>Q1 → Q20
+task → machine</code></pre>
+<p>Complete chain:</p>
+<pre class="text"><code>Q1  recognize task
+Q2  decompose task
+Q3  form model
+Q4  formalize
+Q5  implement
+Q6  declare
+Q7  delegate
+Q8  build library
+Q9  create framework
+Q10 set constraints
+Q11 build interfaces
+Q12 provide tools
+Q13 create service
+Q14 orchestrate services
+Q15 build application
+Q16 secure operation
+Q17 compress complexity
+Q18 construct architecture
+Q19 enable generation
+Q20 deliver module/machine</code></pre>
+<p>Intelligence is transformation capability:</p>
+<pre class="text"><code>Intelligence = ability to transform Q1 into higher Q-forms</code></pre>
+<p>Low transformation:</p>
+<pre class="text"><code>Q1 → Q5 = task becomes code</code></pre>
+<p>High transformation:</p>
+<pre class="text"><code>Q1 → Q18 → Q19 → Q20 = task is architecturally framed, made generative, and delivered as machine</code></pre>
+<hr />
+<h2 id="exchange-price-index-money-supply-and-insolvency">19. Exchange,
+Price Index, Money Supply, and Insolvency</h2>
+<p>On the Q-exchange, coins have market prices. Example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Coin</th>
+<th style="text-align: right;">Nominal</th>
+<th style="text-align: right;">Market price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q10</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q18</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9.5</td>
+</tr>
+<tr>
+<td style="text-align: right;">Q20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7.8</td>
+</tr>
+</tbody>
+</table>
+<p>The Q-price index measures a typical development cycle:</p>
+<pre class="text"><code>4 × Q1
+2 × Q5
+2 × Q8
+2 × Q10
+1 × Q13
+1 × Q16
+1 × Q18
+1 × Q20</code></pre>
+<p>Money supply is measured by coin type:</p>
+<pre class="text"><code>M(Q18) = amount of valid Q18 coins
+L(Q18) = outstanding debt in Q18</code></pre>
+<p>Dangerous:</p>
+<pre class="text"><code>L(Q18) very high
+M(Q18) low</code></pre>
+<p>This is an architectural debt crisis.</p>
+<p>Insolvency can be nominal or semantic. Nominal insolvency means total
+debts exceed total assets. Semantic insolvency means total value is
+sufficient, but the right coin types are missing.</p>
+<hr />
+<h2 id="research-foreign-trade-and-the-r-continuum">20. Research,
+Foreign Trade, and the R-Continuum</h2>
+<p>Research mainly creates:</p>
+<pre class="text"><code>Q1 new tasks
+Q3 new abstractions
+Q4 new formal objects
+Q12 new tools
+Q17 compressions
+Q19 generative principles</code></pre>
+<p>Foreign trade connects the Q-Economy with other economies. Q8, Q9,
+Q13, Q15, Q18, and Q20 are especially exportable. Imports include raw
+materials, hardware, energy, data, labor, and capital.</p>
+<p>The R-continuum is real execution or practical reality. Q-value
+becomes strongest when it passes into R-effect:</p>
+<pre class="text"><code>Q18 architecture + Q20 module → real machine → R-value
+Q13 service + Q16 operation → running service → R-benefit</code></pre>
+<hr />
+<h2 id="triple-store-ledger-contracts-and-simulation">21. Triple-Store
+Ledger, Contracts, and Simulation</h2>
+<p>Accounting is kept as a semantic triple-store ledger:</p>
+<pre class="text"><code>(subject, predicate, object)</code></pre>
+<p>Examples:</p>
+<pre class="text"><code>(Agent A, owns, 3 × Q10)
+(Agent A, owes, 1 × Q18 to Agent B)
+(Project P, requires, 2 × Q5)
+(Project P, produces, 1 × Q13)
+(Q17, inverse operation, decompression)</code></pre>
+<p>A contract contains:</p>
+<pre class="text"><code>parties
+deliverable
+Q-signature
+price
+due date
+quality grade
+sanction
+validation</code></pre>
+<p>Simulation runs in periods:</p>
+<pre class="text"><code>1. Tasks emerge.
+2. Actors choose actions.
+3. Markets open.
+4. Production happens.
+5. Results are validated.
+6. Coins are minted or rejected.
+7. Payments are booked.
+8. Debts are updated.
+9. Prices are adjusted.
+10. Reputation is updated.
+11. State and mint react.</code></pre>
+<hr />
+<h2 id="laws-of-the-q-economy">22. Laws of the Q-Economy</h2>
+<pre class="text"><code>1. Coin law: every Q-coin has a number, line value, and meaning.
+2. Addition law: coin values add by row height.
+3. Semantic law: equal nominal value does not mean equal function.
+4. Debt law: negative coin balances are debts.
+5. Inversion law: 1/Qi is inverse operation, -Qi is debt.
+6. Production law: production transforms Q1 difficulty into higher Q-forms.
+7. Validation law: new coins arise only from verified performance.
+8. Price law: market prices arise from nominal value, scarcity, quality, risk, and trust.
+9. Solvency law: health requires nominal and semantic solvency.
+10. Stability law: high coins must be backed by structure, operation, and architecture.</code></pre>
+<hr />
+<h2 id="final-definition">23. Final Definition</h2>
+<p>The Q-Economy is a semantic monetary, credit, and production
+order.</p>
+<p>Its currency consists of Q1 through Q20. The value of each coin is
+its row height. Coins can be added, exchanged, lent, and owed. Debts are
+negative Q-balances. Inverse operations are written as 1/Qi and are not
+debts.</p>
+<p>Production is the transformation of difficulty into structured,
+executable, and reusable forms. Wealth arises when Q1 tasks are
+converted into real effects through Q5 code, Q10 structure, Q13
+services, Q18 architecture, and Q20 modules.</p>
+<p>Crises arise when nominal wealth and semantic solvency diverge.
+Stability arises through validation, open interfaces, good architecture,
+visible debts, and public commons.</p>
+<p><strong>Core sentence:</strong> This economy does not merely pay for
+labor. It pays for the successful transformation of difficulty into
+functioning intelligence.</p>
+</body>
+</html>
