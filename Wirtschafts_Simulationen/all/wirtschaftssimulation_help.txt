@@ -1,0 +1,40 @@
+usage: wirtschaftssimulation_pypy3.py [-h] [--steps STEPS] [--seed SEED]
+                                      [--countries COUNTRIES]
+                                      [--alliances ALLIANCES]
+                                      [--planets PLANETS]
+                                      [--defense-orgs DEFENSE_ORGS]
+                                      [--loop-length LOOP_LENGTH]
+                                      [--scenario {balanced,extraction,militarized,regenerative,volatile}]
+                                      [--report-every REPORT_EVERY] [--quiet]
+                                      [--json-out JSON_OUT]
+                                      [--csv-out CSV_OUT]
+                                      [--monte-carlo MONTE_CARLO]
+                                      [--event-tail EVENT_TAIL]
+
+Umfangreiche abstrakte Wirtschaftssimulation für PyPy3.
+
+options:
+  -h, --help            show this help message and exit
+  --steps STEPS         Simulationsschritte (default: 120)
+  --seed SEED           Zufallsseed (default: 42)
+  --countries COUNTRIES
+                        Anzahl Länder (default: 8)
+  --alliances ALLIANCES
+                        Anzahl Bündnisse (default: 2)
+  --planets PLANETS     Anzahl Planeten (default: 2)
+  --defense-orgs DEFENSE_ORGS
+                        Anzahl Verteidigungsorganisationen (default: 2)
+  --loop-length LOOP_LENGTH
+                        Punkte pro Universums-For-Schleife (default: 20)
+  --scenario {balanced,extraction,militarized,regenerative,volatile}
+                        Szenarioprofil (default: balanced)
+  --report-every REPORT_EVERY
+                        Bericht alle N Schritte (default: 20)
+  --quiet               Keine Zwischenberichte ausgeben (default: False)
+  --json-out JSON_OUT   JSON-Datei für kompletten Zustand (default: None)
+  --csv-out CSV_OUT     CSV-Datei für Zeitreihe (default: None)
+  --monte-carlo MONTE_CARLO
+                        N unabhängige Läufe; >0 aktiviert Monte-Carlo-Modus
+                        (default: 0)
+  --event-tail EVENT_TAIL
+                        Anzahl Ereignisse im finalen Bericht (default: 12)

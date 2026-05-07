@@ -1,0 +1,144 @@
+<h1 id="wirtschaftssimulation-nach-größenordnung">Wirtschaftssimulation
+nach Größenordnung</h1>
+<p>Diese Simulation übersetzt das abstrakte Währungsmodell in ein
+ausführbares PyPy3-Skript. Es nutzt nur die Python-Standardbibliothek
+und ist als Ein-Datei-Programm aufgebaut.</p>
+<h2 id="enthaltene-ebenen">Enthaltene Ebenen</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Größenordnung</th>
+<th>Währung</th>
+<th>Umsetzung im Skript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Land</td>
+<td>Zahl</td>
+<td><code>CountryNumberCurrency</code>: Wert, Inflation, Schulden,
+Kaufkraft</td>
+</tr>
+<tr>
+<td>Mehrere verbündete Länder</td>
+<td>Winkel</td>
+<td><code>AlliedAngleCurrency</code>: Achsen gut/böse und
+beliebt/unbeliebt; Umrechnung über
+<code>tan</code>/<code>cotan</code></td>
+</tr>
+<tr>
+<td>Verteidigungsorganisation</td>
+<td>Raum statt Zahl</td>
+<td><code>DefenseSpaceCurrency</code>: beliebig viele Dimensionen;
+Volumen wird zur Zahl; menschenbezogene Bindungen sind geschützt und
+nicht handelbar</td>
+</tr>
+<tr>
+<td>UN-Assets</td>
+<td>Asset-Währung</td>
+<td><code>UNAssetCurrency</code>: Aktien, Derivate, Fonds, Zertifikate,
+Währungskorb</td>
+</tr>
+<tr>
+<td>Planet</td>
+<td>Fuzzy-Wahrheitsstapel</td>
+<td><code>FuzzyTruthStackCurrency</code>: Werte von −1 bis +1, gestapelt
+zu Zahl</td>
+</tr>
+<tr>
+<td>Sternensystem</td>
+<td>Hierarchie</td>
+<td><code>HierarchyCurrency</code>: zwei Summen plus Multiplikation</td>
+</tr>
+<tr>
+<td>Galaxie</td>
+<td>Topologischer Monoid</td>
+<td><code>GalaxyMonoidCurrency</code>: unäre Operationen wie Invertieren
+und Verdrehen</td>
+</tr>
+<tr>
+<td>Cluster von Galaxien</td>
+<td>Topologische Gruppe</td>
+<td><code>ClusterGroupCurrency</code>: additionsähnliche
+Aggregation/Konkatenation kleinerer Währungen</td>
+</tr>
+<tr>
+<td>Universum</td>
+<td>For-Schleifen-Zirkulation</td>
+<td><code>UniverseLoopCurrency</code>: 20 Punkte pro Schleife; 3
+Durchläufe = 60 Einheiten; plus Kreislaufwirtschaftsschuld/-beitrag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="start">Start</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pypy3</span> wirtschaftssimulation_pypy3.py <span class="at">--steps</span> 120 <span class="at">--seed</span> 42</span></code></pre></div>
+<p>Falls PyPy3 nicht installiert ist, läuft das Skript auch mit CPython
+3:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> wirtschaftssimulation_pypy3.py <span class="at">--steps</span> 120 <span class="at">--seed</span> 42</span></code></pre></div>
+<h2 id="beispiele">Beispiele</h2>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regeneratives Szenario mit JSON- und CSV-Ausgabe</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pypy3</span> wirtschaftssimulation_pypy3.py <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--steps</span> 200 <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--scenario</span> regenerative <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--seed</span> 7 <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--json-out</span> result.json <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--csv-out</span> history.csv</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Volatiles Szenario mit mehr Ländern</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pypy3</span> wirtschaftssimulation_pypy3.py <span class="dt">\</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--steps</span> 300 <span class="dt">\</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--scenario</span> volatile <span class="dt">\</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--countries</span> 14 <span class="dt">\</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--alliances</span> 4 <span class="dt">\</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--planets</span> 3</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Monte-Carlo-Modus</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ex">pypy3</span> wirtschaftssimulation_pypy3.py <span class="dt">\</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">--monte-carlo</span> 25 <span class="dt">\</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--steps</span> 100 <span class="dt">\</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--scenario</span> extraction <span class="dt">\</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--json-out</span> monte_carlo.json</span></code></pre></div>
+<h2 id="szenarien">Szenarien</h2>
+<ul>
+<li><code>balanced</code>: neutrale Ausgangslage</li>
+<li><code>regenerative</code>: höhere Kreislaufpolitik, mehr
+Wahrheits-/Governance-Bias, geringere Volatilität</li>
+<li><code>extraction</code>: rohstofflastig, geringere Kreislaufpolitik,
+mehr ökologische Schuld</li>
+<li><code>militarized</code>: stärkere Verteidigungsräume, höhere
+Spannungs-/Volatilitätslast</li>
+<li><code>volatile</code>: höhere Asset-Volatilität und mehr
+Schocks</li>
+</ul>
+<h2 id="zentrale-messwerte">Zentrale Messwerte</h2>
+<ul>
+<li><code>total_country_number</code>: Summe der Zahlenwährungen aller
+Länder</li>
+<li><code>avg_alliance_tan_value</code>: Winkelwährung der Bündnisse als
+tan-Zahl</li>
+<li><code>defense_volume_number</code>: Raumwährung über Volumen in Zahl
+umgerechnet</li>
+<li><code>protected_human_agency_links</code>: geschützte, nicht
+handelbare menschenbezogene Verantwortungs-/Agency-Links</li>
+<li><code>un_asset_value</code>: Gesamtwert der UN-Assets</li>
+<li><code>avg_truth_mean</code>: mittlerer Wahrheitswert der
+Planeten</li>
+<li><code>hierarchy_number</code>: Sternensystem-Hierarchie als
+Zahl</li>
+<li><code>cluster_number</code>: additionsähnliche Gruppenzahl des
+Galaxienclusters</li>
+<li><code>universe_units</code>: For-Schleifen-Einheiten, bei Länge 20
+also 60 nach 3 vollständigen Durchläufen</li>
+<li><code>universe_stacked_value</code>: Schleifeneinheiten +
+Kreislaufbeitrag − Kreislaufschuld</li>
+<li><code>systemic_risk</code>: verdichtetes Risikosignal aus Inflation,
+Schuldenstress, Lügenlast, Kreislaufschuld und Verteidigungsdruck</li>
+</ul>
