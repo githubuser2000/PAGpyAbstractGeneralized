@@ -1,0 +1,1780 @@
+===================================================================================================
+╔═════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                  Relationale Währungsökonomie — ultra-bunte Unicode-Simulation                  ║
+║             Währung erscheint als strukturierte Relation, nicht als einzelne Zahl.              ║
+╚═════════════════════════════════════════════════════════════════════════════════════════════════╝
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                            Überblick                                            │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieses Programm führt je Simulationsteil mehrere Szenarien aus: geschützt, offen, spekulativ   │
+│  und dunkel. Die Punktwerte sind veranschaulichende Modellwerte, keine empirischen Tatsachen.   │
+│  Ihr Zweck ist, die Struktur sichtbar zu machen: Relationstiefe erzeugt wirtschaftliche         │
+│  Stärke, Skalarumrechnung erzeugt klassische Marktkompatibilität, und schwache Grenzen          │
+│  erzeugen Herrschaftsrisiko.                                                                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 15: Skalarbrücke: Relationstabelle wird zu einer Marktzahl
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Relationstabelle wird in eine einzelne marktäquivalente Zahl umgerechnet, indem jede       │
+│  Zelle mit einem Zeilenfaktor und einem Spaltenfaktor multipliziert und danach alles summiert   │
+│  wird.                                                                                          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist wichtig, weil genau sichtbar wird, wie das stärkere relationale System zurück in eine  │
+│  klassische Marktwirtschaft übersetzt werden kann, ohne so zu tun, als sei die ursprüngliche    │
+│  Tabelle schon nur eine Zahl gewesen.                                                           │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 15.A: Zelle × Zeilenfaktor × Spaltenfaktor
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine einzelne Relationszelle wird als XIJ × RFA × CFA multipliziert; die SUM über alle Zellen  │
+│  wird zu MEV.                                                                                   │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist die genaue Brücke zurück zur klassischen Marktzahl: Die Tabelle bleibt reich, aber     │
+│  der Markt bekommt einen berechenbaren Wert.                                                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                       Bedeutung                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ XIJ    │ Zellenwert: der rohe numerische Inhalt einer Relationszelle, bevor Faktoren angewendet │
+│        │ werden.                                                                                │
+│ RFA    │ Zeilenfaktor: der Multiplikator der Zeilenart, etwa Arbeit, Daten, Ökologie oder       │
+│        │ Rechtsgültigkeit.                                                                      │
+│ CFA    │ Spaltenfaktor: der Multiplikator der Spaltenart, etwa Menge, Risiko oder               │
+│        │ Übertragbarkeit.                                                                       │
+│ SUM    │ Summenregel: Alle gewichteten Zellbeiträge werden zu einer marktäquivalenten Zahl      │
+│        │ addiert.                                                                               │
+│ MEV    │ Marktäquivalenter Wert: die einzelne Zahl nach der Umrechnung der relationalen         │
+│        │ Tabelle.                                                                               │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ Pkt     │ Modellpunkte              │
+│ fac     │ dimensionsloser Faktor    │
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+╔══════════════════════════════════════════════════════════╗
+║               MEV = SUM( XIJ × RFA × CFA )               ║
+╠══════════════════════════════════════════════════════════╣
+║ Beispiel: XIJ   39.1 Pkt × RFA 1.59 fac × CFA 1.57 fac  ║
+║ Ergebnis:     97.6 MEU für eine Zelle                   ║
+╚══════════════════════════════════════════════════════════╝
+Relationstabelle ─► gewichtete Zellen ─► eine Marktzahl
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2452 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 98 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.     │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 15.B: Beitrags-Heatmap
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Heatmap zeigt, welche Zeilen-Spalten-Schnittpunkte die größten absoluten gewichteten       │
+│  Beiträge erzeugen.                                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil die Endzahl versteckt, woher ihre Kraft kam.                          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────┐
+│ Kürzel │                       Bedeutung                       │
+├────────┼───────────────────────────────────────────────────────┤
+│ CON    │ Beitrag: das gewichtete Zellergebnis XIJ × RFA × CFA. │
+│ LAB    │ Arbeits- und Dienstleistungszeile                     │
+│ CAP    │ Kapazitäts- und Anlagenzeile                          │
+│ DAT    │ Daten- und Nachweiszeile                              │
+│ ECO    │ Umweltzeile                                           │
+│ LGL    │ Rechtsgültigkeitszeile                                │
+│ HUM    │ menschliche Abhängigkeitszeile                        │
+│ QNT    │ Mengenspalte                                          │
+│ QLT    │ Qualitätsspalte                                       │
+│ SCY    │ Knappheitsspalte                                      │
+│ RSK    │ Risikokostenspalte                                    │
+│ TR     │ Übertragbarkeitsspalte                                │
+│ DG     │ Würdeschutzspalte                                     │
+│ XIJ    │ Zellenwert vor den Faktoren.                          │
+│ RFA    │ Zeilenfaktor.                                         │
+│ CFA    │ Spaltenfaktor.                                        │
+└────────┴───────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ fac     │ dimensionsloser Faktor    │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+CON-Hitze: |XIJ × RFA × CFA|
+          QNT        QLT        SCY        RSK         TR         DG    
+   LAB               ...                              ...        ...    
+   CAP                                                           ...    
+   DAT                                                                  
+   ECO               ...                              ...        ...    
+   LGL               ...                              ...        :::    
+   HUM                                                                  
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die größten Zellen zeigen: MEV entsteht nicht durch Zeilenzählen, sondern durch gewichtete     │
+│  Struktur.                                                                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 15.C: Szenario-Skalarbalken
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Vier Szenarien werden in MEV umgerechnet, während ILS und DGR neben der Zahl sichtbar          │
+│  bleiben.                                                                                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das verhindert, dass die Umrechnung so tut, als sei die Zahl allein die ganze Wahrheit.        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                Bedeutung                                 │
+├────────┼──────────────────────────────────────────────────────────────────────────┤
+│ MEV    │ Marktäquivalenter Wert nach der Umrechnung.                              │
+│ ILS    │ Informationsverlust nach der Verdichtung der Tabelle.                    │
+│ DGR    │ Würderisiko, wenn menschliche Abhängigkeitszeilen Marktgewicht erhalten. │
+└────────┴──────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+MEV-Balken übersetzen Relationstabellen in numerische Marktäquivalente
+Geschützt     MEV ##################################     2452 MEU   ILS  19.4 Pkt   DGR   0.0 Pkt
+Offen         MEV ###############################...     2260 MEU   ILS  52.1 Pkt   DGR  25.7 Pkt
+Spekulativ    MEV ##############################....     2186 MEU   ILS  79.8 Pkt   DGR  68.3 Pkt
+Dunkel        MEV ###############################...     2262 MEU   ILS  97.8 Pkt   DGR 100.0 Pkt
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2452 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 98 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.     │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 16: Zeilen- und Spaltenfaktoren als politökonomische Gewichte
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil variiert Zeilenfaktoren und Spaltenfaktoren, die Relationszellen in                │
+│  marktäquivalenten Wert verwandeln.                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil derjenige, der die Faktoren setzt, kontrolliert, wie die relationale  │
+│  Wirtschaft zur Preiswirtschaft wird.                                                           │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 16.A: Faktorenleitern
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Jede Zeilenart erhält RFA und jede Spaltenart erhält CFA.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil Faktorsetzung entscheidet, was der klassische Markt belohnt.          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────┐
+│ Kürzel │                       Bedeutung                       │
+├────────┼───────────────────────────────────────────────────────┤
+│ CON    │ Beitrag: das gewichtete Zellergebnis XIJ × RFA × CFA. │
+│ LAB    │ Arbeits- und Dienstleistungszeile                     │
+│ CAP    │ Kapazitäts- und Anlagenzeile                          │
+│ DAT    │ Daten- und Nachweiszeile                              │
+│ ECO    │ Umweltzeile                                           │
+│ LGL    │ Rechtsgültigkeitszeile                                │
+│ HUM    │ menschliche Abhängigkeitszeile                        │
+│ QNT    │ Mengenspalte                                          │
+│ QLT    │ Qualitätsspalte                                       │
+│ SCY    │ Knappheitsspalte                                      │
+│ RSK    │ Risikokostenspalte                                    │
+│ TR     │ Übertragbarkeitsspalte                                │
+│ DG     │ Würdeschutzspalte                                     │
+│ RFA    │ Zeilenfaktor als zeilenseitiger Multiplikator.        │
+│ CFA    │ Spaltenfaktor als spaltenseitiger Multiplikator.      │
+└────────┴───────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬────────────────────────┐
+│ Einheit │       Bedeutung        │
+├─────────┼────────────────────────┤
+│ fac     │ dimensionsloser Faktor │
+└─────────┴────────────────────────┘
+Bunte Unicode-Grafik
+Zeilenfaktoren
+┌─────┬───────────────────────────────────┬──────────┬────────────────┐
+│ RFA │               Zeile               │   fac    │                │
+├─────┼───────────────────────────────────┼──────────┼────────────────┤
+│ LAB │ Arbeits- und Dienstleistungszeile │ 1.26 fac │ ########...... │
+│ CAP │ Kapazitäts- und Anlagenzeile      │ 1.64 fac │ ##########.... │
+│ DAT │ Daten- und Nachweiszeile          │ 1.52 fac │ ##########.... │
+│ ECO │ Umweltzeile                       │ 1.17 fac │ #######....... │
+│ LGL │ Rechtsgültigkeitszeile            │ 1.49 fac │ ##########.... │
+│ HUM │ menschliche Abhängigkeitszeile    │ 0.76 fac │ #####......... │
+└─────┴───────────────────────────────────┴──────────┴────────────────┘
+Spaltenfaktoren
+┌─────┬────────────────────────┬───────────┬────────────────┐
+│ CFA │         Spalte         │    fac    │                │
+├─────┼────────────────────────┼───────────┼────────────────┤
+│ QNT │ Mengenspalte           │  1.36 fac │ ###########... │
+│ QLT │ Qualitätsspalte        │  1.36 fac │ ###########... │
+│ SCY │ Knappheitsspalte       │  1.25 fac │ ##########.... │
+│ RSK │ Risikokostenspalte     │ -0.71 fac │ #####......... │
+│ TR  │ Übertragbarkeitsspalte │  1.56 fac │ ############.. │
+│ DG  │ Würdeschutzspalte      │  1.14 fac │ #########..... │
+└─────┴────────────────────────┴───────────┴────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höhere Faktoren erschaffen keine Wirklichkeit; sie wählen aus, welche Relationen im            │
+│  Zahlenmarkt verstärkt werden.                                                                  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 16.B: Beitrags-Wasserfall
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Wasserfall addiert positive und negative Zeilenbeiträge zu einem MEV.                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das macht sichtbar, dass Lasten und Risiken den umgerechneten Marktwert senken können.         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬─────────────────────────────────────────┐
+│ Kürzel │                Bedeutung                │
+├────────┼─────────────────────────────────────────┤
+│ CON    │ Gewichteter Beitrag einer Zeile zu MEV. │
+│ SUM    │ Gesamtsumme aller Zeilenbeiträge.       │
+└────────┴─────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+CON-Wasserfall
+LAB  + ######################..........      317 MEU
+CAP  + ###############################.      446 MEU
+DAT  + ################################      460 MEU
+ECO  + ####################............      281 MEU
+LGL  + #############################...      413 MEU
+HUM  + ################................      226 MEU
+SUM  =     2144 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Offen wird zu 2144 MEU; negative Zeilen sind keine Fehler, sondern in die Zahl mitgenommene    │
+│  Kosten.                                                                                        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 16.C: Sensitivitäts-Tornado
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Tornado ordnet, welche Faktoren MEV am stärksten bewegen.                                  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil die Formel genau dort politisch wird, wo Sensitivität hoch ist.       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────┐
+│ Kürzel │                           Bedeutung                            │
+├────────┼────────────────────────────────────────────────────────────────┤
+│ SEN    │ Sensitivität: wie stark eine Faktoränderung MEV bewegen würde. │
+│ RFA    │ Zeilenfaktor.                                                  │
+│ CFA    │ Spaltenfaktor.                                                 │
+│ MEV    │ Marktäquivalenter Wert.                                        │
+└────────┴────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+SEN-Tornado: welcher Faktor MEV am stärksten bewegt
+RFA-LGL  ##################################     800 MEU
+CFA-DG   #################################.     783 MEU
+RFA-ECO  #######################...........     537 MEU
+CFA-TR   ######################............     529 MEU
+CFA-QLT  ######################............     512 MEU
+RFA-LAB  #####################.............     489 MEU
+RFA-CAP  ################..................     388 MEU
+RFA-DAT  ##############....................     336 MEU
+CFA-QNT  ##############....................     321 MEU
+CFA-SCY  #############.....................     301 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2634 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 17: Informationsverlust bei der Skalarumrechnung
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil verdichtet reiche Relationsbündel zu einem einzelnen Marktwert und misst, was      │
+│  dabei verschwindet.                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das zeigt den Hauptkonflikt: Umrechenbarkeit erzeugt Liquidität, aber die einzelne Zahl        │
+│  versteckt Struktur.                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 17.A: Verdichtungstrichter
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine breite Relationstabelle wird durch die Umrechnungsformel zu MEV verdichtet.               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil eine klassische Marktzahl gerade deshalb nützlich ist, weil sie       │
+│  Details vergisst.                                                                              │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬─────────────────────────────────────────────────────┐
+│ Kürzel │                      Bedeutung                      │
+├────────┼─────────────────────────────────────────────────────┤
+│ MEV    │ Einzelner marktäquivalenter Wert durch Verdichtung. │
+│ ILS    │ Informationsverlustwert.                            │
+│ DGR    │ Würderisikowert.                                    │
+└────────┴─────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+reiche Relationstabelle
+   ╲ Rechte │ Pflichten │ Risiko │ Zeit │ Nachweis │ Würde ╱
+    ╲_____________________________________________________╱
+                         ▼
+                    MEV    2438 MEU
+                         ▼
+       nach Verdichtung versteckt: ILS  67.5 Pkt | DGR  48.8 Pkt
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2686 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 17.B: Umrechnungstabelle
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Tabelle hält MEV, ILS und DGR nebeneinander sichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, damit die Skalarzahl keine falsche moralische Vereinfachung wird.          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────┐
+│ Kürzel │                            Bedeutung                             │
+├────────┼──────────────────────────────────────────────────────────────────┤
+│ MEV    │ Marktäquivalenter Wert.                                          │
+│ ILS    │ Verlorene Strukturinformation.                                   │
+│ DGR    │ Risiko, Menschen als bepreiste Abhängigkeitsbündel zu behandeln. │
+└────────┴──────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+Umrechnungs-Szenarien
+┌────────────┬──────────┬──────────────────┬──────────────────┬─────────────────┬─────────────────┐
+│  Szenario  │   MEV    │       ILS        │       DGR        │       CNV       │       NBM       │
+├────────────┼──────────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┤
+│ Geschützt  │ 2686 MEU │ [###.........]   │ [............]   │ [############]  │ [############]  │
+│            │          │ 27               │ 0                │ 100             │ 100             │
+│ Offen      │ 2275 MEU │ [#######.....]   │ [###.........]   │ [############]  │ [############]  │
+│            │          │ 58               │ 28               │ 100             │ 100             │
+│ Spekulativ │ 2479 MEU │ [##########..]   │ [########....]   │ [###########.]  │ [############]  │
+│            │          │ 84               │ 67               │ 95              │ 100             │
+│ Dunkel     │ 2313 MEU │ [############]   │ [############]   │ [#########...]  │ [###########.]  │
+│            │          │ 100              │ 100              │ 74              │ 94              │
+└────────────┴──────────┴──────────────────┴──────────────────┴─────────────────┴─────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2686 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 17.C: Sichtbarkeits-Heatmap
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Heatmap stellt verbleibende Sichtbarkeit, Verlust und umgerechneten Wert gegenüber.        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das zeigt, warum das relationale System stärker ist: Es kann die versteckten Spalten sichtbar  │
+│  halten, obwohl eine Zahl erzeugt wird.                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬─────────────────────────────────────────┐
+│ Kürzel │                Bedeutung                │
+├────────┼─────────────────────────────────────────┤
+│ VIS    │ Sichtbare Struktur nach der Umrechnung. │
+│ ILS    │ Informationsverlustwert.                │
+│ MEV    │ Marktäquivalenter Wert.                 │
+└────────┴─────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ Pkt     │ Modellpunkte              │
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+VIS/ILS/MEV
+              VIS        ILS        MEV    
+ Geschützt    ***        :::        @@@    
+     Offen    ---        +++        %%%    
+Spekulativ    ...        ###        %%%    
+    Dunkel               @@@        %%%    
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2686 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 18: Arbitrage zwischen Relationsmarkt und Zahlenmarkt
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil simuliert Spanne, Arbitrage und stabilisierende Unterbrecher zwischen              │
+│  Relationsbündeln und numerischen Marktäquivalenten.                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist nötig, weil Händler Unterschiede zwischen relationalem Wert und numerischem Preis      │
+│  ausnutzen werden, sobald Umrechnung möglich ist.                                               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 18.A: Arbitrage-Schleife
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ein Händler kann zwischen Relationsbündeln und Zahlenpreismärkten wechseln, wenn Spannen       │
+│  auftreten.                                                                                     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil Umrechenbarkeit immer eine Brücke erzeugt, und jede Brücke erzeugt    │
+│  Arbitrage.                                                                                     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                 Bedeutung                                  │
+├────────┼────────────────────────────────────────────────────────────────────────────┤
+│ SPY    │ Spannenertrag: Gewinn aus Differenz zwischen Relationswert und Preiswert.  │
+│ ARB    │ Arbitrage-Schleife: wiederholte Umrechnung zur Ausnutzung von Preislücken. │
+│ SPR    │ Spanne zwischen MEV und Marktpreis.                                        │
+│ MEV    │ Marktäquivalenter Wert.                                                    │
+└────────┴────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+╭────────────╮      SPY       ╭────────────╮
+│ Relation   │ ────────────► │ Preis      │
+│ Bündel     │ ◄──────────── │ Markt      │
+╰────────────╯      ARB       ╰────────────╯
+Geschützt     SPR ############################    -483 MEU
+Offen         SPR ###############.............    -257 MEU
+Spekulativ    SPR ######......................    -108 MEU
+Dunkel        SPR ##########..................     176 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2803 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 99 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.     │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 18.B: Spannenrisiko-Tabelle
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Derselbe umgerechnete Wert kann profitabel sein und zugleich versteckten Verlust und           │
+│  Würderisiko tragen.                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das zeigt den Preis der Stärke: Eine stärkere Brücke macht auch Ausbeutung schneller.          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────┐
+│ Kürzel │          Bedeutung           │
+├────────┼──────────────────────────────┤
+│ MEV    │ Umgerechneter Relationswert. │
+│ ILS    │ Informationsverlustwert.     │
+│ DGR    │ Würderisikowert.             │
+└────────┴──────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+ARB-Risiko
+┌────────────┬──────────┬──────────────────┬──────────────────┬─────────────────┬─────────────────┐
+│  Szenario  │   MEV    │       ILS        │       DGR        │       CNV       │       NBM       │
+├────────────┼──────────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┤
+│ Geschützt  │ 2803 MEU │ [###.........]   │ [............]   │ [############]  │ [############]  │
+│            │          │ 24               │ 0                │ 100             │ 100             │
+│ Offen      │ 2320 MEU │ [#######.....]   │ [###.........]   │ [############]  │ [############]  │
+│            │          │ 55               │ 26               │ 100             │ 100             │
+│ Spekulativ │ 2453 MEU │ [##########..]   │ [########....]   │ [###########.]  │ [############]  │
+│            │          │ 79               │ 67               │ 96              │ 100             │
+│ Dunkel     │ 2404 MEU │ [############]   │ [############]   │ [#########...]  │ [###########.]  │
+│            │          │ 99               │ 100              │ 76              │ 96              │
+└────────────┴──────────┴──────────────────┴──────────────────┴─────────────────┴─────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2803 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 99 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.     │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 18.C: Schutzunterbrecher
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Schutzunterbrecher stoppt Umrechnung, wenn Spannenhandel unsicher wird.                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil keine ernsthafte Skalarbrücke ohne öffentliche Unterbrechungsregeln   │
+│  überlebt.                                                                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                   Bedeutung                                    │
+├────────┼────────────────────────────────────────────────────────────────────────────────┤
+│ CBR    │ Schutzunterbrecher: öffentliche Unterbrechung unsicherer Umrechnungsschleifen. │
+│ SPR    │ Marktspanne.                                                                   │
+│ QFG    │ Qualitätsboden-Tor.                                                            │
+└────────┴────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+SPR hoch ──► CBR ──► QFG-Prüfung ──► Öffnung oder Quarantäne
+Geschützt     CBR [#...........]  11
+Offen         CBR [#####.......]  39
+Spekulativ    CBR [#########...]  73
+Dunkel        CBR [############]  99
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hoher CBR bedeutet, dass die Marktzahl schneller läuft als rechtliche und moralische Prüfung.  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 19: Boom durch Skalarisierung und Kreditausweitung
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil zeigt, wie viel mehr Bündel akzeptiert werden, sobald für sie ein Zahlenwert       │
+│  berechnet werden kann.                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Boom wird simuliert, weil die Umrechnungsregel Liquidität, Sicherheiten und Kredit aus     │
+│  vorher schwer handelbaren Relationen erzeugt.                                                  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 19.A: Kreditmultiplikator aus Umrechnung
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Umgerechneter MEV wird zur Sicherheit, und Sicherheit wird zur Kreditkapazität.                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist die Boommaschine: Früher komplexe Bündel werden für Kreditgeber akzeptabel.            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                       Bedeutung                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ SCM    │ Skalarumrechnungsmechanismus: die Regel, die die Relationstabelle in eine Zahl         │
+│        │ verwandelt.                                                                            │
+│ COL    │ Sicherheit, die aus umgerechnetem Wert entsteht.                                       │
+│ MUL    │ Kreditmultiplikator.                                                                   │
+│ CRD    │ Kreditkapazität.                                                                       │
+│ MEV    │ Marktäquivalenter Wert.                                                                │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ fac     │ dimensionsloser Faktor    │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+SCM macht aus MEV Sicherheiten und Kreditgeschwindigkeit
+Geschützt     COL    2587 MEU × MUL 3.02 fac = CRD     7819 MEU
+Offen         COL    2429 MEU × MUL 2.76 fac = CRD     6698 MEU
+Spekulativ    COL    2346 MEU × MUL 2.41 fac = CRD     5665 MEU
+Dunkel        COL    1925 MEU × MUL 2.10 fac = CRD     4044 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2723 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 19.B: Boomfluss
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das Flussbild verbindet Umrechenbarkeit, Transaktionen und Zahlenboom.                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Es zeigt, warum die Skalarbrücke eine bloße Marktwirtschaft übertreffen kann: Mehr             │
+│  Relationswerte werden liquide.                                                                 │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────┐
+│ Kürzel │                Bedeutung                 │
+├────────┼──────────────────────────────────────────┤
+│ NBM    │ Zahlenboom-Messer nach Skalarumrechnung. │
+│ CNV    │ Umrechenbarkeitswert.                    │
+│ TXF    │ Transaktionsfluss durch die Brücke.      │
+└────────┴──────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────┐
+│ Einheit │   Bedeutung   │
+├─────────┼───────────────┤
+│ tx      │ Transaktionen │
+│ Pkt     │ Modellpunkte  │
+└─────────┴───────────────┘
+Bunte Unicode-Grafik
+CNV öffnet mehr TXF; NBM steigt, bis Risiko die Prüfung überlastet
+Geschützt     CNV [############] 100 TXF 76 tx NBM 100.0 Pkt
+Offen         CNV [############] 100 TXF 88 tx NBM 100.0 Pkt
+Spekulativ    CNV [###########.]  96 TXF 82 tx NBM 100.0 Pkt
+Dunkel        CNV [#########...]  75 TXF 73 tx NBM  96.0 Pkt
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2723 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 19.C: Boom-Fragilität
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieselbe Brücke, die Kredit ausweitet, bündelt auch Fragilität.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist der negative Preis des Wirtschaftsbooms.                                               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────┐
+│ Kürzel │                      Bedeutung                       │
+├────────┼──────────────────────────────────────────────────────┤
+│ FRG    │ Fragilitätswert aus Kredit, Verlust und Würderisiko. │
+│ CRD    │ Kreditkapazität.                                     │
+│ ILS    │ Informationsverlustwert.                             │
+│ DGR    │ Würderisikowert.                                     │
+└────────┴──────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+CRD + ILS + DGR ──► FRG
+Geschützt     FRG [####........]  34
+Offen         FRG [#######.....]  59
+Spekulativ    FRG [##########..]  84
+Dunkel        FRG [############]  99
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der stärkste Boom ist nicht automatisch das beste Szenario; er kann auch am leichtesten        │
+│  brechen.                                                                                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 20: Amoralische Umrechnung menschlicher Abhängigkeit
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil modelliert bewusst den gefährlichen Fall, in dem Arbeit, Schuld, Wohnen und        │
+│  Reputation Marktfaktoren erhalten.                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, um die moralische Gefahr sichtbar zu machen: Die Formel kann Herrschaft    │
+│  hinter einem sauberen Zahlenwert verstecken.                                                   │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 20.A: Menschenkontroll-Stapel
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Der Stapel zeigt, wie mehrere legal wirkende Zeilen zusammen praktische Kontrolle über eine    │
+│  Person ergeben können.                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil die Formel Herrschaft wie gewöhnlichen Wert aussehen lassen kann.     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                       Bedeutung                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ HCP    │ Menschenkontrollportfolio: toxische Stapelung von Arbeit, Schuld, Wohnen, Daten und    │
+│        │ Reputation.                                                                            │
+│ DAT    │ Datenkontrollzeile.                                                                    │
+│ DEB    │ Schuldkontrollzeile.                                                                   │
+│ WRK    │ Arbeitsabhängigkeitszeile.                                                             │
+│ HOU    │ Wohnabhängigkeitszeile.                                                                │
+│ DGR    │ Würderisikowert.                                                                       │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────────┐
+│ Einheit │    Bedeutung     │
+├─────────┼──────────────────┤
+│ Pkt     │ Modellpunkte     │
+│ %       │ relativer Anteil │
+└─────────┴──────────────────┘
+Bunte Unicode-Grafik
+HCP-Stapel: viele Zeilen erzeugen praktische Kontrolle
+┌──────────────┐
+│ DAT  96.0%    │
+├──────────────┤
+│ DEB  86.0%    │
+├──────────────┤
+│ WRK  12.0%    │
+├──────────────┤
+│ HOU 100.0%    │
+├──────────────┤
+│ DGR 100.0 Pkt │
+└──────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2429 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 20.B: Rechtliche Firewall
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Firewall blockiert Umrechnung, wenn ein Menschenkontrollbündel erkannt wird.               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Deshalb ist staatliches Recht in diesem System nicht optional.                                 │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                       Bedeutung                                        │
+├────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ NTR    │ Nichtübertragbarkeitsregel: menschliche Abhängigkeit darf nicht als ganzes             │
+│        │ Kontrollbündel verkauft werden.                                                        │
+│ SPL    │ Spaltungsregel: Arbeit, Schuld, Wohnen und Daten müssen rechtlich getrennt werden.     │
+│ BAN    │ Verbotstor für verbotene Relationszeilen.                                              │
+│ DGR    │ Würderisikowert.                                                                       │
+└────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+HCP ──► NTR/SPL/BAN ──► nur erlaubte Arbeitsrelation
+Geschützt     DGR [............]   0  guard [############] 100
+Offen         DGR [#####.......]  42  guard [#########...]  74
+Spekulativ    DGR [##########..]  81  guard [###.........]  28
+Dunkel        DGR [############] 100  guard [............]   4
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das dunkle Szenario beweist die Gefahr: Ohne NTR, SPL und BAN kann der Markt die Person        │
+│  indirekt handeln.                                                                              │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 20.C: Moralische Kosten neben dem Preis
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Tabelle weigert sich, MEV ohne DGR und ILS zu zeigen.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dadurch wird die amoralische Seite sichtbar, statt dass die Skalarzahl sie reinwäscht.         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────┐
+│ Kürzel │        Bedeutung         │
+├────────┼──────────────────────────┤
+│ MEV    │ Marktäquivalenter Wert.  │
+│ DGR    │ Würderisikowert.         │
+│ ILS    │ Informationsverlustwert. │
+└────────┴──────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+Umrechnungs-Szenarien
+┌────────────┬──────────┬──────────────────┬──────────────────┬─────────────────┬─────────────────┐
+│  Szenario  │   MEV    │       ILS        │       DGR        │       CNV       │       NBM       │
+├────────────┼──────────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┤
+│ Geschützt  │ 2429 MEU │ [###.........]   │ [............]   │ [############]  │ [############]  │
+│            │          │ 28               │ 0                │ 100             │ 100             │
+│ Offen      │ 2191 MEU │ [########....]   │ [#####.......]   │ [############]  │ [###########.]  │
+│            │          │ 63               │ 42               │ 100             │ 95              │
+│ Spekulativ │ 2312 MEU │ [###########.]   │ [##########..]   │ [###########.]  │ [###########.]  │
+│            │          │ 88               │ 81               │ 90              │ 94              │
+│ Dunkel     │ 2310 MEU │ [############]   │ [############]   │ [#########...]  │ [###########.]  │
+│            │          │ 100              │ 100              │ 74              │ 92              │
+└────────────┴──────────┴──────────────────┴──────────────────┴─────────────────┴─────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2429 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 21: Regierung, Steuerakzeptanz und Zentralbank-Skalartore
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil schleust umgerechnete Werte durch öffentliche Anerkennung, Steuerakzeptanz und     │
+│  Qualitätsböden.                                                                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine nicht numerische Währung, die in eine Zahl umgerechnet werden kann, braucht trotzdem      │
+│  staatliche Tore; sonst bekommen schlechte Bündel gute Preise.                                  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 21.A: Staatliches Skalartor
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Umgerechnete Werte gehen durch ein öffentliches Qualitätstor, bevor Steuer- oder               │
+│  Clearingakzeptanz möglich ist.                                                                 │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil eine marktäquivalente Zahl nicht automatisch ein legitimes            │
+│  Zahlungsobjekt ist.                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                                    Bedeutung                                     │
+├────────┼──────────────────────────────────────────────────────────────────────────────────┤
+│ QFG    │ Qualitätsboden-Tor: Mindestwert, bevor ein umgerechnetes Bündel akzeptiert wird. │
+│ TAX    │ Steuerakzeptanz-Pfad.                                                            │
+│ CLR    │ Clearing-Pfad für sichere umgerechnete Werte.                                    │
+│ QRT    │ Quarantänepfad für toxische Zeilen.                                              │
+│ NTR    │ Nichtübertragbarkeitsregel für Menschengrenzen.                                  │
+│ MEV    │ Marktäquivalenter Wert.                                                          │
+└────────┴──────────────────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+eingehender MEV ──► QFG ──► TAX / CLR
+                 │
+                 ├──► QRT für toxische Zeilen
+                 │
+                 └──► NTR, wenn Menschengrenze berührt wird
+Geschützt     QFG [################] 100
+Offen         QFG [################] 100
+Spekulativ    QFG [##############..]  90
+Dunkel        QFG [########........]  47
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2801 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 96 Pkt. Höchster DGR: Dunkel mit 96 Pkt. Bestes Gleichgewicht: Geschützt. Die  │
+│  Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis       │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 21.B: Steuerakzeptanz-Szenarien
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Szenariotabelle zeigt, welche umgerechneten Bündel numerisch nützlich und öffentlich       │
+│  akzeptabel sind.                                                                               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ein Staat kann MEV für Steuern nur akzeptieren, wenn Qualität, Rechtmäßigkeit und              │
+│  Würdegrenzen die Umrechnung überstehen.                                                        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────┐
+│ Kürzel │        Bedeutung         │
+├────────┼──────────────────────────┤
+│ MEV    │ Marktäquivalenter Wert.  │
+│ CNV    │ Umrechenbarkeitswert.    │
+│ DGR    │ Würderisikowert.         │
+│ ILS    │ Informationsverlustwert. │
+└────────┴──────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+TAX-Akzeptanz
+┌────────────┬──────────┬──────────────────┬──────────────────┬─────────────────┬─────────────────┐
+│  Szenario  │   MEV    │       ILS        │       DGR        │       CNV       │       NBM       │
+├────────────┼──────────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┤
+│ Geschützt  │ 2801 MEU │ [##..........]   │ [............]   │ [############]  │ [############]  │
+│            │          │ 18               │ 0                │ 100             │ 100             │
+│ Offen      │ 2441 MEU │ [######......]   │ [###.........]   │ [############]  │ [############]  │
+│            │          │ 48               │ 21               │ 100             │ 100             │
+│ Spekulativ │ 2410 MEU │ [#########...]   │ [#######.....]   │ [############]  │ [############]  │
+│            │          │ 72               │ 61               │ 100             │ 100             │
+│ Dunkel     │ 2419 MEU │ [############]   │ [############]   │ [##########..]  │ [###########.]  │
+│            │          │ 96               │ 96               │ 80              │ 96              │
+└────────────┴──────────┴──────────────────┴──────────────────┴─────────────────┴─────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2801 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 96 Pkt. Höchster DGR: Dunkel mit 96 Pkt. Bestes Gleichgewicht: Geschützt. Die  │
+│  Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis       │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 21.C: Quarantäne-Heatmap
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Heatmap zeigt Freigabe, Quarantänedruck und Umrechenbarkeit nebeneinander.                 │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil öffentliche Institutionen nützliche Umrechnung von gefährlicher       │
+│  Reinwaschung unterscheiden müssen.                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────┐
+│ Kürzel │                   Bedeutung                    │
+├────────┼────────────────────────────────────────────────┤
+│ QRT    │ Quarantäneintensität für unsichere Umrechnung. │
+│ QFG    │ Qualitätsboden-Tor.                            │
+│ CLR    │ Clearing-Akzeptanz.                            │
+└────────┴────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+QFG/QRT/CLR
+              QFG        QRT        CLR    
+ Geschützt    @@@                   @@@    
+     Offen    %%%        ---        @@@    
+Spekulativ    ###        ###        %%%    
+    Dunkel    ===        @@@        ###    
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Starker QRT ist nicht marktfeindlich; er verhindert, dass schlechte Relationen gute Preise     │
+│  erhalten.                                                                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 22: Ökologische und soziale Kostenzellen in der Umrechnungsmatrix
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil fügt negative Zellen für Emissionen, soziale Belastung und nicht reparierbare      │
+│  Grenzen in die Umrechnungsmatrix ein.                                                          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil ein stärkeres System nicht nur mehr Handel schaffen soll, sondern     │
+│  Kosten mittragen muss, die klassische Preise oft verstecken.                                   │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 22.A: Negative Umweltzellen
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ökologische und soziale Lasten gehen als negative Zellen in dieselbe Multiplikationsregel      │
+│  ein.                                                                                           │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil ein stärkeres System nicht zulassen darf, dass die Skalarbrücke       │
+│  externe Kosten löscht.                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────────────────┐
+│ Kürzel │                               Bedeutung                               │
+├────────┼───────────────────────────────────────────────────────────────────────┤
+│ NEG    │ Negative Zelle: eine Kostenzelle, die vom umgerechneten Wert abzieht. │
+│ GRS    │ Positiver Bruttobeitrag vor Kosten.                                   │
+│ NET    │ Netto-Marktäquivalent nach Kosten.                                    │
+│ EMS    │ Emissionslast.                                                        │
+│ MEV    │ Marktäquivalenter Wert.                                               │
+└────────┴───────────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ kgCO2   │ Emissionslast             │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+NEG-Zellen senken MEV, bevor der Preis akzeptiert wird
+Geschützt     GRS    2484 MEU - NEG    446 MEU = NET    2484 MEU  EMS  421 kgCO2
+Offen         GRS    2160 MEU - NEG    670 MEU = NET    2160 MEU  EMS  554 kgCO2
+Spekulativ    GRS    2219 MEU - NEG    984 MEU = NET    2219 MEU  EMS  708 kgCO2
+Dunkel        GRS    2233 MEU - NEG   1330 MEU = NET    2223 MEU  EMS  842 kgCO2
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2484 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 22.B: Lasten-Heatmap
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Beitrags-Heatmap hebt hervor, wo Umwelt- und Risikokosten am stärksten wiegen.             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil die Endzahl Lasten erben soll, statt sie zu ignorieren.               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────┐
+│ Kürzel │             Bedeutung             │
+├────────┼───────────────────────────────────┤
+│ CON    │ Gewichteter Beitrag.              │
+│ LAB    │ Arbeits- und Dienstleistungszeile │
+│ CAP    │ Kapazitäts- und Anlagenzeile      │
+│ DAT    │ Daten- und Nachweiszeile          │
+│ ECO    │ Umweltzeile                       │
+│ LGL    │ Rechtsgültigkeitszeile            │
+│ HUM    │ menschliche Abhängigkeitszeile    │
+│ QNT    │ Mengenspalte                      │
+│ QLT    │ Qualitätsspalte                   │
+│ SCY    │ Knappheitsspalte                  │
+│ RSK    │ Risikokostenspalte                │
+│ TR     │ Übertragbarkeitsspalte            │
+│ DG     │ Würdeschutzspalte                 │
+│ NEG    │ Negativer Lastenbeitrag.          │
+└────────┴───────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+CON-Hitze: |XIJ × RFA × CFA|
+          QNT        QLT        SCY        RSK         TR         DG    
+   LAB                                                                  
+   CAP    ...        ...        ...                   ...               
+   DAT    ...                   ...        ...        ...               
+   ECO                                                                  
+   LGL                                                                  
+   HUM    ...                   ...                   ...               
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Spekulativ trägt 708 kgCO2 und wird zu 2219 MEU.                                               │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 22.C: Harte Umweltgrenze
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Eine harte Grenze kann einen profitablen MEV verwerfen, wenn die Last zu hoch ist.             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil manche Kosten verboten und nicht nur bepreist werden müssen.          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬────────────────────────────────────────────────────────────┐
+│ Kürzel │                         Bedeutung                          │
+├────────┼────────────────────────────────────────────────────────────┤
+│ LIM    │ Nicht handelbare Grenze, die nicht weggekauft werden kann. │
+│ EMS    │ Emissionslast.                                             │
+│ MEV    │ Marktäquivalenter Wert.                                    │
+└────────┴────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ kgCO2   │ Emissionslast             │
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+EMS unter LIM: Preis erlaubt | EMS über LIM: Preis verworfen
+Geschützt     EMS  421 kgCO2  LIM 620 kgCO2    OK  MEV    2484 MEU
+Offen         EMS  554 kgCO2  LIM 620 kgCO2    OK  MEV    2160 MEU
+Spekulativ    EMS  708 kgCO2  LIM 620 kgCO2  STOP  MEV    2219 MEU
+Dunkel        EMS  842 kgCO2  LIM 620 kgCO2  STOP  MEV    2223 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das relationale System ist nur dann stärker als eine bloße Marktwirtschaft, wenn es zu         │
+│  profitablem Schaden Nein sagen kann.                                                           │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 23: Faktorkalibrierung und Vereinnahmung
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil vergleicht öffentliche, marktliche und gekaperte Regime der Faktorsetzung.         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Formel ist mächtig, aber nicht neutral. Faktorkontrolle wird Wirtschaftsmacht.             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 23.A: Faktor-Governance-Dreieck
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das Dreieck zeigt öffentlichen, marktlichen und Plattformdruck auf die Faktorkalibrierung.     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil die Formel selbst zu einer Machtinstitution wird.                     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬───────────────────────────────────────────────────────────┐
+│ Kürzel │                         Bedeutung                         │
+├────────┼───────────────────────────────────────────────────────────┤
+│ PUB    │ Öffentlicher Faktorsetzer.                                │
+│ MKT    │ Marktlicher Faktorsetzer.                                 │
+│ PLT    │ Plattform-Faktorsetzer.                                   │
+│ CAL    │ Kalibrierungsverbindung zwischen Faktorsetzern.           │
+│ CAP    │ Vereinnahmungsdruck: private Übernahme der Faktorsetzung. │
+└────────┴───────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+                 PUB
+                /   \
+               /     \
+          CAL /       \ CAL
+             /         \
+          MKT ─── CAP ─── PLT
+Geschützt     CAP [#...............]   5
+Offen         CAP [#####...........]  32
+Spekulativ    CAP [##########......]  62
+Dunkel        CAP [#############...]  83
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2526 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 23.B: Vereinnahmungsanfällige Faktoren
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das Sensitivitätsbild zeigt, welche Faktoränderungen die Marktzahl am stärksten bewegen        │
+│  würden.                                                                                        │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Diese Faktoren brauchen die stärkste öffentliche Prüfung.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────┐
+│ Kürzel │                  Bedeutung                   │
+├────────┼──────────────────────────────────────────────┤
+│ SEN    │ Sensitivität von MEV gegenüber einem Faktor. │
+│ RFA    │ Zeilenfaktor.                                │
+│ CFA    │ Spaltenfaktor.                               │
+│ MEV    │ Marktäquivalenter Wert.                      │
+└────────┴──────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+SEN-Tornado: welcher Faktor MEV am stärksten bewegt
+CFA-DG   ##################################     702 MEU
+RFA-LGL  #################################.     681 MEU
+RFA-ECO  ##########################........     543 MEU
+CFA-QLT  ########################..........     493 MEU
+CFA-TR   ########################..........     493 MEU
+RFA-LAB  ######################............     461 MEU
+RFA-CAP  ###################...............     393 MEU
+RFA-DAT  #################.................     354 MEU
+CFA-SCY  ################..................     340 MEU
+CFA-QNT  ################..................     322 MEU
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hoher SEN bedeutet, dass eine kleine politische oder private Änderung großen Marktwert         │
+│  umlenken kann.                                                                                 │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 23.C: Gekaperte Umrechnungstabelle
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Tabelle zeigt, dass hoher MEV mit hohem Informationsverlust und Würderisiko                │
+│  zusammenfallen kann.                                                                           │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist der politische Preis der Umrechnungsbrücke.                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────┐
+│ Kürzel │        Bedeutung         │
+├────────┼──────────────────────────┤
+│ CAP    │ Vereinnahmungsdruck.     │
+│ DGR    │ Würderisikowert.         │
+│ ILS    │ Informationsverlustwert. │
+│ MEV    │ Marktäquivalenter Wert.  │
+└────────┴──────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+CAP-Tabelle
+┌────────────┬──────────┬──────────────────┬──────────────────┬─────────────────┬─────────────────┐
+│  Szenario  │   MEV    │       ILS        │       DGR        │       CNV       │       NBM       │
+├────────────┼──────────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┤
+│ Geschützt  │ 2526 MEU │ [###.........]   │ [............]   │ [############]  │ [############]  │
+│            │          │ 24               │ 0                │ 100             │ 100             │
+│ Offen      │ 2307 MEU │ [#######.....]   │ [####........]   │ [############]  │ [############]  │
+│            │          │ 55               │ 30               │ 100             │ 100             │
+│ Spekulativ │ 2197 MEU │ [##########..]   │ [#########...]   │ [###########.]  │ [###########.]  │
+│            │          │ 83               │ 73               │ 89              │ 94              │
+│ Dunkel     │ 2272 MEU │ [############]   │ [############]   │ [#########...]  │ [###########.]  │
+│            │          │ 100              │ 100              │ 73              │ 91              │
+└────────────┴──────────┴──────────────────┴──────────────────┴─────────────────┴─────────────────┘
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2526 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+Simulationsteil 24: Abschließendes Umrechnungs-Dashboard
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Dieser Teil fasst zusammen, wie eine relationale Wirtschaft in eine klassische                 │
+│  Marktwirtschaft umgerechnet werden kann und was diese Umrechnung kostet.                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist die Synthese: Das stärkere System wird mit Preismärkten kompatibel, aber die           │
+│  Umrechnung erzeugt Boom und moralisches Risiko zugleich.                                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 24.A: Abschlussdashboard
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das Dashboard legt Boom, Sichtbarkeit, Würdesicherheit und Umrechenbarkeit auf ein             │
+│  gemeinsames Raster.                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das fasst die ganze Skalarbrücke von der Relationstabelle zur klassischen Marktzahl zusammen.  │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────┐
+│ Kürzel │                    Bedeutung                     │
+├────────┼──────────────────────────────────────────────────┤
+│ NBM    │ Zahlenboom nach Umrechnung.                      │
+│ VIS    │ Nach Umrechnung verbleibende sichtbare Struktur. │
+│ DGS    │ Würdesicherheit: Umkehrung des Würderisikos.     │
+│ CNV    │ Umrechenbarkeitswert.                            │
+└────────┴──────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬──────────────┐
+│ Einheit │  Bedeutung   │
+├─────────┼──────────────┤
+│ Pkt     │ Modellpunkte │
+└─────────┴──────────────┘
+Bunte Unicode-Grafik
+Abschluss-Skalardashboard
+              NBM        VIS        DGS        CNV    
+ Geschützt    @@@        ###        @@@        @@@    
+     Offen    %%%        ===        ***        @@@    
+Spekulativ    %%%        ...        :::        %%%    
+    Dunkel    ###                              ***    
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2495 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 24.B: Abschließende Szenariobalken
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Balken zeigen die Marktzahl mit ihren zwei unvermeidbaren Schattenindikatoren.             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das wird simuliert, weil eine vernünftige Umrechnung niemals nur die Zahl ausgeben darf.       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────┐
+│ Kürzel │        Bedeutung         │
+├────────┼──────────────────────────┤
+│ MEV    │ Marktäquivalenter Wert.  │
+│ ILS    │ Informationsverlustwert. │
+│ DGR    │ Würderisikowert.         │
+└────────┴──────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+│ Pkt     │ Modellpunkte              │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+MEV-Balken übersetzen Relationstabellen in numerische Marktäquivalente
+Geschützt     MEV ##################################     2495 MEU   ILS  21.4 Pkt   DGR   0.0 Pkt
+Offen         MEV ##############################....     2212 MEU   ILS  53.6 Pkt   DGR  24.3 Pkt
+Spekulativ    MEV ##############################....     2199 MEU   ILS  78.5 Pkt   DGR  68.2 Pkt
+Dunkel        MEV #############################.....     2150 MEU   ILS 100.0 Pkt   DGR 100.0 Pkt
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Höchster MEV: Geschützt mit 2495 MEU. Stärkster Zahlenboom: Geschützt mit 100 Pkt. Höchster    │
+│  ILS: Dunkel mit 100 Pkt. Höchster DGR: Dunkel mit 100 Pkt. Bestes Gleichgewicht: Geschützt.    │
+│  Die Umrechnung funktioniert, aber sie ist nicht kostenlos: Je leichter die Tabelle zum Preis   │
+│  wird, desto leichter wird versteckte Struktur unsichtbar.                                      │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+---------------------------------------------------------------------------------------------------
+Bunte Unicode-Grafik 24.C: Systemurteil
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                       Was simuliert wird                                        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das Abschlussbild zeigt die Umrechnungsbrücke und daneben die Rechtsgrenze.                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                    Warum das simuliert wird                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Das ist die zentrale Schlussfolgerung: Das relationale System ist stärker, weil es mehr        │
+│  sieht, aber gefährlich, wenn alles Gesehene handelbar wird.                                    │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                  Wie dieser Teil zu lesen ist                                   │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Hier werden wirklich nur die Kürzel erklärt, die unten in diesem Teil vorkommen. Einheiten     │
+│  sind sichtbare Markierungen; sie sind nicht selbst die Währung.                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+Kürzel, die nur in diesem Teil vorkommen
+┌────────┬──────────────────────────────────────────────────────────────────┐
+│ Kürzel │                            Bedeutung                             │
+├────────┼──────────────────────────────────────────────────────────────────┤
+│ RCE    │ Relationale Währungsökonomie: strukturierte Relationswährung.    │
+│ RWÖ    │ Relationale Währungsökonomie: strukturierte Relationswährung.    │
+│ ME     │ Marktwirtschaft: klassischer Preismarkt.                         │
+│ MW     │ Marktwirtschaft: klassischer Preismarkt.                         │
+│ MEV    │ Marktäquivalenter Wert durch Umrechnung.                         │
+│ LAW    │ Rechtsgrenze, die verhindert, dass Personen Marktobjekte werden. │
+└────────┴──────────────────────────────────────────────────────────────────┘
+Einheiten, die in diesem Teil farbig markiert werden
+┌─────────┬───────────────────────────┐
+│ Einheit │         Bedeutung         │
+├─────────┼───────────────────────────┤
+│ MEU     │ Marktäquivalent-Einheiten │
+└─────────┴───────────────────────────┘
+Bunte Unicode-Grafik
+RWÖ Relationstabelle ──► MEV ──► MW Preismarkt
+        │                         ▲
+        ├── LAW hält verbotene Zeilen draußen
+        └── wenn LAW schwach wird: Boom steigt, Herrschaftsrisiko steigt
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                              Auswertung der simulierten Ergebnisse                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Die Umrechnung macht das System mit klassischen Märkten kompatibel. Der Preis ist, dass        │
+│  Gesetzgeber entscheiden müssen, welche Zeilen gar nicht erst in die Formel dürfen.             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+===================================================================================================
+╭─────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                        Schlussbemerkung                                         │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  Ende der Simulation. Das Modell ist veranschaulichend und keine reale Politikempfehlung.       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+===================================================================================================
