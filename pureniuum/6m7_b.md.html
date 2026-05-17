@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>6m7_b</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="umgekehrte-universalität-zwischen-winkel-und-zahl">Umgekehrte
+Universalität zwischen Winkel und Zahl</h1>
+<p>Ja — aber nicht sauber als „die Hälfte“ im arithmetischen Sinn.</p>
+<p>Besser:</p>
+<blockquote>
+<p>Zwischen Winkel und Zahl gibt es zwei gegeneinander gerichtete
+Bewegungen:<br />
+<strong>Linearisierung</strong> und <strong>Zyklisierung</strong>.<br />
+Viele Eigenschaften treten deshalb paarweise auf: Eine Eigenschaft macht
+den Winkel zahlartig, die andere macht die Zahl winkelartig.</p>
+</blockquote>
+<p>Der Kern ist diese Beziehung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>:</mo><mi mathvariant="double-struck">ℝ</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi><mi>/</mi><mn>2</mn><mi>π</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+q : \mathbb{R} \to \mathbb{R}/2\pi\mathbb{Z}
+</annotation></semantics></math></p>
+<p>Eine reelle Zahl
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+wird zu einem Winkel modulo voller Umdrehung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↦</mo><mo stretchy="false" form="prefix">[</mo><mi>θ</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+\theta \mapsto [\theta]
+</annotation></semantics></math></p>
+<p>Das heißt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>2</mn><mi>π</mi><mo>,</mo><mspace width="1.0em"></mspace><mn>4</mn><mi>π</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>−</mo><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">
+0,\quad 2\pi,\quad 4\pi,\quad -2\pi
+</annotation></semantics></math></p>
+<p>sind als Zahlen verschieden, aber als Richtung oder Winkel
+äquivalent.</p>
+<p>Oder trigonometrisch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↦</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>θ</mi></mrow></msup></mrow><annotation encoding="application/x-tex">
+\theta \mapsto e^{i\theta}
+</annotation></semantics></math></p>
+<p>beziehungsweise:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta \mapsto (\cos\theta,\sin\theta)
+</annotation></semantics></math></p>
+<p>Diese Abbildung hat eine Art Umkehrung, aber keine perfekte globale
+Umkehrung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">arg</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>θ</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>θ</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mrow><mn>2</mn><mi>π</mi></mrow><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\arg(e^{i\theta}) = \theta \pmod{2\pi}
+</annotation></semantics></math></p>
+<p>Man bekommt also den Winkel zurück, aber nur <strong>modulo voller
+Drehungen</strong>.</p>
+<p>Das ist die entscheidende Asymmetrie.</p>
+<h2 id="die-eigentliche-paarung">Die eigentliche Paarung</h2>
+<p>Man kann die Eigenschaften ungefähr so paaren:</p>
+<table>
+<thead>
+<tr>
+<th>Zahlartige Eigenschaft</th>
+<th>Umgekehrte / winkelartige Eigenschaft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Messbarkeit</td>
+<td>Mehrdeutigkeit der Darstellung</td>
+</tr>
+<tr>
+<td>Additivität</td>
+<td>Periodizität</td>
+</tr>
+<tr>
+<td>Vergleichbarkeit</td>
+<td>Verlust globaler Ordnung</td>
+</tr>
+<tr>
+<td>Verhältnis / Proportion</td>
+<td>Normierung auf eine volle Drehung</td>
+</tr>
+<tr>
+<td>Linearität</td>
+<td>Kreisförmigkeit</td>
+</tr>
+<tr>
+<td>Zahl als Repräsentation</td>
+<td>Winkel als geometrische Invariante</td>
+</tr>
+<tr>
+<td>Trigonometrie: Winkel → Zahlen</td>
+<td>Arkusfunktionen: Zahlen → Winkel</td>
+</tr>
+<tr>
+<td>Radiant:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>s</mi><mi>/</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">\theta = s/r</annotation></semantics></math></td>
+<td>Bogenlänge:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>r</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">s = r\theta</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>Das sind keine perfekten Spiegelpaare, aber strukturell sehr starke
+Dualitäten.</p>
+<h2 id="messbarkeit-darstellungsmehrdeutigkeit">1. Messbarkeit ↔︎
+Darstellungsmehrdeutigkeit</h2>
+<p>Die zahlartige Richtung ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Winkel</mtext><mo>→</mo><mtext mathvariant="normal">Zahl</mtext></mrow><annotation encoding="application/x-tex">
+\text{Winkel} \to \text{Zahl}
+</annotation></semantics></math></p>
+<p>Zum Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>90</mn><mo>∘</mo></msup><mo>,</mo><mspace width="1.0em"></mspace><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mn>0</mn><mo>,</mo><mn>25</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Umdrehungen</mtext></mrow></mrow><annotation encoding="application/x-tex">
+90^\circ,\quad \frac{\pi}{2},\quad 0{,}25 \text{ Umdrehungen}
+</annotation></semantics></math></p>
+<p>Alle drei Zahlen messen denselben Winkel.</p>
+<p>Die umgekehrte Eigenschaft ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Zahl</mtext><mo>→</mo><mtext mathvariant="normal">Winkel</mtext></mrow><annotation encoding="application/x-tex">
+\text{Zahl} \to \text{Winkel}
+</annotation></semantics></math></p>
+<p>Aber diese Richtung ist nicht eindeutig, weil:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>θ</mi><mo>+</mo><mn>2</mn><mi>π</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>θ</mi><mo>+</mo><mn>4</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">
+\theta,\quad \theta + 2\pi,\quad \theta + 4\pi
+</annotation></semantics></math></p>
+<p>denselben gerichteten Winkel beschreiben.</p>
+<p>Also:</p>
+<blockquote>
+<p>Messbarkeit macht den Winkel zur Zahl.<br />
+Periodische Mehrdeutigkeit macht die Zahl wieder zum Winkel.</p>
+</blockquote>
+<h2 id="additivität-periodizität">2. Additivität ↔︎ Periodizität</h2>
+<p>Zahlartig ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">
+\alpha + \beta
+</annotation></semantics></math></p>
+<p>Winkel lassen sich addieren wie Zahlen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>30</mn><mo>∘</mo></msup><mo>+</mo><msup><mn>60</mn><mo>∘</mo></msup><mo>=</mo><msup><mn>90</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+30^\circ + 60^\circ = 90^\circ
+</annotation></semantics></math></p>
+<p>Die Gegenbewegung ist Periodizität:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>+</mo><msup><mn>360</mn><mo>∘</mo></msup><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+\theta + 360^\circ = \theta
+</annotation></semantics></math></p>
+<p>oder:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>+</mo><mn>2</mn><mi>π</mi><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+\theta + 2\pi = \theta
+</annotation></semantics></math></p>
+<p>Bei Zahlen bedeutet Addition normalerweise Fortschritt auf einer
+Linie.<br />
+Bei Winkeln kann Addition nach einer vollen Drehung wieder zum Anfang
+führen.</p>
+<p>Also:</p>
+<blockquote>
+<p>Additivität ist die lineare Eigenschaft.<br />
+Periodizität ist die zyklische Gegen-Eigenschaft.</p>
+</blockquote>
+<p>Das ist vielleicht das stärkste Paar.</p>
+<h2 id="vergleichbarkeit-verlust-globaler-ordnung">3. Vergleichbarkeit ↔︎
+Verlust globaler Ordnung</h2>
+<p>Zahlartig ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>30</mn><mo>∘</mo></msup><mo>&lt;</mo><msup><mn>60</mn><mo>∘</mo></msup><mo>&lt;</mo><msup><mn>90</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+30^\circ &lt; 60^\circ &lt; 90^\circ
+</annotation></semantics></math></p>
+<p>Bei kleinen Winkeln funktioniert das gut.</p>
+<p>Aber auf dem Kreis wird Ordnung problematisch.</p>
+<p>Ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>350</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">350^\circ</annotation></semantics></math>
+größer als
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">10^\circ</annotation></semantics></math>?</p>
+<p>Als Zahl ja. Als Richtung liegen beide nahe beieinander:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>350</mn><mo>∘</mo></msup><mo>∼</mo><mi>−</mi><msup><mn>10</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+350^\circ \sim -10^\circ
+</annotation></semantics></math></p>
+<p>Der Abstand zu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">10^\circ</annotation></semantics></math>
+ist nur:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>20</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">
+20^\circ
+</annotation></semantics></math></p>
+<p>nicht:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>340</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">
+340^\circ
+</annotation></semantics></math></p>
+<p>Also:</p>
+<blockquote>
+<p>Zahlen haben eine globale lineare Ordnung.<br />
+Winkel haben eher eine zyklische Nachbarschaft.</p>
+</blockquote>
+<p>Die Gegen-Eigenschaft zur Vergleichbarkeit ist deshalb nicht
+„Unvergleichbarkeit“, sondern <strong>kreisförmige Ordnung</strong>.</p>
+<h2 id="verhältnis-normierung">4. Verhältnis ↔︎ Normierung</h2>
+<p>Ein Winkel kann als Anteil einer vollen Drehung verstanden
+werden:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\frac14,\quad \frac12,\quad 1
+</annotation></semantics></math></p>
+<p>Das ist zahlartig: Der Winkel wird zu einem Verhältnis.</p>
+<p>Die umgekehrte Richtung ist: Die volle Drehung gibt überhaupt erst
+die Einheit vor.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> volle Drehung</mtext></mrow><mo>=</mo><msup><mn>360</mn><mo>∘</mo></msup><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> rad</mtext></mrow></mrow><annotation encoding="application/x-tex">
+1 \text{ volle Drehung} = 360^\circ = 2\pi \text{ rad}
+</annotation></semantics></math></p>
+<p>Also:</p>
+<blockquote>
+<p>Der Winkel wird als Bruchteil des Ganzen gemessen.<br />
+Das Ganze definiert rückwärts die Bedeutung des Bruchteils.</p>
+</blockquote>
+<p>Ein rechter Winkel ist nicht wesentlich
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>90</mn><annotation encoding="application/x-tex">90</annotation></semantics></math>.
+Er ist wesentlich:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>4</mn></mfrac><annotation encoding="application/x-tex">
+\frac14
+</annotation></semantics></math></p>
+<p>einer vollen Drehung.</p>
+<h2 id="linearität-kreisförmigkeit">5. Linearität ↔︎ Kreisförmigkeit</h2>
+<p>Zahlen leben zunächst auf einer Linie:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℝ</mi><annotation encoding="application/x-tex">
+\mathbb{R}
+</annotation></semantics></math></p>
+<p>Winkel leben als gerichtete Winkel auf einem Kreis:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℝ</mi><mi>/</mi><mn>2</mn><mi>π</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{R}/2\pi\mathbb{Z}
+</annotation></semantics></math></p>
+<p>Das ist vielleicht die abstrakteste Form der Gegensätzlichkeit.</p>
+<p>Die Zahlengerade sagt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>x</mi><mo>+</mo><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>x</mi><mo>+</mo><mn>2</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>x</mi><mo>+</mo><mn>3</mn><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">
+x,\ x+1,\ x+2,\ x+3,\dots
+</annotation></semantics></math></p>
+<p>immer weiter.</p>
+<p>Der Winkelkreis sagt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>θ</mi><mo>+</mo><mn>2</mn><mi>π</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>θ</mi><mo>+</mo><mn>4</mn><mi>π</mi><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">
+\theta,\ \theta+2\pi,\ \theta+4\pi,\dots
+</annotation></semantics></math></p>
+<p>wieder derselbe Ort.</p>
+<p>Also:</p>
+<blockquote>
+<p>Die Zahl entfaltet.<br />
+Der Winkel faltet zurück.</p>
+</blockquote>
+<p>Oder präziser:</p>
+<blockquote>
+<p>Die Zahl ist ungerollter Winkel.<br />
+Der Winkel ist aufgewickelte Zahl.</p>
+</blockquote>
+<p>Das ist eine sehr starke Form von „umgekehrt universell“.</p>
+<h2 id="invarianz-repräsentation">6. Invarianz ↔︎ Repräsentation</h2>
+<p>Ein Winkel bleibt gleich, wenn man eine Figur verschiebt, dreht oder
+skaliert.</p>
+<p>Das ist geometrische Invarianz.</p>
+<p>Aber die Zahl, mit der man ihn beschreibt, hängt von der gewählten
+Einheit ab:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>90</mn><mo>∘</mo></msup><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> rad</mtext></mrow></mrow><annotation encoding="application/x-tex">
+90^\circ = \frac{\pi}{2} \text{ rad}
+</annotation></semantics></math></p>
+<p>Die geometrische Sache bleibt gleich; die numerische Darstellung
+wechselt.</p>
+<p>Also:</p>
+<blockquote>
+<p>Der Winkel ist invariant.<br />
+Die Zahl ist eine Darstellung dieser Invarianz.</p>
+</blockquote>
+<p>Die umgekehrte Eigenschaft ist nicht direkt „Nicht-Invarianz“,
+sondern <strong>Koordinatisierung</strong>: Die Zahl macht die
+invariante geometrische Struktur berechenbar.</p>
+<h2 id="trigonometrie-inverse-trigonometrie">7. Trigonometrie ↔︎ inverse
+Trigonometrie</h2>
+<p>Trigonometrisch geht man vom Winkel zu Zahlen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta \mapsto (\cos\theta,\sin\theta)
+</annotation></semantics></math></p>
+<p>Die Gegenrichtung ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>↦</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(x,y) \mapsto \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Winkel</mtext><mo>→</mo><mtext mathvariant="normal">Zahlen</mtext></mrow><annotation encoding="application/x-tex">
+\text{Winkel} \to \text{Zahlen}
+</annotation></semantics></math></p>
+<p>und:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Zahlen</mtext><mo>→</mo><mtext mathvariant="normal">Winkel</mtext></mrow><annotation encoding="application/x-tex">
+\text{Zahlen} \to \text{Winkel}
+</annotation></semantics></math></p>
+<p>Aber wieder gibt es keine perfekte globale Eindeutigkeit, weil:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>π</mi><mo>−</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sin(\theta) = \sin(\pi-\theta)
+</annotation></semantics></math></p>
+<p>und:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\cos(\theta) = \cos(-\theta)
+</annotation></semantics></math></p>
+<p>Erst zusammen mit Quadranteninformation, also etwa durch
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">atan2</mi><annotation encoding="application/x-tex">\operatorname{atan2}</annotation></semantics></math>,
+wird die Umkehrung sauberer.</p>
+<p>Auch hier: Die Umkehrung existiert, aber sie braucht
+Zusatzstruktur.</p>
+<h2 id="radiant-bogenlänge">8. Radiant ↔︎ Bogenlänge</h2>
+<p>Das Radiantmaß definiert:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mfrac><mi>s</mi><mi>r</mi></mfrac></mrow><annotation encoding="application/x-tex">
+\theta = \frac{s}{r}
+</annotation></semantics></math></p>
+<p>Winkel wird also Zahl: Bogenlänge geteilt durch Radius.</p>
+<p>Die umgekehrte Formel ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>r</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+s = r\theta
+</annotation></semantics></math></p>
+<p>Zahl beziehungsweise Winkel erzeugt wieder geometrische Länge.</p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mfrac><mi>s</mi><mi>r</mi></mfrac></mrow><annotation encoding="application/x-tex">
+\theta = \frac{s}{r}
+</annotation></semantics></math></p>
+<p>ist die linearisierende Richtung.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>r</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">
+s = r\theta
+</annotation></semantics></math></p>
+<p>ist die geometrisierende Gegenrichtung.</p>
+<p>Das ist ein echtes Umkehrpaar.</p>
+<h2 id="kann-man-von-einer-hälfte-sprechen">Kann man von einer Hälfte
+sprechen?</h2>
+<p>Nur ungefähr.</p>
+<p>Streng genommen: <strong>Nein</strong>, weil die Eigenschaften nicht
+sauber abzählbar und nicht unabhängig voneinander sind. Messbarkeit,
+Verhältnis, Radiantmaß und Trigonometrie überlappen stark. Ebenso hängen
+Additivität, Periodizität und zyklische Struktur zusammen.</p>
+<p>Aber strukturell: <strong>Ja</strong>, man kann eine Art Dualität
+sehen.</p>
+<p>Die eine Seite sagt:</p>
+<blockquote>
+<p>Winkel können als Zahlen behandelt werden.</p>
+</blockquote>
+<p>Die andere Seite sagt:</p>
+<blockquote>
+<p>Zahlen werden, sobald man sie modulo voller Drehungen betrachtet, zu
+Winkeln.</p>
+</blockquote>
+<p>Oder in einer Formel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℝ</mi><mspace width="1.0em"></mspace><mo>→</mo><mspace width="1.0em"></mspace><mi mathvariant="double-struck">ℝ</mi><mi>/</mi><mn>2</mn><mi>π</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{R} \quad \longrightarrow \quad \mathbb{R}/2\pi\mathbb{Z}
+</annotation></semantics></math></p>
+<p>Die Zahlengerade wird durch Identifikation von Vielfachen von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math>
+zum Winkelkreis.</p>
+<h2 id="die-präziseste-antwort">Die präziseste Antwort</h2>
+<p>Man kann sagen:</p>
+<blockquote>
+<p>Ein Teil der universellen Eigenschaften beschreibt die
+<strong>Linearisierung des Winkels zur Zahl</strong>.<br />
+Der komplementäre Teil beschreibt die <strong>Zyklisierung der Zahl zum
+Winkel</strong>.</p>
+</blockquote>
+<p>Das ist stärker und präziser als „die Hälfte ist umgekehrt universell
+zur anderen Hälfte“.</p>
+<p>Noch verdichteter:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Winkel</mtext><mover><mo>→</mo><mtext mathvariant="normal">Messen</mtext></mover><mtext mathvariant="normal">Zahl</mtext></mrow><annotation encoding="application/x-tex">
+\text{Winkel} \xrightarrow{\text{Messen}} \text{Zahl}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Zahl</mtext><mover><mo>→</mo><mrow><mrow><mtext mathvariant="normal">Modulo </mtext><mspace width="0.333em"></mspace></mrow><mn>2</mn><mi>π</mi></mrow></mover><mtext mathvariant="normal">Winkel</mtext></mrow><annotation encoding="application/x-tex">
+\text{Zahl} \xrightarrow{\text{Modulo } 2\pi} \text{Winkel}
+</annotation></semantics></math></p>
+<p>Aber:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Winkel</mtext><mo>→</mo><mtext mathvariant="normal">Zahl</mtext></mrow><annotation encoding="application/x-tex">
+\text{Winkel} \to \text{Zahl}
+</annotation></semantics></math></p>
+<p>ist nur mit Wahl einer Einheit und eines Repräsentanten
+eindeutig.</p>
+<p>Und:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Zahl</mtext><mo>→</mo><mtext mathvariant="normal">Winkel</mtext></mrow><annotation encoding="application/x-tex">
+\text{Zahl} \to \text{Winkel}
+</annotation></semantics></math></p>
+<p>verliert Information, nämlich wie viele volle Umdrehungen enthalten
+waren.</p>
+<p>Darum ist die Beziehung nicht symmetrisch wie bei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">+x</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">-x</annotation></semantics></math>,
+sondern eher wie bei:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Entfalten</mtext><mo>↔</mo><mtext mathvariant="normal">Aufwickeln</mtext></mrow><annotation encoding="application/x-tex">
+\text{Entfalten} \leftrightarrow \text{Aufwickeln}
+</annotation></semantics></math></p>
+<p>Die Zahl entfaltet den Winkel auf eine Linie.<br />
+Der Winkel wickelt die Zahl auf einen Kreis zurück.</p>
+</body>
+</html>

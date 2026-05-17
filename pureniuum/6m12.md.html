@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>6m12</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-zwischen-zahlen-hierarchien-tupeln-und-mengen">Universelle
+Eigenschaften zwischen Zahlen, Hierarchien, Tupeln und Mengen</h1>
+<h2 id="kernthese">Kernthese</h2>
+<p>Die sauberste Kurzform ist:</p>
+<p><strong>Zahlen sind verdichtete Struktur. Mengen, Tupel und
+Hierarchien sind entfaltete Struktur.</strong><br />
+Eine Zahl sagt: <em>Wie viel? Welche Position? Welcher Rang? Welche
+Größe?</em><br />
+Eine Menge, ein Tupel oder eine Hierarchie sagt: <em>Welche Dinge? In
+welcher Beziehung? In welcher Ordnung? Mit welcher
+Verschachtelung?</em></p>
+<p>Noch schärfer:</p>
+<blockquote>
+<p><strong>Zahlen sind Struktur modulo vergessener
+Unterschiede.</strong><br />
+<strong>Mengen, Tupel und Hierarchien sind Struktur vor dem
+Vergessen.</strong></p>
+</blockquote>
+<p>Beispiel:<br />
+<code>{a, b, c}</code> wird zur Zahl <code>3</code>, sobald man die
+konkreten Elemente vergisst und nur die Anzahl behält.<br />
+<code>(a, b, c)</code> hat zusätzlich Reihenfolge und Position.<br />
+Eine Hierarchie hat zusätzlich Ebenen, Eltern-Kind-Beziehungen, Tiefe,
+Pfade und Teilbäume.<br />
+Die Zahl ist also oft die <strong>Invariante</strong> einer
+Struktur.</p>
+<hr />
+<h2 id="identität-und-differenz">1. Identität und Differenz</h2>
+<p>Alles beginnt mit der Unterscheidung:</p>
+<ul>
+<li>Bei Zahlen: <code>1 ≠ 2</code>, aber <code>2 = 1 + 1</code>.</li>
+<li>Bei Mengen: <code>a ∈ A</code>, <code>b ∈ A</code>,
+<code>a ≠ b</code>.</li>
+<li>Bei Tupeln: <code>(a, b) ≠ (b, a)</code>, außer
+<code>a = b</code>.</li>
+<li>Bei Hierarchien: Ein Knoten ist nicht nur „ein Ding“, sondern ein
+Ding an einer Stelle im Baum.</li>
+</ul>
+<p><strong>Gegenteil:</strong> Identifikation, Gleichsetzung,
+Quotientierung.</p>
+<p>Beispiel:<br />
+Die Mengen <code>{a, b, c}</code> und <code>{x, y, z}</code> sind
+verschieden, aber unter dem Gesichtspunkt der Anzahl gleich: beide haben
+Kardinalität <code>3</code>.</p>
+<p>Also:</p>
+<blockquote>
+<p>Differenz erzeugt Struktur.<br />
+Identifikation erzeugt Zahl, Typ, Klasse oder Abstraktion.</p>
+</blockquote>
+<hr />
+<h2 id="einheit-und-vielheit">2. Einheit und Vielheit</h2>
+<p>Die Zahl <code>1</code>, die einelementige Menge <code>{x}</code>,
+der einzelne Knoten, das Atom, der Singleton: überall dieselbe Idee.</p>
+<p>Dagegen stehen:</p>
+<ul>
+<li><code>0</code>: Nichts, leere Menge, leerer Tupel, kein Knoten.</li>
+<li><code>n</code>: Vielheit.</li>
+<li><code>∞</code>: unbegrenzte oder transfinite Vielheit.</li>
+</ul>
+<p>Bei Strukturen:</p>
+<ul>
+<li>leere Menge: <code>∅</code></li>
+<li>leeres Tupel: <code>()</code></li>
+<li>Wurzel eines Baums: erste Einheit</li>
+<li>Blatt: nicht weiter verzweigte Einheit</li>
+<li>Teilbaum: Einheit, die selbst wieder Vielheit enthält</li>
+</ul>
+<p>Universelle Polarität:</p>
+<blockquote>
+<p><strong>Eins ↔︎ Viele</strong><br />
+<strong>Atom ↔︎ Kompositum</strong><br />
+<strong>Element ↔︎ Ganzes</strong></p>
+</blockquote>
+<hr />
+<h2 id="ordnung-und-unordnung">3. Ordnung und Unordnung</h2>
+<p>Zahlen haben meistens eine starke Ordnung:</p>
+<pre class="text"><code>0 &lt; 1 &lt; 2 &lt; 3 &lt; ...</code></pre>
+<p>Tupel haben Positionsordnung:</p>
+<pre class="text"><code>(a, b, c) ≠ (c, b, a)</code></pre>
+<p>Hierarchien haben partielle Ordnung:</p>
+<ul>
+<li>oben/unten</li>
+<li>Vorfahr/Nachfahre</li>
+<li>Container/Enthaltenes</li>
+<li>allgemeiner/spezifischer</li>
+</ul>
+<p>Mengen dagegen sind absichtlich <strong>ungeordnet</strong>:</p>
+<pre class="text"><code>{a, b, c} = {c, b, a}</code></pre>
+<p>Das ist ein zentraler Gegensatz:</p>
+<blockquote>
+<p><strong>Zahlengerade / Sequenz / Hierarchie = Ordnung</strong><br />
+<strong>Menge = Symmetrie gegenüber Permutation</strong></p>
+</blockquote>
+<p>Oder abstrakter:</p>
+<blockquote>
+<p>Ordnung bewahrt Position.<br />
+Menge löscht Position.</p>
+</blockquote>
+<hr />
+<h2 id="kardinalität-und-struktur">4. Kardinalität und Struktur</h2>
+<p>Eine Menge hat eine Anzahl.<br />
+Ein Tupel hat eine Länge.<br />
+Eine Hierarchie hat Tiefe, Breite, Verzweigungsgrad, Anzahl der Knoten
+und Anzahl der Blätter.</p>
+<p>Beispiele:</p>
+<ul>
+<li><code>|{a, b, c}| = 3</code></li>
+<li>Länge von <code>(a, b, c)</code> ist <code>3</code></li>
+<li>Tiefe eines Baums kann <code>4</code> sein</li>
+<li>Anzahl der Blätter kann <code>8</code> sein</li>
+</ul>
+<p>Hier sieht man die Hauptbrücke:</p>
+<blockquote>
+<p>Zahlen messen Strukturen.<br />
+Strukturen realisieren Zahlen.</p>
+</blockquote>
+<p>Eine Zahl kann als reine Größe auftreten. Aber sie kann auch als
+Struktur erscheinen:</p>
+<ul>
+<li><code>3</code> als Kardinalzahl: Größe einer dreielementigen
+Menge.</li>
+<li><code>3</code> als Ordinalzahl: dritte Position in einer
+Ordnung.</li>
+<li><code>3</code> als Länge: Anzahl der Stellen eines Tupels.</li>
+<li><code>3</code> als Tiefe: Ebene in einer Hierarchie.</li>
+<li><code>3</code> als Rang: Ordnungshöhe eines Objekts.</li>
+</ul>
+<hr />
+<h2 id="teil-und-ganzes">5. Teil und Ganzes</h2>
+<p>Bei Mengen:</p>
+<ul>
+<li><code>A ⊆ B</code></li>
+<li>Element in Menge</li>
+<li>Teilmenge in Menge</li>
+<li>Partition eines Ganzen</li>
+</ul>
+<p>Bei Hierarchien:</p>
+<ul>
+<li>Knoten in Teilbaum</li>
+<li>Teilbaum in Baum</li>
+<li>Kategorie in Oberkategorie</li>
+<li>Instanz unter Typ</li>
+</ul>
+<p>Bei Zahlen:</p>
+<ul>
+<li><code>3 &lt; 7</code></li>
+<li><code>3</code> ist Teil von <code>7</code> im additiven Sinn:
+<code>7 = 3 + 4</code></li>
+<li><code>3</code> teilt <code>12</code> im multiplikativen Sinn:
+<code>12 = 3 · 4</code></li>
+<li>Intervall <code>[2, 5]</code> als Teil der Zahlengeraden</li>
+</ul>
+<p>Universal:</p>
+<blockquote>
+<p><strong>Teil-von</strong> ist die strukturelle Version von
+<strong>kleiner-gleich</strong>, <strong>enthält-sich-in</strong>,
+<strong>zerlegbar-in</strong>.</p>
+</blockquote>
+<p>Gegensatz:</p>
+<blockquote>
+<p>Teilung/Zerlegung ↔︎ Zusammensetzung/Integration.</p>
+</blockquote>
+<hr />
+<h2 id="komposition-und-dekomposition">6. Komposition und
+Dekomposition</h2>
+<p>Zahlen können kombiniert werden:</p>
+<ul>
+<li>Addition</li>
+<li>Multiplikation</li>
+<li>Potenzierung</li>
+<li>Verkettung bei Ziffern</li>
+<li>Iteration</li>
+</ul>
+<p>Strukturen können ebenfalls kombiniert werden:</p>
+<ul>
+<li>Mengenunion: <code>A ∪ B</code></li>
+<li>kartesisches Produkt: <code>A × B</code></li>
+<li>Tupelkonkatenation: <code>(a, b) ++ (c, d)</code></li>
+<li>Baum-Grafting: ein Baum wird an einen Knoten gehängt</li>
+<li>Hierarchie-Merging</li>
+</ul>
+<p>Die starken Entsprechungen sind:</p>
+<table>
+<thead>
+<tr>
+<th>Zahlenoperation</th>
+<th>Strukturform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a + b</code></td>
+<td>disjunkte Vereinigung zweier Mengen</td>
+</tr>
+<tr>
+<td><code>a · b</code></td>
+<td>kartesisches Produkt</td>
+</tr>
+<tr>
+<td><code>b^a</code></td>
+<td>Menge aller Funktionen von <code>A</code> nach <code>B</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>Menge/Tupel mit <code>n</code> Positionen</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>leere Menge</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Singleton</td>
+</tr>
+<tr>
+<td>Rekursion</td>
+<td>hierarchischer Aufbau</td>
+</tr>
+</tbody>
+</table>
+<p>Besonders wichtig:</p>
+<pre class="text"><code>Wenn card(A) = a und card(B) = b, dann gilt:
+
+card(A ⊔ B) = a + b
+card(A × B) = a · b
+card(B^A)   = b^a</code></pre>
+<p>Damit sind Addition, Multiplikation und Potenzierung nicht bloß
+Rechenregeln. Sie sind Schatten von Strukturkonstruktionen.</p>
+<hr />
+<h2 id="position-und-wert">7. Position und Wert</h2>
+<p>Bei Zahlen gibt es Wert:</p>
+<pre class="text"><code>7 &gt; 3</code></pre>
+<p>Bei Tupeln gibt es Position:</p>
+<pre class="text"><code>In (a, b, c) steht b an zweiter Stelle.</code></pre>
+<p>Bei Hierarchien gibt es Rang, Tiefe und Pfad:</p>
+<pre class="text"><code>Ein Knoten ist nicht nur ein Element, sondern ein Element an einem Ort im Gefüge.</code></pre>
+<p>Zahlen selbst verbinden Wert und Position in Stellenwertsystemen:</p>
+<pre class="text"><code>347 = 3·100 + 4·10 + 7</code></pre>
+<p>Die <code>3</code> bedeutet nicht einfach drei, sondern drei
+Hunderter, weil sie an einer bestimmten Position steht.</p>
+<p>Universal:</p>
+<blockquote>
+<p>Bedeutung entsteht oft aus Element plus Position.<br />
+Dasselbe Element an anderer Stelle kann andere Bedeutung haben.</p>
+</blockquote>
+<p>Gegensatz:</p>
+<blockquote>
+<p><strong>intrinsischer Wert ↔︎ relationale Stelle</strong></p>
+</blockquote>
+<hr />
+<h2 id="flachheit-und-verschachtelung">8. Flachheit und
+Verschachtelung</h2>
+<p>Mengen sind flach, zumindest in ihrer Grundform:</p>
+<pre class="text"><code>{a, b, c}</code></pre>
+<p>Tupel sind linear:</p>
+<pre class="text"><code>(a, b, c)</code></pre>
+<p>Hierarchien sind verschachtelt:</p>
+<pre class="text"><code>A
+├── B
+│   ├── D
+│   └── E
+└── C</code></pre>
+<p>Zahlen können alle drei Formen messen oder kodieren:</p>
+<ul>
+<li>Anzahl: flache Größe</li>
+<li>Index: lineare Position</li>
+<li>Tiefe/Rang: hierarchische Position</li>
+<li>Pfadnummer: kodierte Stelle in einem Baum</li>
+<li>Gödelnummer: Struktur als Zahl kodiert</li>
+</ul>
+<p>Universal:</p>
+<blockquote>
+<p>Zahl kann Struktur komprimieren.<br />
+Struktur kann Zahl entfalten.</p>
+</blockquote>
+<p>Gegensatz:</p>
+<blockquote>
+<p><strong>Flattening ↔︎ Nesting</strong><br />
+<strong>Linearisierung ↔︎ Verzweigung</strong></p>
+</blockquote>
+<hr />
+<h2 id="symmetrie-und-asymmetrie">9. Symmetrie und Asymmetrie</h2>
+<p>Mengen sind symmetrisch gegenüber Umordnung:</p>
+<pre class="text"><code>{a, b, c} = {b, c, a}</code></pre>
+<p>Tupel sind asymmetrisch:</p>
+<pre class="text"><code>(a, b, c) ≠ (b, c, a)</code></pre>
+<p>Hierarchien sind noch asymmetrischer:</p>
+<pre class="text"><code>Eltern und Kinder sind nicht austauschbar.
+Oben und unten sind nicht dasselbe.</code></pre>
+<p>Zahlen liegen dazwischen:</p>
+<ul>
+<li>Addition natürlicher Zahlen ist kommutativ:
+<code>a + b = b + a</code></li>
+<li>Subtraktion ist nicht kommutativ: <code>a - b ≠ b - a</code></li>
+<li>Potenzierung ist nicht kommutativ: <code>a^b ≠ b^a</code></li>
+<li>Ordinaladdition ist im Allgemeinen nicht kommutativ</li>
+</ul>
+<p>Universal:</p>
+<blockquote>
+<p>Je mehr Struktur bewahrt wird, desto weniger Symmetrie bleibt.<br />
+Je mehr man abstrahiert, desto symmetrischer wird das Objekt.</p>
+</blockquote>
+<hr />
+<h2 id="abbildung-und-transformation">10. Abbildung und
+Transformation</h2>
+<p>Zwischen Zahlen gibt es Funktionen:</p>
+<pre class="text"><code>f(n) = n²</code></pre>
+<p>Zwischen Mengen gibt es Abbildungen:</p>
+<pre class="text"><code>f: A → B</code></pre>
+<p>Zwischen Tupeln gibt es Projektionen:</p>
+<pre class="text"><code>π₁(a, b, c) = a</code></pre>
+<p>Zwischen Hierarchien gibt es Morphismen:</p>
+<ul>
+<li>strukturtreue Abbildungen</li>
+<li>Einbettungen</li>
+<li>Kollapsabbildungen</li>
+<li>Baumhomomorphismen</li>
+<li>ordnungserhaltende Funktionen</li>
+</ul>
+<p>Das ist vielleicht die tiefste gemeinsame Eigenschaft:</p>
+<blockquote>
+<p>Nicht Objekte allein zählen, sondern erlaubte Transformationen
+zwischen ihnen.</p>
+</blockquote>
+<p>Ein Objekt wird durch seine Beziehungen zu anderen Objekten
+verständlich.</p>
+<p>Gegensatz:</p>
+<blockquote>
+<p><strong>erhaltende Transformation ↔︎ zerstörende
+Transformation</strong><br />
+<strong>Einbettung ↔︎ Quotient</strong><br />
+<strong>Differenzen bewahren ↔︎ Differenzen vergessen</strong></p>
+</blockquote>
+<hr />
+<h2 id="die-gegensätzlichen-paare">11. Die gegensätzlichen Paare</h2>
+<p>Die Vermutung, dass etwa die Hälfte der universellen Eigenschaften
+Gegenteile der anderen Hälfte sind, ist stark. Mathematisch wird das
+besonders in Dualitäten sichtbar: Viele Grundbegriffe haben ein
+Gegenstück, das dieselbe Form in entgegengesetzter Richtung
+ausdrückt.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pol A</th>
+<th>Pol B</th>
+<th>Bei Zahlen</th>
+<th>Bei Mengen/Tupeln/Hierarchien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einheit</td>
+<td>Vielheit</td>
+<td><code>1</code> vs. <code>n</code></td>
+<td>Singleton vs. Menge</td>
+</tr>
+<tr>
+<td>Nullheit</td>
+<td>Existenz</td>
+<td><code>0</code> vs. <code>1</code></td>
+<td><code>∅</code> vs. <code>{x}</code></td>
+</tr>
+<tr>
+<td>Ordnung</td>
+<td>Symmetrie</td>
+<td><code>&lt;</code>, <code>≤</code></td>
+<td>Tupel/Hierarchie vs. Menge</td>
+</tr>
+<tr>
+<td>Wert</td>
+<td>Position</td>
+<td>Größe einer Zahl</td>
+<td>Index, Pfad, Rang</td>
+</tr>
+<tr>
+<td>Addition</td>
+<td>Zerlegung</td>
+<td><code>n = a + b</code></td>
+<td>Union, Partition</td>
+</tr>
+<tr>
+<td>Multiplikation</td>
+<td>Kombination von Dimensionen</td>
+<td><code>a · b</code></td>
+<td>kartesisches Produkt</td>
+</tr>
+<tr>
+<td>Potenzierung</td>
+<td>Funktionsraum</td>
+<td><code>b^a</code></td>
+<td>alle Abbildungen <code>A → B</code></td>
+</tr>
+<tr>
+<td>Teil</td>
+<td>Ganzes</td>
+<td>kleiner, Faktor, Summand</td>
+<td>Element, Teilmenge, Teilbaum</td>
+</tr>
+<tr>
+<td>Einbettung</td>
+<td>Projektion</td>
+<td><code>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ</code></td>
+<td>Substruktur vs. Vergessen</td>
+</tr>
+<tr>
+<td>Konstruktion</td>
+<td>Reduktion</td>
+<td>Nachfolger, Rekursion</td>
+<td>Aufbau vs. Quotient</td>
+</tr>
+<tr>
+<td>Linearität</td>
+<td>Verzweigung</td>
+<td>Zahlenreihe</td>
+<td>Baum, Hierarchie</td>
+</tr>
+<tr>
+<td>Invarianz</td>
+<td>Repräsentation</td>
+<td><code>2/4 = 1/2</code></td>
+<td>isomorphe Strukturen</td>
+</tr>
+<tr>
+<td>Endlichkeit</td>
+<td>Unendlichkeit</td>
+<td><code>n</code> vs. <code>∞</code></td>
+<td>finite/infinite Mengen, Bäume</td>
+</tr>
+<tr>
+<td>Diskretheit</td>
+<td>Kontinuität</td>
+<td><code>ℕ</code> vs. <code>ℝ</code></td>
+<td>diskrete Elemente vs. Räume/Ordnungen</td>
+</tr>
+<tr>
+<td>Lokalität</td>
+<td>Globalität</td>
+<td>einzelne Zahl vs. Strukturgesetz</td>
+<td>Knoten vs. ganzer Baum</td>
+</tr>
+<tr>
+<td>Gleichheit</td>
+<td>Isomorphie</td>
+<td><code>2 = 2</code></td>
+<td>gleich bis auf Umbenennung</td>
+</tr>
+</tbody>
+</table>
+<p>Die wichtigste Meta-Dualität ist:</p>
+<blockquote>
+<p><strong>Aufbauen ↔︎ Vergessen</strong></p>
+</blockquote>
+<p>Fast alles lässt sich darunter einsortieren.</p>
+<p>Aufbauen:</p>
+<ul>
+<li>Nachfolger bilden</li>
+<li>Element hinzufügen</li>
+<li>Tupel verlängern</li>
+<li>Menge vereinigen</li>
+<li>Baum verzweigen</li>
+<li>Produkt bilden</li>
+<li>Hierarchie verfeinern</li>
+</ul>
+<p>Vergessen:</p>
+<ul>
+<li>Elemente zählen</li>
+<li>Reihenfolge ignorieren</li>
+<li>Labels ignorieren</li>
+<li>Struktur quotientieren</li>
+<li>auf Kardinalität reduzieren</li>
+<li>auf Rang/Tiefe reduzieren</li>
+<li>auf Invariante reduzieren</li>
+</ul>
+<hr />
+<h2 id="universelle-konstruktionen-im-strengen-sinn">12. Universelle
+Konstruktionen im strengen Sinn</h2>
+<p>Wenn man „universelle Eigenschaften“ im mathematisch präziseren Sinn
+versteht, sind diese Konstruktionen zentral.</p>
+<h3 id="null-und-leere-menge">Null und leere Menge</h3>
+<p><code>0</code> entspricht strukturell der leeren Menge:</p>
+<pre class="text"><code>0 ↔ ∅</code></pre>
+<p>Keine Elemente, keine Auswahl, keine Position.</p>
+<h3 id="eins-und-singleton">Eins und Singleton</h3>
+<p><code>1</code> entspricht dem Singleton:</p>
+<pre class="text"><code>1 ↔ {∗}</code></pre>
+<p>Eine einzige Möglichkeit. Kein Unterschied innerhalb des Objekts.</p>
+<h3 id="addition-und-disjunkte-vereinigung">Addition und disjunkte
+Vereinigung</h3>
+<p>Wenn <code>A</code> drei Elemente hat und <code>B</code> fünf, dann
+hat ihre disjunkte Vereinigung acht:</p>
+<pre class="text"><code>card(A ⊔ B) = card(A) + card(B)</code></pre>
+<p>Addition ist also das Zählen von Alternativen.</p>
+<h3 id="multiplikation-und-kartesisches-produkt">Multiplikation und
+kartesisches Produkt</h3>
+<p>Wenn <code>A</code> drei Möglichkeiten hat und <code>B</code> fünf
+Möglichkeiten, dann gibt es fünfzehn Paare:</p>
+<pre class="text"><code>card(A × B) = card(A) · card(B)</code></pre>
+<p>Multiplikation ist das Zählen unabhängiger Kombinationen.</p>
+<h3 id="potenzierung-und-funktionen">Potenzierung und Funktionen</h3>
+<p>Wenn <code>A</code> Eingabestellen und <code>B</code> mögliche Werte
+hat, dann ist <code>B^A</code> die Menge aller Funktionen von
+<code>A</code> nach <code>B</code>.</p>
+<pre class="text"><code>card(B^A) = card(B)^card(A)</code></pre>
+<p>Ein Bitstring der Länge <code>n</code> ist zum Beispiel eine
+Funktion:</p>
+<pre class="text"><code>{0, 1}^n</code></pre>
+<p>Also:</p>
+<ul>
+<li>Tupel sind Funktionen von Positionen zu Werten.</li>
+<li>Teilmengen sind Funktionen in <code>{0, 1}</code>.</li>
+<li>Hierarchien können durch Elternfunktionen, Pfade oder
+Ordnungsrelationen beschrieben werden.</li>
+</ul>
+<p>Das ist eine sehr tiefe Verbindung.</p>
+<hr />
+<h2 id="tupel-und-mengen-als-zahlenformen">13. Tupel und Mengen als
+Zahlenformen</h2>
+<p>Ein <code>n</code>-Tupel über einer Menge <code>X</code> ist
+eigentlich eine Funktion:</p>
+<pre class="text"><code>{0, 1, ..., n-1} → X</code></pre>
+<p>Also ist</p>
+<pre class="text"><code>(a, b, c)</code></pre>
+<p>eine Funktion von den Positionen <code>0, 1, 2</code> nach den Werten
+<code>a, b, c</code>.</p>
+<p>Eine Teilmenge <code>A ⊆ X</code> ist ebenfalls eine Funktion:</p>
+<pre class="text"><code>X → {0, 1}</code></pre>
+<p>Sie sagt für jedes Element von <code>X</code>: drin oder nicht
+drin.</p>
+<p>Eine Hierarchie kann man als Relation auffassen:</p>
+<pre class="text"><code>Elternteil(x, y)</code></pre>
+<p>oder als partielle Ordnung:</p>
+<pre class="text"><code>x ≤ y</code></pre>
+<p>oder als Menge von Pfaden:</p>
+<pre class="text"><code>(), (0), (1), (0, 0), (0, 1), ...</code></pre>
+<p>Damit werden Mengen, Tupel und Hierarchien alle zu verschiedenen
+Arten von <strong>Abbildungsstruktur</strong>.</p>
+<hr />
+<h2 id="zahlen-als-strukturformen">14. Zahlen als Strukturformen</h2>
+<p>Umgekehrt sind auch Zahlen selbst nicht „strukturlose Dinge“.</p>
+<p>Natürliche Zahlen kann man als wiederholten Nachfolger sehen:</p>
+<pre class="text"><code>0
+S(0)
+S(S(0))
+S(S(S(0)))
+...</code></pre>
+<p>Oder als endliche Ordinale:</p>
+<pre class="text"><code>0 = ∅
+1 = {0}
+2 = {0, 1}
+3 = {0, 1, 2}</code></pre>
+<p>Dann ist die Zahl <code>3</code> buchstäblich eine kanonische
+dreistellige Ordnung.</p>
+<p>Ganze Zahlen kann man als Differenzen auffassen:</p>
+<pre class="text"><code>a - b</code></pre>
+<p>Rationale Zahlen als Äquivalenzklassen von Paaren:</p>
+<pre class="text"><code>(a, b) ~ (c, d), falls ad = bc</code></pre>
+<p>Reelle Zahlen als Grenzstrukturen, Schnitte oder Äquivalenzklassen
+von Folgen.</p>
+<p>Also:</p>
+<blockquote>
+<p>Zahlen sind selbst oft aus Mengen, Tupeln, Ordnungen und
+Äquivalenzrelationen gebaut.</p>
+</blockquote>
+<p>Die Trennung zwischen „Zahl“ und „Struktur“ ist daher nicht absolut.
+Sie ist eher eine Frage des Abstraktionsgrades.</p>
+<hr />
+<h2 id="die-tiefste-gegenüberstellung">15. Die tiefste
+Gegenüberstellung</h2>
+<p>Die beiden Bereiche lassen sich so gegeneinander stellen:</p>
+<table>
+<thead>
+<tr>
+<th>Zahlen</th>
+<th>Mengen/Tupel/Hierarchien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quantität</td>
+<td>Struktur</td>
+</tr>
+<tr>
+<td>Invariante</td>
+<td>Träger</td>
+</tr>
+<tr>
+<td>Kompression</td>
+<td>Entfaltung</td>
+</tr>
+<tr>
+<td>Vergleichbarkeit</td>
+<td>Relationalität</td>
+</tr>
+<tr>
+<td>Maß</td>
+<td>Form</td>
+</tr>
+<tr>
+<td>Rang</td>
+<td>Position</td>
+</tr>
+<tr>
+<td>Kardinalität</td>
+<td>Elementgefüge</td>
+</tr>
+<tr>
+<td>Ordinalität</td>
+<td>Ordnung</td>
+</tr>
+<tr>
+<td>Skalar</td>
+<td>Kontext</td>
+</tr>
+<tr>
+<td>Ergebnis des Vergessens</td>
+<td>Ausgangsmaterial des Unterscheidens</td>
+</tr>
+</tbody>
+</table>
+<p>Aber sie sind keine Fremdkörper. Sie sind ineinander übersetzbar:</p>
+<pre class="text"><code>Struktur → Zahl
+    durch Zählen, Messen, Ranken, Kodieren, Quotientieren
+
+Zahl → Struktur
+    durch Indizieren, Wiederholen, Ordnen, Dimensionieren, Konstruieren</code></pre>
+<hr />
+<h2 id="die-knappste-formel">16. Die knappste Formel</h2>
+<p>Die universellen Eigenschaften zwischen Zahlen und
+Mengen/Tupeln/Hierarchien sind:</p>
+<ol type="1">
+<li>Identität</li>
+<li>Differenz</li>
+<li>Einheit</li>
+<li>Vielheit</li>
+<li>Ordnung</li>
+<li>Symmetrie</li>
+<li>Teil-Ganzes-Beziehung</li>
+<li>Komposition</li>
+<li>Dekomposition</li>
+<li>Position</li>
+<li>Wert</li>
+<li>Abbildung</li>
+<li>Invarianz</li>
+<li>Repräsentation</li>
+<li>Endlichkeit</li>
+<li>Unendlichkeit</li>
+<li>Rekursion</li>
+<li>Rang</li>
+<li>Tiefe</li>
+<li>Kardinalität</li>
+</ol>
+<p>Und ihre zentrale gegensätzliche Organisation ist:</p>
+<pre class="text"><code>Unterscheiden ↔ Identifizieren
+Aufbauen ↔ Zerlegen
+Ordnen ↔ Symmetrisieren
+Positionieren ↔ Abstrahieren
+Verschachteln ↔ Linearisieren
+Struktur bewahren ↔ Struktur vergessen
+Konkretes Objekt ↔ numerische Invariante</code></pre>
+<p>Die beste Ein-Satz-Zusammenfassung:</p>
+<blockquote>
+<p><strong>Zahlen sind die komprimierten Invarianten von Strukturen;
+Mengen, Tupel und Hierarchien sind die entfalteten Räume, in denen diese
+Invarianten entstehen.</strong></p>
+</blockquote>
+</body>
+</html>

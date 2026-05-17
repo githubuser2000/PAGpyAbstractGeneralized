@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>6m7</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-zwischen-winkel-und-zahl">Universelle
+Eigenschaften zwischen Winkel und Zahl</h1>
+<p>Ein <strong>Winkel</strong> ist nicht selbst eine Zahl. Ein Winkel
+ist eine <strong>geometrische Beziehung</strong> zwischen Richtungen,
+Strahlen, Geraden oder Drehungen. Eine <strong>Zahl</strong> wird
+benutzt, um diese Beziehung zu <strong>messen</strong>, zu vergleichen
+und zu berechnen.</p>
+<p>Der tiefste gemeinsame Kern ist:</p>
+<blockquote>
+<p><strong>Ein Winkel ist eine Größe, deren Struktur durch Zahlen
+abgebildet werden kann.</strong></p>
+</blockquote>
+<h2 id="messbarkeit">1. Messbarkeit</h2>
+<p>Winkel und Zahlen teilen die Eigenschaft, dass man sie als
+<strong>Größen</strong> behandeln kann.</p>
+<p>Ein Winkel kann größer, kleiner oder gleich einem anderen Winkel
+sein:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&lt;</mo><mi>β</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>α</mi><mo>=</mo><mi>β</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>α</mi><mo>&gt;</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">
+\alpha &lt; \beta,\quad \alpha = \beta,\quad \alpha &gt; \beta
+</annotation></semantics></math></p>
+<p>Das ist unabhängig davon, ob man ihn in Grad, Radiant oder
+Umdrehungen misst.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>90</mn><mo>∘</mo></msup><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> rad</mtext></mrow><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Umdrehung</mtext></mrow></mrow><annotation encoding="application/x-tex">
+90^\circ = \frac{\pi}{2} \text{ rad} = \frac14 \text{ Umdrehung}
+</annotation></semantics></math></p>
+<p>Die Zahlen sind verschieden, aber der Winkel ist derselbe.</p>
+<h2 id="verhältnis-proportion">2. Verhältnis / Proportion</h2>
+<p>Die universelle numerische Eigenschaft eines Winkels ist sein
+<strong>Verhältnis zur vollen Drehung</strong>.</p>
+<p>Ein rechter Winkel ist nicht wesentlich „90“. Er ist wesentlich:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>4</mn></mfrac><annotation encoding="application/x-tex">
+\frac14
+</annotation></semantics></math></p>
+<p>einer vollen Drehung.</p>
+<p>Ein gestreckter Winkel ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>2</mn></mfrac><annotation encoding="application/x-tex">
+\frac12
+</annotation></semantics></math></p>
+<p>einer vollen Drehung.</p>
+<p>Ein Vollwinkel ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">
+1
+</annotation></semantics></math></p>
+<p>volle Drehung.</p>
+<p>Das ist universeller als Grad oder Radiant, weil es direkt die
+geometrische Bedeutung ausdrückt.</p>
+<h2 id="additivität">3. Additivität</h2>
+<p>Winkel kann man addieren wie Zahlen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>30</mn><mo>∘</mo></msup><mo>+</mo><msup><mn>60</mn><mo>∘</mo></msup><mo>=</mo><msup><mn>90</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+30^\circ + 60^\circ = 90^\circ
+</annotation></semantics></math></p>
+<p>Geometrisch heißt das: Eine Drehung um
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>30</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">30^\circ</annotation></semantics></math>,
+gefolgt von einer Drehung um
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>60</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">60^\circ</annotation></semantics></math>,
+ergibt eine Drehung um
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>90</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">90^\circ</annotation></semantics></math>.</p>
+<p>Das ist eine fundamentale Verbindung:</p>
+<blockquote>
+<p><strong>Winkeladdition entspricht Zahlenaddition.</strong></p>
+</blockquote>
+<p>Bei gerichteten Winkeln gilt genauer:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><msup><mn>360</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\alpha + \beta \pmod{360^\circ}
+</annotation></semantics></math></p>
+<p>oder in Radiant:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mrow><mn>2</mn><mi>π</mi></mrow><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\alpha + \beta \pmod{2\pi}
+</annotation></semantics></math></p>
+<p>Denn nach einer vollen Drehung ist man wieder in derselben
+Richtung.</p>
+<h2 id="null-gegenteil-einheit">4. Null, Gegenteil, Einheit</h2>
+<p>Winkel besitzen eine ähnliche algebraische Struktur wie Zahlen.</p>
+<p>Es gibt einen Nullwinkel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">
+0^\circ
+</annotation></semantics></math></p>
+<p>Er bedeutet: keine Drehung.</p>
+<p>Es gibt Gegenwinkel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>α</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>−</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">
++\alpha,\quad -\alpha
+</annotation></semantics></math></p>
+<p>Eine Drehung nach links kann durch eine gleich große Drehung nach
+rechts aufgehoben werden:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\alpha + (-\alpha) = 0
+</annotation></semantics></math></p>
+<p>Es gibt auch eine natürliche „Einheit“: die volle Drehung, der rechte
+Winkel, oder im Radiantmaß der Winkel, bei dem Bogenlänge und Radius
+gleich sind.</p>
+<h2 id="periodizität">5. Periodizität</h2>
+<p>Hier unterscheiden sich Winkel stark von gewöhnlichen Zahlen.</p>
+<p>Für Zahlen gilt normalerweise:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≠</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+x \neq x + 1
+</annotation></semantics></math></p>
+<p>Für Winkelrichtungen gilt aber:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>θ</mi><mo>+</mo><msup><mn>360</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = \theta + 360^\circ
+</annotation></semantics></math></p>
+<p>oder:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>θ</mi><mo>+</mo><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">
+\theta = \theta + 2\pi
+</annotation></semantics></math></p>
+<p>Ein Winkel als gerichtete Drehung lebt also nicht einfach auf der
+Zahlengeraden, sondern auf einem Kreis:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℝ</mi><mi>/</mi><mn>2</mn><mi>π</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{R} / 2\pi\mathbb{Z}
+</annotation></semantics></math></p>
+<p>Das bedeutet: Zahlen messen Winkel, aber Winkel haben eine
+<strong>zyklische Struktur</strong>.</p>
+<h2 id="ordnung-aber-mit-einschränkung">6. Ordnung, aber mit
+Einschränkung</h2>
+<p>Bei kleinen oder ungerichteten Winkeln kann man klar sagen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>30</mn><mo>∘</mo></msup><mo>&lt;</mo><msup><mn>60</mn><mo>∘</mo></msup><mo>&lt;</mo><msup><mn>90</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+30^\circ &lt; 60^\circ &lt; 90^\circ
+</annotation></semantics></math></p>
+<p>Aber bei gerichteten Winkeln ist Ordnung nicht mehr absolut.</p>
+<p>Ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>350</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">350^\circ</annotation></semantics></math>
+größer als
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">10^\circ</annotation></semantics></math>?</p>
+<p>Numerisch ja. Geometrisch liegen sie aber nur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>20</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">20^\circ</annotation></semantics></math>
+auseinander.</p>
+<p>Darum ist die gewöhnliche Zahlenordnung bei Winkeln nur teilweise
+natürlich. Für Winkel ist oft der <strong>Abstand auf dem Kreis</strong>
+wichtiger als die lineare Größe.</p>
+<h2 id="invarianz">7. Invarianz</h2>
+<p>Ein Winkel bleibt derselbe, wenn man die Figur verschiebt, dreht oder
+skaliert.</p>
+<p>Ein Dreieck mit Winkeln
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>90</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">30^\circ, 60^\circ, 90^\circ</annotation></semantics></math>
+behält diese Winkel, egal ob es groß oder klein gezeichnet wird.</p>
+<p>Das verbindet Winkel mit Zahlen als <strong>abstrakte
+Größen</strong>: Beide können unabhängig von konkreter Darstellung
+bestehen.</p>
+<p>Die Zahl
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+ist nicht an drei Äpfel gebunden.</p>
+<p>Der Winkel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>60</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">60^\circ</annotation></semantics></math>
+ist nicht an eine bestimmte Zeichnung gebunden.</p>
+<h2 id="radiant-als-tiefste-verbindung">8. Radiant als tiefste
+Verbindung</h2>
+<p>Das Radiantmaß zeigt die eleganteste Verbindung zwischen Winkel und
+Zahl.</p>
+<p>Definition:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mfrac><mi>s</mi><mi>r</mi></mfrac></mrow><annotation encoding="application/x-tex">
+\theta = \frac{s}{r}
+</annotation></semantics></math></p>
+<p>Dabei ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+die Bogenlänge und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+der Radius.</p>
+<p>Weil beide Längen dieselbe Dimension haben, ist ihr Verhältnis eine
+reine Zahl.</p>
+<p>Darum ist Radiant mathematisch natürlicher als Grad:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>360</mn><mo>∘</mo></msup><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> rad</mtext></mrow></mrow><annotation encoding="application/x-tex">
+360^\circ = 2\pi \text{ rad}
+</annotation></semantics></math></p>
+<p>Ein Winkel in Radiant ist also eine Zahl, die ausdrückt, wie viel
+Bogen pro Radius durchlaufen wird.</p>
+<h2 id="trigonometrische-verbindung">9. Trigonometrische Verbindung</h2>
+<p>Zahlen und Winkel treffen sich besonders stark in Sinus, Kosinus und
+Tangens.</p>
+<p>Ein Winkel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+bestimmt auf dem Einheitskreis einen Punkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\cos \theta, \sin \theta)
+</annotation></semantics></math></p>
+<p>Damit wird eine geometrische Drehung in Zahlen übersetzt.</p>
+<p>Zum Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>0</mn><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>0</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\cos 0 = 1,\quad \sin 0 = 0
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\cos \frac{\pi}{2} = 0,\quad \sin \frac{\pi}{2} = 1
+</annotation></semantics></math></p>
+<p>Hier sieht man: Winkel sind nicht nur messbar durch Zahlen; sie
+erzeugen auch Zahlenverhältnisse.</p>
+<h2 id="was-nicht-universell-ist">10. Was nicht universell ist</h2>
+<p>Nicht universell ist die konkrete Zahl, die man einem Winkel
+gibt.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>90</mn><mo>∘</mo></msup><mo>,</mo><mspace width="1.0em"></mspace><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mn>0</mn><mo>,</mo><mn>25</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Umdrehungen</mtext></mrow></mrow><annotation encoding="application/x-tex">
+90^\circ,\quad \frac{\pi}{2},\quad 0{,}25 \text{ Umdrehungen}
+</annotation></semantics></math></p>
+<p>sind verschiedene Zahlen für denselben Winkel.</p>
+<p>Universell ist also nicht „90“, sondern die geometrische
+Struktur:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">rechter Winkel</mtext><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> volle Drehung</mtext></mrow></mrow><annotation encoding="application/x-tex">
+\text{rechter Winkel} = \frac14 \text{ volle Drehung}
+</annotation></semantics></math></p>
+<p>Auch Multiplikation von Winkeln ist nicht so natürlich wie Addition.
+Man kann Zahlen multiplizieren, aber „Winkel mal Winkel“ hat keine
+einfache geometrische Grundbedeutung wie „Winkel plus Winkel“.</p>
+<h2 id="verdichtete-antwort">Verdichtete Antwort</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Messbarkeit</td>
+<td>Winkel können durch Zahlen beschrieben werden</td>
+</tr>
+<tr>
+<td>Vergleichbarkeit</td>
+<td>Winkel können gleich, größer oder kleiner sein</td>
+</tr>
+<tr>
+<td>Additivität</td>
+<td>Winkel können wie Zahlen addiert werden</td>
+</tr>
+<tr>
+<td>Verhältnis</td>
+<td>Ein Winkel ist ein Anteil einer vollen Drehung</td>
+</tr>
+<tr>
+<td>Invarianz</td>
+<td>Derselbe Winkel bleibt bei Skalierung, Verschiebung und Drehung
+erhalten</td>
+</tr>
+<tr>
+<td>Periodizität</td>
+<td>Winkel wiederholen sich nach einer vollen Drehung</td>
+</tr>
+<tr>
+<td>Abstraktion</td>
+<td>Winkel und Zahlen sind unabhängig von konkreten Objekten</td>
+</tr>
+<tr>
+<td>Struktur</td>
+<td>Gerichtete Winkel bilden eine zyklische Zahlenstruktur</td>
+</tr>
+</tbody>
+</table>
+<p>Am präzisesten gesagt:</p>
+<blockquote>
+<p><strong>Zahlen sind lineare Größen; Winkel sind zyklische Größen. Die
+Zahl misst den Winkel, aber der Winkel besitzt zusätzlich eine
+Kreisstruktur.</strong></p>
+</blockquote>
+</body>
+</html>
