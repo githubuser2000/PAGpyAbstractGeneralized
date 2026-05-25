@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>u29</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="morphismen">Morphismen</h1>
+<p>Ein <strong>Morphismus</strong> ist die mathematische Abstraktion
+einer „strukturverträglichen Abbildung“.</p>
+<p>Nicht einfach: „Ein Ding wird auf ein anderes geschickt.“<br />
+Sondern: „Ein Ding wird so auf ein anderes geschickt, dass die relevante
+Struktur respektiert wird.“</p>
+<hr />
+<h2 id="die-grundidee">1. Die Grundidee</h2>
+<p>In vielen mathematischen Gebieten untersucht man Objekte mit
+Struktur:</p>
+<table>
+<thead>
+<tr>
+<th>Gebiet</th>
+<th>Objekte</th>
+<th>Morphismen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mengenlehre</td>
+<td>Mengen</td>
+<td>Funktionen</td>
+</tr>
+<tr>
+<td>Gruppentheorie</td>
+<td>Gruppen</td>
+<td>Gruppenhomomorphismen</td>
+</tr>
+<tr>
+<td>Ringtheorie</td>
+<td>Ringe</td>
+<td>Ringhomomorphismen</td>
+</tr>
+<tr>
+<td>Topologie</td>
+<td>topologische Räume</td>
+<td>stetige Abbildungen</td>
+</tr>
+<tr>
+<td>Lineare Algebra</td>
+<td>Vektorräume</td>
+<td>lineare Abbildungen</td>
+</tr>
+<tr>
+<td>Differentialgeometrie</td>
+<td>Mannigfaltigkeiten</td>
+<td>glatte Abbildungen</td>
+</tr>
+</tbody>
+</table>
+<p>Der Punkt ist: Ein Morphismus ist jeweils die „richtige Art von
+Abbildung“ für die betrachtete Struktur.</p>
+<p>Eine beliebige Funktion zwischen Gruppen wäre noch kein guter
+Morphismus, weil sie die Gruppenoperation ignorieren könnte. Ein
+Gruppenmorphismus muss dagegen die Multiplikation respektieren:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(xy) = f(x)f(y)
+</annotation></semantics></math></p>
+<p>Eine beliebige Funktion zwischen topologischen Räumen wäre ebenfalls
+nicht die richtige Strukturabbildung. Dort will man Stetigkeit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">stetig</mtext></mrow><annotation encoding="application/x-tex">
+f : X \to Y \quad \text{stetig}
+</annotation></semantics></math></p>
+<p>Ein Morphismus ist also nicht „ein Pfeil mit beliebiger Bedeutung“,
+sondern ein Pfeil, der genau die Struktur erhält, die in der jeweiligen
+Theorie wichtig ist.</p>
+<hr />
+<h2 id="beispiel-gruppen">2. Beispiel: Gruppen</h2>
+<p>Nimm zwei Gruppen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>,</mo><mi>⋅</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>*</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(G, \cdot), \quad (H, *)
+</annotation></semantics></math></p>
+<p>Ein Morphismus zwischen ihnen ist eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>G</mi><mo>→</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">
+f : G \to H
+</annotation></semantics></math></p>
+<p>mit der Eigenschaft:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>⋅</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(a \cdot b) = f(a) * f(b)
+</annotation></semantics></math></p>
+<p>Das heißt: Erst in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+multiplizieren und dann abbilden ergibt dasselbe wie erst abbilden und
+dann in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+multiplizieren.</p>
+<p>Diagrammatisch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>G</mi><mo>×</mo><mi>G</mi></mtd><mtd columnalign="center" style="text-align: center"><mover><mo>→</mo><mo accent="false">⋅</mo></mover></mtd><mtd columnalign="center" style="text-align: center"><mi>G</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>↓</mo><mi>f</mi><mo>×</mo><mi>f</mi></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mo>↓</mo><mi>f</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>H</mi><mo>×</mo><mi>H</mi></mtd><mtd columnalign="center" style="text-align: center"><mover><mo>→</mo><mo accent="false">*</mo></mover></mtd><mtd columnalign="center" style="text-align: center"><mi>H</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{array}{ccc}
+G \times G &amp; \xrightarrow{\cdot} &amp; G \\
+\downarrow f \times f &amp; &amp; \downarrow f \\
+H \times H &amp; \xrightarrow{*} &amp; H
+\end{array}
+</annotation></semantics></math></p>
+<p>Dieses Diagramm „kommutiert“. Das ist eine sehr wichtige Denkweise:
+Morphismen sind Abbildungen, die mit der Struktur verträglich sind.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mi>n</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+f : \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><mrow><mspace width="0.444em"></mspace><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">
+f(k) = k \mod n
+</annotation></semantics></math></p>
+<p>Das ist ein Gruppenmorphismus bezüglich Addition, denn:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mrow><mspace width="0.444em"></mspace><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mi>n</mi></mrow><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mrow><mspace width="0.444em"></mspace><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mi>n</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mrow><mspace width="0.444em"></mspace><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mi>n</mi></mrow><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(a+b) = (a+b) \mod n = (a \mod n) + (b \mod n)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="beispiel-vektorräume">3. Beispiel: Vektorräume</h2>
+<p>Bei Vektorräumen sind Morphismen <strong>lineare
+Abbildungen</strong>.</p>
+<p>Eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><mi>V</mi><mo>→</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">
+T : V \to W
+</annotation></semantics></math></p>
+<p>ist ein Morphismus, wenn gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>+</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T(v+w) = T(v) + T(w)
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T(\lambda v) = \lambda T(v)
+</annotation></semantics></math></p>
+<p>Sie erhält also Addition und Skalarmultiplikation.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+T : \mathbb{R}^2 \to \mathbb{R}^2
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo>,</mo><mn>3</mn><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T(x,y) = (2x, 3y)
+</annotation></semantics></math></p>
+<p>ist linear.</p>
+<p>Dagegen ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F(x,y) = (x^2, y)
+</annotation></semantics></math></p>
+<p>kein Morphismus in der Kategorie der Vektorräume, weil die Linearität
+verletzt wird.</p>
+<hr />
+<h2 id="morphismus-vs.-funktion">4. Morphismus vs. Funktion</h2>
+<p>Jede klassische Morphismus-Abbildung ist oft eine Funktion, aber
+nicht jede Funktion ist ein Morphismus.</p>
+<p>Eine Funktion ist nur eine Zuordnung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+f : A \to B
+</annotation></semantics></math></p>
+<p>Ein Morphismus ist eine Zuordnung mit Strukturverträglichkeit.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant="double-struck">ℝ</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+f : \mathbb{R} \to \mathbb{R}, \quad f(x)=x^2
+</annotation></semantics></math></p>
+<p>Als Funktion: völlig okay.</p>
+<p>Als Morphismus von Mengen: ja, denn in der Kategorie
+<strong>Set</strong> sind alle Funktionen Morphismen.</p>
+<p>Als Morphismus von Vektorräumen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℝ</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{R} \to \mathbb{R}
+</annotation></semantics></math></p>
+<p>nein, weil
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>
+nicht linear ist.</p>
+<p>Als Morphismus topologischer Räume: ja, weil
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>
+stetig ist.</p>
+<p>Als Morphismus glatter Mannigfaltigkeiten: ja, weil
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>
+glatt ist.</p>
+<p>Das gleiche Symbol
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">f(x)=x^2</annotation></semantics></math>
+kann also je nach Kontext ein Morphismus sein oder nicht. Der Kontext
+entscheidet, welche Struktur zählt.</p>
+<hr />
+<h2 id="die-kategorientheoretische-sicht">5. Die kategorientheoretische
+Sicht</h2>
+<p>In der Kategorientheorie abstrahiert man noch weiter.</p>
+<p>Eine <strong>Kategorie</strong> besteht aus:</p>
+<ol type="1">
+<li><strong>Objekten</strong></li>
+<li><strong>Morphismen</strong> zwischen Objekten</li>
+<li>einer <strong>Komposition</strong> von Morphismen</li>
+<li><strong>Identitätsmorphismen</strong></li>
+</ol>
+<p>Man schreibt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+f : A \to B
+</annotation></semantics></math></p>
+<p>für einen Morphismus von Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+nach Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+<p>Wenn außerdem</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">
+g : B \to C
+</annotation></semantics></math></p>
+<p>gegeben ist, dann kann man komponieren:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>∘</mo><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">
+g \circ f : A \to C
+</annotation></semantics></math></p>
+<p>Das bedeutet: erst
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>,
+dann
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>.</p>
+<p>Die Komposition muss assoziativ sein:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo>∘</mo><mi>f</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo>∘</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo><mo>∘</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+h \circ (g \circ f) = (h \circ g) \circ f
+</annotation></semantics></math></p>
+<p>Und jedes Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+hat einen Identitätsmorphismus:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mi>A</mi></msub><mo>:</mo><mi>A</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{id}_A : A \to A
+</annotation></semantics></math></p>
+<p>mit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><msub><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mi>A</mi></msub><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+f \circ \mathrm{id}_A = f
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mi>B</mi></msub><mo>∘</mo><mi>f</mi><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{id}_B \circ f = f
+</annotation></semantics></math></p>
+<p>für jeden Morphismus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">f : A \to B</annotation></semantics></math>.</p>
+<p>Das ist die Minimalstruktur einer Kategorie.</p>
+<hr />
+<h2 id="warum-nennt-man-sie-nicht-einfach-abbildungen">6. Warum nennt
+man sie nicht einfach Abbildungen?</h2>
+<p>Weil Morphismen in abstrakten Kategorien nicht unbedingt Funktionen
+sein müssen.</p>
+<p>In vielen Kategorien sind Morphismen tatsächlich Funktionen mit
+Zusatzbedingungen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Mengen</mtext><mo>⇒</mo><mtext mathvariant="normal">Funktionen</mtext></mrow><annotation encoding="application/x-tex">
+\text{Mengen} \Rightarrow \text{Funktionen}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Gruppen</mtext><mo>⇒</mo><mtext mathvariant="normal">Gruppenhomomorphismen</mtext></mrow><annotation encoding="application/x-tex">
+\text{Gruppen} \Rightarrow \text{Gruppenhomomorphismen}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Topologische Räume</mtext><mo>⇒</mo><mtext mathvariant="normal">stetige Funktionen</mtext></mrow><annotation encoding="application/x-tex">
+\text{Topologische Räume} \Rightarrow \text{stetige Funktionen}
+</annotation></semantics></math></p>
+<p>Aber in allgemeineren Kategorien können Morphismen andere Dinge
+sein:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Kategorie</th>
+<th>Objekte</th>
+<th>Morphismen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rel</td>
+<td>Mengen</td>
+<td>Relationen</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi></mrow><mi>K</mi></msub><annotation encoding="application/x-tex">\mathrm{Mat}_K</annotation></semantics></math></td>
+<td>natürliche Zahlen / freie Vektorräume</td>
+<td>Matrizen</td>
+</tr>
+<tr>
+<td>Poset als Kategorie</td>
+<td>Elemente einer Ordnung</td>
+<td>höchstens ein Pfeil
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a \to b</annotation></semantics></math>,
+falls
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a \le b</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Homotopiekategorie</td>
+<td>topologische Räume</td>
+<td>Homotopieklassen stetiger Abbildungen</td>
+</tr>
+<tr>
+<td>Kategorie von Typen</td>
+<td>Typen</td>
+<td>Programme/Funktionen</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Morphismus ist deshalb besser als „Pfeil“ zu verstehen. Was der
+Pfeil konkret ist, hängt von der Kategorie ab.</p>
+<hr />
+<h2 id="wichtige-arten-von-morphismen">7. Wichtige Arten von
+Morphismen</h2>
+<h3 id="isomorphismus">Isomorphismus</h3>
+<p>Ein Morphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+f : A \to B
+</annotation></semantics></math></p>
+<p>heißt <strong>Isomorphismus</strong>, wenn es einen Morphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+g : B \to A
+</annotation></semantics></math></p>
+<p>gibt mit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>∘</mo><mi>f</mi><mo>=</mo><msub><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+g \circ f = \mathrm{id}_A
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>g</mi><mo>=</mo><msub><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">
+f \circ g = \mathrm{id}_B
+</annotation></semantics></math></p>
+<p>Dann sind
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+„strukturell gleich“.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Zwei Vektorräume gleicher endlicher Dimension über demselben Körper
+sind isomorph.</li>
+<li>Die Gruppen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mathbb{Z}/2\mathbb{Z}, +)</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mi>⋅</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\{1,-1\}, \cdot)</annotation></semantics></math>
+sind isomorph.</li>
+<li>Zwei topologische Räume sind homöomorph, wenn es einen stetigen
+Isomorphismus mit stetiger Umkehrabbildung gibt.</li>
+</ul>
+<p>Wichtig: Isomorph heißt nicht „identisch“, sondern „gleich bis auf
+Umbenennung der Struktur“.</p>
+<hr />
+<h3 id="endomorphismus">Endomorphismus</h3>
+<p>Ein Morphismus von einem Objekt zu sich selbst:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+f : A \to A
+</annotation></semantics></math></p>
+<p>Beispiel: Eine lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><mi>V</mi><mo>→</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">
+T : V \to V
+</annotation></semantics></math></p>
+<p>ist ein Endomorphismus von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>.</p>
+<hr />
+<h3 id="automorphismus">Automorphismus</h3>
+<p>Ein Endomorphismus, der zugleich ein Isomorphismus ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+f : A \to A
+</annotation></semantics></math></p>
+<p>mit Inverser.</p>
+<p>Das sind die Symmetrien eines Objekts.</p>
+<p>Beispiel: Die Drehungen eines Quadrats, die das Quadrat auf sich
+selbst abbilden, sind Automorphismen seiner geometrischen Struktur.</p>
+<hr />
+<h3 id="monomorphismus">Monomorphismus</h3>
+<p>Ein Morphismus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">f : A \to B</annotation></semantics></math>
+heißt <strong>Mono</strong>, wenn er links-kürzbar ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><msub><mi>g</mi><mn>1</mn></msub><mo>=</mo><mi>f</mi><mo>∘</mo><msub><mi>g</mi><mn>2</mn></msub><mo>⇒</mo><msub><mi>g</mi><mn>1</mn></msub><mo>=</mo><msub><mi>g</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2
+</annotation></semantics></math></p>
+<p>In vielen konkreten Kategorien entspricht das injektiven Abbildungen,
+aber nicht immer.</p>
+<p>Intuition: Ein Monomorphismus verliert keine Information über den
+Input.</p>
+<hr />
+<h3 id="epimorphismus">Epimorphismus</h3>
+<p>Ein Morphismus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">f : A \to B</annotation></semantics></math>
+heißt <strong>Epi</strong>, wenn er rechts-kürzbar ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo>∘</mo><mi>f</mi><mo>=</mo><msub><mi>g</mi><mn>2</mn></msub><mo>∘</mo><mi>f</mi><mo>⇒</mo><msub><mi>g</mi><mn>1</mn></msub><mo>=</mo><msub><mi>g</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2
+</annotation></semantics></math></p>
+<p>In vielen konkreten Kategorien entspricht das surjektiven
+Abbildungen, aber nicht immer.</p>
+<p>Intuition: Ein Epimorphismus trifft genug von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+um nachfolgende Morphismen eindeutig zu bestimmen.</p>
+<hr />
+<h2 id="der-eigentliche-mentale-shift">8. Der eigentliche mentale
+Shift</h2>
+<p>Normalerweise denkt man in Mathematik oft objektzentriert:</p>
+<blockquote>
+<p>Was ist dieses Objekt intern?</p>
+</blockquote>
+<p>Kategorientheorie denkt morphismuszentriert:</p>
+<blockquote>
+<p>Wie verhält sich dieses Objekt gegenüber anderen Objekten?</p>
+</blockquote>
+<p>Ein Objekt wird durch seine Beziehungen sichtbar.</p>
+<p>Zum Beispiel kann man ein Produkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+nicht nur als Menge von Paaren definieren, sondern durch seine
+Projektionsmorphismen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>A</mi></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+\pi_A : A \times B \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>B</mi></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+\pi_B : A \times B \to B
+</annotation></semantics></math></p>
+<p>und eine universelle Eigenschaft:</p>
+<p>Für jedes Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit Morphismen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+f : X \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+g : X \to B
+</annotation></semantics></math></p>
+<p>gibt es genau einen Morphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>f</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">⟩</mo><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+\langle f,g\rangle : X \to A \times B
+</annotation></semantics></math></p>
+<p>sodass:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>A</mi></msub><mo>∘</mo><mo stretchy="false" form="prefix">⟨</mo><mi>f</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">⟩</mo><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+\pi_A \circ \langle f,g\rangle = f
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>B</mi></msub><mo>∘</mo><mo stretchy="false" form="prefix">⟨</mo><mi>f</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">⟩</mo><mo>=</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">
+\pi_B \circ \langle f,g\rangle = g
+</annotation></semantics></math></p>
+<p>Das ist mächtig: Man beschreibt ein Objekt nicht über seine Elemente,
+sondern über die Morphismen, die zu ihm und von ihm gehen.</p>
+<hr />
+<h2 id="programmiererintuition">9. Programmiererintuition</h2>
+<p>Als Softwareentwickler kannst du Morphismen ungefähr so lesen:</p>
+<p>Ein Objekt ist ein Typ mit Struktur.<br />
+Ein Morphismus ist eine wohldefinierte strukturverträgliche
+Transformation zwischen Typen.</p>
+<p>Beispiele:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">f ::</span> <span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">B</span></span></code></pre></div>
+<p>In einer sehr einfachen Kategorie der Typen wären totale Funktionen
+Morphismen.</p>
+<p>Aber je nach Kontext kann „strukturverträglich“ mehr bedeuten:</p>
+<ul>
+<li>bei Monaden: Kleisli-Morphismen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>M</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A \to M B</annotation></semantics></math></li>
+<li>bei Funktoren: natürliche Transformationen</li>
+<li>bei geordneten Typen: monotone Funktionen</li>
+<li>bei metrischen Räumen: nicht-expansive Abbildungen</li>
+<li>bei algebraischen Datentypen: Homomorphismen, die
+Konstruktorstruktur respektieren</li>
+</ul>
+<p>Ein Morphismus ist also weniger „Funktion“ als „zulässige
+Transformation im gegebenen semantischen Universum“.</p>
+<hr />
+<h2 id="eine-gute-ein-satz-definition">10. Eine gute
+Ein-Satz-Definition</h2>
+<p>Ein <strong>Morphismus</strong> ist ein Pfeil zwischen Objekten einer
+Kategorie, der als die strukturverträgliche Transformation gilt, die in
+dieser Kategorie als sinnvoll erlaubt ist.</p>
+<p>Oder noch knapper:</p>
+<blockquote>
+<p>Morphismen sind die erlaubten Strukturabbildungen einer Theorie.</p>
+</blockquote>
+<p>Das ist die beste Intuition. Die Kategorie sagt dir, was die Objekte
+sind; die Morphismen sagen dir, welche Beziehungen, Transformationen
+oder Beobachtungen zwischen diesen Objekten mathematisch relevant
+sind.</p>
+</body>
+</html>

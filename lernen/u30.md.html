@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>u30</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften">Universelle Eigenschaften</h1>
+<h2 id="die-kernidee">1. Die Kernidee</h2>
+<p>Eine <strong>universelle Eigenschaft</strong> beschreibt ein Objekt
+nicht durch seine innere Konstruktion, sondern durch seine
+<strong>optimale Beziehung zu allen anderen Objekten</strong>.</p>
+<p>Statt zu sagen:</p>
+<blockquote>
+<p>„Ein Produkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+ist die Menge geordneter Paare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math>.“</p>
+</blockquote>
+<p>sagt man:</p>
+<blockquote>
+<p>„Ein Produkt von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+ist ein Objekt, aus dem man nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+projizieren kann, und zwar so, dass jede andere solche Situation
+eindeutig dadurch faktorisiert.“</p>
+</blockquote>
+<p>Das klingt erst abstrakter, ist aber mächtiger. Die innere
+Repräsentation ist egal. Entscheidend ist das <strong>Verhalten unter
+Abbildungen</strong>.</p>
+<p>Ein gutes Motto:</p>
+<blockquote>
+<p>Universelle Eigenschaften definieren Objekte über ihre API, nicht
+über ihre Implementierung.</p>
+</blockquote>
+<p>Für einen Softwareentwickler ist das die richtige Intuition: Ein
+Objekt wird nicht dadurch charakterisiert, wie es intern gebaut ist,
+sondern durch das Interface, das es eindeutig erfüllt.</p>
+<hr />
+<h2 id="die-typische-form">2. Die typische Form</h2>
+<p>Eine universelle Eigenschaft hat fast immer diese Gestalt:</p>
+<blockquote>
+<p>Für jedes Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit passender Struktur gibt es genau eine Abbildung, die alles
+kompatibel macht.</p>
+</blockquote>
+<p>Die magischen Wörter sind:</p>
+<blockquote>
+<p><strong>für jedes</strong> und <strong>genau eine</strong></p>
+</blockquote>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∀</mo><mi>X</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>∃</mo><mi>!</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">
+\forall X,\quad \exists! f
+</annotation></semantics></math></p>
+<p>Das
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>!</mi></mrow><annotation encoding="application/x-tex">\exists!</annotation></semantics></math>
+bedeutet: „es existiert genau ein“.</p>
+<p>Warum ist „genau eine“ so wichtig?</p>
+<p>Weil es sagt: Das universelle Objekt ist nicht bloß irgendeine
+Lösung, sondern die <strong>kanonische</strong> Lösung. Es gibt keine
+Wahlfreiheit mehr. Alles, was mit der gegebenen Struktur kompatibel ist,
+muss eindeutig über dieses Objekt laufen.</p>
+<hr />
+<h2 id="erstes-beispiel-produkt">3. Erstes Beispiel: Produkt</h2>
+<p>Nimm zwei Mengen, Gruppen, Räume oder allgemein Objekte
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+<p>Das Produkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+hat Projektionen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+\pi_1 : A \times B \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>2</mn></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+\pi_2 : A \times B \to B
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft lautet:</p>
+<blockquote>
+<p>Für jedes Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit zwei Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+f : X \to A
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+g : X \to B
+</annotation></semantics></math></p>
+<p>gibt es genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+h : X \to A \times B
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+\pi_1 \circ h = f
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>g</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi_2 \circ h = g.
+</annotation></semantics></math></p>
+</blockquote>
+<p>Diagrammatisch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mover><mo>→</mo><mrow><mspace width="1.0em"></mspace><mi>h</mi><mspace width="1.0em"></mspace></mrow></mover><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \xrightarrow{\quad h \quad} A \times B
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>f</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">
+\pi_1 \circ h = f,\qquad \pi_2 \circ h = g
+</annotation></semantics></math></p>
+<p>Das heißt: Wenn du von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+abbilden kannst, dann kannst du eindeutig nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+abbilden.</p>
+<p>In Mengen ist diese eindeutige Abbildung einfach:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+h(x) = (f(x), g(x))
+</annotation></semantics></math></p>
+<p>Aber das ist nur die konkrete Implementierung. Die universelle
+Eigenschaft ist allgemeiner.</p>
+<p>Sie sagt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(X, A \times B)
+\cong
+\mathrm{Hom}(X,A) \times \mathrm{Hom}(X,B)
+</annotation></semantics></math></p>
+<p>Also: Eine Abbildung nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+ist dasselbe wie ein Paar von Abbildungen nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+<p>Das ist die eigentliche Bedeutung des Produkts.</p>
+<hr />
+<h2 id="der-entscheidende-perspektivwechsel">4. Der entscheidende
+Perspektivwechsel</h2>
+<p>Normale Definition:</p>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+besteht aus Paaren.</p>
+</blockquote>
+<p>Universelle Definition:</p>
+<blockquote>
+<p>Eine Abbildung in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+ist dasselbe wie zwei Abbildungen, eine nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+eine nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+</blockquote>
+<p>Das zweite ist tiefer.</p>
+<p>Warum? Weil es in Kategorien funktioniert, in denen du gar keine
+Elemente hast. In vielen mathematischen Welten kannst du nicht sinnvoll
+sagen: „Das Objekt besteht aus diesen Dingern.“ Aber du kannst sagen:
+„So verhalten sich Abbildungen hinein oder hinaus.“</p>
+<p>Kategorientheorie ersetzt oft die Frage:</p>
+<blockquote>
+<p>Was sind die Elemente?</p>
+</blockquote>
+<p>Durch:</p>
+<blockquote>
+<p>Wie verhalten sich die Morphismen?</p>
+</blockquote>
+<hr />
+<h2 id="zweites-beispiel-koprodukt">5. Zweites Beispiel: Koprodukt</h2>
+<p>Das Koprodukt ist dual zum Produkt.</p>
+<p>Für Mengen ist es die disjunkte Vereinigung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+A + B
+</annotation></semantics></math></p>
+<p>Es hat Inklusionen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>i</mi><mn>1</mn></msub><mo>:</mo><mi>A</mi><mo>→</mo><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+i_1 : A \to A + B
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>i</mi><mn>2</mn></msub><mo>:</mo><mi>B</mi><mo>→</mo><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+i_2 : B \to A + B
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft lautet:</p>
+<blockquote>
+<p>Für jedes Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+f : A \to X
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+g : B \to X
+</annotation></semantics></math></p>
+<p>gibt es genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+h : A + B \to X
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><msub><mi>i</mi><mn>1</mn></msub><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+h \circ i_1 = f
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><msub><mi>i</mi><mn>2</mn></msub><mo>=</mo><mi>g</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h \circ i_2 = g.
+</annotation></semantics></math></p>
+</blockquote>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(A+B, X)
+\cong
+\mathrm{Hom}(A,X) \times \mathrm{Hom}(B,X)
+</annotation></semantics></math></p>
+<p>Eine Funktion aus einer Summe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math>
+nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+ist dasselbe wie zwei Funktionen: eine aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+eine aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p>In Programmiersprachen ist das Pattern Matching auf Sum Types:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Either</span> <span class="dt">A</span> <span class="dt">B</span> <span class="ot">-&gt;</span> <span class="dt">X</span></span></code></pre></div>
+<p>ist dasselbe wie:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">X</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">B</span> <span class="ot">-&gt;</span> <span class="dt">X</span></span></code></pre></div>
+<p>Das ist keine Analogie am Rande. Das ist die Struktur selbst.</p>
+<hr />
+<h2 id="produkt-vs.-koprodukt">6. Produkt vs. Koprodukt</h2>
+<p>Der Unterschied liegt in der Richtung der Pfeile.</p>
+<p>Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A \times B
+</annotation></semantics></math></p>
+<p>entspricht</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A,\quad X \to B
+</annotation></semantics></math></p>
+<p>Koprodukt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+A + B \to X
+</annotation></semantics></math></p>
+<p>entspricht</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>X</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+A \to X,\quad B \to X
+</annotation></semantics></math></p>
+<p>Produkt bündelt Beobachtungen.</p>
+<p>Koprodukt bündelt Alternativen.</p>
+<p>Software-Übersetzung:</p>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Programmierintuition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math></td>
+<td>Record, Tuple, Struct</td>
+</tr>
+<tr>
+<td>Koprodukt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math></td>
+<td>Sum Type, Enum, Variant</td>
+</tr>
+<tr>
+<td>Produkt-Universalität</td>
+<td>Ein Wert liefert beide Felder</td>
+</tr>
+<tr>
+<td>Koprodukt-Universalität</td>
+<td>Ein Consumer behandelt beide Fälle</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="warum-universell">7. Warum „universell“?</h2>
+<p>„Universell“ heißt nicht „groß“, „allgemein“ oder „überall gültig“ im
+Alltagssinn.</p>
+<p>Es heißt:</p>
+<blockquote>
+<p>Das Objekt ist initial oder terminal in einer passenden Kategorie von
+Lösungen.</p>
+</blockquote>
+<p>Das ist der abstrakte Kern.</p>
+<p>Beim Produkt ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+ein <strong>terminales Objekt</strong> in der Kategorie aller „Kegel“
+nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+<p>Ein Kegel ist ein Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit zwei Pfeilen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A,\qquad X \to B
+</annotation></semantics></math></p>
+<p>Das Produkt ist der beste solche Kegel, weil jeder andere Kegel
+eindeutig zu ihm führt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A \times B
+</annotation></semantics></math></p>
+<p>Beim Koprodukt ist es umgekehrt: Es ist ein <strong>initiales
+Objekt</strong> in einer Kategorie von „Kokegeln“.</p>
+<p>Universelle Eigenschaft heißt also oft:</p>
+<blockquote>
+<p>initial unter allen Objekten mit dieser Struktur</p>
+</blockquote>
+<p>oder</p>
+<blockquote>
+<p>terminal unter allen Objekten mit dieser Struktur</p>
+</blockquote>
+<hr />
+<h2
+id="die-wichtigste-konsequenz-eindeutigkeit-bis-eindeutiger-isomorphie">8.
+Die wichtigste Konsequenz: Eindeutigkeit bis eindeutiger Isomorphie</h2>
+<p>Universelle Eigenschaften definieren ein Objekt nicht eindeutig als
+konkrete Konstruktion, sondern eindeutig <strong>bis auf eindeutigen
+Isomorphismus</strong>.</p>
+<p>Das ist enorm wichtig.</p>
+<p>Angenommen,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+erfüllen beide die universelle Eigenschaft des Produkts von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p>
+<p>Dann gibt es wegen der Universalität von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+genau eine Abbildung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>→</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+Q \to P
+</annotation></semantics></math></p>
+<p>und wegen der Universalität von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+genau eine Abbildung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+P \to Q
+</annotation></semantics></math></p>
+<p>Die Kompositionen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>→</mo><mi>Q</mi><mo>→</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+P \to Q \to P
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>→</mo><mi>P</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+Q \to P \to Q
+</annotation></semantics></math></p>
+<p>müssen jeweils die Identität sein, weil auch die Identität die
+passenden Diagramme kommutativ macht und die universelle Eigenschaft
+Eindeutigkeit erzwingt.</p>
+<p>Also sind
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+isomorph.</p>
+<p>Noch stärker: Der Isomorphismus ist selbst eindeutig.</p>
+<p>Das bedeutet: Es ist egal, wie du das Produkt konkret baust. Jede
+korrekte Konstruktion ist kanonisch dieselbe.</p>
+<hr />
+<h2 id="freie-objekte-die-schönste-klasse-universeller-eigenschaften">9.
+Freie Objekte: die schönste Klasse universeller Eigenschaften</h2>
+<p>Ein freies Objekt ist ein Objekt, das aus Generatoren gebaut wird,
+ohne zusätzliche Relationen einzuführen.</p>
+<p>Beispiel: Der freie Monoid über einer Menge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+ist die Menge aller endlichen Listen mit Elementen aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{List}(A)
+</annotation></semantics></math></p>
+<p>Die Monoid-Operation ist Konkatenation, das neutrale Element ist die
+leere Liste.</p>
+<p>Die universelle Eigenschaft lautet:</p>
+<blockquote>
+<p>Für jedes Monoid
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+und jede Funktion</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f : A \to U(M)
+</annotation></semantics></math></p>
+<p>gibt es genau einen Monoid-Homomorphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo>:</mo><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">
+\bar f : \mathrm{List}(A) \to M
+</annotation></semantics></math></p>
+<p>der
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+erweitert.</p>
+</blockquote>
+<p>Hier ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U(M)</annotation></semantics></math>
+das zugrunde liegende Set von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.</p>
+<p>Inhaltlich:</p>
+<p>Wenn du jedem Buchstaben aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+einen Wert in einem Monoid
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+gibst, dann gibt es genau eine Art, ganze Wörter/Listen in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+auszuwerten: Du ersetzt jeden Buchstaben durch seinen Wert und
+multiplizierst im Monoid.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+A = \{a,b\}
+</annotation></semantics></math></p>
+<p>und du wählst in einem Monoid
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">
+f(a) = m
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">
+f(b) = n
+</annotation></semantics></math></p>
+<p>Dann muss gelten:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>n</mi><mo>⋅</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">
+\bar f([a,b,a]) = m \cdot n \cdot m
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft sagt: Diese Auswertung ist eindeutig.</p>
+<p>Software-Intuition:</p>
+<p>Ein freies Objekt ist Syntax. Ein Homomorphismus daraus ist
+Interpretation.</p>
+<p>Also:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mathematik</th>
+<th>Programming</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freier Monoid</td>
+<td>Listen / Wörter</td>
+</tr>
+<tr>
+<td>Generatoren</td>
+<td>primitive Tokens</td>
+</tr>
+<tr>
+<td>Homomorphismus</td>
+<td>Interpreter</td>
+</tr>
+<tr>
+<td>Universalität</td>
+<td>Jede Interpretation der Tokens erweitert sich eindeutig auf
+Programme</td>
+</tr>
+</tbody>
+</table>
+<p>Das ist ein sehr tiefes Muster: Syntax ist oft ein freies Objekt,
+Semantik ist ein Homomorphismus daraus.</p>
+<hr />
+<h2 id="quotienten-universalität-durch-identifikation">10. Quotienten:
+Universalität durch Identifikation</h2>
+<p>Quotienten haben ebenfalls eine universelle Eigenschaft.</p>
+<p>Sei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+eine Menge und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>
+eine Äquivalenzrelation. Dann gibt es eine Quotientenabbildung:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>A</mi><mi>/</mi><mo>∼</mo></mrow><annotation encoding="application/x-tex">
+q : A \to A/{\sim}
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft lautet:</p>
+<blockquote>
+<p>Für jede Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+f : A \to X
+</annotation></semantics></math></p>
+<p>die äquivalente Elemente gleich behandelt, also</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∼</mo><mi>b</mi><mo>⇒</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+a \sim b \Rightarrow f(a)=f(b),
+</annotation></semantics></math></p>
+<p>gibt es genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>A</mi><mi>/</mi><mo>∼</mo><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\bar f : A/{\sim} \to X
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>=</mo><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo>∘</mo><mi>q</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f = \bar f \circ q.
+</annotation></semantics></math></p>
+</blockquote>
+<p>Diagramm:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mover><mo>→</mo><mrow><mspace width="1.0em"></mspace><mi>q</mi><mspace width="1.0em"></mspace></mrow></mover><mi>A</mi><mi>/</mi><mo>∼</mo></mrow><annotation encoding="application/x-tex">
+A \xrightarrow{\quad q \quad} A/{\sim}
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mover><mo>→</mo><mrow><mspace width="1.0em"></mspace><mi>f</mi><mspace width="1.0em"></mspace></mrow></mover><mi>X</mi></mrow><annotation encoding="application/x-tex">
+A \xrightarrow{\quad f \quad} X
+</annotation></semantics></math></p>
+<p>faktorisiert eindeutig als</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mover><mo>→</mo><mrow><mspace width="1.0em"></mspace><mi>q</mi><mspace width="1.0em"></mspace></mrow></mover><mi>A</mi><mi>/</mi><mo>∼</mo><mover><mo>→</mo><mrow><mspace width="1.0em"></mspace><mover><mi>f</mi><mo accent="true">‾</mo></mover><mspace width="1.0em"></mspace></mrow></mover><mi>X</mi></mrow><annotation encoding="application/x-tex">
+A \xrightarrow{\quad q \quad} A/{\sim}
+\xrightarrow{\quad \bar f \quad} X
+</annotation></semantics></math></p>
+<p>Das heißt: Der Quotient ist das Objekt, das genau die geforderten
+Identifikationen macht und keine unnötigen weiteren.</p>
+<p>Das ist die saubere Bedeutung von „modulo“.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mi>n</mi><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z / n\mathbb Z
+</annotation></semantics></math></p>
+<p>ist nicht bloß „Reste modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>“.
+Es ist das universelle Ziel für Abbildungen aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℤ</mi><annotation encoding="application/x-tex">\mathbb Z</annotation></semantics></math>,
+die Zahlen mit gleicher Restklasse nicht unterscheiden.</p>
+<hr />
+<h2 id="tensorprodukt-universalität-als-linearisierung">11.
+Tensorprodukt: Universalität als Linearisierung</h2>
+<p>Das Tensorprodukt ist für viele zuerst mysteriös. Universalität macht
+es klar.</p>
+<p>Für Vektorräume
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>,</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">V,W</annotation></semantics></math>
+ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">
+V \otimes W
+</annotation></semantics></math></p>
+<p>ein Vektorraum mit einer bilinearen Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>⊗</mi><mo>:</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi>V</mi><mo>⊗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">
+\otimes : V \times W \to V \otimes W
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft lautet:</p>
+<blockquote>
+<p>Für jeden Vektorraum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+und jede bilineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>:</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+b : V \times W \to X
+</annotation></semantics></math></p>
+<p>gibt es genau eine lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\bar b : V \otimes W \to X
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>⊗</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+b(v,w) = \bar b(v \otimes w).
+</annotation></semantics></math></p>
+</blockquote>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">B</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Linear}(V \otimes W, X)
+\cong
+\mathrm{Bilinear}(V \times W, X)
+</annotation></semantics></math></p>
+<p>Das Tensorprodukt ist also die Maschine, die bilineare Probleme in
+lineare Probleme verwandelt.</p>
+<p>Das ist die eigentliche Bedeutung von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">V \otimes W</annotation></semantics></math>.</p>
+<p>Nicht:</p>
+<blockquote>
+<p>„Tensoren sind komische Produkte von Vektoren.“</p>
+</blockquote>
+<p>Sondern:</p>
+<blockquote>
+<p>„Das Tensorprodukt repräsentiert bilineare Abbildungen als lineare
+Abbildungen.“</p>
+</blockquote>
+<p>Diese Formulierung ist viel stärker.</p>
+<hr />
+<h2 id="pullback-gleichzeitige-kompatibilität">12. Pullback:
+Gleichzeitige Kompatibilität</h2>
+<p>Ein Pullback ist eine Art verallgemeinertes Faserprodukt.</p>
+<p>Gegeben seien zwei Abbildungen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">
+f : A \to C
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">
+g : B \to C
+</annotation></semantics></math></p>
+<p>Der Pullback
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mo>×</mo><mi>C</mi></msub><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times_C B</annotation></semantics></math>
+besteht intuitiv aus Paaren
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math>,
+deren Bilder in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+übereinstimmen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(a)=g(b)
+</annotation></semantics></math></p>
+<p>Aber die universelle Eigenschaft lautet:</p>
+<p>Ein Pullback ist ein Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+mit Abbildungen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>A</mi></msub><mo>:</mo><mi>P</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+p_A : P \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>:</mo><mi>P</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+p_B : P \to B
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><msub><mi>p</mi><mi>A</mi></msub><mo>=</mo><mi>g</mi><mo>∘</mo><msub><mi>p</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">
+f \circ p_A = g \circ p_B
+</annotation></semantics></math></p>
+<p>und für jedes andere Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+u : X \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+v : X \to B
+</annotation></semantics></math></p>
+<p>die kompatibel sind, also</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>u</mi><mo>=</mo><mi>g</mi><mo>∘</mo><mi>v</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f \circ u = g \circ v,
+</annotation></semantics></math></p>
+<p>gibt es genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+h : X \to P
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>A</mi></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">
+p_A \circ h = u
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>v</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_B \circ h = v.
+</annotation></semantics></math></p>
+<p>In Hom-Form:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><msub><mo>×</mo><mi>C</mi></msub><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>f</mi><mo>∘</mo><mi>u</mi><mo>=</mo><mi>g</mi><mo>∘</mo><mi>v</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(X, A \times_C B)
+\cong
+\{(u,v) \mid f \circ u = g \circ v\}
+</annotation></semantics></math></p>
+<p>Pullbacks sind überall: Datenbank-Joins, Faserprodukte in Geometrie,
+Typabhängigkeiten, Constraint-Systeme.</p>
+<hr />
+<h2 id="eine-universelle-eigenschaft-ist-eine-spezifikation">13. Eine
+universelle Eigenschaft ist eine Spezifikation</h2>
+<p>Man kann universelle Eigenschaften sehr praktisch lesen:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Was wird spezifiziert?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produkt</td>
+<td>Wie man in ein Paar hinein abbildet</td>
+</tr>
+<tr>
+<td>Koprodukt</td>
+<td>Wie man aus einer Alternative heraus abbildet</td>
+</tr>
+<tr>
+<td>Quotient</td>
+<td>Welche Unterscheidungen verschwinden</td>
+</tr>
+<tr>
+<td>Freies Objekt</td>
+<td>Wie Generatoren ohne Relationen erweitert werden</td>
+</tr>
+<tr>
+<td>Tensorprodukt</td>
+<td>Wie bilineare Maps linearisiert werden</td>
+</tr>
+<tr>
+<td>Pullback</td>
+<td>Wie kompatible Daten zusammengeführt werden</td>
+</tr>
+<tr>
+<td>Pushout</td>
+<td>Wie Daten entlang gemeinsamer Teile verklebt werden</td>
+</tr>
+<tr>
+<td>Terminales Objekt</td>
+<td>Ein Objekt, zu dem es genau eine Map von jedem Objekt gibt</td>
+</tr>
+<tr>
+<td>Initiales Objekt</td>
+<td>Ein Objekt, von dem es genau eine Map zu jedem Objekt gibt</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="terminales-und-initiales-objekt">14. Terminales und initiales
+Objekt</h2>
+<p>Ein <strong>terminales Objekt</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+erfüllt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∀</mo><mi>X</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>∃</mo><mi>!</mi><mi>X</mi><mo>→</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\forall X,\quad \exists! X \to 1
+</annotation></semantics></math></p>
+<p>In der Kategorie der Mengen ist jede einelementige Menge
+terminal.</p>
+<p>Warum? Von jeder Menge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+gibt es genau eine Funktion in eine einelementige Menge: Alles muss auf
+das einzige Element gehen.</p>
+<p>In Typentheorie entspricht das dem Unit-Typ:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>()</span></code></pre></div>
+<p>Ein <strong>initiales Objekt</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+erfüllt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∀</mo><mi>X</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>∃</mo><mi>!</mi><mn>0</mn><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\forall X,\quad \exists! 0 \to X
+</annotation></semantics></math></p>
+<p>In der Kategorie der Mengen ist die leere Menge initial.</p>
+<p>Warum? Von der leeren Menge gibt es genau eine Funktion in jede
+Menge: die leere Funktion.</p>
+<p>In Typentheorie entspricht das dem Empty/Never/Void-Typ.</p>
+<p>Diese beiden Begriffe sind die atomaren Formen universeller
+Eigenschaften.</p>
+<hr />
+<h2 id="die-hom-set-form-ist-meistens-der-schlüssel">15. Die
+Hom-Set-Form ist meistens der Schlüssel</h2>
+<p>Viele universelle Eigenschaften lassen sich als natürliche
+Bijektionen von Hom-Mengen schreiben.</p>
+<p>Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(X, A \times B)
+\cong
+\mathrm{Hom}(X,A) \times \mathrm{Hom}(X,B)
+</annotation></semantics></math></p>
+<p>Koprodukt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(A+B, X)
+\cong
+\mathrm{Hom}(A,X) \times \mathrm{Hom}(B,X)
+</annotation></semantics></math></p>
+<p>Quotient:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mi>/</mi><mo>∼</mo><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mo stretchy="false" form="prefix">{</mo><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>X</mi><mo>∣</mo><mi>a</mi><mo>∼</mo><mi>b</mi><mo>⇒</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(A/{\sim}, X)
+\cong
+\{f : A \to X \mid a \sim b \Rightarrow f(a)=f(b)\}
+</annotation></semantics></math></p>
+<p>Tensorprodukt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">B</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(V \otimes W, X)
+\cong
+\mathrm{Bilin}(V \times W, X)
+</annotation></semantics></math></p>
+<p>Freier Monoid:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{MonoidHom}(\mathrm{List}(A), M)
+\cong
+\mathrm{Set}(A, U(M))
+</annotation></semantics></math></p>
+<p>Diese Form ist extrem wertvoll, weil sie sagt:</p>
+<blockquote>
+<p>Abbildungen aus oder in das universelle Objekt entsprechen exakt
+einer einfacheren Art von Daten.</p>
+</blockquote>
+<p>Das universelle Objekt <strong>repräsentiert</strong> also ein
+bestimmtes Problem.</p>
+<hr />
+<h2 id="natürlichkeit-keine-willkürliche-bijektion">16. „Natürlichkeit“:
+keine willkürliche Bijektion</h2>
+<p>Die Bijektion darf nicht irgendeine zufällige Gleichmächtigkeit
+sein.</p>
+<p>Sie muss <strong>natürlich</strong> sein.</p>
+<p>Das heißt grob: Sie muss mit allen relevanten Abbildungen kompatibel
+sein. Die Übersetzung darf nicht von willkürlichen Entscheidungen
+abhängen.</p>
+<p>Beispiel beim Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+h : X \to A \times B
+</annotation></semantics></math></p>
+<p>entspricht</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\pi_1 \circ h,\ \pi_2 \circ h)
+</annotation></semantics></math></p>
+<p>Das ist nicht irgendeine Kodierung. Es ist kanonisch. Es verwendet
+nur die Struktur des Produkts.</p>
+<p>Und zurück:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(f,g)
+</annotation></semantics></math></p>
+<p>entspricht eindeutig</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+x \mapsto (f(x),g(x))
+</annotation></semantics></math></p>
+<p>Auch das ist kanonisch.</p>
+<p>Universalität ist also Kanonizität plus Eindeutigkeit.</p>
+<hr />
+<h2 id="warum-mathematiker-das-lieben">17. Warum Mathematiker das
+lieben</h2>
+<p>Universelle Eigenschaften sind mächtig, weil sie Konstruktionen
+transportabel machen.</p>
+<p>Wenn du ein Objekt über Elemente definierst, funktioniert die
+Definition nur in elementartigen Kategorien.</p>
+<p>Wenn du es über universelle Eigenschaften definierst, funktioniert es
+in vielen Kontexten:</p>
+<ul>
+<li>Mengen</li>
+<li>Gruppen</li>
+<li>Ringe</li>
+<li>Moduln</li>
+<li>Vektorräume</li>
+<li>topologische Räume</li>
+<li>Kategorien</li>
+<li>Typen</li>
+<li>Garben</li>
+<li>Schemata</li>
+<li>Homotopietypen</li>
+</ul>
+<p>Das ist der Grund, warum moderne Mathematik so oft universal
+formuliert ist. Sie definiert Dinge auf der höchsten sinnvollen
+Abstraktionsebene.</p>
+<hr />
+<h2 id="beispiel-produkt-in-verschiedenen-kategorien">18. Beispiel:
+Produkt in verschiedenen Kategorien</h2>
+<p>In <strong>Set</strong> ist das Produkt das kartesische Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+A \times B
+</annotation></semantics></math></p>
+<p>In <strong>Grp</strong>, der Kategorie der Gruppen, ist das Produkt
+ebenfalls das kartesische Produkt der zugrunde liegenden Mengen, aber
+mit komponentenweiser Gruppenoperation.</p>
+<p>In <strong>Top</strong>, der Kategorie der topologischen Räume, ist
+das Produkt mit der Produkttopologie ausgestattet.</p>
+<p>Warum genau diese Topologie?</p>
+<p>Weil sie die universelle Eigenschaft erfüllt.</p>
+<p>Die Produkttopologie ist nicht willkürlich. Sie ist die gröbste
+Topologie, die die Projektionen stetig macht, und sie sorgt dafür, dass
+eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A \times B
+</annotation></semantics></math></p>
+<p>genau dann stetig ist, wenn ihre Komponenten</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A,\qquad X \to B
+</annotation></semantics></math></p>
+<p>stetig sind.</p>
+<p>Das ist wieder:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mrow><mi>T</mi><mi>o</mi><mi>p</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><msub><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mrow><mi>T</mi><mi>o</mi><mi>p</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msub><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mrow><mi>T</mi><mi>o</mi><mi>p</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}_{Top}(X, A \times B)
+\cong
+\mathrm{Hom}_{Top}(X,A) \times \mathrm{Hom}_{Top}(X,B)
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft erklärt also, warum die Produkttopologie
+die „richtige“ Topologie ist.</p>
+<hr />
+<h2 id="wie-man-universelle-eigenschaften-erkennt">19. Wie man
+universelle Eigenschaften erkennt</h2>
+<p>Achte auf diese Signale:</p>
+<ol type="1">
+<li>Es gibt ein Objekt mit Strukturmaps.</li>
+<li>Andere Objekte mit ähnlichen Strukturmaps werden betrachtet.</li>
+<li>Für jedes solche Objekt gibt es eine eindeutig bestimmte
+Abbildung.</li>
+<li>Ein Diagramm muss kommutieren.</li>
+<li>Daraus folgt Eindeutigkeit bis eindeutiger Isomorphie.</li>
+</ol>
+<p>Die typische Satzform ist:</p>
+<blockquote>
+<p>Für jedes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+und jede kompatible Familie von Abbildungen gibt es genau ein
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+sodass …</p>
+</blockquote>
+<p>Das ist fast immer eine universelle Eigenschaft.</p>
+<hr />
+<h2 id="die-eine-tiefe-intuition">20. Die eine tiefe Intuition</h2>
+<p>Eine universelle Eigenschaft sagt:</p>
+<blockquote>
+<p>Dieses Objekt ist die beste Lösung eines bestimmten
+Abbildungsproblems.</p>
+</blockquote>
+<p>Produkt:</p>
+<blockquote>
+<p>Beste Lösung für „gemeinsam nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+projizieren“.</p>
+</blockquote>
+<p>Koprodukt:</p>
+<blockquote>
+<p>Beste Lösung für
+„<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+gemeinsam in ein Ziel schicken“.</p>
+</blockquote>
+<p>Quotient:</p>
+<blockquote>
+<p>Beste Lösung für „bestimmte Elemente identifizieren“.</p>
+</blockquote>
+<p>Freies Objekt:</p>
+<blockquote>
+<p>Beste Lösung für „Generatoren ohne zusätzliche Gleichungen
+einbetten“.</p>
+</blockquote>
+<p>Tensorprodukt:</p>
+<blockquote>
+<p>Beste Lösung für „bilineare Information linear machen“.</p>
+</blockquote>
+<p>Pullback:</p>
+<blockquote>
+<p>Beste Lösung für „kompatible Daten zusammenbringen“.</p>
+</blockquote>
+<p>Pushout:</p>
+<blockquote>
+<p>Beste Lösung für „Dinge entlang eines gemeinsamen Teils
+verkleben“.</p>
+</blockquote>
+<hr />
+<h2 id="minimaler-mentaler-algorithmus">21. Minimaler mentaler
+Algorithmus</h2>
+<p>Wenn du eine universelle Eigenschaft verstehen willst, frage:</p>
+<ol type="1">
+<li><p><strong>Welche Daten werden gegeben?</strong><br />
+Zum Beispiel zwei Maps
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">X \to A</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X \to B</annotation></semantics></math>.</p></li>
+<li><p><strong>Welches Objekt soll diese Daten
+repräsentieren?</strong><br />
+Zum Beispiel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>.</p></li>
+<li><p><strong>Geht der eindeutige Pfeil in das Objekt hinein oder aus
+ihm heraus?</strong><br />
+Produkt: hinein. Koprodukt: heraus.</p></li>
+<li><p><strong>Welche Gleichungen müssen gelten?</strong><br />
+Zum Beispiel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">\pi_1 \circ h = f</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">\pi_2 \circ h = g</annotation></semantics></math>.</p></li>
+<li><p><strong>Welche Hom-Mengen-Bijektion steckt
+dahinter?</strong><br />
+Zum Beispiel</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(X,A \times B)
+\cong
+\mathrm{Hom}(X,A) \times \mathrm{Hom}(X,B)
+</annotation></semantics></math></p></li>
+</ol>
+<p>Wenn du diese fünf Fragen beantworten kannst, hast du die universelle
+Eigenschaft verstanden.</p>
+<hr />
+<h2 id="ein-sehr-kompaktes-beispiel-zum-selberdenken">22. Ein sehr
+kompaktes Beispiel zum Selberdenken</h2>
+<p>Warum ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \times B</annotation></semantics></math>
+in <strong>Set</strong> ein Produkt?</p>
+<p>Weil für jede Menge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+gilt:</p>
+<p>Eine Funktion</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+h : X \to A \times B
+</annotation></semantics></math></p>
+<p>weist jedem
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x \in X</annotation></semantics></math>
+ein Paar zu:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+h(x) = (a,b)
+</annotation></semantics></math></p>
+<p>Das ist dasselbe wie zwei Funktionen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+f : X \to A
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+g : X \to B
+</annotation></semantics></math></p>
+<p>nämlich:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>π</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(x) = \pi_1(h(x))
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>π</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+g(x) = \pi_2(h(x))
+</annotation></semantics></math></p>
+<p>Umgekehrt erzeugen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+eindeutig:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+h(x) = (f(x),g(x))
+</annotation></semantics></math></p>
+<p>Das ist die ganze universelle Eigenschaft des Produkts.</p>
+<p>Der Punkt ist: Das konkrete Paar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(f(x),g(x))</annotation></semantics></math>
+ist nur die Set-Implementierung. Die Eigenschaft selbst lebt auf der
+Ebene der Abbildungen.</p>
+<hr />
+<h2 id="warum-das-nicht-bloß-abstrakter-formalismus-ist">23. Warum das
+nicht bloß abstrakter Formalismus ist</h2>
+<p>Universelle Eigenschaften sind nützlich, weil sie genau die
+Information behalten, die invariant ist.</p>
+<p>Eine konkrete Konstruktion kann sich ändern.</p>
+<p>Die universelle Rolle bleibt.</p>
+<p>Das ist wie bei Interfaces:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> Product<span class="op">&lt;</span>A<span class="op">,</span> B<span class="op">&gt;</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fst</span>()<span class="op">:</span> A</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">snd</span>()<span class="op">:</span> B</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Aber die universelle Eigenschaft sagt mehr als nur „es gibt
+<code>fst</code> und <code>snd</code>“. Sie sagt zusätzlich:</p>
+<blockquote>
+<p>Jede andere Sache mit <code>fst</code>-artiger und
+<code>snd</code>-artiger Information faktorisiert eindeutig durch dieses
+Interface.</p>
+</blockquote>
+<p>Also nicht nur API, sondern <strong>vollständige Charakterisierung
+durch API</strong>.</p>
+<p>Das ist stärker als normales Interface-Design.</p>
+<hr />
+<h2 id="der-zusammenhang-zu-adjunktionen">24. Der Zusammenhang zu
+Adjunktionen</h2>
+<p>Viele universelle Eigenschaften sind einzelne Instanzen einer
+<strong>Adjunktion</strong>.</p>
+<p>Beispiel: Freier Monoid.</p>
+<p>Es gibt einen Vergissfunktor:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>:</mo><mrow><mi mathvariant="bold-italic">𝑴</mi><mi mathvariant="bold-italic">𝒐</mi><mi mathvariant="bold-italic">𝒏</mi></mrow><mo>→</mo><mrow><mi mathvariant="bold-italic">𝑺</mi><mi mathvariant="bold-italic">𝒆</mi><mi mathvariant="bold-italic">𝒕</mi></mrow></mrow><annotation encoding="application/x-tex">
+U : \mathbf{Mon} \to \mathbf{Set}
+</annotation></semantics></math></p>
+<p>der einem Monoid seine zugrunde liegende Menge zuordnet.</p>
+<p>Es gibt einen freien Funktor:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mrow><mi mathvariant="bold-italic">𝑺</mi><mi mathvariant="bold-italic">𝒆</mi><mi mathvariant="bold-italic">𝒕</mi></mrow><mo>→</mo><mrow><mi mathvariant="bold-italic">𝑴</mi><mi mathvariant="bold-italic">𝒐</mi><mi mathvariant="bold-italic">𝒏</mi></mrow></mrow><annotation encoding="application/x-tex">
+F : \mathbf{Set} \to \mathbf{Mon}
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F(A) = \mathrm{List}(A)
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Mon}(F(A), M)
+\cong
+\mathrm{Set}(A, U(M))
+</annotation></semantics></math></p>
+<p>Das ist genau eine Adjunktion:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊣</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">
+F \dashv U
+</annotation></semantics></math></p>
+<p>Intuition:</p>
+<blockquote>
+<p>Freie Konstruktion ist linksadjungiert zum Vergessen von
+Struktur.</p>
+</blockquote>
+<p>Das ist einer der wichtigsten Sätze im ganzen Thema.</p>
+<p>Viele mathematische Konstruktionen sind so zu verstehen:</p>
+<ul>
+<li>freie Gruppe</li>
+<li>freier Ring</li>
+<li>freier Vektorraum</li>
+<li>Polynomring</li>
+<li>Gruppenpräsentationen</li>
+<li>Quotienten</li>
+<li>Komplettierungen</li>
+<li>Lokalisierungen</li>
+<li>Tensorprodukte</li>
+<li>Limits und Colimits</li>
+</ul>
+<p>Universalität ist der lokale Ausdruck; Adjunktion ist das
+systematische Muster dahinter.</p>
+<hr />
+<h2 id="eine-saubere-definition">25. Eine saubere Definition</h2>
+<p>Eine universelle Eigenschaft eines Objekts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>
+besteht typischerweise aus:</p>
+<ul>
+<li>einem Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>,</li>
+<li>gewissen Strukturabbildungen,</li>
+<li>einer Aussage, dass für jedes andere passende Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+genau ein Morphismus existiert,</li>
+<li>sodass bestimmte Diagramme kommutieren.</li>
+</ul>
+<p>Oder noch abstrakter:</p>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>
+ist initial oder terminal in einer passend konstruierten Kategorie von
+Lösungen.</p>
+</blockquote>
+<p>Das ist die präziseste Meta-Definition.</p>
+<hr />
+<h2 id="die-essenz-in-einem-satz">26. Die Essenz in einem Satz</h2>
+<p>Eine universelle Eigenschaft charakterisiert ein Objekt dadurch, dass
+Abbildungen in dieses Objekt oder aus diesem Objekt exakt denselben
+Informationsgehalt haben wie eine bestimmte Art von strukturierter
+Daten.</p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">Maps involving </mtext><mspace width="0.333em"></mspace></mrow><mi>U</mi><mspace width="1.0em"></mspace><mo>≅</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">the problem data</mtext></mrow><annotation encoding="application/x-tex">
+\text{Maps involving } U
+\quad\cong\quad
+\text{the problem data}
+</annotation></semantics></math></p>
+<p>Das ist die Seele der Sache.</p>
+<hr />
+<h2 id="mini-übungen">27. Mini-Übungen</h2>
+<h3 id="übung-1">Übung 1</h3>
+<p>Formuliere die universelle Eigenschaft des Produkts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A \times B \times C</annotation></semantics></math>.</p>
+<p>Die Antwort ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>×</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(X, A \times B \times C)
+\cong
+\mathrm{Hom}(X,A) \times \mathrm{Hom}(X,B) \times \mathrm{Hom}(X,C)
+</annotation></semantics></math></p>
+<p>Eine Abbildung nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A \times B \times C</annotation></semantics></math>
+ist dasselbe wie drei Abbildungen nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>.</p>
+<h3 id="übung-2">Übung 2</h3>
+<p>Formuliere die universelle Eigenschaft der disjunkten Vereinigung
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A+B+C</annotation></semantics></math>.</p>
+<p>Antwort:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>+</mo><mi>C</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(A+B+C, X)
+\cong
+\mathrm{Hom}(A,X) \times \mathrm{Hom}(B,X) \times \mathrm{Hom}(C,X)
+</annotation></semantics></math></p>
+<p>Eine Abbildung aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A+B+C</annotation></semantics></math>
+heraus ist dasselbe wie drei Abbildungen aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+heraus.</p>
+<h3 id="übung-3">Übung 3</h3>
+<p>Was ist die universelle Eigenschaft des freien Vektorraums
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(S)</annotation></semantics></math>
+über einer Menge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>?</p>
+<p>Antwort:</p>
+<p>Für jeden Vektorraum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Linear}(F(S), V)
+\cong
+\mathrm{Set}(S, U(V))
+</annotation></semantics></math></p>
+<p>Eine lineare Abbildung aus dem freien Vektorraum ist eindeutig
+bestimmt durch die Bilder der Basisgeneratoren.</p>
+<hr />
+<h2 id="der-wichtigste-takeaway">28. Der wichtigste Takeaway</h2>
+<p>Universelle Eigenschaften sind keine zusätzliche Dekoration. Sie sind
+oft die <strong>eigentliche Definition</strong>.</p>
+<p>Sie sagen nicht:</p>
+<blockquote>
+<p>Hier ist ein Objekt, und übrigens hat es eine schöne Eigenschaft.</p>
+</blockquote>
+<p>Sondern:</p>
+<blockquote>
+<p>Dieses Objekt ist genau dasjenige, das diese Rolle in allen
+Abbildungsproblemen eindeutig erfüllt.</p>
+</blockquote>
+<p>Das ist der Grund, warum sie so zentral sind. Sie ersetzen
+implementation-nahe Definitionen durch rollenbasierte, kanonische,
+transportable Definitionen. Genau dadurch wird moderne Algebra,
+Topologie, Geometrie und Typentheorie so elegant.</p>
+</body>
+</html>
