@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>u30_b</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-anwenden">Universelle Eigenschaften
+anwenden</h1>
+<p>Die universelle Eigenschaft ist nicht nur eine schöne Definition. Sie
+ist eine <strong>Rechenregel</strong>.</p>
+<p>Sie sagt dir drei Dinge:</p>
+<ol type="1">
+<li><strong>Konstruktion:</strong> Welche einfacheren Daten reichen aus,
+um eine Abbildung zu bauen?</li>
+<li><strong>Auswertung:</strong> Wie rechnet man mit der gebauten
+Abbildung?</li>
+<li><strong>Eindeutigkeit:</strong> Wie beweist man, dass zwei
+Abbildungen gleich sind?</li>
+</ol>
+<p>Das Grundmuster ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Morphismen mit dem universellen Objekt</mtext><mo>≅</mo><mtext mathvariant="normal">einfachere, strukturierte Daten</mtext></mrow><annotation encoding="application/x-tex">
+\text{Morphismen mit dem universellen Objekt}
+\cong
+\text{einfachere, strukturierte Daten}
+</annotation></semantics></math></p>
+<p>Man rechnet also nicht, indem man zuerst die innere Implementierung
+des Objekts entfaltet, sondern indem man das Problem in die universellen
+Daten übersetzt.</p>
+<hr />
+<h2 id="die-wichtigste-rechenregel">0. Die wichtigste Rechenregel</h2>
+<p>Bei fast jeder universellen Eigenschaft gibt es drei Modi.</p>
+<h3 id="einführungsregel">Einführungsregel</h3>
+<p>Um eine Abbildung in oder aus dem universellen Objekt zu definieren,
+genügt es, die passenden Rohdaten anzugeben.</p>
+<p>Beispiel Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X \to A \times B
+</annotation></semantics></math></p>
+<p>baust du, indem du zwei Maps angibst:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>X</mi><mo>→</mo><mi>B</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X \to A,
+\qquad
+X \to B.
+</annotation></semantics></math></p>
+<h3 id="eliminationsregel">Eliminationsregel</h3>
+<p>Um mit der Abbildung zu rechnen, komponierst du mit den
+Strukturmaps.</p>
+<p>Beim Produkt sind das die Projektionen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>A</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mo>:</mo><mi>A</mi><mo>×</mo><mi>B</mi><mo>→</mo><mi>B</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi_1 : A \times B \to A,
+\qquad
+\pi_2 : A \times B \to B.
+</annotation></semantics></math></p>
+<h3 id="eindeutigkeitsregel">Eindeutigkeitsregel</h3>
+<p>Um zu zeigen, dass zwei solche Abbildungen gleich sind, zeigst du,
+dass ihre universellen Daten gleich sind.</p>
+<p>Beim Produkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>k</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+h = k : X \to A \times B
+</annotation></semantics></math></p>
+<p>gilt genau dann, wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><msub><mi>π</mi><mn>1</mn></msub><mo>∘</mo><mi>k</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">und</mtext><mspace width="1.0em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><msub><mi>π</mi><mn>2</mn></msub><mo>∘</mo><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi_1 \circ h = \pi_1 \circ k
+\quad\text{und}\quad
+\pi_2 \circ h = \pi_2 \circ k.
+</annotation></semantics></math></p>
+<p>Das ist der praktische Kern.</p>
+<hr />
+<h1 id="produkt-anwenden-chinesischer-restsatz-für-2-und-3">1. Produkt
+anwenden: Chinesischer Restsatz für
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math></h1>
+<h2 id="problem">Problem</h2>
+<p>Konstruiere eine kanonische Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>6</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>×</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z/6\mathbb Z \to \mathbb Z/2\mathbb Z \times \mathbb Z/3\mathbb Z
+</annotation></semantics></math></p>
+<p>und rechne damit.</p>
+<h2 id="schritt-1-produkt-universalität-anwenden">Schritt 1:
+Produkt-Universalität anwenden</h2>
+<p>Für jedes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">n \in \mathbb Z</annotation></semantics></math>
+gibt es zwei Restklassen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>↦</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+n \mapsto [n]_2
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>↦</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n \mapsto [n]_3.
+</annotation></semantics></math></p>
+<p>Durch die universelle Eigenschaft des Produkts gibt es genau eine
+Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>×</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+h : \mathbb Z \to \mathbb Z/2\mathbb Z \times \mathbb Z/3\mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi_1(h(n)) = [n]_2,
+\qquad
+\pi_2(h(n)) = [n]_3.
+</annotation></semantics></math></p>
+<p>Also konkret:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(n) = ([n]_2,[n]_3).
+</annotation></semantics></math></p>
+<h2 id="schritt-2-quotient-universalität-anwenden">Schritt 2:
+Quotient-Universalität anwenden</h2>
+<p>Wenn
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n \equiv m \pmod 6</annotation></semantics></math>,
+dann gilt auch</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+n \equiv m \pmod 2
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n \equiv m \pmod 3.
+</annotation></semantics></math></p>
+<p>Also ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+konstant auf Restklassen modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>.</p>
+<p>Durch die universelle Eigenschaft des Quotienten faktorisiert
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+eindeutig über
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>6</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">\mathbb Z/6\mathbb Z</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>6</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>×</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\bar h : \mathbb Z/6\mathbb Z \to \mathbb Z/2\mathbb Z \times \mathbb Z/3\mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar h([n]_6) = ([n]_2,[n]_3).
+</annotation></semantics></math></p>
+<h2 id="schritt-3-damit-rechnen">Schritt 3: Damit rechnen</h2>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar h([5]_6)
+=
+([5]_2,[5]_3)
+=
+([1]_2,[2]_3).
+</annotation></semantics></math></p>
+<p>Oder:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar h([10]_6)
+=
+([0]_2,[1]_3).
+</annotation></semantics></math></p>
+<h2 id="schritt-4-inverse-konstruieren">Schritt 4: Inverse
+konstruieren</h2>
+<p>Wir suchen eine Abbildung zurück:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>×</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>6</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k : \mathbb Z/2\mathbb Z \times \mathbb Z/3\mathbb Z \to \mathbb Z/6\mathbb Z.
+</annotation></semantics></math></p>
+<p>Wir wollen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mi>b</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+k([a]_2,[b]_3)
+</annotation></semantics></math></p>
+<p>so wählen, dass das Ergebnis modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+gleich
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+und modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+gleich
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+ist.</p>
+<p>Eine passende Formel ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mi>b</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><mi>a</mi><mo>+</mo><mn>4</mn><mi>b</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k([a]_2,[b]_3) = [3a + 4b]_6.
+</annotation></semantics></math></p>
+<p>Warum?</p>
+<p>Modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>a</mi><mo>+</mo><mn>4</mn><mi>b</mi><mo>≡</mo><mi>a</mi><mo>+</mo><mn>0</mn><mo>≡</mo><mi>a</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+3a + 4b \equiv a + 0 \equiv a \pmod 2.
+</annotation></semantics></math></p>
+<p>Modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>a</mi><mo>+</mo><mn>4</mn><mi>b</mi><mo>≡</mo><mn>0</mn><mo>+</mo><mi>b</mi><mo>≡</mo><mi>b</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+3a + 4b \equiv 0 + b \equiv b \pmod 3.
+</annotation></semantics></math></p>
+<p>Also ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+tatsächlich invers zu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>h</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar h</annotation></semantics></math>.</p>
+<p>Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><mo>⋅</mo><mn>1</mn><mo>+</mo><mn>4</mn><mo>⋅</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>11</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>6</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k([1]_2,[2]_3)
+=
+[3 \cdot 1 + 4 \cdot 2]_6
+=
+[11]_6
+=
+[5]_6.
+</annotation></semantics></math></p>
+<p>Damit haben wir gerechnet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>6</mn><mi mathvariant="double-struck">ℤ</mi><mo>≅</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>×</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z/6\mathbb Z
+\cong
+\mathbb Z/2\mathbb Z \times \mathbb Z/3\mathbb Z.
+</annotation></semantics></math></p>
+<p>Die universellen Eigenschaften liefern hier nicht bloß Sprache,
+sondern die konkrete Struktur der Rechnung.</p>
+<hr />
+<h1 id="koprodukt-anwenden-fallunterscheidung-ohne-ad-hoc-definition">2.
+Koprodukt anwenden: Fallunterscheidung ohne Ad-hoc-Definition</h1>
+<h2 id="problem-1">Problem</h2>
+<p>Definiere eine Funktion</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi mathvariant="double-struck">ℕ</mi><mo>+</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+h : \mathbb N + \mathbb Z \to \mathbb Z
+</annotation></semantics></math></p>
+<p>so, dass natürliche Zahlen verdoppelt und ganze Zahlen um
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+verringert werden.</p>
+<p>Also sollen gelten:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">l</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">
+h(\mathrm{inl}(n)) = 2n
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>z</mi><mo>−</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(\mathrm{inr}(z)) = z - 1.
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft">Universelle Eigenschaft</h2>
+<p>Das Koprodukt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math>
+erfüllt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{Hom}(A+B,X)
+\cong
+\mathrm{Hom}(A,X) \times \mathrm{Hom}(B,X).
+</annotation></semantics></math></p>
+<p>Eine Funktion aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math>
+heraus ist also genau dasselbe wie zwei Funktionen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>X</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>B</mi><mo>→</mo><mi>X</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+A \to X,
+\qquad
+B \to X.
+</annotation></semantics></math></p>
+<h2 id="anwendung">Anwendung</h2>
+<p>Wir geben zwei Funktionen an:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant="double-struck">ℕ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>n</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f : \mathbb N \to \mathbb Z,
+\qquad
+f(n)=2n,
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>z</mi><mo>−</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g : \mathbb Z \to \mathbb Z,
+\qquad
+ g(z)=z-1.
+</annotation></semantics></math></p>
+<p>Dann gibt es genau eine Funktion</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi mathvariant="double-struck">ℕ</mi><mo>+</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+h : \mathbb N + \mathbb Z \to \mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">l</mi></mrow><mo>=</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">
+h \circ \mathrm{inl} = f
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">r</mi></mrow><mo>=</mo><mi>g</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h \circ \mathrm{inr} = g.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen">Damit rechnen</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">l</mi></mrow><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>8</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(\mathrm{inl}(4)) = 8.
+</annotation></semantics></math></p>
+<p>Aber:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(\mathrm{inr}(4)) = 3.
+</annotation></semantics></math></p>
+<p>Die beiden Eingaben sehen äußerlich beide wie eine
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+aus, liegen aber in verschiedenen Summanden.</p>
+<h2 id="weiterrechnung-durch-komposition">Weiterrechnung durch
+Komposition</h2>
+<p>Sei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℕ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+r : \mathbb Z \to \mathbb N,
+\qquad
+r(x)=x^2.
+</annotation></semantics></math></p>
+<p>Dann ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>∘</mo><mi>h</mi><mo>:</mo><mi mathvariant="double-struck">ℕ</mi><mo>+</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℕ</mi></mrow><annotation encoding="application/x-tex">
+r \circ h : \mathbb N + \mathbb Z \to \mathbb N
+</annotation></semantics></math></p>
+<p>wieder eine Funktion aus einem Koprodukt heraus. Ihre beiden Fälle
+sind:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>∘</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">l</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>n</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>4</mn><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+(r \circ h)(\mathrm{inl}(n)) = (2n)^2 = 4n^2
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>∘</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">r</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(r \circ h)(\mathrm{inr}(z)) = (z-1)^2.
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft sagt: Damit ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>∘</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">r \circ h</annotation></semantics></math>
+vollständig bestimmt.</p>
+<hr />
+<h1 id="quotient-anwenden-wohldefinierte-abbildungen-modulo-n">3.
+Quotient anwenden: Wohldefinierte Abbildungen modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math></h1>
+<h2 id="problem-2">Problem</h2>
+<p>Definiere eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>12</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+F : \mathbb Z/12\mathbb Z \to \mathbb Z/3\mathbb Z
+</annotation></semantics></math></p>
+<p>per</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F([n]_{12}) = [n]_3.
+</annotation></semantics></math></p>
+<p>Dann rechne mit ihr.</p>
+<h2 id="schwierigkeit">Schwierigkeit</h2>
+<p>Man darf nicht einfach eine Formel auf Repräsentanten hinschreiben.
+Man muss zeigen, dass sie unabhängig vom Repräsentanten ist.</p>
+<p>Denn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>m</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub></mrow><annotation encoding="application/x-tex">
+[n]_{12} = [m]_{12}
+</annotation></semantics></math></p>
+<p>bedeutet</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>12</mn><mo stretchy="false" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n \equiv m \pmod{12}.
+</annotation></semantics></math></p>
+<p>Dann folgt aber automatisch</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n \equiv m \pmod 3.
+</annotation></semantics></math></p>
+<p>Also ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>m</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+[n]_3 = [m]_3.
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft-des-quotienten">Universelle Eigenschaft
+des Quotienten</h2>
+<p>Sei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>12</mn></msub><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>12</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+q_{12} : \mathbb Z \to \mathbb Z/12\mathbb Z
+</annotation></semantics></math></p>
+<p>Die Reduktion modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+ist eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f : \mathbb Z \to \mathbb Z/3\mathbb Z,
+\qquad
+f(n)=[n]_3.
+</annotation></semantics></math></p>
+<p>Da
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+Zahlen mit gleicher Restklasse modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>12</mn><annotation encoding="application/x-tex">12</annotation></semantics></math>
+nicht unterscheidet, gibt es eindeutig</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>12</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+F : \mathbb Z/12\mathbb Z \to \mathbb Z/3\mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>∘</mo><msub><mi>q</mi><mn>12</mn></msub><mo>=</mo><mi>f</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F \circ q_{12} = f.
+</annotation></semantics></math></p>
+<p>Das heißt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F([n]_{12})=[n]_3.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-1">Damit rechnen</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">[</mo><mn>7</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>17</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>5</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F([10]_{12} + [7]_{12})
+=
+F([17]_{12})
+=
+F([5]_{12})
+=
+[5]_3
+=
+[2]_3.
+</annotation></semantics></math></p>
+<p>Andererseits:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>7</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">[</mo><mn>7</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F([10]_{12}) + F([7]_{12})
+=
+[10]_3 + [7]_3
+=
+[1]_3 + [1]_3
+=
+[2]_3.
+</annotation></semantics></math></p>
+<p>Also ist die Rechnung kompatibel mit Addition.</p>
+<h2 id="weiterrechnung-kern-und-bild">Weiterrechnung: Kern und Bild</h2>
+<p>Der Kern ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ker</mi><mo>&#8289;</mo></mrow><mi>F</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>∣</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\ker F
+=
+\{[n]_{12} \mid [n]_3=[0]_3\}.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ker</mi><mo>&#8289;</mo></mrow><mi>F</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo>,</mo><mo stretchy="false" form="prefix">[</mo><mn>9</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\ker F
+=
+\{[0]_{12},[3]_{12},[6]_{12},[9]_{12}\}.
+</annotation></semantics></math></p>
+<p>Das Bild ist ganz
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>3</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">\mathbb Z/3\mathbb Z</annotation></semantics></math>,
+denn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>12</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F([0]_{12})=[0]_3,
+\qquad
+F([1]_{12})=[1]_3,
+\qquad
+F([2]_{12})=[2]_3.
+</annotation></semantics></math></p>
+<p>Hier hat die Quotienten-Universalität die Wohldefiniertheit erledigt.
+Danach kann man ganz normal weiterrechnen.</p>
+<hr />
+<h1 id="freier-monoid-anwenden-wörter-auswerten">4. Freier Monoid
+anwenden: Wörter auswerten</h1>
+<h2 id="problem-3">Problem</h2>
+<p>Sei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+A=\{a,b\}.
+</annotation></semantics></math></p>
+<p>Der freie Monoid über
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{List}(A),
+</annotation></semantics></math></p>
+<p>also die Menge aller endlichen Wörter aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>.</p>
+<p>Wir wollen Wörter in der additiven Gruppe der ganzen Zahlen
+auswerten, wobei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>↦</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+a \mapsto 2
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↦</mo><mi>−</mi><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+b \mapsto -1.
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft-1">Universelle Eigenschaft</h2>
+<p>Für jeden Monoid
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{MonoidHom}(\mathrm{List}(A),M)
+\cong
+\mathrm{Set}(A,U(M)).
+</annotation></semantics></math></p>
+<p>Eine Monoid-Abbildung aus dem freien Monoid ist also eindeutig
+bestimmt durch die Bilder der Generatoren.</p>
+<h2 id="anwendung-1">Anwendung</h2>
+<p>Setze</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mi>+</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+M=(\mathbb Z,+,0).
+</annotation></semantics></math></p>
+<p>Gib die Generatorbilder an:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(a)=2,
+\qquad
+f(b)=-1.
+</annotation></semantics></math></p>
+<p>Dann gibt es genau einen Monoid-Homomorphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>:</mo><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\varphi : \mathrm{List}(A) \to \mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi([a])=2,
+\qquad
+\varphi([b])=-1.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-2">Damit rechnen</h2>
+<p>Für das Wort</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+w = [a,b,a,b,b]
+</annotation></semantics></math></p>
+<p>gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>2</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi(w)
+=
+2 + (-1) + 2 + (-1) + (-1)
+=
+1.
+</annotation></semantics></math></p>
+<h2 id="weiterrechnung-mit-der-homomorphie">Weiterrechnung mit der
+Homomorphie</h2>
+<p>Da
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
+ein Monoid-Homomorphismus ist, gilt für Konkatenation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi(uv)=\varphi(u)+\varphi(v).
+</annotation></semantics></math></p>
+<p>Für</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+u=[a,b]
+</annotation></semantics></math></p>
+<p>gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi(u)=2+(-1)=1.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>u</mi><mi>k</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi(u^k)=k.
+</annotation></semantics></math></p>
+<p>Zum Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>φ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varphi([a,b,a,b,a,b,a,b])
+=
+\varphi(([a,b])^4)
+=
+4.
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft sagt nicht nur, dass eine Auswertung
+existiert. Sie sagt auch, dass jede Auswertung von Buchstaben eindeutig
+zu einer Auswertung ganzer Wörter erweitert wird.</p>
+<p>In Programmiersprache ist das <code>foldMap</code>.</p>
+<hr />
+<h1
+id="freier-vektorraum-anwenden-lineare-abbildungen-aus-generatorbildern-berechnen">5.
+Freier Vektorraum anwenden: Lineare Abbildungen aus Generatorbildern
+berechnen</h1>
+<h2 id="problem-4">Problem</h2>
+<p>Sei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(S)</annotation></semantics></math>
+der freie reelle Vektorraum über</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>r</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S=\{p,q,r\}.
+</annotation></semantics></math></p>
+<p>Definiere eine lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+T : F(S) \to \mathbb R^2
+</annotation></semantics></math></p>
+<p>so, dass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+p \mapsto (1,0),
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+q \mapsto (1,1),
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+r \mapsto (0,2).
+</annotation></semantics></math></p>
+<p>Berechne dann</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>p</mi><mo>−</mo><mn>2</mn><mi>q</mi><mo>+</mo><mn>5</mn><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T(3p - 2q + 5r).
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft-2">Universelle Eigenschaft</h2>
+<p>Für jeden Vektorraum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{Lin}(F(S),V)
+\cong
+\mathrm{Set}(S,U(V)).
+</annotation></semantics></math></p>
+<p>Eine lineare Abbildung aus dem freien Vektorraum ist also eindeutig
+bestimmt durch die Bilder der Basisgeneratoren.</p>
+<h2 id="anwendung-2">Anwendung</h2>
+<p>Die Funktion</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>S</mi><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+f:S \to \mathbb R^2
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(p)=(1,0),
+\qquad
+f(q)=(1,1),
+\qquad
+f(r)=(0,2)
+</annotation></semantics></math></p>
+<p>erzeugt eindeutig eine lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T:F(S)\to \mathbb R^2.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-3">Damit rechnen</h2>
+<p>Wegen Linearität:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>p</mi><mo>−</mo><mn>2</mn><mi>q</mi><mo>+</mo><mn>5</mn><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>2</mn><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>5</mn><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T(3p - 2q + 5r)
+=
+3T(p)-2T(q)+5T(r).
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>p</mi><mo>−</mo><mn>2</mn><mi>q</mi><mo>+</mo><mn>5</mn><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>5</mn><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T(3p - 2q + 5r)
+=
+3(1,0)-2(1,1)+5(0,2).
+</annotation></semantics></math></p>
+<p>Das ergibt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>10</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>8</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(3,0)+(-2,-2)+(0,10)
+=
+(1,8).
+</annotation></semantics></math></p>
+<h2 id="weiterrechnung-kern-bestimmen">Weiterrechnung: Kern
+bestimmen</h2>
+<p>Für ein allgemeines Element</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mo>+</mo><mi>b</mi><mi>q</mi><mo>+</mo><mi>c</mi><mi>r</mi><mo>∈</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+ap+bq+cr \in F(S)
+</annotation></semantics></math></p>
+<p>gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>p</mi><mo>+</mo><mi>b</mi><mi>q</mi><mo>+</mo><mi>c</mi><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>b</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T(ap+bq+cr)
+=
+a(1,0)+b(1,1)+c(0,2).
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>p</mi><mo>+</mo><mi>b</mi><mi>q</mi><mo>+</mo><mi>c</mi><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>,</mo><mi>b</mi><mo>+</mo><mn>2</mn><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T(ap+bq+cr)
+=
+(a+b, b+2c).
+</annotation></semantics></math></p>
+<p>Das Element liegt im Kern genau dann, wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+a+b=0
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>+</mo><mn>2</mn><mi>c</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+b+2c=0.
+</annotation></semantics></math></p>
+<p>Daraus folgt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>−</mi><mi>b</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>c</mi><mo>=</mo><mi>−</mi><mfrac><mi>b</mi><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+a=-b,
+\qquad
+c=-\frac b2.
+</annotation></semantics></math></p>
+<p>Setze
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">b=2t</annotation></semantics></math>.
+Dann:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>−</mi><mn>2</mn><mi>t</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>c</mi><mo>=</mo><mi>−</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+a=-2t,
+\qquad
+c=-t.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mo>+</mo><mi>b</mi><mi>q</mi><mo>+</mo><mi>c</mi><mi>r</mi><mo>=</mo><mi>−</mi><mn>2</mn><mi>t</mi><mi>p</mi><mo>+</mo><mn>2</mn><mi>t</mi><mi>q</mi><mo>−</mo><mi>t</mi><mi>r</mi><mo>=</mo><mi>t</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mi>p</mi><mo>+</mo><mn>2</mn><mi>q</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+ap+bq+cr
+=
+-2tp+2tq-tr
+=
+t(-2p+2q-r).
+</annotation></semantics></math></p>
+<p>Damit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ker</mi><mo>&#8289;</mo></mrow><mi>T</mi><mo>=</mo><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mi>p</mi><mo>+</mo><mn>2</mn><mi>q</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\ker T = \mathrm{span}(-2p+2q-r).
+</annotation></semantics></math></p>
+<p>Die Universalität hat die lineare Abbildung konstruiert. Danach
+rechnet man mit Linearität weiter.</p>
+<hr />
+<h1 id="tensorprodukt-anwenden-bilineare-abbildungen-linearisieren">6.
+Tensorprodukt anwenden: Bilineare Abbildungen linearisieren</h1>
+<h2 id="problem-5">Problem</h2>
+<p>Seien</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>W</mi><mo>=</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+V=W=\mathbb R^2.
+</annotation></semantics></math></p>
+<p>Wir betrachten die bilineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>:</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>b</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>v</mi><mo>⋅</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">
+b:V\times W\to \mathbb R,
+\qquad
+b(v,w)=v\cdot w
+</annotation></semantics></math></p>
+<p>also das Standardskalarprodukt.</p>
+<p>Berechne die zugehörige lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">
+\bar b:V\otimes W\to \mathbb R
+</annotation></semantics></math></p>
+<p>auf einem Tensor-Ausdruck.</p>
+<h2 id="universelle-eigenschaft-3">Universelle Eigenschaft</h2>
+<p>Das Tensorprodukt erfüllt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mrow><mi mathvariant="normal">B</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{Lin}(V\otimes W,X)
+\cong
+\mathrm{Bilin}(V\times W,X).
+</annotation></semantics></math></p>
+<p>Jede bilineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>:</mo><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+b:V\times W\to X
+</annotation></semantics></math></p>
+<p>entspricht eindeutig einer linearen Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\bar b:V\otimes W\to X
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>⊗</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>b</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b(v\otimes w)=b(v,w).
+</annotation></semantics></math></p>
+<h2 id="anwendung-3">Anwendung</h2>
+<p>Für das Skalarprodukt gibt es also genau eine lineare Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo>:</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mo>⊗</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mo>→</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">
+\bar b: \mathbb R^2\otimes \mathbb R^2\to \mathbb R
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>⊗</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>v</mi><mo>⋅</mo><mi>w</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b(v\otimes w)=v\cdot w.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-4">Damit rechnen</h2>
+<p>Seien
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e_1=(1,0)</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e_2=(0,1)</annotation></semantics></math>.</p>
+<p>Berechne:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msub><mi>e</mi><mn>1</mn></msub><mo>+</mo><mn>3</mn><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⊗</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><msub><mi>e</mi><mn>1</mn></msub><mo>−</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b\left((2e_1+3e_2)\otimes(5e_1-e_2)+4(e_1\otimes e_2)\right).
+</annotation></semantics></math></p>
+<p>Durch Linearität:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msub><mi>e</mi><mn>1</mn></msub><mo>+</mo><mn>3</mn><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⊗</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><msub><mi>e</mi><mn>1</mn></msub><mo>−</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msub><mi>e</mi><mn>1</mn></msub><mo>+</mo><mn>3</mn><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><msub><mi>e</mi><mn>1</mn></msub><mo>−</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b\left((2e_1+3e_2)\otimes(5e_1-e_2)\right)
+=
+(2e_1+3e_2)\cdot(5e_1-e_2).
+</annotation></semantics></math></p>
+<p>Das ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>⋅</mo><mn>5</mn><mo>+</mo><mn>3</mn><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>−</mo><mn>3</mn><mo>=</mo><mn>7</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2\cdot 5 + 3\cdot (-1)=10-3=7.
+</annotation></semantics></math></p>
+<p>Außerdem:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⋅</mo><msub><mi>e</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b(e_1\otimes e_2)=e_1\cdot e_2=0.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msub><mi>e</mi><mn>1</mn></msub><mo>+</mo><mn>3</mn><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⊗</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><msub><mi>e</mi><mn>1</mn></msub><mo>−</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>7</mn><mo>+</mo><mn>4</mn><mo>⋅</mo><mn>0</mn><mo>=</mo><mn>7</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b\left((2e_1+3e_2)\otimes(5e_1-e_2)+4(e_1\otimes e_2)\right)
+=
+7+4\cdot 0
+=
+7.
+</annotation></semantics></math></p>
+<h2 id="weiterrechnung-matrix-der-linearen-abbildung">Weiterrechnung:
+Matrix der linearen Abbildung</h2>
+<p>Die Tensorbasis ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>e</mi><mn>2</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>e</mi><mn>2</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+e_1\otimes e_1,
+\quad
+ e_1\otimes e_2,
+\quad
+ e_2\otimes e_1,
+\quad
+ e_2\otimes e_2.
+</annotation></semantics></math></p>
+<p>Auf dieser Basis gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar b(e_1\otimes e_1)=1,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar b(e_1\otimes e_2)=0,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>2</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar b(e_2\otimes e_1)=0,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mn>2</mn></msub><mo>⊗</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar b(e_2\otimes e_2)=1.
+</annotation></semantics></math></p>
+<p>Also hat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>b</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar b</annotation></semantics></math>
+bezüglich dieser Basis die Zeilenmatrix</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}.
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft hat das bilineare Problem in ein lineares
+Problem verwandelt.</p>
+<hr />
+<h1 id="pullback-anwenden-kompatible-daten-zusammenführen">7. Pullback
+anwenden: Kompatible Daten zusammenführen</h1>
+<h2 id="problem-6">Problem</h2>
+<p>Betrachte die beiden Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f:\mathbb Z\to \mathbb Z/2\mathbb Z,
+\qquad
+f(n)=[n]_2,
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>m</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g:\mathbb Z\to \mathbb Z/2\mathbb Z,
+\qquad
+g(m)=[m]_2.
+</annotation></semantics></math></p>
+<p>Der Pullback</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi mathvariant="double-struck">ℤ</mi><msub><mo>×</mo><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi></mrow></msub><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+P=\mathbb Z\times_{\mathbb Z/2\mathbb Z}\mathbb Z
+</annotation></semantics></math></p>
+<p>sammelt Paare gleicher Parität.</p>
+<h2 id="universelle-eigenschaft-4">Universelle Eigenschaft</h2>
+<p>Der Pullback besteht aus einem Objekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+mit Projektionen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>:</mo><mi>P</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mn>2</mn></msub><mo>:</mo><mi>P</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+p_1:P\to \mathbb Z,
+\qquad
+p_2:P\to \mathbb Z
+</annotation></semantics></math></p>
+<p>sodass</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><msub><mi>p</mi><mn>1</mn></msub><mo>=</mo><mi>g</mi><mo>∘</mo><msub><mi>p</mi><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f\circ p_1 = g\circ p_2.
+</annotation></semantics></math></p>
+<p>Für jedes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+mit Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>v</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+u:X\to \mathbb Z,
+\qquad
+v:X\to \mathbb Z
+</annotation></semantics></math></p>
+<p>und Kompatibilität</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>u</mi><mo>=</mo><mi>g</mi><mo>∘</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">
+f\circ u = g\circ v
+</annotation></semantics></math></p>
+<p>gibt es genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+h:X\to P
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>u</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mn>2</mn></msub><mo>∘</mo><mi>h</mi><mo>=</mo><mi>v</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_1\circ h=u,
+\qquad
+p_2\circ h=v.
+</annotation></semantics></math></p>
+<h2 id="konkrete-beschreibung">Konkrete Beschreibung</h2>
+<p>Hier ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>,</mo><mi>m</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi mathvariant="double-struck">ℤ</mi><mn>2</mn></msup><mo>∣</mo><mi>n</mi><mo>≡</mo><mi>m</mi><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">mod</mi><mo>&#8289;</mo></mrow><mspace width="0.222em"></mspace><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P=\{(n,m)\in \mathbb Z^2 \mid n\equiv m \pmod 2\}.
+</annotation></semantics></math></p>
+<h2 id="anwendung-4">Anwendung</h2>
+<p>Setze
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">X=\mathbb Z</annotation></semantics></math>
+und definiere</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+u(k)=k+1,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mi>k</mi><mo>+</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+v(k)=3k+1.
+</annotation></semantics></math></p>
+<p>Dann gilt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>k</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+v(k)-u(k)=(3k+1)-(k+1)=2k,
+</annotation></semantics></math></p>
+<p>also ist
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">v(k)-u(k)</annotation></semantics></math>
+immer gerade.</p>
+<p>Damit haben
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">u(k)</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">v(k)</annotation></semantics></math>
+dieselbe Parität.</p>
+<p>Durch die universelle Eigenschaft des Pullbacks gibt es genau eine
+Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">
+h:\mathbb Z\to P
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mi>k</mi><mo>+</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_1(h(k))=k+1,
+\qquad
+p_2(h(k))=3k+1.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>,</mo><mn>3</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(k)=(k+1,3k+1).
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-5">Damit rechnen</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>,</mo><mn>13</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(4)=(5,13).
+</annotation></semantics></math></p>
+<p>Tatsächlich liegen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>13</mn><annotation encoding="application/x-tex">13</annotation></semantics></math>
+im Pullback, weil beide ungerade sind.</p>
+<p>Außerdem:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_2(h(k))-p_1(h(k))
+=
+(3k+1)-(k+1)
+=
+2k.
+</annotation></semantics></math></p>
+<p>Also kann man aus dem Bildpunkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(k)</annotation></semantics></math>
+den Parameter rekonstruieren:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mfrac><mrow><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k=\frac{p_2(h(k))-p_1(h(k))}{2}.
+</annotation></semantics></math></p>
+<p>Der Pullback macht aus einer Kompatibilitätsbedingung ein echtes
+Objekt, mit dem man weiterrechnen kann.</p>
+<hr />
+<h1 id="pushout-anwenden-daten-verkleben">8. Pushout anwenden: Daten
+verkleben</h1>
+<h2 id="problem-7">Problem</h2>
+<p>Wir haben Mengen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>*</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+A=\{*\},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>b</mi><mn>0</mn></msub><mo>,</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+B=\{b_0,b_1\},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>c</mi><mn>0</mn></msub><mo>,</mo><msub><mi>c</mi><mn>1</mn></msub><mo>,</mo><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C=\{c_0,c_1,c_2\}.
+</annotation></semantics></math></p>
+<p>Die Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>*</mi><mo>↦</mo><msub><mi>b</mi><mn>0</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+A\to B,
+\qquad
+*\mapsto b_0,
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>C</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>*</mi><mo>↦</mo><msub><mi>c</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">
+A\to C,
+\qquad
+*\mapsto c_0
+</annotation></semantics></math></p>
+<p>sagen: Beim Verkleben soll
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>0</mn></msub><annotation encoding="application/x-tex">b_0</annotation></semantics></math>
+mit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mn>0</mn></msub><annotation encoding="application/x-tex">c_0</annotation></semantics></math>
+identifiziert werden.</p>
+<h2 id="pushout">Pushout</h2>
+<p>Der Pushout ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>B</mi><msub><mo>⊔</mo><mi>A</mi></msub><mi>C</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P=B\sqcup_A C.
+</annotation></semantics></math></p>
+<p>Konkret ist das die disjunkte Vereinigung von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>,
+modulo der Identifikation</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>∼</mo><msub><mi>c</mi><mn>0</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+b_0\sim c_0.
+</annotation></semantics></math></p>
+<p>Also kann man schreiben:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>s</mi><mo>,</mo><msub><mi>b</mi><mn>1</mn></msub><mo>,</mo><msub><mi>c</mi><mn>1</mn></msub><mo>,</mo><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+P=\{s,b_1,c_1,c_2\},
+</annotation></semantics></math></p>
+<p>wobei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+der gemeinsame Punkt aus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>0</mn></msub><annotation encoding="application/x-tex">b_0</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mn>0</mn></msub><annotation encoding="application/x-tex">c_0</annotation></semantics></math>
+ist.</p>
+<h2 id="universelle-eigenschaft-5">Universelle Eigenschaft</h2>
+<p>Eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+P\to X
+</annotation></semantics></math></p>
+<p>ist genau dasselbe wie zwei Abbildungen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>X</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>γ</mi><mo>:</mo><mi>C</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\beta:B\to X,
+\qquad
+\gamma:C\to X
+</annotation></semantics></math></p>
+<p>sodass sie auf dem gemeinsamen Teil übereinstimmen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\beta(b_0)=\gamma(c_0).
+</annotation></semantics></math></p>
+<h2 id="anwendung-5">Anwendung</h2>
+<p>Sei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">X=\mathbb Z</annotation></semantics></math>.</p>
+<p>Definiere</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>11</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\beta(b_0)=10,
+\qquad
+\beta(b_1)=11,
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>20</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>30</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\gamma(c_0)=10,
+\qquad
+\gamma(c_1)=20,
+\qquad
+\gamma(c_2)=30.
+</annotation></semantics></math></p>
+<p>Die Kompatibilität gilt, weil</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>=</mo><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\beta(b_0)=10=\gamma(c_0).
+</annotation></semantics></math></p>
+<p>Also gibt es eindeutig</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>:</mo><mi>P</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+u:P\to \mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>u</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>11</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>u</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>20</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>u</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>30</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+u(s)=10,
+\qquad
+u(b_1)=11,
+\qquad
+u(c_1)=20,
+\qquad
+u(c_2)=30.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-6">Damit rechnen</h2>
+<p>Komponiere weiter mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+d:\mathbb Z\to \mathbb Z/2\mathbb Z,
+\qquad
+d(n)=[n]_2.
+</annotation></semantics></math></p>
+<p>Dann ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∘</mo><mi>u</mi><mo>:</mo><mi>P</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>2</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+d\circ u:P\to \mathbb Z/2\mathbb Z.
+</annotation></semantics></math></p>
+<p>Die Werte sind:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>∘</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(d\circ u)(s)=[10]_2=[0]_2,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>∘</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>11</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(d\circ u)(b_1)=[11]_2=[1]_2,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>∘</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>20</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(d\circ u)(c_1)=[20]_2=[0]_2,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>∘</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>30</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(d\circ u)(c_2)=[30]_2=[0]_2.
+</annotation></semantics></math></p>
+<p>Der Pushout erlaubt also: erst verkleben, dann auf dem verklebten
+Objekt weiterrechnen.</p>
+<p>Wenn die Anfangsdaten nicht kompatibel wären, zum Beispiel</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>b</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mspace width="1.0em"></mspace><mtext mathvariant="normal">aber</mtext><mspace width="1.0em"></mspace><mi>γ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>c</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>99</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\beta(b_0)=10
+\quad\text{aber}\quad
+\gamma(c_0)=99,
+</annotation></semantics></math></p>
+<p>dann gäbe es keine Abbildung aus dem Pushout, die beide Daten
+gleichzeitig respektiert.</p>
+<hr />
+<h1 id="equalizer-anwenden-gleichungen-als-objekt-darstellen">9.
+Equalizer anwenden: Gleichungen als Objekt darstellen</h1>
+<h2 id="problem-8">Problem</h2>
+<p>Betrachte zwei Funktionen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>,</mo><mi>g</mi><mo>:</mo><mi mathvariant="double-struck">ℝ</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">
+f,g:\mathbb R\to \mathbb R
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x)=x^2,
+\qquad
+g(x)=x.
+</annotation></semantics></math></p>
+<p>Finde das Objekt, das genau die Lösungen der Gleichung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">
+x^2=x
+</annotation></semantics></math></p>
+<p>enthält.</p>
+<h2 id="equalizer">Equalizer</h2>
+<p>Der Equalizer von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+ist die Teilmenge</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>∈</mo><mi mathvariant="double-struck">ℝ</mi><mo>∣</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E=\{x\in\mathbb R\mid f(x)=g(x)\}.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>∈</mo><mi mathvariant="double-struck">ℝ</mi><mo>∣</mo><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E=\{x\in\mathbb R\mid x^2=x\}.
+</annotation></semantics></math></p>
+<p>Die Gleichung ist:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+x^2-x=0,
+</annotation></semantics></math></p>
+<p>also</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x(x-1)=0.
+</annotation></semantics></math></p>
+<p>Damit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E=\{0,1\}.
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft-6">Universelle Eigenschaft</h2>
+<p>Eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">
+h:X\to \mathbb R
+</annotation></semantics></math></p>
+<p>faktorisiert genau dann eindeutig durch</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>:</mo><mi>E</mi><mo>↪</mo><mi mathvariant="double-struck">ℝ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+e:E\hookrightarrow \mathbb R,
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>h</mi><mo>=</mo><mi>g</mi><mo>∘</mo><mi>h</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f\circ h = g\circ h.
+</annotation></semantics></math></p>
+<p>Das bedeutet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+h(x)^2=h(x)
+</annotation></semantics></math></p>
+<p>für alle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>.</p>
+<h2 id="anwendung-6">Anwendung</h2>
+<p>Sei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+X=\{a,b,c\}
+</annotation></semantics></math></p>
+<p>und definiere</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(a)=0,
+\qquad
+h(b)=1,
+\qquad
+h(c)=1.
+</annotation></semantics></math></p>
+<p>Dann gilt für alle Werte:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(x)^2=h(x).
+</annotation></semantics></math></p>
+<p>Also gibt es eindeutig</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>X</mi><mo>→</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">
+\bar h:X\to E
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>∘</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>=</mo><mi>h</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+e\circ \bar h=h.
+</annotation></semantics></math></p>
+<p>Konkret:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar h(a)=0,
+\qquad
+\bar h(b)=1,
+\qquad
+\bar h(c)=1.
+</annotation></semantics></math></p>
+<h2 id="weiterrechnung">Weiterrechnung</h2>
+<p>Wenn eine Funktion nach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>
+nur Werte
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+annimmt, darf man sie als Funktion nach dem Equalizer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">E=\{0,1\}</annotation></semantics></math>
+behandeln.</p>
+<p>Dann kann man Operationen auf
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+definieren, zum Beispiel logisches Und:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∧</mi><mo>:</mo><mi>E</mi><mo>×</mo><mi>E</mi><mo>→</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">
+\wedge:E\times E\to E
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>∧</mo><mn>0</mn><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>0</mn><mo>∧</mo><mn>1</mn><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>1</mn><mo>∧</mo><mn>0</mn><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>1</mn><mo>∧</mo><mn>1</mn><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+0\wedge 0=0,
+\quad
+0\wedge 1=0,
+\quad
+1\wedge 0=0,
+\quad
+1\wedge 1=1.
+</annotation></semantics></math></p>
+<p>Der Equalizer hat aus einer Gleichungsbedingung einen eigenen
+Wertebereich gemacht.</p>
+<hr />
+<h1 id="coequalizer-anwenden-eine-gleichung-erzwingen">10. Coequalizer
+anwenden: Eine Gleichung erzwingen</h1>
+<h2 id="problem-9">Problem</h2>
+<p>Wir wollen in der Kategorie der abelschen Gruppen die Gleichung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+5=0
+</annotation></semantics></math></p>
+<p>erzwingen.</p>
+<p>Das Ergebnis sollte</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>5</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z/5\mathbb Z
+</annotation></semantics></math></p>
+<p>sein.</p>
+<h2 id="coequalizer-idee">Coequalizer-Idee</h2>
+<p>Betrachte zwei Gruppenhomomorphismen</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>,</mo><mi>s</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+r,s:\mathbb Z\to \mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+r(1)=0,
+\qquad
+s(1)=5.
+</annotation></semantics></math></p>
+<p>Der Coequalizer von
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+ist eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">
+q:\mathbb Z\to Q
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>∘</mo><mi>r</mi><mo>=</mo><mi>q</mi><mo>∘</mo><mi>s</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q\circ r = q\circ s.
+</annotation></semantics></math></p>
+<p>Das heißt insbesondere:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+q(0)=q(5),
+</annotation></semantics></math></p>
+<p>also</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q(5)=0.
+</annotation></semantics></math></p>
+<p>Der universelle solche Quotient ist</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>5</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+Q=\mathbb Z/5\mathbb Z.
+</annotation></semantics></math></p>
+<h2 id="universelle-eigenschaft-7">Universelle Eigenschaft</h2>
+<p>Eine Gruppenabbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+F:\mathbb Z\to A
+</annotation></semantics></math></p>
+<p>faktorisiert genau dann über</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>5</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z/5\mathbb Z
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F(5)=0.
+</annotation></semantics></math></p>
+<p>Da
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(n)=nF(1)</annotation></semantics></math>,
+heißt das:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+5F(1)=0.
+</annotation></semantics></math></p>
+<h2 id="anwendung-7">Anwendung</h2>
+<p>Sei</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>10</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+A=\mathbb Z/10\mathbb Z.
+</annotation></semantics></math></p>
+<p>Definiere</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>10</mn><mi mathvariant="double-struck">ℤ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F:\mathbb Z\to \mathbb Z/10\mathbb Z,
+\qquad
+F(n)=[2n]_{10}.
+</annotation></semantics></math></p>
+<p>Dann:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F(5)=[10]_{10}=[0]_{10}.
+</annotation></semantics></math></p>
+<p>Also faktorisiert
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+eindeutig über</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>5</mn><mi mathvariant="double-struck">ℤ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb Z/5\mathbb Z.
+</annotation></semantics></math></p>
+<p>Es gibt also genau eine Abbildung</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>5</mn><mi mathvariant="double-struck">ℤ</mi><mo>→</mo><mi mathvariant="double-struck">ℤ</mi><mi>/</mi><mn>10</mn><mi mathvariant="double-struck">ℤ</mi></mrow><annotation encoding="application/x-tex">
+\bar F:\mathbb Z/5\mathbb Z\to \mathbb Z/10\mathbb Z
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mi>n</mi><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar F([n]_5)=[2n]_{10}.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-7">Damit rechnen</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar F([3]_5)=[6]_{10}.
+</annotation></semantics></math></p>
+<p>Und:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>8</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar F([4]_5+[4]_5)
+=
+\bar F([8]_5)
+=
+\bar F([3]_5)
+=
+[6]_{10}.
+</annotation></semantics></math></p>
+<p>Andererseits:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mover><mi>F</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>5</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>8</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">[</mo><mn>8</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>16</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><msub><mo stretchy="false" form="postfix">]</mo><mn>10</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar F([4]_5)+\bar F([4]_5)
+=
+[8]_{10}+[8]_{10}
+=
+[16]_{10}
+=
+[6]_{10}.
+</annotation></semantics></math></p>
+<p>Der Coequalizer ist also die saubere Form von: „Erzwinge diese
+Relation und rechne danach im besten möglichen Quotienten.“</p>
+<hr />
+<h1 id="polynomring-anwenden-evaluation-als-universelle-eigenschaft">11.
+Polynomring anwenden: Evaluation als universelle Eigenschaft</h1>
+<h2 id="problem-10">Problem</h2>
+<p>Warum darf man ein Polynom einfach an einer Zahl, Matrix oder einem
+Operator auswerten?</p>
+<p>Zum Beispiel:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(x)=x^3-2x+5.
+</annotation></semantics></math></p>
+<p>Wir wollen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+an der Matrix</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+J=
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}
+</annotation></semantics></math></p>
+<p>auswerten.</p>
+<h2 id="universelle-eigenschaft-des-polynomrings">Universelle
+Eigenschaft des Polynomrings</h2>
+<p>Der Polynomring
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">ℝ</mi><mo stretchy="false" form="prefix">[</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb R[x]</annotation></semantics></math>
+ist die freie
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>-Algebra
+auf einem Generator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>.</p>
+<p>Das heißt:</p>
+<p>Für jede
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>-Algebra
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+und jedes Element
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math>
+gibt es genau einen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>-Algebra-Homomorphismus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi></mrow><mi>a</mi></msub><mo>:</mo><mi mathvariant="double-struck">ℝ</mi><mo stretchy="false" form="prefix">[</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{ev}_a:\mathbb R[x]\to A
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi></mrow><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{ev}_a(x)=a.
+</annotation></semantics></math></p>
+<p>Diese Abbildung ist die Evaluation bei
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p>
+<h2 id="anwendung-auf-die-matrix">Anwendung auf die Matrix</h2>
+<p>Setze</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msub><mi>M</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi mathvariant="double-struck">ℝ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+A=M_2(\mathbb R)
+</annotation></semantics></math></p>
+<p>und</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>J</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+a=J.
+</annotation></semantics></math></p>
+<p>Dann gibt es eindeutig</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi></mrow><mi>J</mi></msub><mo>:</mo><mi mathvariant="double-struck">ℝ</mi><mo stretchy="false" form="prefix">[</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo><mo>→</mo><msub><mi>M</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi mathvariant="double-struck">ℝ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{ev}_J:\mathbb R[x]\to M_2(\mathbb R)
+</annotation></semantics></math></p>
+<p>mit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>J</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x\mapsto J.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>J</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>J</mi><mn>3</mn></msup><mo>−</mo><mn>2</mn><mi>J</mi><mo>+</mo><mn>5</mn><mi>I</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(J)=J^3-2J+5I.
+</annotation></semantics></math></p>
+<h2 id="damit-rechnen-8">Damit rechnen</h2>
+<p>Zuerst:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>J</mi><mn>2</mn></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mi>I</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+J^2=
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}^2
+=
+\begin{pmatrix}
+-1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}
+=-I.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>J</mi><mn>3</mn></msup><mo>=</mo><msup><mi>J</mi><mn>2</mn></msup><mi>J</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mi>J</mi><mo>=</mo><mi>−</mi><mi>J</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+J^3=J^2J=(-I)J=-J.
+</annotation></semantics></math></p>
+<p>Damit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>J</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>J</mi><mn>3</mn></msup><mo>−</mo><mn>2</mn><mi>J</mi><mo>+</mo><mn>5</mn><mi>I</mi><mo>=</mo><mi>−</mi><mi>J</mi><mo>−</mo><mn>2</mn><mi>J</mi><mo>+</mo><mn>5</mn><mi>I</mi><mo>=</mo><mn>5</mn><mi>I</mi><mo>−</mo><mn>3</mn><mi>J</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(J)=J^3-2J+5I
+=-J-2J+5I
+=5I-3J.
+</annotation></semantics></math></p>
+<p>Also:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>J</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>5</mn><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>3</mn><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+p(J)
+=
+5
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+-3
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}
+</annotation></semantics></math></p>
+<p>und damit</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>J</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(J)=
+\begin{pmatrix}
+5 &amp; -3 \\
+3 &amp; 5
+\end{pmatrix}.
+</annotation></semantics></math></p>
+<p>Die universelle Eigenschaft erklärt hier, warum „ersetze
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+durch
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>“
+eine wohldefinierte Algebra-Abbildung ist.</p>
+<hr />
+<h1 id="allgemeine-rechenregeln-als-cheat-sheet">12. Allgemeine
+Rechenregeln als Cheat Sheet</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Universelles Objekt</th>
+<th>Konstruktion</th>
+<th>Gleichheit beweisen durch</th>
+<th>Typische Rechnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produkt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\times B</annotation></semantics></math></td>
+<td>Maps
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">X\to A</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X\to B</annotation></semantics></math></td>
+<td>Projektionen vergleichen</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(x)=(f(x),g(x))</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Koprodukt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math></td>
+<td>Maps
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">A\to X</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">B\to X</annotation></semantics></math></td>
+<td>Auf Summanden vergleichen</td>
+<td>Fallunterscheidung</td>
+</tr>
+<tr>
+<td>Quotient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>/</mi><mo>∼</mo></mrow><annotation encoding="application/x-tex">A/{\sim}</annotation></semantics></math></td>
+<td>Map
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">A\to X</annotation></semantics></math>,
+die
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>
+respektiert</td>
+<td>Nach Präkomposition mit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+vergleichen</td>
+<td>Wohldefiniertheit modulo Relation</td>
+</tr>
+<tr>
+<td>Freier Monoid</td>
+<td>Bilder der Generatoren</td>
+<td>Auf Generatoren vergleichen</td>
+<td>Wörter auswerten</td>
+</tr>
+<tr>
+<td>Freier Vektorraum</td>
+<td>Bilder der Basisgeneratoren</td>
+<td>Auf Basisgeneratoren vergleichen</td>
+<td>Lineare Fortsetzung</td>
+</tr>
+<tr>
+<td>Tensorprodukt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">V\otimes W</annotation></semantics></math></td>
+<td>Bilineare Map
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">V\times W\to X</annotation></semantics></math></td>
+<td>Auf reinen Tensoren vergleichen</td>
+<td>Bilinear zu linear</td>
+</tr>
+<tr>
+<td>Pullback
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mo>×</mo><mi>C</mi></msub><mi>B</mi></mrow><annotation encoding="application/x-tex">A\times_C B</annotation></semantics></math></td>
+<td>Kompatibles Paar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">X\to A</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X\to B</annotation></semantics></math></td>
+<td>Komponenten vergleichen</td>
+<td>Constraint-Paare</td>
+</tr>
+<tr>
+<td>Pushout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><msub><mo>⊔</mo><mi>A</mi></msub><mi>C</mi></mrow><annotation encoding="application/x-tex">B\sqcup_A C</annotation></semantics></math></td>
+<td>Kompatibles Paar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">B\to X</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">C\to X</annotation></semantics></math></td>
+<td>Nach Inklusionen vergleichen</td>
+<td>Verkleben</td>
+</tr>
+<tr>
+<td>Equalizer</td>
+<td>Map, die Gleichung erfüllt</td>
+<td>Nach Inklusion vergleichen</td>
+<td>Lösungsmenge als Objekt</td>
+</tr>
+<tr>
+<td>Coequalizer</td>
+<td>Map, die Relation identifiziert</td>
+<td>Nach Quotientenmap vergleichen</td>
+<td>Relation erzwingen</td>
+</tr>
+<tr>
+<td>Polynomring
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false" form="prefix">[</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">R[x]</annotation></semantics></math></td>
+<td>Element
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+in einer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>-Algebra</td>
+<td>Auf
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+vergleichen</td>
+<td>Evaluation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="die-eigentliche-methode">13. Die eigentliche Methode</h1>
+<p>Wenn du eine universelle Eigenschaft auf ein Problem anwenden willst,
+geh so vor:</p>
+<h2 id="schritt-1-erkenne-die-form-des-problems">Schritt 1: Erkenne die
+Form des Problems</h2>
+<p>Frag:</p>
+<ul>
+<li>Will ich eine Map <strong>in ein Produkt</strong> bauen?</li>
+<li>Will ich eine Map <strong>aus einem Koprodukt</strong> bauen?</li>
+<li>Will ich eine Map <strong>aus einem Quotienten</strong> bauen?</li>
+<li>Will ich eine bilineare Map <strong>linearisieren</strong>?</li>
+<li>Will ich kompatible Daten <strong>zusammenführen</strong>?</li>
+<li>Will ich Daten <strong>verkleben</strong>?</li>
+<li>Will ich eine Relation <strong>erzwingen</strong>?</li>
+</ul>
+<h2 id="schritt-2-übersetze-in-universelle-daten">Schritt 2: Übersetze
+in universelle Daten</h2>
+<p>Beispiel:</p>
+<p>Statt direkt</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+X\to A\times B
+</annotation></semantics></math></p>
+<p>zu bauen, baust du</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">und</mtext><mspace width="1.0em"></mspace><mi>X</mi><mo>→</mo><mi>B</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X\to A
+\quad\text{und}\quad
+X\to B.
+</annotation></semantics></math></p>
+<p>Statt direkt</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+V\otimes W\to X
+</annotation></semantics></math></p>
+<p>zu bauen, baust du eine bilineare Map</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>×</mo><mi>W</mi><mo>→</mo><mi>X</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+V\times W\to X.
+</annotation></semantics></math></p>
+<h2 id="schritt-3-nutze-existenz-und-eindeutigkeit">Schritt 3: Nutze
+Existenz und Eindeutigkeit</h2>
+<p>Die universelle Eigenschaft gibt dir die gewünschte Abbildung
+automatisch und eindeutig.</p>
+<p>Das ist wichtig: Du musst danach nicht mehr beweisen, dass du „die
+richtige“ Abbildung gewählt hast. Es gibt nur eine, die die geforderten
+Daten erfüllt.</p>
+<h2 id="schritt-4-rechne-mit-den-strukturmaps">Schritt 4: Rechne mit den
+Strukturmaps</h2>
+<p>Beim Produkt: projizieren.</p>
+<p>Beim Koprodukt: Fälle auswerten.</p>
+<p>Beim Quotient: mit Repräsentanten rechnen, aber nur nach
+Wohldefiniertheit.</p>
+<p>Beim Tensorprodukt: auf reinen Tensoren rechnen und linear
+fortsetzen.</p>
+<p>Beim Pullback: Komponenten nehmen.</p>
+<p>Beim Pushout: auf den verklebten Teilen prüfen.</p>
+<h2 id="schritt-5-beweise-gleichheit-über-eindeutigkeit">Schritt 5:
+Beweise Gleichheit über Eindeutigkeit</h2>
+<p>Das ist oft der stärkste Teil.</p>
+<p>Du beweist nicht direkt:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h=k.
+</annotation></semantics></math></p>
+<p>Du beweist stattdessen, dass
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+und
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+dieselben universellen Daten haben.</p>
+<p>Beispiele:</p>
+<h3 id="produkt">Produkt</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>k</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+h=k:X\to A\times B
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mn>1</mn></msub><mi>h</mi><mo>=</mo><msub><mi>π</mi><mn>1</mn></msub><mi>k</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">und</mtext><mspace width="1.0em"></mspace><msub><mi>π</mi><mn>2</mn></msub><mi>h</mi><mo>=</mo><msub><mi>π</mi><mn>2</mn></msub><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi_1h=\pi_1k
+\quad\text{und}\quad
+\pi_2h=\pi_2k.
+</annotation></semantics></math></p>
+<h3 id="koprodukt">Koprodukt</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>k</mi><mo>:</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+h=k:A+B\to X
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∘</mo><msub><mi>i</mi><mn>1</mn></msub><mo>=</mo><mi>k</mi><mo>∘</mo><msub><mi>i</mi><mn>1</mn></msub><mspace width="1.0em"></mspace><mtext mathvariant="normal">und</mtext><mspace width="1.0em"></mspace><mi>h</mi><mo>∘</mo><msub><mi>i</mi><mn>2</mn></msub><mo>=</mo><mi>k</mi><mo>∘</mo><msub><mi>i</mi><mn>2</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h\circ i_1=k\circ i_1
+\quad\text{und}\quad
+h\circ i_2=k\circ i_2.
+</annotation></semantics></math></p>
+<h3 id="quotient">Quotient</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo>=</mo><mover><mi>g</mi><mo accent="true">‾</mo></mover><mo>:</mo><mi>A</mi><mi>/</mi><mo>∼</mo><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+\bar f=\bar g:A/{\sim}\to X
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">‾</mo></mover><mo>∘</mo><mi>q</mi><mo>=</mo><mover><mi>g</mi><mo accent="true">‾</mo></mover><mo>∘</mo><mi>q</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar f\circ q=\bar g\circ q.
+</annotation></semantics></math></p>
+<h3 id="tensorprodukt">Tensorprodukt</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mi>G</mi><mo>:</mo><mi>V</mi><mo>⊗</mo><mi>W</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">
+F=G:V\otimes W\to X
+</annotation></semantics></math></p>
+<p>wenn</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>⊗</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>v</mi><mo>⊗</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F(v\otimes w)=G(v\otimes w)
+</annotation></semantics></math></p>
+<p>für alle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v\in V</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>∈</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">w\in W</annotation></semantics></math>.</p>
+<hr />
+<h1 id="merksatz">14. Merksatz</h1>
+<p>Eine universelle Eigenschaft ist eine Maschine:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">komplizierte Abbildung</mtext><mo>↔</mo><mtext mathvariant="normal">einfache Daten plus Kompatibilität</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\text{komplizierte Abbildung}
+\longleftrightarrow
+\text{einfache Daten plus Kompatibilität}.
+</annotation></semantics></math></p>
+<p>Du löst das Problem auf der einfachen Seite, bekommst die Abbildung
+auf der komplizierten Seite automatisch, und rechnest dann mit der
+Eindeutigkeit weiter.</p>
+<p>Das ist der praktische Nutzen: Universalität verwandelt Konstruktion,
+Wohldefiniertheit und Gleichheitsbeweise in ein einheitliches
+Rechenverfahren.</p>
+</body>
+</html>
