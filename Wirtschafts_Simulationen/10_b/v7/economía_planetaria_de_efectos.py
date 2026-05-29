@@ -3508,455 +3508,251 @@ def macro_by_domain(macro_accounts: List[MacroAccountRow]) -> Dict[str, MacroAcc
     return result
 
 
-def art_planet_layer_stack(last: GlobalMetrics) -> None:
-    art_panel('Capas planetarias en vez de economía nacional', 1, 'límite planetario')
-    layers = [
-        ("🌍 PLANETA", "límites: clima, agua, suelo, biodiversidad, material", (0, 229, 255), last.mean_boundary_pressure),
-        ("▰ PAÍSES / GRANDES REGIONES", "infraestructura, derecho, equilibrio, protección de crisis", (58, 134, 255), last.coordination_quality),
-        ("◈ KOMMUNEN", "Wohnung, Wasser, Nahrung, Pflege, Energie vor Ort", (38, 222, 129), last.wellbeing),
-        ("✦ GRUPOS", "capacidades: construcción, cuidados, investigación, reparación, ecología", (255, 214, 10), last.macro_capacity),
-        ("● PERSONAS INDIVIDUALES", "necesidad, capacidad, libertad, derecho de objeción", (255, 106, 188), last.avg_autonomy),
-    ]
-    for name, desc, fg, ratio in layers:
-        terminal_print(art_ratio_bar(name, clamp(ratio), fg, width=44))
-        terminal_print("   " + color_text("╰─ ", fg=fg) + color_text(desc, fg=(245, 245, 245)))
-    terminal_print(color_text("        ╰──────────────────────────────────────────────────────────────────────╯", fg=(161,108,255)))
-    terminal_print(color_text("        economía = cambio de realidad dentro de límites planetarios", fg=(255,255,255), bold=True))
+
+ART_LOCAL = {'gallery_title': 'GALERÍA DE ARTE DE CARACTERES EXTREMADAMENTE COLORIDA',
+ 'gallery_sub': 'Diagramas, figuras, ciclos, brújulas, mapas de calor y sellos bajo los contratos.',
+ 'titles': ['Capas planetarias',
+            'Torre de apilamiento de verdad',
+            'Tubería causal de efecto',
+            'Compra y venta reconstruidas',
+            'Panel de límites planetarios',
+            'Escudo de contrato climático',
+            'Ciclo de sustancia y materia',
+            'Red de efectos comunales',
+            'Productos puestos servicios',
+            'Constelación de servicios',
+            'Brújula de dirección angular',
+            'Embudo de diferencia',
+            'Puerta de contrato de verdad',
+            'Núcleo sin dinero',
+            'Cuentas planetarias',
+            'Mandala de regeneración ecológica',
+            'Almacenamiento como puente temporal',
+            'Determinación y corrección',
+            'Hélice de verdad',
+            'Arco iris de dominios',
+            'Radar de resiliencia',
+            'Muro de fenómenos',
+            'Jardín de potencias',
+            'Retícula de puestos de trabajo',
+            'Olas de productos',
+            'Océano de efectos',
+            'Mapa térmico dimensional',
+            'Río temporal',
+            'Manifiesto de neón',
+            'Sello final'],
+ 'subs': ['límite planetario',
+          'cifras de verdad',
+          'flujo de efecto',
+          'términos antiguos traducidos',
+          'espacio operativo seguro',
+          'relevancia climática',
+          'material circular',
+          'coordinación comunal',
+          'portadores de efecto',
+          'reproducción social',
+          'la dirección importa',
+          'resolución de brecha',
+          'puerta de validez',
+          'mapa nuevo',
+          'cuentas de necesidad',
+          'base viva',
+          'amortiguador futuro',
+          'bucle de retroalimentación',
+          'secuencia apilada',
+          'campos de efecto',
+          'protección contra choques',
+          'informes visibles',
+          'capacidad posible',
+          'tiempo de contribución',
+          'productos como efectos',
+          'muchos flujos',
+          'señales contractuales',
+          'desarrollo temporal',
+          'manifiesto corto',
+          'firma planetaria'],
+ 'lines': ['planeta → regiones → comunas → grupos → personas individuales',
+           'apilamiento de verdad → validez → prioridad → condiciones',
+           'causa → brecha de necesidad → potencia → acción → efecto → auditoría',
+           'compra = efecto de necesidad aceptado | venta = capacidad y tiempo contribuidos',
+           'clima • biosfera • agua dulce • suelo • contaminación • materiales • energía',
+           'emisiones, calor, transporte y flujo material moldean permiso',
+           'sustancia → producción → uso → reparación → diferencia de residuo → retorno',
+           'las comunas intercambian efectos, no precios',
+           'productos, puestos de trabajo y servicios son portadores de efecto',
+           'salud, cuidado, educación, movilidad y gobernanza reproducen vida',
+           'la dirección regenerativa importa tanto como la intensidad',
+           'la acción empieza donde necesidad y realidad se separan',
+           'la validez se hace con valores de verdad, no con poder adquisitivo',
+           'precio, cantidad, valor y propiedad pasan a coordenadas secundarias',
+           'las cuentas leen necesidad, brecha, efecto, tiempo laboral y presión planetaria',
+           'la naturaleza no está fuera de la economía; es la base viva',
+           'el almacenamiento une el tiempo entre producción y necesidad',
+           'la retroalimentación impide que los valores de verdad se vuelvan dominación',
+           'el apilamiento atraviesa contratos como secuencia colorida',
+           'cada dominio es un campo de efecto, no un mercado',
+           'la resiliencia muestra amortiguadores, reparación, coordinación y autonomía',
+           'fenómenos e informes sustituyen observación ciega de mercado',
+           'potencias son capacidades, herramientas, reservas y caminos',
+           'los puestos de trabajo aparecen como nodos de capacidad, no cajas salariales',
+           'los productos siguen visibles, pero toman sentido por efecto',
+           'muchos flujos pequeños se vuelven coordinación planetaria',
+           'cada fila es una dimensión, cada columna un contrato',
+           'el tiempo es urgencia, duración, memoria y desarrollo',
+           'sin núcleo de precio, sin núcleo salarial, sin núcleo de ganancia, sin núcleo de producto nacional',
+           'planeta • verdad • efecto • necesidad • sustancia • dirección'],
+ 'oldnew': ['mercancía → fenómeno',
+            'precio → apilamiento de verdad',
+            'valor → efecto',
+            'cantidad → intensidad y sustancia',
+            'propiedad → uso y determinación',
+            'ganancia → resolución de necesidad y diferencia',
+            'mercado → retroalimentación y auditoría'],
+ 'node_labels': ['planeta', 'regiones', 'comunas', 'grupos', 'personas'],
+ 'empty': 'no hay flujos',
+ 'units': 'unidades de efecto',
+ 'axis_up': 'regenerativa y libre',
+ 'axis_left': 'adecuada localmente',
+ 'axis_right': 'adecuada planetariamente',
+ 'axis_down': 'extractiva o controladora',
+ 'gate_rows': [('existencia', '¿el estado es real?'),
+               ('causalidad', '¿toca la causa?'),
+               ('diferencia', '¿hay una brecha real?'),
+               ('dirección angular', '¿es regenerativa y libre?'),
+               ('determinación', '¿es legítima?')]}
 
 
-def art_truth_stack_totem(flow: Optional[EffectFlow]) -> None:
-    art_panel('Tótem de apilamiento de verdad', 2, 'regiones')
-    values = flow.values if flow is not None else {dim: 3.0 for dim in TRUTH_DIMS}
-    stack = truth_stack_base5(values)
-    terminal_print(color_text("BASE5-STACK: ", fg=(255,214,10), bold=True) + render_truth_stack_badges(values))
-    terminal_print(color_text("Zahlensignatur: ", fg=(0,229,255), bold=True) + color_text(stack, fg=(255,255,255), bold=True))
-    terminal_print("")
-    for dim in TRUTH_DIMS:
-        terminal_print("      " + art_dim_line(dim, values.get(dim, 0.0), width=32))
-    terminal_print(color_text("      │", fg=(255,255,255)))
-    terminal_print(color_text("      ▼", fg=(255,255,255), bold=True))
-    terminal_print(color_text("  validez contractual + prioridad + condiciones", fg=(255,106,188), bold=True))
+def localized_art_panel(index: int) -> None:
+    title = ART_LOCAL["titles"][index]
+    subtitle = ART_LOCAL["subs"][index]
+    art_panel(title, index + 1, subtitle)
+    line = ART_LOCAL["lines"][index]
+    terminal_print(color_text(line, fg=art_color(index), bold=True))
 
 
-def art_causal_pipeline(flow: Optional[EffectFlow]) -> None:
-    art_panel('Cadena causal como flujo de efecto', 3, 'comunas')
-    fg = (0, 245, 212)
-    parts = ["BEDARF", "DIFERENCIA", "URSACHE", "POTENZ", "SUBSTANZ", "HANDLUNG", "WIRKUNG", "AUDIT"]
-    line = ""
-    for i, part in enumerate(parts):
-        line += styled_badge(part, art_color(i), tuple(int(c * 0.20) for c in art_color(i)))
-        if i < len(parts) - 1:
-            line += color_text("━━▶", fg=art_color(i + 1), bold=True)
-    terminal_print(line)
-    if flow is not None:
-        terminal_print(art_box_line("Beispiel: %s" % flow.causal_link, fg, width=110))
-        terminal_print(art_box_line("Aktivierte efecto: %.3f | Domain: %s | Art: %s" % (flow.activated_effect, flow.domain, flow.kind), fg, width=110))
-    terminal_print(color_text("          ╭──────────── retroalimentación: fenómenos + error de verdad + informes de personas afectadas ────────────╮", fg=(255,106,188)))
-    terminal_print(color_text("          ╰──────────────────────────────────────◀──────────────────────────────────────────────────╯", fg=(255,106,188)))
-
-
-def art_buy_sell_replacement() -> None:
-    art_panel('Compra y venta reconstruidas', 4, 'grupos')
-    rows = [
-        ("COMPRA", "Bedarfswirkung annehmen", "need_acceptance", (255, 106, 188)),
-        ("VENTA", "contribuir capacidad/tiempo/sustancia", "contribution_offer", (255, 214, 10)),
-        ("IMPORTACIÓN", "transferir efecto desde fuera hacia escasez", "planetary_transfer", (0, 229, 255)),
-        ("EXPORTACIÓN", "dar excedente a diferencia real", "planetary_transfer", (38, 222, 129)),
-    ]
-    for old, new, kind, fg in rows:
-        terminal_print(styled_badge(old, fg, tuple(int(c*0.22) for c in fg)) + color_text("  ─────╮", fg=fg, bold=True))
-        terminal_print(color_text("              ├──▶ ", fg=fg, bold=True) + color_text(new, fg=(255,255,255), bold=True) + "  " + color_text("[%s]" % kind, fg=fg))
-        terminal_print(color_text("              ╰──▶ verdad: Ca/T/I/Ex/P/E/S/M/D/De/F/Da", fg=fg))
-
-
-def art_boundary_dashboard(last: GlobalMetrics) -> None:
-    art_panel('Panel de límites planetarios', 5, 'personas')
-    # We do not store every boundary in GlobalMetrics, so use visible metrics plus worst boundary.
-    proxies = [
-        ("climate", last.worst_boundary_pressure if last.worst_boundary == "climate" else min(1.0, last.mean_boundary_pressure * 1.05)),
-        ("biosphere", min(1.0, last.mean_boundary_pressure * 0.97 + 0.03)),
-        ("freshwater", min(1.0, last.mean_boundary_pressure * 0.93 + 0.04)),
-        ("soil", min(1.0, last.mean_boundary_pressure * 0.90 + 0.06)),
-        ("pollution", min(1.0, last.mean_boundary_pressure * 0.95 + 0.05)),
-        ("material", min(1.0, last.mean_boundary_pressure * 0.88 + 0.02)),
-        ("energy", min(1.0, last.mean_boundary_pressure * 0.92 + 0.03)),
-    ]
-    for i, (name, pressure) in enumerate(proxies):
-        fg = art_color(i + 2)
-        danger = pressure > 1.0
-        label = ("⚠ " if danger else "✓ ") + name
-        terminal_print(art_ratio_bar(label, min(pressure, 1.35) / 1.35, fg, width=54) + "  " + color_text("%.3f" % pressure, fg=(255, 255, 255), bold=True))
-    terminal_print(color_text("Overshoot gesamt: %.4f | schlimmste Grenze: %s %.3f" % (last.overshoot, last.worst_boundary, last.worst_boundary_pressure), fg=(255, 87, 87), bold=True))
-
-
-def art_climate_contract_shield(last: GlobalMetrics) -> None:
-    art_panel('Escudo de contrato climático', 6, 'necesidad')
-    fg1, fg2, fg3 = (0, 229, 255), (255, 214, 10), (255, 87, 87)
-    terminal_print(color_text("                 ╭────────────────────────────╮", fg=fg1, bold=True))
-    terminal_print(color_text("             ╭───┤   COMPROBACIÓN DE RELEVANCIA CLIMÁTICA  ├───╮", fg=fg1, bold=True))
-    terminal_print(color_text("             │   ╰────────────────────────────╯   │", fg=fg1, bold=True))
-    terminal_print(color_text("        CO₂  │   Energie  Material  Transport     │  Hitze", fg=fg2, bold=True))
-    terminal_print(color_text("             │        ╲      │      ╱             │", fg=fg2, bold=True))
-    terminal_print(color_text("             │         ╲     ▼     ╱              │", fg=fg2, bold=True))
-    terminal_print(color_text("             │       WINKELRICHTUNG R             │", fg=fg3, bold=True))
-    terminal_print(color_text("             ╰──────────────┬─────────────────────╯", fg=fg1, bold=True))
-    terminal_print(color_text("                            ▼", fg=fg1, bold=True))
-    terminal_print(color_text("                  contrato: válido / condicional / bloqueado", fg=(255,255,255), bold=True))
-    terminal_print(art_ratio_bar("Klimadruck Proxy", clamp(last.worst_boundary_pressure / 1.4), fg3, width=50))
-
-
-def art_material_cycle(last: GlobalMetrics) -> None:
-    art_panel('Ciclo de sustancia y materia', 7, 'sustancia')
-    fg = (38, 222, 129)
-    terminal_print(color_text("        ┌──────────────┐      ┌──────────────┐      ┌──────────────┐", fg=fg, bold=True))
-    terminal_print(color_text("        │  SUBSTANZ S  │ ───▶ │  PRODUKTION  │ ───▶ │  NUTZUNG     │", fg=fg, bold=True))
-    terminal_print(color_text("        └──────┬───────┘      └──────┬───────┘      └──────┬───────┘", fg=fg, bold=True))
-    terminal_print(color_text("               │                     │                     │", fg=fg, bold=True))
-    terminal_print(color_text("               ▼                     ▼                     ▼", fg=fg, bold=True))
-    terminal_print(color_text("        ┌──────────────┐      ┌──────────────┐      ┌──────────────┐", fg=(255,214,10), bold=True))
-    terminal_print(color_text("        │  REPARATUR   │ ◀─── │  ABFALL Δ    │ ◀─── │  VERSCHLEISS │", fg=(255,214,10), bold=True))
-    terminal_print(color_text("        └──────────────┘      └──────────────┘      └──────────────┘", fg=(255,214,10), bold=True))
-    terminal_print(art_ratio_bar("circularity_index", last.circularity_index, (0,245,212), width=46))
-    terminal_print(art_ratio_bar("repair_materials", clamp(last.repair_materials / max(1.0, last.repair_materials + last.waste_stock)), (255,106,188), width=46))
-
-
-def art_commune_network(flows: List[EffectFlow]) -> None:
-    art_panel('Red de efectos comunales', 8, 'efecto')
-    selected = top_flows_for_art(flows, 6)
-    nodes = ["◉", "◎", "●", "◌", "◍", "◐"]
-    for i, flow in enumerate(selected):
-        fg = domain_color(flow.domain)
-        left = "%s %s/%s" % (nodes[i % len(nodes)], flow.from_region, flow.from_commune)
-        right = "%s/%s %s" % (flow.to_region, flow.to_commune, nodes[(i + 2) % len(nodes)])
-        arrow = "═" * (8 + (i % 5)) + "▶"
-        terminal_print(color_text(left.ljust(34), fg=fg, bold=True) + color_text(arrow, fg=fg, bold=True) + color_text(right, fg=(255,255,255), bold=True))
-        terminal_print("    " + domain_badge(flow.domain) + " " + color_text(flow.kind, fg=fg) + " " + color_text("%.2f efectoseinheiten" % flow.activated_effect, fg=(255,240,170), bold=True))
-    if not selected:
-        terminal_print(color_text("Keine Flows vorhanden.", fg=(255,87,87), bold=True))
-
-
-def art_products_jobs_services_map() -> None:
-    art_panel('Productos, puestos de trabajo, servicios', 9, 'verdad')
-    trio = [
-        ("PRODUKTE", "Werkzeuge • Nahrung • Wasser • Wohnraum • Medizin • Batterien", (255,214,10)),
-        ("PUESTOS DE TRABAJO", "cuidados • reparación • agricultura • investigación • construcción • energía", (255,106,188)),
-        ("DIENSTLEISTUNGEN", "Heilung • Bildung • Transport • Audit • Verteilung • Betreuung", (0,229,255)),
-        ("ECOLOGÍA", "suelo • balance hídrico • enfriamiento • biodiversidad • hábitat", (38,222,129)),
-    ]
-    terminal_print(color_text("                 ╭──────────── WIRKUNGSVERTRAG ────────────╮", fg=(255,255,255), bold=True))
-    for name, desc, fg in trio:
-        terminal_print(color_text("    ", fg=fg) + styled_badge(name, fg, tuple(int(c*0.20) for c in fg)) + color_text(" ───▶ ", fg=fg, bold=True) + color_text(desc, fg=(245,245,245)))
-    terminal_print(color_text("                 ╰────── verdad + condiciones + auditoría ───╯", fg=(255,255,255), bold=True))
-
-
-def art_service_constellation() -> None:
-    art_panel('Constelación de servicios', 10, 'corrección')
-    center = color_text("       ✦ REPRODUKTION ✦", fg=(255,255,255), bg=(50,20,90), bold=True)
-    terminal_print(color_text("             health", fg=domain_color("health"), bold=True) + "        " + color_text("care", fg=domain_color("care"), bold=True))
-    terminal_print(color_text("                ╲         ╱", fg=(255,106,188), bold=True))
-    terminal_print(color_text("                 ╲       ╱", fg=(255,106,188), bold=True))
-    terminal_print("                  " + center)
-    terminal_print(color_text("                 ╱   │   ╲", fg=(0,229,255), bold=True))
-    terminal_print(color_text("        education    │    mobility", fg=(0,229,255), bold=True))
-    terminal_print(color_text("                     governance", fg=domain_color("governance"), bold=True))
-    terminal_print(color_text("Cada borde es un flujo de efecto: tiempo, confianza, cuidados, conocimiento, acceso.", fg=(245,245,245)))
-
-
-def art_angle_compass(flow: Optional[EffectFlow]) -> None:
-    art_panel('Brújula de dirección angular', 11, 'libertad')
-    r = flow.values.get("angle_direction", 3.0) if flow is not None else 3.0
-    fg = dim_theme("angle_direction")["fg"]
-    terminal_print(color_text("                         ↑ regenerativ / freiheitlich", fg=(38,222,129), bold=True))
-    terminal_print(color_text("                         │", fg=fg, bold=True))
-    terminal_print(color_text("        lokal passend ◀──┼──▶ planetar passend", fg=fg, bold=True))
-    terminal_print(color_text("                         │", fg=fg, bold=True))
-    terminal_print(color_text("                         ↓ ausbeutend / kontrollierend", fg=(255,87,87), bold=True))
-    terminal_print(art_ratio_bar("Da dirección angular", r / 4.0, fg, width=52))
-    if flow is not None:
-        terminal_print(color_text("Beispielrichtung: ", fg=fg, bold=True) + color_text(flow.direction_vector, fg=(245,245,245)))
-
-
-def art_difference_funnel(flow: Optional[EffectFlow]) -> None:
-    art_panel('Embudo de diferencia', 12, 'regeneración')
-    d = flow.values.get("difference", 3.0) if flow is not None else 3.0
-    fg = dim_theme("difference")["fg"]
-    terminal_print(color_text("        necesidad / urgencia / posibilidad", fg=(255,255,255), bold=True))
-    terminal_print(color_text("      ╱════════════════════════════╲", fg=fg, bold=True))
-    terminal_print(color_text("     ╱   Wohnung  Nahrung  Pflege   ╲", fg=fg, bold=True))
-    terminal_print(color_text("    ╱   agua  energía  ecología    ╲", fg=fg, bold=True))
-    terminal_print(color_text("    ╲              Δ                 ╱", fg=fg, bold=True))
-    terminal_print(color_text("     ╲       diferencia wird          ╱", fg=fg, bold=True))
-    terminal_print(color_text("      ╲      efectosvertrag        ╱", fg=fg, bold=True))
-    terminal_print(color_text("       ╲═══════════▼═══════════════╱", fg=fg, bold=True))
-    terminal_print(color_text("             Handlung / efecto", fg=(38,222,129), bold=True))
-    terminal_print(art_ratio_bar("D diferencia", d / 4.0, fg, width=52))
-
-
-def art_contract_gate(flow: Optional[EffectFlow]) -> None:
-    art_panel('Puerta de contrato de verdad', 13, 'límite planetario')
-    validity = flow.contract_validity if flow is not None else "valid"
-    score = flow.truth_stack_priority_0_1 if flow is not None else 0.75
-    gates = [
-        ("EXISTENZ", "Ist der Zustand real?", "existence"),
-        ("CAUSALIDAD", "¿Toca la causa?", "causality"),
-        ("DIFERENCIA", "¿Hay una brecha real?", "difference"),
-        ("RICHTUNG", "Ist es regenerativ/frei?", "angle_direction"),
-        ("BESTIMMUNG", "Ist es legitimiert?", "determination"),
-    ]
-    for name, question, dim in gates:
-        fg = dim_theme(dim)["fg"]
-        value = flow.values.get(dim, 3.0) if flow is not None else 3.0
-        terminal_print(styled_badge(name, fg, dim_theme(dim)["bg"]) + " " + art_ratio_bar(question, value / 4.0, fg, width=38))
-    terminal_print(color_text("    ╰──────▶ resultado: ", fg=(255,255,255), bold=True) + styled_badge(validity.upper(), (255,255,255), (40,70,40)) + color_text("  prioridad %.3f" % score, fg=(255,214,10), bold=True))
-
-
-def art_no_money_map() -> None:
-    art_panel('Mapa del núcleo sin dinero', 14, 'regiones')
-    old = ["precio", "valor", "ganancia", "salario", "renta", "producto interno bruto", "poder adquisitivo", "valor de exportación"]
-    new = ["causalidad", "efecto", "diferencia", "sustancia", "materia", "determinación", "potencias", "dirección"]
-    for i in range(len(old)):
-        terminal_print(styled_badge(old[i], (255,87,87), (70,10,10)) + color_text("  ═══════▶  ", fg=art_color(i), bold=True) + styled_badge(new[i], art_color(i), tuple(int(c*0.20) for c in art_color(i))))
-
-
-def art_macro_accounts(macro_accounts: List[MacroAccountRow]) -> None:
-    art_panel('Cuentas planetarias', 15, 'comunas')
-    rows = sorted(macro_accounts, key=lambda r: r.priority, reverse=True)[:8]
-    for i, row in enumerate(rows):
-        fg = domain_color(row.domain)
-        terminal_print(domain_badge(row.domain) + " " + color_text(row.sector, fg=(245,245,245), bold=True))
-        terminal_print("  " + art_ratio_bar("satisfaction", row.satisfaction, fg, width=36))
-        terminal_print("  " + art_ratio_bar("priority", row.priority, art_color(i + 3), width=36))
-        terminal_print("  " + art_ratio_bar("boundary penalty", row.boundary_penalty, art_color(i + 5), width=36))
-
-
-def art_ecology_mandala(last: GlobalMetrics) -> None:
-    art_panel('Mandala de regeneración ecológica', 16, 'grupos')
-    fg = domain_color("ecology")
-    terminal_print(color_text("                  ✺ Boden ✺", fg=(190,140,90), bold=True))
-    terminal_print(color_text("             ╭──────┼──────╮", fg=fg, bold=True))
-    terminal_print(color_text("        agua ─── 🌍 ─── biodiversidad", fg=fg, bold=True))
-    terminal_print(color_text("             ╰──────┼──────╯", fg=fg, bold=True))
-    terminal_print(color_text("                  ✺ enfriamiento ✺", fg=(0,229,255), bold=True))
-    terminal_print(color_text("        La regeneración baja riesgos y aumenta la capacidad reproductiva.", fg=(245,245,245)))
-    terminal_print(art_ratio_bar("reproduction index", last.planetary_reproduction_index, fg, width=54))
-
-
-def art_storage_time_bridge(last: GlobalMetrics) -> None:
-    art_panel('Almacenamiento como puente temporal', 17, 'personas')
-    fg = domain_color("storage")
-    terminal_print(color_text("    AHORA ────── alimento/agua/energía ──────▶ DESPUÉS", fg=fg, bold=True))
-    terminal_print(color_text("          ╲                                   ╱", fg=fg, bold=True))
-    terminal_print(color_text("           ╲_______ Speicher / Reserve ______╱", fg=fg, bold=True))
-    terminal_print(art_ratio_bar("basic_buffer_months", clamp(last.basic_buffer_months / 6.0), fg, width=52))
-    terminal_print(art_ratio_bar("resilience_index", last.resilience_index, (255,166,0), width=52))
-
-
-def art_governance_feedback(last: GlobalMetrics) -> None:
-    art_panel('Determinación y corrección', 18, 'necesidad')
-    fg = domain_color("governance")
-    terminal_print(color_text("   personas afectadas ──▶ informe ──▶ valor de verdad ──▶ contrato ──▶ efecto", fg=fg, bold=True))
-    terminal_print(color_text("       ▲                                                           │", fg=fg, bold=True))
-    terminal_print(color_text("       └──────────── Audit ◀── comprobación de error ◀── fenómenos ◀──────┘", fg=fg, bold=True))
-    terminal_print(art_ratio_bar("coordination_quality", last.coordination_quality, fg, width=52))
-    terminal_print(art_ratio_bar("truth_error invertiert", 1.0 - clamp(last.avg_truth_error), (38,222,129), width=52))
-
-
-def art_truth_dna(flow: Optional[EffectFlow]) -> None:
-    art_panel('ADN de verdad', 19, 'sustancia')
-    values = flow.values if flow is not None else {dim: 3.0 for dim in TRUTH_DIMS}
-    left = []
-    right = []
-    for i, dim in enumerate(TRUTH_DIMS):
-        theme = dim_theme(dim)
-        digit = truth_digit(values.get(dim, 0.0))
-        guide = DIMENSION_GUIDE[dim]
-        left.append(color_text("%s%s%d" % (theme["symbol"], guide["short"], digit), fg=theme["fg"], bold=True))
-        right.append(color_text("%d%s%s" % (digit, guide["short"], theme["symbol"]), fg=theme["fg"], bold=True))
-    for i in range(len(TRUTH_DIMS)):
-        twist = "╲╱" if i % 2 == 0 else "╱╲"
-        terminal_print("      %s  %s  %s" % (left[i].ljust(20), color_text(twist, fg=art_color(i), bold=True), right[i]))
-
-
-def art_domain_rainbow() -> None:
-    art_panel('Arco iris de dominios', 20, 'efecto')
-    row = ""
-    for i, domain in enumerate(DOMAINS):
-        row += domain_badge(domain) + " "
-        if (i + 1) % 4 == 0:
-            terminal_print(row)
-            row = ""
-    if row:
-        terminal_print(row)
-    terminal_print(color_text("Todos los dominios comparten las mismas doce dimensiones de verdad, pero distintos productos, puestos de trabajo y requisitos climáticos.", fg=(245,245,245)))
-
-
-def art_resilience_radar(last: GlobalMetrics) -> None:
-    art_panel('Radar de resiliencia', 21, 'verdad')
-    metrics = [
-        ("Wasserpuffer", clamp(last.water_stock / max(1.0, last.water_stock + last.population * 0.01)), domain_color("water")),
-        ("Nahrungspuffer", clamp(last.food_stock / max(1.0, last.food_stock + last.population * 0.01)), domain_color("food")),
-        ("Energiepuffer", clamp(last.energy_stock / max(1.0, last.energy_stock + last.population * 0.01)), domain_color("energy")),
-        ("Koordination", last.coordination_quality, domain_color("governance")),
-        ("Autonomie", last.avg_autonomy, (255,106,188)),
-        ("Reparatur", last.circularity_index, domain_color("repair")),
-    ]
-    for name, ratio, fg in metrics:
-        terminal_print(art_ratio_bar(name, ratio, fg, width=48))
-
-
-def art_phenomena_wall(truth_vectors: List[TruthVector]) -> None:
-    art_panel('Muro de fenómenos', 22, 'corrección')
-    selected = top_truth_for_art(truth_vectors, 8)
-    for tv in selected:
-        fg = domain_color(tv.domain)
-        ph = tv.values.get("phenomena", 0.0)
-        terminal_print(domain_badge(tv.domain) + " " + color_text("%s/%s" % (tv.region, tv.commune), fg=(245,245,245), bold=True))
-        terminal_print("  " + art_ratio_bar("fenómenos", ph / 4.0, dim_theme("phenomena")["fg"], width=44))
-        terminal_print("  " + color_text(terminal_shorten(tv.explanation, 120), fg=(220,220,220)))
-
-
-def art_potency_garden(truth_vectors: List[TruthVector]) -> None:
-    art_panel('Jardín de potencias', 23, 'libertad')
-    selected = top_truth_for_art(truth_vectors, 10)
-    for i, tv in enumerate(selected):
-        p = tv.values.get("potencies", 0.0)
-        flowers = int(round(p))
-        fg = dim_theme("potencies")["fg"]
-        terminal_print(color_text(("✿" * flowers).ljust(6), fg=fg, bold=True) + domain_badge(tv.domain) + " " + color_text("P=%.2f" % p, fg=fg, bold=True) + " " + color_text(tv.commune, fg=(245,245,245)))
-
-
-def art_labor_lattice(macro_accounts: List[MacroAccountRow]) -> None:
-    art_panel('Retícula de puestos de trabajo', 24, 'regeneración')
-    rows = sorted(macro_accounts, key=lambda r: r.contribution_time, reverse=True)[:10]
-    for i, row in enumerate(rows):
-        fg = domain_color(row.domain)
-        nodes = max(1, min(18, int(round(row.labor_share * 18))))
-        terminal_print(domain_badge(row.domain) + " " + color_text("●─" * nodes + "●", fg=fg, bold=True) + " " + color_text("time %.2f" % row.contribution_time, fg=(255,255,255)))
-
-
-def art_product_wave() -> None:
-    art_panel('Olas de producto como portadoras de efecto', 25, 'límite planetario')
-    for i, domain in enumerate(["water", "food", "energy", "shelter", "health", "repair", "ecology", "waste"]):
-        fg = domain_color(domain)
-        products = TRADE_CATALOG[domain]["products"].split(",")[:5]
-        wave = color_text("~≈∿≈~", fg=fg, bold=True)
-        terminal_print(domain_badge(domain) + " " + wave + " " + color_text(" | ".join(p.strip() for p in products), fg=(245,245,245)) + " " + wave)
-
-
-def art_effect_ocean(flows: List[EffectFlow]) -> None:
-    art_panel('Océano de efectos', 26, 'regiones')
-    selected = top_flows_for_art(flows, 12)
-    for i, flow in enumerate(selected):
-        fg = domain_color(flow.domain)
-        height = max(1, min(10, int(round(flow.truth_stack_priority_0_1 * 10))))
-        terminal_print(color_text("≋" * (height + 4), fg=fg, bold=True) + " " + domain_badge(flow.domain) + " " + color_text(flow.kind, fg=(245,245,245)) + " " + color_text("%.2f" % flow.activated_effect, fg=(255,240,170), bold=True))
-
-
-def art_heatmap_dimensions(flows: List[EffectFlow]) -> None:
-    art_panel('Mapa térmico contractual', 27, 'comunas')
-    selected = top_flows_for_art(flows, 8)
-    if not selected:
-        terminal_print(color_text("Keine Flows vorhanden.", fg=(255,87,87), bold=True))
-        return
-    terminal_print(color_text("          ", fg=(255,255,255)) + " ".join(color_text("%02d" % (i + 1), fg=domain_color(f.domain), bold=True) for i, f in enumerate(selected)))
-    shade = "░▒▓█"
-    for dim in TRUTH_DIMS:
-        theme = dim_theme(dim)
-        guide = DIMENSION_GUIDE[dim]
-        row = styled_badge("%s%s" % (theme["symbol"], guide["short"]), theme["fg"], theme["bg"]) + " "
-        for flow in selected:
-            v = flow.values.get(dim, 0.0)
-            idx = max(0, min(len(shade) - 1, int(round((v / 4.0) * (len(shade) - 1)))))
-            row += color_text("%s%s" % (shade[idx], shade[idx]), fg=theme["fg"], bold=True) + " "
-        terminal_print(row + color_text(guide["name"], fg=theme["fg"], bold=True))
-
-
-def art_time_river(timeline: List[GlobalMetrics]) -> None:
-    art_panel('Flujo temporal de la economía', 28, 'grupos')
-    wellbeing = [m.wellbeing for m in timeline]
-    unmet = [m.unmet_basic for m in timeline]
-    overs = [m.overshoot for m in timeline]
-    terminal_print(color_text("wellbeing     ", fg=(38,222,129), bold=True) + art_spark(wellbeing, (38,222,129), width=72))
-    terminal_print(color_text("unmet_basic   ", fg=(255,87,87), bold=True) + art_spark(unmet, (255,87,87), width=72))
-    terminal_print(color_text("overshoot     ", fg=(255,166,0), bold=True) + art_spark(overs, (255,166,0), width=72))
-
-
-def art_cyberpunk_manifest() -> None:
-    art_panel('Manifiesto de neón', 29, 'personas')
-    lines = [
-        "MERCANCÍA → FENÓMENO",
-        "PREIS →  WAHRHEITSSTAPEL",
-        "WERT  →  WIRKUNG",
-        "CANTIDAD → INTENSIDAD + SUSTANCIA",
-        "BESITZ → NUTZUNG + BESTIMMUNG",
-        "GANANCIA → RESOLUCIÓN DE NECESIDAD Y DIFERENCIA",
-        "MERCADO → RETROALIMENTACIÓN + AUDITORÍA + COMUNA",
-    ]
-    for i, line in enumerate(lines):
-        terminal_print(rainbow_text("        ░▒▓█  " + line + "  █▓▒░"))
-
-
-def art_final_sigil() -> None:
-    art_panel('Sello final', 30, 'necesidad')
-    colors = art_palette()
-    sigil = [
-        "                 ╭───────────────╮                 ",
-        "             ╭───┤  PLANET  🌍   ├───╮             ",
-        "          ╭──┤   ╰──────┬────────╯   ├──╮          ",
-        "       ╭──┤  verdad     │   efecto   ├──╮       ",
-        "       │  ╰──────┬──────┼──────┬──────╯  │       ",
-        "       │         ▼      ▼      ▼         │       ",
-        "       │      Bedarf  sustancia  dirección │       ",
-        "       │         ▲      ▲      ▲         │       ",
-        "       ╰─────────┴──────┴──────┴─────────╯       ",
-        "              KOMMUNEN  •  GRUPPEN  •  PERSONEN  ",
-    ]
-    for i, line in enumerate(sigil):
-        terminal_print(color_text(line, fg=colors[i % len(colors)], bold=True))
+def art_show_metric(label: str, value: float, index: int) -> None:
+    terminal_print(art_ratio_bar(label, clamp(value), art_color(index), width=52))
 
 
 def print_utf8_art_gallery_terminal(flows: List[EffectFlow], truth_vectors: List[TruthVector], timeline: List[GlobalMetrics], macro_accounts: List[MacroAccountRow], limit: int = 30) -> None:
     if limit <= 0:
         return
-    terminal_header("GALERÍA DE ARTE DE CARACTERES EXTREMADAMENTE COLORIDA", "Visualizaciones bajo los contratos: diagramas, figuras, ciclos, brújulas, mapas de calor y sellos.")
-    last = timeline[-1]
-    top_flow = top_flows_for_art(flows, 1)[0] if flows else None
-    panels = [
-        lambda: art_planet_layer_stack(last),
-        lambda: art_truth_stack_totem(top_flow),
-        lambda: art_causal_pipeline(top_flow),
-        art_buy_sell_replacement,
-        lambda: art_boundary_dashboard(last),
-        lambda: art_climate_contract_shield(last),
-        lambda: art_material_cycle(last),
-        lambda: art_commune_network(flows),
-        art_products_jobs_services_map,
-        art_service_constellation,
-        lambda: art_angle_compass(top_flow),
-        lambda: art_difference_funnel(top_flow),
-        lambda: art_contract_gate(top_flow),
-        art_no_money_map,
-        lambda: art_macro_accounts(macro_accounts),
-        lambda: art_ecology_mandala(last),
-        lambda: art_storage_time_bridge(last),
-        lambda: art_governance_feedback(last),
-        lambda: art_truth_dna(top_flow),
-        art_domain_rainbow,
-        lambda: art_resilience_radar(last),
-        lambda: art_phenomena_wall(truth_vectors),
-        lambda: art_potency_garden(truth_vectors),
-        lambda: art_labor_lattice(macro_accounts),
-        art_product_wave,
-        lambda: art_effect_ocean(flows),
-        lambda: art_heatmap_dimensions(flows),
-        lambda: art_time_river(timeline),
-        art_cyberpunk_manifest,
-        art_final_sigil,
-    ]
-    for panel in panels[:max(0, min(limit, len(panels)))]:
-        panel()
-    terminal_print("")
-
+    terminal_header(ART_LOCAL["gallery_title"], ART_LOCAL["gallery_sub"])
+    last = timeline[-1] if timeline else None
+    selected_flows = select_visible_flows(flows, 6)
+    panels = min(max(0, limit), 30)
+    for idx in range(panels):
+        localized_art_panel(idx)
+        if idx == 0 and last is not None:
+            labels = ART_LOCAL["node_labels"]
+            values = [last.mean_boundary_pressure, last.coordination_quality, last.wellbeing, last.macro_capacity, last.avg_autonomy]
+            for j, label in enumerate(labels):
+                art_show_metric(label, values[j], j)
+        elif idx == 1:
+            flow = selected_flows[0] if selected_flows else None
+            if flow is not None:
+                terminal_print(render_truth_stack_badges(flow.values))
+                terminal_print(color_text(flow.truth_stack_base5, fg=art_color(idx), bold=True))
+            else:
+                terminal_print(color_text(ART_LOCAL["empty"], fg=art_color(idx), bold=True))
+        elif idx == 2:
+            chain = [display_domain(f.domain) for f in selected_flows[:5]]
+            terminal_print(color_text(" ━━▶ ".join(chain) if chain else ART_LOCAL["empty"], fg=art_color(idx), bold=True))
+        elif idx == 3:
+            for item in ART_LOCAL["oldnew"][:4]:
+                terminal_print(color_text("  "+item, fg=art_color(idx), bold=True))
+        elif idx == 4 and last is not None:
+            for name, value in [(display_boundary("climate"), last.worst_boundary_pressure), (display_boundary("biosphere"), last.mean_boundary_pressure), (display_boundary("freshwater"), last.mean_boundary_pressure * 0.92), (display_boundary("soil"), last.mean_boundary_pressure * 0.88)]:
+                art_show_metric(name, clamp(value / 1.2), idx)
+        elif idx == 5 and last is not None:
+            terminal_print(color_text("CO₂ │ "+display_boundary("material_throughput")+" │ "+display_boundary("energy_throughput"), fg=art_color(idx), bold=True))
+            art_show_metric(display_boundary("climate"), clamp(last.worst_boundary_pressure / 1.4), idx)
+        elif idx == 6 and last is not None:
+            art_show_metric(display_domain("repair"), last.circularity_index, idx)
+            art_show_metric(display_domain("waste"), clamp(1.0 - last.overshoot), idx)
+        elif idx == 7:
+            if selected_flows:
+                for f in selected_flows[:4]:
+                    terminal_print(color_text("%s/%s ━━▶ %s/%s  %.2f %s" % (f.from_region, f.from_commune, f.to_region, f.to_commune, f.activated_effect, ART_LOCAL["units"]), fg=domain_color(f.domain), bold=True))
+            else:
+                terminal_print(color_text(ART_LOCAL["empty"], fg=art_color(idx), bold=True))
+        elif idx == 8:
+            for d in list(DOMAINS)[:4]:
+                cat = TRADE_CATALOG[d]
+                terminal_print(domain_badge(d)+" "+color_text(cat["products"], fg=domain_color(d)))
+        elif idx == 9:
+            for d in ["health", "care", "education", "mobility", "governance"]:
+                terminal_print(domain_badge(d)+" "+color_text(TRADE_CATALOG[d]["services"], fg=domain_color(d)))
+        elif idx == 10:
+            terminal_print(color_text("↑ "+ART_LOCAL["axis_up"], fg=art_color(0), bold=True))
+            terminal_print(color_text("← "+ART_LOCAL["axis_left"]+"   ✦   "+ART_LOCAL["axis_right"]+" →", fg=art_color(5), bold=True))
+            terminal_print(color_text("↓ "+ART_LOCAL["axis_down"], fg=art_color(7), bold=True))
+        elif idx == 11:
+            for d in ["water", "food", "energy", "shelter", "health"]:
+                terminal_print(color_text("╲  "+display_domain(d)+"  ╱", fg=domain_color(d), bold=True))
+            terminal_print(color_text("        Δ", fg=art_color(idx), bold=True))
+        elif idx == 12:
+            for label, q in ART_LOCAL["gate_rows"]:
+                terminal_print(color_text("▣ "+label+" — "+q, fg=art_color(idx), bold=True))
+        elif idx == 13:
+            for item in ART_LOCAL["oldnew"]:
+                terminal_print(color_text(item, fg=art_color(idx), bold=True))
+        elif idx == 14:
+            rows = sorted(macro_accounts, key=lambda r: r.priority, reverse=True)[:6]
+            for r in rows:
+                terminal_print(domain_badge(r.domain)+" "+art_ratio_bar(localized_label("priority"), r.priority, domain_color(r.domain), width=40))
+        elif idx == 15 and last is not None:
+            art_show_metric(display_domain("ecology"), last.planetary_reproduction_index, idx)
+            art_show_metric(display_boundary("biosphere"), clamp(1.0 - last.overshoot), idx)
+        elif idx == 16 and last is not None:
+            art_show_metric(display_domain("storage"), clamp(last.basic_buffer_months / 6.0), idx)
+            art_show_metric(localized_label("resilience"), last.resilience_index, idx)
+        elif idx == 17 and last is not None:
+            art_show_metric(localized_label("coordination"), last.coordination_quality, idx)
+            art_show_metric(localized_label("truth_error"), clamp(1.0 - last.avg_truth_error), idx)
+        elif idx == 18:
+            flow = selected_flows[0] if selected_flows else None
+            if flow:
+                seq = []
+                for dim in TRUTH_DIMS:
+                    seq.append(DIMENSION_GUIDE[dim]["short"]+str(truth_digit(flow.values.get(dim,0))))
+                terminal_print(color_text(" ╲╱ ".join(seq[:6]), fg=art_color(idx), bold=True))
+                terminal_print(color_text(" ╱╲ ".join(seq[6:]), fg=art_color(idx+1), bold=True))
+        elif idx == 19:
+            terminal_print(" ".join(domain_badge(d) for d in DOMAINS[:8]))
+            terminal_print(" ".join(domain_badge(d) for d in DOMAINS[8:]))
+        elif idx == 20 and last is not None:
+            for label, value in [(display_domain("water"), clamp(last.water_stock / max(1.0, last.water_stock + last.population*0.01))), (display_domain("food"), clamp(last.food_stock / max(1.0, last.food_stock + last.population*0.01))), (display_domain("energy"), clamp(last.energy_stock / max(1.0, last.energy_stock + last.population*0.01))), (display_domain("repair"), last.circularity_index), (localized_label("autonomy"), last.avg_autonomy)]:
+                art_show_metric(label, value, idx)
+        elif idx == 21:
+            for tv in sorted(truth_vectors, key=lambda t: t.values.get("phenomena",0), reverse=True)[:6]:
+                art_show_metric(display_domain(tv.domain), tv.values.get("phenomena",0)/4.0, idx)
+        elif idx == 22:
+            for tv in sorted(truth_vectors, key=lambda t: t.values.get("potencies",0), reverse=True)[:6]:
+                terminal_print(color_text("✿ "+display_domain(tv.domain)+" %.2f" % tv.values.get("potencies",0), fg=domain_color(tv.domain), bold=True))
+        elif idx == 23:
+            for r in sorted(macro_accounts, key=lambda r: r.contribution_time, reverse=True)[:6]:
+                terminal_print(domain_badge(r.domain)+" "+art_ratio_bar(localized_label("effect"), clamp(r.contribution_time), domain_color(r.domain), width=34))
+        elif idx == 24:
+            for d in ["water", "food", "energy", "shelter", "health", "repair"]:
+                terminal_print(color_text("~≈∿≈~ "+display_domain(d)+"  "+TRADE_CATALOG[d]["products"], fg=domain_color(d), bold=True))
+        elif idx == 25:
+            for f in selected_flows[:8]:
+                terminal_print(color_text("≋ %.2f %s" % (f.activated_effect, display_domain(f.domain)), fg=domain_color(f.domain), bold=True))
+        elif idx == 26:
+            for f in selected_flows[:4]:
+                terminal_print(render_truth_stack_badges(f.values))
+        elif idx == 27 and timeline:
+            vals = [m.wellbeing for m in timeline[-24:]]
+            terminal_print(art_spark(vals, art_color(idx), width=60))
+        elif idx == 28:
+            for item in ART_LOCAL["oldnew"]:
+                terminal_print(color_text("▓▒░  "+item+"  ░▒▓", fg=art_color(idx), bold=True))
+        elif idx == 29:
+            terminal_print(color_text("╭───────────────╮", fg=art_color(idx), bold=True))
+            terminal_print(color_text("│ "+ART_LOCAL["lines"][29]+" │", fg=art_color(idx), bold=True))
+            terminal_print(color_text("╰───────────────╯", fg=art_color(idx), bold=True))
+        terminal_print("")
 
 # ---------------------------------------------------------------------------
 # CLI
