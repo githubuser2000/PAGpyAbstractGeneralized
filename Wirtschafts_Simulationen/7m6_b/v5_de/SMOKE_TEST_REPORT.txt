@@ -1,0 +1,24 @@
+# Smoke-Test Report V5
+
+Testumgebung: CPython, pypy3 nicht installiert. Der Code nutzt nur die Python-Standardbibliothek.
+
+Prüfungen:
+
+- `python3 -m py_compile vector_currency_sim.py` erfolgreich.
+- Demo-Lauf mit ANSI-Art erfolgreich.
+- Demo-Lauf mit `--no-color` erfolgreich.
+- Schmalterminal-Lauf erfolgreich.
+- Terminalbreitenprüfung: keine sichtbare Zeile überschreitet `COLUMNS - 5`.
+
+Gemessene Breiten:
+
+```text
+COLUMNS=120 sichere_Breite=115 max_beobachtet=115 überschreitungen=0
+COLUMNS=80  sichere_Breite=75  max_beobachtet=75  überschreitungen=0
+COLUMNS=50  sichere_Breite=45  max_beobachtet=45  überschreitungen=0
+COLUMNS=30  sichere_Breite=25  max_beobachtet=25  überschreitungen=0
+COLUMNS=20  sichere_Breite=15  max_beobachtet=15  überschreitungen=0
+COLUMNS=10  sichere_Breite=5   max_beobachtet=5   überschreitungen=0
+```
+
+Hinweis: ANSI-Sequenzen wurden bei der sichtbaren Breitenmessung entfernt; breite Unicode-Zeichen/Emoji wurden konservativ gezählt.

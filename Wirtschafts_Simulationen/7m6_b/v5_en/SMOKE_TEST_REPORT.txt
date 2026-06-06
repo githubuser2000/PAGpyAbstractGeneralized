@@ -1,0 +1,32 @@
+V6 English Edition smoke test report
+====================================
+
+Compilation
+-----------
+python3 -m py_compile vector_currency_sim.py
+Result: passed
+
+Demo runs
+---------
+Plain UTF-8 dashboard run:
+python3 vector_currency_sim.py --steps 4 --countries 2 --households 80 --firms 24 --banks 4 --seed 42 --out demo_metrics.csv --summary demo_summary.json --events demo_events.csv --art --art-every 2 --no-color > demo_art_plain.txt
+Result: passed
+
+ANSI-color dashboard run:
+python3 vector_currency_sim.py --steps 4 --countries 2 --households 80 --firms 24 --banks 4 --seed 43 --art --art-every 4 > demo_art_ansi.txt
+Result: passed
+
+Terminal width checks
+---------------------
+COLUMNS=80  safe width 75  max observed visible width 75
+COLUMNS=50  safe width 45  max observed visible width 45
+COLUMNS=30  safe width 25  max observed visible width 25
+COLUMNS=20  safe width 15  max observed visible width 15
+
+German-language scan
+--------------------
+The main script, V6 copy, documentation, and generated demo outputs were scanned for common German words and German-only characters. No real German residuals were found in the final checked files.
+
+PyPy3 note
+----------
+pypy3 was not installed in this environment. The script uses only the Python standard library and is designed to remain PyPy3-compatible.
