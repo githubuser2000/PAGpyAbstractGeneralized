@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>money_circulation_ko</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="가치-선량성-수준-인기-수준으로-이루어진-돈은-두-개의-각도-즉-구매각과-판매각이-있을-때-어떻게-순환하는가">가치,
+선량성 수준, 인기 수준으로 이루어진 돈은 두 개의 각도, 즉 구매각과
+판매각이 있을 때 어떻게 순환하는가?</h1>
+<p>그때 돈은 더 이상 구매자에서 판매자로 흐르는 단순한 흐름이 아니다.
+돈은 <strong>이중 흐름</strong>으로 순환한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">상품/서비스는 판매자에서 구매자에게 흐른다</mtext><annotation encoding="application/x-tex">
+\text{상품/서비스는 판매자에서 구매자에게 흐른다}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">돈은 구매자에서 판매자에게 흐른다</mtext><annotation encoding="application/x-tex">
+\text{돈은 구매자에서 판매자에게 흐른다}
+</annotation></semantics></math></p>
+<p>그리고 두 흐름은 각각 각도 공간에서 방향을 가진다.</p>
+<p>핵심은 다음과 같다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">모든 거래는 이중 각도 교환이다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{모든 거래는 이중 각도 교환이다.}
+}
+</annotation></semantics></math></p>
+<p>구매자는 단지 상품만 사는 것이 아니다.<br />
+판매자도 동시에 구매자의 돈을 산다.</p>
+<hr />
+<h1 id="돈-객체">1. 돈 객체</h1>
+<p>화폐 단위는 가치만으로 구성되지 않는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">
+M = m
+</annotation></semantics></math></p>
+<p>이 아니라 다음으로 구성된다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">수치 가치</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{수치 가치}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">선량성 수준</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{선량성 수준}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">인기 수준</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{인기 수준}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">평가의 신뢰도 / 확실성</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{평가의 신뢰도 / 확실성}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">역사 / 출처</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{역사 / 출처}
+</annotation></semantics></math></p>
+<p>각도는 선량성과 인기에서 나온다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(b,g)
+</annotation></semantics></math></p>
+<p>즉:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">x축: 선 vs. 악</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{x축: 선 vs. 악}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">y축: 인기 vs. 비인기</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{y축: 인기 vs. 비인기}
+</annotation></semantics></math></p>
+<p>돈의 양은:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>방향은:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">
+\theta
+</annotation></semantics></math></p>
+<p>그 방향의 신뢰성은:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">
+\rho
+</annotation></semantics></math></p>
+<p>따라서 지불은 단순히:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>100</mn><annotation encoding="application/x-tex">
+100
+</annotation></semantics></math></p>
+<p>이 아니라, 예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>35</mn><mo>∘</mo></msup><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>=</mo><mn>0.82</mn></mrow><annotation encoding="application/x-tex">
+100 \angle 35^\circ,\quad \rho=0.82
+</annotation></semantics></math></p>
+<p>이다. 이는 100개의 가치 단위가 특정한 선량성/인기 방향과 특정한
+확실성을 가진다는 뜻이다.</p>
+<hr />
+<h1 id="모든-행위자에게는-두-개의-각도가-있다">2. 모든 행위자에게는 두
+개의 각도가 있다</h1>
+<p>각 행위자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+는 다음을 가진다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">구매각</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{구매각}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">판매각</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{판매각}
+</annotation></semantics></math></p>
+<p>가장 좋은 정의는 다음이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">내가 받고 싶은 방향</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^K = \text{내가 받고 싶은 방향}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">내가 지출하거나 팔고 싶은 방향</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^V = \text{내가 지출하거나 팔고 싶은 방향}
+}
+</annotation></semantics></math></p>
+<p>즉:</p>
+<ul>
+<li><strong>구매각</strong>은 입력 필터다.</li>
+<li><strong>판매각</strong>은 출력 신호다.</li>
+</ul>
+<p>따라서 행위자는 <strong>각도 변환기</strong>가 된다.</p>
+<p>그는 한 방향에서 사물을 받아들이고 다른 방향으로 사물을 내보낸다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>두 각도가 거의 같다면 그 행위자는 일관적이다.</p>
+<p>두 각도가 크게 벌어져 있다면 그는 각도 변환으로 돈을 벌거나 거기에
+의존한다.</p>
+<hr />
+<h1 id="모든-거래에는-두-개의-각도-검사가-있다">3. 모든 거래에는 두 개의
+각도 검사가 있다</h1>
+<p>가정하자:</p>
+<ul>
+<li>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+가 판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+에게서 산다.</li>
+<li>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+는 상품 또는 서비스를 제공한다.</li>
+<li>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+는 돈을 지불한다.</li>
+</ul>
+<p>그러면 두 흐름이 있다.</p>
+<pre class="text"><code>상품 / 서비스:
+B ─────────────────────────▶ A
+
+돈:
+A ─────────────────────────▶ B</code></pre>
+<p>하지만 각도가 붙으면 다음과 같다.</p>
+<pre class="text"><code>상품 흐름:
+B는 θ_B^V로 판매 ─────▶ A는 θ_A^K로 수령
+
+돈 흐름:
+A는 θ_A^V로 지불 ─────▶ B는 θ_B^K로 수령</code></pre>
+<p>따라서 두 각도 거리가 맞아야 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>이는 상품 흐름의 거리다.</p>
+<p>그리고:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>이는 돈 흐름의 거리다.</p>
+<p>이것은 매우 중요하다.</p>
+<p>구매자는 묻는다.</p>
+<blockquote>
+<p>내가 받는 상품이 내 구매각에 맞는가?</p>
+</blockquote>
+<p>판매자는 묻는다.</p>
+<blockquote>
+<p>내가 받는 돈이 내 구매각에 맞는가?</p>
+</blockquote>
+<p>판매자에게 돈은 수령하는 재화이기 때문이다.</p>
+<hr />
+<h1 id="원형-거리가-거래-가능성을-결정한다">4. 원형 거리가 거래 가능성을
+결정한다</h1>
+<p>두 각도 사이의 거리는 다음과 같다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">arccos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>−</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d(\alpha,\beta)=\arccos(\cos(\alpha-\beta))
+</annotation></semantics></math></p>
+<p>따라서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>π</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+d \in [0,\pi]
+</annotation></semantics></math></p>
+<p>즉:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=0
+</annotation></semantics></math></p>
+<p>은 완전한 호환성을 뜻한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">
+d=\pi
+</annotation></semantics></math></p>
+<p>은 최대의 반대를 뜻한다.</p>
+<p>간단한 호환성 함수는 다음과 같을 수 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\phi(d)=\cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+d=0 \Rightarrow \phi=1
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=\pi \Rightarrow \phi=0
+</annotation></semantics></math></p>
+<p>각도가 잘 맞을수록 거래는 강해진다.</p>
+<p>완전한 거래에는 양쪽이 모두 필요하다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi = \phi(d_X)\cdot \phi(d_M)\cdot \rho_X \cdot \rho_M
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">상품 각도 거리</mtext></mrow><annotation encoding="application/x-tex">
+d_X = \text{상품 각도 거리}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">돈 각도 거리</mtext></mrow><annotation encoding="application/x-tex">
+d_M = \text{돈 각도 거리}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">상품 각도의 신뢰도</mtext></mrow><annotation encoding="application/x-tex">
+\rho_X = \text{상품 각도의 신뢰도}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">돈 각도의 신뢰도</mtext></mrow><annotation encoding="application/x-tex">
+\rho_M = \text{돈 각도의 신뢰도}
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+가 높으면 돈은 쉽게 순환한다.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+가 낮으면 할인, 수수료, 보험, 감사, 회전 또는 거래 불발이 생긴다.</p>
+<hr />
+<h1 id="거래의-과정">5. 거래의 과정</h1>
+<p>완전한 거래는 다음과 같다.</p>
+<h2 id="단계-구매자가-수요를-만든다">1단계: 구매자가 수요를 만든다</h2>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+는 말한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">나는 </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 에 가까운 방향의 재화를 원한다</mtext></mrow></mrow><annotation encoding="application/x-tex">
+\text{나는 } \theta_A^K \text{ 에 가까운 방향의 재화를 원한다}
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p>이는 구매자가 선량하고 어느 정도 인기 있는 것을 원한다는 뜻이다.</p>
+<h2 id="단계-판매자가-제안한다">2단계: 판매자가 제안한다</h2>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+는 말한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">나는 </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 방향의 재화를 판다</mtext></mrow></mrow><annotation encoding="application/x-tex">
+\text{나는 } \theta_B^V \text{ 방향의 재화를 판다}
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 55^\circ
+</annotation></semantics></math></p>
+<p>그러면 상품 거리는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><msup><mn>25</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = 25^\circ
+</annotation></semantics></math></p>
+<p>이다. 비교적 가깝다. 구매자는 아마 받아들일 것이다.</p>
+<h2 id="단계-구매자가-지불을-제안한다">3단계: 구매자가 지불을
+제안한다</h2>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+는 중립적인 돈으로 지불하는 것이 아니라 자신의 출력각에서 나온 돈으로
+지불한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 80^\circ
+</annotation></semantics></math></p>
+<p>그 돈은 매우 인기 있을 수 있지만 선량성은 중간 정도일 수 있다.</p>
+<h2 id="단계-판매자가-지불을-확인한다">4단계: 판매자가 지불을
+확인한다</h2>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+는 들어오는 가치에 대한 구매각을 가진다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_B^K
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>70</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 70^\circ
+</annotation></semantics></math></p>
+<p>그러면 돈 거리는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><msup><mn>10</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = 10^\circ
+</annotation></semantics></math></p>
+<p>이다. 그 돈은 판매자에게 잘 맞는다.</p>
+<h2 id="단계-거래가-실행된다">5단계: 거래가 실행된다</h2>
+<p>두 거리가 충분히 작다면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">
+d_X \leq \varepsilon_X
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+d_M \leq \varepsilon_M
+</annotation></semantics></math></p>
+<p>거래가 이루어진다.</p>
+<p>구매자는 상품을 받는다.</p>
+<p>판매자는 돈을 받는다.</p>
+<p>그러나 양쪽 모두 단순한 가치만 받는 것이 아니라 각도 품질도
+받는다.</p>
+<hr />
+<h1 id="실제로-무엇이-순환하는가">6. 실제로 무엇이 순환하는가?</h1>
+<p>세 가지가 동시에 순환한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">가치</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{가치}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">선량성</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{선량성}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">인기</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{인기}
+}
+</annotation></semantics></math></p>
+<p>그러나 이들은 같은 방식으로 순환하지 않는다.</p>
+<h2 id="가치는-지불을-통해-순환한다">가치는 지불을 통해 순환한다</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+A \rightarrow B
+</annotation></semantics></math></p>
+<p>구매자는 수치 가치를 잃는다.</p>
+<p>판매자는 수치 가치를 얻는다.</p>
+<h2 id="선량성은-출처-생산-평가를-통해-순환한다">선량성은 출처, 생산,
+평가를 통해 순환한다</h2>
+<p>선량성은 실제 행위에 의해 생기거나 사라진다.</p>
+<ul>
+<li>깨끗한 공급망</li>
+<li>공정한 노동</li>
+<li>낮은 피해</li>
+<li>좋은 제품</li>
+<li>피해 복구</li>
+<li>합법성</li>
+<li>환경 효과</li>
+<li>사회 효과</li>
+<li>투명성</li>
+<li>감사</li>
+<li>법원</li>
+<li>정부 평가</li>
+</ul>
+<p>따라서 선량성은 단순한 의견이 아니다. 그것은 실제 결과와 제도적
+검증에 더 강하게 묶여 있다.</p>
+<h2 id="인기는-수용과-주의를-통해-순환한다">인기는 수용과 주의를 통해
+순환한다</h2>
+<p>인기는 다음을 통해 생긴다.</p>
+<ul>
+<li>수요</li>
+<li>고객 만족</li>
+<li>미디어</li>
+<li>트렌드</li>
+<li>광고</li>
+<li>소셜 네트워크</li>
+<li>문화적 상징</li>
+<li>정치 진영</li>
+<li>보이콧</li>
+<li>시위</li>
+<li>인플루언서</li>
+<li>군중 행동</li>
+</ul>
+<p>인기는 선량성보다 더 빠르게 움직인다.</p>
+<p>그래서 더 빨리 오르고 더 빨리 무너질 수도 있다.</p>
+<hr />
+<h1 id="구매자의-대차대조표-변화">7. 구매자의 대차대조표 변화</h1>
+<p>구매 전 구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+는 다음을 가진다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>A</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>m</mi><mi>A</mi></msub><mo>,</mo><msub><mi>g</mi><mi>A</mi></msub><mo>,</mo><msub><mi>b</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_A = (m_A,g_A,b_A)
+</annotation></semantics></math></p>
+<p>그는 지불한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mtext mathvariant="normal">pay</mtext></msub><mo>,</mo><msub><mi>b</mi><mtext mathvariant="normal">pay</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\Delta M = (p,g_{\text{pay}},b_{\text{pay}})
+</annotation></semantics></math></p>
+<p>그러면 그의 돈 보유량은 감소한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>A</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>A</mi></msub><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_A&#39; = m_A - p
+</annotation></semantics></math></p>
+<p>그가 내보낸 돈의 방향은:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>동시에 그는 상품을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>여기서
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>
+는 효용,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>X</mi></msub><annotation encoding="application/x-tex">g_X</annotation></semantics></math>
+는 선량성,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>X</mi></msub><annotation encoding="application/x-tex">b_X</annotation></semantics></math>
+는 인기다.</p>
+<p>상품이 소비되면 그것은 단순히 돈이 되지 않는다. 그것은 다음을
+바꾼다.</p>
+<ul>
+<li>효용</li>
+<li>생활수준</li>
+<li>평판</li>
+<li>미래 선호</li>
+<li>정치적 의견</li>
+<li>수요</li>
+<li>경우에 따라 자신의 생산성</li>
+</ul>
+<p>가계의 경우:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">상품</mtext><mo>→</mo><mtext mathvariant="normal">효용 / 만족 / 의견</mtext></mrow><annotation encoding="application/x-tex">
+\text{상품} \rightarrow \text{효용 / 만족 / 의견}
+</annotation></semantics></math></p>
+<p>기업의 경우:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">상품</mtext><mo>→</mo><mtext mathvariant="normal">input / 공급망 / 새로운 생산각</mtext></mrow><annotation encoding="application/x-tex">
+\text{상품} \rightarrow \text{input / 공급망 / 새로운 생산각}
+</annotation></semantics></math></p>
+<p>이것은 중요하다. 기업이 나쁜 input 을 사면 그 나쁜 각도가 나중에 자기
+제품에 들어갈 수 있다.</p>
+<hr />
+<h1 id="판매자의-대차대조표-변화">8. 판매자의 대차대조표 변화</h1>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+는 상품을 내놓는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>B</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X_B = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>그리고 돈을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">in</mtext></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mi>M</mi></msub><mo>,</mo><msub><mi>b</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_{\text{in}} = (p,g_M,b_M)
+</annotation></semantics></math></p>
+<p>그의 돈 보유량은 증가한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>B</mi></msub><mo>+</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_B&#39; = m_B + p
+</annotation></semantics></math></p>
+<p>하지만 그의 돈 품질도 변한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>g</mi><mi>B</mi></msub><mo>+</mo><msub><mi>g</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+g_B&#39; = g_B + g_M
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>b</mi><mi>B</mi></msub><mo>+</mo><msub><mi>b</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+b_B&#39; = b_B + b_M
+</annotation></semantics></math></p>
+<p>그의 새로운 현금각은 다음이 된다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mtext mathvariant="normal">cash</mtext></msubsup><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>,</mo><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B^{\text{cash}}=
+\operatorname{atan2}(b_B&#39;,g_B&#39;)
+</annotation></semantics></math></p>
+<p>많은 고객이 선량하고 인기 있는 돈으로 지불하면 기업의 현금은 그
+방향으로 끌려간다.</p>
+<p>많은 고객이 독성 있는 돈으로 지불하면 기업의 현금은 오염된다.</p>
+<p>즉:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">출처를 갖는 것은 제품만이 아니다. 고객의 돈도 출처를 가진다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{출처를 갖는 것은 제품만이 아니다. 고객의 돈도 출처를 가진다.}
+}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="벡터-지갑-돈은-묶음으로-보관된다">9. 벡터 지갑: 돈은 묶음으로
+보관된다</h1>
+<p>실제로 행위자는 지갑을 단순 합계로만 저장해서는 안 된다.</p>
+<p>그는 여러 돈 묶음을 가진다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+M_i = \{M_{i1},M_{i2},M_{i3},...\}
+</annotation></semantics></math></p>
+<p>각 묶음에는 다음이 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<pre class="text"><code>묶음 1: 500 가치, 좋은 각도, 높은 신뢰도
+묶음 2: 200 가치, 인기 있지만 의심스러움
+묶음 3: 100 가치, 독성, 낮은 신뢰도</code></pre>
+<p>행위자가 지불할 때, 어떤 돈을 쓸지 선택한다.</p>
+<p>이를 코인 선택이라고 부를 수 있다.</p>
+<p>가능한 전략:</p>
+<h2 id="가장-좋은-돈부터">가장 좋은 돈부터</h2>
+<p>행위자는 더 좋은 가격을 얻기 위해 좋은 돈으로 지불한다.</p>
+<h2 id="가장-나쁜-돈부터">가장 나쁜 돈부터</h2>
+<p>행위자는 독성 돈을 버리려 한다.</p>
+<h2 id="가장-잘-맞는-돈부터">가장 잘 맞는 돈부터</h2>
+<p>행위자는 판매자의 구매각에 맞는 각도의 돈 묶음을 찾는다.</p>
+<h2 id="위장-혼합">위장 혼합</h2>
+<p>행위자는 나쁜 돈과 좋은 돈을 섞어 허용 가능한 평균각을 만든다.</p>
+<p>바로 여기에서 각도 세탁이 생긴다.</p>
+<hr />
+<h1 id="판매자는-지불을-거부할-수-있다">10. 판매자는 지불을 거부할 수
+있다</h1>
+<p>판매자는 모든 돈을 똑같이 받아들이지 않는다.</p>
+<p>그는 확인한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>돈이 자신의 구매각에서 너무 멀면 몇 가지 가능성이 있다.</p>
+<h2 id="거부">거부</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>&gt;</mo><mi>ε</mi><mo>⇒</mo><mtext mathvariant="normal">거래 없음</mtext></mrow><annotation encoding="application/x-tex">
+d_M &gt; \varepsilon
+\Rightarrow
+\text{거래 없음}
+</annotation></semantics></math></p>
+<h2 id="할인">할인</h2>
+<p>판매자는 돈을 받지만 가치 손실을 적용한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot \phi(d_M)
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>은 그에게 아마:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>62</mn><annotation encoding="application/x-tex">
+62
+</annotation></semantics></math></p>
+<p>로만 계산될 수 있다.</p>
+<h2 id="추가-요금">추가 요금</h2>
+<p>구매자는 더 많이 내야 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mtext mathvariant="normal">required</mtext></msub><mo>=</mo><mfrac><mi>p</mi><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p_{\text{required}} = \frac{p}{\phi(d_M)}
+</annotation></semantics></math></p>
+<h2 id="회전">회전</h2>
+<p>각도 거래자나 은행이 수수료를 받고 돈을 회전한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^V \rightarrow \theta_B^K
+</annotation></semantics></math></p>
+<p>비용은:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mtext mathvariant="normal">rot</mtext></msub><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>d</mi><mi>M</mi></msub><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C_{\text{rot}}=\lambda m \tan^2\left(\frac{d_M}{2}\right)
+</annotation></semantics></math></p>
+<p>각도 거리가 클수록 회전은 더 비싸진다.</p>
+<h2 id="감사">감사</h2>
+<p>출처가 검사된다. 나쁜 각도가 잘못된 정보에 기반했다면 신뢰도나 방향이
+수정될 수 있다.</p>
+<hr />
+<h1 id="구매자는-상품을-거부할-수-있다">11. 구매자는 상품을 거부할 수
+있다</h1>
+<p>동시에 구매자는 확인한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>상품이 원하는 구매각에서 너무 멀면:</p>
+<h2 id="구매-없음">구매 없음</h2>
+<p>상품은 팔리지 않는다.</p>
+<h2 id="가격-인하">가격 인하</h2>
+<p>판매자는 더 싸게 팔아야 한다.</p>
+<h2 id="상품-개선">상품 개선</h2>
+<p>판매자는 실제 개선에 투자한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">선량성</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{선량성}
+</annotation></semantics></math></p>
+<h2 id="마케팅">마케팅</h2>
+<p>판매자는 인식에 투자한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">인기</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{인기}
+</annotation></semantics></math></p>
+<h2 id="인증">인증</h2>
+<p>판매자는 각도를 더 신뢰 가능하게 만든다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+\rho \uparrow
+</annotation></semantics></math></p>
+<p>즉, 상품각은 판매 가능성을 결정한다.</p>
+<p>돈각은 지불 가능성을 결정한다.</p>
+<hr />
+<h1 id="두-각도는-모든-거래에서-네-역할을-만든다">12. 두 각도는 모든
+거래에서 네 역할을 만든다</h1>
+<p>모든 거래에는 네 개의 관련 각도가 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">구매자가 상품을 받음</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^K = \text{구매자가 상품을 받음}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">구매자가 돈을 줌</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^V = \text{구매자가 돈을 줌}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">판매자가 돈을 받음</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^K = \text{판매자가 돈을 받음}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">판매자가 상품을 줌</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^V = \text{판매자가 상품을 줌}
+</annotation></semantics></math></p>
+<p>여기서 두 개의 매칭이 생긴다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^K \leftrightarrow \theta_B^V
+</annotation></semantics></math></p>
+<p>상품에 대한 매칭이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_B^K \leftrightarrow \theta_A^V
+</annotation></semantics></math></p>
+<p>돈에 대한 매칭이다.</p>
+<p>이것이 완전한 순환 메커니즘이다.</p>
+<pre class="text"><code>                 상품각
+          θ_B^V ───────────────▶ θ_A^K
+          판매자                  구매자
+
+
+                   돈각
+          θ_B^K ◀─────────────── θ_A^V
+          판매자                  구매자</code></pre>
+<p>두 연결이 모두 짧으면 거래는 안정적이다.</p>
+<p>한 연결은 짧고 다른 연결이 길면 거래는 불안정하다.</p>
+<hr />
+<h1 id="예시-좋은-거래">13. 예시: 좋은 거래</h1>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>양쪽이 맞다.</p>
+<p>상품은 구매자에게 맞는다.</p>
+<p>돈은 판매자에게 맞는다.</p>
+<p>거래는 매우 유동적이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>≈</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\Phi \approx 1
+</annotation></semantics></math></p>
+<p>돈은 쉽게 순환한다.</p>
+<hr />
+<h1 id="예시-상품은-맞지만-돈은-맞지-않음">14. 예시: 상품은 맞지만 돈은
+맞지 않음</h1>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 150^\circ
+</annotation></semantics></math></p>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>50</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 50^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>상품은 맞다.</p>
+<p>하지만:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>50</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>100</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(50^\circ,150^\circ)=100^\circ
+</annotation></semantics></math></p>
+<p>돈은 맞지 않는다.</p>
+<p>결과:</p>
+<ul>
+<li>구매자는 사고 싶다.</li>
+<li>판매자는 팔고 싶다.</li>
+<li>그러나 판매자는 돈을 불신한다.</li>
+<li>추가 요금, 회전, 감사 또는 다른 돈이 필요하다.</li>
+</ul>
+<p>이는 구매력이 있는데도 지불 문제가 있는 것과 같다.</p>
+<p>구매자는 가치를 가지고 있지만 각도가 틀렸다.</p>
+<hr />
+<h1 id="예시-돈은-맞지만-상품은-맞지-않음">15. 예시: 돈은 맞지만 상품은
+맞지 않음</h1>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 150^\circ
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>돈은 맞다.</p>
+<p>하지만:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>120</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(30^\circ,150^\circ)=120^\circ
+</annotation></semantics></math></p>
+<p>상품은 맞지 않는다.</p>
+<p>결과:</p>
+<ul>
+<li>판매자는 그 돈을 기꺼이 받을 것이다.</li>
+<li>구매자는 그 방향의 상품을 원하지 않는다.</li>
+<li>판매자는 개선하거나, 싸게 팔거나, 다른 구매자 집단을 찾아야
+한다.</li>
+</ul>
+<p>이는 지불 능력 있는 고객이 있음에도 발생하는 판매 문제다.</p>
+<hr />
+<h1 id="예시-두-방향-모두-맞지-않음">16. 예시: 두 방향 모두 맞지
+않음</h1>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>20</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 20^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 160^\circ
+</annotation></semantics></math></p>
+<p>판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 170^\circ
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>20</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>170</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(20^\circ,170^\circ)=150^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>160</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>130</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(30^\circ,160^\circ)=130^\circ
+</annotation></semantics></math></p>
+<p>상품은 맞지 않는다.</p>
+<p>돈도 맞지 않는다.</p>
+<p>거래는 아마 일어나지 않는다. 그림자 시장이나 극단적 할인은
+예외다.</p>
+<hr />
+<h1 id="순환은-변환-사슬이다">17. 순환은 변환 사슬이다</h1>
+<p>모든 행위자는 자신의 구매각에 가까운 입력 가치를 받아들인다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>K</mi></msup><annotation encoding="application/x-tex">
+\theta^K
+</annotation></semantics></math></p>
+<p>그리고 자신의 판매각에 가까운 출력 가치를 내보낸다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>V</mi></msup><annotation encoding="application/x-tex">
+\theta^V
+</annotation></semantics></math></p>
+<p>따라서 모든 행위자는 일종의 경제적 각도 변환기다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub><mo>:</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">in</mtext></msub><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">out</mtext></msub></mrow><annotation encoding="application/x-tex">
+T_i:
+(m,g,b)_{\text{in}}
+\rightarrow
+(m&#39;,g&#39;,b&#39;)_{\text{out}}
+</annotation></semantics></math></p>
+<p>또는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>예시:</p>
+<h2 id="기업">기업</h2>
+<p>inputs 와 노동을 산다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{기업}}
+</annotation></semantics></math></p>
+<p>상품을 생산한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{기업}}
+</annotation></semantics></math></p>
+<p>실제 품질을 만들면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>좋은 광고를 하면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>피해를 외부화하면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow
+</annotation></semantics></math></p>
+<p>피해가 있어도 인기를 유지하면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<h2 id="가계">가계</h2>
+<p>임금을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">가계</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{가계}}
+</annotation></semantics></math></p>
+<p>소비 돈을 쓴다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">가계</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{가계}}
+</annotation></semantics></math></p>
+<p>구매 결정은 기업의 인기를 바꾼다.</p>
+<h2 id="은행">은행</h2>
+<p>예금을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{은행}}
+</annotation></semantics></math></p>
+<p>대출을 낸다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{은행}}
+</annotation></semantics></math></p>
+<p>차입자, 목적, 위험에 따라 각도를 가진 새 돈을 만든다.</p>
+<h2 id="정부">정부</h2>
+<p>세금을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">국가</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{국가}}
+</annotation></semantics></math></p>
+<p>공공지출을 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">국가</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{국가}}
+</annotation></semantics></math></p>
+<p>법률로 선량성을 정의하고 지출로 각도를 움직일 수 있다.</p>
+<h2 id="미디어">미디어</h2>
+<p>주의와 돈을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">미디어</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{미디어}}
+</annotation></semantics></math></p>
+<p>인기 또는 비인기를 내보낸다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">미디어</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{미디어}}
+</annotation></semantics></math></p>
+<p>주로
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>,
+즉 인기에 영향을 준다.</p>
+<h2 id="법원-감사">법원 / 감사</h2>
+<p>사건, 증거, 수수료를 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">법원/감사</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{법원/감사}}
+</annotation></semantics></math></p>
+<p>신뢰도와 선량성 수정을 내보낸다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">법원/감사</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{법원/감사}}
+</annotation></semantics></math></p>
+<p>주로
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+와
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+에 영향을 준다.</p>
+<hr />
+<h1 id="가장-중요한-순환-공식">18. 가장 중요한 순환 공식</h1>
+<p>구매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+와 판매자
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+사이의 거래에서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>그때:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">거래량</mtext><mo>=</mo><mi>Q</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\text{거래량}
+=
+Q \cdot \phi(d_X)\cdot \phi(d_M)\cdot \rho_X\cdot\rho_M
+</annotation></semantics></math></p>
+<p>또는 간단히:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>T</mi></msub><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><mi mathvariant="normal">Φ</mi></mrow><annotation encoding="application/x-tex">
+Q_T = Q_0 \Phi
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mi>ρ</mi><mi>X</mi></msub><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi =
+\phi(d_X)\phi(d_M)\rho_X\rho_M
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+가 높으면 많이 순환한다.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+가 낮으면 적게 순환한다.</p>
+<p>많은 행위자의 구매각과 판매각이 호환되지 않으면 전체 경제의 유동성이
+떨어진다.</p>
+<hr />
+<h1 id="가치가-선량성을-어떻게-사는가">19. 가치가 선량성을 어떻게
+사는가</h1>
+<p>가치는 선량성을 살 수 있다. 하지만 실제 변화가 있을 때만
+가능하다.</p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">더 나은 노동 조건</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{더 나은 노동 조건}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">청정 에너지</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{청정 에너지}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">피해 보상</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{피해 보상}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">제품 안전</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{제품 안전}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">공급망 검사</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{공급망 검사}
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>가능한 시뮬레이션 규칙:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mi>g</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>g</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>⋅</mo><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_g \cdot \log(1+I_g)\cdot R_{\text{real}}\cdot \rho_{\text{audit}}
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>g</mi></msub><mo>=</mo><mtext mathvariant="normal">실제 개선 투자</mtext></mrow><annotation encoding="application/x-tex">
+I_g = \text{실제 개선 투자}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>=</mo><mtext mathvariant="normal">현실 계수</mtext></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} = \text{현실 계수}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub><mo>=</mo><mtext mathvariant="normal">감사 신뢰도</mtext></mrow><annotation encoding="application/x-tex">
+\rho_{\text{audit}} = \text{감사 신뢰도}
+</annotation></semantics></math></p>
+<p>기업이 좋다고 주장만 하고 실제 개선을 하지 않으면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} \approx 0
+</annotation></semantics></math></p>
+<p>그때는 단기적으로 인기만 오를 수 있고 실제 선량성은 오르지
+않는다.</p>
+<hr />
+<h1 id="가치가-인기를-어떻게-사는가">20. 가치가 인기를 어떻게
+사는가</h1>
+<p>가치는 인기를 더 쉽게 살 수 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">광고</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{광고}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">할인</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{할인}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">인플루언서</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{인플루언서}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">미디어 캠페인</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{미디어 캠페인}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">스폰서십</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{스폰서십}
+</annotation></semantics></math></p>
+<p>그러면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>가능한 시뮬레이션 규칙:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mi>b</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>b</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>⋅</mo><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>−</mo><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_b \cdot \log(1+I_b)\cdot M_{\text{media}}\cdot S_{\text{trend}}
+-
+B_{\text{backlash}}
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>b</mi></msub><mo>=</mo><mtext mathvariant="normal">광고 / PR 지출</mtext></mrow><annotation encoding="application/x-tex">
+I_b = \text{광고 / PR 지출}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>=</mo><mtext mathvariant="normal">미디어 증폭</mtext></mrow><annotation encoding="application/x-tex">
+M_{\text{media}} = \text{미디어 증폭}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>=</mo><mtext mathvariant="normal">트렌드 계수</mtext></mrow><annotation encoding="application/x-tex">
+S_{\text{trend}} = \text{트렌드 계수}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub><mo>=</mo><mtext mathvariant="normal">역풍</mtext></mrow><annotation encoding="application/x-tex">
+B_{\text{backlash}} = \text{역풍}
+</annotation></semantics></math></p>
+<p>인기는 선량성보다 빠르지만 더 불안정하다.</p>
+<p>그래서 흔히:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 는 그대로</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ 는 그대로}
+</annotation></semantics></math></p>
+<p>또는 심지어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<p>가 된다.</p>
+<p>이것이:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">인기 있지만 악함</mtext><annotation encoding="application/x-tex">
+\text{인기 있지만 악함}
+</annotation></semantics></math></p>
+<p>의 경우다.</p>
+<hr />
+<h1 id="인기가-선량성을-어떻게-살-수-있는가">21. 인기가 선량성을 어떻게
+살 수 있는가</h1>
+<p>인기는 선량성을 직접 살 수는 없지만 개혁을 쉽게 만들 수 있다.</p>
+<p>인기 있는 기업은 다음을 가진다.</p>
+<ul>
+<li>더 많은 고객 신뢰</li>
+<li>더 많은 정치적 자본</li>
+<li>직원 접근 용이성</li>
+<li>투자자의 더 큰 인내</li>
+<li>더 높은 가격 결정력</li>
+<li>변화에 대한 낮은 저항</li>
+</ul>
+<p>그러면 인기를 실제 개혁 능력으로 바꿀 수 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>→</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">
+b \rightarrow g
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>b</mi><mi>g</mi></mrow></msub><mo>⋅</mo><mi>b</mi><mo>⋅</mo><msub><mi>I</mi><mi>g</mi></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_{bg}\cdot b \cdot I_g \cdot \rho
+</annotation></semantics></math></p>
+<p>하지만 여기에도 실제 투자가 필요하다.</p>
+<p>인기 자체는 선량성이 아니다.</p>
+<p>그것은 선량성을 더 쉽게 만들 수 있는 자원일 뿐이다.</p>
+<hr />
+<h1 id="선량성이-인기를-어떻게-살-수-있는가">22. 선량성이 인기를 어떻게
+살 수 있는가</h1>
+<p>선량성은 인기를 만들 수 있다. 하지만 그것이 보일 때만 가능하다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+g \rightarrow b
+</annotation></semantics></math></p>
+<p>이를 위해 필요하다.</p>
+<ul>
+<li>투명성</li>
+<li>자유로운 미디어</li>
+<li>신뢰할 수 있는 감사</li>
+<li>이해 가능한 커뮤니케이션</li>
+<li>교육</li>
+<li>시간</li>
+<li>신뢰</li>
+</ul>
+<p>가능한 규칙:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>g</mi><mi>b</mi></mrow></msub><mo>⋅</mo><mi>g</mi><mo>⋅</mo><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_{gb}\cdot g \cdot T_{\text{visibility}}\cdot \rho
+</annotation></semantics></math></p>
+<p>여기서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>=</mo><mtext mathvariant="normal">가시성</mtext></mrow><annotation encoding="application/x-tex">
+T_{\text{visibility}} = \text{가시성}
+</annotation></semantics></math></p>
+<p>아무도 선량성을 보지 못하면 인기는 거의 오르지 않는다.</p>
+<p>그래서 좋지만 보이지 않는 기업은 계속 비인기일 수 있다.</p>
+<hr />
+<h1 id="위험한-순환-각도-세탁">23. 위험한 순환: 각도 세탁</h1>
+<p>각도 세탁은 누군가 나쁜 가치를 더 좋아 보이는 각도로 바꿀 때
+생긴다.</p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup><mo>→</mo><mn>900</mn><mi>∠</mi><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+\rightarrow
+900 \angle 40^\circ
+</annotation></semantics></math></p>
+<p>하지만 실제 개선은 없다.</p>
+<p>이는 다음으로 가능하다.</p>
+<ul>
+<li>자회사</li>
+<li>중개자</li>
+<li>가짜 감사</li>
+<li>PR 캠페인</li>
+<li>기부</li>
+<li>구매된 평점</li>
+<li>인공 인기</li>
+<li>봇 네트워크</li>
+<li>세금 및 각도 피난처</li>
+</ul>
+<p>그러면 겉으로는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow
+</annotation></semantics></math></p>
+<p>처럼 보인다.</p>
+<p>그러나 신뢰도는 떨어져야 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<p>그리고 역사
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+는 의심스러워져야 한다.</p>
+<p>따라서 시스템에는 출처 흔적이 필요하다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">거래 역사</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{거래 역사}
+</annotation></semantics></math></p>
+<p>역사가 없으면 각도 돈은 세탁 가능해진다.</p>
+<hr />
+<h1 id="노동시장에서의-순환">24. 노동시장에서의 순환</h1>
+<p>노동시장은 특히 중요하다.</p>
+<p>기업은 노동을 산다.</p>
+<p>노동자는 노동을 판다.</p>
+<p>기업에게 노동은 input 이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{기업}}^K
+</annotation></semantics></math></p>
+<p>노동자에게 임금은 들어오는 가치다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">노동자</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{노동자}}^K
+</annotation></semantics></math></p>
+<p>동시에:</p>
+<ul>
+<li>노동자는 자신의 판매각으로 노동력을 판다.</li>
+<li>기업은 자신의 판매각으로 임금을 지급한다.</li>
+</ul>
+<p>따라서 다시 두 개의 매칭이 생긴다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">노동</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">노동자</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{노동}} = d(\theta_{\text{기업}}^K,\theta_{\text{노동자}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">임금</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">노동자</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{임금}} = d(\theta_{\text{노동자}}^K,\theta_{\text{기업}}^V)
+</annotation></semantics></math></p>
+<p>노동은 맞지만 임금각이 나쁘면 노동자는 더 높은 임금을 요구한다.</p>
+<p>임금은 좋지만 활동이 나쁘면 그는 여전히 거절할 수 있다.</p>
+<p>이는 실제 사례를 설명한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">높은 임금, 나쁜 고용주</mtext><annotation encoding="application/x-tex">
+\text{높은 임금, 나쁜 고용주}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">낮은 임금, 좋은 목적</mtext><annotation encoding="application/x-tex">
+\text{낮은 임금, 좋은 목적}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">인기 기업, 나쁜 노동 조건</mtext><annotation encoding="application/x-tex">
+\text{인기 기업, 나쁜 노동 조건}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">비인기 직업, 높은 사회적 가치</mtext><annotation encoding="application/x-tex">
+\text{비인기 직업, 높은 사회적 가치}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="신용시장에서의-순환">25. 신용시장에서의 순환</h1>
+<p>신용에서는 돈이 새로 만들어지거나 시간적으로 이동한다.</p>
+<p>은행은 신용을 발행한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{은행}}^V
+</annotation></semantics></math></p>
+<p>채무자는 신용을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{채무자}}^K
+</annotation></semantics></math></p>
+<p>나중에 채무자는 상환한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{채무자}}^V
+</annotation></semantics></math></p>
+<p>은행은 상환을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{은행}}^K
+</annotation></semantics></math></p>
+<p>따라서:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">신용</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{신용}}=d(\theta_{\text{채무자}}^K,\theta_{\text{은행}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">상환</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{상환}}=d(\theta_{\text{은행}}^K,\theta_{\text{채무자}}^V)
+</annotation></semantics></math></p>
+<p>신용이 좋은 목적에 쓰이면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">신용</mtext></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{신용}} \uparrow
+</annotation></semantics></math></p>
+<p>인기 있는 투기를 금융하면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mtext mathvariant="normal">신용</mtext></msub><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>g</mi><mtext mathvariant="normal">신용</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 불확실</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b_{\text{신용}} \uparrow,\quad g_{\text{신용}} \text{ 불확실}
+</annotation></semantics></math></p>
+<p>독성 활동을 금융하면:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">신용</mtext></msub><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{신용}} \downarrow
+</annotation></semantics></math></p>
+<p>그러면 금리 또는 담보가 오른다.</p>
+<p>금리는 다음으로 구성된다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><msub><mi>i</mi><mn>0</mn></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">부도</mtext></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">각도 위험</mtext></msub><mo>+</mo><msub><mi>i</mi><mi>ρ</mi></msub></mrow><annotation encoding="application/x-tex">
+i = i_0 + i_{\text{부도}} + i_{\text{각도 위험}} + i_{\rho}
+</annotation></semantics></math></p>
+<p>즉:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">금리</mtext><mo>=</mo><mtext mathvariant="normal">시간 가격</mtext><mo>+</mo><mtext mathvariant="normal">위험</mtext><mo>+</mo><mtext mathvariant="normal">각도 벌칙</mtext></mrow><annotation encoding="application/x-tex">
+\text{금리} = \text{시간 가격} + \text{위험} + \text{각도 벌칙}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="국가에서의-순환">26. 국가에서의 순환</h1>
+<p>국가는 세금을 받는다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">국가</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{국가}}^K
+</annotation></semantics></math></p>
+<p>그리고 공공지출을 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">국가</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{국가}}^V
+</annotation></semantics></math></p>
+<p>독성 원천에서 온 세금은 문제가 될 수 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">국가는 나쁜 돈을 받아야 하는가?</mtext><annotation encoding="application/x-tex">
+\text{국가는 나쁜 돈을 받아야 하는가?}
+</annotation></semantics></math></p>
+<p>받는다면 정화해야 할 수도 있다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">독성</mtext></msub><mo>→</mo><msub><mi>θ</mi><mtext mathvariant="normal">공적으로 정당</mtext></msub></mrow><annotation encoding="application/x-tex">
+\theta_{\text{독성}} \rightarrow \theta_{\text{공적으로 정당}}
+</annotation></semantics></math></p>
+<p>수단은 다음이다.</p>
+<ul>
+<li>법원</li>
+<li>투명성</li>
+<li>재분배</li>
+<li>피해 복구</li>
+<li>공공 투자</li>
+</ul>
+<p>공공지출은 새로운 각도를 만든다.</p>
+<ul>
+<li>교육은
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+를 높일 수 있다.</li>
+<li>선전은
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+를 인위적으로 높일 수 있다.</li>
+<li>인프라는 가치와 선량성을 높일 수 있다.</li>
+<li>억압은 단기 질서를 만들 수 있지만 장기적으로 나쁜 각도를
+만든다.</li>
+<li>전쟁은 국민과 정부에 따라 매우 다른 각도를 받을 수 있다.</li>
+</ul>
+<p>따라서 국가는 거대한 각도 변환기다.</p>
+<hr />
+<h1 id="국가-간-순환">27. 국가 간 순환</h1>
+<p>각 국가는 고유한 축을 가진다.</p>
+<p>A국에서 좋은 것이 B국에서도 반드시 좋은 것은 아니다.</p>
+<p>따라서 각도 번역이 필요하다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T_{A\rightarrow B}(\theta)
+</annotation></semantics></math></p>
+<p>수출 거래는 다음을 가진다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">수출, A</mtext></msub><mo>→</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">수출, A</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{수출, A}}
+\rightarrow
+T_{A\rightarrow B}(\theta_{\text{수출, A}})
+</annotation></semantics></math></p>
+<p>예를 들어:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>40</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> in A국</mtext></mrow></mrow><annotation encoding="application/x-tex">
+40^\circ \text{ in A국}
+</annotation></semantics></math></p>
+<p>이:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>110</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> in B국</mtext></mrow></mrow><annotation encoding="application/x-tex">
+110^\circ \text{ in B국}
+</annotation></semantics></math></p>
+<p>이 될 수 있다.</p>
+<p>그러면 국제 각도 차익거래가 생긴다.</p>
+<p>기업은 다음과 같은 나라를 찾는다.</p>
+<ul>
+<li>제품이 더 인기 있는 곳</li>
+<li>선량성이 더 좋게 평가되는 곳</li>
+<li>나쁜 효과가 덜 보이는 곳</li>
+<li>역사가 덜 엄격하게 검사되는 곳</li>
+</ul>
+<p>이것은 도덕적 입지 차익거래다.</p>
+<hr />
+<h1 id="여러-시장에서는-무엇이-일어나는가">28. 여러 시장에서는 무엇이
+일어나는가?</h1>
+<p>각 시장에는 고유한 각도 구조가 있다.</p>
+<h2 id="상품시장">상품시장</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">구매자</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">판매자</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{구매자}}^K
+\leftrightarrow
+\theta_{\text{판매자}}^V
+</annotation></semantics></math></p>
+<h2 id="지불시장">지불시장</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">판매자</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">구매자</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{판매자}}^K
+\leftrightarrow
+\theta_{\text{구매자}}^V
+</annotation></semantics></math></p>
+<h2 id="노동시장">노동시장</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">노동자</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{기업}}^K
+\leftrightarrow
+\theta_{\text{노동자}}^V
+</annotation></semantics></math></p>
+<p>그리고:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">노동자</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{노동자}}^K
+\leftrightarrow
+\theta_{\text{기업}}^V
+</annotation></semantics></math></p>
+<h2 id="신용시장">신용시장</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{채무자}}^K
+\leftrightarrow
+\theta_{\text{은행}}^V
+</annotation></semantics></math></p>
+<p>그리고 나중에:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">은행</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">채무자</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{은행}}^K
+\leftrightarrow
+\theta_{\text{채무자}}^V
+</annotation></semantics></math></p>
+<h2 id="자본시장">자본시장</h2>
+<p>투자자는 기업 지분을 산다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">투자자</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{투자자}}^K
+\leftrightarrow
+\theta_{\text{기업}}^V
+</annotation></semantics></math></p>
+<p>기업은 자본을 산다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">기업</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">투자자</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{기업}}^K
+\leftrightarrow
+\theta_{\text{투자자}}^V
+</annotation></semantics></math></p>
+<h2 id="각도시장">각도시장</h2>
+<p>여기서는 방향 자체가 직접 거래된다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b)
+\rightarrow
+(m&#39;,g&#39;,b&#39;)
+</annotation></semantics></math></p>
+<p>수수료, 위험, 신뢰도 손실이 함께 온다.</p>
+<hr />
+<h1 id="두-각도의-경제적-의미">29. 두 각도의 경제적 의미</h1>
+<p>구매각과 판매각의 차이가 사업 논리의 핵심이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+s_i = d(\theta_i^K,\theta_i^V)
+</annotation></semantics></math></p>
+<p>이것이 행위자의 각도 스프레드다.</p>
+<h2 id="작은-스프레드">작은 스프레드</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \approx 0
+</annotation></semantics></math></p>
+<p>행위자는 비슷한 방향으로 사고 판다.</p>
+<p>이는 다음을 뜻한다.</p>
+<ul>
+<li>일관적</li>
+<li>신뢰 가능</li>
+<li>변환 작업이 적음</li>
+<li>차익거래가 적음</li>
+<li>높은 신뢰성</li>
+</ul>
+<h2 id="큰-스프레드">큰 스프레드</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≫</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \gg 0
+</annotation></semantics></math></p>
+<p>행위자는 한 방향에서 사고 다른 방향에서 판다.</p>
+<p>이는 좋을 수도 나쁠 수도 있다.</p>
+<h3 id="좋은-형태">좋은 형태</h3>
+<p>나쁜 inputs 를 사서 실제로 개선한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">나쁨</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{나쁨}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">좋음</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{좋음}
+</annotation></semantics></math></p>
+<p>그러면 실제 가치 개선을 만든다.</p>
+<h3 id="나쁜-형태">나쁜 형태</h3>
+<p>나쁜 inputs 를 사서 포장만 좋게 하여 판다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">나쁨</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{나쁨}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">겉보기에는 좋음</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{겉보기에는 좋음}
+</annotation></semantics></math></p>
+<p>그러면 각도 세탁을 한다.</p>
+<h3 id="착취적-형태">착취적 형태</h3>
+<p>좋은 inputs 를 사서 나쁜 outputs 를 판다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">좋음</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{좋음}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">나쁨</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{나쁨}
+</annotation></semantics></math></p>
+<p>그러면 선량성 또는 신뢰를 파괴한다.</p>
+<hr />
+<h1 id="전체-경제에서의-순환">30. 전체 경제에서의 순환</h1>
+<p>전체 경제는 다음처럼 보인다.</p>
+<pre class="text"><code>가계
+  │ 상품을 구매
+  ▼
+기업
+  │ 임금을 지급하고, inputs 를 사고, 대출을 받음
+  ▼
+은행 / 자본시장
+  │ 기업과 국가를 금융함
+  ▼
+국가
+  │ 과세, 규제, 보조
+  ▼
+미디어 / 국민 / 법원 / 정부
+  │ 선량성, 인기, 신뢰도를 평가
+  ▼
+각도시장
+  │ 방향을 회전, 보험, 감사, 거래
+  ▼
+가계와 기업</code></pre>
+<p>가치는 지불을 통해 흐른다.</p>
+<p>선량성은 실제 결과와 제도적 판단을 통해 흐른다.</p>
+<p>인기는 수요, 미디어, 사회적 수용을 통해 흐른다.</p>
+<p>신뢰도는 증거, 투명성, 분쟁을 통해 흐른다.</p>
+<p>역사는 거래 사슬을 통해 흐른다.</p>
+<hr />
+<h1 id="돈의-순환은-선택적이-된다">31. 돈의 순환은 선택적이 된다</h1>
+<p>일반 돈에서는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">
+100 = 100
+</annotation></semantics></math></p>
+<p>당신의 시스템에서는:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>30</mn><mo>∘</mo></msup><mo>≠</mo><mn>100</mn><mi>∠</mi><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 30^\circ \neq 100 \angle 150^\circ
+</annotation></semantics></math></p>
+<p>따라서 돈은 더 이상 모든 곳에서 똑같이 순환하지 않는다.</p>
+<p>구역이 형성된다.</p>
+<h2 id="깨끗한-고신뢰-순환">깨끗한 고신뢰 순환</h2>
+<p>좋은 돈이 신뢰할 수 있는 행위자들 사이에서 순환한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow,\quad \rho \uparrow
+</annotation></semantics></math></p>
+<p>그곳에서는 금리가 낮고, 거래가 빠르며, 스프레드가 작다.</p>
+<h2 id="인기-있지만-의심스러운-순환">인기 있지만 의심스러운 순환</h2>
+<p>인기 있는 돈은 빠르게 순환하지만 위험을 동반한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 불확실</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ 불확실}
+</annotation></semantics></math></p>
+<p>그곳에는 거품과 스캔들이 있다.</p>
+<h2 id="좋지만-비인기인-순환">좋지만 비인기인 순환</h2>
+<p>선량하지만 비인기인 활동은 인내, 보조금 또는 교육을 필요로 한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \downarrow
+</annotation></semantics></math></p>
+<p>그곳에는 자금 부족 위험이 있다.</p>
+<h2 id="독성-순환">독성 순환</h2>
+<p>나쁜 돈은 그림자 시장이나 큰 할인 속에서 순환한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow,\quad b \downarrow,\quad \rho \downarrow
+</annotation></semantics></math></p>
+<p>그곳에서는 금리가 높고, 사기가 흔하며, 유동성이 낮다.</p>
+<hr />
+<h1 id="왜-순환은-자동으로-도덕적이-되지-않는가">32. 왜 순환은 자동으로
+도덕적이 되지 않는가?</h1>
+<p>흔한 착각은 다음이다.</p>
+<blockquote>
+<p>돈 안에 선량성과 인기가 들어가면 경제는 자동으로 좋아진다.</p>
+</blockquote>
+<p>아니다.</p>
+<p>이 시스템은 도덕적 방향을 거래 가능하게 만든다.</p>
+<p>따라서 조작 가능하게도 만든다.</p>
+<p>세 가지 형태가 가능하다.</p>
+<h2 id="실제-개선">실제 개선</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">실제 선량성</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{실제 선량성}
+</annotation></semantics></math></p>
+<h2 id="상징적-개선">상징적 개선</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">인기</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{인기}
+</annotation></semantics></math></p>
+<h2 id="사기적-개선">사기적 개선</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">가치</mtext><mo>→</mo><mtext mathvariant="normal">겉보기 선량성</mtext></mrow><annotation encoding="application/x-tex">
+\text{가치} \rightarrow \text{겉보기 선량성}
+</annotation></semantics></math></p>
+<p>따라서
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>,
+즉 신뢰도는 절대적으로 중요하다.</p>
+<p>신뢰도가 없으면 각도는 선전 라벨이 된다.</p>
+<p>신뢰도가 있으면 각도는 검증 가능해진다.</p>
+<hr />
+<h1 id="가장-짧은-메커니즘">33. 가장 짧은 메커니즘</h1>
+<p>가장 짧은 완전한 설명은 다음이다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">행위자는 구매각으로 받고 판매각으로 보낸다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{행위자는 구매각으로 받고 판매각으로 보낸다.}
+}
+</annotation></semantics></math></p>
+<p>모든 거래는 확인한다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">상품의 판매각이 구매자의 구매각에 맞는가?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{상품의 판매각이 구매자의 구매각에 맞는가?}
+}
+</annotation></semantics></math></p>
+<p>그리고:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">돈의 판매각이 판매자의 구매각에 맞는가?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{돈의 판매각이 판매자의 구매각에 맞는가?}
+}
+</annotation></semantics></math></p>
+<p>맞으면 가치, 선량성, 인기가 쉽게 흐른다.</p>
+<p>맞지 않으면 다음이 생긴다.</p>
+<ul>
+<li>할인</li>
+<li>추가 요금</li>
+<li>회전</li>
+<li>감사 비용</li>
+<li>보험</li>
+<li>대기 시간</li>
+<li>그림자 시장</li>
+<li>평판 위험</li>
+<li>정치 갈등</li>
+</ul>
+<p>따라서 돈의 순환은 더 이상 원이 아니라 방향성 네트워크다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">가치는 호환되는 각도를 따라 흐른다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{가치는 호환되는 각도를 따라 흐른다.}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">선량성은 실제 개선과 인정에 따라 흐른다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{선량성은 실제 개선과 인정에 따라 흐른다.}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">인기는 주의와 승인에 따라 흐른다.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{인기는 주의와 승인에 따라 흐른다.}
+}
+</annotation></semantics></math></p>
+<p>각 행위자의 두 각도는 그가 <strong>무엇을 흡수하려 하는지</strong>와
+<strong>세상에 무엇을 내보내는지</strong>를 결정한다.</p>
+<p>바로 거기에서 경제 동학이 발생한다.</p>
+</body>
+</html>

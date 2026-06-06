@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>money_circulation_hi</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="जब-द-कण-ह-त-मलय-भलई-सतर-और-लकपरयत-सतर-स-बन-धन-कस-घमत-ह">जब दो
+कोण हों, तो मूल्य, भलाई-स्तर और लोकप्रियता-स्तर से बना धन कैसे घूमता है?</h1>
+<p>तब धन खरीदार से विक्रेता तक जाने वाली साधारण धारा नहीं रहता। वह एक
+<strong>दोहरे प्रवाह</strong> की तरह घूमता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">वस्तु/सेवा विक्रेता से खरीदार की ओर बहती है</mtext><annotation encoding="application/x-tex">
+\text{वस्तु/सेवा विक्रेता से खरीदार की ओर बहती है}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">धन खरीदार से विक्रेता की ओर बहता है</mtext><annotation encoding="application/x-tex">
+\text{धन खरीदार से विक्रेता की ओर बहता है}
+</annotation></semantics></math></p>
+<p>और दोनों प्रवाहों की कोण-स्थान में अपनी-अपनी दिशा होती है।</p>
+<p>मुख्य बात यह है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">हर व्यापार एक दोहरा कोण-विनिमय है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{हर व्यापार एक दोहरा कोण-विनिमय है।}
+}
+</annotation></semantics></math></p>
+<p>खरीदार केवल उत्पाद नहीं खरीदता।<br />
+विक्रेता भी उसी समय खरीदार के धन को खरीदता है।</p>
+<hr />
+<h1 id="धन-वसत">1. धन-वस्तु</h1>
+<p>धन की एक इकाई केवल मूल्य नहीं है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">
+M = m
+</annotation></semantics></math></p>
+<p>बल्कि यह है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">संख्यात्मक मूल्य</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{संख्यात्मक मूल्य}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">भलाई का स्तर</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{भलाई का स्तर}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">लोकप्रियता का स्तर</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{लोकप्रियता का स्तर}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">मूल्यांकन की विश्वसनीयता / निश्चितता</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{मूल्यांकन की विश्वसनीयता / निश्चितता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">इतिहास / उत्पत्ति</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{इतिहास / उत्पत्ति}
+</annotation></semantics></math></p>
+<p>कोण भलाई और लोकप्रियता से बनता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(b,g)
+</annotation></semantics></math></p>
+<p>अर्थात:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">x-अक्ष: अच्छा vs. बुरा</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{x-अक्ष: अच्छा vs. बुरा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">y-अक्ष: लोकप्रिय vs. अलोकप्रिय</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{y-अक्ष: लोकप्रिय vs. अलोकप्रिय}
+</annotation></semantics></math></p>
+<p>धन की मात्रा है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>दिशा है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">
+\theta
+</annotation></semantics></math></p>
+<p>दिशा की विश्वसनीयता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">
+\rho
+</annotation></semantics></math></p>
+<p>इसलिए भुगतान केवल:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>100</mn><annotation encoding="application/x-tex">
+100
+</annotation></semantics></math></p>
+<p>नहीं है, बल्कि उदाहरण के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>35</mn><mo>∘</mo></msup><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>=</mo><mn>0.82</mn></mrow><annotation encoding="application/x-tex">
+100 \angle 35^\circ,\quad \rho=0.82
+</annotation></semantics></math></p>
+<p>अर्थात: 100 मूल्य-इकाइयाँ, एक निश्चित भलाई/लोकप्रियता दिशा और एक निश्चित
+विश्वसनीयता के साथ।</p>
+<hr />
+<h1 id="हर-अभनत-क-द-कण-हत-ह">2. हर अभिनेता के दो कोण होते हैं</h1>
+<p>हर अभिनेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+के पास होता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">खरीद कोण</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{खरीद कोण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">बिक्री कोण</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{बिक्री कोण}
+</annotation></semantics></math></p>
+<p>सबसे अच्छी परिभाषा है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">मैं किस दिशा को प्राप्त करना चाहता हूँ</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^K = \text{मैं किस दिशा को प्राप्त करना चाहता हूँ}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">मैं किस दिशा को खर्च या बेच देना चाहता हूँ</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^V = \text{मैं किस दिशा को खर्च या बेच देना चाहता हूँ}
+}
+</annotation></semantics></math></p>
+<p>इसलिए:</p>
+<ul>
+<li><strong>खरीद कोण</strong> एक इनपुट-फ़िल्टर है।</li>
+<li><strong>बिक्री कोण</strong> एक आउटपुट-सिग्नल है।</li>
+</ul>
+<p>इससे हर अभिनेता एक <strong>कोण-परिवर्तक</strong> बन जाता है।</p>
+<p>वह एक दिशा से चीजें ग्रहण करता है और दूसरी दिशा में चीजें देता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>यदि दोनों कोण लगभग समान हैं, अभिनेता सुसंगत है।</p>
+<p>यदि वे बहुत दूर हैं, वह कोण-परिवर्तन से कमाता है या उसी पर निर्भर रहता है।</p>
+<hr />
+<h1 id="हर-वयपर-म-द-कण-जच-हत-ह">3. हर व्यापार में दो कोण-जाँचें होती हैं</h1>
+<p>मान लें:</p>
+<ul>
+<li>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+से खरीदता है।</li>
+<li>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+उत्पाद या सेवा देता है।</li>
+<li>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+धन चुकाता है।</li>
+</ul>
+<p>तब दो प्रवाह हैं:</p>
+<pre class="text"><code>उत्पाद / सेवा:
+B ─────────────────────────▶ A
+
+धन:
+A ─────────────────────────▶ B</code></pre>
+<p>लेकिन अब कोणों सहित:</p>
+<pre class="text"><code>उत्पाद प्रवाह:
+B θ_B^V से बेचता है ─────▶ A θ_A^K से प्राप्त करता है
+
+धन प्रवाह:
+A θ_A^V से भुगतान करता है ─────▶ B θ_B^K से प्राप्त करता है</code></pre>
+<p>इसलिए दो कोण-दूरियाँ मिलनी चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>उत्पाद प्रवाह के लिए।</p>
+<p>और:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>धन प्रवाह के लिए।</p>
+<p>यह अत्यंत महत्वपूर्ण है।</p>
+<p>खरीदार पूछता है:</p>
+<blockquote>
+<p>जो उत्पाद मैं प्राप्त कर रहा हूँ, क्या वह मेरे खरीद कोण से मेल खाता है?</p>
+</blockquote>
+<p>विक्रेता पूछता है:</p>
+<blockquote>
+<p>जो धन मैं प्राप्त कर रहा हूँ, क्या वह मेरे खरीद कोण से मेल खाता है?</p>
+</blockquote>
+<p>क्योंकि विक्रेता के लिए धन भी प्राप्त की जाने वाली वस्तु है।</p>
+<hr />
+<h1 id="वततय-दर-वयपर-यगयत-तय-करत-ह">4. वृत्तीय दूरी व्यापार-योग्यता तय करती
+है</h1>
+<p>दो कोणों के बीच दूरी है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">arccos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>−</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d(\alpha,\beta)=\arccos(\cos(\alpha-\beta))
+</annotation></semantics></math></p>
+<p>इससे:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>π</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+d \in [0,\pi]
+</annotation></semantics></math></p>
+<p>अर्थात:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=0
+</annotation></semantics></math></p>
+<p>पूर्ण संगतता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">
+d=\pi
+</annotation></semantics></math></p>
+<p>अधिकतम विरोध है।</p>
+<p>एक सरल संगतता-फलन हो सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\phi(d)=\cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+d=0 \Rightarrow \phi=1
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=\pi \Rightarrow \phi=0
+</annotation></semantics></math></p>
+<p>जितना बेहतर कोण मिलते हैं, व्यापार उतना मजबूत होता है।</p>
+<p>पूर्ण व्यापार के लिए दोनों पक्ष चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi = \phi(d_X)\cdot \phi(d_M)\cdot \rho_X \cdot \rho_M
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">उत्पाद कोण-दूरी</mtext></mrow><annotation encoding="application/x-tex">
+d_X = \text{उत्पाद कोण-दूरी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">धन कोण-दूरी</mtext></mrow><annotation encoding="application/x-tex">
+d_M = \text{धन कोण-दूरी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">उत्पाद कोण की विश्वसनीयता</mtext></mrow><annotation encoding="application/x-tex">
+\rho_X = \text{उत्पाद कोण की विश्वसनीयता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">धन कोण की विश्वसनीयता</mtext></mrow><annotation encoding="application/x-tex">
+\rho_M = \text{धन कोण की विश्वसनीयता}
+</annotation></semantics></math></p>
+<p>यदि
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+ऊँचा है, धन आसानी से घूमता है।</p>
+<p>यदि
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+कम है, छूट, शुल्क, बीमा, ऑडिट, घुमाव या कोई व्यापार नहीं बनता।</p>
+<hr />
+<h1 id="वयपर-क-परकरय">5. व्यापार की प्रक्रिया</h1>
+<p>पूर्ण व्यापार इस तरह चलता है:</p>
+<h2 id="चरण-1-खरदर-मग-पद-करत-ह">चरण 1: खरीदार माँग पैदा करता है</h2>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+कहता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">मुझे </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> के पास की दिशा वाली वस्तु चाहिए</mtext></mrow></mrow><annotation encoding="application/x-tex">
+\text{मुझे } \theta_A^K \text{ के पास की दिशा वाली वस्तु चाहिए}
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p>अर्थात खरीदार कुछ अच्छा और कुछ हद तक लोकप्रिय चाहता है।</p>
+<h2 id="चरण-2-वकरत-परसतव-दत-ह">चरण 2: विक्रेता प्रस्ताव देता है</h2>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+कहता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">मैं </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> दिशा वाली वस्तु बेचता हूँ</mtext></mrow></mrow><annotation encoding="application/x-tex">
+\text{मैं } \theta_B^V \text{ दिशा वाली वस्तु बेचता हूँ}
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 55^\circ
+</annotation></semantics></math></p>
+<p>तब उत्पाद-दूरी है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><msup><mn>25</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = 25^\circ
+</annotation></semantics></math></p>
+<p>यह अपेक्षाकृत पास है। खरीदार शायद स्वीकार करेगा।</p>
+<h2 id="चरण-3-खरदर-भगतन-दत-ह">चरण 3: खरीदार भुगतान देता है</h2>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+तटस्थ धन से नहीं, बल्कि अपने आउटपुट कोण के धन से भुगतान करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 80^\circ
+</annotation></semantics></math></p>
+<p>यह धन बहुत लोकप्रिय हो सकता है, पर केवल मध्यम भला हो सकता है।</p>
+<h2 id="चरण-4-वकरत-भगतन-जचत-ह">चरण 4: विक्रेता भुगतान जाँचता है</h2>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+के पास आने वाले मूल्य के लिए खरीद कोण है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_B^K
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>70</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 70^\circ
+</annotation></semantics></math></p>
+<p>तब धन-दूरी है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><msup><mn>10</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = 10^\circ
+</annotation></semantics></math></p>
+<p>धन विक्रेता से अच्छी तरह मेल खाता है।</p>
+<h2 id="चरण-5-वयपर-पर-हत-ह">चरण 5: व्यापार पूरा होता है</h2>
+<p>यदि दोनों दूरियाँ पर्याप्त छोटी हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">
+d_X \leq \varepsilon_X
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+d_M \leq \varepsilon_M
+</annotation></semantics></math></p>
+<p>तो व्यापार होता है।</p>
+<p>खरीदार को उत्पाद मिलता है।</p>
+<p>विक्रेता को धन मिलता है।</p>
+<p>लेकिन दोनों को केवल मूल्य नहीं, कोण-गुणवत्ता भी मिलती है।</p>
+<hr />
+<h1 id="वसतव-म-कय-घमत-ह">6. वास्तव में क्या घूमता है?</h1>
+<p>तीन चीजें साथ-साथ घूमती हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">मूल्य</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{मूल्य}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">भलाई</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{भलाई}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">लोकप्रियता</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{लोकप्रियता}
+}
+</annotation></semantics></math></p>
+<p>लेकिन वे एक जैसी तरह नहीं घूमतीं।</p>
+<h2 id="मलय-भगतन-स-घमत-ह">मूल्य भुगतान से घूमता है</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+A \rightarrow B
+</annotation></semantics></math></p>
+<p>खरीदार संख्यात्मक मूल्य खोता है।</p>
+<p>विक्रेता संख्यात्मक मूल्य पाता है।</p>
+<h2 id="भलई-उतपतत-उतपदन-और-मलयकन-स-घमत-ह">भलाई उत्पत्ति, उत्पादन और मूल्यांकन
+से घूमती है</h2>
+<p>भलाई वास्तविक कर्मों से बनती या मिटती है:</p>
+<ul>
+<li>स्वच्छ आपूर्ति-श्रृंखलाएँ</li>
+<li>न्यायपूर्ण श्रम</li>
+<li>कम नुकसान</li>
+<li>अच्छे उत्पाद</li>
+<li>नुकसान की मरम्मत</li>
+<li>वैधता</li>
+<li>पर्यावरणीय प्रभाव</li>
+<li>सामाजिक प्रभाव</li>
+<li>पारदर्शिता</li>
+<li>ऑडिट</li>
+<li>अदालतें</li>
+<li>सरकारी मूल्यांकन</li>
+</ul>
+<p>भलाई केवल राय नहीं है। वह वास्तविक परिणामों और संस्थागत जाँच से अधिक जुड़ी
+है।</p>
+<h2 id="लकपरयत-सवकत-और-धयन-स-घमत-ह">लोकप्रियता स्वीकृति और ध्यान से घूमती
+है</h2>
+<p>लोकप्रियता बनती है:</p>
+<ul>
+<li>माँग से</li>
+<li>ग्राहक-संतुष्टि से</li>
+<li>मीडिया से</li>
+<li>रुझानों से</li>
+<li>विज्ञापन से</li>
+<li>सामाजिक नेटवर्कों से</li>
+<li>सांस्कृतिक प्रतीकों से</li>
+<li>राजनीतिक खेमों से</li>
+<li>बहिष्कारों से</li>
+<li>विरोधों से</li>
+<li>इन्फ्लुएंसरों से</li>
+<li>भीड़-व्यवहार से</li>
+</ul>
+<p>लोकप्रियता भलाई से तेज चलती है।</p>
+<p>इसलिए वह तेज बढ़ सकती है और तेज गिर भी सकती है।</p>
+<hr />
+<h1 id="खरदर-क-बलस-शट-म-परवरतन">7. खरीदार की बैलेंस-शीट में परिवर्तन</h1>
+<p>खरीद से पहले खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+के पास है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>A</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>m</mi><mi>A</mi></msub><mo>,</mo><msub><mi>g</mi><mi>A</mi></msub><mo>,</mo><msub><mi>b</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_A = (m_A,g_A,b_A)
+</annotation></semantics></math></p>
+<p>वह भुगतान करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mtext mathvariant="normal">pay</mtext></msub><mo>,</mo><msub><mi>b</mi><mtext mathvariant="normal">pay</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\Delta M = (p,g_{\text{pay}},b_{\text{pay}})
+</annotation></semantics></math></p>
+<p>तब उसका धन-भंडार घटता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>A</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>A</mi></msub><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_A&#39; = m_A - p
+</annotation></semantics></math></p>
+<p>उसके दिए गए धन की दिशा है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>साथ ही उसे उत्पाद मिलता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>जहाँ
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>
+उपयोगिता है,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>X</mi></msub><annotation encoding="application/x-tex">g_X</annotation></semantics></math>
+भलाई है,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>X</mi></msub><annotation encoding="application/x-tex">b_X</annotation></semantics></math>
+लोकप्रियता है।</p>
+<p>जब उत्पाद उपभोग होता है, वह सीधे धन नहीं बनता। वह बदलता है:</p>
+<ul>
+<li>उपयोगिता</li>
+<li>जीवन-स्तर</li>
+<li>प्रतिष्ठा</li>
+<li>भविष्य की पसंदें</li>
+<li>राजनीतिक मत</li>
+<li>माँग</li>
+<li>संभवतः अपनी उत्पादकता</li>
+</ul>
+<p>घर-परिवार के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">उत्पाद</mtext><mo>→</mo><mtext mathvariant="normal">उपयोगिता / संतोष / मत</mtext></mrow><annotation encoding="application/x-tex">
+\text{उत्पाद} \rightarrow \text{उपयोगिता / संतोष / मत}
+</annotation></semantics></math></p>
+<p>कंपनी के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">उत्पाद</mtext><mo>→</mo><mtext mathvariant="normal">input / आपूर्ति-श्रृंखला / नया उत्पादन कोण</mtext></mrow><annotation encoding="application/x-tex">
+\text{उत्पाद} \rightarrow \text{input / आपूर्ति-श्रृंखला / नया उत्पादन कोण}
+</annotation></semantics></math></p>
+<p>यह महत्वपूर्ण है: यदि कंपनी खराब input खरीदती है, वह खराब कोण बाद में उसके
+उत्पाद में प्रवेश कर सकता है।</p>
+<hr />
+<h1 id="वकरत-क-बलस-शट-म-परवरतन">8. विक्रेता की बैलेंस-शीट में परिवर्तन</h1>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+उत्पाद देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>B</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X_B = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>और धन प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">in</mtext></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mi>M</mi></msub><mo>,</mo><msub><mi>b</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_{\text{in}} = (p,g_M,b_M)
+</annotation></semantics></math></p>
+<p>उसका धन-भंडार बढ़ता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>B</mi></msub><mo>+</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_B&#39; = m_B + p
+</annotation></semantics></math></p>
+<p>लेकिन उसके धन की गुणवत्ता भी बदलती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>g</mi><mi>B</mi></msub><mo>+</mo><msub><mi>g</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+g_B&#39; = g_B + g_M
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>b</mi><mi>B</mi></msub><mo>+</mo><msub><mi>b</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+b_B&#39; = b_B + b_M
+</annotation></semantics></math></p>
+<p>उसका नया नकद-कोण बनता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mtext mathvariant="normal">cash</mtext></msubsup><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>,</mo><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B^{\text{cash}}=
+\operatorname{atan2}(b_B&#39;,g_B&#39;)
+</annotation></semantics></math></p>
+<p>यदि कई ग्राहक अच्छे और लोकप्रिय धन से भुगतान करते हैं, कंपनी की नकदी उस दिशा में
+खिंचती है।</p>
+<p>यदि कई ग्राहक विषैले धन से भुगतान करते हैं, कंपनी की नकदी दूषित होती है।</p>
+<p>अर्थात:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">केवल उत्पादों की उत्पत्ति नहीं होती। ग्राहक-धन की भी उत्पत्ति होती है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{केवल उत्पादों की उत्पत्ति नहीं होती। ग्राहक-धन की भी उत्पत्ति होती है।}
+}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="वकटर-वलट-धन-क-लट-म-रख-जत-ह">9. वेक्टर-वॉलेट: धन को लॉटों में रखा जाता
+है</h1>
+<p>व्यवहार में अभिनेता को अपना वॉलेट केवल कुल योग के रूप में नहीं रखना चाहिए।</p>
+<p>उसके पास अनेक धन-लॉट होते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+M_i = \{M_{i1},M_{i2},M_{i3},...\}
+</annotation></semantics></math></p>
+<p>हर लॉट में है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<pre class="text"><code>लॉट 1: 500 मूल्य, अच्छा कोण, उच्च विश्वसनीयता
+लॉट 2: 200 मूल्य, लोकप्रिय पर संदिग्ध
+लॉट 3: 100 मूल्य, विषैला, कम विश्वसनीयता</code></pre>
+<p>जब अभिनेता भुगतान करता है, वह चुनता है कि कौन-सा धन खर्च करे।</p>
+<p>इसे coin selection कहा जा सकता है।</p>
+<p>संभव रणनीतियाँ:</p>
+<h2 id="सबस-अचछ-धन-पहल">सबसे अच्छा धन पहले</h2>
+<p>अभिनेता बेहतर कीमत पाने के लिए अच्छे धन से भुगतान करता है।</p>
+<h2 id="सबस-खरब-धन-पहल">सबसे खराब धन पहले</h2>
+<p>अभिनेता विषैला धन हटाने की कोशिश करता है।</p>
+<h2 id="पहल-मल-खन-वल-धन">पहले मेल खाने वाला धन</h2>
+<p>अभिनेता ऐसे लॉट खोजता है जिनका कोण विक्रेता के खरीद कोण से मेल खाए।</p>
+<h2 id="छदम-मशरण">छद्म-मिश्रण</h2>
+<p>अभिनेता खराब धन को अच्छे धन से मिलाकर स्वीकार्य औसत कोण बनाता है।</p>
+<p>यहीं कोण-धुलाई पैदा होती है।</p>
+<hr />
+<h1 id="वकरत-भगतन-असवकर-कर-सकत-ह">10. विक्रेता भुगतान अस्वीकार कर सकता
+है</h1>
+<p>विक्रेता हर धन को समान रूप से स्वीकार नहीं करता।</p>
+<p>वह जाँचता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>यदि धन उसके खरीद कोण से बहुत दूर है, कई विकल्प हैं:</p>
+<h2 id="असवकत">अस्वीकृति</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>&gt;</mo><mi>ε</mi><mo>⇒</mo><mtext mathvariant="normal">कोई व्यापार नहीं</mtext></mrow><annotation encoding="application/x-tex">
+d_M &gt; \varepsilon
+\Rightarrow
+\text{कोई व्यापार नहीं}
+</annotation></semantics></math></p>
+<h2 id="छट">छूट</h2>
+<p>विक्रेता धन स्वीकार करता है, पर मूल्य-हानि के साथ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot \phi(d_M)
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>उसके लिए शायद केवल:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>62</mn><annotation encoding="application/x-tex">
+62
+</annotation></semantics></math></p>
+<p>गिने जाएँ।</p>
+<h2 id="अधभर">अधिभार</h2>
+<p>खरीदार को अधिक भुगतान करना होगा:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mtext mathvariant="normal">required</mtext></msub><mo>=</mo><mfrac><mi>p</mi><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p_{\text{required}} = \frac{p}{\phi(d_M)}
+</annotation></semantics></math></p>
+<h2 id="घमव">घुमाव</h2>
+<p>कोण-व्यापारी या बैंक शुल्क लेकर धन को घुमाता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^V \rightarrow \theta_B^K
+</annotation></semantics></math></p>
+<p>लागत:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mtext mathvariant="normal">rot</mtext></msub><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>d</mi><mi>M</mi></msub><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C_{\text{rot}}=\lambda m \tan^2\left(\frac{d_M}{2}\right)
+</annotation></semantics></math></p>
+<p>कोण-दूरी जितनी बड़ी, घुमाव उतना महँगा।</p>
+<h2 id="ऑडट">ऑडिट</h2>
+<p>उत्पत्ति की जाँच होती है। यदि खराब कोण गलत सूचना पर आधारित है, विश्वसनीयता
+या दिशा सुधारी जा सकती है।</p>
+<hr />
+<h1 id="खरदर-उतपद-असवकर-कर-सकत-ह">11. खरीदार उत्पाद अस्वीकार कर सकता
+है</h1>
+<p>साथ ही खरीदार जाँचता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>यदि उत्पाद इच्छित खरीद कोण से बहुत दूर है:</p>
+<h2 id="कई-खरद-नह">कोई खरीद नहीं</h2>
+<p>उत्पाद पड़ा रहता है।</p>
+<h2 id="कमत-छट">कीमत-छूट</h2>
+<p>विक्रेता को सस्ता करना पड़ता है।</p>
+<h2 id="उतपद-सधर">उत्पाद-सुधार</h2>
+<p>विक्रेता वास्तविक सुधार में निवेश करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">भलाई</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{भलाई}
+</annotation></semantics></math></p>
+<h2 id="मरकटग">मार्केटिंग</h2>
+<p>विक्रेता धारणा में निवेश करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">लोकप्रियता</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{लोकप्रियता}
+</annotation></semantics></math></p>
+<h2 id="परमणन">प्रमाणन</h2>
+<p>विक्रेता कोण को अधिक विश्वसनीय बनाता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+\rho \uparrow
+</annotation></semantics></math></p>
+<p>अर्थात: उत्पाद-कोण बिक्री-क्षमता तय करता है।</p>
+<p>धन-कोण भुगतान-क्षमता तय करता है।</p>
+<hr />
+<h1 id="द-कण-हर-लनदन-म-चर-भमकए-बनत-ह">12. दो कोण हर लेनदेन में चार भूमिकाएँ
+बनाते हैं</h1>
+<p>हर लेनदेन में चार महत्वपूर्ण कोण हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">खरीदार उत्पाद प्राप्त करता है</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^K = \text{खरीदार उत्पाद प्राप्त करता है}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">खरीदार धन देता है</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^V = \text{खरीदार धन देता है}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">विक्रेता धन प्राप्त करता है</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^K = \text{विक्रेता धन प्राप्त करता है}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">विक्रेता उत्पाद देता है</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^V = \text{विक्रेता उत्पाद देता है}
+</annotation></semantics></math></p>
+<p>इससे दो मिलान बनते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^K \leftrightarrow \theta_B^V
+</annotation></semantics></math></p>
+<p>वस्तु के लिए।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_B^K \leftrightarrow \theta_A^V
+</annotation></semantics></math></p>
+<p>धन के लिए।</p>
+<p>यही पूर्ण परिसंचरण-यांत्रिकी है।</p>
+<pre class="text"><code>                 उत्पाद कोण
+          θ_B^V ───────────────▶ θ_A^K
+          विक्रेता                खरीदार
+
+
+                   धन कोण
+          θ_B^K ◀─────────────── θ_A^V
+          विक्रेता                खरीदार</code></pre>
+<p>व्यापार स्थिर है यदि दोनों संबंध छोटे हैं।</p>
+<p>व्यापार अस्थिर है यदि एक संबंध छोटा और दूसरा लंबा है।</p>
+<hr />
+<h1 id="उदहरण-अचछ-वयपर">13. उदाहरण: अच्छा व्यापार</h1>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>दोनों पक्ष मिलते हैं।</p>
+<p>उत्पाद खरीदार से मेल खाता है।</p>
+<p>धन विक्रेता से मेल खाता है।</p>
+<p>व्यापार अत्यधिक तरल है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>≈</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\Phi \approx 1
+</annotation></semantics></math></p>
+<p>धन आसानी से घूमता है।</p>
+<hr />
+<h1 id="उदहरण-उतपद-मल-खत-ह-धन-नह">14. उदाहरण: उत्पाद मेल खाता है, धन
+नहीं</h1>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 150^\circ
+</annotation></semantics></math></p>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>50</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 50^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>उत्पाद मेल खाता है।</p>
+<p>लेकिन:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>50</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>100</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(50^\circ,150^\circ)=100^\circ
+</annotation></semantics></math></p>
+<p>धन मेल नहीं खाता।</p>
+<p>परिणाम:</p>
+<ul>
+<li>खरीदार खरीदना चाहता है।</li>
+<li>विक्रेता बेचना चाहता है।</li>
+<li>लेकिन विक्रेता धन पर भरोसा नहीं करता।</li>
+<li>अधिभार, घुमाव, ऑडिट या दूसरा धन चाहिए।</li>
+</ul>
+<p>यह खरीद-शक्ति होते हुए भी भुगतान-समस्या जैसा है।</p>
+<p>खरीदार के पास मूल्य है, पर गलत कोण है।</p>
+<hr />
+<h1 id="उदहरण-धन-मल-खत-ह-उतपद-नह">15. उदाहरण: धन मेल खाता है, उत्पाद
+नहीं</h1>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 150^\circ
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>धन मेल खाता है।</p>
+<p>लेकिन:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>120</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(30^\circ,150^\circ)=120^\circ
+</annotation></semantics></math></p>
+<p>उत्पाद मेल नहीं खाता।</p>
+<p>परिणाम:</p>
+<ul>
+<li>विक्रेता धन लेना चाहता है।</li>
+<li>खरीदार उस दिशा का उत्पाद नहीं चाहता।</li>
+<li>विक्रेता को सुधारना, सस्ता होना या दूसरा खरीदार समूह ढूँढना होगा।</li>
+</ul>
+<p>यह भुगतान-क्षम ग्राहकों के बावजूद बिक्री-समस्या है।</p>
+<hr />
+<h1 id="उदहरण-दन-दशए-नह-मलत">16. उदाहरण: दोनों दिशाएँ नहीं मिलतीं</h1>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>20</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 20^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 160^\circ
+</annotation></semantics></math></p>
+<p>विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 170^\circ
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>20</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>170</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(20^\circ,170^\circ)=150^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>160</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>130</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(30^\circ,160^\circ)=130^\circ
+</annotation></semantics></math></p>
+<p>उत्पाद नहीं मिलता।</p>
+<p>धन नहीं मिलता।</p>
+<p>व्यापार शायद नहीं होगा — सिवाय छाया-बाज़ार या बहुत बड़ी छूट के।</p>
+<hr />
+<h1 id="परसचरण-एक-रपतरण-शरखल-क-रप-म">17. परिसंचरण एक रूपांतरण-श्रृंखला के रूप
+में</h1>
+<p>हर अभिनेता अपने खरीद कोण के पास आने वाले मूल्य ग्रहण करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>K</mi></msup><annotation encoding="application/x-tex">
+\theta^K
+</annotation></semantics></math></p>
+<p>और अपने बिक्री कोण के पास जाने वाले मूल्य देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>V</mi></msup><annotation encoding="application/x-tex">
+\theta^V
+</annotation></semantics></math></p>
+<p>इससे हर अभिनेता आर्थिक कोण-परिवर्तक बनता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub><mo>:</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">in</mtext></msub><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">out</mtext></msub></mrow><annotation encoding="application/x-tex">
+T_i:
+(m,g,b)_{\text{in}}
+\rightarrow
+(m&#39;,g&#39;,b&#39;)_{\text{out}}
+</annotation></semantics></math></p>
+<p>या:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<h2 id="कपन">कंपनी</h2>
+<p>inputs और श्रम खरीदती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{कंपनी}}
+</annotation></semantics></math></p>
+<p>वस्तुएँ बनाती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{कंपनी}}
+</annotation></semantics></math></p>
+<p>यदि वह वास्तविक गुणवत्ता बनाती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>यदि वह अच्छी विज्ञापनबाज़ी करती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>यदि वह नुकसान बाहर धकेलती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow
+</annotation></semantics></math></p>
+<p>यदि नुकसान के बावजूद लोकप्रिय रहती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<h2 id="घर-परवर">घर-परिवार</h2>
+<p>वेतन प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">घर</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{घर}}
+</annotation></semantics></math></p>
+<p>उपभोग-धन खर्च करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">घर</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{घर}}
+</annotation></semantics></math></p>
+<p>उसके खरीद निर्णय कंपनियों की लोकप्रियता बदलते हैं।</p>
+<h2 id="बक">बैंक</h2>
+<p>जमा प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{बैंक}}
+</annotation></semantics></math></p>
+<p>ऋण देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{बैंक}}
+</annotation></semantics></math></p>
+<p>वह उधारकर्ता, उद्देश्य और जोखिम पर निर्भर कोण के साथ नया धन बनाता है।</p>
+<h2 id="सरकर">सरकार</h2>
+<p>कर प्राप्त करती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">राज्य</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{राज्य}}
+</annotation></semantics></math></p>
+<p>सार्वजनिक खर्च करती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">राज्य</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{राज्य}}
+</annotation></semantics></math></p>
+<p>वह कानूनों से भलाई परिभाषित कर सकती है और खर्च से कोणों को खिसका सकती है।</p>
+<h2 id="मडय">मीडिया</h2>
+<p>ध्यान और धन प्राप्त करते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">मीडिया</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{मीडिया}}
+</annotation></semantics></math></p>
+<p>लोकप्रियता या अलोकप्रियता देते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">मीडिया</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{मीडिया}}
+</annotation></semantics></math></p>
+<p>वे मुख्यतः
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>,
+यानी लोकप्रियता, को प्रभावित करते हैं।</p>
+<h2 id="अदलत-ऑडट">अदालतें / ऑडिट</h2>
+<p>मामले, प्रमाण और शुल्क प्राप्त करते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">अदालत/ऑडिट</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{अदालत/ऑडिट}}
+</annotation></semantics></math></p>
+<p>विश्वसनीयता और भलाई-सुधार देते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">अदालत/ऑडिट</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{अदालत/ऑडिट}}
+</annotation></semantics></math></p>
+<p>वे मुख्यतः
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+और
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+को प्रभावित करते हैं।</p>
+<hr />
+<h1 id="सबस-महतवपरण-परसचरण-सतर">18. सबसे महत्वपूर्ण परिसंचरण सूत्र</h1>
+<p>खरीदार
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+और विक्रेता
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+के बीच लेनदेन के लिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">व्यापार मात्रा</mtext><mo>=</mo><mi>Q</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\text{व्यापार मात्रा}
+=
+Q \cdot \phi(d_X)\cdot \phi(d_M)\cdot \rho_X\cdot\rho_M
+</annotation></semantics></math></p>
+<p>या संक्षेप में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>T</mi></msub><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><mi mathvariant="normal">Φ</mi></mrow><annotation encoding="application/x-tex">
+Q_T = Q_0 \Phi
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mi>ρ</mi><mi>X</mi></msub><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi =
+\phi(d_X)\phi(d_M)\rho_X\rho_M
+</annotation></semantics></math></p>
+<p>यदि
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+ऊँचा है, बहुत कुछ घूमता है।</p>
+<p>यदि
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+कम है, कम घूमता है।</p>
+<p>यदि बहुत से अभिनेताओं के खरीद और बिक्री कोण असंगत हैं, पूरी अर्थव्यवस्था की तरलता
+घटती है।</p>
+<hr />
+<h1 id="मलय-भलई-कस-खरदत-ह">19. मूल्य भलाई कैसे खरीदता है</h1>
+<p>मूल्य भलाई खरीद सकता है, लेकिन केवल वास्तविक परिवर्तन से।</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">बेहतर श्रम-स्थितियाँ</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{बेहतर श्रम-स्थितियाँ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">स्वच्छ ऊर्जा</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{स्वच्छ ऊर्जा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">नुकसान की भरपाई</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{नुकसान की भरपाई}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">उत्पाद-सुरक्षा</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{उत्पाद-सुरक्षा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">आपूर्ति-श्रृंखला जाँच</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{आपूर्ति-श्रृंखला जाँच}
+</annotation></semantics></math></p>
+<p>तब बढ़ता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>एक संभावित सिमुलेशन नियम:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mi>g</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>g</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>⋅</mo><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_g \cdot \log(1+I_g)\cdot R_{\text{real}}\cdot \rho_{\text{audit}}
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>g</mi></msub><mo>=</mo><mtext mathvariant="normal">वास्तविक सुधार में निवेश</mtext></mrow><annotation encoding="application/x-tex">
+I_g = \text{वास्तविक सुधार में निवेश}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>=</mo><mtext mathvariant="normal">वास्तविकता कारक</mtext></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} = \text{वास्तविकता कारक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub><mo>=</mo><mtext mathvariant="normal">ऑडिट-विश्वसनीयता</mtext></mrow><annotation encoding="application/x-tex">
+\rho_{\text{audit}} = \text{ऑडिट-विश्वसनीयता}
+</annotation></semantics></math></p>
+<p>यदि कंपनी केवल दावा करती है कि वह अच्छी है, पर वास्तविक सुधार नहीं करती:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} \approx 0
+</annotation></semantics></math></p>
+<p>तब अधिकतम अल्पकालिक लोकप्रियता बढ़ेगी, पर वास्तविक भलाई नहीं।</p>
+<hr />
+<h1 id="मलय-लकपरयत-कस-खरदत-ह">20. मूल्य लोकप्रियता कैसे खरीदता है</h1>
+<p>मूल्य लोकप्रियता को अधिक आसानी से खरीद सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">विज्ञापन</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{विज्ञापन}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">छूट</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{छूट}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">इन्फ्लुएंसर</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{इन्फ्लुएंसर}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">मीडिया अभियान</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{मीडिया अभियान}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">प्रायोजन</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{प्रायोजन}
+</annotation></semantics></math></p>
+<p>तब बढ़ता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>एक संभावित सिमुलेशन नियम:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mi>b</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>b</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>⋅</mo><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>−</mo><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_b \cdot \log(1+I_b)\cdot M_{\text{media}}\cdot S_{\text{trend}}
+-
+B_{\text{backlash}}
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>b</mi></msub><mo>=</mo><mtext mathvariant="normal">विज्ञापन / PR खर्च</mtext></mrow><annotation encoding="application/x-tex">
+I_b = \text{विज्ञापन / PR खर्च}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>=</mo><mtext mathvariant="normal">मीडिया-विस्तार</mtext></mrow><annotation encoding="application/x-tex">
+M_{\text{media}} = \text{मीडिया-विस्तार}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>=</mo><mtext mathvariant="normal">रुझान कारक</mtext></mrow><annotation encoding="application/x-tex">
+S_{\text{trend}} = \text{रुझान कारक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub><mo>=</mo><mtext mathvariant="normal">प्रतिक्रिया</mtext></mrow><annotation encoding="application/x-tex">
+B_{\text{backlash}} = \text{प्रतिक्रिया}
+</annotation></semantics></math></p>
+<p>लोकप्रियता भलाई से तेज है, पर अधिक अस्थिर है।</p>
+<p>इसलिए अक्सर होता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> समान रहता है</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ समान रहता है}
+</annotation></semantics></math></p>
+<p>या यहाँ तक कि:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<p>यह स्थिति है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लोकप्रिय, लेकिन बुरा</mtext><annotation encoding="application/x-tex">
+\text{लोकप्रिय, लेकिन बुरा}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="लकपरयत-भलई-कस-खरद-सकत-ह">21. लोकप्रियता भलाई कैसे खरीद सकती है</h1>
+<p>लोकप्रियता सीधे भलाई नहीं खरीद सकती, पर सुधारों को आसान बना सकती है।</p>
+<p>लोकप्रिय कंपनी के पास होता है:</p>
+<ul>
+<li>अधिक ग्राहक-विश्वास</li>
+<li>अधिक राजनीतिक पूँजी</li>
+<li>कर्मचारियों तक आसान पहुँच</li>
+<li>निवेशकों का अधिक धैर्य</li>
+<li>अधिक मूल्य-निर्धारण शक्ति</li>
+<li>बदलाव के विरुद्ध कम प्रतिरोध</li>
+</ul>
+<p>तब वह लोकप्रियता को वास्तविक सुधार-क्षमता में बदल सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>→</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">
+b \rightarrow g
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>b</mi><mi>g</mi></mrow></msub><mo>⋅</mo><mi>b</mi><mo>⋅</mo><msub><mi>I</mi><mi>g</mi></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_{bg}\cdot b \cdot I_g \cdot \rho
+</annotation></semantics></math></p>
+<p>लेकिन यहाँ भी वास्तविक निवेश चाहिए।</p>
+<p>लोकप्रियता अकेली भलाई नहीं है।</p>
+<p>वह केवल एक संसाधन है जिससे भलाई बनाना आसान हो सकता है।</p>
+<hr />
+<h1 id="भलई-लकपरयत-कस-खरद-सकत-ह">22. भलाई लोकप्रियता कैसे खरीद सकती है</h1>
+<p>भलाई लोकप्रियता बना सकती है, पर केवल जब वह दिखाई दे।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+g \rightarrow b
+</annotation></semantics></math></p>
+<p>इसके लिए चाहिए:</p>
+<ul>
+<li>पारदर्शिता</li>
+<li>स्वतंत्र मीडिया</li>
+<li>विश्वसनीय ऑडिट</li>
+<li>समझने योग्य संचार</li>
+<li>शिक्षा</li>
+<li>समय</li>
+<li>विश्वास</li>
+</ul>
+<p>एक संभावित नियम:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>g</mi><mi>b</mi></mrow></msub><mo>⋅</mo><mi>g</mi><mo>⋅</mo><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_{gb}\cdot g \cdot T_{\text{visibility}}\cdot \rho
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>=</mo><mtext mathvariant="normal">दृश्यता</mtext></mrow><annotation encoding="application/x-tex">
+T_{\text{visibility}} = \text{दृश्यता}
+</annotation></semantics></math></p>
+<p>यदि कोई भलाई नहीं देखता, लोकप्रियता बहुत कम बढ़ती है।</p>
+<p>इसलिए अच्छी पर अदृश्य कंपनी अलोकप्रिय रह सकती है।</p>
+<hr />
+<h1 id="खतरनक-परवह-कण-धलई">23. खतरनाक प्रवाह: कोण-धुलाई</h1>
+<p>कोण-धुलाई तब होती है जब कोई खराब मूल्य को बेहतर दिखने वाले कोण में बदलता
+है।</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup><mo>→</mo><mn>900</mn><mi>∠</mi><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+\rightarrow
+900 \angle 40^\circ
+</annotation></semantics></math></p>
+<p>पर वास्तविक सुधार के बिना।</p>
+<p>यह हो सकता है:</p>
+<ul>
+<li>सहायक कंपनियों से</li>
+<li>बिचौलियों से</li>
+<li>नकली ऑडिट से</li>
+<li>PR अभियानों से</li>
+<li>दान से</li>
+<li>खरीदी हुई रेटिंग से</li>
+<li>कृत्रिम लोकप्रियता से</li>
+<li>बॉट नेटवर्क से</li>
+<li>कर और कोण-स्वर्गों से</li>
+</ul>
+<p>तब दिखावे में बढ़ता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow
+</annotation></semantics></math></p>
+<p>लेकिन विश्वसनीयता गिरनी चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<p>और इतिहास
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+संदिग्ध होना चाहिए।</p>
+<p>इसलिए प्रणाली को स्रोत-चिह्न चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">लेनदेन इतिहास</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{लेनदेन इतिहास}
+</annotation></semantics></math></p>
+<p>इतिहास के बिना कोण-धन धोया जा सकता है।</p>
+<hr />
+<h1 id="शरम-बजर-म-परसचरण">24. श्रम-बाज़ार में परिसंचरण</h1>
+<p>श्रम-बाज़ार विशेष रूप से महत्वपूर्ण है।</p>
+<p>कंपनी श्रम खरीदती है।</p>
+<p>श्रमिक श्रम बेचता है।</p>
+<p>कंपनी के लिए श्रम input है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{कंपनी}}^K
+</annotation></semantics></math></p>
+<p>श्रमिक के लिए वेतन आने वाला मूल्य है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">श्रमिक</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{श्रमिक}}^K
+</annotation></semantics></math></p>
+<p>साथ ही:</p>
+<ul>
+<li>श्रमिक अपनी बिक्री-कोण से श्रमशक्ति बेचता है।</li>
+<li>कंपनी अपनी बिक्री-कोण से वेतन देती है।</li>
+</ul>
+<p>फिर दो मिलान बनते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">श्रम</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">श्रमिक</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{श्रम}} = d(\theta_{\text{कंपनी}}^K,\theta_{\text{श्रमिक}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">वेतन</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">श्रमिक</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{वेतन}} = d(\theta_{\text{श्रमिक}}^K,\theta_{\text{कंपनी}}^V)
+</annotation></semantics></math></p>
+<p>यदि श्रम मेल खाता है पर वेतन-कोण खराब है, श्रमिक अधिक वेतन माँगता है।</p>
+<p>यदि वेतन अच्छा है पर काम खराब है, वह फिर भी अस्वीकार कर सकता है।</p>
+<p>यह वास्तविक मामलों को समझाता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ऊँचा वेतन, खराब नियोक्ता</mtext><annotation encoding="application/x-tex">
+\text{ऊँचा वेतन, खराब नियोक्ता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कम वेतन, अच्छा उद्देश्य</mtext><annotation encoding="application/x-tex">
+\text{कम वेतन, अच्छा उद्देश्य}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लोकप्रिय कंपनी, खराब श्रम-स्थितियाँ</mtext><annotation encoding="application/x-tex">
+\text{लोकप्रिय कंपनी, खराब श्रम-स्थितियाँ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">अलोकप्रिय पेशा, उच्च सामाजिक मूल्य</mtext><annotation encoding="application/x-tex">
+\text{अलोकप्रिय पेशा, उच्च सामाजिक मूल्य}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="करडट-बजर-म-परसचरण">25. क्रेडिट-बाज़ार में परिसंचरण</h1>
+<p>क्रेडिट में धन नया बनता है या समय में आगे-पीछे होता है।</p>
+<p>बैंक ऋण देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{बैंक}}^V
+</annotation></semantics></math></p>
+<p>कर्ज़दार ऋण प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{कर्ज़दार}}^K
+</annotation></semantics></math></p>
+<p>बाद में कर्ज़दार लौटाता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{कर्ज़दार}}^V
+</annotation></semantics></math></p>
+<p>बैंक पुनर्भुगतान प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{बैंक}}^K
+</annotation></semantics></math></p>
+<p>इसलिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">ऋण</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{ऋण}}=d(\theta_{\text{कर्ज़दार}}^K,\theta_{\text{बैंक}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">पुनर्भुगतान</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{पुनर्भुगतान}}=d(\theta_{\text{बैंक}}^K,\theta_{\text{कर्ज़दार}}^V)
+</annotation></semantics></math></p>
+<p>यदि ऋण अच्छे उद्देश्य के लिए है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">ऋण</mtext></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{ऋण}} \uparrow
+</annotation></semantics></math></p>
+<p>यदि ऋण लोकप्रिय सट्टेबाज़ी को वित्त देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mtext mathvariant="normal">ऋण</mtext></msub><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>g</mi><mtext mathvariant="normal">ऋण</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> अनिश्चित</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b_{\text{ऋण}} \uparrow,\quad g_{\text{ऋण}} \text{ अनिश्चित}
+</annotation></semantics></math></p>
+<p>यदि ऋण विषैली गतिविधियों को वित्त देता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">ऋण</mtext></msub><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{ऋण}} \downarrow
+</annotation></semantics></math></p>
+<p>तब ब्याज या गिरवी-शर्तें बढ़ती हैं।</p>
+<p>ब्याज दर में शामिल हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><msub><mi>i</mi><mn>0</mn></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">डिफ़ॉल्ट</mtext></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">कोण जोखिम</mtext></msub><mo>+</mo><msub><mi>i</mi><mi>ρ</mi></msub></mrow><annotation encoding="application/x-tex">
+i = i_0 + i_{\text{डिफ़ॉल्ट}} + i_{\text{कोण जोखिम}} + i_{\rho}
+</annotation></semantics></math></p>
+<p>अर्थात:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ब्याज</mtext><mo>=</mo><mtext mathvariant="normal">समय-कीमत</mtext><mo>+</mo><mtext mathvariant="normal">जोखिम</mtext><mo>+</mo><mtext mathvariant="normal">कोण-दंड</mtext></mrow><annotation encoding="application/x-tex">
+\text{ब्याज} = \text{समय-कीमत} + \text{जोखिम} + \text{कोण-दंड}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="रजय-म-परसचरण">26. राज्य में परिसंचरण</h1>
+<p>राज्य कर प्राप्त करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">राज्य</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{राज्य}}^K
+</annotation></semantics></math></p>
+<p>और सार्वजनिक खर्च करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">राज्य</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{राज्य}}^V
+</annotation></semantics></math></p>
+<p>विषैले स्रोतों से कर समस्या बन सकते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">क्या राज्य को खराब धन स्वीकार करना चाहिए?</mtext><annotation encoding="application/x-tex">
+\text{क्या राज्य को खराब धन स्वीकार करना चाहिए?}
+</annotation></semantics></math></p>
+<p>यदि हाँ, उसे शायद उसे शुद्ध करना पड़े:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">विषैला</mtext></msub><mo>→</mo><msub><mi>θ</mi><mtext mathvariant="normal">सार्वजनिक रूप से वैध</mtext></msub></mrow><annotation encoding="application/x-tex">
+\theta_{\text{विषैला}} \rightarrow \theta_{\text{सार्वजनिक रूप से वैध}}
+</annotation></semantics></math></p>
+<p>इनसे:</p>
+<ul>
+<li>अदालतें</li>
+<li>पारदर्शिता</li>
+<li>पुनर्वितरण</li>
+<li>नुकसान की मरम्मत</li>
+<li>सार्वजनिक निवेश</li>
+</ul>
+<p>राज्य-खर्च नए कोण पैदा करता है:</p>
+<ul>
+<li>शिक्षा
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+बढ़ा सकती है।</li>
+<li>प्रचार कृत्रिम रूप से
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+बढ़ा सकता है।</li>
+<li>अवसंरचना मूल्य और भलाई बढ़ा सकती है।</li>
+<li>दमन अल्पकालिक व्यवस्था दे सकता है, पर दीर्घकालिक खराब कोण।</li>
+<li>युद्ध को जनता और सरकार के अनुसार बहुत अलग कोण मिल सकते हैं।</li>
+</ul>
+<p>इसलिए राज्य एक विशाल कोण-परिवर्तक है।</p>
+<hr />
+<h1 id="दश-क-बच-परसचरण">27. देशों के बीच परिसंचरण</h1>
+<p>हर देश के अपने अक्ष होते हैं।</p>
+<p>देश A में जो अच्छा है, वह देश B में ज़रूरी नहीं अच्छा हो।</p>
+<p>इसलिए कोण-अनुवाद चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T_{A\rightarrow B}(\theta)
+</annotation></semantics></math></p>
+<p>एक निर्यात सौदे में तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">निर्यात, A</mtext></msub><mo>→</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">निर्यात, A</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{निर्यात, A}}
+\rightarrow
+T_{A\rightarrow B}(\theta_{\text{निर्यात, A}})
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>40</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> देश A में</mtext></mrow></mrow><annotation encoding="application/x-tex">
+40^\circ \text{ देश A में}
+</annotation></semantics></math></p>
+<p>बन सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>110</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> देश B में</mtext></mrow></mrow><annotation encoding="application/x-tex">
+110^\circ \text{ देश B में}
+</annotation></semantics></math></p>
+<p>तब अंतरराष्ट्रीय कोण-अर्बिट्राज पैदा होता है।</p>
+<p>कंपनियाँ ऐसे देश खोजती हैं जहाँ:</p>
+<ul>
+<li>उनका उत्पाद अधिक लोकप्रिय हो</li>
+<li>उनकी भलाई बेहतर आँकी जाए</li>
+<li>उनके बुरे प्रभाव कम दिखें</li>
+<li>उनका इतिहास कम सख्ती से जाँचा जाए</li>
+</ul>
+<p>यह नैतिक स्थान-अर्बिट्राज है।</p>
+<hr />
+<h1 id="कई-बजर-म-कय-हत-ह">28. कई बाज़ारों में क्या होता है?</h1>
+<p>हर बाज़ार की अपनी कोण-संरचना होती है।</p>
+<h2 id="उतपद-बजर">उत्पाद बाज़ार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">खरीदार</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">विक्रेता</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{खरीदार}}^K
+\leftrightarrow
+\theta_{\text{विक्रेता}}^V
+</annotation></semantics></math></p>
+<h2 id="भगतन-बजर">भुगतान बाज़ार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">विक्रेता</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">खरीदार</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{विक्रेता}}^K
+\leftrightarrow
+\theta_{\text{खरीदार}}^V
+</annotation></semantics></math></p>
+<h2 id="शरम-बजर">श्रम बाज़ार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">श्रमिक</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{कंपनी}}^K
+\leftrightarrow
+\theta_{\text{श्रमिक}}^V
+</annotation></semantics></math></p>
+<p>और:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">श्रमिक</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{श्रमिक}}^K
+\leftrightarrow
+\theta_{\text{कंपनी}}^V
+</annotation></semantics></math></p>
+<h2 id="करडट-बजर">क्रेडिट बाज़ार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{कर्ज़दार}}^K
+\leftrightarrow
+\theta_{\text{बैंक}}^V
+</annotation></semantics></math></p>
+<p>और बाद में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">बैंक</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कर्ज़दार</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{बैंक}}^K
+\leftrightarrow
+\theta_{\text{कर्ज़दार}}^V
+</annotation></semantics></math></p>
+<h2 id="पज-बजर">पूँजी बाज़ार</h2>
+<p>निवेशक कंपनी के हिस्से खरीदते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">निवेशक</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{निवेशक}}^K
+\leftrightarrow
+\theta_{\text{कंपनी}}^V
+</annotation></semantics></math></p>
+<p>कंपनियाँ पूँजी खरीदती हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">निवेशक</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{कंपनी}}^K
+\leftrightarrow
+\theta_{\text{निवेशक}}^V
+</annotation></semantics></math></p>
+<h2 id="कण-बजर">कोण बाज़ार</h2>
+<p>यहाँ दिशा सीधे खरीदी-बेची जाती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b)
+\rightarrow
+(m&#39;,g&#39;,b&#39;)
+</annotation></semantics></math></p>
+<p>शुल्क, जोखिम और विश्वसनीयता-हानि के साथ।</p>
+<hr />
+<h1 id="द-कण-क-आरथक-अरथ">29. दो कोणों का आर्थिक अर्थ</h1>
+<p>खरीद कोण और बिक्री कोण का अंतर व्यापार-तर्क का मूल है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+s_i = d(\theta_i^K,\theta_i^V)
+</annotation></semantics></math></p>
+<p>यह अभिनेता का कोण-स्प्रेड है।</p>
+<h2 id="छट-सपरड">छोटा स्प्रेड</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \approx 0
+</annotation></semantics></math></p>
+<p>अभिनेता समान दिशा में खरीदता और बेचता है।</p>
+<p>अर्थात:</p>
+<ul>
+<li>सुसंगत</li>
+<li>विश्वसनीय</li>
+<li>कम परिवर्तन-कार्य</li>
+<li>कम अर्बिट्राज</li>
+<li>उच्च भरोसा</li>
+</ul>
+<h2 id="बड-सपरड">बड़ा स्प्रेड</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≫</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \gg 0
+</annotation></semantics></math></p>
+<p>अभिनेता एक दिशा में खरीदता है और दूसरी दिशा में बेचता है।</p>
+<p>यह अच्छा या खराब दोनों हो सकता है।</p>
+<h3 id="अचछ-रप">अच्छा रूप</h3>
+<p>वह खराब inputs खरीदकर उन्हें वास्तव में सुधारता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">खराब</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{खराब}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">अच्छा</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{अच्छा}
+</annotation></semantics></math></p>
+<p>तब वह वास्तविक मूल्य-सुधार बनाता है।</p>
+<h3 id="खरब-रप">खराब रूप</h3>
+<p>वह खराब inputs खरीदकर केवल बेहतर पैकेजिंग में बेचता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">खराब</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{खराब}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">दिखने में अच्छा</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{दिखने में अच्छा}
+</annotation></semantics></math></p>
+<p>तब वह कोण-धुलाई करता है।</p>
+<h3 id="नषकरषणकर-रप">निष्कर्षणकारी रूप</h3>
+<p>वह अच्छे inputs खरीदता है और खराब outputs बेचता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">अच्छा</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{अच्छा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">खराब</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{खराब}
+</annotation></semantics></math></p>
+<p>तब वह भलाई या विश्वास को नष्ट करता है।</p>
+<hr />
+<h1 id="पर-अरथवयवसथ-म-परसचरण">30. पूरी अर्थव्यवस्था में परिसंचरण</h1>
+<p>पूरी अर्थव्यवस्था तब इस तरह दिखती है:</p>
+<pre class="text"><code>घर-परिवार
+  │ उत्पाद खरीदते हैं
+  ▼
+कंपनियाँ
+  │ वेतन देती हैं, inputs खरीदती हैं, ऋण लेती हैं
+  ▼
+बैंक / पूँजी बाज़ार
+  │ कंपनियों और राज्यों को वित्त देते हैं
+  ▼
+राज्य
+  │ कर लगाते हैं, विनियमित करते हैं, सब्सिडी देते हैं
+  ▼
+मीडिया / जनता / अदालतें / सरकारें
+  │ भलाई, लोकप्रियता और विश्वसनीयता का मूल्यांकन करती हैं
+  ▼
+कोण बाज़ार
+  │ दिशाओं को घुमाते, बीमा करते, जाँचते और व्यापार करते हैं
+  ▼
+घर-परिवार और कंपनियाँ</code></pre>
+<p>मूल्य भुगतान से बहता है।</p>
+<p>भलाई वास्तविक परिणामों और संस्थागत निर्णयों से बहती है।</p>
+<p>लोकप्रियता माँग, मीडिया और सामाजिक स्वीकृति से बहती है।</p>
+<p>विश्वसनीयता प्रमाण, पारदर्शिता और विवाद से बहती है।</p>
+<p>इतिहास लेनदेन-श्रृंखला से बहता है।</p>
+<hr />
+<h1 id="धन-परसचरण-चयनतमक-ह-जत-ह">31. धन-परिसंचरण चयनात्मक हो जाता है</h1>
+<p>सामान्य धन में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">
+100 = 100
+</annotation></semantics></math></p>
+<p>तुम्हारी प्रणाली में:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>30</mn><mo>∘</mo></msup><mo>≠</mo><mn>100</mn><mi>∠</mi><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 30^\circ \neq 100 \angle 150^\circ
+</annotation></semantics></math></p>
+<p>इसलिए धन हर जगह समान रूप से नहीं घूमता।</p>
+<p>क्षेत्र बनते हैं:</p>
+<h2 id="सवचछ-उचच-वशवसनयत-चकर">स्वच्छ उच्च-विश्वसनीयता चक्र</h2>
+<p>अच्छा धन भरोसेमंद अभिनेताओं के बीच घूमता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow,\quad \rho \uparrow
+</annotation></semantics></math></p>
+<p>वहाँ ब्याज कम, व्यापार तेज और स्प्रेड छोटे होते हैं।</p>
+<h2 id="लकपरय-पर-सदगध-चकर">लोकप्रिय पर संदिग्ध चक्र</h2>
+<p>लोकप्रिय धन तेज घूमता है, पर जोखिम के साथ।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> अनिश्चित</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ अनिश्चित}
+</annotation></semantics></math></p>
+<p>वहाँ बुलबुले और घोटाले होते हैं।</p>
+<h2 id="अचछ-पर-अलकपरय-चकर">अच्छा पर अलोकप्रिय चक्र</h2>
+<p>भली लेकिन अलोकप्रिय गतिविधियों को धैर्य, सब्सिडी या शिक्षा चाहिए।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \downarrow
+</annotation></semantics></math></p>
+<p>वहाँ कम-वित्तपोषण का खतरा है।</p>
+<h2 id="वषल-चकर">विषैला चक्र</h2>
+<p>खराब धन छाया-बाज़ारों में या ऊँची छूट पर घूमता है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow,\quad b \downarrow,\quad \rho \downarrow
+</annotation></semantics></math></p>
+<p>वहाँ ब्याज ऊँचा, धोखा आम और तरलता कम होती है।</p>
+<hr />
+<h1 id="परसचरण-अपन-आप-नतक-कय-नह-बनत">32. परिसंचरण अपने-आप नैतिक क्यों नहीं
+बनता</h1>
+<p>एक सामान्य भूल होगी:</p>
+<blockquote>
+<p>यदि भलाई और लोकप्रियता धन में जुड़ जाएँ, तो अर्थव्यवस्था अपने-आप अच्छी हो
+जाएगी।</p>
+</blockquote>
+<p>नहीं।</p>
+<p>प्रणाली नैतिक दिशा को व्यापार योग्य बनाती है।</p>
+<p>इससे वह हेरफेर योग्य भी बनती है।</p>
+<p>तीन रूप संभव हैं:</p>
+<h2 id="वसतवक-सधर">वास्तविक सुधार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">वास्तविक भलाई</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{वास्तविक भलाई}
+</annotation></semantics></math></p>
+<h2 id="परतकतमक-सधर">प्रतीकात्मक सुधार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">लोकप्रियता</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{लोकप्रियता}
+</annotation></semantics></math></p>
+<h2 id="धखधडपरण-सधर">धोखाधड़ीपूर्ण सुधार</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">मूल्य</mtext><mo>→</mo><mtext mathvariant="normal">दिखावटी भलाई</mtext></mrow><annotation encoding="application/x-tex">
+\text{मूल्य} \rightarrow \text{दिखावटी भलाई}
+</annotation></semantics></math></p>
+<p>इसलिए
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>,
+यानी विश्वसनीयता, बिल्कुल केंद्रीय है।</p>
+<p>विश्वसनीयता के बिना कोण प्रचार-लेबल बन जाता है।</p>
+<p>विश्वसनीयता के साथ कोण जाँचने योग्य बनता है।</p>
+<hr />
+<h1 id="सबस-सकषपत-ततर">33. सबसे संक्षिप्त तंत्र</h1>
+<p>सबसे छोटी पूर्ण परिभाषा है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">अभिनेता अपने खरीद कोण से प्राप्त करते हैं और अपने बिक्री कोण से भेजते हैं।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{अभिनेता अपने खरीद कोण से प्राप्त करते हैं और अपने बिक्री कोण से भेजते हैं।}
+}
+</annotation></semantics></math></p>
+<p>हर व्यापार जाँचता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">क्या वस्तु का बिक्री कोण खरीदार के खरीद कोण से मेल खाता है?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{क्या वस्तु का बिक्री कोण खरीदार के खरीद कोण से मेल खाता है?}
+}
+</annotation></semantics></math></p>
+<p>और:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">क्या धन का बिक्री कोण विक्रेता के खरीद कोण से मेल खाता है?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{क्या धन का बिक्री कोण विक्रेता के खरीद कोण से मेल खाता है?}
+}
+</annotation></semantics></math></p>
+<p>यदि हाँ, मूल्य, भलाई और लोकप्रियता आसानी से बहते हैं।</p>
+<p>यदि नहीं, बनते हैं:</p>
+<ul>
+<li>छूट</li>
+<li>अधिभार</li>
+<li>घुमाव</li>
+<li>ऑडिट लागत</li>
+<li>बीमा</li>
+<li>प्रतीक्षा</li>
+<li>छाया-बाज़ार</li>
+<li>प्रतिष्ठा-जोखिम</li>
+<li>राजनीतिक संघर्ष</li>
+</ul>
+<p>धन-परिसंचरण अब वृत्त नहीं, बल्कि निर्देशित नेटवर्क है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">मूल्य संगत कोणों के साथ बहता है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{मूल्य संगत कोणों के साथ बहता है।}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">भलाई वास्तविक सुधार और मान्यता के साथ बहती है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{भलाई वास्तविक सुधार और मान्यता के साथ बहती है।}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">लोकप्रियता ध्यान और स्वीकृति के साथ बहती है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{लोकप्रियता ध्यान और स्वीकृति के साथ बहती है।}
+}
+</annotation></semantics></math></p>
+<p>हर अभिनेता के दो कोण तय करते हैं कि वह <strong>क्या ग्रहण करना चाहता
+है</strong> और <strong>दुनिया में क्या छोड़ता है</strong>।</p>
+<p>यहीं से आर्थिक गतिशीलता पैदा होती है।</p>
+</body>
+</html>

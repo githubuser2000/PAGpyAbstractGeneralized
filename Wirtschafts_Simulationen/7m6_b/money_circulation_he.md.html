@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>money_circulation_he</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="כיצד-מסתובב-כסף-שמורכב-מערך-דרגת-טוביות-ודרגת-פופולריות-כאשר-יש-שתי-זוויות">כיצד
+מסתובב כסף שמורכב מערך, דרגת טוביות ודרגת פופולריות כאשר יש שתי
+זוויות?</h1>
+<p>במצב כזה הכסף כבר אינו מסתובב כזרם פשוט מן הקונה אל המוכר. הוא מסתובב
+כ<strong>זרם כפול</strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">המוצר/השירות זורם מן המוכר אל הקונה</mtext><annotation encoding="application/x-tex">
+\text{המוצר/השירות זורם מן המוכר אל הקונה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">הכסף זורם מן הקונה אל המוכר</mtext><annotation encoding="application/x-tex">
+\text{הכסף זורם מן הקונה אל המוכר}
+</annotation></semantics></math></p>
+<p>ולשני הזרמים יש כיוון במרחב הזוויות.</p>
+<p>הנקודה המרכזית היא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">כל מסחר הוא חילוף זוויתי כפול.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{כל מסחר הוא חילוף זוויתי כפול.}
+}
+</annotation></semantics></math></p>
+<p>הקונה אינו רק קונה מוצר.<br />
+המוכר קונה באותו זמן את כספו של הקונה.</p>
+<hr />
+<h1 id="אובייקט-הכסף">1. אובייקט הכסף</h1>
+<p>יחידת כסף אינה מורכבת רק מערך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">
+M = m
+</annotation></semantics></math></p>
+<p>אלא מ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">ערך מספרי</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{ערך מספרי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">דרגת טוביות</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{דרגת טוביות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">דרגת פופולריות</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{דרגת פופולריות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">אמון / ודאות של ההערכה</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{אמון / ודאות של ההערכה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">היסטוריה / מקור</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{היסטוריה / מקור}
+</annotation></semantics></math></p>
+<p>הזווית נוצרת מן הטוביות והפופולריות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>,</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(b,g)
+</annotation></semantics></math></p>
+<p>כלומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mtext mathvariant="normal">ציר x: טוב מול רע</mtext></mrow><annotation encoding="application/x-tex">
+g = \text{ציר x: טוב מול רע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mtext mathvariant="normal">ציר y: פופולרי מול לא פופולרי</mtext></mrow><annotation encoding="application/x-tex">
+b = \text{ציר y: פופולרי מול לא פופולרי}
+</annotation></semantics></math></p>
+<p>כמות הכסף היא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>הכיוון הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">
+\theta
+</annotation></semantics></math></p>
+<p>אמינות הכיוון היא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">
+\rho
+</annotation></semantics></math></p>
+<p>לכן תשלום אינו רק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>100</mn><annotation encoding="application/x-tex">
+100
+</annotation></semantics></math></p>
+<p>אלא למשל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>35</mn><mo>∘</mo></msup><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>=</mo><mn>0.82</mn></mrow><annotation encoding="application/x-tex">
+100 \angle 35^\circ,\quad \rho=0.82
+</annotation></semantics></math></p>
+<p>כלומר: 100 יחידות ערך, עם כיוון מסוים של טוביות/פופולריות ועם רמת
+ודאות מסוימת.</p>
+<hr />
+<h1 id="לכל-שחקן-יש-שתי-זוויות">2. לכל שחקן יש שתי זוויות</h1>
+<p>לכל שחקן
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+יש:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">זווית קנייה</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{זווית קנייה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">זווית מכירה</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{זווית מכירה}
+</annotation></semantics></math></p>
+<p>ההגדרה הטובה ביותר היא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">איזה כיוון אני רוצה לקבל</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^K = \text{איזה כיוון אני רוצה לקבל}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">איזה כיוון אני רוצה להוציא או למכור</mtext></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\theta_i^V = \text{איזה כיוון אני רוצה להוציא או למכור}
+}
+</annotation></semantics></math></p>
+<p>כלומר:</p>
+<ul>
+<li><strong>זווית הקנייה</strong> היא מסנן כניסה.</li>
+<li><strong>זווית המכירה</strong> היא אות יציאה.</li>
+</ul>
+<p>כך כל שחקן נעשה <strong>ממיר זוויות</strong>.</p>
+<p>הוא קולט דברים מכיוון אחד ומוציא דברים בכיוון אחר.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>אם שתי הזוויות כמעט זהות, השחקן קוהרנטי.</p>
+<p>אם הן רחוקות זו מזו, הוא מרוויח או חי מהמרת זוויות.</p>
+<hr />
+<h1 id="בכל-מסחר-יש-שתי-בדיקות-זווית">3. בכל מסחר יש שתי בדיקות
+זווית</h1>
+<p>נניח:</p>
+<ul>
+<li>הקונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+קונה מן המוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</li>
+<li>המוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+מספק מוצר או שירות.</li>
+<li>הקונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+משלם כסף.</li>
+</ul>
+<p>אז יש שני זרמים:</p>
+<pre class="text"><code>מוצר / שירות:
+B ─────────────────────────▶ A
+
+כסף:
+A ─────────────────────────▶ B</code></pre>
+<p>אבל עכשיו עם זוויות:</p>
+<pre class="text"><code>זרם מוצר:
+B מוכר עם θ_B^V ─────▶ A מקבל עם θ_A^K
+
+זרם כסף:
+A משלם עם θ_A^V ─────▶ B מקבל עם θ_B^K</code></pre>
+<p>לכן שתי מרחקי זווית חייבים להתאים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>עבור זרם המוצר.</p>
+<p>וגם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>עבור זרם הכסף.</p>
+<p>זה חשוב מאוד.</p>
+<p>הקונה שואל:</p>
+<blockquote>
+<p>האם המוצר שאני מקבל מתאים לזווית הקנייה שלי?</p>
+</blockquote>
+<p>המוכר שואל:</p>
+<blockquote>
+<p>האם הכסף שאני מקבל מתאים לזווית הקנייה שלי?</p>
+</blockquote>
+<p>כי עבור המוכר, כסף הוא הטובין הנקלט.</p>
+<hr />
+<h1 id="המרחק-המעגלי-קובע-סחירות">4. המרחק המעגלי קובע סחירות</h1>
+<p>המרחק בין שתי זוויות הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">arccos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>−</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d(\alpha,\beta)=\arccos(\cos(\alpha-\beta))
+</annotation></semantics></math></p>
+<p>לכן:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>π</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+d \in [0,\pi]
+</annotation></semantics></math></p>
+<p>כלומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=0
+</annotation></semantics></math></p>
+<p>פירושו התאמה מושלמת.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">
+d=\pi
+</annotation></semantics></math></p>
+<p>פירושו ניגוד מרבי.</p>
+<p>פונקציית התאמה פשוטה יכולה להיות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\phi(d)=\cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>ואז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0</mn><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+d=0 \Rightarrow \phi=1
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>π</mi><mo>⇒</mo><mi>ϕ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+d=\pi \Rightarrow \phi=0
+</annotation></semantics></math></p>
+<p>המסחר מתחזק ככל שהזוויות מתאימות יותר.</p>
+<p>למסחר מלא דרושים שני הצדדים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi = \phi(d_X)\cdot \phi(d_M)\cdot \rho_X \cdot \rho_M
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">מרחק זווית המוצר</mtext></mrow><annotation encoding="application/x-tex">
+d_X = \text{מרחק זווית המוצר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">מרחק זווית הכסף</mtext></mrow><annotation encoding="application/x-tex">
+d_M = \text{מרחק זווית הכסף}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>X</mi></msub><mo>=</mo><mtext mathvariant="normal">אמון בזווית המוצר</mtext></mrow><annotation encoding="application/x-tex">
+\rho_X = \text{אמון בזווית המוצר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>M</mi></msub><mo>=</mo><mtext mathvariant="normal">אמון בזווית הכסף</mtext></mrow><annotation encoding="application/x-tex">
+\rho_M = \text{אמון בזווית הכסף}
+</annotation></semantics></math></p>
+<p>אם
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+גבוה, הכסף מסתובב בקלות.</p>
+<p>אם
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+נמוך, נוצרים הנחות, עמלות, ביטוח, ביקורות, סיבוב זווית או בכלל אין
+מסחר.</p>
+<hr />
+<h1 id="המסחר-כתהליך">5. המסחר כתהליך</h1>
+<p>מסחר מלא נראה כך:</p>
+<h2 id="שלב-1-הקונה-יוצר-ביקוש">שלב 1: הקונה יוצר ביקוש</h2>
+<p>הקונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+אומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">אני רוצה טובין עם כיוון קרוב אל </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\text{אני רוצה טובין עם כיוון קרוב אל } \theta_A^K
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p>כלומר: הקונה מחפש משהו טוב למדי ופופולרי למדי.</p>
+<h2 id="שלב-2-המוכר-מציע">שלב 2: המוכר מציע</h2>
+<p>המוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+אומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">אני מוכר טובין עם כיוון </mtext><mspace width="0.333em"></mspace></mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\text{אני מוכר טובין עם כיוון } \theta_B^V
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 55^\circ
+</annotation></semantics></math></p>
+<p>אז מרחק המוצר הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><msup><mn>25</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = 25^\circ
+</annotation></semantics></math></p>
+<p>זה די קרוב. סביר שהקונה יקבל.</p>
+<h2 id="שלב-3-הקונה-מציע-תשלום">שלב 3: הקונה מציע תשלום</h2>
+<p>הקונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+אינו משלם בכסף ניטרלי, אלא בכסף מזווית היציאה שלו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 80^\circ
+</annotation></semantics></math></p>
+<p>הכסף עשוי להיות פופולרי מאוד, אך רק בינוני בטוביותו.</p>
+<h2 id="שלב-4-המוכר-בודק-את-התשלום">שלב 4: המוכר בודק את התשלום</h2>
+<p>למוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+יש זווית קנייה עבור ערכים נכנסים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_B^K
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>70</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 70^\circ
+</annotation></semantics></math></p>
+<p>אז מרחק הכסף הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><msup><mn>10</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = 10^\circ
+</annotation></semantics></math></p>
+<p>הכסף מתאים היטב למוכר.</p>
+<h2 id="שלב-5-המסחר-מתבצע">שלב 5: המסחר מתבצע</h2>
+<p>אם שתי המרחקים קטנים מספיק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">
+d_X \leq \varepsilon_X
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>≤</mo><msub><mi>ε</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+d_M \leq \varepsilon_M
+</annotation></semantics></math></p>
+<p>אז מתבצע מסחר.</p>
+<p>הקונה מקבל את המוצר.</p>
+<p>המוכר מקבל את הכסף.</p>
+<p>אבל שניהם מקבלים לא רק ערך, אלא גם איכות זוויתית.</p>
+<hr />
+<h1 id="מה-באמת-מסתובב">6. מה באמת מסתובב?</h1>
+<p>שלושה דברים מסתובבים בו-זמנית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">ערך</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{ערך}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">טוביות</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{טוביות}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">פופולריות</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{פופולריות}
+}
+</annotation></semantics></math></p>
+<p>אבל הם אינם מסתובבים באותו אופן.</p>
+<h2 id="ערך-מסתובב-דרך-תשלום">ערך מסתובב דרך תשלום</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">
+A \rightarrow B
+</annotation></semantics></math></p>
+<p>הקונה מאבד ערך מספרי.</p>
+<p>המוכר מקבל ערך מספרי.</p>
+<h2 id="טוביות-מסתובבת-דרך-מקור-ייצור-והערכה">טוביות מסתובבת דרך מקור,
+ייצור והערכה</h2>
+<p>טוביות נוצרת או נעלמת דרך פעולות ממשיות:</p>
+<ul>
+<li>שרשראות אספקה נקיות</li>
+<li>עבודה הוגנת</li>
+<li>נזק נמוך</li>
+<li>מוצרים טובים</li>
+<li>תיקון נזקים</li>
+<li>חוקיות</li>
+<li>השפעה סביבתית</li>
+<li>השפעה חברתית</li>
+<li>שקיפות</li>
+<li>ביקורות</li>
+<li>בתי משפט</li>
+<li>הערכת ממשלה</li>
+</ul>
+<p>לכן טוביות אינה רק דעה. היא קשורה יותר לתוצאות ממשיות ולבדיקה
+מוסדית.</p>
+<h2 id="פופולריות-מסתובבת-דרך-קבלה-ותשומת-לב">פופולריות מסתובבת דרך קבלה
+ותשומת לב</h2>
+<p>פופולריות נוצרת דרך:</p>
+<ul>
+<li>ביקוש</li>
+<li>שביעות רצון לקוחות</li>
+<li>מדיה</li>
+<li>טרנדים</li>
+<li>פרסום</li>
+<li>רשתות חברתיות</li>
+<li>סמליות תרבותית</li>
+<li>מחנות פוליטיים</li>
+<li>חרמות</li>
+<li>מחאות</li>
+<li>משפיענים</li>
+<li>התנהגות עדר</li>
+</ul>
+<p>פופולריות נעה מהר יותר מטוביות.</p>
+<p>לכן היא יכולה לעלות מהר יותר וגם לקרוס מהר יותר.</p>
+<hr />
+<h1 id="שינוי-המאזן-אצל-הקונה">7. שינוי המאזן אצל הקונה</h1>
+<p>לפני הקנייה יש לקונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>A</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>m</mi><mi>A</mi></msub><mo>,</mo><msub><mi>g</mi><mi>A</mi></msub><mo>,</mo><msub><mi>b</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_A = (m_A,g_A,b_A)
+</annotation></semantics></math></p>
+<p>הוא משלם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mtext mathvariant="normal">pay</mtext></msub><mo>,</mo><msub><mi>b</mi><mtext mathvariant="normal">pay</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\Delta M = (p,g_{\text{pay}},b_{\text{pay}})
+</annotation></semantics></math></p>
+<p>אז מלאי הכסף שלו יורד:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>A</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>A</mi></msub><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_A&#39; = m_A - p
+</annotation></semantics></math></p>
+<p>כיוון הכסף שהוא מוציא הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_A^V
+</annotation></semantics></math></p>
+<p>במקביל הוא מקבל מוצר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>עם תועלת
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>,
+טוביות
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>X</mi></msub><annotation encoding="application/x-tex">g_X</annotation></semantics></math>,
+פופולריות
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>X</mi></msub><annotation encoding="application/x-tex">b_X</annotation></semantics></math>.</p>
+<p>כאשר המוצר נצרך, הוא לא פשוט נהפך לכסף. הוא משנה:</p>
+<ul>
+<li>תועלת</li>
+<li>רמת חיים</li>
+<li>מוניטין</li>
+<li>העדפות עתידיות</li>
+<li>דעה פוליטית</li>
+<li>ביקוש</li>
+<li>אולי גם פריון עצמי</li>
+</ul>
+<p>עבור משק בית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">מוצר</mtext><mo>→</mo><mtext mathvariant="normal">תועלת / שביעות רצון / דעה</mtext></mrow><annotation encoding="application/x-tex">
+\text{מוצר} \rightarrow \text{תועלת / שביעות רצון / דעה}
+</annotation></semantics></math></p>
+<p>עבור חברה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">מוצר</mtext><mo>→</mo><mtext mathvariant="normal">input / שרשרת אספקה / זווית ייצור חדשה</mtext></mrow><annotation encoding="application/x-tex">
+\text{מוצר} \rightarrow \text{input / שרשרת אספקה / זווית ייצור חדשה}
+</annotation></semantics></math></p>
+<p>זה חשוב: אם חברה קונה input רע, הזווית הרעה הזאת יכולה להיכנס אחר כך
+למוצר שלה.</p>
+<hr />
+<h1 id="שינוי-המאזן-אצל-המוכר">8. שינוי המאזן אצל המוכר</h1>
+<p>המוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+נותן מוצר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>B</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>g</mi><mi>X</mi></msub><mo>,</mo><msub><mi>b</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X_B = (u,g_X,b_X)
+</annotation></semantics></math></p>
+<p>ומקבל כסף:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">in</mtext></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>,</mo><msub><mi>g</mi><mi>M</mi></msub><mo>,</mo><msub><mi>b</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M_{\text{in}} = (p,g_M,b_M)
+</annotation></semantics></math></p>
+<p>מלאי הכסף שלו עולה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>m</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>m</mi><mi>B</mi></msub><mo>+</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+m_B&#39; = m_B + p
+</annotation></semantics></math></p>
+<p>אבל גם איכות הכסף שלו משתנה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>g</mi><mi>B</mi></msub><mo>+</mo><msub><mi>g</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+g_B&#39; = g_B + g_M
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>=</mo><msub><mi>b</mi><mi>B</mi></msub><mo>+</mo><msub><mi>b</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+b_B&#39; = b_B + b_M
+</annotation></semantics></math></p>
+<p>זווית המזומן החדשה שלו נעשית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mtext mathvariant="normal">cash</mtext></msubsup><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msubsup><mi>b</mi><mi>B</mi><mo>′</mo></msubsup><mo>,</mo><msubsup><mi>g</mi><mi>B</mi><mo>′</mo></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B^{\text{cash}}=
+\operatorname{atan2}(b_B&#39;,g_B&#39;)
+</annotation></semantics></math></p>
+<p>אם לקוחות רבים משלמים בכסף טוב ופופולרי, קופת החברה נמשכת לכיוון
+הזה.</p>
+<p>אם לקוחות רבים משלמים בכסף רעיל, קופת החברה מזדהמת.</p>
+<p>כלומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">לא רק למוצרים יש מקור. גם לכסף של הלקוחות יש מקור.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{לא רק למוצרים יש מקור. גם לכסף של הלקוחות יש מקור.}
+}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="ארנק-וקטורי-כסף-נשמר-כחבילות">9. ארנק וקטורי: כסף נשמר
+כחבילות</h1>
+<p>בפועל, שחקן לא צריך לשמור את הארנק שלו רק כסכום כולל.</p>
+<p>יש לו הרבה חבילות כסף:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>M</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+M_i = \{M_{i1},M_{i2},M_{i3},...\}
+</annotation></semantics></math></p>
+<p>לכל חבילה יש:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b,\rho,h)
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<pre class="text"><code>חבילה 1: 500 ערך, זווית טובה, אמון גבוה
+חבילה 2: 200 ערך, פופולרית אך מפוקפקת
+חבילה 3: 100 ערך, רעילה, אמון נמוך</code></pre>
+<p>כאשר השחקן משלם, הוא בוחר איזה כסף להוציא.</p>
+<p>אפשר לקרוא לזה בחירת מטבעות.</p>
+<p>אסטרטגיות אפשריות:</p>
+<h2 id="הכסף-הטוב-קודם">הכסף הטוב קודם</h2>
+<p>השחקן משלם בכסף טוב כדי לקבל מחירים טובים יותר.</p>
+<h2 id="הכסף-הגרוע-קודם">הכסף הגרוע קודם</h2>
+<p>השחקן מנסה להיפטר מכסף רעיל.</p>
+<h2 id="הכסף-המתאים-קודם">הכסף המתאים קודם</h2>
+<p>השחקן מחפש חבילות כסף שהזווית שלהן מתאימה לזווית הקנייה של המוכר.</p>
+<h2 id="ערבוב-הסוואה">ערבוב הסוואה</h2>
+<p>השחקן מערבב כסף רע עם כסף טוב כדי ליצור זווית ממוצעת קבילה.</p>
+<p>כאן בדיוק נוצרת הלבנת זווית.</p>
+<hr />
+<h1 id="המוכר-יכול-לדחות-תשלום">10. המוכר יכול לדחות תשלום</h1>
+<p>המוכר אינו מקבל כל כסף באותו אופן.</p>
+<p>הוא בודק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>אם הכסף רחוק מדי מזווית הקנייה שלו, יש כמה אפשרויות:</p>
+<h2 id="דחייה">דחייה</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>&gt;</mo><mi>ε</mi><mo>⇒</mo><mtext mathvariant="normal">אין מסחר</mtext></mrow><annotation encoding="application/x-tex">
+d_M &gt; \varepsilon
+\Rightarrow
+\text{אין מסחר}
+</annotation></semantics></math></p>
+<h2 id="הנחה">הנחה</h2>
+<p>המוכר מקבל את הכסף, אבל רק עם אובדן ערך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot \phi(d_M)
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>אצלו אולי ייחשב רק כ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>62</mn><annotation encoding="application/x-tex">
+62
+</annotation></semantics></math></p>
+<h2 id="תוספת-מחיר">תוספת מחיר</h2>
+<p>הקונה חייב לשלם יותר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mtext mathvariant="normal">required</mtext></msub><mo>=</mo><mfrac><mi>p</mi><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p_{\text{required}} = \frac{p}{\phi(d_M)}
+</annotation></semantics></math></p>
+<h2 id="סיבוב">סיבוב</h2>
+<p>סוחר זוויות או בנק מסובב את הכסף תמורת עמלה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^V \rightarrow \theta_B^K
+</annotation></semantics></math></p>
+<p>בעלות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mtext mathvariant="normal">rot</mtext></msub><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>d</mi><mi>M</mi></msub><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C_{\text{rot}}=\lambda m \tan^2\left(\frac{d_M}{2}\right)
+</annotation></semantics></math></p>
+<p>ככל שמרחק הזווית גדול יותר, הסיבוב יקר יותר.</p>
+<h2 id="ביקורת">ביקורת</h2>
+<p>המקור נבדק. אם הזווית הרעה מבוססת על מידע שגוי, אפשר לתקן את האמון או
+את הכיוון.</p>
+<hr />
+<h1 id="הקונה-יכול-לדחות-את-המוצר">11. הקונה יכול לדחות את המוצר</h1>
+<p>במקביל הקונה בודק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p>אם המוצר רחוק מדי מזווית הקנייה הרצויה:</p>
+<h2 id="אין-קנייה">אין קנייה</h2>
+<p>המוצר נשאר לא מכור.</p>
+<h2 id="הורדת-מחיר">הורדת מחיר</h2>
+<p>המוכר חייב להוזיל.</p>
+<h2 id="שיפור-מוצר">שיפור מוצר</h2>
+<p>המוכר משקיע בשיפור אמיתי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">טוביות</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{טוביות}
+</annotation></semantics></math></p>
+<h2 id="שיווק">שיווק</h2>
+<p>המוכר משקיע בתפיסה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">פופולריות</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{פופולריות}
+</annotation></semantics></math></p>
+<h2 id="הסמכה">הסמכה</h2>
+<p>המוכר הופך את הזווית לאמינה יותר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+\rho \uparrow
+</annotation></semantics></math></p>
+<p>כלומר: זווית המוצר קובעת יכולת מכירה.</p>
+<p>זווית הכסף קובעת יכולת תשלום.</p>
+<hr />
+<h1 id="שתי-הזוויות-יוצרות-ארבעה-תפקידים-בכל-עסקה">12. שתי הזוויות
+יוצרות ארבעה תפקידים בכל עסקה</h1>
+<p>בכל עסקה יש ארבע זוויות רלוונטיות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">הקונה מקבל מוצר</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^K = \text{הקונה מקבל מוצר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">הקונה נותן כסף</mtext></mrow><annotation encoding="application/x-tex">
+\theta_A^V = \text{הקונה נותן כסף}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">המוכר מקבל כסף</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^K = \text{המוכר מקבל כסף}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">המוכר נותן מוצר</mtext></mrow><annotation encoding="application/x-tex">
+\theta_B^V = \text{המוכר נותן מוצר}
+</annotation></semantics></math></p>
+<p>מכך נוצרים שני התאמות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_A^K \leftrightarrow \theta_B^V
+</annotation></semantics></math></p>
+<p>עבור הסחורה.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_B^K \leftrightarrow \theta_A^V
+</annotation></semantics></math></p>
+<p>עבור הכסף.</p>
+<p>זוהי מכניקת המחזור המלאה.</p>
+<pre class="text"><code>                 זווית מוצר
+          θ_B^V ───────────────▶ θ_A^K
+          מוכר                    קונה
+
+
+                   זווית כסף
+          θ_B^K ◀─────────────── θ_A^V
+          מוכר                    קונה</code></pre>
+<p>מסחר יציב כאשר שני החיבורים קצרים.</p>
+<p>מסחר לא יציב כאשר חיבור אחד קצר והשני ארוך.</p>
+<hr />
+<h1 id="דוגמה-מסחר-טוב">13. דוגמה: מסחר טוב</h1>
+<p>קונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>מוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>שני הצדדים מתאימים.</p>
+<p>המוצר מתאים לקונה.</p>
+<p>הכסף מתאים למוכר.</p>
+<p>המסחר נזיל מאוד.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>≈</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\Phi \approx 1
+</annotation></semantics></math></p>
+<p>הכסף מסתובב בקלות.</p>
+<hr />
+<h1 id="דוגמה-המוצר-מתאים-הכסף-לא">14. דוגמה: המוצר מתאים, הכסף לא</h1>
+<p>קונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 40^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 150^\circ
+</annotation></semantics></math></p>
+<p>מוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>50</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 50^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 45^\circ
+</annotation></semantics></math></p>
+<p>אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(40^\circ,45^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>המוצר מתאים.</p>
+<p>אבל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>50</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>100</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(50^\circ,150^\circ)=100^\circ
+</annotation></semantics></math></p>
+<p>הכסף לא מתאים.</p>
+<p>תוצאה:</p>
+<ul>
+<li>הקונה רוצה לקנות.</li>
+<li>המוכר רוצה למכור.</li>
+<li>אבל המוכר לא סומך על הכסף.</li>
+<li>נדרשים תוספת מחיר, סיבוב, ביקורת או כסף אחר.</li>
+</ul>
+<p>זה כמו בעיית תשלום למרות שיש כוח קנייה.</p>
+<p>לקונה יש ערך, אבל זווית שגויה.</p>
+<hr />
+<h1 id="דוגמה-הכסף-מתאים-המוצר-לא">15. דוגמה: הכסף מתאים, המוצר לא</h1>
+<p>קונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>60</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 60^\circ
+</annotation></semantics></math></p>
+<p>מוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>55</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 55^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 150^\circ
+</annotation></semantics></math></p>
+<p>אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>55</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>60</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(55^\circ,60^\circ)=5^\circ
+</annotation></semantics></math></p>
+<p>הכסף מתאים.</p>
+<p>אבל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>150</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>120</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(30^\circ,150^\circ)=120^\circ
+</annotation></semantics></math></p>
+<p>המוצר לא מתאים.</p>
+<p>תוצאה:</p>
+<ul>
+<li>המוכר היה שמח לקחת את הכסף.</li>
+<li>הקונה אינו רוצה את המוצר בכיוון הזה.</li>
+<li>המוכר חייב להשתפר, להוזיל או למצוא קבוצת קונים אחרת.</li>
+</ul>
+<p>זו בעיית מכירה למרות לקוחות בעלי יכולת תשלום.</p>
+<hr />
+<h1 id="דוגמה-שני-הכיוונים-לא-מתאימים">16. דוגמה: שני הכיוונים לא
+מתאימים</h1>
+<p>קונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>20</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^K = 20^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A^V = 160^\circ
+</annotation></semantics></math></p>
+<p>מוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^K = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo>=</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B^V = 170^\circ
+</annotation></semantics></math></p>
+<p>אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>20</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>170</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_X = d(20^\circ,170^\circ)=150^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>160</mn><mo>∘</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mn>130</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+d_M = d(30^\circ,160^\circ)=130^\circ
+</annotation></semantics></math></p>
+<p>המוצר לא מתאים.</p>
+<p>הכסף לא מתאים.</p>
+<p>סביר שהמסחר לא יקרה — אלא בשוק צללים או עם הנחות קיצוניות.</p>
+<hr />
+<h1 id="מחזור-כשרשרת-המרות">17. מחזור כשרשרת המרות</h1>
+<p>כל שחקן קולט ערכים נכנסים הקרובים לזווית הקנייה שלו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>K</mi></msup><annotation encoding="application/x-tex">
+\theta^K
+</annotation></semantics></math></p>
+<p>ומוציא ערכים יוצאים הקרובים לזווית המכירה שלו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mi>V</mi></msup><annotation encoding="application/x-tex">
+\theta^V
+</annotation></semantics></math></p>
+<p>כך כל שחקן הוא סוג של ממיר זוויות כלכלי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub><mo>:</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">in</mtext></msub><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><msub><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">out</mtext></msub></mrow><annotation encoding="application/x-tex">
+T_i:
+(m,g,b)_{\text{in}}
+\rightarrow
+(m&#39;,g&#39;,b&#39;)_{\text{out}}
+</annotation></semantics></math></p>
+<p>או:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>→</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_i^K \rightarrow \theta_i^V
+</annotation></semantics></math></p>
+<p>דוגמאות:</p>
+<h2 id="חברה">חברה</h2>
+<p>קונה inputs ועבודה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{חברה}}
+</annotation></semantics></math></p>
+<p>מייצרת סחורות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{חברה}}
+</annotation></semantics></math></p>
+<p>אם היא יוצרת איכות אמיתית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>אם היא מפרסמת היטב:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>אם היא מוציאה נזקים החוצה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow
+</annotation></semantics></math></p>
+<p>אם היא נשארת פופולרית למרות נזק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<h2 id="משק-בית">משק בית</h2>
+<p>מקבל שכר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">משק בית</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{משק בית}}
+</annotation></semantics></math></p>
+<p>מוציא כסף צריכה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">משק בית</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{משק בית}}
+</annotation></semantics></math></p>
+<p>החלטות הקנייה שלו משנות את פופולריות החברות.</p>
+<h2 id="בנק">בנק</h2>
+<p>מקבל פיקדונות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{בנק}}
+</annotation></semantics></math></p>
+<p>נותן הלוואות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{בנק}}
+</annotation></semantics></math></p>
+<p>הוא יוצר כסף חדש עם זווית התלויה בלווה, במטרה ובסיכון.</p>
+<h2 id="ממשלה">ממשלה</h2>
+<p>מקבלת מיסים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדינה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{מדינה}}
+</annotation></semantics></math></p>
+<p>מוציאה הוצאות ציבוריות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדינה</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{מדינה}}
+</annotation></semantics></math></p>
+<p>היא יכולה להגדיר טוביות באמצעות חוקים ולהזיז זוויות באמצעות
+הוצאות.</p>
+<h2 id="מדיה">מדיה</h2>
+<p>מקבלת תשומת לב וכסף:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדיה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{מדיה}}
+</annotation></semantics></math></p>
+<p>מוציאה פופולריות או אי-פופולריות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדיה</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{מדיה}}
+</annotation></semantics></math></p>
+<p>היא משפיעה בעיקר על
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>,
+כלומר על פופולריות.</p>
+<h2 id="בתי-משפט-ביקורות">בתי משפט / ביקורות</h2>
+<p>מקבלים תיקים, ראיות ועמלות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בית משפט/ביקורת</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta^K_{\text{בית משפט/ביקורת}}
+</annotation></semantics></math></p>
+<p>מוציאים אמון ותיקוני טוביות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בית משפט/ביקורת</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta^V_{\text{בית משפט/ביקורת}}
+</annotation></semantics></math></p>
+<p>הם משפיעים בעיקר על
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+ועל
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>.</p>
+<hr />
+<h1 id="נוסחת-המחזור-החשובה-ביותר">18. נוסחת המחזור החשובה ביותר</h1>
+<p>לעסקה בין קונה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+למוכר
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>X</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>A</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_X = d(\theta_A^K,\theta_B^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>M</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_M = d(\theta_B^K,\theta_A^V)
+</annotation></semantics></math></p>
+<p>אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">נפח מסחר</mtext><mo>=</mo><mi>Q</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>ρ</mi><mi>X</mi></msub><mo>⋅</mo><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\text{נפח מסחר}
+=
+Q \cdot \phi(d_X)\cdot \phi(d_M)\cdot \rho_X\cdot\rho_M
+</annotation></semantics></math></p>
+<p>או בקיצור:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>T</mi></msub><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><mi mathvariant="normal">Φ</mi></mrow><annotation encoding="application/x-tex">
+Q_T = Q_0 \Phi
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>X</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mi>ρ</mi><mi>X</mi></msub><msub><mi>ρ</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">
+\Phi =
+\phi(d_X)\phi(d_M)\rho_X\rho_M
+</annotation></semantics></math></p>
+<p>אם
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+גבוה, הרבה מסתובב.</p>
+<p>אם
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+נמוך, מעט מסתובב.</p>
+<p>אם שחקנים רבים מחזיקים זוויות קנייה ומכירה לא תואמות, הנזילות של כל
+הכלכלה יורדת.</p>
+<hr />
+<h1 id="כיצד-ערך-קונה-טוביות">19. כיצד ערך קונה טוביות</h1>
+<p>ערך יכול לקנות טוביות, אבל רק דרך שינוי אמיתי.</p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">תנאי עבודה טובים יותר</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{תנאי עבודה טובים יותר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">אנרגיה נקייה</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{אנרגיה נקייה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">פיצוי על נזק</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{פיצוי על נזק}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">בטיחות מוצר</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{בטיחות מוצר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">בדיקת שרשרת אספקה</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{בדיקת שרשרת אספקה}
+</annotation></semantics></math></p>
+<p>אז עולה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow
+</annotation></semantics></math></p>
+<p>כלל סימולציה אפשרי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mi>g</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>g</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>⋅</mo><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_g \cdot \log(1+I_g)\cdot R_{\text{real}}\cdot \rho_{\text{audit}}
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>g</mi></msub><mo>=</mo><mtext mathvariant="normal">השקעה בשיפור אמיתי</mtext></mrow><annotation encoding="application/x-tex">
+I_g = \text{השקעה בשיפור אמיתי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>=</mo><mtext mathvariant="normal">גורם מציאות</mtext></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} = \text{גורם מציאות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mtext mathvariant="normal">audit</mtext></msub><mo>=</mo><mtext mathvariant="normal">אמון ביקורת</mtext></mrow><annotation encoding="application/x-tex">
+\rho_{\text{audit}} = \text{אמון ביקורת}
+</annotation></semantics></math></p>
+<p>אם חברה רק טוענת שהיא טובה, אך לא עושה שיפור אמיתי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">real</mtext></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+R_{\text{real}} \approx 0
+</annotation></semantics></math></p>
+<p>אז לכל היותר הפופולריות עולה לזמן קצר, אבל לא הטוביות האמיתית.</p>
+<hr />
+<h1 id="כיצד-ערך-קונה-פופולריות">20. כיצד ערך קונה פופולריות</h1>
+<p>ערך יכול לקנות פופולריות בקלות רבה יותר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">פרסום</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{פרסום}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">הנחות</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{הנחות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">משפיענים</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{משפיענים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">קמפיינים תקשורתיים</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{קמפיינים תקשורתיים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">חסויות</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{חסויות}
+</annotation></semantics></math></p>
+<p>אז עולה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow
+</annotation></semantics></math></p>
+<p>כלל סימולציה אפשרי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mi>b</mi></msub><mo>⋅</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>I</mi><mi>b</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>⋅</mo><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>−</mo><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_b \cdot \log(1+I_b)\cdot M_{\text{media}}\cdot S_{\text{trend}}
+-
+B_{\text{backlash}}
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>b</mi></msub><mo>=</mo><mtext mathvariant="normal">הוצאה על פרסום / יחסי ציבור</mtext></mrow><annotation encoding="application/x-tex">
+I_b = \text{הוצאה על פרסום / יחסי ציבור}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mtext mathvariant="normal">media</mtext></msub><mo>=</mo><mtext mathvariant="normal">הגברת מדיה</mtext></mrow><annotation encoding="application/x-tex">
+M_{\text{media}} = \text{הגברת מדיה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mtext mathvariant="normal">trend</mtext></msub><mo>=</mo><mtext mathvariant="normal">גורם טרנד</mtext></mrow><annotation encoding="application/x-tex">
+S_{\text{trend}} = \text{גורם טרנד}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">backlash</mtext></msub><mo>=</mo><mtext mathvariant="normal">תגובת נגד</mtext></mrow><annotation encoding="application/x-tex">
+B_{\text{backlash}} = \text{תגובת נגד}
+</annotation></semantics></math></p>
+<p>פופולריות מהירה יותר מטוביות, אך פחות יציבה.</p>
+<p>לכן לעיתים קרובות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> נשארת אותו דבר</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ נשארת אותו דבר}
+</annotation></semantics></math></p>
+<p>או אפילו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \downarrow
+</annotation></semantics></math></p>
+<p>זה המקרה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פופולרי, אבל רע</mtext><annotation encoding="application/x-tex">
+\text{פופולרי, אבל רע}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="כיצד-פופולריות-יכולה-לקנות-טוביות">21. כיצד פופולריות יכולה
+לקנות טוביות</h1>
+<p>פופולריות אינה יכולה לקנות טוביות ישירות, אך היא יכולה להקל על
+רפורמות.</p>
+<p>לחברה פופולרית יש:</p>
+<ul>
+<li>יותר אמון לקוחות</li>
+<li>יותר הון פוליטי</li>
+<li>גישה קלה יותר לעובדים</li>
+<li>יותר סבלנות מצד משקיעים</li>
+<li>כוח תמחור גבוה יותר</li>
+<li>פחות התנגדות לשינויים</li>
+</ul>
+<p>אז היא יכולה להמיר פופולריות ליכולת רפורמה אמיתית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>→</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">
+b \rightarrow g
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>g</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>b</mi><mi>g</mi></mrow></msub><mo>⋅</mo><mi>b</mi><mo>⋅</mo><msub><mi>I</mi><mi>g</mi></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta g
+=
+\eta_{bg}\cdot b \cdot I_g \cdot \rho
+</annotation></semantics></math></p>
+<p>אבל גם כאן דרושה השקעה אמיתית.</p>
+<p>פופולריות לבדה אינה טוביות.</p>
+<p>היא רק משאב שבעזרתו קל יותר לייצר טוביות.</p>
+<hr />
+<h1 id="כיצד-טוביות-יכולה-לקנות-פופולריות">22. כיצד טוביות יכולה לקנות
+פופולריות</h1>
+<p>טוביות יכולה ליצור פופולריות, אך רק אם היא נראית.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+g \rightarrow b
+</annotation></semantics></math></p>
+<p>זה דורש:</p>
+<ul>
+<li>שקיפות</li>
+<li>מדיה חופשית</li>
+<li>ביקורות אמינות</li>
+<li>תקשורת מובנת</li>
+<li>חינוך</li>
+<li>זמן</li>
+<li>אמון</li>
+</ul>
+<p>כלל אפשרי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>b</mi><mo>=</mo><msub><mi>η</mi><mrow><mi>g</mi><mi>b</mi></mrow></msub><mo>⋅</mo><mi>g</mi><mo>⋅</mo><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>⋅</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">
+\Delta b
+=
+\eta_{gb}\cdot g \cdot T_{\text{visibility}}\cdot \rho
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">visibility</mtext></msub><mo>=</mo><mtext mathvariant="normal">נראות</mtext></mrow><annotation encoding="application/x-tex">
+T_{\text{visibility}} = \text{נראות}
+</annotation></semantics></math></p>
+<p>אם אף אחד לא רואה את הטוביות, הפופולריות כמעט אינה עולה.</p>
+<p>לכן חברה טובה אך בלתי נראית יכולה להישאר לא פופולרית.</p>
+<hr />
+<h1 id="המחזור-המסוכן-הלבנת-זווית">23. המחזור המסוכן: הלבנת זווית</h1>
+<p>הלבנת זווית נוצרת כאשר מישהו הופך ערך רע לזווית שנראית טובה יותר.</p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup><mo>→</mo><mn>900</mn><mi>∠</mi><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+\rightarrow
+900 \angle 40^\circ
+</annotation></semantics></math></p>
+<p>אבל בלי שיפור אמיתי.</p>
+<p>זה יכול לקרות באמצעות:</p>
+<ul>
+<li>חברות בת</li>
+<li>מתווכים</li>
+<li>ביקורות מזויפות</li>
+<li>קמפייני יחסי ציבור</li>
+<li>תרומות</li>
+<li>דירוגים קנויים</li>
+<li>פופולריות מלאכותית</li>
+<li>רשתות בוטים</li>
+<li>מקלטי מס ומקלטי זווית</li>
+</ul>
+<p>אז לכאורה עולה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow
+</annotation></semantics></math></p>
+<p>אבל האמון צריך לרדת:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<p>וההיסטוריה
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+צריכה להיות חשודה.</p>
+<p>לכן המערכת צריכה עקבת מקור:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">היסטוריית עסקאות</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{היסטוריית עסקאות}
+</annotation></semantics></math></p>
+<p>בלי היסטוריה, כסף זוויתי ניתן להלבנה.</p>
+<hr />
+<h1 id="מחזור-בשוק-העבודה">24. מחזור בשוק העבודה</h1>
+<p>שוק העבודה חשוב במיוחד.</p>
+<p>חברה קונה עבודה.</p>
+<p>עובד מוכר עבודה.</p>
+<p>עבור החברה, עבודה היא input:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{חברה}}^K
+</annotation></semantics></math></p>
+<p>עבור העובד, שכר הוא ערך נכנס:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">עובד</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{עובד}}^K
+</annotation></semantics></math></p>
+<p>במקביל:</p>
+<ul>
+<li>העובד מוכר כוח עבודה בזווית המכירה שלו.</li>
+<li>החברה משלמת שכר בזווית המכירה שלה.</li>
+</ul>
+<p>שוב יש שני התאמות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">עבודה</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">עובד</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{עבודה}} = d(\theta_{\text{חברה}}^K,\theta_{\text{עובד}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">שכר</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">עובד</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{שכר}} = d(\theta_{\text{עובד}}^K,\theta_{\text{חברה}}^V)
+</annotation></semantics></math></p>
+<p>אם העבודה מתאימה אבל זווית השכר גרועה, העובד דורש שכר גבוה יותר.</p>
+<p>אם השכר טוב אבל הפעילות רעה, הוא עדיין יכול לסרב.</p>
+<p>זה מסביר מקרים אמיתיים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שכר גבוה, מעסיק רע</mtext><annotation encoding="application/x-tex">
+\text{שכר גבוה, מעסיק רע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שכר נמוך, מטרה טובה</mtext><annotation encoding="application/x-tex">
+\text{שכר נמוך, מטרה טובה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">חברה פופולרית, תנאי עבודה רעים</mtext><annotation encoding="application/x-tex">
+\text{חברה פופולרית, תנאי עבודה רעים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מקצוע לא פופולרי, ערך חברתי גבוה</mtext><annotation encoding="application/x-tex">
+\text{מקצוע לא פופולרי, ערך חברתי גבוה}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="מחזור-בשוק-האשראי">25. מחזור בשוק האשראי</h1>
+<p>באשראי כסף נוצר מחדש או מוזז בזמן.</p>
+<p>בנק נותן אשראי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{בנק}}^V
+</annotation></semantics></math></p>
+<p>הלווה מקבל אשראי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{לווה}}^K
+</annotation></semantics></math></p>
+<p>מאוחר יותר הלווה מחזיר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{לווה}}^V
+</annotation></semantics></math></p>
+<p>הבנק מקבל החזר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{בנק}}^K
+</annotation></semantics></math></p>
+<p>כלומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">אשראי</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{אשראי}}=d(\theta_{\text{לווה}}^K,\theta_{\text{בנק}}^V)
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mtext mathvariant="normal">החזר</mtext></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d_{\text{החזר}}=d(\theta_{\text{בנק}}^K,\theta_{\text{לווה}}^V)
+</annotation></semantics></math></p>
+<p>אם האשראי משרת מטרה טובה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">אשראי</mtext></msub><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{אשראי}} \uparrow
+</annotation></semantics></math></p>
+<p>אם האשראי מממן ספקולציה פופולרית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mtext mathvariant="normal">אשראי</mtext></msub><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>g</mi><mtext mathvariant="normal">אשראי</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> לא ודאי</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b_{\text{אשראי}} \uparrow,\quad g_{\text{אשראי}} \text{ לא ודאי}
+</annotation></semantics></math></p>
+<p>אם האשראי מממן פעילות רעילה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mtext mathvariant="normal">אשראי</mtext></msub><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g_{\text{אשראי}} \downarrow
+</annotation></semantics></math></p>
+<p>אז הריבית או הביטחונות עולים.</p>
+<p>הריבית מורכבת מ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><msub><mi>i</mi><mn>0</mn></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">כשל</mtext></msub><mo>+</mo><msub><mi>i</mi><mtext mathvariant="normal">סיכון זווית</mtext></msub><mo>+</mo><msub><mi>i</mi><mi>ρ</mi></msub></mrow><annotation encoding="application/x-tex">
+i = i_0 + i_{\text{כשל}} + i_{\text{סיכון זווית}} + i_{\rho}
+</annotation></semantics></math></p>
+<p>כלומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ריבית</mtext><mo>=</mo><mtext mathvariant="normal">מחיר הזמן</mtext><mo>+</mo><mtext mathvariant="normal">סיכון</mtext><mo>+</mo><mtext mathvariant="normal">עונש זוויתי</mtext></mrow><annotation encoding="application/x-tex">
+\text{ריבית} = \text{מחיר הזמן} + \text{סיכון} + \text{עונש זוויתי}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="מחזור-במדינה">26. מחזור במדינה</h1>
+<p>המדינה מקבלת מיסים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדינה</mtext><mi>K</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{מדינה}}^K
+</annotation></semantics></math></p>
+<p>ומוציאה הוצאות ציבוריות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>θ</mi><mtext mathvariant="normal">מדינה</mtext><mi>V</mi></msubsup><annotation encoding="application/x-tex">
+\theta_{\text{מדינה}}^V
+</annotation></semantics></math></p>
+<p>מיסים ממקורות רעילים יכולים להיות בעייתיים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">האם המדינה צריכה לקבל כסף רע?</mtext><annotation encoding="application/x-tex">
+\text{האם המדינה צריכה לקבל כסף רע?}
+</annotation></semantics></math></p>
+<p>אם כן, ייתכן שהיא חייבת לטהר אותו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">רעיל</mtext></msub><mo>→</mo><msub><mi>θ</mi><mtext mathvariant="normal">לגיטימי ציבורית</mtext></msub></mrow><annotation encoding="application/x-tex">
+\theta_{\text{רעיל}} \rightarrow \theta_{\text{לגיטימי ציבורית}}
+</annotation></semantics></math></p>
+<p>באמצעות:</p>
+<ul>
+<li>בתי משפט</li>
+<li>שקיפות</li>
+<li>חלוקה מחדש</li>
+<li>תיקון נזק</li>
+<li>השקעה ציבורית</li>
+</ul>
+<p>הוצאות מדינה יוצרות זוויות חדשות:</p>
+<ul>
+<li>חינוך יכול להעלות
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>.</li>
+<li>תעמולה יכולה להעלות מלאכותית
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>.</li>
+<li>תשתיות יכולות להעלות ערך וטוביות.</li>
+<li>דיכוי יכול ליצור סדר בטווח קצר, אבל זווית רעה בטווח הארוך.</li>
+<li>מלחמה יכולה לקבל זוויות שונות מאוד לפי העם והממשלה.</li>
+</ul>
+<p>לכן המדינה היא ממיר זוויות עצום.</p>
+<hr />
+<h1 id="מחזור-בין-מדינות">27. מחזור בין מדינות</h1>
+<p>לכל מדינה יש צירים משלה.</p>
+<p>מה שטוב במדינה A אינו בהכרח טוב במדינה B.</p>
+<p>לכן צריך תרגום זוויות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+T_{A\rightarrow B}(\theta)
+</annotation></semantics></math></p>
+<p>עסקת יצוא מקבלת אז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">יצוא, A</mtext></msub><mo>→</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">יצוא, A</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{יצוא, A}}
+\rightarrow
+T_{A\rightarrow B}(\theta_{\text{יצוא, A}})
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>40</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> במדינה A</mtext></mrow></mrow><annotation encoding="application/x-tex">
+40^\circ \text{ במדינה A}
+</annotation></semantics></math></p>
+<p>יכול להפוך ל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>110</mn><mo>∘</mo></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> במדינה B</mtext></mrow></mrow><annotation encoding="application/x-tex">
+110^\circ \text{ במדינה B}
+</annotation></semantics></math></p>
+<p>אז נוצרת ארביטראז’ זוויות בינלאומי.</p>
+<p>חברות מחפשות מדינות שבהן:</p>
+<ul>
+<li>המוצר שלהן פופולרי יותר</li>
+<li>הטוביות שלהן מוערכת טוב יותר</li>
+<li>ההשפעות הרעות שלהן פחות נראות</li>
+<li>ההיסטוריה שלהן נבדקת פחות בקפדנות</li>
+</ul>
+<p>זהו ארביטראז’ מוסרי של מיקום.</p>
+<hr />
+<h1 id="מה-קורה-במספר-שווקים">28. מה קורה במספר שווקים?</h1>
+<p>לכל שוק יש מבנה זוויתי משלו.</p>
+<h2 id="שוק-מוצרים">שוק מוצרים</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">קונה</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">מוכר</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{קונה}}^K
+\leftrightarrow
+\theta_{\text{מוכר}}^V
+</annotation></semantics></math></p>
+<h2 id="שוק-תשלומים">שוק תשלומים</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">מוכר</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">קונה</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{מוכר}}^K
+\leftrightarrow
+\theta_{\text{קונה}}^V
+</annotation></semantics></math></p>
+<h2 id="שוק-עבודה">שוק עבודה</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">עובד</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{חברה}}^K
+\leftrightarrow
+\theta_{\text{עובד}}^V
+</annotation></semantics></math></p>
+<p>וגם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">עובד</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{עובד}}^K
+\leftrightarrow
+\theta_{\text{חברה}}^V
+</annotation></semantics></math></p>
+<h2 id="שוק-אשראי">שוק אשראי</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{לווה}}^K
+\leftrightarrow
+\theta_{\text{בנק}}^V
+</annotation></semantics></math></p>
+<p>ובהמשך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">בנק</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">לווה</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{בנק}}^K
+\leftrightarrow
+\theta_{\text{לווה}}^V
+</annotation></semantics></math></p>
+<h2 id="שוק-הון">שוק הון</h2>
+<p>משקיעים קונים מניות של חברות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">משקיע</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{משקיע}}^K
+\leftrightarrow
+\theta_{\text{חברה}}^V
+</annotation></semantics></math></p>
+<p>חברות קונות הון:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mtext mathvariant="normal">חברה</mtext><mi>K</mi></msubsup><mo>↔</mo><msubsup><mi>θ</mi><mtext mathvariant="normal">משקיע</mtext><mi>V</mi></msubsup></mrow><annotation encoding="application/x-tex">
+\theta_{\text{חברה}}^K
+\leftrightarrow
+\theta_{\text{משקיע}}^V
+</annotation></semantics></math></p>
+<h2 id="שוק-זוויות">שוק זוויות</h2>
+<p>כאן נסחר ישירות הכיוון:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>g</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>m</mi><mo>′</mo></msup><mo>,</mo><msup><mi>g</mi><mo>′</mo></msup><mo>,</mo><msup><mi>b</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(m,g,b)
+\rightarrow
+(m&#39;,g&#39;,b&#39;)
+</annotation></semantics></math></p>
+<p>עם עמלה, סיכון ואובדן אמון.</p>
+<hr />
+<h1 id="מה-שתי-הזוויות-אומרות-כלכלית">29. מה שתי הזוויות אומרות
+כלכלית</h1>
+<p>הפער בין זווית הקנייה לזווית המכירה הוא לב ההיגיון העסקי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+s_i = d(\theta_i^K,\theta_i^V)
+</annotation></semantics></math></p>
+<p>זהו מרווח הזווית של השחקן.</p>
+<h2 id="מרווח-קטן">מרווח קטן</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \approx 0
+</annotation></semantics></math></p>
+<p>השחקן קונה ומוכר בכיוון דומה.</p>
+<p>כלומר:</p>
+<ul>
+<li>קוהרנטי</li>
+<li>אמין</li>
+<li>מעט עבודת המרה</li>
+<li>מעט ארביטראז’</li>
+<li>אמינות גבוהה</li>
+</ul>
+<h2 id="מרווח-גדול">מרווח גדול</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>≫</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+s_i \gg 0
+</annotation></semantics></math></p>
+<p>השחקן קונה בכיוון אחד ומוכר בכיוון אחר.</p>
+<p>זה יכול להיות טוב או רע.</p>
+<h3 id="גרסה-טובה">גרסה טובה</h3>
+<p>הוא קונה inputs רעים ומשפר אותם באמת.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">רע</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{רע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">טוב</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{טוב}
+</annotation></semantics></math></p>
+<p>אז הוא יוצר שיפור ערך אמיתי.</p>
+<h3 id="גרסה-רעה">גרסה רעה</h3>
+<p>הוא קונה inputs רעים ומוכר אותם רק באריזה טובה יותר.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">רע</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{רע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">נראה טוב</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{נראה טוב}
+</annotation></semantics></math></p>
+<p>אז הוא מבצע הלבנת זווית.</p>
+<h3 id="גרסה-מנצלת">גרסה מנצלת</h3>
+<p>הוא קונה inputs טובים ומוכר outputs רעים.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>K</mi></msup><mo>=</mo><mtext mathvariant="normal">טוב</mtext></mrow><annotation encoding="application/x-tex">
+\theta^K = \text{טוב}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mi>V</mi></msup><mo>=</mo><mtext mathvariant="normal">רע</mtext></mrow><annotation encoding="application/x-tex">
+\theta^V = \text{רע}
+</annotation></semantics></math></p>
+<p>אז הוא הורס טוביות או אמון.</p>
+<hr />
+<h1 id="המחזור-כלולאה-בכל-הכלכלה">30. המחזור כלולאה בכל הכלכלה</h1>
+<p>הכלכלה הכוללת נראית כך:</p>
+<pre class="text"><code>משקי בית
+  │ קונים מוצרים
+  ▼
+חברות
+  │ משלמות שכר, קונות inputs, לוקחות אשראי
+  ▼
+בנקים / שוקי הון
+  │ מממנים חברות ומדינות
+  ▼
+מדינות
+  │ מטילות מס, מסדירות, מסבסדות
+  ▼
+מדיה / עמים / בתי משפט / ממשלות
+  │ מעריכים טוביות, פופולריות ואמון
+  ▼
+שוקי זוויות
+  │ מסובבים, מבטחים, בודקים וסוחרים בכיוונים
+  ▼
+משקי בית וחברות</code></pre>
+<p>ערך זורם דרך תשלומים.</p>
+<p>טוביות זורמת דרך תוצאות ממשיות ושיפוטים מוסדיים.</p>
+<p>פופולריות זורמת דרך ביקוש, מדיה וקבלה חברתית.</p>
+<p>אמון זורם דרך הוכחה, שקיפות ומחלוקת.</p>
+<p>היסטוריה זורמת דרך שרשרת העסקאות.</p>
+<hr />
+<h1 id="מחזור-הכסף-נעשה-סלקטיבי">31. מחזור הכסף נעשה סלקטיבי</h1>
+<p>בכסף רגיל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">
+100 = 100
+</annotation></semantics></math></p>
+<p>במערכת שלך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>∠</mi><msup><mn>30</mn><mo>∘</mo></msup><mo>≠</mo><mn>100</mn><mi>∠</mi><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+100 \angle 30^\circ \neq 100 \angle 150^\circ
+</annotation></semantics></math></p>
+<p>לכן כסף אינו מסתובב בכל מקום באותה מידה.</p>
+<p>נוצרות אזורים:</p>
+<h2 id="מחזור-נקי-ובעל-אמון-גבוה">מחזור נקי ובעל אמון גבוה</h2>
+<p>כסף טוב מסתובב בין שחקנים אמינים.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↑</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \uparrow,\quad \rho \uparrow
+</annotation></semantics></math></p>
+<p>שם הריבית נמוכה, המסחר מהיר והמרווחים קטנים.</p>
+<h2 id="מחזור-פופולרי-אך-מפוקפק">מחזור פופולרי אך מפוקפק</h2>
+<p>כסף פופולרי מסתובב מהר, אך עם סיכון.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>g</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> לא ודאי</mtext></mrow></mrow><annotation encoding="application/x-tex">
+b \uparrow,\quad g \text{ לא ודאי}
+</annotation></semantics></math></p>
+<p>שם יש בועות ושערוריות.</p>
+<h2 id="מחזור-טוב-אך-לא-פופולרי">מחזור טוב אך לא פופולרי</h2>
+<p>פעילויות טובות אך לא פופולריות זקוקות לסבלנות, סובסידיות או
+חינוך.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \uparrow,\quad b \downarrow
+</annotation></semantics></math></p>
+<p>שם קיים איום של תת-מימון.</p>
+<h2 id="מחזור-רעיל">מחזור רעיל</h2>
+<p>כסף רע מסתובב בשוקי צללים או בהנחות גבוהות.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>↓</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+g \downarrow,\quad b \downarrow,\quad \rho \downarrow
+</annotation></semantics></math></p>
+<p>שם הריבית גבוהה, ההונאה נפוצה והנזילות נמוכה.</p>
+<hr />
+<h1 id="מדוע-המחזור-אינו-נעשה-מוסרי-אוטומטית">32. מדוע המחזור אינו נעשה
+מוסרי אוטומטית</h1>
+<p>טעות נפוצה תהיה:</p>
+<blockquote>
+<p>אם טוביות ופופולריות נמצאות בתוך הכסף, הכלכלה תיעשה טובה
+אוטומטית.</p>
+</blockquote>
+<p>לא.</p>
+<p>המערכת הופכת כיוון מוסרי לסחיר.</p>
+<p>ולכן גם לניתן למניפולציה.</p>
+<p>היא מובילה לשלוש צורות אפשריות:</p>
+<h2 id="שיפור-אמיתי">שיפור אמיתי</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">טוביות אמיתית</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{טוביות אמיתית}
+</annotation></semantics></math></p>
+<h2 id="שיפור-סמלי">שיפור סמלי</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">פופולריות</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{פופולריות}
+</annotation></semantics></math></p>
+<h2 id="שיפור-הונאתי">שיפור הונאתי</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ערך</mtext><mo>→</mo><mtext mathvariant="normal">טוביות לכאורה</mtext></mrow><annotation encoding="application/x-tex">
+\text{ערך} \rightarrow \text{טוביות לכאורה}
+</annotation></semantics></math></p>
+<p>לכן
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>,
+כלומר אמון, הוא מרכזי לחלוטין.</p>
+<p>בלי אמון, הזווית הופכת לתווית תעמולה.</p>
+<p>עם אמון, הזווית הופכת לבדיקה.</p>
+<hr />
+<h1 id="המנגנון-הקצר-ביותר">33. המנגנון הקצר ביותר</h1>
+<p>התיאור המלא הקצר ביותר הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">שחקנים מקבלים דרך זווית הקנייה שלהם ושולחים דרך זווית המכירה שלהם.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{שחקנים מקבלים דרך זווית הקנייה שלהם ושולחים דרך זווית המכירה שלהם.}
+}
+</annotation></semantics></math></p>
+<p>כל מסחר בודק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">האם זווית המכירה של הסחורה מתאימה לזווית הקנייה של הקונה?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{האם זווית המכירה של הסחורה מתאימה לזווית הקנייה של הקונה?}
+}
+</annotation></semantics></math></p>
+<p>וגם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">האם זווית המכירה של הכסף מתאימה לזווית הקנייה של המוכר?</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{האם זווית המכירה של הכסף מתאימה לזווית הקנייה של המוכר?}
+}
+</annotation></semantics></math></p>
+<p>אם כן, ערך, טוביות ופופולריות זורמים בקלות.</p>
+<p>אם לא, נוצרים:</p>
+<ul>
+<li>הנחות</li>
+<li>תוספות מחיר</li>
+<li>סיבוב</li>
+<li>עלויות ביקורת</li>
+<li>ביטוח</li>
+<li>זמני המתנה</li>
+<li>שוקי צללים</li>
+<li>סיכוני מוניטין</li>
+<li>עימותים פוליטיים</li>
+</ul>
+<p>מחזור הכסף כבר אינו מעגל, אלא רשת מכוונת:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">ערך זורם לאורך זוויות תואמות.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{ערך זורם לאורך זוויות תואמות.}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">טוביות זורמת לאורך שיפור אמיתי והכרה.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{טוביות זורמת לאורך שיפור אמיתי והכרה.}
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">פופולריות זורמת לאורך תשומת לב ואישור.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{פופולריות זורמת לאורך תשומת לב ואישור.}
+}
+</annotation></semantics></math></p>
+<p>שתי הזוויות של כל שחקן קובעות <strong>מה הוא רוצה לקלוט</strong>
+ו<strong>מה הוא מוציא אל העולם</strong>.</p>
+<p>מכאן בדיוק נוצרת הדינמיקה הכלכלית.</p>
+</body>
+</html>
