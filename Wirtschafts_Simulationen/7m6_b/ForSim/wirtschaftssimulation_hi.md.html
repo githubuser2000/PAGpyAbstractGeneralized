@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_hi</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="सखय-कण-मदरओ-क-परण-आरथक-समलशन">संख्या-कोण मुद्राओं की पूर्ण आर्थिक
+सिमुलेशन</h1>
+<p>तुम्हारी <strong>संख्या-कोण मुद्राओं</strong> पर आधारित पूर्ण आर्थिक सिमुलेशन में
+सिर्फ देश, सरकारें, जनता, बाजार और कंपनियाँ पर्याप्त नहीं हैं। वे केवल दिखाई देने वाले
+अभिनेता हैं। निर्णायक चीजें और भी हैं: <strong>बैलेंस शीट, नियम, सूचना-प्रवाह,
+अनिश्चितता, सत्ता का दुरुपयोग, ऋण, संपत्ति, समय और प्रतिबंध</strong>।</p>
+<p>मूल ढाँचा होगा:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">अर्थव्यवस्था</mtext><mo>=</mo><mtext mathvariant="normal">अभिनेता</mtext><mo>+</mo><mtext mathvariant="normal">बाजार</mtext><mo>+</mo><mtext mathvariant="normal">बैलेंस शीट</mtext><mo>+</mo><mtext mathvariant="normal">नियम</mtext><mo>+</mo><mtext mathvariant="normal">अपेक्षाएँ</mtext><mo>+</mo><mtext mathvariant="normal">झटके</mtext></mrow><annotation encoding="application/x-tex">
+\text{अर्थव्यवस्था} = \text{अभिनेता} + \text{बाजार} + \text{बैलेंस शीट} + \text{नियम} + \text{अपेक्षाएँ} + \text{झटके}
+</annotation></semantics></math></p>
+<p>और तुम्हारी मुद्रा सिर्फ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>नहीं है, बल्कि:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">संख्यात्मक राशि</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{संख्यात्मक राशि}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">कोणीय दिशा: अच्छा/बुरा + लोकप्रिय/अलोकप्रिय</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{कोणीय दिशा: अच्छा/बुरा + लोकप्रिय/अलोकप्रिय}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">कोण की सुरक्षा / विश्वसनीयता</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{कोण की सुरक्षा / विश्वसनीयता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">उत्पत्ति-कथा / लेनदेन-इतिहास</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{उत्पत्ति-कथा / लेनदेन-इतिहास}
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+और
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+के बिना प्रणाली भोली हो जाएगी, क्योंकि कोई भी दिखा सकता है कि उसका कोण
+वस्तुनिष्ठ और साफ है।</p>
+<hr />
+<h2 id="दश-और-नययक-कषतर">1. देश और न्यायिक क्षेत्र</h2>
+<p>तुम्हें कई देश चाहिए, लेकिन सिर्फ नामों के रूप में नहीं। हर देश को अपनी संस्थाएँ
+चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">सरकार</mtext><mo>,</mo><mtext mathvariant="normal">जनता</mtext><mo>,</mo><mtext mathvariant="normal">अदालतें</mtext><mo>,</mo><mtext mathvariant="normal">केंद्रीय बैंक</mtext><mo>,</mo><mtext mathvariant="normal">कर-प्रणाली</mtext><mo>,</mo><mtext mathvariant="normal">नियामक</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{सरकार}, \text{जनता}, \text{अदालतें}, \text{केंद्रीय बैंक}, \text{कर-प्रणाली}, \text{नियामक})
+</annotation></semantics></math></p>
+<p>हर देश अपने लिए परिभाषित कर सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">अच्छा/बुरा</mtext><annotation encoding="application/x-tex">
+\text{अच्छा/बुरा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कानूनी/गैरकानूनी</mtext><annotation encoding="application/x-tex">
+\text{कानूनी/गैरकानूनी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">सब्सिडी प्राप्त/दंडित</mtext><annotation encoding="application/x-tex">
+\text{सब्सिडी प्राप्त/दंडित}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">मान्यता प्राप्त/अमान्य</mtext><annotation encoding="application/x-tex">
+\text{मान्यता प्राप्त/अमान्य}
+</annotation></semantics></math></p>
+<p>यह जरूरी है, क्योंकि कोई वस्तु देश A में अच्छी और देश B में बुरी हो सकती है।</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>तब अंतरराष्ट्रीय कोण-संघर्ष पैदा होता है। इसी से व्यापार तनाव, प्रतिबंध,
+आर्बिट्राज, काला बाजार और राजनयिक शक्ति-खेल पैदा होते हैं।</p>
+<hr />
+<h2 id="सरकर-अचछबर-क-ओरकल-क-रप-म">2. सरकारें अच्छे/बुरे के ओरैकल के रूप में</h2>
+<p>कई सरकारें <strong>अच्छा vs. बुरा</strong> अक्ष तय करती हैं। लेकिन सिमुलेशन में
+उन्हें पूर्ण सत्य-मशीन नहीं मानना चाहिए।</p>
+<p>हर सरकार को गुण चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">क्षमता</mtext><mo>,</mo><mtext mathvariant="normal">भ्रष्टाचार</mtext><mo>,</mo><mtext mathvariant="normal">विचारधारा</mtext><mo>,</mo><mtext mathvariant="normal">हित</mtext><mo>,</mo><mtext mathvariant="normal">सूचना-गुणवत्ता</mtext><mo>,</mo><mtext mathvariant="normal">शक्ति</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{क्षमता}, \text{भ्रष्टाचार}, \text{विचारधारा}, \text{हित}, \text{सूचना-गुणवत्ता}, \text{शक्ति})
+</annotation></semantics></math></p>
+<p>फिर वह कंपनियों, उत्पादों, उद्योगों, कार्यों और धन-प्रवाहों का मूल्यांकन करती
+है।</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">अधिकतम बुरा</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{अधिकतम बुरा}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">अधिकतम अच्छा</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{अधिकतम अच्छा}
+</annotation></semantics></math></p>
+<p>इसके साथ हमेशा अनिश्चितता होनी चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>एक सरकार कह सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">कंपनी A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn><mo>±</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{कंपनी A}) = 0{,}7 \pm 0{,}2
+</annotation></semantics></math></p>
+<p>इसका अर्थ है: वह कंपनी A को अधिकतर अच्छा मानती है, पर पूर्ण निश्चितता से
+नहीं।</p>
+<p>इन बातों की भी जरूरत है:</p>
+<ul>
+<li>अंतरराष्ट्रीय सरकारी गठबंधन</li>
+<li>वीटो अधिकार</li>
+<li>प्रतिबंध</li>
+<li>भ्रष्टाचार जोखिम</li>
+<li>राजनीतिक गलत आकलन</li>
+<li>प्रचार</li>
+<li>लॉबिंग</li>
+<li>न्यायिक सुधार</li>
+<li>सरकार बदलना</li>
+<li>क्रांति या तख्तापलट</li>
+<li>आपातकालीन अधिकार</li>
+</ul>
+<p>इनके बिना अच्छा/बुरा अक्ष बहुत चिकना और अवास्तविक हो जाएगा।</p>
+<hr />
+<h2 id="जनत-लकपरयअलकपरय-क-ओरकल-क-रप-म">3. जनता लोकप्रिय/अलोकप्रिय के ओरैकल के
+रूप में</h2>
+<p>कई जनता या राष्ट्र <strong>लोकप्रिय vs. अलोकप्रिय</strong> अक्ष तय करते
+हैं।</p>
+<p>लेकिन जनता भी एकरूप नहीं होती। एक जनता समूहों से बनती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<ul>
+<li>मजदूर</li>
+<li>उद्यमी</li>
+<li>पेंशनभोगी</li>
+<li>छात्र</li>
+<li>धार्मिक समूह</li>
+<li>शहरी आबादी</li>
+<li>ग्रामीण आबादी</li>
+<li>अल्पसंख्यक</li>
+<li>राजनीतिक खेमे</li>
+<li>मीडिया-मिल्यू</li>
+<li>उपभोक्ता वर्ग</li>
+</ul>
+<p>हर समूह की अपनी प्राथमिकताएँ होती हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">अधिकतम अलोकप्रिय</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{अधिकतम अलोकप्रिय}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">अधिकतम लोकप्रिय</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{अधिकतम लोकप्रिय}
+</annotation></semantics></math></p>
+<p>कुल लोकप्रियता लगभग होगी:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>लेकिन यहाँ भी अनिश्चितता और हेरफेर चाहिए:</p>
+<ul>
+<li>सर्वेक्षण</li>
+<li>चुनाव</li>
+<li>जनमत-संग्रह</li>
+<li>हड़तालें</li>
+<li>बहिष्कार</li>
+<li>प्रदर्शन</li>
+<li>सोशल मीडिया</li>
+<li>मीडिया अभियान</li>
+<li>सेंसरशिप</li>
+<li>दुष्प्रचार</li>
+<li>सामूहिक उन्माद</li>
+<li>धीमे सांस्कृतिक बदलाव</li>
+<li>अल्पकालिक रुझान</li>
+</ul>
+<p>लोकप्रियता-अक्ष सत्य नहीं है। वह अनुनाद, स्वीकृति, अस्वीकृति और सामाजिक ऊर्जा
+है।</p>
+<hr />
+<h2 id="कण-म-समकन">4. कोण में समेकन</h2>
+<p>सरकारी अच्छाई और जन-लोकप्रियता मिलकर कोण बनाते हैं।</p>
+<p>एक सरल रूप:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">अच्छाई</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{अच्छाई}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">लोकप्रियता</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{लोकप्रियता}
+</annotation></semantics></math></p>
+<p>तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>नैतिक-मानक बल का परिमाण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>विश्वसनीयता:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">सरकारों और जनता की सहमति</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{सरकारों और जनता की सहमति}
+</annotation></semantics></math></p>
+<p>यदि सरकारें और जनता अधिक सहमत हैं,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+ऊँचा है। यदि वे विरोध में हैं,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+कम है।</p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = 0{,}7
+</annotation></semantics></math></p>
+<p>मतलब: अच्छा और लोकप्रिय।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = -0{,}6
+</annotation></semantics></math></p>
+<p>मतलब: अच्छा, पर अलोकप्रिय।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+x = -0{,}7,\quad y = 0{,}9
+</annotation></semantics></math></p>
+<p>मतलब: बुरा, पर लोकप्रिय।</p>
+<p>तीसरा मामला राजनीतिक रूप से विस्फोटक है। सिमुलेशन को ऐसे मामले पैदा करने में सक्षम
+होना चाहिए।</p>
+<hr />
+<h2 id="मदर-सवय">5. मुद्रा स्वयं</h2>
+<p>हर धन-इकाई को कई गुण चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">संख्यात्मक राशि</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{संख्यात्मक राशि}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">कोण</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{कोण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">विश्वसनीयता</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{विश्वसनीयता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">उत्पत्ति</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{उत्पत्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">समय-बिंदु</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{समय-बिंदु}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">इतिहास</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{इतिहास}
+</annotation></semantics></math></p>
+<p>इतिहास जरूरी है। नहीं तो तुरंत कोण-धुलाई शुरू हो जाएगी।</p>
+<p>उदाहरण:</p>
+<p>एक कंपनी शोषण से धन कमाती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>फिर वह उसका 10 % किसी लोकप्रिय कार्य में दान करती है और सब कुछ अच्छा दिखाने
+की कोशिश करती है। इतिहास के बिना वह कोण को हेरफेर कर सकती थी। इतिहास के साथ
+दिखता रहता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">उत्पत्ति: विषैली</mtext><annotation encoding="application/x-tex">
+\text{उत्पत्ति: विषैली}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बाद का सुधार: आंशिक</mtext><annotation encoding="application/x-tex">
+\text{बाद का सुधार: आंशिक}
+</annotation></semantics></math></p>
+<p>इसलिए सिमुलेशन को <strong>उत्पत्ति-ट्रेस वाली वेक्टर लेखांकन प्रणाली</strong>
+चाहिए।</p>
+<hr />
+<h2 id="कणय-लखकन">6. कोणीय लेखांकन</h2>
+<p>साधारण लेखांकन पर्याप्त नहीं है। कंपनियों, बैंकों और राज्यों को वेक्टर बैलेंस शीट
+चाहिए।</p>
+<p>साधारण बैलेंस शीट:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">संपत्तियाँ</mtext><mo>=</mo><mtext mathvariant="normal">देयताएँ</mtext><mo>+</mo><mtext mathvariant="normal">इक्विटी</mtext></mrow><annotation encoding="application/x-tex">
+\text{संपत्तियाँ} = \text{देयताएँ} + \text{इक्विटी}
+</annotation></semantics></math></p>
+<p>वेक्टर बैलेंस शीट:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>यह आसान नहीं है, क्योंकि विपरीत कोण आंशिक रूप से एक-दूसरे को मिटा सकते हैं।</p>
+<p>एक कंपनी संख्यात्मक रूप से धनी, पर नैतिक रूप से विषैली हो सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">उच्च संख्यात्मक संपत्ति</mtext><annotation encoding="application/x-tex">
+\text{उच्च संख्यात्मक संपत्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">खराब कोण</mtext><annotation encoding="application/x-tex">
+\text{खराब कोण}
+</annotation></semantics></math></p>
+<p>या वह लोकप्रिय और अच्छी हो सकती है, पर नकदी कम हो।</p>
+<p>इसलिए अलग-अलग संकेतक चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">तरलता</mtext><annotation encoding="application/x-tex">
+\text{तरलता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">सॉल्वेंसी</mtext><annotation encoding="application/x-tex">
+\text{सॉल्वेंसी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोण-गुणवत्ता</mtext><annotation encoding="application/x-tex">
+\text{कोण-गुणवत्ता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोण-जोखिम</mtext><annotation encoding="application/x-tex">
+\text{कोण-जोखिम}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">प्रतिष्ठा-पूँजी</mtext><annotation encoding="application/x-tex">
+\text{प्रतिष्ठा-पूँजी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">राजनीतिक जोखिम</mtext><annotation encoding="application/x-tex">
+\text{राजनीतिक जोखिम}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="परवर-और-वयकत">7. परिवार और व्यक्ति</h2>
+<p>तुम्हारी सूची में यह स्पष्ट रूप से गायब है। परिवारों के बिना वास्तविक मांग, श्रम,
+चुनाव और उपभोक्ता मनोविज्ञान नहीं है।</p>
+<p>हर व्यक्ति या परिवार को चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">आय</mtext><mo>,</mo><mtext mathvariant="normal">संपत्ति</mtext><mo>,</mo><mtext mathvariant="normal">जरूरतें</mtext><mo>,</mo><mtext mathvariant="normal">मूल्य</mtext><mo>,</mo><mtext mathvariant="normal">पेशा</mtext><mo>,</mo><mtext mathvariant="normal">शिक्षा</mtext><mo>,</mo><mtext mathvariant="normal">राजनीतिक राय</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{आय}, \text{संपत्ति}, \text{जरूरतें}, \text{मूल्य}, \text{पेशा}, \text{शिक्षा}, \text{राजनीतिक राय})
+</annotation></semantics></math></p>
+<p>परिवार तय करते हैं:</p>
+<ul>
+<li>क्या खरीदना है</li>
+<li>कहाँ काम करना है</li>
+<li>किसे वोट देना है</li>
+<li>किन कंपनियों का बहिष्कार करना है</li>
+<li>किन कोणों को स्वीकार करना है</li>
+<li>कितना जोखिम लेना है</li>
+<li>बचत, उपभोग या निवेश करना है</li>
+</ul>
+<p>हर परिवार की अपनी कोण-प्राथमिकताएँ भी होती हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">खरीद-कोण</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{खरीद-कोण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">बिक्री-कोण</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{बिक्री-कोण}
+</annotation></semantics></math></p>
+<p>खरीदते समय वह पूछता है:</p>
+<p>“क्या मैं इस उत्पाद को इस कीमत और इस कोण पर स्वीकार करता हूँ?”</p>
+<p>काम करते समय वह पूछता है:</p>
+<p>“क्या मैं इस कंपनी से इस कोणीय गुणवत्ता वाली मजदूरी स्वीकार करता हूँ?”</p>
+<p>यह शक्तिशाली है, क्योंकि श्रम फिर सिर्फ समय के बदले वेतन नहीं, बल्कि नैतिक संगतता
+भी है।</p>
+<hr />
+<h2 id="कपनय-करपरशन-और-सवमतव-सरचनए">8. कंपनियाँ, कॉर्पोरेशन और
+स्वामित्व-संरचनाएँ</h2>
+<p>कंपनियाँ सिर्फ उत्पादक नहीं हैं। उनकी आंतरिक संरचना होती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">पूँजी</mtext><mo>,</mo><mtext mathvariant="normal">कर्मचारी</mtext><mo>,</mo><mtext mathvariant="normal">तकनीक</mtext><mo>,</mo><mtext mathvariant="normal">आपूर्ति-श्रृंखला</mtext><mo>,</mo><mtext mathvariant="normal">प्रबंधन</mtext><mo>,</mo><mtext mathvariant="normal">मालिक</mtext><mo>,</mo><mtext mathvariant="normal">ऋण</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{पूँजी}, \text{कर्मचारी}, \text{तकनीक}, \text{आपूर्ति-श्रृंखला}, \text{प्रबंधन}, \text{मालिक}, \text{ऋण})
+</annotation></semantics></math></p>
+<p>महत्वपूर्ण हैं:</p>
+<ul>
+<li>छोटी कंपनियाँ</li>
+<li>मध्यम कंपनियाँ</li>
+<li>कॉर्पोरेशन</li>
+<li>एकाधिकार</li>
+<li>कार्टेल</li>
+<li>प्लेटफ़ॉर्म कंपनियाँ</li>
+<li>बैंक</li>
+<li>बीमा कंपनियाँ</li>
+<li>लॉजिस्टिक कंपनियाँ</li>
+<li>रक्षा कंपनियाँ</li>
+<li>मीडिया कंपनियाँ</li>
+<li>ऊर्जा कंपनियाँ</li>
+<li>कच्चा माल कंपनियाँ</li>
+<li>तकनीकी कंपनियाँ</li>
+<li>छाया कंपनियाँ</li>
+<li>शेल कंपनियाँ</li>
+</ul>
+<p>कॉर्पोरेशनों को अतिरिक्त चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">सहायक कंपनियाँ</mtext><annotation encoding="application/x-tex">
+\text{सहायक कंपनियाँ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">होल्डिंग संरचना</mtext><annotation encoding="application/x-tex">
+\text{होल्डिंग संरचना}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कर-बचाव</mtext><annotation encoding="application/x-tex">
+\text{कर-बचाव}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">न्यायिक क्षेत्र आर्बिट्राज</mtext><annotation encoding="application/x-tex">
+\text{न्यायिक क्षेत्र आर्बिट्राज}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लॉबिंग</mtext><annotation encoding="application/x-tex">
+\text{लॉबिंग}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बाजार-शक्ति</mtext><annotation encoding="application/x-tex">
+\text{बाजार-शक्ति}
+</annotation></semantics></math></p>
+<p>कॉर्पोरेशन तुम्हारी सिमुलेशन में खास रोचक हैं, क्योंकि वे विज्ञापन, लॉबिंग,
+रोजगार-शक्ति, दान, मीडिया नियंत्रण और अंतरराष्ट्रीय स्थान-चयन से कोण बदल सकते
+हैं।</p>
+<hr />
+<h2 id="उतपद-सवए-और-वसत-वरग">9. उत्पाद, सेवाएँ और वस्तु-वर्ग</h2>
+<p>हर वस्तु को सिर्फ कीमत और मात्रा नहीं, बल्कि कोण-प्रोफ़ाइल भी चाहिए।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">कीमत</mtext><mo>,</mo><mtext mathvariant="normal">गुणवत्ता</mtext><mo>,</mo><mtext mathvariant="normal">मात्रा</mtext><mo>,</mo><mtext mathvariant="normal">उपयोगिता</mtext><mo>,</mo><mtext mathvariant="normal">उत्पादन-कोण</mtext><mo>,</mo><mtext mathvariant="normal">उपभोग-कोण</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{कीमत}, \text{गुणवत्ता}, \text{मात्रा}, \text{उपयोगिता}, \text{उत्पादन-कोण}, \text{उपभोग-कोण})
+</annotation></semantics></math></p>
+<p>उत्पाद अच्छा बन सकता है पर बुरी तरह उपयोग हो सकता है। या बुरा बन सकता है पर
+लोकप्रिय रूप से उपभोग हो सकता है।</p>
+<p>उदाहरण:</p>
+<p>एक सस्ता उत्पाद बहुत लोकप्रिय हो सकता है, लेकिन उसकी उत्पादन-इतिहास खराब हो
+सकती है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लोकप्रियता उच्च</mtext><annotation encoding="application/x-tex">
+\text{लोकप्रियता उच्च}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">अच्छाई कम</mtext><annotation encoding="application/x-tex">
+\text{अच्छाई कम}
+</annotation></semantics></math></p>
+<p>हर उत्पाद को कम से कम चाहिए:</p>
+<ul>
+<li>उपयोग-मूल्य</li>
+<li>बाजार-कीमत</li>
+<li>उत्पादन-लागत</li>
+<li>आपूर्ति-श्रृंखला कोण</li>
+<li>उपभोग-कोण</li>
+<li>पर्यावरणीय प्रभाव</li>
+<li>सामाजिक प्रभाव</li>
+<li>कानूनी स्थिति</li>
+<li>टिकाऊपन</li>
+<li>प्रतिस्थापन क्षमता</li>
+</ul>
+<p>वस्तु-वर्ग:</p>
+<ul>
+<li>भोजन</li>
+<li>ऊर्जा</li>
+<li>आवास</li>
+<li>कपड़े</li>
+<li>स्वास्थ्य</li>
+<li>शिक्षा</li>
+<li>परिवहन</li>
+<li>मनोरंजन</li>
+<li>विलासिता वस्तुएँ</li>
+<li>हथियार / सुरक्षा वस्तुएँ</li>
+<li>डेटा</li>
+<li>सॉफ़्टवेयर</li>
+<li>कच्चा माल</li>
+<li>मशीनें</li>
+<li>अवसंरचना</li>
+<li>वित्तीय उत्पाद</li>
+</ul>
+<hr />
+<h2 id="शरम-बजर">10. श्रम बाजार</h2>
+<p>श्रम बाजार सिर्फ एक और बाजार नहीं है। यह धन, गरिमा, शक्ति, समय और राजनीति
+को जोड़ता है।</p>
+<p>हर नौकरी में है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">वेतन</mtext><mo>,</mo><mtext mathvariant="normal">कार्य समय</mtext><mo>,</mo><mtext mathvariant="normal">जोखिम</mtext><mo>,</mo><mtext mathvariant="normal">स्थिति</mtext><mo>,</mo><mtext mathvariant="normal">कंपनी का कोण</mtext><mo>,</mo><mtext mathvariant="normal">कार्य का कोण</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{वेतन}, \text{कार्य समय}, \text{जोखिम}, \text{स्थिति}, \text{कंपनी का कोण}, \text{कार्य का कोण})
+</annotation></semantics></math></p>
+<p>लोग नौकरी सिर्फ वेतन से नहीं चुनते, बल्कि:</p>
+<ul>
+<li>नैतिक संगतता</li>
+<li>नियोक्ता की लोकप्रियता</li>
+<li>करियर अवसर</li>
+<li>नौकरी सुरक्षा</li>
+<li>सामाजिक स्थिति</li>
+<li>राजनीतिक जोखिम</li>
+<li>पारिवारिक दबाव</li>
+<li>योग्यता</li>
+<li>भौगोलिक स्थान</li>
+</ul>
+<p>तब ऐसे रूप बनते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ऊँचा वेतन, खराब कोण</mtext><annotation encoding="application/x-tex">
+\text{ऊँचा वेतन, खराब कोण}
+</annotation></semantics></math></p>
+<p>या:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कम वेतन, अच्छा कोण</mtext><annotation encoding="application/x-tex">
+\text{कम वेतन, अच्छा कोण}
+</annotation></semantics></math></p>
+<p>यह यथार्थवादी है। बहुत से लोग सिर्फ श्रम नहीं बेचते, अपनी सामाजिक पहचान का
+हिस्सा भी बेचते हैं।</p>
+<hr />
+<h2 id="वततय-परणल">11. वित्तीय प्रणाली</h2>
+<p>यह सबसे महत्वपूर्ण गायब ब्लॉकों में से एक है।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>बैंक</li>
+<li>केंद्रीय बैंक</li>
+<li>ऋण बाजार</li>
+<li>बॉन्ड</li>
+<li>शेयर बाजार</li>
+<li>बीमा कंपनियाँ</li>
+<li>निवेश कोष</li>
+<li>पेंशन कोष</li>
+<li>छाया बैंक</li>
+<li>एक्सचेंज</li>
+<li>मार्केट मेकर</li>
+<li>रेटिंग एजेंसियाँ</li>
+<li>भुगतान नेटवर्क</li>
+</ul>
+<p>तुम्हारे मॉडल में केवल ब्याज नहीं, बल्कि कोणीय ब्याज भी है।</p>
+<p>एक ऋण होगा:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">ब्याज</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{ब्याज}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">अवधि</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{अवधि}
+</annotation></semantics></math></p>
+<p>ब्याज दर निर्भर करेगी:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">डिफ़ॉल्ट जोखिम</mtext><annotation encoding="application/x-tex">
+\text{डिफ़ॉल्ट जोखिम}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय जोखिम</mtext><annotation encoding="application/x-tex">
+\text{कोणीय जोखिम}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">राजनीतिक जोखिम</mtext><annotation encoding="application/x-tex">
+\text{राजनीतिक जोखिम}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लोकप्रियता जोखिम</mtext><annotation encoding="application/x-tex">
+\text{लोकप्रियता जोखिम}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">तरलता जोखिम</mtext><annotation encoding="application/x-tex">
+\text{तरलता जोखिम}
+</annotation></semantics></math></p>
+<p>खराब कोण वाली कंपनी को अधिक ब्याज देना होगा या केवल विषैला वित्तपोषण
+मिलेगा।</p>
+<hr />
+<h2 id="कदरय-बक-और-धन-सजन">12. केंद्रीय बैंक और धन-सृजन</h2>
+<p>हर मुद्रा को निर्गम नियम चाहिए।</p>
+<p>तुम्हारी प्रणाली में केंद्रीय बैंक को केवल मात्रा नहीं नियंत्रित करनी होगी:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>बल्कि परिसंचरण में कोण-गुणवत्ता भी:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>केंद्रीय बैंक देख सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">मुद्रास्फीति</mtext><annotation encoding="application/x-tex">
+\text{मुद्रास्फीति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बेरोजगारी</mtext><annotation encoding="application/x-tex">
+\text{बेरोजगारी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">धन का कोणीय वितरण</mtext><annotation encoding="application/x-tex">
+\text{धन का कोणीय वितरण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">हर कोण-क्षेत्र की तरलता</mtext><annotation encoding="application/x-tex">
+\text{हर कोण-क्षेत्र की तरलता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">विश्वास संकट</mtext><annotation encoding="application/x-tex">
+\text{विश्वास संकट}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय घबराहट</mtext><annotation encoding="application/x-tex">
+\text{कोणीय घबराहट}
+</annotation></semantics></math></p>
+<p>नए शब्द संभव हैं:</p>
+<h3 id="सखयतमक-मदरसफत">संख्यात्मक मुद्रास्फीति</h3>
+<p>सामान्य कीमत वृद्धि।</p>
+<h3 id="कणय-मदरसफत">कोणीय मुद्रास्फीति</h3>
+<p>सब लोग अच्छा होने का दावा करते हैं, लेकिन विश्वसनीयता घटती है।</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="कणय-अपसफत">कोणीय अपस्फीति</h3>
+<p>सिर्फ अत्यंत “साफ” धन स्वीकार होता है; व्यापार जम जाता है।</p>
+<h3 id="कणय-घबरहट">कोणीय घबराहट</h3>
+<p>अभिनेता किसी कोण-क्षेत्र से भागते हैं, क्योंकि वह अचानक बुरा या अलोकप्रिय माना
+जाता है।</p>
+<hr />
+<h2 id="कणय-बजर">13. कोणीय बाजार</h2>
+<p>यह तुम्हारे विचार का विशिष्ट भाग है।</p>
+<p>साधारण बाजारों के अलावा कोणों के अपने बाजार चाहिए:</p>
+<ul>
+<li>कोण-विनिमय</li>
+<li>कोण-हेजिंग</li>
+<li>कोण-ऑप्शंस</li>
+<li>कोण-फ्यूचर्स</li>
+<li>प्रतिष्ठा-डेरिवेटिव</li>
+<li>अच्छाई-स्वैप</li>
+<li>लोकप्रियता-स्वैप</li>
+<li>प्रतिबंध-बीमा</li>
+<li>बहिष्कार-बीमा</li>
+<li>राजनीतिक जोखिम-हेजिंग</li>
+</ul>
+<p>सरल कोण-विनिमय:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>जहाँ:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>और:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>कोणीय दूरी जितनी बड़ी, रूपांतरण उतना महँगा।</p>
+<p>यह एक नया उद्योग बनाता है: <strong>कोणीय मार्केट मेकर</strong>।</p>
+<p>वे कठिन कोण खरीदते हैं और अधिक स्वीकार्य कोण बेचते हैं। पर यह खतरनाक है, क्योंकि
+इससे नैतिक धन-धुलाई पैदा हो सकती है।</p>
+<p>इसलिए चाहिए:</p>
+<ul>
+<li>जाँच संस्थाएँ</li>
+<li>ऑडिट</li>
+<li>उत्पत्ति प्रमाण</li>
+<li>प्रतिष्ठा दंड</li>
+<li>धोखाधड़ी पहचान</li>
+<li>पारदर्शिता नियम</li>
+<li>समयसीमा नियम</li>
+<li>अपील प्रक्रिया</li>
+</ul>
+<hr />
+<h2 id="सपतत-अनबध-और-अदलत">14. संपत्ति, अनुबंध और अदालतें</h2>
+<p>कानूनी प्रणाली के बिना स्थिर अर्थव्यवस्था नहीं होती।</p>
+<p>तुम्हें चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">संपत्ति अधिकार</mtext><annotation encoding="application/x-tex">
+\text{संपत्ति अधिकार}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">अनुबंध कानून</mtext><annotation encoding="application/x-tex">
+\text{अनुबंध कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">दायित्व</mtext><annotation encoding="application/x-tex">
+\text{दायित्व}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">दिवालियापन कानून</mtext><annotation encoding="application/x-tex">
+\text{दिवालियापन कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">श्रम कानून</mtext><annotation encoding="application/x-tex">
+\text{श्रम कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">प्रतिस्पर्धा कानून</mtext><annotation encoding="application/x-tex">
+\text{प्रतिस्पर्धा कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कर कानून</mtext><annotation encoding="application/x-tex">
+\text{कर कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">डेटा-सुरक्षा कानून</mtext><annotation encoding="application/x-tex">
+\text{डेटा-सुरक्षा कानून}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">प्रतिबंध कानून</mtext><annotation encoding="application/x-tex">
+\text{प्रतिबंध कानून}
+</annotation></semantics></math></p>
+<p>तुम्हारी मुद्रा एक नया कानूनी प्रश्न जोड़ती है:</p>
+<p><strong>कोण बदलने का अधिकार किसे है?</strong></p>
+<p>क्या अदालत कह सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>क्योंकि कंपनी का पुनर्वास हो गया?</p>
+<p>क्या सरकार कह सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>क्योंकि कोई संगठन प्रतिबंधित हो गया?</p>
+<p>क्या जनता बहिष्कार से कोण खराब कर सकती है?</p>
+<p>इन प्रश्नों को सिमुलेशन के नियमों में बदलना होगा।</p>
+<hr />
+<h2 id="कर-और-सरकर-वयय">15. कर और सरकारी व्यय</h2>
+<p>राज्यों को आय और खर्च चाहिए।</p>
+<p>कर तुम्हारे मॉडल में कोण-निर्भर हो सकते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<ul>
+<li>अच्छा और लोकप्रिय धन कम कर से गुजरता है</li>
+<li>बुरा धन अधिक कर से गुजरता है</li>
+<li>अनिश्चित धन की जाँच होती है</li>
+<li>विषैला धन फ्रीज़ होता है</li>
+<li>राज्य द्वारा वांछित निवेश को सब्सिडी मिलती है</li>
+</ul>
+<p>सरकारी खर्चों के भी कोण होते हैं:</p>
+<ul>
+<li>सामाजिक खर्च</li>
+<li>सैन्य</li>
+<li>अवसंरचना</li>
+<li>शिक्षा</li>
+<li>स्वास्थ्य</li>
+<li>सब्सिडी</li>
+<li>बचाव पैकेज</li>
+<li>पुलिस तंत्र</li>
+<li>प्रचार</li>
+<li>शोध</li>
+</ul>
+<p>सरकार सिर्फ धन खर्च नहीं करती; वह कोण बना या नष्ट भी कर सकती है।</p>
+<hr />
+<h2 id="अतररषटरय-अरथवयवसथ">16. अंतरराष्ट्रीय अर्थव्यवस्था</h2>
+<p>जैसे ही कई देश हों, तुम्हें चाहिए:</p>
+<ul>
+<li>विनिमय दरें</li>
+<li>पूँजी प्रवाह</li>
+<li>व्यापार समझौते</li>
+<li>शुल्क</li>
+<li>प्रतिबंध</li>
+<li>एम्बार्गो</li>
+<li>प्रवासन</li>
+<li>बहुराष्ट्रीय कंपनियाँ</li>
+<li>टैक्स हेवन</li>
+<li>विकास सहायता</li>
+<li>भू-राजनीतिक ब्लॉक</li>
+<li>रिज़र्व मुद्राएँ</li>
+<li>कच्चे माल पर निर्भरता</li>
+<li>सीमा-पार आपूर्ति-श्रृंखलाएँ</li>
+</ul>
+<p>तुम्हारे मॉडल में यह भी जुड़ता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोण-अनुवाद</mtext><annotation encoding="application/x-tex">
+\text{कोण-अनुवाद}
+</annotation></semantics></math></p>
+<p>देश A का कोण देश B में स्वतः वही नहीं होता।</p>
+<p>इसलिए रूपांतरण मैट्रिक्स चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p>एक उत्पाद देश A में अच्छा और लोकप्रिय माना जाता है। देश B में वह अनैतिक माना
+जाता है, पर फिर भी चाहा जाता है।</p>
+<p>यह आर्बिट्राज पैदा करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">अच्छे कोण-क्षेत्र में खरीदना</mtext><annotation encoding="application/x-tex">
+\text{अच्छे कोण-क्षेत्र में खरीदना}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">लोकप्रिय कोण-क्षेत्र में बेचना</mtext><annotation encoding="application/x-tex">
+\text{लोकप्रिय कोण-क्षेत्र में बेचना}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="मडय-और-सचन-परणल">17. मीडिया और सूचना-प्रणाली</h2>
+<p>यह बिल्कुल केंद्रीय है। कोण सिर्फ तथ्यों से नहीं, धारणा से भी बनते हैं।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>समाचार मीडिया</li>
+<li>सामाजिक नेटवर्क</li>
+<li>इन्फ्लुएंसर</li>
+<li>राज्य मीडिया</li>
+<li>खोजी पत्रकार</li>
+<li>प्लेटफ़ॉर्म एल्गोरिद्म</li>
+<li>सेंसरशिप</li>
+<li>लीक</li>
+<li>व्हिसलब्लोअर</li>
+<li>प्रचार</li>
+<li>घोटाले</li>
+<li>अफवाहें</li>
+<li>वैकल्पिक सार्वजनिक क्षेत्र</li>
+</ul>
+<p>एक घोटाला कंपनी का कोण अचानक बदल सकता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>यह कोणीय क्रैश है।</p>
+<p>सफल PR अभियान लोकप्रियता बढ़ा सकता है, बिना अच्छाई बढ़ाए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">समान</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{समान}
+</annotation></semantics></math></p>
+<p>यह वास्तविक और खतरनाक गतिशीलता है।</p>
+<hr />
+<h2 id="शकष-ससकत-और-वचरधर">18. शिक्षा, संस्कृति और विचारधारा</h2>
+<p>जनता शून्य में मूल्यांकन नहीं करती। उसकी लोकप्रियता-स्केल संस्कृति पर निर्भर है।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>शिक्षा प्रणालियाँ</li>
+<li>धर्म</li>
+<li>राजनीतिक विचारधाराएँ</li>
+<li>ऐतिहासिक आघात</li>
+<li>राष्ट्रीय मिथक</li>
+<li>वर्ग चेतना</li>
+<li>नैतिक वर्जनाएँ</li>
+<li>पीढ़ीगत संघर्ष</li>
+<li>मूल्य परिवर्तन</li>
+</ul>
+<p>नहीं तो सभी जनता समान प्रतिक्रिया देंगी। यह उबाऊ और गलत होगा।</p>
+<p>एक रूढ़िवादी जनता, तकनीकी-प्रशासकीय जनता, समानतावादी जनता और उपभोक्तावादी
+जनता एक ही कंपनी को अलग-अलग देखेंगी।</p>
+<hr />
+<h2 id="आपरत-शरखल-और-उतपतत">19. आपूर्ति-श्रृंखला और उत्पत्ति</h2>
+<p>कोणीय धन के लिए यह अत्यंत महत्वपूर्ण है।</p>
+<p>एक उत्पाद का सिर्फ विक्रेता-कोण नहीं, पूरी उत्पत्ति-श्रृंखला होती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">उत्पाद</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">कच्चा माल</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">श्रम</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">परिवहन</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">कंपनी</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">ऊर्जा</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{उत्पाद}} =
+F(\theta_{\text{कच्चा माल}},\theta_{\text{श्रम}},\theta_{\text{परिवहन}},\theta_{\text{कंपनी}},\theta_{\text{ऊर्जा}})
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p>एक स्मार्टफोन के कोणीय अंश आते हैं:</p>
+<ul>
+<li>कच्चे माल के खनन से</li>
+<li>श्रम स्थितियों से</li>
+<li>ऊर्जा-उपयोग से</li>
+<li>पेटेंट से</li>
+<li>डेटा नीति से</li>
+<li>मार्केटिंग से</li>
+<li>मरम्मतयोग्यता से</li>
+<li>भू-राजनीतिक उत्पत्ति से</li>
+<li>उपभोक्ता उपयोगिता से</li>
+</ul>
+<p>अंतिम कोण भारित मिश्रण है।</p>
+<p>आपूर्ति-श्रृंखला मॉडल के बिना कोणीय धन आसानी से हेरफेर योग्य है।</p>
+<hr />
+<h2 id="परयवरण-और-बहर-परभव">20. पर्यावरण और बाहरी प्रभाव</h2>
+<p>पूर्ण सिमुलेशन को बाहरी प्रभाव चाहिए:</p>
+<ul>
+<li>CO₂</li>
+<li>जल-उपयोग</li>
+<li>प्रजाति-विनाश</li>
+<li>वायु-प्रदूषण</li>
+<li>स्वास्थ्य-लागत</li>
+<li>शोर</li>
+<li>कचरा</li>
+<li>संसाधन-क्षय</li>
+<li>भूमि-उपयोग</li>
+<li>सामाजिक नुकसान</li>
+<li>अपराध</li>
+<li>सार्वजनिक सुरक्षा</li>
+</ul>
+<p>ये प्रभाव अच्छा/बुरा अक्ष को प्रभावित करते हैं।</p>
+<p>कोई उत्पाद लाभदायक और लोकप्रिय हो सकता है, लेकिन दीर्घकाल में हानिकारक।
+तब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>यानी: बुरा, पर लोकप्रिय।</p>
+<p>यह तुम्हारे मॉडल के सबसे महत्वपूर्ण मामलों में से एक है।</p>
+<hr />
+<h2 id="नवचर-और-तकनक">21. नवाचार और तकनीक</h2>
+<p>अर्थव्यवस्था तकनीक से बदलती है।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>अनुसंधान और विकास</li>
+<li>पेटेंट</li>
+<li>स्वचालन</li>
+<li>उत्पादकता वृद्धि</li>
+<li>AI प्रणालियाँ</li>
+<li>प्लेटफ़ॉर्म प्रभाव</li>
+<li>नेटवर्क प्रभाव</li>
+<li>एकाधिकारकरण</li>
+<li>सृजनात्मक विनाश</li>
+<li>नए उद्योग</li>
+<li>पुराने उद्योग</li>
+</ul>
+<p>तकनीक कोण बदल सकती है।</p>
+<p>नई तकनीक पहले अलोकप्रिय हो सकती है, पर बाद में अच्छी मानी जा सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>या पहले लोकप्रिय हो सकती है और बाद में हानिकारक पहचानी जा सकती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="अपरध-धखधड-और-छय-अरथवयवसथ">22. अपराध, धोखाधड़ी और
+छाया-अर्थव्यवस्था</h2>
+<p>इसे छोड़ना नहीं चाहिए। नैतिक-सामाजिक मुद्रा प्रणाली तुरंत नए अपराध पैदा करती
+है।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>धन-शोधन</li>
+<li>कोण-शोधन</li>
+<li>रिश्वत</li>
+<li>नकली लोकप्रियता</li>
+<li>बॉट नेटवर्क</li>
+<li>नकली कंपनियाँ</li>
+<li>मुखौटा व्यक्ति</li>
+<li>जाली आपूर्ति-श्रृंखलाएँ</li>
+<li>हेरफेर किए गए ऑडिट</li>
+<li>इनसाइडर ट्रेडिंग</li>
+<li>बाजार हेरफेर</li>
+<li>कार्टेल</li>
+<li>तस्करी</li>
+<li>काला श्रम</li>
+<li>प्रतिबंध-चोरी</li>
+<li>राजनीतिक ब्लैकमेल</li>
+</ul>
+<p>नया विशेष अपराध:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोण-हेरफेर</mtext><annotation encoding="application/x-tex">
+\text{कोण-हेरफेर}
+</annotation></semantics></math></p>
+<p>उदाहरण: कोई कंपनी कृत्रिम लोकप्रियता खरीदती है ताकि उसके धन का कोण बेहतर हो
+जाए।</p>
+<p>या: कोई सरकार विरोधियों को बुरा घोषित करती है ताकि उनकी संपत्ति का मूल्य
+घटे।</p>
+<p>विरोधी/आक्रामक मॉडल के बिना सिमुलेशन नैतिक रूप से भोली हो जाएगी।</p>
+<hr />
+<h2 id="सन-सरकष-और-बल">23. सेना, सुरक्षा और बल</h2>
+<p>राज्य सिर्फ नियमों से नहीं, लागू करने की शक्ति से भी बने होते हैं।</p>
+<p>तुम्हें चाहिए:</p>
+<ul>
+<li>पुलिस</li>
+<li>खुफिया सेवाएँ</li>
+<li>सेना</li>
+<li>सीमा सुरक्षा</li>
+<li>प्रतिबंध इकाइयाँ</li>
+<li>साइबर रक्षा</li>
+<li>अदालतें</li>
+<li>जेलें</li>
+<li>आपातकालीन तंत्र</li>
+</ul>
+<p>क्यों? क्योंकि मुद्राएँ तभी काम करती हैं जब दावे लागू कराए जा सकें।</p>
+<p>तुम्हारी प्रणाली में राज्य कोण को हथियार की तरह भी प्रयोग कर सकते हैं:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">शत्रु कंपनी</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">बुरी/अलोकप्रिय</mtext></mrow><annotation encoding="application/x-tex">
+\text{शत्रु कंपनी} \rightarrow \theta = \text{बुरी/अलोकप्रिय}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">प्रतिबंधित देश</mtext><mo>→</mo><mtext mathvariant="normal">कोणीय नाकेबंदी</mtext></mrow><annotation encoding="application/x-tex">
+\text{प्रतिबंधित देश} \rightarrow \text{कोणीय नाकेबंदी}
+</annotation></semantics></math></p>
+<p>यह भू-राजनीतिक रूप से बहुत महत्वपूर्ण है।</p>
+<hr />
+<h2 id="समय-अपकषए-और-समत">24. समय, अपेक्षाएँ और स्मृति</h2>
+<p>आर्थिक सिमुलेशन को समय चाहिए।</p>
+<p>सब कुछ तुरंत नहीं होता। होते हैं:</p>
+<ul>
+<li>उत्पादन समय</li>
+<li>डिलीवरी विलंब</li>
+<li>अनुबंध अवधि</li>
+<li>ऋण अवधि</li>
+<li>चुनाव चक्र</li>
+<li>निवेश चक्र</li>
+<li>प्रतिष्ठा-विलंब</li>
+<li>सूचना-विलंब</li>
+<li>न्यायिक प्रक्रिया</li>
+<li>राजनीतिक जड़ता</li>
+</ul>
+<p>कोण में भी स्मृति होनी चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">नया</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{नया}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>नहीं तो हर घोटाला तुरंत सब नष्ट कर देगा और हर PR अभियान तुरंत सब ठीक कर
+देगा।</p>
+<p>इसलिए जड़ता चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">प्रतिक्रिया गति</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{प्रतिक्रिया गति}
+</annotation></semantics></math></p>
+<p>ऊँचा
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+समाज जल्दी प्रतिक्रिया देता है।<br />
+नीचा
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+समाज धीरे भूलता है और स्थिर निर्णय करता है।</p>
+<hr />
+<h2 id="झटक-और-सकट">25. झटके और संकट</h2>
+<p>अच्छी सिमुलेशन को व्यवधान चाहिए।</p>
+<p>संभावित झटके:</p>
+<ul>
+<li>वित्तीय संकट</li>
+<li>बैंक रन</li>
+<li>युद्ध</li>
+<li>महामारी</li>
+<li>प्राकृतिक आपदा</li>
+<li>ऊर्जा झटका</li>
+<li>आपूर्ति-श्रृंखला टूटना</li>
+<li>भ्रष्टाचार घोटाला</li>
+<li>लीक</li>
+<li>चुनावी उलटफेर</li>
+<li>क्रांति</li>
+<li>अति-मुद्रास्फीति</li>
+<li>मुद्रा पलायन</li>
+<li>बहिष्कार लहर</li>
+<li>तकनीकी टूटन</li>
+<li>साइबर हमला</li>
+<li>राज्य-डिफ़ॉल्ट</li>
+<li>कॉर्पोरेट दिवालियापन</li>
+</ul>
+<p>तुम्हारी प्रणाली में अतिरिक्त:</p>
+<ul>
+<li>कोणीय क्रैश</li>
+<li>विश्वास क्रैश</li>
+<li>अच्छा/बुरा पुनर्मूल्यांकन</li>
+<li>लोकप्रियता लहर</li>
+<li>नैतिक घबराहट</li>
+<li>अंतरराष्ट्रीय कोणीय विभाजन</li>
+<li>ओरैकल भ्रष्टाचार</li>
+<li>जन-बहिष्कार</li>
+<li>प्रतिष्ठा दिवालियापन</li>
+</ul>
+<hr />
+<h2 id="बजर-वसतर-स">26. बाजार विस्तार से</h2>
+<p>तुमने उत्पाद, सेवाएँ और श्रम बाजार बताए। इनके अलावा:</p>
+<h3 id="वसत-बजर">वस्तु बाजार</h3>
+<p>भोजन, ऊर्जा, कच्चा माल, उपभोक्ता वस्तुएँ।</p>
+<h3 id="सव-बजर">सेवा बाजार</h3>
+<p>स्वास्थ्य, शिक्षा, परामर्श, देखभाल, मनोरंजन।</p>
+<h3 id="शरम-बजर-1">श्रम बाजार</h3>
+<p>वेतन, योग्यता, प्रवासन, बेरोजगारी।</p>
+<h3 id="पज-बजर">पूँजी बाजार</h3>
+<p>शेयर, बॉन्ड, ऋण, हिस्सेदारी।</p>
+<h3 id="रयल-एसटट-बजर">रियल एस्टेट बाजार</h3>
+<p>आवास, भूमि, वाणिज्यिक संपत्ति।</p>
+<h3 id="कचच-मल-बजर">कच्चा माल बाजार</h3>
+<p>तेल, गैस, धातु, पानी, दुर्लभ पृथ्वी तत्व।</p>
+<h3 id="ऊरज-बजर">ऊर्जा बाजार</h3>
+<p>बिजली, भंडारण, ग्रिड, उत्पादन।</p>
+<h3 id="डट-बजर">डेटा बाजार</h3>
+<p>उपयोगकर्ता डेटा, प्रशिक्षण डेटा, निगरानी, गोपनीयता।</p>
+<h3 id="तकनक-बजर">तकनीकी बाजार</h3>
+<p>सॉफ़्टवेयर, AI, पेटेंट, कंप्यूट।</p>
+<h3 id="बम-बजर">बीमा बाजार</h3>
+<p>जोखिम-हेजिंग, आपदाएँ, बीमारी, राजनीतिक जोखिम।</p>
+<h3 id="कणय-बजर-1">कोणीय बाजार</h3>
+<p>रोटेशन, हेजिंग, विश्वसनीयता, प्रतिष्ठा।</p>
+<h3 id="कल-और-धसर-बजर">काले और धूसर बाजार</h3>
+<p>जो आधिकारिक रूप से अवरुद्ध है, पर जिसकी मांग बनी रहती है।</p>
+<hr />
+<h2 id="मलय-नरमण">27. मूल्य-निर्माण</h2>
+<p>हर व्यापार में कम से कम चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">मात्रा</mtext><mo>,</mo><mtext mathvariant="normal">संख्यात्मक कीमत</mtext><mo>,</mo><mtext mathvariant="normal">खरीद-कोण</mtext><mo>,</mo><mtext mathvariant="normal">बिक्री-कोण</mtext><mo>,</mo><mtext mathvariant="normal">विश्वसनीयता</mtext><mo>,</mo><mtext mathvariant="normal">न्यायिक क्षेत्र</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{मात्रा}, \text{संख्यात्मक कीमत}, \text{खरीद-कोण}, \text{बिक्री-कोण}, \text{विश्वसनीयता}, \text{न्यायिक क्षेत्र})
+</annotation></semantics></math></p>
+<p>खरीद प्रस्ताव:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>बिक्री प्रस्ताव:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>व्यापार तब होता है जब:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>और:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>या यदि कोणीय दूरी को शुल्क से समायोजित किया जाता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>तब प्रभावी व्यापार-मूल्य:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>उदाहरण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>अर्थात: समान कोण और उच्च विश्वसनीयता पूरी क्रय-शक्ति देते हैं। बड़ी कोणीय दूरी या
+कम विश्वसनीयता प्रभावी क्रय-शक्ति घटाती है।</p>
+<hr />
+<h2 id="अभनतओ-क-उपयगत-फलन">28. अभिनेताओं की उपयोगिता-फलन</h2>
+<p>हर अभिनेता को निर्णय नियम चाहिए।</p>
+<p>परिवार सिर्फ उपभोग अधिकतम नहीं करता:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">उपभोग</mtext><mo>,</mo><mtext mathvariant="normal">कीमत</mtext><mo>,</mo><mtext mathvariant="normal">कोण</mtext><mo>,</mo><mtext mathvariant="normal">स्थिति</mtext><mo>,</mo><mtext mathvariant="normal">जोखिम</mtext><mo>,</mo><mtext mathvariant="normal">मूल्य</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{उपभोग}, \text{कीमत}, \text{कोण}, \text{स्थिति}, \text{जोखिम}, \text{मूल्य})
+</annotation></semantics></math></p>
+<p>कंपनी सिर्फ लाभ अधिकतम नहीं करती:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">लाभ</mtext><mo>−</mo><mtext mathvariant="normal">कोणीय लागत</mtext><mo>−</mo><mtext mathvariant="normal">नियामकीय जोखिम</mtext><mo>−</mo><mtext mathvariant="normal">प्रतिष्ठा जोखिम</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{लाभ} - \text{कोणीय लागत} - \text{नियामकीय जोखिम} - \text{प्रतिष्ठा जोखिम}
+</annotation></semantics></math></p>
+<p>सरकार शायद अधिकतम करती है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">स्थिरता</mtext><mo>,</mo><mtext mathvariant="normal">शक्ति</mtext><mo>,</mo><mtext mathvariant="normal">समृद्धि</mtext><mo>,</mo><mtext mathvariant="normal">विचारधारा</mtext><mo>,</mo><mtext mathvariant="normal">सुरक्षा</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{स्थिरता}, \text{शक्ति}, \text{समृद्धि}, \text{विचारधारा}, \text{सुरक्षा})
+</annotation></semantics></math></p>
+<p>जनता या समूह शायद अधिकतम करता है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">जीवन स्तर</mtext><mo>,</mo><mtext mathvariant="normal">पहचान</mtext><mo>,</mo><mtext mathvariant="normal">न्याय</mtext><mo>,</mo><mtext mathvariant="normal">सुरक्षा</mtext><mo>,</mo><mtext mathvariant="normal">स्थिति</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{जीवन स्तर}, \text{पहचान}, \text{न्याय}, \text{सुरक्षा}, \text{स्थिति})
+</annotation></semantics></math></p>
+<p>यह जरूरी है: सभी अभिनेता एक ही लक्ष्य नहीं साधते।</p>
+<hr />
+<h2 id="शकत-और-असमनत">29. शक्ति और असमानता</h2>
+<p>पूर्ण सिमुलेशन को शक्ति-संबंध चाहिए।</p>
+<p>हर अभिनेता का कोण पर प्रभाव समान नहीं होता।</p>
+<p>बड़ा कॉर्पोरेशन विज्ञापन से लोकप्रियता प्रभावित कर सकता है।<br />
+सरकार कानून से अच्छाई परिभाषित कर सकती है।<br />
+प्लेटफ़ॉर्म दृश्यता नियंत्रित कर सकता है।<br />
+बैंक वित्तपोषण रोक सकता है।<br />
+धनी व्यक्ति मीडिया खरीद सकता है।</p>
+<p>इसलिए चाहिए:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">संपत्ति-वितरण</mtext><annotation encoding="application/x-tex">
+\text{संपत्ति-वितरण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बाजार-शक्ति</mtext><annotation encoding="application/x-tex">
+\text{बाजार-शक्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">राजनीतिक शक्ति</mtext><annotation encoding="application/x-tex">
+\text{राजनीतिक शक्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">मीडिया शक्ति</mtext><annotation encoding="application/x-tex">
+\text{मीडिया शक्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">नेटवर्क शक्ति</mtext><annotation encoding="application/x-tex">
+\text{नेटवर्क शक्ति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बल-शक्ति</mtext><annotation encoding="application/x-tex">
+\text{बल-शक्ति}
+</annotation></semantics></math></p>
+<p>शक्ति-मॉडल के बिना सिमुलेशन बहुत लोकतांत्रिक और बहुत harmless लगेगी।</p>
+<hr />
+<h2 id="परणल-क-नतक-सवधन">30. प्रणाली का नैतिक संविधान</h2>
+<p>यह सबसे महत्वपूर्ण राजनीतिक सुरक्षा है।</p>
+<p>क्योंकि तुम्हारी मुद्रा अच्छा/बुरा और लोकप्रिय/अलोकप्रिय को कीमत में शामिल करती
+है, वह आसानी से सर्वसत्तावादी हो सकती है। इसलिए संवैधानिक परत चाहिए:</p>
+<ul>
+<li>अल्पसंख्यक संरक्षण</li>
+<li>मूल अधिकार</li>
+<li>अपील प्रक्रिया</li>
+<li>पारदर्शिता कर्तव्य</li>
+<li>शक्तियों का विभाजन</li>
+<li>स्वतंत्र अदालतें</li>
+<li>पिछली तारीख से अवमूल्यन से सुरक्षा</li>
+<li>सामूहिक उन्माद से सुरक्षा</li>
+<li>सरकारी मनमानी से सुरक्षा</li>
+<li>कॉर्पोरेट हेरफेर से सुरक्षा</li>
+<li>पुनर्वास का अधिकार</li>
+<li>स्पष्टीकरण का अधिकार</li>
+<li>वैकल्पिक ओरैकल का अधिकार</li>
+</ul>
+<p>नहीं तो कोणीय धन जल्दी ही आज्ञाकारिता-धन बन जाएगा।</p>
+<hr />
+<h2 id="समलशन-क-मपदड">31. सिमुलेशन के मापदंड</h2>
+<p>तुम्हें आउटपुट चाहिए ताकि देखा जा सके कि प्रणाली काम कर रही है या नहीं।</p>
+<p>सामान्य संकेतक:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">GDP</mtext><annotation encoding="application/x-tex">
+\text{GDP}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">मुद्रास्फीति</mtext><annotation encoding="application/x-tex">
+\text{मुद्रास्फीति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">बेरोजगारी</mtext><annotation encoding="application/x-tex">
+\text{बेरोजगारी}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">उत्पादकता</mtext><annotation encoding="application/x-tex">
+\text{उत्पादकता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">वेतन</mtext><annotation encoding="application/x-tex">
+\text{वेतन}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">संपत्ति-वितरण</mtext><annotation encoding="application/x-tex">
+\text{संपत्ति-वितरण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">व्यापार संतुलन</mtext><annotation encoding="application/x-tex">
+\text{व्यापार संतुलन}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">सरकारी ऋण</mtext><annotation encoding="application/x-tex">
+\text{सरकारी ऋण}
+</annotation></semantics></math></p>
+<p>तुम्हारे सिस्टम के नए संकेतक:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">धन का कोणीय वितरण</mtext><annotation encoding="application/x-tex">
+\text{धन का कोणीय वितरण}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">औसत अच्छाई</mtext><annotation encoding="application/x-tex">
+\text{औसत अच्छाई}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">औसत लोकप्रियता</mtext><annotation encoding="application/x-tex">
+\text{औसत लोकप्रियता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय अस्थिरता</mtext><annotation encoding="application/x-tex">
+\text{कोणीय अस्थिरता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय तरलता</mtext><annotation encoding="application/x-tex">
+\text{कोणीय तरलता}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय स्प्रेड</mtext><annotation encoding="application/x-tex">
+\text{कोणीय स्प्रेड}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोणीय मुद्रास्फीति</mtext><annotation encoding="application/x-tex">
+\text{कोणीय मुद्रास्फीति}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">कोण-धुलाई सूचकांक</mtext><annotation encoding="application/x-tex">
+\text{कोण-धुलाई सूचकांक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">विश्वसनीयता सूचकांक</mtext><annotation encoding="application/x-tex">
+\text{विश्वसनीयता सूचकांक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">वैधता सूचकांक</mtext><annotation encoding="application/x-tex">
+\text{वैधता सूचकांक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ध्रुवीकरण सूचकांक</mtext><annotation encoding="application/x-tex">
+\text{ध्रुवीकरण सूचकांक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ओरैकल-विश्वास सूचकांक</mtext><annotation encoding="application/x-tex">
+\text{ओरैकल-विश्वास सूचकांक}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">सरकार-जनता विचलन</mtext><annotation encoding="application/x-tex">
+\text{सरकार-जनता विचलन}
+</annotation></semantics></math></p>
+<p>विशेष रूप से महत्वपूर्ण:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">सरकार</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">जनता</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{सरकार}}, \theta_{\text{जनता}})
+</annotation></semantics></math></p>
+<p>यदि यह दूरी बड़ी हो जाए, वैधता-संकट पैदा होता है।</p>
+<hr />
+<h2 id="तकनक-समलशन-सरचन">32. तकनीकी सिमुलेशन संरचना</h2>
+<p>गंभीर सिमुलेशन के लिए मैं इसे हाइब्रिड बनाऊँगा:</p>
+<h3 id="एजट-आधरत-भग">एजेंट-आधारित भाग</h3>
+<p>परिवारों, कंपनियों, बैंकों, सरकारों और जन-समूहों के लिए।</p>
+<h3 id="stock-flow-consistent-भग">Stock-flow consistent भाग</h3>
+<p>बैलेंस शीट, धन-प्रवाह, ऋण, कर्ज और करों के लिए।</p>
+<h3 id="नटवरक-मडल">नेटवर्क मॉडल</h3>
+<p>आपूर्ति-श्रृंखला, स्वामित्व, मीडिया, प्रभाव और व्यापार के लिए।</p>
+<h3 id="बजर-मइकरसटरकचर">बाजार माइक्रोस्ट्रक्चर</h3>
+<p>ऑर्डर-बुक, मूल्य-निर्माण, कोणीय स्प्रेड और तरलता के लिए।</p>
+<h3 id="घटन-परणल">घटना प्रणाली</h3>
+<p>झटकों, घोटालों, युद्धों, संकटों और चुनावों के लिए।</p>
+<p>औपचारिक रूप से:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">समय </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> पर दुनिया की कुल अवस्था</mtext></mrow></mrow><annotation encoding="application/x-tex">
+S_t = \text{समय }t\text{ पर दुनिया की कुल अवस्था}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">सभी अभिनेताओं की क्रियाएँ</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{सभी अभिनेताओं की क्रियाएँ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">बाहरी घटनाएँ</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{बाहरी घटनाएँ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>यही मूल रूप है।</p>
+<hr />
+<h2 id="पहल-समलशन-क-नयनतम-ससकरण">33. पहली सिमुलेशन का न्यूनतम संस्करण</h2>
+<p>पहले काम करने वाले संस्करण के लिए मैं सब कुछ एक साथ नहीं बनाऊँगा। मैं इस कोर से शुरू
+करूँगा:</p>
+<ul>
+<li>3 देश</li>
+<li>3 सरकारें</li>
+<li>3 जनता, प्रत्येक में 3 समूह</li>
+<li>1000 परिवार</li>
+<li>100 कंपनियाँ</li>
+<li>5 बैंक</li>
+<li>हर देश में 1 केंद्रीय बैंक</li>
+<li>5 वस्तु-वर्ग</li>
+<li>1 श्रम बाजार</li>
+<li>1 ऋण बाजार</li>
+<li>1 कोणीय बाजार</li>
+<li>1 अंतरराष्ट्रीय व्यापार बाजार</li>
+<li>सरल आपूर्ति-श्रृंखलाएँ</li>
+<li>सरल कर</li>
+<li>सरल चुनाव</li>
+<li>सरल मीडिया घटनाएँ</li>
+<li>झटका प्रणाली</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math>
+वाली वेक्टर मुद्रा</li>
+</ul>
+<p>फिर तुम देखोगे:</p>
+<ul>
+<li>कीमतें</li>
+<li>वेतन</li>
+<li>बेरोजगारी</li>
+<li>कंपनी दिवालियापन</li>
+<li>कोणीय वितरण</li>
+<li>कोणीय स्प्रेड</li>
+<li>व्यापार मात्रा</li>
+<li>अंतरराष्ट्रीय संघर्ष</li>
+<li>हेरफेर</li>
+<li>असमानता</li>
+<li>राजनीतिक अस्थिरता</li>
+</ul>
+<p>इतना ही रोचक गतिशीलता पैदा करने के लिए काफी समृद्ध होगा।</p>
+<hr />
+<h2 id="सबस-कठर-सकषप">34. सबसे कठोर संक्षेप</h2>
+<p>तुम्हारी सूची में खासकर ये गायब ब्लॉक जोड़ने होंगे:</p>
+<ol type="1">
+<li><p><strong>परिवार और व्यक्ति</strong><br />
+इनके बिना मांग, श्रम, चुनाव या लोकप्रियता नहीं है।</p></li>
+<li><p><strong>बैंक, केंद्रीय बैंक और ऋण</strong><br />
+ऋण के बिना आधुनिक अर्थव्यवस्था नहीं है।</p></li>
+<li><p><strong>बैलेंस शीट और लेखांकन</strong><br />
+वेक्टर बैलेंस शीट के बिना कोई नहीं जानता कि कौन सच में धनी, सॉल्वेंट या विषैला
+है।</p></li>
+<li><p><strong>कानूनी प्रणाली और संपत्ति</strong><br />
+अनुबंध, अदालत और दिवालियापन नियमों के बिना बाजार टूट जाता है।</p></li>
+<li><p><strong>मीडिया और सूचना-प्रवाह</strong><br />
+इनके बिना अच्छा/बुरा और लोकप्रिय/अलोकप्रिय यथार्थवादी रूप से नहीं बनते।</p></li>
+<li><p><strong>आपूर्ति-श्रृंखला और उत्पत्ति प्रमाण</strong><br />
+इनके बिना कोणीय धन तुरंत धुलने योग्य हो जाता है।</p></li>
+<li><p><strong>कर, सब्सिडी और सरकारी व्यय</strong><br />
+राज्यों को सिर्फ मूल्यांकन नहीं, कार्रवाई भी करनी होती है।</p></li>
+<li><p><strong>अंतरराष्ट्रीय विनिमय दरें और कोण-अनुवाद</strong><br />
+कई देशों का मतलब कई नैतिक निर्देशांक प्रणालियाँ है।</p></li>
+<li><p><strong>धोखाधड़ी, हेरफेर और छाया बाजार</strong><br />
+हर शक्तिशाली मूल्यांकन प्रणाली हमलों को जन्म देती है।</p></li>
+<li><p><strong>अनिश्चितता और विश्वसनीयता</strong><br />
+क्योंकि न सरकारें अचूक हैं, न जनता।</p></li>
+<li><p><strong>समय, स्मृति और विलंब</strong><br />
+नहीं तो कोण अवास्तविक रूप से तुरंत कूदेंगे।</p></li>
+<li><p><strong>संकट और झटके</strong><br />
+संकटों के बिना तुम प्रणाली को सच में परख नहीं रहे।</p></li>
+</ol>
+<p>पूर्ण सिमुलेशन इसलिए सिर्फ आर्थिक सिमुलेशन नहीं है। यह <strong>वेक्टर मुद्रा वाली
+राजनीतिक-आर्थिक सभ्यता-सिमुलेशन</strong> है।</p>
+<p>निर्णायक वाक्य है:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">हर राशि की दिशा होती है, हर दिशा में अनिश्चितता होती है, और हर अनिश्चितता राजनीतिक रूप से आक्रमणीय होती है।</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{हर राशि की दिशा होती है, हर दिशा में अनिश्चितता होती है, और हर अनिश्चितता राजनीतिक रूप से आक्रमणीय होती है।}
+}
+</annotation></semantics></math></p>
+<p>यदि तुम इसे मॉडल करते हो, तो सिमुलेशन सच में दिलचस्प बन जाती है।</p>
+</body>
+</html>

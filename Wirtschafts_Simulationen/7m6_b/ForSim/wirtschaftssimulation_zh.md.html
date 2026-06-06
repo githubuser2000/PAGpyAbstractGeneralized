@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_zh</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="数字角度货币的完整经济模拟">数字—角度货币的完整经济模拟</h1>
+<p>一个建立在你的<strong>数字—角度货币</strong>基础上的完整经济模拟，不只需要国家、政府、民族、市场和企业。这些只是可见的参与者。还必须包括：<strong>资产负债表、规则、信息流、不确定性、权力滥用、信用、产权、时间和制裁</strong>。</p>
+<p>核心可以写成：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">经济</mtext><mo>=</mo><mtext mathvariant="normal">参与者</mtext><mo>+</mo><mtext mathvariant="normal">市场</mtext><mo>+</mo><mtext mathvariant="normal">资产负债表</mtext><mo>+</mo><mtext mathvariant="normal">规则</mtext><mo>+</mo><mtext mathvariant="normal">预期</mtext><mo>+</mo><mtext mathvariant="normal">冲击</mtext></mrow><annotation encoding="application/x-tex">
+\text{经济} = \text{参与者} + \text{市场} + \text{资产负债表} + \text{规则} + \text{预期} + \text{冲击}
+</annotation></semantics></math></p>
+<p>你的货币也不只是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>而是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">数值金额</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{数值金额}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">角度方向：善/恶 + 受欢迎/不受欢迎</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{角度方向：善/恶 + 受欢迎/不受欢迎}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">角度的安全性 / 置信度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{角度的安全性 / 置信度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">来源历史 / 交易历史</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{来源历史 / 交易历史}
+</annotation></semantics></math></p>
+<p>没有
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+和
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>，系统就会变得幼稚，因为任何人都可以假装自己的角度是客观而干净的。</p>
+<hr />
+<h2 id="国家与司法辖区">1. 国家与司法辖区</h2>
+<p>你需要多个国家，但不能只是名称。每个国家都需要自己的制度：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">政府</mtext><mo>,</mo><mtext mathvariant="normal">人民</mtext><mo>,</mo><mtext mathvariant="normal">法院</mtext><mo>,</mo><mtext mathvariant="normal">中央银行</mtext><mo>,</mo><mtext mathvariant="normal">税制</mtext><mo>,</mo><mtext mathvariant="normal">监管者</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{政府}, \text{人民}, \text{法院}, \text{中央银行}, \text{税制}, \text{监管者})
+</annotation></semantics></math></p>
+<p>每个国家都可以有自己的定义：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">善/恶</mtext><annotation encoding="application/x-tex">
+\text{善/恶}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">合法/非法</mtext><annotation encoding="application/x-tex">
+\text{合法/非法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">补贴/惩罚</mtext><annotation encoding="application/x-tex">
+\text{补贴/惩罚}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">承认/不承认</mtext><annotation encoding="application/x-tex">
+\text{承认/不承认}
+</annotation></semantics></math></p>
+<p>这很重要，因为同一个对象在 A 国可能是善的，在 B 国可能是恶的。</p>
+<p>例子：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>这样就产生了国际角度冲突。贸易紧张、制裁、套利、黑市和外交权力博弈正是由此产生。</p>
+<hr />
+<h2 id="政府作为善恶预言机">2. 政府作为善/恶预言机</h2>
+<p>多个政府设定 <strong>善 vs. 恶</strong>
+轴。但在模拟中，政府不能被当作完美的真理机器。</p>
+<p>每个政府需要属性：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">能力</mtext><mo>,</mo><mtext mathvariant="normal">腐败</mtext><mo>,</mo><mtext mathvariant="normal">意识形态</mtext><mo>,</mo><mtext mathvariant="normal">利益</mtext><mo>,</mo><mtext mathvariant="normal">信息质量</mtext><mo>,</mo><mtext mathvariant="normal">权力</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{能力}, \text{腐败}, \text{意识形态}, \text{利益}, \text{信息质量}, \text{权力})
+</annotation></semantics></math></p>
+<p>然后它评价企业、产品、行业、行为和资金流。</p>
+<p>例如：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大恶</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{最大恶}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大善</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{最大善}
+</annotation></semantics></math></p>
+<p>还必须总是有不确定性：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>一个政府可以说：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">企业 A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn><mo>±</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{企业 A}) = 0{,}7 \pm 0{,}2
+</annotation></semantics></math></p>
+<p>这表示：它认为企业 A 更偏向善，但并非绝对确定。</p>
+<p>还要考虑：</p>
+<ul>
+<li>国际政府联盟</li>
+<li>否决权</li>
+<li>制裁</li>
+<li>腐败风险</li>
+<li>政治误判</li>
+<li>宣传</li>
+<li>游说</li>
+<li>司法纠正</li>
+<li>政府更替</li>
+<li>革命或政变</li>
+<li>紧急权力</li>
+</ul>
+<p>没有这些因素，你的善/恶轴会过于平滑。</p>
+<hr />
+<h2 id="人民作为受欢迎不受欢迎预言机">3.
+人民作为受欢迎/不受欢迎预言机</h2>
+<p>多个民族或人民设定 <strong>受欢迎 vs. 不受欢迎</strong> 轴。</p>
+<p>但人民也不是同质的。一个人民由多个群体构成：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>例如：</p>
+<ul>
+<li>工人</li>
+<li>企业家</li>
+<li>退休者</li>
+<li>学生</li>
+<li>宗教群体</li>
+<li>城市人口</li>
+<li>农村人口</li>
+<li>少数群体</li>
+<li>政治阵营</li>
+<li>媒体圈层</li>
+<li>消费阶层</li>
+</ul>
+<p>每个群体都有自己的偏好：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大不受欢迎</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{最大不受欢迎}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大受欢迎</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{最大受欢迎}
+</annotation></semantics></math></p>
+<p>总体受欢迎度大致可以写成：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>但这里也需要不确定性和操纵因素：</p>
+<ul>
+<li>民意调查</li>
+<li>选举</li>
+<li>公投</li>
+<li>罢工</li>
+<li>抵制</li>
+<li>抗议</li>
+<li>社交媒体</li>
+<li>媒体运动</li>
+<li>审查</li>
+<li>虚假信息</li>
+<li>集体歇斯底里</li>
+<li>缓慢的文化变化</li>
+<li>短期趋势</li>
+</ul>
+<p>受欢迎轴不是真理。它是共鸣、赞同、厌恶和社会能量。</p>
+<hr />
+<h2 id="聚合成角度">4. 聚合成角度</h2>
+<p>政府的善性评价和人民的受欢迎度合成为角度。</p>
+<p>简单形式：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">善性</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{善性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">受欢迎度</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{受欢迎度}
+</annotation></semantics></math></p>
+<p>于是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>规范性力量的大小：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>置信度：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">政府与人民的一致程度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{政府与人民的一致程度}
+</annotation></semantics></math></p>
+<p>如果政府和人民高度一致，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+高；如果相互矛盾，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+低。</p>
+<p>例子：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = 0{,}7
+</annotation></semantics></math></p>
+<p>意思是：善且受欢迎。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = -0{,}6
+</annotation></semantics></math></p>
+<p>意思是：善但不受欢迎。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+x = -0{,}7,\quad y = 0{,}9
+</annotation></semantics></math></p>
+<p>意思是：恶但受欢迎。</p>
+<p>第三种情况尤其具有政治爆炸性。模拟必须能产生这种情况。</p>
+<hr />
+<h2 id="货币本身">5. 货币本身</h2>
+<p>每个货币单位需要多个属性：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">数值金额</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{数值金额}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{角度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">置信度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{置信度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">来源</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{来源}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">时间点</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{时间点}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">历史</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{历史}
+</annotation></semantics></math></p>
+<p>历史很重要。否则会立刻出现角度洗钱。</p>
+<p>例子：</p>
+<p>一家企业通过剥削赚钱：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>然后它把其中 10%
+捐给一个受欢迎的事业，并试图让所有钱看起来都是善的。没有历史，它就能操纵角度。有历史时仍可看见：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">来源：有毒</mtext><annotation encoding="application/x-tex">
+\text{来源：有毒}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">后续改善：部分</mtext><annotation encoding="application/x-tex">
+\text{后续改善：部分}
+</annotation></semantics></math></p>
+<p>所以模拟需要一种<strong>带来源轨迹的向量会计</strong>。</p>
+<hr />
+<h2 id="角度会计">6. 角度会计</h2>
+<p>普通会计不够。企业、银行和国家需要带向量的资产负债表。</p>
+<p>普通资产负债表：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">资产</mtext><mo>=</mo><mtext mathvariant="normal">负债</mtext><mo>+</mo><mtext mathvariant="normal">权益</mtext></mrow><annotation encoding="application/x-tex">
+\text{资产} = \text{负债} + \text{权益}
+</annotation></semantics></math></p>
+<p>向量资产负债表：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>但这并不简单，因为相反角度会部分抵消。</p>
+<p>一家企业可能在数字上很富有，但在规范上有毒：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">数值财富高</mtext><annotation encoding="application/x-tex">
+\text{数值财富高}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度差</mtext><annotation encoding="application/x-tex">
+\text{角度差}
+</annotation></semantics></math></p>
+<p>或者它可能既受欢迎又善，但几乎没有流动性。</p>
+<p>因此你需要分开的指标：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">流动性</mtext><annotation encoding="application/x-tex">
+\text{流动性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">偿付能力</mtext><annotation encoding="application/x-tex">
+\text{偿付能力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度质量</mtext><annotation encoding="application/x-tex">
+\text{角度质量}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度风险</mtext><annotation encoding="application/x-tex">
+\text{角度风险}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">声誉资本</mtext><annotation encoding="application/x-tex">
+\text{声誉资本}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治风险</mtext><annotation encoding="application/x-tex">
+\text{政治风险}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="家庭与个人">7. 家庭与个人</h2>
+<p>你的列表里明显还缺这一块。没有家庭，就没有真实需求、劳动、选举和消费者心理。</p>
+<p>每个人或家庭需要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">收入</mtext><mo>,</mo><mtext mathvariant="normal">财富</mtext><mo>,</mo><mtext mathvariant="normal">需求</mtext><mo>,</mo><mtext mathvariant="normal">价值观</mtext><mo>,</mo><mtext mathvariant="normal">职业</mtext><mo>,</mo><mtext mathvariant="normal">教育</mtext><mo>,</mo><mtext mathvariant="normal">政治观点</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{收入}, \text{财富}, \text{需求}, \text{价值观}, \text{职业}, \text{教育}, \text{政治观点})
+</annotation></semantics></math></p>
+<p>家庭决定：</p>
+<ul>
+<li>买什么</li>
+<li>去哪里工作</li>
+<li>投票给谁</li>
+<li>抵制哪些企业</li>
+<li>接受哪些角度</li>
+<li>承担多少风险</li>
+<li>储蓄、消费还是投资</li>
+</ul>
+<p>每个家庭也有自己的角度偏好：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">购买角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{购买角度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">出售角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{出售角度}
+</annotation></semantics></math></p>
+<p>购买时它会问：</p>
+<p>“我是否接受这个价格和这个角度的产品？”</p>
+<p>工作时它会问：</p>
+<p>“我是否接受这家公司以这种角度质量支付的工资？”</p>
+<p>这很强，因为劳动就不只是用时间换工资，也包含道德兼容性。</p>
+<hr />
+<h2 id="企业集团与所有权结构">8. 企业、集团与所有权结构</h2>
+<p>企业不只是生产者。它们有内部结构：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">资本</mtext><mo>,</mo><mtext mathvariant="normal">劳动力</mtext><mo>,</mo><mtext mathvariant="normal">技术</mtext><mo>,</mo><mtext mathvariant="normal">供应链</mtext><mo>,</mo><mtext mathvariant="normal">管理层</mtext><mo>,</mo><mtext mathvariant="normal">所有者</mtext><mo>,</mo><mtext mathvariant="normal">债务</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{资本}, \text{劳动力}, \text{技术}, \text{供应链}, \text{管理层}, \text{所有者}, \text{债务})
+</annotation></semantics></math></p>
+<p>重要类型包括：</p>
+<ul>
+<li>小企业</li>
+<li>中型企业</li>
+<li>大集团</li>
+<li>垄断企业</li>
+<li>卡特尔</li>
+<li>平台公司</li>
+<li>银行</li>
+<li>保险公司</li>
+<li>物流公司</li>
+<li>军工公司</li>
+<li>媒体公司</li>
+<li>能源集团</li>
+<li>原材料公司</li>
+<li>科技公司</li>
+<li>影子公司</li>
+<li>空壳公司</li>
+</ul>
+<p>大集团还需要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">子公司</mtext><annotation encoding="application/x-tex">
+\text{子公司}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">控股结构</mtext><annotation encoding="application/x-tex">
+\text{控股结构}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">避税</mtext><annotation encoding="application/x-tex">
+\text{避税}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">司法辖区套利</mtext><annotation encoding="application/x-tex">
+\text{司法辖区套利}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">游说</mtext><annotation encoding="application/x-tex">
+\text{游说}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">市场权力</mtext><annotation encoding="application/x-tex">
+\text{市场权力}
+</annotation></semantics></math></p>
+<p>集团在你的模拟中特别有趣，因为它们能移动角度：通过广告、游说、就业权力、捐赠、媒体控制和国际选址。</p>
+<hr />
+<h2 id="产品服务和商品类别">9. 产品、服务和商品类别</h2>
+<p>每种商品不仅需要价格和数量，还需要角度画像。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">价格</mtext><mo>,</mo><mtext mathvariant="normal">质量</mtext><mo>,</mo><mtext mathvariant="normal">数量</mtext><mo>,</mo><mtext mathvariant="normal">效用</mtext><mo>,</mo><mtext mathvariant="normal">生产角度</mtext><mo>,</mo><mtext mathvariant="normal">消费角度</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{价格}, \text{质量}, \text{数量}, \text{效用}, \text{生产角度}, \text{消费角度})
+</annotation></semantics></math></p>
+<p>产品可以生产得好，但使用得坏；也可以生产得坏，但消费上很受欢迎。</p>
+<p>例子：</p>
+<p>一个便宜产品可能非常受欢迎，但生产历史很差。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">受欢迎度高</mtext><annotation encoding="application/x-tex">
+\text{受欢迎度高}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">善性低</mtext><annotation encoding="application/x-tex">
+\text{善性低}
+</annotation></semantics></math></p>
+<p>所以每个产品至少需要：</p>
+<ul>
+<li>使用价值</li>
+<li>市场价格</li>
+<li>生产成本</li>
+<li>供应链角度</li>
+<li>消费角度</li>
+<li>环境影响</li>
+<li>社会影响</li>
+<li>法律状态</li>
+<li>耐久性</li>
+<li>可替代性</li>
+</ul>
+<p>商品类别：</p>
+<ul>
+<li>食物</li>
+<li>能源</li>
+<li>住房</li>
+<li>服装</li>
+<li>健康</li>
+<li>教育</li>
+<li>交通</li>
+<li>娱乐</li>
+<li>奢侈品</li>
+<li>武器 / 安全产品</li>
+<li>数据</li>
+<li>软件</li>
+<li>原材料</li>
+<li>机器</li>
+<li>基础设施</li>
+<li>金融产品</li>
+</ul>
+<hr />
+<h2 id="劳动力市场">10. 劳动力市场</h2>
+<p>劳动力市场不只是另一个市场。它连接金钱、尊严、权力、时间和政治。</p>
+<p>每个职位有：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">工资</mtext><mo>,</mo><mtext mathvariant="normal">工作时间</mtext><mo>,</mo><mtext mathvariant="normal">风险</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo>,</mo><mtext mathvariant="normal">企业角度</mtext><mo>,</mo><mtext mathvariant="normal">活动角度</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{工资}, \text{工作时间}, \text{风险}, \text{地位}, \text{企业角度}, \text{活动角度})
+</annotation></semantics></math></p>
+<p>人们接受工作不只看工资，还看：</p>
+<ul>
+<li>道德兼容性</li>
+<li>雇主受欢迎程度</li>
+<li>职业机会</li>
+<li>工作安全</li>
+<li>社会地位</li>
+<li>政治风险</li>
+<li>家庭压力</li>
+<li>资格</li>
+<li>地理位置</li>
+</ul>
+<p>于是会出现：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">高工资，坏角度</mtext><annotation encoding="application/x-tex">
+\text{高工资，坏角度}
+</annotation></semantics></math></p>
+<p>或：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">低工资，好角度</mtext><annotation encoding="application/x-tex">
+\text{低工资，好角度}
+</annotation></semantics></math></p>
+<p>这很现实。许多人出售的不只是劳动，还包括其社会身份的一部分。</p>
+<hr />
+<h2 id="金融系统">11. 金融系统</h2>
+<p>这是最重要的缺失模块之一。</p>
+<p>你需要：</p>
+<ul>
+<li>银行</li>
+<li>中央银行</li>
+<li>信贷市场</li>
+<li>债券</li>
+<li>股票市场</li>
+<li>保险公司</li>
+<li>投资基金</li>
+<li>养老基金</li>
+<li>影子银行</li>
+<li>交易所</li>
+<li>做市商</li>
+<li>评级机构</li>
+<li>支付网络</li>
+</ul>
+<p>在你的模型中，不仅有利率，还有角度利率。</p>
+<p>一笔贷款可以是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">利率</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{利率}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">期限</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{期限}
+</annotation></semantics></math></p>
+<p>利率取决于：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">违约风险</mtext><annotation encoding="application/x-tex">
+\text{违约风险}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度风险</mtext><annotation encoding="application/x-tex">
+\text{角度风险}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治风险</mtext><annotation encoding="application/x-tex">
+\text{政治风险}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">受欢迎度风险</mtext><annotation encoding="application/x-tex">
+\text{受欢迎度风险}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">流动性风险</mtext><annotation encoding="application/x-tex">
+\text{流动性风险}
+</annotation></semantics></math></p>
+<p>角度差的企业必须支付更高利息，或者只能获得有毒融资。</p>
+<hr />
+<h2 id="中央银行与货币创造">12. 中央银行与货币创造</h2>
+<p>每种货币都需要发行规则。</p>
+<p>在你的系统中，中央银行不仅要控制数量：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>也要控制流通中的角度质量：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>中央银行可以观察：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">通胀</mtext><annotation encoding="application/x-tex">
+\text{通胀}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">失业</mtext><annotation encoding="application/x-tex">
+\text{失业}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">货币角度分布</mtext><annotation encoding="application/x-tex">
+\text{货币角度分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">每个角度区域的流动性</mtext><annotation encoding="application/x-tex">
+\text{每个角度区域的流动性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">信任危机</mtext><annotation encoding="application/x-tex">
+\text{信任危机}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度恐慌</mtext><annotation encoding="application/x-tex">
+\text{角度恐慌}
+</annotation></semantics></math></p>
+<p>可以出现新概念：</p>
+<h3 id="数值通胀">数值通胀</h3>
+<p>普通价格上涨。</p>
+<h3 id="角度通胀">角度通胀</h3>
+<p>所有人都声称自己是善的，但置信度下降。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="角度通缩">角度通缩</h3>
+<p>只有极其“干净”的钱被接受；贸易冻结。</p>
+<h3 id="角度恐慌">角度恐慌</h3>
+<p>参与者逃离某个角度区域，因为它突然被视为邪恶或不受欢迎。</p>
+<hr />
+<h2 id="角度市场">13. 角度市场</h2>
+<p>这是你的想法中特有的部分。</p>
+<p>除了普通市场，还需要角度本身的市场：</p>
+<ul>
+<li>角度交换</li>
+<li>角度对冲</li>
+<li>角度期权</li>
+<li>角度期货</li>
+<li>声誉衍生品</li>
+<li>善性互换</li>
+<li>受欢迎度互换</li>
+<li>制裁保险</li>
+<li>抵制保险</li>
+<li>政治风险对冲</li>
+</ul>
+<p>一个简单角度交换：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>其中：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>且：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>角度距离越大，转换越贵。</p>
+<p>这会产生一个新行业：<strong>角度做市商</strong>。</p>
+<p>他们购买困难角度，出售更可接受的角度。但这很危险，因为可能变成道德洗钱。</p>
+<p>因此你需要：</p>
+<ul>
+<li>检查机构</li>
+<li>审计</li>
+<li>来源证明</li>
+<li>声誉惩罚</li>
+<li>欺诈检测</li>
+<li>透明规则</li>
+<li>时效规则</li>
+<li>申诉程序</li>
+</ul>
+<hr />
+<h2 id="产权合同与法院">14. 产权、合同与法院</h2>
+<p>没有法律系统，就没有稳定经济。</p>
+<p>你需要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">产权</mtext><annotation encoding="application/x-tex">
+\text{产权}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">合同法</mtext><annotation encoding="application/x-tex">
+\text{合同法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">责任</mtext><annotation encoding="application/x-tex">
+\text{责任}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">破产法</mtext><annotation encoding="application/x-tex">
+\text{破产法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">劳动法</mtext><annotation encoding="application/x-tex">
+\text{劳动法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">反垄断法</mtext><annotation encoding="application/x-tex">
+\text{反垄断法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">税法</mtext><annotation encoding="application/x-tex">
+\text{税法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">数据保护法</mtext><annotation encoding="application/x-tex">
+\text{数据保护法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">制裁法</mtext><annotation encoding="application/x-tex">
+\text{制裁法}
+</annotation></semantics></math></p>
+<p>你的货币还引入一个新的法律问题：</p>
+<p><strong>谁可以改变一个角度？</strong></p>
+<p>法院能否说：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>因为一家公司被恢复名誉？</p>
+<p>政府能否说：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>因为一个组织被禁止？</p>
+<p>人民能否通过抵制让一个角度变坏？</p>
+<p>这些问题必须成为模拟中的规则。</p>
+<hr />
+<h2 id="税收与公共支出">15. 税收与公共支出</h2>
+<p>国家必须有收入和支出。</p>
+<p>税收在你的模型中可以依赖角度：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>例如：</p>
+<ul>
+<li>善且受欢迎的钱税率较低</li>
+<li>恶的钱税率较高</li>
+<li>不确定的钱要接受检查</li>
+<li>有毒的钱被冻结</li>
+<li>国家希望的投资被补贴</li>
+</ul>
+<p>公共支出也有角度：</p>
+<ul>
+<li>社会支出</li>
+<li>军事</li>
+<li>基础设施</li>
+<li>教育</li>
+<li>健康</li>
+<li>补贴</li>
+<li>救助计划</li>
+<li>警察系统</li>
+<li>宣传</li>
+<li>研究</li>
+</ul>
+<p>因此政府不只是花钱，也会创造或摧毁角度。</p>
+<hr />
+<h2 id="国际经济">16. 国际经济</h2>
+<p>只要有多个国家，你就需要：</p>
+<ul>
+<li>汇率</li>
+<li>资本流动</li>
+<li>贸易协定</li>
+<li>关税</li>
+<li>制裁</li>
+<li>禁运</li>
+<li>移民</li>
+<li>跨国公司</li>
+<li>避税天堂</li>
+<li>发展援助</li>
+<li>地缘政治集团</li>
+<li>储备货币</li>
+<li>原材料依赖</li>
+<li>跨境供应链</li>
+</ul>
+<p>在你的模型中还要加上：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度翻译</mtext><annotation encoding="application/x-tex">
+\text{角度翻译}
+</annotation></semantics></math></p>
+<p>A 国的角度不自动等于 B 国的角度。</p>
+<p>所以你需要转换矩阵：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>例子：</p>
+<p>某产品在 A 国被认为善且受欢迎。在 B
+国被认为不道德，但仍然被渴望。</p>
+<p>这会产生套利：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">在善的角度空间购买</mtext><annotation encoding="application/x-tex">
+\text{在善的角度空间购买}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">在受欢迎的角度空间出售</mtext><annotation encoding="application/x-tex">
+\text{在受欢迎的角度空间出售}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="媒体与信息系统">17. 媒体与信息系统</h2>
+<p>这绝对是核心。角度不只来自事实，也来自感知。</p>
+<p>你需要：</p>
+<ul>
+<li>新闻媒体</li>
+<li>社交网络</li>
+<li>网红</li>
+<li>国家媒体</li>
+<li>调查记者</li>
+<li>平台算法</li>
+<li>审查</li>
+<li>泄密</li>
+<li>举报人</li>
+<li>宣传</li>
+<li>丑闻</li>
+<li>谣言</li>
+<li>对抗性公共空间</li>
+</ul>
+<p>一个丑闻可以突然改变企业角度：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>这就是角度崩盘。</p>
+<p>成功的公关活动可以提高受欢迎度，而不提高善性：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">不变</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{不变}
+</annotation></semantics></math></p>
+<p>这是现实且危险的动态。</p>
+<hr />
+<h2 id="教育文化与意识形态">18. 教育、文化与意识形态</h2>
+<p>人民不是在真空中评价。受欢迎尺度依赖文化。</p>
+<p>你需要：</p>
+<ul>
+<li>教育系统</li>
+<li>宗教</li>
+<li>政治意识形态</li>
+<li>历史创伤</li>
+<li>民族神话</li>
+<li>阶级意识</li>
+<li>道德禁忌</li>
+<li>代际冲突</li>
+<li>价值变迁</li>
+</ul>
+<p>否则所有人民都会一样反应。这既无聊也错误。</p>
+<p>保守的人民、技术官僚型人民、平等主义人民和消费主义人民会以不同方式评价同一家公司。</p>
+<hr />
+<h2 id="供应链与来源">19. 供应链与来源</h2>
+<p>这对角度货币极其重要。</p>
+<p>产品不只有卖方角度，还有整条来源链：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">产品</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">原材料</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">劳动</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">运输</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">企业</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">能源</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{产品}} =
+F(\theta_{\text{原材料}},\theta_{\text{劳动}},\theta_{\text{运输}},\theta_{\text{企业}},\theta_{\text{能源}})
+</annotation></semantics></math></p>
+<p>例子：</p>
+<p>一部智能手机的角度来自：</p>
+<ul>
+<li>原材料开采</li>
+<li>劳动条件</li>
+<li>能源消耗</li>
+<li>专利</li>
+<li>数据政策</li>
+<li>营销</li>
+<li>可维修性</li>
+<li>地缘政治来源</li>
+<li>消费者效用</li>
+</ul>
+<p>最终角度是加权混合。</p>
+<p>没有供应链模型，角度货币很容易被操纵。</p>
+<hr />
+<h2 id="环境与外部效应">20. 环境与外部效应</h2>
+<p>完整模拟需要外部效应：</p>
+<ul>
+<li>CO₂</li>
+<li>用水量</li>
+<li>物种灭绝</li>
+<li>空气污染</li>
+<li>健康成本</li>
+<li>噪音</li>
+<li>垃圾</li>
+<li>资源枯竭</li>
+<li>土地占用</li>
+<li>社会损害</li>
+<li>犯罪</li>
+<li>公共安全</li>
+</ul>
+<p>这些效应影响善/恶轴。</p>
+<p>一种产品可以盈利且受欢迎，但长期有害。于是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>也就是：恶但受欢迎。</p>
+<p>这是你的模型中最重要的案例之一。</p>
+<hr />
+<h2 id="创新与技术">21. 创新与技术</h2>
+<p>经济通过技术而变化。</p>
+<p>你需要：</p>
+<ul>
+<li>研发</li>
+<li>专利</li>
+<li>自动化</li>
+<li>生产率增长</li>
+<li>AI 系统</li>
+<li>平台效应</li>
+<li>网络效应</li>
+<li>垄断化</li>
+<li>创造性破坏</li>
+<li>新行业</li>
+<li>过时行业</li>
+</ul>
+<p>技术可以移动角度。</p>
+<p>新技术可能一开始不受欢迎，但后来被认为是善的：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>或者一开始受欢迎，后来被认定有害：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="犯罪欺诈与影子经济">22. 犯罪、欺诈与影子经济</h2>
+<p>这绝不能省略。带有道德—社会货币的系统会立刻产生新的欺诈形式。</p>
+<p>你需要：</p>
+<ul>
+<li>洗钱</li>
+<li>角度洗钱</li>
+<li>贿赂</li>
+<li>虚假受欢迎度</li>
+<li>机器人网络</li>
+<li>假公司</li>
+<li>代理人</li>
+<li>伪造供应链</li>
+<li>被操纵的审计</li>
+<li>内幕交易</li>
+<li>市场操纵</li>
+<li>卡特尔</li>
+<li>走私</li>
+<li>黑工</li>
+<li>规避制裁</li>
+<li>政治勒索</li>
+</ul>
+<p>新的特定罪行：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度操纵</mtext><annotation encoding="application/x-tex">
+\text{角度操纵}
+</annotation></semantics></math></p>
+<p>例如：企业购买虚假受欢迎度，让自己的钱获得更好的角度。</p>
+<p>或者：政府把反对者宣布为邪恶，从而贬值其资产。</p>
+<p>没有对抗性模型，模拟会变得道德上幼稚。</p>
+<hr />
+<h2 id="军事安全与强制">23. 军事、安全与强制</h2>
+<p>国家不只由规则构成，也由执行力构成。</p>
+<p>你需要：</p>
+<ul>
+<li>警察</li>
+<li>情报机构</li>
+<li>军队</li>
+<li>边境保护</li>
+<li>制裁执行单位</li>
+<li>网络防御</li>
+<li>法院</li>
+<li>监狱</li>
+<li>紧急状态机构</li>
+</ul>
+<p>为什么？因为货币只有在权利主张可执行时才有效。</p>
+<p>在你的系统中，国家也可以把角度当作武器：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">敌对企业</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">恶/不受欢迎</mtext></mrow><annotation encoding="application/x-tex">
+\text{敌对企业} \rightarrow \theta = \text{恶/不受欢迎}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">受制裁国家</mtext><mo>→</mo><mtext mathvariant="normal">角度封锁</mtext></mrow><annotation encoding="application/x-tex">
+\text{受制裁国家} \rightarrow \text{角度封锁}
+</annotation></semantics></math></p>
+<p>这在地缘政治上非常重要。</p>
+<hr />
+<h2 id="时间预期与记忆">24. 时间、预期与记忆</h2>
+<p>经济模拟需要时间。</p>
+<p>不是所有事情都会立刻发生。存在：</p>
+<ul>
+<li>生产时间</li>
+<li>交付延迟</li>
+<li>合同期限</li>
+<li>贷款期限</li>
+<li>选举周期</li>
+<li>投资周期</li>
+<li>声誉延迟</li>
+<li>信息延迟</li>
+<li>司法程序</li>
+<li>政治惯性</li>
+</ul>
+<p>角度也应该有记忆：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">新</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{新}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>否则每个丑闻都会立即摧毁一切，每个公关活动也会立即修复一切。</p>
+<p>所以你需要惯性：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">反应速度</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{反应速度}
+</annotation></semantics></math></p>
+<p>高
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>：社会反应快。<br />
+低
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>：社会遗忘慢，判断更稳定。</p>
+<hr />
+<h2 id="冲击与危机">25. 冲击与危机</h2>
+<p>好的模拟需要扰动。</p>
+<p>可能的冲击：</p>
+<ul>
+<li>金融危机</li>
+<li>银行挤兑</li>
+<li>战争</li>
+<li>大流行病</li>
+<li>自然灾害</li>
+<li>能源冲击</li>
+<li>供应链断裂</li>
+<li>腐败丑闻</li>
+<li>泄密</li>
+<li>选举剧变</li>
+<li>革命</li>
+<li>恶性通胀</li>
+<li>货币逃离</li>
+<li>抵制浪潮</li>
+<li>技术断裂</li>
+<li>网络攻击</li>
+<li>主权违约</li>
+<li>集团破产</li>
+</ul>
+<p>你的系统还会有：</p>
+<ul>
+<li>角度崩盘</li>
+<li>信任崩盘</li>
+<li>善/恶重估</li>
+<li>受欢迎度浪潮</li>
+<li>道德恐慌</li>
+<li>国际角度分裂</li>
+<li>预言机腐败</li>
+<li>大规模抵制</li>
+<li>声誉破产</li>
+</ul>
+<hr />
+<h2 id="市场细分">26. 市场细分</h2>
+<p>你提到了产品、服务和劳动力市场。还要加上：</p>
+<h3 id="商品市场">商品市场</h3>
+<p>食物、能源、原材料、消费品。</p>
+<h3 id="服务市场">服务市场</h3>
+<p>健康、教育、咨询、护理、娱乐。</p>
+<h3 id="劳动力市场-1">劳动力市场</h3>
+<p>工资、资格、移民、失业。</p>
+<h3 id="资本市场">资本市场</h3>
+<p>股票、债券、贷款、股权。</p>
+<h3 id="房地产市场">房地产市场</h3>
+<p>住房、土地、商业地产。</p>
+<h3 id="原材料市场">原材料市场</h3>
+<p>石油、天然气、金属、水、稀土。</p>
+<h3 id="能源市场">能源市场</h3>
+<p>电力、储能、电网、发电。</p>
+<h3 id="数据市场">数据市场</h3>
+<p>用户数据、训练数据、监控、隐私。</p>
+<h3 id="技术市场">技术市场</h3>
+<p>软件、AI、专利、算力。</p>
+<h3 id="保险市场">保险市场</h3>
+<p>风险对冲、灾害、疾病、政治风险。</p>
+<h3 id="角度市场-1">角度市场</h3>
+<p>旋转、对冲、置信度、声誉。</p>
+<h3 id="黑市与灰市">黑市与灰市</h3>
+<p>所有被官方封锁、但仍被需求的东西。</p>
+<hr />
+<h2 id="价格形成">27. 价格形成</h2>
+<p>每笔交易至少需要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">数量</mtext><mo>,</mo><mtext mathvariant="normal">数值价格</mtext><mo>,</mo><mtext mathvariant="normal">购买角度</mtext><mo>,</mo><mtext mathvariant="normal">出售角度</mtext><mo>,</mo><mtext mathvariant="normal">置信度</mtext><mo>,</mo><mtext mathvariant="normal">司法辖区</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{数量}, \text{数值价格}, \text{购买角度}, \text{出售角度}, \text{置信度}, \text{司法辖区})
+</annotation></semantics></math></p>
+<p>买单：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>卖单：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>当以下条件满足时交易发生：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>并且：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>或者通过费用补偿角度距离：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>于是有效交易价值为：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>例如：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>这意味着：相同角度且高置信度给出完整购买力；大角度距离或低置信度会降低有效购买力。</p>
+<hr />
+<h2 id="参与者效用函数">28. 参与者效用函数</h2>
+<p>每个参与者都需要决策规则。</p>
+<p>家庭不只最大化消费：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">消费</mtext><mo>,</mo><mtext mathvariant="normal">价格</mtext><mo>,</mo><mtext mathvariant="normal">角度</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo>,</mo><mtext mathvariant="normal">风险</mtext><mo>,</mo><mtext mathvariant="normal">价值观</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{消费}, \text{价格}, \text{角度}, \text{地位}, \text{风险}, \text{价值观})
+</annotation></semantics></math></p>
+<p>企业不只最大化利润：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">利润</mtext><mo>−</mo><mtext mathvariant="normal">角度成本</mtext><mo>−</mo><mtext mathvariant="normal">监管风险</mtext><mo>−</mo><mtext mathvariant="normal">声誉风险</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{利润} - \text{角度成本} - \text{监管风险} - \text{声誉风险}
+</annotation></semantics></math></p>
+<p>政府也许最大化：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">稳定</mtext><mo>,</mo><mtext mathvariant="normal">权力</mtext><mo>,</mo><mtext mathvariant="normal">繁荣</mtext><mo>,</mo><mtext mathvariant="normal">意识形态</mtext><mo>,</mo><mtext mathvariant="normal">安全</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{稳定}, \text{权力}, \text{繁荣}, \text{意识形态}, \text{安全})
+</annotation></semantics></math></p>
+<p>人民或群体也许最大化：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">生活水平</mtext><mo>,</mo><mtext mathvariant="normal">身份</mtext><mo>,</mo><mtext mathvariant="normal">正义</mtext><mo>,</mo><mtext mathvariant="normal">安全</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{生活水平}, \text{身份}, \text{正义}, \text{安全}, \text{地位})
+</annotation></semantics></math></p>
+<p>这很重要：不是所有参与者都追求同一个目标。</p>
+<hr />
+<h2 id="权力与不平等">29. 权力与不平等</h2>
+<p>完整模拟需要权力关系。</p>
+<p>不是每个参与者对角度的影响都相同。</p>
+<p>大集团可以通过广告影响受欢迎度。<br />
+政府可以通过法律定义善性。<br />
+平台可以控制可见性。<br />
+银行可以撤回融资。<br />
+富人可以购买媒体。</p>
+<p>所以你需要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">财富分布</mtext><annotation encoding="application/x-tex">
+\text{财富分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">市场权力</mtext><annotation encoding="application/x-tex">
+\text{市场权力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治权力</mtext><annotation encoding="application/x-tex">
+\text{政治权力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">媒体权力</mtext><annotation encoding="application/x-tex">
+\text{媒体权力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">网络权力</mtext><annotation encoding="application/x-tex">
+\text{网络权力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">强制权力</mtext><annotation encoding="application/x-tex">
+\text{强制权力}
+</annotation></semantics></math></p>
+<p>没有权力模型，模拟会显得过于民主、过于无害。</p>
+<hr />
+<h2 id="系统的道德宪法">30. 系统的道德宪法</h2>
+<p>这是最重要的政治保护机制。</p>
+<p>因为你的货币把善/恶和受欢迎/不受欢迎计入价格，它很容易变成极权工具。因此你需要宪法层：</p>
+<ul>
+<li>少数群体保护</li>
+<li>基本权利</li>
+<li>申诉程序</li>
+<li>透明义务</li>
+<li>权力分立</li>
+<li>独立法院</li>
+<li>防止追溯性贬值</li>
+<li>防止群众歇斯底里</li>
+<li>防止政府任意性</li>
+<li>防止企业操纵</li>
+<li>康复/恢复名誉的权利</li>
+<li>解释权</li>
+<li>使用替代预言机的权利</li>
+</ul>
+<p>否则角度货币很快会变成服从货币。</p>
+<hr />
+<h2 id="模拟指标">31. 模拟指标</h2>
+<p>你需要输出指标，才能判断系统是否有效。</p>
+<p>普通指标：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">GDP</mtext><annotation encoding="application/x-tex">
+\text{GDP}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">通胀</mtext><annotation encoding="application/x-tex">
+\text{通胀}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">失业</mtext><annotation encoding="application/x-tex">
+\text{失业}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">生产率</mtext><annotation encoding="application/x-tex">
+\text{生产率}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">工资</mtext><annotation encoding="application/x-tex">
+\text{工资}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">财富分布</mtext><annotation encoding="application/x-tex">
+\text{财富分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">贸易平衡</mtext><annotation encoding="application/x-tex">
+\text{贸易平衡}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">公共债务</mtext><annotation encoding="application/x-tex">
+\text{公共债务}
+</annotation></semantics></math></p>
+<p>你的系统的新指标：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">货币角度分布</mtext><annotation encoding="application/x-tex">
+\text{货币角度分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">平均善性</mtext><annotation encoding="application/x-tex">
+\text{平均善性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">平均受欢迎度</mtext><annotation encoding="application/x-tex">
+\text{平均受欢迎度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度波动率</mtext><annotation encoding="application/x-tex">
+\text{角度波动率}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度流动性</mtext><annotation encoding="application/x-tex">
+\text{角度流动性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度价差</mtext><annotation encoding="application/x-tex">
+\text{角度价差}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度通胀</mtext><annotation encoding="application/x-tex">
+\text{角度通胀}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度洗钱指数</mtext><annotation encoding="application/x-tex">
+\text{角度洗钱指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">置信度指数</mtext><annotation encoding="application/x-tex">
+\text{置信度指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">合法性指数</mtext><annotation encoding="application/x-tex">
+\text{合法性指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">极化指数</mtext><annotation encoding="application/x-tex">
+\text{极化指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">预言机信任指数</mtext><annotation encoding="application/x-tex">
+\text{预言机信任指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政府—人民分歧</mtext><annotation encoding="application/x-tex">
+\text{政府—人民分歧}
+</annotation></semantics></math></p>
+<p>特别重要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">政府</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">人民</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{政府}}, \theta_{\text{人民}})
+</annotation></semantics></math></p>
+<p>如果这个距离很大，就会产生合法性危机。</p>
+<hr />
+<h2 id="技术模拟架构">32. 技术模拟架构</h2>
+<p>对于严肃模拟，我会把它建成混合系统：</p>
+<h3 id="基于主体的部分">基于主体的部分</h3>
+<p>用于家庭、企业、银行、政府和人民群体。</p>
+<h3 id="存量流量一致部分">存量—流量一致部分</h3>
+<p>用于资产负债表、资金流、信用、债务和税收。</p>
+<h3 id="网络模型">网络模型</h3>
+<p>用于供应链、所有权、媒体、影响和贸易。</p>
+<h3 id="市场微观结构">市场微观结构</h3>
+<p>用于订单簿、价格形成、角度价差和流动性。</p>
+<h3 id="事件系统">事件系统</h3>
+<p>用于冲击、丑闻、战争、危机和选举。</p>
+<p>形式上：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">时间 </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 的世界总状态</mtext></mrow></mrow><annotation encoding="application/x-tex">
+S_t = \text{时间 }t\text{ 的世界总状态}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">所有参与者的行动</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{所有参与者的行动}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">外部事件</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{外部事件}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>这就是基本形式。</p>
+<hr />
+<h2 id="第一版模拟的最小版本">33. 第一版模拟的最小版本</h2>
+<p>对于第一版可运行模拟，我不会一次构建全部。我会从这个核心开始：</p>
+<ul>
+<li>3 个国家</li>
+<li>3 个政府</li>
+<li>3 个人民，每个有 3 个群体</li>
+<li>1000 个家庭</li>
+<li>100 家企业</li>
+<li>5 家银行</li>
+<li>每国 1 个中央银行</li>
+<li>5 类商品</li>
+<li>1 个劳动力市场</li>
+<li>1 个信贷市场</li>
+<li>1 个角度市场</li>
+<li>1 个国际贸易市场</li>
+<li>简单供应链</li>
+<li>简单税制</li>
+<li>简单选举</li>
+<li>简单媒体事件</li>
+<li>冲击系统</li>
+<li>带
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math>
+的向量货币</li>
+</ul>
+<p>然后观察：</p>
+<ul>
+<li>价格</li>
+<li>工资</li>
+<li>失业</li>
+<li>企业破产</li>
+<li>角度分布</li>
+<li>角度价差</li>
+<li>贸易量</li>
+<li>国际冲突</li>
+<li>操纵</li>
+<li>不平等</li>
+<li>政治不稳定</li>
+</ul>
+<p>这已经足够丰富，可以产生有趣动态。</p>
+<hr />
+<h2 id="最硬的简短总结">34. 最硬的简短总结</h2>
+<p>你的列表最需要补充这些缺失模块：</p>
+<ol type="1">
+<li><p><strong>家庭与个人</strong><br />
+没有他们就没有需求、劳动、选举或受欢迎度。</p></li>
+<li><p><strong>银行、中央银行与信用</strong><br />
+没有信用就没有现代经济。</p></li>
+<li><p><strong>资产负债表与会计</strong><br />
+没有向量资产负债表，没人知道谁真正富有、偿付能力强或有毒。</p></li>
+<li><p><strong>法律系统与产权</strong><br />
+没有合同、法院和破产规则，市场会解体。</p></li>
+<li><p><strong>媒体与信息流</strong><br />
+没有它们，善/恶和受欢迎/不受欢迎不会现实地产生。</p></li>
+<li><p><strong>供应链与来源证明</strong><br />
+没有它们，角度货币会立即可洗。</p></li>
+<li><p><strong>税收、补贴与公共支出</strong><br />
+国家不仅要评价，还要行动。</p></li>
+<li><p><strong>国际汇率与角度翻译</strong><br />
+多个国家意味着多个道德坐标系。</p></li>
+<li><p><strong>欺诈、操纵与影子市场</strong><br />
+每个强大的评价系统都会招来攻击。</p></li>
+<li><p><strong>不确定性与置信度</strong><br />
+因为政府和人民都不是不会犯错的。</p></li>
+<li><p><strong>时间、记忆与延迟</strong><br />
+否则角度会不现实地瞬间跳变。</p></li>
+<li><p><strong>危机与冲击</strong><br />
+没有危机，你就没有真正测试系统。</p></li>
+</ol>
+<p>因此，完整模拟不是纯粹的经济模拟。它是一个<strong>带向量货币的政治—经济文明模拟</strong>。</p>
+<p>关键句是：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">每个金额都有方向，每个方向都有不确定性，而每个不确定性都可以被政治攻击。</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{每个金额都有方向，每个方向都有不确定性，而每个不确定性都可以被政治攻击。}
+}
+</annotation></semantics></math></p>
+<p>如果你把这一点建模，模拟会真正变得有趣。</p>
+</body>
+</html>

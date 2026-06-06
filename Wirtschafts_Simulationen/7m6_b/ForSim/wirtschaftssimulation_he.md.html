@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_he</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="סימולציה-כלכלית-מלאה-של-מטבעות-מספר-זווית">סימולציה כלכלית מלאה
+של מטבעות מספר-זווית</h1>
+<p>כדי לבנות <strong>סימולציה כלכלית מלאה על בסיס מטבעות המספר-זווית
+שלך</strong>, לא מספיקים מדינות, ממשלות, עמים, שווקים וחברות. אלה רק
+השחקנים הגלויים. צריך גם: <strong>מאזנים, כללים, זרמי מידע, אי-ודאות,
+ניצול לרעה של כוח, אשראי, קניין, זמן וסנקציות</strong>.</p>
+<p>הליבה תהיה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">כלכלה</mtext><mo>=</mo><mtext mathvariant="normal">שחקנים</mtext><mo>+</mo><mtext mathvariant="normal">שווקים</mtext><mo>+</mo><mtext mathvariant="normal">מאזנים</mtext><mo>+</mo><mtext mathvariant="normal">כללים</mtext><mo>+</mo><mtext mathvariant="normal">ציפיות</mtext><mo>+</mo><mtext mathvariant="normal">זעזועים</mtext></mrow><annotation encoding="application/x-tex">
+\text{כלכלה} = \text{שחקנים} + \text{שווקים} + \text{מאזנים} + \text{כללים} + \text{ציפיות} + \text{זעזועים}
+</annotation></semantics></math></p>
+<p>והמטבע שלך אינו רק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>אלא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">סכום מספרי</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{סכום מספרי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">כיוון זוויתי: טוב/רע + פופולרי/לא פופולרי</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{כיוון זוויתי: טוב/רע + פופולרי/לא פופולרי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">ביטחון / רמת אמון בזווית</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{ביטחון / רמת אמון בזווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">סיפור מקור / היסטוריית עסקאות</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{סיפור מקור / היסטוריית עסקאות}
+</annotation></semantics></math></p>
+<p>בלי
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+ו־<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+המערכת נעשית נאיבית, כי כל אחד יכול להעמיד פנים שהזווית שלו אובייקטיבית
+ונקייה.</p>
+<hr />
+<h2 id="מדינות-וסמכויות-שיפוט">1. מדינות וסמכויות שיפוט</h2>
+<p>צריך כמה מדינות, אבל לא רק כשמות. לכל מדינה צריך להיות מערך מוסדי
+משלה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">ממשלה</mtext><mo>,</mo><mtext mathvariant="normal">עם</mtext><mo>,</mo><mtext mathvariant="normal">בתי משפט</mtext><mo>,</mo><mtext mathvariant="normal">בנק מרכזי</mtext><mo>,</mo><mtext mathvariant="normal">מערכת מס</mtext><mo>,</mo><mtext mathvariant="normal">רגולטורים</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{ממשלה}, \text{עם}, \text{בתי משפט}, \text{בנק מרכזי}, \text{מערכת מס}, \text{רגולטורים})
+</annotation></semantics></math></p>
+<p>כל מדינה יכולה להגדיר בעצמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">טוב/רע</mtext><annotation encoding="application/x-tex">
+\text{טוב/רע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">חוקי/לא חוקי</mtext><annotation encoding="application/x-tex">
+\text{חוקי/לא חוקי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מסובסד/נענש</mtext><annotation encoding="application/x-tex">
+\text{מסובסד/נענש}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מוכר/לא מוכר</mtext><annotation encoding="application/x-tex">
+\text{מוכר/לא מוכר}
+</annotation></semantics></math></p>
+<p>זה חשוב, כי אובייקט יכול להיות טוב במדינה A ורע במדינה B.</p>
+<p>דוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>כך נוצר קונפליקט זוויתי בינלאומי. ממנו נובעים מתחים מסחריים, סנקציות,
+ארביטראז’, שוק שחור ומשחקי כוח דיפלומטיים.</p>
+<hr />
+<h2 id="ממשלות-כאורקלים-של-טוברע">2. ממשלות כאורקלים של טוב/רע</h2>
+<p>כמה ממשלות קובעות את ציר <strong>טוב מול רע</strong>. אבל בסימולציה
+אסור להציג אותן כמכונות אמת מושלמות.</p>
+<p>כל ממשלה צריכה מאפיינים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">כשירות</mtext><mo>,</mo><mtext mathvariant="normal">שחיתות</mtext><mo>,</mo><mtext mathvariant="normal">אידאולוגיה</mtext><mo>,</mo><mtext mathvariant="normal">אינטרסים</mtext><mo>,</mo><mtext mathvariant="normal">איכות מידע</mtext><mo>,</mo><mtext mathvariant="normal">כוח</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{כשירות}, \text{שחיתות}, \text{אידאולוגיה}, \text{אינטרסים}, \text{איכות מידע}, \text{כוח})
+</annotation></semantics></math></p>
+<p>אחר כך היא מעריכה חברות, מוצרים, ענפים, פעולות וזרמי כסף.</p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">רע מקסימלי</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{רע מקסימלי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">טוב מקסימלי</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{טוב מקסימלי}
+</annotation></semantics></math></p>
+<p>תמיד צריכה להיות גם אי־ודאות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>ממשלה יכולה לומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">חברה A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn><mo>±</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{חברה A}) = 0{,}7 \pm 0{,}2
+</annotation></semantics></math></p>
+<p>כלומר: היא חושבת שחברה A נוטה להיות טובה, אבל לא בוודאות מוחלטת.</p>
+<p>חשובים גם:</p>
+<ul>
+<li>קואליציות ממשלתיות בינלאומיות</li>
+<li>זכויות וטו</li>
+<li>סנקציות</li>
+<li>סיכון שחיתות</li>
+<li>טעויות שיפוט פוליטיות</li>
+<li>תעמולה</li>
+<li>לובינג</li>
+<li>תיקונים משפטיים</li>
+<li>חילופי ממשלה</li>
+<li>מהפכות או הפיכות</li>
+<li>סמכויות חירום</li>
+</ul>
+<p>בלי הגורמים האלה ציר הטוב/רע שלך יהיה חלק מדי.</p>
+<hr />
+<h2 id="עמים-כאורקלים-של-פופולרילא-פופולרי">3. עמים כאורקלים של
+פופולרי/לא פופולרי</h2>
+<p>כמה עמים קובעים את ציר <strong>פופולרי מול לא פופולרי</strong>.</p>
+<p>אבל גם עמים אינם הומוגניים. עם מורכב מקבוצות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<ul>
+<li>עובדים</li>
+<li>יזמים</li>
+<li>גמלאים</li>
+<li>סטודנטים</li>
+<li>קבוצות דתיות</li>
+<li>אוכלוסייה עירונית</li>
+<li>אוכלוסייה כפרית</li>
+<li>מיעוטים</li>
+<li>מחנות פוליטיים</li>
+<li>סביבות מדיה</li>
+<li>מעמדות צרכנים</li>
+</ul>
+<p>לכל קבוצה יש העדפות משלה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">לא פופולרי מקסימלית</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{לא פופולרי מקסימלית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">פופולרי מקסימלית</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{פופולרי מקסימלית}
+</annotation></semantics></math></p>
+<p>הפופולריות הכוללת תהיה בערך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>אבל גם כאן צריך אי־ודאות ומניפולציה:</p>
+<ul>
+<li>סקרים</li>
+<li>בחירות</li>
+<li>משאלי עם</li>
+<li>שביתות</li>
+<li>חרמות</li>
+<li>הפגנות</li>
+<li>מדיה חברתית</li>
+<li>קמפיינים תקשורתיים</li>
+<li>צנזורה</li>
+<li>דיסאינפורמציה</li>
+<li>היסטריה קולקטיבית</li>
+<li>שינויים תרבותיים איטיים</li>
+<li>טרנדים קצרי טווח</li>
+</ul>
+<p>ציר הפופולריות אינו אמת. הוא תהודה, הסכמה, דחייה ואנרגיה חברתית.</p>
+<hr />
+<h2 id="אגרגציה-לזווית">4. אגרגציה לזווית</h2>
+<p>הטוב הממשלתי והפופולריות הציבורית יוצרים יחד את הזווית.</p>
+<p>גרסה פשוטה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">טוביות</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{טוביות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">פופולריות</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{פופולריות}
+</annotation></semantics></math></p>
+<p>ואז:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>גודל הכוח הנורמטיבי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>הביטחון:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">מידת ההסכמה בין ממשלות ועמים</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{מידת ההסכמה בין ממשלות ועמים}
+</annotation></semantics></math></p>
+<p>כאשר ממשלות ועמים מסכימים מאוד,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+גבוה. כאשר הם סותרים זה את זה,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+נמוך.</p>
+<p>דוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = 0{,}7
+</annotation></semantics></math></p>
+<p>פירושו: טוב ופופולרי.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = -0{,}6
+</annotation></semantics></math></p>
+<p>פירושו: טוב, אבל לא פופולרי.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+x = -0{,}7,\quad y = 0{,}9
+</annotation></semantics></math></p>
+<p>פירושו: רע, אבל פופולרי.</p>
+<p>המקרה השלישי הוא נפיץ פוליטית במיוחד. סימולציה חייבת להיות מסוגלת
+ליצור מקרים כאלה.</p>
+<hr />
+<h2 id="המטבע-עצמו">5. המטבע עצמו</h2>
+<p>לכל יחידת כסף צריכים להיות כמה מאפיינים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">סכום מספרי</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{סכום מספרי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">זווית</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{זווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">אמון</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{אמון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">מקור</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{מקור}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">נקודת זמן</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{נקודת זמן}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">היסטוריה</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{היסטוריה}
+</annotation></semantics></math></p>
+<p>ההיסטוריה חשובה. אחרת נוצרת מיד הלבנת זווית.</p>
+<p>דוגמה:</p>
+<p>חברה מרוויחה כסף באמצעות ניצול:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>אחר כך היא תורמת 10% ממנו למטרה פופולרית ומנסה לגרום לכל הכסף להיראות
+טוב. בלי היסטוריה היא הייתה יכולה לתמרן את הזווית. עם היסטוריה נשאר
+גלוי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מקור: רעיל</mtext><annotation encoding="application/x-tex">
+\text{מקור: רעיל}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שיפור מאוחר יותר: חלקי</mtext><annotation encoding="application/x-tex">
+\text{שיפור מאוחר יותר: חלקי}
+</annotation></semantics></math></p>
+<p>לכן הסימולציה צריכה מעין <strong>חשבונאות וקטורית עם עקבת
+מקור</strong>.</p>
+<hr />
+<h2 id="חשבונאות-זוויתית">6. חשבונאות זוויתית</h2>
+<p>חשבונאות רגילה לא מספיקה. חברות, בנקים ומדינות צריכים מאזנים עם
+וקטורים.</p>
+<p>מאזן רגיל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">נכסים</mtext><mo>=</mo><mtext mathvariant="normal">התחייבויות</mtext><mo>+</mo><mtext mathvariant="normal">הון עצמי</mtext></mrow><annotation encoding="application/x-tex">
+\text{נכסים} = \text{התחייבויות} + \text{הון עצמי}
+</annotation></semantics></math></p>
+<p>מאזן וקטורי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>אבל זה לא טריוויאלי, כי זוויות מנוגדות יכולות לבטל זו את זו
+חלקית.</p>
+<p>חברה יכולה להיות עשירה מספרית, אבל רעילה נורמטיבית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">עושר מספרי גבוה</mtext><annotation encoding="application/x-tex">
+\text{עושר מספרי גבוה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">זווית גרועה</mtext><annotation encoding="application/x-tex">
+\text{זווית גרועה}
+</annotation></semantics></math></p>
+<p>או שהיא יכולה להיות פופולרית וטובה, אבל עם מעט נזילות.</p>
+<p>לכן צריך מדדים נפרדים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">נזילות</mtext><annotation encoding="application/x-tex">
+\text{נזילות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כושר פירעון</mtext><annotation encoding="application/x-tex">
+\text{כושר פירעון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">איכות זווית</mtext><annotation encoding="application/x-tex">
+\text{איכות זווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון זווית</mtext><annotation encoding="application/x-tex">
+\text{סיכון זווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">הון מוניטין</mtext><annotation encoding="application/x-tex">
+\text{הון מוניטין}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון פוליטי</mtext><annotation encoding="application/x-tex">
+\text{סיכון פוליטי}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="משקי-בית-ויחידים">7. משקי בית ויחידים</h2>
+<p>הם חסרים בבירור ברשימה שלך. בלי משקי בית אין ביקוש אמיתי, עבודה,
+בחירות או פסיכולוגיית צרכן.</p>
+<p>כל אדם או משק בית צריך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">הכנסה</mtext><mo>,</mo><mtext mathvariant="normal">עושר</mtext><mo>,</mo><mtext mathvariant="normal">צרכים</mtext><mo>,</mo><mtext mathvariant="normal">ערכים</mtext><mo>,</mo><mtext mathvariant="normal">מקצוע</mtext><mo>,</mo><mtext mathvariant="normal">השכלה</mtext><mo>,</mo><mtext mathvariant="normal">דעה פוליטית</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{הכנסה}, \text{עושר}, \text{צרכים}, \text{ערכים}, \text{מקצוע}, \text{השכלה}, \text{דעה פוליטית})
+</annotation></semantics></math></p>
+<p>משקי בית מחליטים:</p>
+<ul>
+<li>מה לקנות</li>
+<li>איפה לעבוד</li>
+<li>למי להצביע</li>
+<li>אילו חברות להחרים</li>
+<li>אילו זוויות לקבל</li>
+<li>כמה סיכון לשאת</li>
+<li>האם לחסוך, לצרוך או להשקיע</li>
+</ul>
+<p>לכל משק בית יש גם העדפות זוויתיות משלו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">זווית קנייה</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{זווית קנייה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">זווית מכירה</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{זווית מכירה}
+</annotation></semantics></math></p>
+<p>בזמן קנייה הוא שואל:</p>
+<p>“האם אני מקבל את המוצר הזה במחיר הזה ובזווית הזאת?”</p>
+<p>בזמן עבודה הוא שואל:</p>
+<p>“האם אני מקבל שכר מהחברה הזאת עם איכות הזווית הזאת?”</p>
+<p>זה חזק, כי עבודה כבר אינה רק שכר תמורת זמן, אלא גם תאימות מוסרית.</p>
+<hr />
+<h2 id="חברות-תאגידים-ומבני-בעלות">8. חברות, תאגידים ומבני בעלות</h2>
+<p>חברות אינן רק יצרניות. יש להן מבנה פנימי:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">הון</mtext><mo>,</mo><mtext mathvariant="normal">עובדים</mtext><mo>,</mo><mtext mathvariant="normal">טכנולוגיה</mtext><mo>,</mo><mtext mathvariant="normal">שרשראות אספקה</mtext><mo>,</mo><mtext mathvariant="normal">הנהלה</mtext><mo>,</mo><mtext mathvariant="normal">בעלים</mtext><mo>,</mo><mtext mathvariant="normal">חובות</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{הון}, \text{עובדים}, \text{טכנולוגיה}, \text{שרשראות אספקה}, \text{הנהלה}, \text{בעלים}, \text{חובות})
+</annotation></semantics></math></p>
+<p>חשובים:</p>
+<ul>
+<li>עסקים קטנים</li>
+<li>חברות בינוניות</li>
+<li>תאגידים</li>
+<li>מונופולים</li>
+<li>קרטלים</li>
+<li>חברות פלטפורמה</li>
+<li>בנקים</li>
+<li>חברות ביטוח</li>
+<li>חברות לוגיסטיקה</li>
+<li>חברות ביטחוניות</li>
+<li>חברות מדיה</li>
+<li>תאגידי אנרגיה</li>
+<li>חברות חומרי גלם</li>
+<li>חברות טכנולוגיה</li>
+<li>חברות צללים</li>
+<li>חברות קש</li>
+</ul>
+<p>תאגידים צריכים בנוסף:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">חברות בת</mtext><annotation encoding="application/x-tex">
+\text{חברות בת}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מבנה החזקה</mtext><annotation encoding="application/x-tex">
+\text{מבנה החזקה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">הימנעות ממס</mtext><annotation encoding="application/x-tex">
+\text{הימנעות ממס}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ארביטראז’ שיפוטי</mtext><annotation encoding="application/x-tex">
+\text{ארביטראז&#39; שיפוטי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">לובינג</mtext><annotation encoding="application/x-tex">
+\text{לובינג}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח שוק</mtext><annotation encoding="application/x-tex">
+\text{כוח שוק}
+</annotation></semantics></math></p>
+<p>תאגידים מעניינים במיוחד בסימולציה שלך כי הם יכולים להזיז זוויות: דרך
+פרסום, לובינג, כוח תעסוקתי, תרומות, שליטה במדיה ובחירת מיקום
+בינלאומית.</p>
+<hr />
+<h2 id="מוצרים-שירותים-וסוגי-טובין">9. מוצרים, שירותים וסוגי טובין</h2>
+<p>כל טובין צריך לא רק מחיר וכמות, אלא גם פרופיל זוויתי.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">מחיר</mtext><mo>,</mo><mtext mathvariant="normal">איכות</mtext><mo>,</mo><mtext mathvariant="normal">כמות</mtext><mo>,</mo><mtext mathvariant="normal">תועלת</mtext><mo>,</mo><mtext mathvariant="normal">זווית ייצור</mtext><mo>,</mo><mtext mathvariant="normal">זווית צריכה</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{מחיר}, \text{איכות}, \text{כמות}, \text{תועלת}, \text{זווית ייצור}, \text{זווית צריכה})
+</annotation></semantics></math></p>
+<p>מוצרים יכולים להיות מיוצרים היטב אך לשמש לרעה. או להיות מיוצרים רע אך
+להיצרך באופן פופולרי.</p>
+<p>דוגמה:</p>
+<p>מוצר זול יכול להיות מאוד פופולרי, אבל בעל היסטוריית ייצור גרועה.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פופולריות גבוהה</mtext><annotation encoding="application/x-tex">
+\text{פופולריות גבוהה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">טוביות נמוכה</mtext><annotation encoding="application/x-tex">
+\text{טוביות נמוכה}
+</annotation></semantics></math></p>
+<p>לכן כל מוצר צריך לפחות:</p>
+<ul>
+<li>ערך שימוש</li>
+<li>מחיר שוק</li>
+<li>עלויות ייצור</li>
+<li>זווית שרשרת אספקה</li>
+<li>זווית צריכה</li>
+<li>השפעה סביבתית</li>
+<li>השפעה חברתית</li>
+<li>מעמד חוקי</li>
+<li>עמידות</li>
+<li>יכולת תחלופה</li>
+</ul>
+<p>סוגי טובין:</p>
+<ul>
+<li>מזון</li>
+<li>אנרגיה</li>
+<li>דיור</li>
+<li>ביגוד</li>
+<li>בריאות</li>
+<li>חינוך</li>
+<li>תחבורה</li>
+<li>בידור</li>
+<li>מוצרי יוקרה</li>
+<li>נשק / מוצרי ביטחון</li>
+<li>נתונים</li>
+<li>תוכנה</li>
+<li>חומרי גלם</li>
+<li>מכונות</li>
+<li>תשתיות</li>
+<li>מוצרים פיננסיים</li>
+</ul>
+<hr />
+<h2 id="שוק-העבודה">10. שוק העבודה</h2>
+<p>שוק העבודה אינו עוד שוק רגיל. הוא מחבר כסף, כבוד, כוח, זמן
+ופוליטיקה.</p>
+<p>לכל משרה יש:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">שכר</mtext><mo>,</mo><mtext mathvariant="normal">שעות עבודה</mtext><mo>,</mo><mtext mathvariant="normal">סיכון</mtext><mo>,</mo><mtext mathvariant="normal">סטטוס</mtext><mo>,</mo><mtext mathvariant="normal">זווית החברה</mtext><mo>,</mo><mtext mathvariant="normal">זווית הפעילות</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{שכר}, \text{שעות עבודה}, \text{סיכון}, \text{סטטוס}, \text{זווית החברה}, \text{זווית הפעילות})
+</annotation></semantics></math></p>
+<p>אנשים מקבלים עבודות לא רק לפי שכר, אלא גם לפי:</p>
+<ul>
+<li>התאמה מוסרית</li>
+<li>פופולריות המעסיק</li>
+<li>אפשרויות קריירה</li>
+<li>ביטחון תעסוקתי</li>
+<li>סטטוס חברתי</li>
+<li>סיכון פוליטי</li>
+<li>לחץ משפחתי</li>
+<li>הכשרה</li>
+<li>מיקום גיאוגרפי</li>
+</ul>
+<p>כך יכולים להופיע מצבים כמו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שכר גבוה, זווית גרועה</mtext><annotation encoding="application/x-tex">
+\text{שכר גבוה, זווית גרועה}
+</annotation></semantics></math></p>
+<p>או:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שכר נמוך, זווית טובה</mtext><annotation encoding="application/x-tex">
+\text{שכר נמוך, זווית טובה}
+</annotation></semantics></math></p>
+<p>זה ריאליסטי. אנשים רבים מוכרים לא רק עבודה, אלא גם חלק מהזהות החברתית
+שלהם.</p>
+<hr />
+<h2 id="מערכת-פיננסית">11. מערכת פיננסית</h2>
+<p>זה אחד הבלוקים החסרים החשובים ביותר.</p>
+<p>צריך:</p>
+<ul>
+<li>בנקים</li>
+<li>בנקים מרכזיים</li>
+<li>שוקי אשראי</li>
+<li>אג”ח</li>
+<li>שוקי מניות</li>
+<li>חברות ביטוח</li>
+<li>קרנות השקעה</li>
+<li>קרנות פנסיה</li>
+<li>בנקי צללים</li>
+<li>בורסות</li>
+<li>עושי שוק</li>
+<li>סוכנויות דירוג</li>
+<li>רשתות תשלום</li>
+</ul>
+<p>במודל שלך יש לא רק ריבית, אלא גם ריבית זוויתית.</p>
+<p>הלוואה תהיה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>כאשר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">ריבית</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{ריבית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">תקופה</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{תקופה}
+</annotation></semantics></math></p>
+<p>שיעור הריבית תלוי ב:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון חדלות פירעון</mtext><annotation encoding="application/x-tex">
+\text{סיכון חדלות פירעון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון זוויתי</mtext><annotation encoding="application/x-tex">
+\text{סיכון זוויתי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון פוליטי</mtext><annotation encoding="application/x-tex">
+\text{סיכון פוליטי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון פופולריות</mtext><annotation encoding="application/x-tex">
+\text{סיכון פופולריות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">סיכון נזילות</mtext><annotation encoding="application/x-tex">
+\text{סיכון נזילות}
+</annotation></semantics></math></p>
+<p>חברה עם זווית גרועה תשלם ריבית גבוהה יותר או תמצא רק מימון רעיל.</p>
+<hr />
+<h2 id="בנקים-מרכזיים-ויצירת-כסף">12. בנקים מרכזיים ויצירת כסף</h2>
+<p>כל מטבע צריך כלל הנפקה.</p>
+<p>במערכת שלך בנק מרכזי צריך לשלוט לא רק בכמות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>אלא גם באיכות הזוויתית במחזור:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>בנק מרכזי יכול לעקוב אחר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אינפלציה</mtext><annotation encoding="application/x-tex">
+\text{אינפלציה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אבטלה</mtext><annotation encoding="application/x-tex">
+\text{אבטלה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">התפלגות זוויתית של הכסף</mtext><annotation encoding="application/x-tex">
+\text{התפלגות זוויתית של הכסף}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">נזילות בכל אזור זווית</mtext><annotation encoding="application/x-tex">
+\text{נזילות בכל אזור זווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">משברי אמון</mtext><annotation encoding="application/x-tex">
+\text{משברי אמון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פאניקות זוויתיות</mtext><annotation encoding="application/x-tex">
+\text{פאניקות זוויתיות}
+</annotation></semantics></math></p>
+<p>יכולים להיווצר מושגים חדשים:</p>
+<h3 id="אינפלציה-מספרית">אינפלציה מספרית</h3>
+<p>עליית מחירים רגילה.</p>
+<h3 id="אינפלציה-זוויתית">אינפלציה זוויתית</h3>
+<p>כולם טוענים שהם טובים, אבל רמת האמון יורדת.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="דפלציה-זוויתית">דפלציה זוויתית</h3>
+<p>רק כסף “נקי” במיוחד מתקבל; המסחר קופא.</p>
+<h3 id="פאניקה-זוויתית">פאניקה זוויתית</h3>
+<p>שחקנים בורחים מאזור זוויתי כי הוא פתאום נחשב רע או לא פופולרי.</p>
+<hr />
+<h2 id="שווקים-זוויתיים">13. שווקים זוויתיים</h2>
+<p>זה ייחודי לרעיון שלך.</p>
+<p>בנוסף לשווקים רגילים צריך שווקים לזוויות עצמן:</p>
+<ul>
+<li>החלפת זוויות</li>
+<li>גידור זוויתי</li>
+<li>אופציות זוויתיות</li>
+<li>חוזים עתידיים זוויתיים</li>
+<li>נגזרי מוניטין</li>
+<li>סוואפים של טוביות</li>
+<li>סוואפים של פופולריות</li>
+<li>ביטוח סנקציות</li>
+<li>ביטוח חרמות</li>
+<li>גידור סיכון פוליטי</li>
+</ul>
+<p>החלפת זווית פשוטה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>עם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>ו:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>ככל שהמרחק הזוויתי גדול יותר, ההמרה יקרה יותר.</p>
+<p>זה יוצר ענף חדש: <strong>עושי שוק זוויתיים</strong>.</p>
+<p>הם קונים זוויות קשות ומוכרים זוויות מקובלות יותר. אבל זה מסוכן, כי זה
+יכול להפוך להלבנת כסף מוסרית.</p>
+<p>לכן צריך:</p>
+<ul>
+<li>גופי בדיקה</li>
+<li>ביקורות</li>
+<li>הוכחות מקור</li>
+<li>עונשי מוניטין</li>
+<li>איתור הונאות</li>
+<li>כללי שקיפות</li>
+<li>כללי התיישנות</li>
+<li>הליכי ערעור</li>
+</ul>
+<hr />
+<h2 id="קניין-חוזים-ובתי-משפט">14. קניין, חוזים ובתי משפט</h2>
+<p>בלי מערכת משפט אין כלכלה יציבה.</p>
+<p>צריך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">זכויות קניין</mtext><annotation encoding="application/x-tex">
+\text{זכויות קניין}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני חוזים</mtext><annotation encoding="application/x-tex">
+\text{דיני חוזים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אחריות</mtext><annotation encoding="application/x-tex">
+\text{אחריות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני חדלות פירעון</mtext><annotation encoding="application/x-tex">
+\text{דיני חדלות פירעון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני עבודה</mtext><annotation encoding="application/x-tex">
+\text{דיני עבודה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני תחרות</mtext><annotation encoding="application/x-tex">
+\text{דיני תחרות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני מס</mtext><annotation encoding="application/x-tex">
+\text{דיני מס}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני הגנת מידע</mtext><annotation encoding="application/x-tex">
+\text{דיני הגנת מידע}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">דיני סנקציות</mtext><annotation encoding="application/x-tex">
+\text{דיני סנקציות}
+</annotation></semantics></math></p>
+<p>במטבע שלך נוסף גם משפט חדש:</p>
+<p><strong>מי רשאי לשנות זווית?</strong></p>
+<p>האם בית משפט רשאי לומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>כי חברה שוקמה?</p>
+<p>האם ממשלה רשאית לומר:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>כי ארגון נאסר?</p>
+<p>האם עם רשאי להחמיר זווית באמצעות חרם?</p>
+<p>שאלות אלה חייבות להפוך לכללים בסימולציה.</p>
+<hr />
+<h2 id="מסים-והוצאות-מדינה">15. מסים והוצאות מדינה</h2>
+<p>מדינות צריכות הכנסות והוצאות.</p>
+<p>במודל שלך מסים יכולים להיות תלויי זווית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<ul>
+<li>כסף טוב ופופולרי ממוסה פחות</li>
+<li>כסף רע ממוסה יותר</li>
+<li>כסף לא ודאי נבדק</li>
+<li>כסף רעיל מוקפא</li>
+<li>השקעות רצויות למדינה מסובסדות</li>
+</ul>
+<p>גם להוצאות מדינה יש זוויות:</p>
+<ul>
+<li>הוצאות רווחה</li>
+<li>צבא</li>
+<li>תשתיות</li>
+<li>חינוך</li>
+<li>בריאות</li>
+<li>סובסידיות</li>
+<li>חבילות חילוץ</li>
+<li>מנגנון משטרתי</li>
+<li>תעמולה</li>
+<li>מחקר</li>
+</ul>
+<p>לכן ממשלה לא רק מוציאה כסף; היא גם יוצרת או הורסת זוויות.</p>
+<hr />
+<h2 id="כלכלה-בינלאומית">16. כלכלה בינלאומית</h2>
+<p>מרגע שיש כמה מדינות, צריך:</p>
+<ul>
+<li>שערי חליפין</li>
+<li>זרמי הון</li>
+<li>הסכמי סחר</li>
+<li>מכסים</li>
+<li>סנקציות</li>
+<li>אמברגו</li>
+<li>הגירה</li>
+<li>תאגידים רב־לאומיים</li>
+<li>מקלטי מס</li>
+<li>סיוע לפיתוח</li>
+<li>גושים גאופוליטיים</li>
+<li>מטבעות רזרבה</li>
+<li>תלות בחומרי גלם</li>
+<li>שרשראות אספקה חוצות גבולות</li>
+</ul>
+<p>במודל שלך נוסף:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">תרגום זוויות</mtext><annotation encoding="application/x-tex">
+\text{תרגום זוויות}
+</annotation></semantics></math></p>
+<p>זווית במדינה A אינה אוטומטית אותה זווית במדינה B.</p>
+<p>לכן צריך מטריצת טרנספורמציה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>דוגמה:</p>
+<p>מוצר נחשב טוב ופופולרי במדינה A. במדינה B הוא נחשב לא מוסרי, אבל
+עדיין מבוקש.</p>
+<p>זה יוצר ארביטראז’:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">לקנות במרחב זוויתי טוב</mtext><annotation encoding="application/x-tex">
+\text{לקנות במרחב זוויתי טוב}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">למכור במרחב זוויתי פופולרי</mtext><annotation encoding="application/x-tex">
+\text{למכור במרחב זוויתי פופולרי}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="מדיה-ומערכת-מידע">17. מדיה ומערכת מידע</h2>
+<p>זה מרכזי לחלוטין. זוויות נוצרות לא רק מעובדות, אלא מתפיסה.</p>
+<p>צריך:</p>
+<ul>
+<li>תקשורת חדשותית</li>
+<li>רשתות חברתיות</li>
+<li>משפיענים</li>
+<li>תקשורת מדינתית</li>
+<li>עיתונאים חוקרים</li>
+<li>אלגוריתמים של פלטפורמות</li>
+<li>צנזורה</li>
+<li>הדלפות</li>
+<li>חושפי שחיתויות</li>
+<li>תעמולה</li>
+<li>שערוריות</li>
+<li>שמועות</li>
+<li>מרחבי נגד ציבוריים</li>
+</ul>
+<p>שערורייה יכולה לשנות בחדות את זווית החברה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>זהו קריסת זווית.</p>
+<p>קמפיין יחסי ציבור מוצלח יכול להעלות פופולריות בלי להעלות טוביות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">אותו דבר</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{אותו דבר}
+</annotation></semantics></math></p>
+<p>זו דינמיקה ריאליסטית ומסוכנת.</p>
+<hr />
+<h2 id="חינוך-תרבות-ואידאולוגיה">18. חינוך, תרבות ואידאולוגיה</h2>
+<p>עמים אינם מעריכים בריק. סולם הפופולריות שלהם תלוי בתרבות.</p>
+<p>צריך:</p>
+<ul>
+<li>מערכות חינוך</li>
+<li>דתות</li>
+<li>אידאולוגיות פוליטיות</li>
+<li>טראומות היסטוריות</li>
+<li>מיתוסים לאומיים</li>
+<li>תודעה מעמדית</li>
+<li>טאבו מוסרי</li>
+<li>קונפליקטים בין דוריים</li>
+<li>שינוי ערכים</li>
+</ul>
+<p>אחרת כל העמים יגיבו אותו דבר. זה יהיה משעמם ושגוי.</p>
+<p>עם שמרני, עם טכנוקרטי, עם שוויוני ועם צרכני יעריכו אותה חברה
+אחרת.</p>
+<hr />
+<h2 id="שרשראות-אספקה-ומקור">19. שרשראות אספקה ומקור</h2>
+<p>זה חשוב ביותר בכסף זוויתי.</p>
+<p>למוצר אין רק זווית מוכר, אלא שרשרת מקור שלמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">מוצר</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">חומרי גלם</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">עבודה</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">תחבורה</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">חברה</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">אנרגיה</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{מוצר}} =
+F(\theta_{\text{חומרי גלם}},\theta_{\text{עבודה}},\theta_{\text{תחבורה}},\theta_{\text{חברה}},\theta_{\text{אנרגיה}})
+</annotation></semantics></math></p>
+<p>דוגמה:</p>
+<p>לסמארטפון יש מרכיבי זווית מ:</p>
+<ul>
+<li>כריית חומרי גלם</li>
+<li>תנאי עבודה</li>
+<li>צריכת אנרגיה</li>
+<li>פטנטים</li>
+<li>מדיניות נתונים</li>
+<li>שיווק</li>
+<li>יכולת תיקון</li>
+<li>מקור גאופוליטי</li>
+<li>תועלת לצרכן</li>
+</ul>
+<p>הזווית הסופית היא תערובת משוקללת.</p>
+<p>בלי מודל שרשרת אספקה, כסף זוויתי קל למניפולציה.</p>
+<hr />
+<h2 id="סביבה-והשפעות-חיצוניות">20. סביבה והשפעות חיצוניות</h2>
+<p>סימולציה מלאה צריכה השפעות חיצוניות:</p>
+<ul>
+<li>CO₂</li>
+<li>צריכת מים</li>
+<li>הכחדת מינים</li>
+<li>זיהום אוויר</li>
+<li>עלויות בריאות</li>
+<li>רעש</li>
+<li>פסולת</li>
+<li>דלדול משאבים</li>
+<li>שימוש בקרקע</li>
+<li>נזקים חברתיים</li>
+<li>פשיעה</li>
+<li>ביטחון ציבורי</li>
+</ul>
+<p>השפעות אלה משפיעות על ציר הטוב/רע.</p>
+<p>מוצר יכול להיות רווחי ופופולרי, אך מזיק בטווח הארוך. אז מתקבל:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>כלומר: רע, אבל פופולרי.</p>
+<p>זה אחד המקרים החשובים ביותר במודל שלך.</p>
+<hr />
+<h2 id="חדשנות-וטכנולוגיה">21. חדשנות וטכנולוגיה</h2>
+<p>כלכלה משתנה דרך טכנולוגיה.</p>
+<p>צריך:</p>
+<ul>
+<li>מחקר ופיתוח</li>
+<li>פטנטים</li>
+<li>אוטומציה</li>
+<li>צמיחת פריון</li>
+<li>מערכות AI</li>
+<li>אפקטי פלטפורמה</li>
+<li>אפקטי רשת</li>
+<li>מונופוליזציה</li>
+<li>הרס יצירתי</li>
+<li>ענפים חדשים</li>
+<li>ענפים מיושנים</li>
+</ul>
+<p>טכנולוגיה יכולה להזיז זוויות.</p>
+<p>טכנולוגיה חדשה יכולה להיות לא פופולרית בהתחלה, אבל אחר כך להיחשב
+טובה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>או להיות פופולרית בהתחלה ואחר כך להתגלות כמזיקה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="פשיעה-הונאה-וכלכלת-צללים">22. פשיעה, הונאה וכלכלת צללים</h2>
+<p>אסור להשאיר את זה בחוץ. מערכת עם מטבע מוסרי-חברתי יוצרת מיד צורות
+הונאה חדשות.</p>
+<p>צריך:</p>
+<ul>
+<li>הלבנת כספים</li>
+<li>הלבנת זוויות</li>
+<li>שוחד</li>
+<li>פופולריות מזויפת</li>
+<li>רשתות בוטים</li>
+<li>חברות פיקטיביות</li>
+<li>אנשי קש</li>
+<li>שרשראות אספקה מזויפות</li>
+<li>ביקורות מזויפות</li>
+<li>מסחר במידע פנים</li>
+<li>מניפולציית שוק</li>
+<li>קרטלים</li>
+<li>הברחות</li>
+<li>עבודה שחורה</li>
+<li>עקיפת סנקציות</li>
+<li>סחיטה פוליטית</li>
+</ul>
+<p>עבירה חדשה ספציפית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מניפולציית זווית</mtext><annotation encoding="application/x-tex">
+\text{מניפולציית זווית}
+</annotation></semantics></math></p>
+<p>לדוגמה: חברה קונה פופולריות מלאכותית כדי שהכסף שלה יקבל זווית טובה
+יותר.</p>
+<p>או: ממשלה מכריזה על מתנגדים כרעים כדי להפחית את ערך נכסיהם.</p>
+<p>בלי מודל יריבי, הסימולציה תהיה נאיבית מוסרית.</p>
+<hr />
+<h2 id="צבא-ביטחון-וכפייה">23. צבא, ביטחון וכפייה</h2>
+<p>מדינות אינן מורכבות רק מכללים, אלא גם מאכיפה.</p>
+<p>צריך:</p>
+<ul>
+<li>משטרה</li>
+<li>שירותי מודיעין</li>
+<li>צבא</li>
+<li>משמר גבול</li>
+<li>יחידות סנקציות</li>
+<li>הגנת סייבר</li>
+<li>בתי משפט</li>
+<li>בתי כלא</li>
+<li>מנגנוני חירום</li>
+</ul>
+<p>למה? כי מטבעות עובדים רק כאשר תביעות ניתנות לאכיפה.</p>
+<p>במערכת שלך מדינות יכולות להשתמש בזוויות גם כנשק:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">חברה עוינת</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">רעה/לא פופולרית</mtext></mrow><annotation encoding="application/x-tex">
+\text{חברה עוינת} \rightarrow \theta = \text{רעה/לא פופולרית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">מדינה בסנקציות</mtext><mo>→</mo><mtext mathvariant="normal">חסימה זוויתית</mtext></mrow><annotation encoding="application/x-tex">
+\text{מדינה בסנקציות} \rightarrow \text{חסימה זוויתית}
+</annotation></semantics></math></p>
+<p>זה חשוב מאוד גאופוליטית.</p>
+<hr />
+<h2 id="זמן-ציפיות-וזיכרון">24. זמן, ציפיות וזיכרון</h2>
+<p>סימולציה כלכלית צריכה זמן.</p>
+<p>לא הכל קורה מיד. יש:</p>
+<ul>
+<li>זמני ייצור</li>
+<li>עיכובי משלוח</li>
+<li>משכי חוזים</li>
+<li>תקופות אשראי</li>
+<li>מחזורי בחירות</li>
+<li>מחזורי השקעה</li>
+<li>עיכובי מוניטין</li>
+<li>עיכובי מידע</li>
+<li>הליכים משפטיים</li>
+<li>אינרציה פוליטית</li>
+</ul>
+<p>גם לזווית צריך להיות זיכרון:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">חדש</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{חדש}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>אחרת כל שערורייה תהרוס הכל מיד וכל קמפיין PR יתקן הכל מיד.</p>
+<p>לכן צריך אינרציה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">מהירות תגובה</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{מהירות תגובה}
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+גבוה: החברה מגיבה מהר.<br />
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+נמוך: החברה שוכחת לאט ושופטת יציב יותר.</p>
+<hr />
+<h2 id="זעזועים-ומשברים">25. זעזועים ומשברים</h2>
+<p>סימולציה טובה צריכה הפרעות.</p>
+<p>זעזועים אפשריים:</p>
+<ul>
+<li>משבר פיננסי</li>
+<li>ריצה על בנק</li>
+<li>מלחמה</li>
+<li>מגפה</li>
+<li>אסון טבע</li>
+<li>זעזוע אנרגיה</li>
+<li>קריסת שרשרת אספקה</li>
+<li>שערוריית שחיתות</li>
+<li>הדלפה</li>
+<li>מהפך בחירות</li>
+<li>מהפכה</li>
+<li>היפר־אינפלציה</li>
+<li>בריחת מטבע</li>
+<li>גל חרמות</li>
+<li>שבר טכנולוגי</li>
+<li>מתקפת סייבר</li>
+<li>חדלות פירעון מדינתית</li>
+<li>פשיטת רגל של תאגיד</li>
+</ul>
+<p>במערכת שלך גם:</p>
+<ul>
+<li>קריסת זווית</li>
+<li>קריסת אמון</li>
+<li>הערכה מחדש של טוב/רע</li>
+<li>גל פופולריות</li>
+<li>פאניקה מוסרית</li>
+<li>פיצול זוויתי בינלאומי</li>
+<li>שחיתות אורקלים</li>
+<li>חרם המוני</li>
+<li>פשיטת רגל מוניטינית</li>
+</ul>
+<hr />
+<h2 id="שווקים-בפירוט">26. שווקים בפירוט</h2>
+<p>ציינת מוצרים, שירותים ושוק עבודה. לכך מצטרפים:</p>
+<h3 id="שוקי-טובין">שוקי טובין</h3>
+<p>מזון, אנרגיה, חומרי גלם, מוצרי צריכה.</p>
+<h3 id="שוקי-שירותים">שוקי שירותים</h3>
+<p>בריאות, חינוך, ייעוץ, טיפול, בידור.</p>
+<h3 id="שוקי-עבודה">שוקי עבודה</h3>
+<p>שכר, כישורים, הגירה, אבטלה.</p>
+<h3 id="שוקי-הון">שוקי הון</h3>
+<p>מניות, אג”ח, אשראי, החזקות.</p>
+<h3 id="שוקי-נדלן">שוקי נדל”ן</h3>
+<p>דיור, קרקע, נדל”ן מסחרי.</p>
+<h3 id="שוקי-סחורות">שוקי סחורות</h3>
+<p>נפט, גז, מתכות, מים, אדמות נדירות.</p>
+<h3 id="שוקי-אנרגיה">שוקי אנרגיה</h3>
+<p>חשמל, אגירה, רשתות, ייצור.</p>
+<h3 id="שוקי-נתונים">שוקי נתונים</h3>
+<p>נתוני משתמשים, נתוני אימון, מעקב, פרטיות.</p>
+<h3 id="שוקי-טכנולוגיה">שוקי טכנולוגיה</h3>
+<p>תוכנה, AI, פטנטים, כוח חישוב.</p>
+<h3 id="שוקי-ביטוח">שוקי ביטוח</h3>
+<p>גידור סיכונים, אסונות, מחלות, סיכונים פוליטיים.</p>
+<h3 id="שווקים-זוויתיים-1">שווקים זוויתיים</h3>
+<p>רוטציה, גידור, אמון, מוניטין.</p>
+<h3 id="שווקים-שחורים-ואפורים">שווקים שחורים ואפורים</h3>
+<p>כל מה שחסום רשמית אך עדיין מבוקש.</p>
+<hr />
+<h2 id="היווצרות-מחירים">27. היווצרות מחירים</h2>
+<p>כל עסקה צריכה לפחות:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">כמות</mtext><mo>,</mo><mtext mathvariant="normal">מחיר מספרי</mtext><mo>,</mo><mtext mathvariant="normal">זווית קנייה</mtext><mo>,</mo><mtext mathvariant="normal">זווית מכירה</mtext><mo>,</mo><mtext mathvariant="normal">אמון</mtext><mo>,</mo><mtext mathvariant="normal">סמכות שיפוט</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{כמות}, \text{מחיר מספרי}, \text{זווית קנייה}, \text{זווית מכירה}, \text{אמון}, \text{סמכות שיפוט})
+</annotation></semantics></math></p>
+<p>הצעת קנייה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>הצעת מכירה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>עסקה מתרחשת אם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>וגם:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>או אם המרחק הזוויתי מפוצה בעמלה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>אז ערך המסחר האפקטיבי הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>לדוגמה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>כלומר: אותה זווית ואמון גבוה נותנים כוח קנייה מלא. מרחק זוויתי גדול
+או אמון נמוך מפחיתים כוח קנייה אפקטיבי.</p>
+<hr />
+<h2 id="פונקציות-תועלת-של-השחקנים">28. פונקציות תועלת של השחקנים</h2>
+<p>כל שחקן צריך כללי החלטה.</p>
+<p>משק בית אינו ממקסם רק צריכה:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">צריכה</mtext><mo>,</mo><mtext mathvariant="normal">מחיר</mtext><mo>,</mo><mtext mathvariant="normal">זווית</mtext><mo>,</mo><mtext mathvariant="normal">סטטוס</mtext><mo>,</mo><mtext mathvariant="normal">סיכון</mtext><mo>,</mo><mtext mathvariant="normal">ערכים</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{צריכה}, \text{מחיר}, \text{זווית}, \text{סטטוס}, \text{סיכון}, \text{ערכים})
+</annotation></semantics></math></p>
+<p>חברה אינה ממקסמת רק רווח:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">רווח</mtext><mo>−</mo><mtext mathvariant="normal">עלויות זווית</mtext><mo>−</mo><mtext mathvariant="normal">סיכון רגולטורי</mtext><mo>−</mo><mtext mathvariant="normal">סיכון מוניטין</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{רווח} - \text{עלויות זווית} - \text{סיכון רגולטורי} - \text{סיכון מוניטין}
+</annotation></semantics></math></p>
+<p>ממשלה אולי ממקסמת:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">יציבות</mtext><mo>,</mo><mtext mathvariant="normal">כוח</mtext><mo>,</mo><mtext mathvariant="normal">שגשוג</mtext><mo>,</mo><mtext mathvariant="normal">אידאולוגיה</mtext><mo>,</mo><mtext mathvariant="normal">ביטחון</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{יציבות}, \text{כוח}, \text{שגשוג}, \text{אידאולוגיה}, \text{ביטחון})
+</annotation></semantics></math></p>
+<p>עם או קבוצה אולי ממקסמים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">רמת חיים</mtext><mo>,</mo><mtext mathvariant="normal">זהות</mtext><mo>,</mo><mtext mathvariant="normal">צדק</mtext><mo>,</mo><mtext mathvariant="normal">ביטחון</mtext><mo>,</mo><mtext mathvariant="normal">סטטוס</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{רמת חיים}, \text{זהות}, \text{צדק}, \text{ביטחון}, \text{סטטוס})
+</annotation></semantics></math></p>
+<p>זה חשוב: לא כל השחקנים רודפים אחרי אותה מטרה.</p>
+<hr />
+<h2 id="כוח-ואישוויון">29. כוח ואי־שוויון</h2>
+<p>סימולציה מלאה צריכה יחסי כוח.</p>
+<p>לא לכל שחקן יש אותה השפעה על זוויות.</p>
+<p>תאגיד גדול יכול להשפיע על פופולריות דרך פרסום.<br />
+ממשלה יכולה להגדיר טוביות דרך חוק.<br />
+פלטפורמה יכולה לשלוט בנראות.<br />
+בנק יכול למשוך מימון.<br />
+אדם עשיר יכול לקנות מדיה.</p>
+<p>לכן צריך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">התפלגות עושר</mtext><annotation encoding="application/x-tex">
+\text{התפלגות עושר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח שוק</mtext><annotation encoding="application/x-tex">
+\text{כוח שוק}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח פוליטי</mtext><annotation encoding="application/x-tex">
+\text{כוח פוליטי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח מדיה</mtext><annotation encoding="application/x-tex">
+\text{כוח מדיה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח רשת</mtext><annotation encoding="application/x-tex">
+\text{כוח רשת}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">כוח כפייה</mtext><annotation encoding="application/x-tex">
+\text{כוח כפייה}
+</annotation></semantics></math></p>
+<p>בלי מודל כוח, הסימולציה נראית דמוקרטית מדי ובלתי מסוכנת מדי.</p>
+<hr />
+<h2 id="החוקה-המוסרית-של-המערכת">30. החוקה המוסרית של המערכת</h2>
+<p>זה מנגנון ההגנה הפוליטי החשוב ביותר.</p>
+<p>מכיוון שהמטבע שלך מתמחר טוב/רע ופופולרי/לא פופולרי, הוא יכול להפוך
+בקלות לטוטליטרי. לכן צריך שכבה חוקתית:</p>
+<ul>
+<li>הגנת מיעוטים</li>
+<li>זכויות יסוד</li>
+<li>הליכי ערעור</li>
+<li>חובת שקיפות</li>
+<li>הפרדת רשויות</li>
+<li>בתי משפט עצמאיים</li>
+<li>הגנה מפני פיחות רטרואקטיבי</li>
+<li>הגנה מפני היסטריה המונית</li>
+<li>הגנה מפני שרירות ממשלתית</li>
+<li>הגנה מפני מניפולציה תאגידית</li>
+<li>זכות לשיקום</li>
+<li>זכות להסבר</li>
+<li>זכות לאורקלים חלופיים</li>
+</ul>
+<p>אחרת כסף זוויתי יהפוך מהר לכסף ציות.</p>
+<hr />
+<h2 id="מדדי-הסימולציה">31. מדדי הסימולציה</h2>
+<p>צריך פלטים כדי לשפוט אם המערכת עובדת.</p>
+<p>מדדים רגילים:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">תמ&quot;ג</mtext><annotation encoding="application/x-tex">
+\text{תמ&quot;ג}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אינפלציה</mtext><annotation encoding="application/x-tex">
+\text{אינפלציה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אבטלה</mtext><annotation encoding="application/x-tex">
+\text{אבטלה}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פריון</mtext><annotation encoding="application/x-tex">
+\text{פריון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">שכר</mtext><annotation encoding="application/x-tex">
+\text{שכר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">התפלגות עושר</mtext><annotation encoding="application/x-tex">
+\text{התפלגות עושר}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מאזן מסחרי</mtext><annotation encoding="application/x-tex">
+\text{מאזן מסחרי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">חוב ציבורי</mtext><annotation encoding="application/x-tex">
+\text{חוב ציבורי}
+</annotation></semantics></math></p>
+<p>מדדים חדשים למערכת שלך:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">התפלגות זוויתית של הכסף</mtext><annotation encoding="application/x-tex">
+\text{התפלגות זוויתית של הכסף}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">טוביות ממוצעת</mtext><annotation encoding="application/x-tex">
+\text{טוביות ממוצעת}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פופולריות ממוצעת</mtext><annotation encoding="application/x-tex">
+\text{פופולריות ממוצעת}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">תנודתיות זוויתית</mtext><annotation encoding="application/x-tex">
+\text{תנודתיות זוויתית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">נזילות זוויתית</mtext><annotation encoding="application/x-tex">
+\text{נזילות זוויתית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מרווח זוויתי</mtext><annotation encoding="application/x-tex">
+\text{מרווח זוויתי}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">אינפלציה זוויתית</mtext><annotation encoding="application/x-tex">
+\text{אינפלציה זוויתית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מדד הלבנת זווית</mtext><annotation encoding="application/x-tex">
+\text{מדד הלבנת זווית}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מדד אמון</mtext><annotation encoding="application/x-tex">
+\text{מדד אמון}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מדד לגיטימיות</mtext><annotation encoding="application/x-tex">
+\text{מדד לגיטימיות}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מדד קיטוב</mtext><annotation encoding="application/x-tex">
+\text{מדד קיטוב}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">מדד אמון באורקלים</mtext><annotation encoding="application/x-tex">
+\text{מדד אמון באורקלים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">פער ממשלה-עם</mtext><annotation encoding="application/x-tex">
+\text{פער ממשלה-עם}
+</annotation></semantics></math></p>
+<p>חשוב במיוחד:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">ממשלה</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">עם</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{ממשלה}}, \theta_{\text{עם}})
+</annotation></semantics></math></p>
+<p>אם המרחק הזה גדל, נוצר משבר לגיטימיות.</p>
+<hr />
+<h2 id="ארכיטקטורת-סימולציה-טכנית">32. ארכיטקטורת סימולציה טכנית</h2>
+<p>לסימולציה רצינית הייתי בונה אותה כהיברידית:</p>
+<h3 id="חלק-מבוסס-סוכנים">חלק מבוסס סוכנים</h3>
+<p>למשקי בית, חברות, בנקים, ממשלות וקבוצות אוכלוסייה.</p>
+<h3 id="חלק-stock-flow-consistent">חלק stock-flow consistent</h3>
+<p>למאזנים, זרמי כסף, אשראי, חובות ומסים.</p>
+<h3 id="מודל-רשת">מודל רשת</h3>
+<p>לשרשראות אספקה, בעלות, מדיה, השפעה ומסחר.</p>
+<h3 id="מיקרומבנה-שוק">מיקרו־מבנה שוק</h3>
+<p>לספרי פקודות, היווצרות מחירים, מרווחים זוויתיים ונזילות.</p>
+<h3 id="מערכת-אירועים">מערכת אירועים</h3>
+<p>לזעזועים, שערוריות, מלחמות, משברים ובחירות.</p>
+<p>פורמלית:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">המצב הכולל של העולם בזמן </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">
+S_t = \text{המצב הכולל של העולם בזמן }t
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">פעולות כל השחקנים</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{פעולות כל השחקנים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">אירועים חיצוניים</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{אירועים חיצוניים}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>זו הצורה הבסיסית.</p>
+<hr />
+<h2 id="גרסה-מינימלית-לסימולציה-ראשונה">33. גרסה מינימלית לסימולציה
+ראשונה</h2>
+<p>לגרסה ראשונה עובדת לא הייתי בונה הכל מיד. הייתי מתחיל בליבה הזאת:</p>
+<ul>
+<li>3 מדינות</li>
+<li>3 ממשלות</li>
+<li>3 עמים עם 3 קבוצות בכל אחד</li>
+<li>1000 משקי בית</li>
+<li>100 חברות</li>
+<li>5 בנקים</li>
+<li>בנק מרכזי אחד לכל מדינה</li>
+<li>5 סוגי טובין</li>
+<li>שוק עבודה אחד</li>
+<li>שוק אשראי אחד</li>
+<li>שוק זוויתי אחד</li>
+<li>שוק סחר בינלאומי אחד</li>
+<li>שרשראות אספקה פשוטות</li>
+<li>מסים פשוטים</li>
+<li>בחירות פשוטות</li>
+<li>אירועי מדיה פשוטים</li>
+<li>מערכת זעזועים</li>
+<li>מטבע וקטורי עם
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math></li>
+</ul>
+<p>ואז צופים ב:</p>
+<ul>
+<li>מחירים</li>
+<li>שכר</li>
+<li>אבטלה</li>
+<li>פשיטות רגל של חברות</li>
+<li>התפלגות זוויתית</li>
+<li>מרווחים זוויתיים</li>
+<li>נפח מסחר</li>
+<li>קונפליקטים בינלאומיים</li>
+<li>מניפולציה</li>
+<li>אי־שוויון</li>
+<li>אי־יציבות פוליטית</li>
+</ul>
+<p>זה כבר מספיק עשיר כדי ליצור דינמיקות מעניינות.</p>
+<hr />
+<h2 id="הסיכום-הקשוח-ביותר">34. הסיכום הקשוח ביותר</h2>
+<p>לרשימה שלך צריך להוסיף בעיקר את הבלוקים החסרים האלה:</p>
+<ol type="1">
+<li><p><strong>משקי בית ויחידים</strong><br />
+בלעדיהם אין ביקוש, עבודה, בחירות או פופולריות.</p></li>
+<li><p><strong>בנקים, בנקים מרכזיים ואשראי</strong><br />
+בלי אשראי אין כלכלה מודרנית.</p></li>
+<li><p><strong>מאזנים וחשבונאות</strong><br />
+בלי מאזנים וקטוריים אף אחד לא יודע מי באמת עשיר, סולבנטי או
+רעיל.</p></li>
+<li><p><strong>מערכת משפט וקניין</strong><br />
+בלי חוזים, בתי משפט וכללי חדלות פירעון השוק מתפרק.</p></li>
+<li><p><strong>מדיה וזרמי מידע</strong><br />
+בלעדיהם טוב/רע ופופולרי/לא פופולרי לא נוצרים באופן ריאליסטי.</p></li>
+<li><p><strong>שרשראות אספקה והוכחות מקור</strong><br />
+בלעדיהן כסף זוויתי נעשה ניתן להלבנה מיד.</p></li>
+<li><p><strong>מסים, סובסידיות והוצאות מדינה</strong><br />
+מדינות לא רק מעריכות; הן גם פועלות.</p></li>
+<li><p><strong>שערי חליפין בינלאומיים ותרגום זוויות</strong><br />
+כמה מדינות פירושן כמה מערכות קואורדינטות מוסריות.</p></li>
+<li><p><strong>הונאה, מניפולציה ושוקי צללים</strong><br />
+כל מערכת דירוג חזקה מייצרת התקפות.</p></li>
+<li><p><strong>אי־ודאות ואמון</strong><br />
+כי לא ממשלות ולא עמים הם חסרי טעות.</p></li>
+<li><p><strong>זמן, זיכרון ועיכוב</strong><br />
+אחרת זוויות קופצות באופן לא ריאליסטי.</p></li>
+<li><p><strong>משברים וזעזועים</strong><br />
+בלי משברים אינך באמת בודק את המערכת.</p></li>
+</ol>
+<p>לכן הסימולציה המלאה אינה סימולציה כלכלית טהורה. היא <strong>סימולציה
+ציוויליזציונית פוליטית-כלכלית עם מטבע וקטורי</strong>.</p>
+<p>המשפט המכריע הוא:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">לכל סכום יש כיוון, לכל כיוון יש אי־ודאות, וכל אי־ודאות ניתנת להתקפה פוליטית.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{לכל סכום יש כיוון, לכל כיוון יש אי־ודאות, וכל אי־ודאות ניתנת להתקפה פוליטית.}
+}
+</annotation></semantics></math></p>
+<p>אם תמדל את זה, הסימולציה נעשית באמת מעניינת.</p>
+</body>
+</html>

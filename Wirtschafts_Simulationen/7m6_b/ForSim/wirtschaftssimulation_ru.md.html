@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_ru</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="полная-экономическая-симуляция-валют-число-угол">Полная
+экономическая симуляция валют «число-угол»</h1>
+<p>Для <strong>полной экономической симуляции на основе твоих валют
+«число-угол»</strong> нужны не только страны, правительства, народы,
+рынки и фирмы. Это лишь видимые акторы. Решающими также являются:
+<strong>балансы, правила, информационные потоки, неопределённость,
+злоупотребление властью, кредит, собственность, время и
+санкции</strong>.</p>
+<p>Ядро выглядело бы так:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Экономика</mtext><mo>=</mo><mtext mathvariant="normal">акторы</mtext><mo>+</mo><mtext mathvariant="normal">рынки</mtext><mo>+</mo><mtext mathvariant="normal">балансы</mtext><mo>+</mo><mtext mathvariant="normal">правила</mtext><mo>+</mo><mtext mathvariant="normal">ожидания</mtext><mo>+</mo><mtext mathvariant="normal">шоки</mtext></mrow><annotation encoding="application/x-tex">
+\text{Экономика} = \text{акторы} + \text{рынки} + \text{балансы} + \text{правила} + \text{ожидания} + \text{шоки}
+</annotation></semantics></math></p>
+<p>и твоя валюта — это не просто:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>а:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">числовая сумма</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{числовая сумма}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">угловое направление: добро/зло + популярно/непопулярно</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{угловое направление: добро/зло + популярно/непопулярно}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">надёжность / уверенность в угле</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{надёжность / уверенность в угле}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">история происхождения / история транзакций</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{история происхождения / история транзакций}
+</annotation></semantics></math></p>
+<p>Без
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+и
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+система становится наивной: каждый мог бы делать вид, что его угол
+объективен и чист.</p>
+<hr />
+<h2 id="страны-и-юрисдикции">1. Страны и юрисдикции</h2>
+<p>Нужны несколько стран, но не просто как названия. Каждой стране нужны
+собственные институты:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">правительство</mtext><mo>,</mo><mtext mathvariant="normal">народ</mtext><mo>,</mo><mtext mathvariant="normal">суды</mtext><mo>,</mo><mtext mathvariant="normal">центральный банк</mtext><mo>,</mo><mtext mathvariant="normal">налоговая система</mtext><mo>,</mo><mtext mathvariant="normal">регуляторы</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{правительство}, \text{народ}, \text{суды}, \text{центральный банк}, \text{налоговая система}, \text{регуляторы})
+</annotation></semantics></math></p>
+<p>Каждая страна может иметь собственные определения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">добро/зло</mtext><annotation encoding="application/x-tex">
+\text{добро/зло}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">законно/незаконно</mtext><annotation encoding="application/x-tex">
+\text{законно/незаконно}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">субсидируется/наказывается</mtext><annotation encoding="application/x-tex">
+\text{субсидируется/наказывается}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">признано/не признано</mtext><annotation encoding="application/x-tex">
+\text{признано/не признано}
+</annotation></semantics></math></p>
+<p>Это важно, потому что один и тот же объект может быть добрым в стране
+A и злым в стране B.</p>
+<p>Пример:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>Так возникает международный угловой конфликт. Именно из этого
+возникают торговые напряжения, санкции, арбитраж, чёрные рынки и
+дипломатические игры власти.</p>
+<hr />
+<h2 id="правительства-как-оракулы-добразла">2. Правительства как оракулы
+добра/зла</h2>
+<p>Несколько правительств задают ось <strong>добро vs. зло</strong>. Но
+в симуляции они не должны выступать как совершенные машины истины.</p>
+<p>Каждому правительству нужны свойства:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">компетентность</mtext><mo>,</mo><mtext mathvariant="normal">коррупция</mtext><mo>,</mo><mtext mathvariant="normal">идеология</mtext><mo>,</mo><mtext mathvariant="normal">интересы</mtext><mo>,</mo><mtext mathvariant="normal">качество информации</mtext><mo>,</mo><mtext mathvariant="normal">власть</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{компетентность}, \text{коррупция}, \text{идеология}, \text{интересы}, \text{качество информации}, \text{власть})
+</annotation></semantics></math></p>
+<p>Затем оно оценивает фирмы, продукты, отрасли, действия и денежные
+потоки.</p>
+<p>Например:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">максимальное зло</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{максимальное зло}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">максимальное добро</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{максимальное добро}
+</annotation></semantics></math></p>
+<p>К этому всегда должна добавляться неопределённость:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>Правительство может сказать:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Фирма A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn><mo>±</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{Фирма A}) = 0{,}7 \pm 0{,}2
+</annotation></semantics></math></p>
+<p>Это означает: оно считает Фирму A скорее хорошей, но не с абсолютной
+уверенностью.</p>
+<p>Также важны:</p>
+<ul>
+<li>международные коалиции правительств</li>
+<li>права вето</li>
+<li>санкции</li>
+<li>риск коррупции</li>
+<li>политические ошибки оценки</li>
+<li>пропаганда</li>
+<li>лоббизм</li>
+<li>судебные исправления</li>
+<li>смены правительства</li>
+<li>революции или перевороты</li>
+<li>чрезвычайные полномочия</li>
+</ul>
+<p>Без этих факторов твоя ось добро/зло становится слишком гладкой.</p>
+<hr />
+<h2 id="народы-как-оракулы-популярностинепопулярности">3. Народы как
+оракулы популярности/непопулярности</h2>
+<p>Несколько народов задают ось <strong>популярно
+vs. непопулярно</strong>.</p>
+<p>Но народы тоже не однородны. Народ состоит из групп:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>Например:</p>
+<ul>
+<li>рабочие</li>
+<li>предприниматели</li>
+<li>пенсионеры</li>
+<li>студенты</li>
+<li>религиозные группы</li>
+<li>городское население</li>
+<li>сельское население</li>
+<li>меньшинства</li>
+<li>политические лагеря</li>
+<li>медийные среды</li>
+<li>потребительские классы</li>
+</ul>
+<p>У каждой группы свои предпочтения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">максимально непопулярно</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{максимально непопулярно}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">максимально популярно</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{максимально популярно}
+</annotation></semantics></math></p>
+<p>Общая популярность тогда примерно:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>Но и здесь нужны неопределённость и манипуляция:</p>
+<ul>
+<li>опросы</li>
+<li>выборы</li>
+<li>референдумы</li>
+<li>забастовки</li>
+<li>бойкоты</li>
+<li>протесты</li>
+<li>социальные сети</li>
+<li>медийные кампании</li>
+<li>цензура</li>
+<li>дезинформация</li>
+<li>коллективная истерия</li>
+<li>медленные культурные сдвиги</li>
+<li>краткосрочные тренды</li>
+</ul>
+<p>Ось популярности — не истина. Это резонанс, одобрение, отторжение и
+социальная энергия.</p>
+<hr />
+<h2 id="агрегация-в-угол">4. Агрегация в угол</h2>
+<p>Из правительственной оценки добра и народной популярности возникает
+угол.</p>
+<p>Простой вариант:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">доброкачественность</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{доброкачественность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">популярность</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{популярность}
+</annotation></semantics></math></p>
+<p>Тогда:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>Величина нормативной силы:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>Уверенность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">согласие правительств и народов</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{согласие правительств и народов}
+</annotation></semantics></math></p>
+<p>Если правительства и народы сильно согласны,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+высока. Если они противоречат друг другу,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+низка.</p>
+<p>Пример:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = 0{,}7
+</annotation></semantics></math></p>
+<p>означает: добро и популярно.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = -0{,}6
+</annotation></semantics></math></p>
+<p>означает: добро, но непопулярно.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+x = -0{,}7,\quad y = 0{,}9
+</annotation></semantics></math></p>
+<p>означает: зло, но популярно.</p>
+<p>Именно третий случай политически взрывоопасен. Симуляция должна уметь
+создавать такие случаи.</p>
+<hr />
+<h2 id="сама-валюта">5. Сама валюта</h2>
+<p>Каждая денежная единица требует нескольких свойств:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">числовая сумма</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{числовая сумма}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">угол</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{угол}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">уверенность</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{уверенность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">происхождение</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{происхождение}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">момент времени</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{момент времени}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">история</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{история}
+</annotation></semantics></math></p>
+<p>История важна. Иначе сразу возникает угловое отмывание.</p>
+<p>Пример:</p>
+<p>Фирма зарабатывает деньги через эксплуатацию:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>Затем она жертвует 10 % на популярное дело и пытается представить всё
+как хорошее. Без истории она могла бы манипулировать углом. С историей
+остаётся видимым:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">Происхождение: токсичное</mtext><annotation encoding="application/x-tex">
+\text{Происхождение: токсичное}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">Последующее улучшение: частичное</mtext><annotation encoding="application/x-tex">
+\text{Последующее улучшение: частичное}
+</annotation></semantics></math></p>
+<p>Значит симуляции нужна своего рода <strong>векторная бухгалтерия со
+следом происхождения</strong>.</p>
+<hr />
+<h2 id="угловая-бухгалтерия">6. Угловая бухгалтерия</h2>
+<p>Обычной бухгалтерии недостаточно. Фирмам, банкам и государствам нужны
+балансы с векторами.</p>
+<p>Обычный баланс:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">активы</mtext><mo>=</mo><mtext mathvariant="normal">обязательства</mtext><mo>+</mo><mtext mathvariant="normal">собственный капитал</mtext></mrow><annotation encoding="application/x-tex">
+\text{активы} = \text{обязательства} + \text{собственный капитал}
+</annotation></semantics></math></p>
+<p>Векторный баланс:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>Но это нетривиально, потому что противоположные углы могут частично
+взаимно уничтожаться.</p>
+<p>Фирма может быть численно богатой, но нормативно токсичной:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">высокое числовое богатство</mtext><annotation encoding="application/x-tex">
+\text{высокое числовое богатство}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">плохой угол</mtext><annotation encoding="application/x-tex">
+\text{плохой угол}
+</annotation></semantics></math></p>
+<p>Или она может быть популярной и хорошей, но почти без
+ликвидности.</p>
+<p>Поэтому нужны отдельные показатели:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ликвидность</mtext><annotation encoding="application/x-tex">
+\text{ликвидность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">платёжеспособность</mtext><annotation encoding="application/x-tex">
+\text{платёжеспособность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">качество угла</mtext><annotation encoding="application/x-tex">
+\text{качество угла}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловой риск</mtext><annotation encoding="application/x-tex">
+\text{угловой риск}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">репутационный капитал</mtext><annotation encoding="application/x-tex">
+\text{репутационный капитал}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">политический риск</mtext><annotation encoding="application/x-tex">
+\text{политический риск}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="домохозяйства-и-индивиды">7. Домохозяйства и индивиды</h2>
+<p>Их в твоём списке ещё явно не хватает. Без домохозяйств нет реального
+спроса, труда, выборов и потребительской психологии.</p>
+<p>Каждому человеку или домохозяйству нужны:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">доход</mtext><mo>,</mo><mtext mathvariant="normal">имущество</mtext><mo>,</mo><mtext mathvariant="normal">потребности</mtext><mo>,</mo><mtext mathvariant="normal">ценности</mtext><mo>,</mo><mtext mathvariant="normal">профессия</mtext><mo>,</mo><mtext mathvariant="normal">образование</mtext><mo>,</mo><mtext mathvariant="normal">политическое мнение</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{доход}, \text{имущество}, \text{потребности}, \text{ценности}, \text{профессия}, \text{образование}, \text{политическое мнение})
+</annotation></semantics></math></p>
+<p>Домохозяйства решают:</p>
+<ul>
+<li>что покупать</li>
+<li>где работать</li>
+<li>за кого голосовать</li>
+<li>какие фирмы бойкотировать</li>
+<li>какие углы принимать</li>
+<li>какой риск нести</li>
+<li>сберегать, потреблять или инвестировать</li>
+</ul>
+<p>У каждого домохозяйства есть свои угловые предпочтения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">угол покупки</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{угол покупки}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">угол продажи</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{угол продажи}
+</annotation></semantics></math></p>
+<p>При покупке оно спрашивает:</p>
+<p>«Принимаю ли я этот продукт по этой цене и с этим углом?»</p>
+<p>При работе оно спрашивает:</p>
+<p>«Принимаю ли я зарплату от этой фирмы с таким качеством угла?»</p>
+<p>Это сильная идея, потому что труд тогда не только зарплата за время,
+но и моральная совместимость.</p>
+<hr />
+<h2 id="фирмы-корпорации-и-структуры-собственности">8. Фирмы, корпорации
+и структуры собственности</h2>
+<p>Фирмы нужны не только как производители. У них есть внутренняя
+структура:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">капитал</mtext><mo>,</mo><mtext mathvariant="normal">работники</mtext><mo>,</mo><mtext mathvariant="normal">технологии</mtext><mo>,</mo><mtext mathvariant="normal">цепочки поставок</mtext><mo>,</mo><mtext mathvariant="normal">менеджмент</mtext><mo>,</mo><mtext mathvariant="normal">владельцы</mtext><mo>,</mo><mtext mathvariant="normal">долги</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{капитал}, \text{работники}, \text{технологии}, \text{цепочки поставок}, \text{менеджмент}, \text{владельцы}, \text{долги})
+</annotation></semantics></math></p>
+<p>Важны:</p>
+<ul>
+<li>малые фирмы</li>
+<li>средние фирмы</li>
+<li>корпорации</li>
+<li>монополии</li>
+<li>картели</li>
+<li>платформенные компании</li>
+<li>банки</li>
+<li>страховые компании</li>
+<li>логистические компании</li>
+<li>оборонные компании</li>
+<li>медийные компании</li>
+<li>энергетические концерны</li>
+<li>сырьевые компании</li>
+<li>технологические компании</li>
+<li>теневые фирмы</li>
+<li>фирмы-оболочки</li>
+</ul>
+<p>Корпорациям дополнительно нужны:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">дочерние компании</mtext><annotation encoding="application/x-tex">
+\text{дочерние компании}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">холдинговая структура</mtext><annotation encoding="application/x-tex">
+\text{холдинговая структура}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">избежание налогов</mtext><annotation encoding="application/x-tex">
+\text{избежание налогов}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">юрисдикционный арбитраж</mtext><annotation encoding="application/x-tex">
+\text{юрисдикционный арбитраж}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">лоббизм</mtext><annotation encoding="application/x-tex">
+\text{лоббизм}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">рыночная власть</mtext><annotation encoding="application/x-tex">
+\text{рыночная власть}
+</annotation></semantics></math></p>
+<p>Именно корпорации особенно интересны в этой симуляции, потому что они
+могут сдвигать углы: рекламой, лоббизмом, властью над рабочими местами,
+пожертвованиями, контролем медиа и выбором международной юрисдикции.</p>
+<hr />
+<h2 id="продукты-услуги-и-классы-благ">9. Продукты, услуги и классы
+благ</h2>
+<p>Каждому благу нужны не только цена и количество, но и угловой
+профиль.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">цена</mtext><mo>,</mo><mtext mathvariant="normal">качество</mtext><mo>,</mo><mtext mathvariant="normal">количество</mtext><mo>,</mo><mtext mathvariant="normal">полезность</mtext><mo>,</mo><mtext mathvariant="normal">угол производства</mtext><mo>,</mo><mtext mathvariant="normal">угол потребления</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{цена}, \text{качество}, \text{количество}, \text{полезность}, \text{угол производства}, \text{угол потребления})
+</annotation></semantics></math></p>
+<p>Продукты могут производиться хорошо, но использоваться плохо. Или
+производиться плохо, но потребляться с популярностью.</p>
+<p>Пример:</p>
+<p>Дешёвый продукт может быть очень популярным, но иметь плохую историю
+производства.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">высокая популярность</mtext><annotation encoding="application/x-tex">
+\text{высокая популярность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">низкая доброкачественность</mtext><annotation encoding="application/x-tex">
+\text{низкая доброкачественность}
+</annotation></semantics></math></p>
+<p>Поэтому каждому продукту нужны как минимум:</p>
+<ul>
+<li>потребительная стоимость</li>
+<li>рыночная цена</li>
+<li>производственные издержки</li>
+<li>угол цепочки поставок</li>
+<li>угол потребления</li>
+<li>экологическое воздействие</li>
+<li>социальное воздействие</li>
+<li>правовой статус</li>
+<li>долговечность</li>
+<li>заменяемость</li>
+</ul>
+<p>Классы благ:</p>
+<ul>
+<li>еда</li>
+<li>энергия</li>
+<li>жильё</li>
+<li>одежда</li>
+<li>здоровье</li>
+<li>образование</li>
+<li>транспорт</li>
+<li>развлечения</li>
+<li>предметы роскоши</li>
+<li>оружие / товары безопасности</li>
+<li>данные</li>
+<li>программное обеспечение</li>
+<li>сырьё</li>
+<li>машины</li>
+<li>инфраструктура</li>
+<li>финансовые продукты</li>
+</ul>
+<hr />
+<h2 id="рынок-труда">10. Рынок труда</h2>
+<p>Рынок труда — не просто ещё один рынок. Он соединяет деньги,
+достоинство, власть, время и политику.</p>
+<p>У каждого рабочего места есть:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">зарплата</mtext><mo>,</mo><mtext mathvariant="normal">рабочее время</mtext><mo>,</mo><mtext mathvariant="normal">риск</mtext><mo>,</mo><mtext mathvariant="normal">статус</mtext><mo>,</mo><mtext mathvariant="normal">угол фирмы</mtext><mo>,</mo><mtext mathvariant="normal">угол деятельности</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{зарплата}, \text{рабочее время}, \text{риск}, \text{статус}, \text{угол фирмы}, \text{угол деятельности})
+</annotation></semantics></math></p>
+<p>Люди принимают работу не только по зарплате, но и по:</p>
+<ul>
+<li>моральной совместимости</li>
+<li>популярности работодателя</li>
+<li>карьерным возможностям</li>
+<li>безопасности рабочего места</li>
+<li>социальному статусу</li>
+<li>политическому риску</li>
+<li>семейному давлению</li>
+<li>квалификации</li>
+<li>географическому положению</li>
+</ul>
+<p>Тогда возникают явления вроде:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">высокая зарплата, плохой угол</mtext><annotation encoding="application/x-tex">
+\text{высокая зарплата, плохой угол}
+</annotation></semantics></math></p>
+<p>или:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">низкая зарплата, хороший угол</mtext><annotation encoding="application/x-tex">
+\text{низкая зарплата, хороший угол}
+</annotation></semantics></math></p>
+<p>Это реалистично. Многие люди продают не только труд, но и часть своей
+социальной идентичности.</p>
+<hr />
+<h2 id="финансовая-система">11. Финансовая система</h2>
+<p>Это один из важнейших недостающих блоков.</p>
+<p>Нужны:</p>
+<ul>
+<li>банки</li>
+<li>центральные банки</li>
+<li>кредитные рынки</li>
+<li>облигации</li>
+<li>фондовые рынки</li>
+<li>страховые компании</li>
+<li>инвестиционные фонды</li>
+<li>пенсионные фонды</li>
+<li>теневые банки</li>
+<li>биржи</li>
+<li>маркетмейкеры</li>
+<li>рейтинговые агентства</li>
+<li>платёжные сети</li>
+</ul>
+<p>В твоей модели есть не только проценты, но и угловые проценты.</p>
+<p>Кредит был бы:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">процентная ставка</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{процентная ставка}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">срок</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{срок}
+</annotation></semantics></math></p>
+<p>Процентная ставка зависит от:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">риска дефолта</mtext><annotation encoding="application/x-tex">
+\text{риска дефолта}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">углового риска</mtext><annotation encoding="application/x-tex">
+\text{углового риска}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">политического риска</mtext><annotation encoding="application/x-tex">
+\text{политического риска}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">риска популярности</mtext><annotation encoding="application/x-tex">
+\text{риска популярности}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">риска ликвидности</mtext><annotation encoding="application/x-tex">
+\text{риска ликвидности}
+</annotation></semantics></math></p>
+<p>Фирма с плохим углом платит более высокие проценты или находит только
+токсичное финансирование.</p>
+<hr />
+<h2 id="центральные-банки-и-создание-денег">12. Центральные банки и
+создание денег</h2>
+<p>Каждой валюте нужно правило эмиссии.</p>
+<p>В твоей системе центральный банк должен управлять не только
+количеством:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>но и угловым качеством в обращении:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>Центральный банк мог бы наблюдать:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">инфляцию</mtext><annotation encoding="application/x-tex">
+\text{инфляцию}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">безработицу</mtext><annotation encoding="application/x-tex">
+\text{безработицу}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловое распределение денег</mtext><annotation encoding="application/x-tex">
+\text{угловое распределение денег}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ликвидность по угловым зонам</mtext><annotation encoding="application/x-tex">
+\text{ликвидность по угловым зонам}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">кризисы доверия</mtext><annotation encoding="application/x-tex">
+\text{кризисы доверия}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловые паники</mtext><annotation encoding="application/x-tex">
+\text{угловые паники}
+</annotation></semantics></math></p>
+<p>Возможны новые понятия:</p>
+<h3 id="числовая-инфляция">Числовая инфляция</h3>
+<p>Обычный рост цен.</p>
+<h3 id="угловая-инфляция">Угловая инфляция</h3>
+<p>Все утверждают, что они хорошие, но уверенность падает.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="угловая-дефляция">Угловая дефляция</h3>
+<p>Принимаются только крайне «чистые» деньги; торговля замерзает.</p>
+<h3 id="угловая-паника">Угловая паника</h3>
+<p>Акторы бегут из угловой области, потому что она внезапно считается
+злой или непопулярной.</p>
+<hr />
+<h2 id="угловые-рынки">13. Угловые рынки</h2>
+<p>Это специфично для твоей идеи.</p>
+<p>Помимо обычных рынков нужны рынки самих углов:</p>
+<ul>
+<li>угловой обмен</li>
+<li>угловое хеджирование</li>
+<li>угловые опционы</li>
+<li>угловые фьючерсы</li>
+<li>репутационные деривативы</li>
+<li>свопы доброкачественности</li>
+<li>свопы популярности</li>
+<li>страхование от санкций</li>
+<li>страхование от бойкотов</li>
+<li>хеджирование политического риска</li>
+</ul>
+<p>Простой угловой обмен:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>где:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>и:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>Чем больше угловая дистанция, тем дороже преобразование.</p>
+<p>Это создаёт новую отрасль: <strong>угловые
+маркетмейкеры</strong>.</p>
+<p>Они покупают трудные углы и продают более приемлемые. Но это опасно,
+потому что может стать моральным отмыванием денег.</p>
+<p>Поэтому нужны:</p>
+<ul>
+<li>проверочные органы</li>
+<li>аудиты</li>
+<li>доказательства происхождения</li>
+<li>репутационные штрафы</li>
+<li>обнаружение мошенничества</li>
+<li>правила прозрачности</li>
+<li>сроки давности</li>
+<li>процедуры апелляции</li>
+</ul>
+<hr />
+<h2 id="собственность-договоры-и-суды">14. Собственность, договоры и
+суды</h2>
+<p>Без правовой системы нет стабильной экономики.</p>
+<p>Нужны:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">права собственности</mtext><annotation encoding="application/x-tex">
+\text{права собственности}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">договорное право</mtext><annotation encoding="application/x-tex">
+\text{договорное право}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ответственность</mtext><annotation encoding="application/x-tex">
+\text{ответственность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">право несостоятельности</mtext><annotation encoding="application/x-tex">
+\text{право несостоятельности}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">трудовое право</mtext><annotation encoding="application/x-tex">
+\text{трудовое право}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">антимонопольное право</mtext><annotation encoding="application/x-tex">
+\text{антимонопольное право}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">налоговое право</mtext><annotation encoding="application/x-tex">
+\text{налоговое право}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">защита данных</mtext><annotation encoding="application/x-tex">
+\text{защита данных}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">санкционное право</mtext><annotation encoding="application/x-tex">
+\text{санкционное право}
+</annotation></semantics></math></p>
+<p>Твоя валюта добавляет новый юридический вопрос:</p>
+<p><strong>Кто имеет право изменить угол?</strong></p>
+<p>Может ли суд сказать:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>потому что фирма была реабилитирована?</p>
+<p>Может ли правительство сказать:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>потому что организация была запрещена?</p>
+<p>Может ли народ ухудшить угол через бойкот?</p>
+<p>Эти вопросы должны стать правилами симуляции.</p>
+<hr />
+<h2 id="налоги-и-государственные-расходы">15. Налоги и государственные
+расходы</h2>
+<p>Государства должны иметь доходы и расходы.</p>
+<p>Налоги в твоей модели могут зависеть от угла:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>Например:</p>
+<ul>
+<li>хорошие и популярные деньги облагаются ниже</li>
+<li>злые деньги облагаются выше</li>
+<li>неопределённые деньги проверяются</li>
+<li>токсичные деньги замораживаются</li>
+<li>желательные для государства инвестиции субсидируются</li>
+</ul>
+<p>Государственные расходы также имеют углы:</p>
+<ul>
+<li>социальные расходы</li>
+<li>армия</li>
+<li>инфраструктура</li>
+<li>образование</li>
+<li>здравоохранение</li>
+<li>субсидии</li>
+<li>спасательные пакеты</li>
+<li>полицейский аппарат</li>
+<li>пропаганда</li>
+<li>исследования</li>
+</ul>
+<p>Правительство может не только тратить деньги, но и создавать или
+разрушать углы.</p>
+<hr />
+<h2 id="международная-экономика">16. Международная экономика</h2>
+<p>Как только существуют несколько стран, нужны:</p>
+<ul>
+<li>обменные курсы</li>
+<li>потоки капитала</li>
+<li>торговые соглашения</li>
+<li>пошлины</li>
+<li>санкции</li>
+<li>эмбарго</li>
+<li>миграция</li>
+<li>транснациональные корпорации</li>
+<li>налоговые гавани</li>
+<li>помощь развитию</li>
+<li>геополитические блоки</li>
+<li>резервные валюты</li>
+<li>сырьевые зависимости</li>
+<li>трансграничные цепочки поставок</li>
+</ul>
+<p>В твоей модели добавляется:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">перевод углов</mtext><annotation encoding="application/x-tex">
+\text{перевод углов}
+</annotation></semantics></math></p>
+<p>Угол в стране A не является автоматически тем же самым в стране
+B.</p>
+<p>Значит нужна матрица трансформации:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>Пример:</p>
+<p>Продукт считается хорошим и популярным в стране A. В стране B он
+считается аморальным, но всё равно желанным.</p>
+<p>Это создаёт арбитраж:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">покупать в хорошем угловом пространстве</mtext><annotation encoding="application/x-tex">
+\text{покупать в хорошем угловом пространстве}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">продавать в популярном угловом пространстве</mtext><annotation encoding="application/x-tex">
+\text{продавать в популярном угловом пространстве}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="медиа-и-информационная-система">17. Медиа и информационная
+система</h2>
+<p>Это абсолютно центрально. Углы возникают не только из фактов, но и из
+восприятия.</p>
+<p>Нужны:</p>
+<ul>
+<li>новостные медиа</li>
+<li>социальные сети</li>
+<li>инфлюенсеры</li>
+<li>государственные медиа</li>
+<li>журналисты-расследователи</li>
+<li>алгоритмы платформ</li>
+<li>цензура</li>
+<li>утечки</li>
+<li>разоблачители</li>
+<li>пропаганда</li>
+<li>скандалы</li>
+<li>слухи</li>
+<li>контрпубличности</li>
+</ul>
+<p>Скандал может резко изменить угол фирмы:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>Это угловой крах.</p>
+<p>Успешная PR-кампания может увеличить популярность, не увеличивая
+доброкачественность:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">то же</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{то же}
+</annotation></semantics></math></p>
+<p>Это реалистичная и опасная динамика.</p>
+<hr />
+<h2 id="образование-культура-и-идеология">18. Образование, культура и
+идеология</h2>
+<p>Народы оценивают не в вакууме. Их шкала популярности зависит от
+культуры.</p>
+<p>Нужны:</p>
+<ul>
+<li>системы образования</li>
+<li>религии</li>
+<li>политические идеологии</li>
+<li>исторические травмы</li>
+<li>национальные мифы</li>
+<li>классовое сознание</li>
+<li>моральные табу</li>
+<li>конфликты поколений</li>
+<li>изменение ценностей</li>
+</ul>
+<p>Иначе все народы реагировали бы одинаково. Это было бы скучно и
+неверно.</p>
+<p>Консервативный народ, технократический народ, эгалитарный народ и
+потребительский народ оценят одну и ту же фирму по-разному.</p>
+<hr />
+<h2 id="цепочки-поставок-и-происхождение">19. Цепочки поставок и
+происхождение</h2>
+<p>Для угловых денег это крайне важно.</p>
+<p>У продукта есть не только угол продавца, но и вся цепочка
+происхождения:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">Продукт</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">сырьё</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">труд</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">транспорт</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">фирма</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">энергия</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{Продукт}} =
+F(\theta_{\text{сырьё}},\theta_{\text{труд}},\theta_{\text{транспорт}},\theta_{\text{фирма}},\theta_{\text{энергия}})
+</annotation></semantics></math></p>
+<p>Пример:</p>
+<p>У смартфона есть угловые доли из:</p>
+<ul>
+<li>добычи сырья</li>
+<li>условий труда</li>
+<li>энергопотребления</li>
+<li>патентов</li>
+<li>политики данных</li>
+<li>маркетинга</li>
+<li>ремонтопригодности</li>
+<li>геополитического происхождения</li>
+<li>потребительской пользы</li>
+</ul>
+<p>Итоговый угол — взвешенная смесь.</p>
+<p>Без модели цепочек поставок угловые деньги легко манипулируемы.</p>
+<hr />
+<h2 id="окружающая-среда-и-внешние-эффекты">20. Окружающая среда и
+внешние эффекты</h2>
+<p>Полной симуляции нужны внешние эффекты:</p>
+<ul>
+<li>CO₂</li>
+<li>потребление воды</li>
+<li>исчезновение видов</li>
+<li>загрязнение воздуха</li>
+<li>расходы на здоровье</li>
+<li>шум</li>
+<li>отходы</li>
+<li>истощение ресурсов</li>
+<li>использование земли</li>
+<li>социальный вред</li>
+<li>преступность</li>
+<li>общественная безопасность</li>
+</ul>
+<p>Эти эффекты влияют на ось добро/зло.</p>
+<p>Продукт может быть прибыльным и популярным, но вредным в долгосрочной
+перспективе. Тогда возникает:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>то есть: зло, но популярно.</p>
+<p>Это один из важнейших случаев твоей модели.</p>
+<hr />
+<h2 id="инновации-и-технологии">21. Инновации и технологии</h2>
+<p>Экономика меняется благодаря технологиям.</p>
+<p>Нужны:</p>
+<ul>
+<li>исследования и разработки</li>
+<li>патенты</li>
+<li>автоматизация</li>
+<li>рост производительности</li>
+<li>системы ИИ</li>
+<li>платформенные эффекты</li>
+<li>сетевые эффекты</li>
+<li>монополизация</li>
+<li>созидательное разрушение</li>
+<li>новые отрасли</li>
+<li>устаревшие отрасли</li>
+</ul>
+<p>Технологии могут сдвигать углы.</p>
+<p>Новая технология сначала может быть непопулярной, но позже считаться
+хорошей:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>Или сначала быть популярной, а позже быть признанной вредной:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="преступность-мошенничество-и-теневая-экономика">22.
+Преступность, мошенничество и теневая экономика</h2>
+<p>Это нельзя упускать. Система с морально-социальной валютой сразу
+создаёт новые формы мошенничества.</p>
+<p>Нужны:</p>
+<ul>
+<li>отмывание денег</li>
+<li>угловое отмывание</li>
+<li>взятки</li>
+<li>фальшивая популярность</li>
+<li>бот-сети</li>
+<li>фиктивные фирмы</li>
+<li>подставные лица</li>
+<li>поддельные цепочки поставок</li>
+<li>манипулированные аудиты</li>
+<li>инсайдерская торговля</li>
+<li>манипуляция рынком</li>
+<li>картели</li>
+<li>контрабанда</li>
+<li>неформальная занятость</li>
+<li>обход санкций</li>
+<li>политический шантаж</li>
+</ul>
+<p>Новое специфическое преступление:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловая манипуляция</mtext><annotation encoding="application/x-tex">
+\text{угловая манипуляция}
+</annotation></semantics></math></p>
+<p>Например: фирма покупает искусственную популярность, чтобы её деньги
+получили лучший угол.</p>
+<p>Или: правительство объявляет противников злыми, чтобы обесценить их
+активы.</p>
+<p>Без состязательной, враждебной модели симуляция становится морально
+наивной.</p>
+<hr />
+<h2 id="военные-структуры-безопасность-и-принуждение">23. Военные
+структуры, безопасность и принуждение</h2>
+<p>Государства состоят не только из правил, но и из принуждения.</p>
+<p>Нужны:</p>
+<ul>
+<li>полиция</li>
+<li>спецслужбы</li>
+<li>армия</li>
+<li>пограничная охрана</li>
+<li>санкционные подразделения</li>
+<li>киберзащита</li>
+<li>суды</li>
+<li>тюрьмы</li>
+<li>чрезвычайные аппараты</li>
+</ul>
+<p>Почему? Потому что валюты работают только тогда, когда притязания
+можно принудительно обеспечить.</p>
+<p>В твоей системе государства могут использовать углы как оружие:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">враждебная фирма</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">злая/непопулярная</mtext></mrow><annotation encoding="application/x-tex">
+\text{враждебная фирма} \rightarrow \theta = \text{злая/непопулярная}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">санкционированная страна</mtext><mo>→</mo><mtext mathvariant="normal">угловая блокада</mtext></mrow><annotation encoding="application/x-tex">
+\text{санкционированная страна} \rightarrow \text{угловая блокада}
+</annotation></semantics></math></p>
+<p>Это крайне важно геополитически.</p>
+<hr />
+<h2 id="время-ожидания-и-память">24. Время, ожидания и память</h2>
+<p>Экономической симуляции нужно время.</p>
+<p>Не всё происходит сразу. Есть:</p>
+<ul>
+<li>производственные сроки</li>
+<li>задержки доставки</li>
+<li>сроки договоров</li>
+<li>сроки кредитов</li>
+<li>избирательные циклы</li>
+<li>инвестиционные циклы</li>
+<li>репутационные задержки</li>
+<li>информационные задержки</li>
+<li>судебные процессы</li>
+<li>политическая инерция</li>
+</ul>
+<p>Угол тоже должен иметь память:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">новый</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{новый}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>Иначе каждый скандал мгновенно уничтожает всё, а каждая PR-кампания
+мгновенно всё исправляет.</p>
+<p>Значит нужна инерция:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">скорость реакции</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{скорость реакции}
+</annotation></semantics></math></p>
+<p>Высокая
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+общество реагирует быстро.<br />
+Низкая
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+общество забывает медленно и судит стабильнее.</p>
+<hr />
+<h2 id="шоки-и-кризисы">25. Шоки и кризисы</h2>
+<p>Хорошей симуляции нужны возмущения.</p>
+<p>Возможные шоки:</p>
+<ul>
+<li>финансовый кризис</li>
+<li>банковская паника</li>
+<li>война</li>
+<li>пандемия</li>
+<li>природная катастрофа</li>
+<li>энергетический шок</li>
+<li>разрыв цепочек поставок</li>
+<li>коррупционный скандал</li>
+<li>утечка</li>
+<li>электоральный переворот</li>
+<li>революция</li>
+<li>гиперинфляция</li>
+<li>бегство из валюты</li>
+<li>волна бойкотов</li>
+<li>технологический перелом</li>
+<li>кибератака</li>
+<li>государственный дефолт</li>
+<li>банкротство корпорации</li>
+</ul>
+<p>Дополнительно в твоей системе:</p>
+<ul>
+<li>угловой крах</li>
+<li>крах доверия</li>
+<li>переоценка добро/зло</li>
+<li>волна популярности</li>
+<li>моральная паника</li>
+<li>международный угловой раскол</li>
+<li>коррупция оракулов</li>
+<li>массовый бойкот</li>
+<li>репутационное банкротство</li>
+</ul>
+<hr />
+<h2 id="рынки-подробно">26. Рынки подробно</h2>
+<p>Ты назвал продукты, услуги и рынок труда. К ним добавляются:</p>
+<h3 id="рынки-товаров">Рынки товаров</h3>
+<p>Еда, энергия, сырьё, потребительские товары.</p>
+<h3 id="рынки-услуг">Рынки услуг</h3>
+<p>Здоровье, образование, консультации, уход, развлечения.</p>
+<h3 id="рынки-труда">Рынки труда</h3>
+<p>Зарплаты, квалификации, миграция, безработица.</p>
+<h3 id="рынки-капитала">Рынки капитала</h3>
+<p>Акции, облигации, кредиты, доли участия.</p>
+<h3 id="рынки-недвижимости">Рынки недвижимости</h3>
+<p>Жильё, земля, коммерческая недвижимость.</p>
+<h3 id="сырьевые-рынки">Сырьевые рынки</h3>
+<p>Нефть, газ, металлы, вода, редкоземельные элементы.</p>
+<h3 id="энергетические-рынки">Энергетические рынки</h3>
+<p>Электричество, хранение, сети, генерация.</p>
+<h3 id="рынки-данных">Рынки данных</h3>
+<p>Пользовательские данные, обучающие данные, наблюдение,
+приватность.</p>
+<h3 id="технологические-рынки">Технологические рынки</h3>
+<p>ПО, ИИ, патенты, вычислительная мощность.</p>
+<h3 id="страховые-рынки">Страховые рынки</h3>
+<p>Хеджирование рисков, катастрофы, болезни, политические риски.</p>
+<h3 id="угловые-рынки-1">Угловые рынки</h3>
+<p>Ротация, хеджирование, уверенность, репутация.</p>
+<h3 id="чёрные-и-серые-рынки">Чёрные и серые рынки</h3>
+<p>Всё, что официально заблокировано, но всё ещё востребовано.</p>
+<hr />
+<h2 id="формирование-цен">27. Формирование цен</h2>
+<p>Каждая сделка требует минимум:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">количество</mtext><mo>,</mo><mtext mathvariant="normal">числовая цена</mtext><mo>,</mo><mtext mathvariant="normal">угол покупки</mtext><mo>,</mo><mtext mathvariant="normal">угол продажи</mtext><mo>,</mo><mtext mathvariant="normal">уверенность</mtext><mo>,</mo><mtext mathvariant="normal">юрисдикция</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{количество}, \text{числовая цена}, \text{угол покупки}, \text{угол продажи}, \text{уверенность}, \text{юрисдикция})
+</annotation></semantics></math></p>
+<p>Заявка на покупку:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>Заявка на продажу:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>Сделка происходит, если:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>и:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>Или если угловая дистанция компенсируется комиссией:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>Тогда эффективная торговая стоимость:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>например:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>То есть: одинаковый угол и высокая уверенность дают полную
+покупательную силу. Большая угловая дистанция или низкая уверенность
+снижают эффективную покупательную силу.</p>
+<hr />
+<h2 id="функции-полезности-акторов">28. Функции полезности акторов</h2>
+<p>Каждому актору нужны правила решения.</p>
+<p>Домохозяйство максимизирует не только потребление:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">потребление</mtext><mo>,</mo><mtext mathvariant="normal">цена</mtext><mo>,</mo><mtext mathvariant="normal">угол</mtext><mo>,</mo><mtext mathvariant="normal">статус</mtext><mo>,</mo><mtext mathvariant="normal">риск</mtext><mo>,</mo><mtext mathvariant="normal">ценности</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{потребление}, \text{цена}, \text{угол}, \text{статус}, \text{риск}, \text{ценности})
+</annotation></semantics></math></p>
+<p>Фирма максимизирует не только прибыль:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">прибыль</mtext><mo>−</mo><mtext mathvariant="normal">угловые издержки</mtext><mo>−</mo><mtext mathvariant="normal">регуляторный риск</mtext><mo>−</mo><mtext mathvariant="normal">репутационный риск</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{прибыль} - \text{угловые издержки} - \text{регуляторный риск} - \text{репутационный риск}
+</annotation></semantics></math></p>
+<p>Правительство, возможно, максимизирует:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">стабильность</mtext><mo>,</mo><mtext mathvariant="normal">власть</mtext><mo>,</mo><mtext mathvariant="normal">благосостояние</mtext><mo>,</mo><mtext mathvariant="normal">идеология</mtext><mo>,</mo><mtext mathvariant="normal">безопасность</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{стабильность}, \text{власть}, \text{благосостояние}, \text{идеология}, \text{безопасность})
+</annotation></semantics></math></p>
+<p>Народ или группа, возможно, максимизирует:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">уровень жизни</mtext><mo>,</mo><mtext mathvariant="normal">идентичность</mtext><mo>,</mo><mtext mathvariant="normal">справедливость</mtext><mo>,</mo><mtext mathvariant="normal">безопасность</mtext><mo>,</mo><mtext mathvariant="normal">статус</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{уровень жизни}, \text{идентичность}, \text{справедливость}, \text{безопасность}, \text{статус})
+</annotation></semantics></math></p>
+<p>Это важно: не все акторы преследуют одну и ту же цель.</p>
+<hr />
+<h2 id="власть-и-неравенство">29. Власть и неравенство</h2>
+<p>Полной симуляции нужны отношения власти.</p>
+<p>Не каждый актор одинаково влияет на углы.</p>
+<p>Крупная корпорация может влиять на популярность через рекламу.<br />
+Правительство может определять доброкачественность через закон.<br />
+Платформа может контролировать видимость.<br />
+Банк может отозвать финансирование.<br />
+Богатый человек может купить медиа.</p>
+<p>Значит нужны:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">распределение богатства</mtext><annotation encoding="application/x-tex">
+\text{распределение богатства}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">рыночная власть</mtext><annotation encoding="application/x-tex">
+\text{рыночная власть}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">политическая власть</mtext><annotation encoding="application/x-tex">
+\text{политическая власть}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">медийная власть</mtext><annotation encoding="application/x-tex">
+\text{медийная власть}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">сетевая власть</mtext><annotation encoding="application/x-tex">
+\text{сетевая власть}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">власть принуждения</mtext><annotation encoding="application/x-tex">
+\text{власть принуждения}
+</annotation></semantics></math></p>
+<p>Без модели власти симуляция выглядит слишком демократичной и слишком
+безобидной.</p>
+<hr />
+<h2 id="моральная-конституция-системы">30. Моральная конституция
+системы</h2>
+<p>Это важнейший политический защитный механизм.</p>
+<p>Поскольку твоя валюта закладывает в цену добро/зло и
+популярно/непопулярно, она легко может стать тоталитарной. Поэтому нужен
+конституционный слой:</p>
+<ul>
+<li>защита меньшинств</li>
+<li>основные права</li>
+<li>процедуры апелляции</li>
+<li>обязанность прозрачности</li>
+<li>разделение властей</li>
+<li>независимые суды</li>
+<li>защита от обратной во времени девальвации</li>
+<li>защита от массовой истерии</li>
+<li>защита от произвола правительства</li>
+<li>защита от корпоративной манипуляции</li>
+<li>право на реабилитацию</li>
+<li>право на объяснение</li>
+<li>право на альтернативных оракулов</li>
+</ul>
+<p>Иначе угловые деньги быстро станут деньгами послушания.</p>
+<hr />
+<h2 id="метрики-симуляции">31. Метрики симуляции</h2>
+<p>Нужны выходные показатели, чтобы оценивать, работает ли система.</p>
+<p>Обычные показатели:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ВВП</mtext><annotation encoding="application/x-tex">
+\text{ВВП}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">инфляция</mtext><annotation encoding="application/x-tex">
+\text{инфляция}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">безработица</mtext><annotation encoding="application/x-tex">
+\text{безработица}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">производительность</mtext><annotation encoding="application/x-tex">
+\text{производительность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">зарплаты</mtext><annotation encoding="application/x-tex">
+\text{зарплаты}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">распределение богатства</mtext><annotation encoding="application/x-tex">
+\text{распределение богатства}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">торговый баланс</mtext><annotation encoding="application/x-tex">
+\text{торговый баланс}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">государственный долг</mtext><annotation encoding="application/x-tex">
+\text{государственный долг}
+</annotation></semantics></math></p>
+<p>Новые показатели твоей системы:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловое распределение денег</mtext><annotation encoding="application/x-tex">
+\text{угловое распределение денег}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">средняя доброкачественность</mtext><annotation encoding="application/x-tex">
+\text{средняя доброкачественность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">средняя популярность</mtext><annotation encoding="application/x-tex">
+\text{средняя популярность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловая волатильность</mtext><annotation encoding="application/x-tex">
+\text{угловая волатильность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловая ликвидность</mtext><annotation encoding="application/x-tex">
+\text{угловая ликвидность}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловой спред</mtext><annotation encoding="application/x-tex">
+\text{угловой спред}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">угловая инфляция</mtext><annotation encoding="application/x-tex">
+\text{угловая инфляция}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">индекс углового отмывания</mtext><annotation encoding="application/x-tex">
+\text{индекс углового отмывания}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">индекс уверенности</mtext><annotation encoding="application/x-tex">
+\text{индекс уверенности}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">индекс легитимности</mtext><annotation encoding="application/x-tex">
+\text{индекс легитимности}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">индекс поляризации</mtext><annotation encoding="application/x-tex">
+\text{индекс поляризации}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">индекс доверия к оракулам</mtext><annotation encoding="application/x-tex">
+\text{индекс доверия к оракулам}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">дивергенция правительства и народа</mtext><annotation encoding="application/x-tex">
+\text{дивергенция правительства и народа}
+</annotation></semantics></math></p>
+<p>Особенно важно:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">правительство</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">народ</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{правительство}}, \theta_{\text{народ}})
+</annotation></semantics></math></p>
+<p>Если эта дистанция становится большой, возникает кризис
+легитимности.</p>
+<hr />
+<h2 id="техническая-архитектура-симуляции">32. Техническая архитектура
+симуляции</h2>
+<p>Для серьёзной симуляции я бы строил её как гибрид:</p>
+<h3 id="агентная-часть">Агентная часть</h3>
+<p>Для домохозяйств, фирм, банков, правительств и групп населения.</p>
+<h3 id="stock-flow-consistent-часть">Stock-flow consistent часть</h3>
+<p>Для балансов, денежных потоков, кредита, долгов и налогов.</p>
+<h3 id="сетевая-модель">Сетевая модель</h3>
+<p>Для цепочек поставок, собственности, медиа, влияния и торговли.</p>
+<h3 id="рыночная-микроструктура">Рыночная микроструктура</h3>
+<p>Для книг заявок, формирования цен, угловых спредов и ликвидности.</p>
+<h3 id="система-событий">Система событий</h3>
+<p>Для шоков, скандалов, войн, кризисов и выборов.</p>
+<p>Формально:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">общее состояние мира во время </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">
+S_t = \text{общее состояние мира во время }t
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">действия всех акторов</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{действия всех акторов}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">внешние события</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{внешние события}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>Это базовая форма.</p>
+<hr />
+<h2 id="минимальная-версия-первой-симуляции">33. Минимальная версия
+первой симуляции</h2>
+<p>Для первой рабочей версии я бы не строил всё сразу. Я бы начал с
+этого ядра:</p>
+<ul>
+<li>3 страны</li>
+<li>3 правительства</li>
+<li>3 народа с 3 группами каждый</li>
+<li>1000 домохозяйств</li>
+<li>100 фирм</li>
+<li>5 банков</li>
+<li>1 центральный банк на страну</li>
+<li>5 классов благ</li>
+<li>1 рынок труда</li>
+<li>1 кредитный рынок</li>
+<li>1 угловой рынок</li>
+<li>1 международный торговый рынок</li>
+<li>простые цепочки поставок</li>
+<li>простые налоги</li>
+<li>простые выборы</li>
+<li>простые медийные события</li>
+<li>система шоков</li>
+<li>векторная валюта с
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math></li>
+</ul>
+<p>Затем наблюдаешь:</p>
+<ul>
+<li>цены</li>
+<li>зарплаты</li>
+<li>безработицу</li>
+<li>банкротства фирм</li>
+<li>угловое распределение</li>
+<li>угловые спреды</li>
+<li>торговый объём</li>
+<li>международные конфликты</li>
+<li>манипуляции</li>
+<li>неравенство</li>
+<li>политическую нестабильность</li>
+</ul>
+<p>Этого уже достаточно, чтобы породить интересные динамики.</p>
+<hr />
+<h2 id="самая-жёсткая-краткая-версия">34. Самая жёсткая краткая
+версия</h2>
+<p>К твоему списку особенно нужно добавить следующие недостающие
+блоки:</p>
+<ol type="1">
+<li><p><strong>Домохозяйства и индивиды</strong><br />
+Без них нет спроса, труда, выборов или популярности.</p></li>
+<li><p><strong>Банки, центральные банки и кредит</strong><br />
+Без кредита нет современной экономики.</p></li>
+<li><p><strong>Балансы и бухгалтерия</strong><br />
+Без векторных балансов никто не знает, кто действительно богат,
+платёжеспособен или токсичен.</p></li>
+<li><p><strong>Правовая система и собственность</strong><br />
+Без договоров, судов и правил несостоятельности рынок
+распадается.</p></li>
+<li><p><strong>Медиа и информационные потоки</strong><br />
+Без них добро/зло и популярно/непопулярно не возникают
+реалистично.</p></li>
+<li><p><strong>Цепочки поставок и доказательства
+происхождения</strong><br />
+Без них угловые деньги сразу отмываются.</p></li>
+<li><p><strong>Налоги, субсидии и государственные расходы</strong><br />
+Государства должны не только оценивать, но и действовать.</p></li>
+<li><p><strong>Международные обменные курсы и перевод
+углов</strong><br />
+Несколько стран означают несколько моральных систем координат.</p></li>
+<li><p><strong>Мошенничество, манипуляция и теневые рынки</strong><br />
+Любая мощная система оценки порождает атаки.</p></li>
+<li><p><strong>Неопределённость и уверенность</strong><br />
+Потому что ни правительства, ни народы не безошибочны.</p></li>
+<li><p><strong>Время, память и задержка</strong><br />
+Иначе углы скачут нереалистично быстро.</p></li>
+<li><p><strong>Кризисы и шоки</strong><br />
+Без кризисов ты не тестируешь систему.</p></li>
+</ol>
+<p>Полная симуляция поэтому не является чисто экономической симуляцией.
+Это <strong>политико-экономическая цивилизационная симуляция с векторной
+валютой</strong>.</p>
+<p>Решающая фраза:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">Каждая сумма имеет направление, каждое направление имеет неопределённость, и каждая неопределённость политически уязвима для атаки.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{Каждая сумма имеет направление, каждое направление имеет неопределённость, и каждая неопределённость политически уязвима для атаки.}
+}
+</annotation></semantics></math></p>
+<p>Если ты это смоделируешь, симуляция станет по-настоящему
+интересной.</p>
+</body>
+</html>

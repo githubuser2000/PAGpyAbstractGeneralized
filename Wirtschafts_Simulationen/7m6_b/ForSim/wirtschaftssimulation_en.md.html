@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_en</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="complete-economic-simulation-of-number-angle-currencies">Complete
+Economic Simulation of Number-Angle Currencies</h1>
+<p>A <strong>complete economic simulation based on your number-angle
+currencies</strong> requires more than countries, governments, peoples,
+markets, and firms. Those are only the visible actors. The decisive
+additions are <strong>balance sheets, rules, information flows,
+uncertainty, abuse of power, credit, property, time, and
+sanctions</strong>.</p>
+<p>The core would be:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Economy</mtext><mo>=</mo><mtext mathvariant="normal">actors</mtext><mo>+</mo><mtext mathvariant="normal">markets</mtext><mo>+</mo><mtext mathvariant="normal">balance sheets</mtext><mo>+</mo><mtext mathvariant="normal">rules</mtext><mo>+</mo><mtext mathvariant="normal">expectations</mtext><mo>+</mo><mtext mathvariant="normal">shocks</mtext></mrow><annotation encoding="application/x-tex">
+\text{Economy} = \text{actors} + \text{markets} + \text{balance sheets} + \text{rules} + \text{expectations} + \text{shocks}
+</annotation></semantics></math></p>
+<p>and your currency is not merely:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>but:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>where:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">numerical amount</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{numerical amount}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">angular direction: good/evil + popular/unpopular</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{angular direction: good/evil + popular/unpopular}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">security / confidence of the angle</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{security / confidence of the angle}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">origin story / transaction history</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{origin story / transaction history}
+</annotation></semantics></math></p>
+<p>Without
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+the system becomes naive, because anyone could pretend that their angle
+is objective and clean.</p>
+<hr />
+<h2 id="countries-and-jurisdictions">1. Countries and jurisdictions</h2>
+<p>You need multiple countries, but not merely as names. Each country
+needs its own institutions:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">government</mtext><mo>,</mo><mtext mathvariant="normal">people</mtext><mo>,</mo><mtext mathvariant="normal">courts</mtext><mo>,</mo><mtext mathvariant="normal">central bank</mtext><mo>,</mo><mtext mathvariant="normal">tax system</mtext><mo>,</mo><mtext mathvariant="normal">regulators</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{government}, \text{people}, \text{courts}, \text{central bank}, \text{tax system}, \text{regulators})
+</annotation></semantics></math></p>
+<p>Each country may define for itself:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">good/evil</mtext><annotation encoding="application/x-tex">
+\text{good/evil}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">legal/illegal</mtext><annotation encoding="application/x-tex">
+\text{legal/illegal}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">subsidized/punished</mtext><annotation encoding="application/x-tex">
+\text{subsidized/punished}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">recognized/not recognized</mtext><annotation encoding="application/x-tex">
+\text{recognized/not recognized}
+</annotation></semantics></math></p>
+<p>This matters because an object can be good in country A and evil in
+country B.</p>
+<p>Example:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>That creates international angle conflict. From precisely that come
+trade tensions, sanctions, arbitrage, black markets, and diplomatic
+power games.</p>
+<hr />
+<h2 id="governments-as-goodevil-oracles">2. Governments as good/evil
+oracles</h2>
+<p>Multiple governments define the <strong>good vs. evil</strong> axis.
+But in the simulation they must not appear as perfect truth
+machines.</p>
+<p>Each government needs properties:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">competence</mtext><mo>,</mo><mtext mathvariant="normal">corruption</mtext><mo>,</mo><mtext mathvariant="normal">ideology</mtext><mo>,</mo><mtext mathvariant="normal">interests</mtext><mo>,</mo><mtext mathvariant="normal">information quality</mtext><mo>,</mo><mtext mathvariant="normal">power</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{competence}, \text{corruption}, \text{ideology}, \text{interests}, \text{information quality}, \text{power})
+</annotation></semantics></math></p>
+<p>It then evaluates firms, products, industries, actions, and money
+flows.</p>
+<p>For example:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>with:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">maximally evil</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{maximally evil}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">maximally good</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{maximally good}
+</annotation></semantics></math></p>
+<p>There must always be uncertainty:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>A government could therefore say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Firm A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.7</mn><mo>±</mo><mn>0.2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{Firm A}) = 0.7 \pm 0.2
+</annotation></semantics></math></p>
+<p>That means: it regards Firm A as rather good, but not with absolute
+certainty.</p>
+<p>Also important:</p>
+<ul>
+<li>international government coalitions</li>
+<li>veto rights</li>
+<li>sanctions</li>
+<li>corruption risk</li>
+<li>political misjudgments</li>
+<li>propaganda</li>
+<li>lobbying</li>
+<li>judicial corrections</li>
+<li>changes of government</li>
+<li>revolutions or coups</li>
+<li>emergency powers</li>
+</ul>
+<p>Without these factors, your good/evil axis becomes too smooth.</p>
+<hr />
+<h2 id="peoples-as-popularunpopular-oracles">3. Peoples as
+popular/unpopular oracles</h2>
+<p>Multiple peoples define the <strong>popular vs. unpopular</strong>
+axis.</p>
+<p>But peoples are not homogeneous either. A people consists of
+groups:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>For example:</p>
+<ul>
+<li>workers</li>
+<li>entrepreneurs</li>
+<li>retirees</li>
+<li>students</li>
+<li>religious groups</li>
+<li>urban population</li>
+<li>rural population</li>
+<li>minorities</li>
+<li>political camps</li>
+<li>media milieus</li>
+<li>consumer classes</li>
+</ul>
+<p>Each group has its own preferences:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>with:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">maximally unpopular</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{maximally unpopular}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">maximally popular</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{maximally popular}
+</annotation></semantics></math></p>
+<p>Overall popularity could then be approximately:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>But here too you need uncertainty and manipulation:</p>
+<ul>
+<li>polls</li>
+<li>elections</li>
+<li>referenda</li>
+<li>strikes</li>
+<li>boycotts</li>
+<li>protests</li>
+<li>social media</li>
+<li>media campaigns</li>
+<li>censorship</li>
+<li>disinformation</li>
+<li>collective hysteria</li>
+<li>slow cultural shifts</li>
+<li>short-term trends</li>
+</ul>
+<p>The popularity axis is not truth. It is resonance, approval,
+aversion, and social energy.</p>
+<hr />
+<h2 id="aggregation-into-an-angle">4. Aggregation into an angle</h2>
+<p>The angle arises from governmental goodness and popular
+popularity.</p>
+<p>A simple version:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">goodness</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{goodness}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">popularity</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{popularity}
+</annotation></semantics></math></p>
+<p>Then:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>The magnitude of normative force:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>The confidence:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">agreement among governments and peoples</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{agreement among governments and peoples}
+</annotation></semantics></math></p>
+<p>If governments and peoples strongly agree,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+is high. If they contradict each other,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+is low.</p>
+<p>Example:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0.8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0.7</mn></mrow><annotation encoding="application/x-tex">
+x = 0.8,\quad y = 0.7
+</annotation></semantics></math></p>
+<p>means: good and popular.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0.8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0.6</mn></mrow><annotation encoding="application/x-tex">
+x = 0.8,\quad y = -0.6
+</annotation></semantics></math></p>
+<p>means: good but unpopular.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0.7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">
+x = -0.7,\quad y = 0.9
+</annotation></semantics></math></p>
+<p>means: evil but popular.</p>
+<p>The third case in particular is politically explosive. A simulation
+must be able to generate such cases.</p>
+<hr />
+<h2 id="the-currency-itself">5. The currency itself</h2>
+<p>Every unit of money needs several properties:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>where:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">numerical amount</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{numerical amount}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">angle</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{angle}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">confidence</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{confidence}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">origin</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{origin}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">time</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{time}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">history</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{history}
+</annotation></semantics></math></p>
+<p>The history is important. Otherwise angle laundering emerges
+immediately.</p>
+<p>Example:</p>
+<p>A company earns money through exploitation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>Then it donates 10% of it to a popular cause and tries to make
+everything appear good. Without history, it could manipulate the angle.
+With history, it remains visible:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">Origin: toxic</mtext><annotation encoding="application/x-tex">
+\text{Origin: toxic}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">Subsequent improvement: partial</mtext><annotation encoding="application/x-tex">
+\text{Subsequent improvement: partial}
+</annotation></semantics></math></p>
+<p>So the simulation needs a kind of <strong>vector accounting with
+provenance tracing</strong>.</p>
+<hr />
+<h2 id="angle-accounting">6. Angle accounting</h2>
+<p>Normal accounting is not enough. Firms, banks, and states need
+balance sheets with vectors.</p>
+<p>Normal balance sheet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">assets</mtext><mo>=</mo><mtext mathvariant="normal">liabilities</mtext><mo>+</mo><mtext mathvariant="normal">equity</mtext></mrow><annotation encoding="application/x-tex">
+\text{assets} = \text{liabilities} + \text{equity}
+</annotation></semantics></math></p>
+<p>Vector balance sheet:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>But this is not trivial, because opposite angles can partially cancel
+each other out.</p>
+<p>A firm could be numerically rich but normatively toxic:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">high numerical wealth</mtext><annotation encoding="application/x-tex">
+\text{high numerical wealth}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">bad angle</mtext><annotation encoding="application/x-tex">
+\text{bad angle}
+</annotation></semantics></math></p>
+<p>Or it could be popular and good, but have little liquidity.</p>
+<p>Therefore you need separate indicators:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">liquidity</mtext><annotation encoding="application/x-tex">
+\text{liquidity}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">solvency</mtext><annotation encoding="application/x-tex">
+\text{solvency}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle quality</mtext><annotation encoding="application/x-tex">
+\text{angle quality}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle risk</mtext><annotation encoding="application/x-tex">
+\text{angle risk}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">reputational capital</mtext><annotation encoding="application/x-tex">
+\text{reputational capital}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">political risk</mtext><annotation encoding="application/x-tex">
+\text{political risk}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="households-and-individuals">7. Households and individuals</h2>
+<p>These are still clearly missing from your list. Without households
+there is no real demand, no labor, no elections, and no consumer
+psychology.</p>
+<p>Every person or household needs:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">income</mtext><mo>,</mo><mtext mathvariant="normal">wealth</mtext><mo>,</mo><mtext mathvariant="normal">needs</mtext><mo>,</mo><mtext mathvariant="normal">values</mtext><mo>,</mo><mtext mathvariant="normal">occupation</mtext><mo>,</mo><mtext mathvariant="normal">education</mtext><mo>,</mo><mtext mathvariant="normal">political opinion</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{income}, \text{wealth}, \text{needs}, \text{values}, \text{occupation}, \text{education}, \text{political opinion})
+</annotation></semantics></math></p>
+<p>Households decide:</p>
+<ul>
+<li>what they buy</li>
+<li>where they work</li>
+<li>whom they vote for</li>
+<li>which firms they boycott</li>
+<li>which angles they accept</li>
+<li>how much risk they carry</li>
+<li>whether they save, consume, or invest</li>
+</ul>
+<p>Every household therefore also has its own angle preferences:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">buying angle</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{buying angle}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">selling angle</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{selling angle}
+</annotation></semantics></math></p>
+<p>When buying, it asks:</p>
+<p>“Do I accept this product at this price and this angle?”</p>
+<p>When working, it asks:</p>
+<p>“Do I accept wages from this firm with this angle quality?”</p>
+<p>That is powerful, because labor is then not merely wages against
+time, but also moral compatibility.</p>
+<hr />
+<h2 id="firms-corporations-and-ownership-structures">8. Firms,
+corporations, and ownership structures</h2>
+<p>You need firms not only as producers. They have internal
+structure:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">capital</mtext><mo>,</mo><mtext mathvariant="normal">workers</mtext><mo>,</mo><mtext mathvariant="normal">technology</mtext><mo>,</mo><mtext mathvariant="normal">supply chains</mtext><mo>,</mo><mtext mathvariant="normal">management</mtext><mo>,</mo><mtext mathvariant="normal">owners</mtext><mo>,</mo><mtext mathvariant="normal">debt</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{capital}, \text{workers}, \text{technology}, \text{supply chains}, \text{management}, \text{owners}, \text{debt})
+</annotation></semantics></math></p>
+<p>Important types include:</p>
+<ul>
+<li>small firms</li>
+<li>medium-sized firms</li>
+<li>corporations</li>
+<li>monopolies</li>
+<li>cartels</li>
+<li>platform companies</li>
+<li>banks</li>
+<li>insurers</li>
+<li>logistics companies</li>
+<li>defense companies</li>
+<li>media companies</li>
+<li>energy corporations</li>
+<li>raw-material firms</li>
+<li>technology companies</li>
+<li>shadow firms</li>
+<li>shell companies</li>
+</ul>
+<p>Corporations additionally need:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">subsidiaries</mtext><annotation encoding="application/x-tex">
+\text{subsidiaries}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">holding structure</mtext><annotation encoding="application/x-tex">
+\text{holding structure}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">tax avoidance</mtext><annotation encoding="application/x-tex">
+\text{tax avoidance}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">jurisdictional arbitrage</mtext><annotation encoding="application/x-tex">
+\text{jurisdictional arbitrage}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">lobbying</mtext><annotation encoding="application/x-tex">
+\text{lobbying}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">market power</mtext><annotation encoding="application/x-tex">
+\text{market power}
+</annotation></semantics></math></p>
+<p>Corporations are especially interesting in your simulation because
+they can shift angles: through advertising, lobbying, workplace power,
+donations, media control, and international location choice.</p>
+<hr />
+<h2 id="products-services-and-classes-of-goods">9. Products, services,
+and classes of goods</h2>
+<p>Every good needs not only price and quantity, but also an angle
+profile.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">price</mtext><mo>,</mo><mtext mathvariant="normal">quality</mtext><mo>,</mo><mtext mathvariant="normal">quantity</mtext><mo>,</mo><mtext mathvariant="normal">utility</mtext><mo>,</mo><mtext mathvariant="normal">production angle</mtext><mo>,</mo><mtext mathvariant="normal">consumption angle</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{price}, \text{quality}, \text{quantity}, \text{utility}, \text{production angle}, \text{consumption angle})
+</annotation></semantics></math></p>
+<p>Products can be produced well but used badly. Or produced badly but
+consumed popularly.</p>
+<p>Example:</p>
+<p>A cheap product can be very popular but have a bad production
+history.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">high popularity</mtext><annotation encoding="application/x-tex">
+\text{high popularity}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">low goodness</mtext><annotation encoding="application/x-tex">
+\text{low goodness}
+</annotation></semantics></math></p>
+<p>So every product needs at least:</p>
+<ul>
+<li>use value</li>
+<li>market price</li>
+<li>production costs</li>
+<li>supply-chain angle</li>
+<li>consumption angle</li>
+<li>environmental impact</li>
+<li>social impact</li>
+<li>legal status</li>
+<li>durability</li>
+<li>substitutability</li>
+</ul>
+<p>Classes of goods:</p>
+<ul>
+<li>food</li>
+<li>energy</li>
+<li>housing</li>
+<li>clothing</li>
+<li>health</li>
+<li>education</li>
+<li>transport</li>
+<li>entertainment</li>
+<li>luxury goods</li>
+<li>weapons / security goods</li>
+<li>data</li>
+<li>software</li>
+<li>raw materials</li>
+<li>machines</li>
+<li>infrastructure</li>
+<li>financial products</li>
+</ul>
+<hr />
+<h2 id="labor-market">10. Labor market</h2>
+<p>The labor market is not just another market. It connects money,
+dignity, power, time, and politics.</p>
+<p>Every job has:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">wage</mtext><mo>,</mo><mtext mathvariant="normal">working time</mtext><mo>,</mo><mtext mathvariant="normal">risk</mtext><mo>,</mo><mtext mathvariant="normal">status</mtext><mo>,</mo><mtext mathvariant="normal">angle of the firm</mtext><mo>,</mo><mtext mathvariant="normal">angle of the activity</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{wage}, \text{working time}, \text{risk}, \text{status}, \text{angle of the firm}, \text{angle of the activity})
+</annotation></semantics></math></p>
+<p>People accept jobs not only according to wage, but also according
+to:</p>
+<ul>
+<li>moral compatibility</li>
+<li>popularity of the employer</li>
+<li>career opportunities</li>
+<li>job security</li>
+<li>social status</li>
+<li>political risk</li>
+<li>family pressure</li>
+<li>qualification</li>
+<li>geographic location</li>
+</ul>
+<p>Then phenomena can occur such as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">high wage, bad angle</mtext><annotation encoding="application/x-tex">
+\text{high wage, bad angle}
+</annotation></semantics></math></p>
+<p>or:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">low wage, good angle</mtext><annotation encoding="application/x-tex">
+\text{low wage, good angle}
+</annotation></semantics></math></p>
+<p>That is realistic. Many people sell not only labor, but also part of
+their social identity.</p>
+<hr />
+<h2 id="financial-system">11. Financial system</h2>
+<p>This is one of the most important missing blocks.</p>
+<p>You need:</p>
+<ul>
+<li>banks</li>
+<li>central banks</li>
+<li>credit markets</li>
+<li>bonds</li>
+<li>stock markets</li>
+<li>insurance companies</li>
+<li>investment funds</li>
+<li>pension funds</li>
+<li>shadow banks</li>
+<li>exchanges</li>
+<li>market makers</li>
+<li>rating agencies</li>
+<li>payment networks</li>
+</ul>
+<p>In your model there are not only interest rates, but also angle
+interest rates.</p>
+<p>A loan would be:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>with:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">interest rate</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{interest rate}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">maturity</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{maturity}
+</annotation></semantics></math></p>
+<p>The interest rate then depends on:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">default risk</mtext><annotation encoding="application/x-tex">
+\text{default risk}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle risk</mtext><annotation encoding="application/x-tex">
+\text{angle risk}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">political risk</mtext><annotation encoding="application/x-tex">
+\text{political risk}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">popularity risk</mtext><annotation encoding="application/x-tex">
+\text{popularity risk}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">liquidity risk</mtext><annotation encoding="application/x-tex">
+\text{liquidity risk}
+</annotation></semantics></math></p>
+<p>A firm with a bad angle must pay higher interest or can only find
+toxic financing.</p>
+<hr />
+<h2 id="central-banks-and-money-creation">12. Central banks and money
+creation</h2>
+<p>Every currency needs an issuance rule.</p>
+<p>In your system, a central bank must steer not only quantity:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>but also angle quality in circulation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>A central bank could therefore observe:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">inflation</mtext><annotation encoding="application/x-tex">
+\text{inflation}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">unemployment</mtext><annotation encoding="application/x-tex">
+\text{unemployment}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle distribution of money</mtext><annotation encoding="application/x-tex">
+\text{angle distribution of money}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">liquidity per angle zone</mtext><annotation encoding="application/x-tex">
+\text{liquidity per angle zone}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">trust crises</mtext><annotation encoding="application/x-tex">
+\text{trust crises}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle panics</mtext><annotation encoding="application/x-tex">
+\text{angle panics}
+</annotation></semantics></math></p>
+<p>New terms would be possible:</p>
+<h3 id="numerical-inflation">Numerical inflation</h3>
+<p>Normal price increases.</p>
+<h3 id="angle-inflation">Angle inflation</h3>
+<p>Everyone claims to be good, but confidence falls.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="angle-deflation">Angle deflation</h3>
+<p>Only extremely “clean” money is accepted; trade freezes.</p>
+<h3 id="angle-panic">Angle panic</h3>
+<p>Actors flee from an angle region because it suddenly counts as evil
+or unpopular.</p>
+<hr />
+<h2 id="angle-markets">13. Angle markets</h2>
+<p>This is specific to your idea.</p>
+<p>Besides normal markets, you need markets for angles themselves:</p>
+<ul>
+<li>angle exchange</li>
+<li>angle hedging</li>
+<li>angle options</li>
+<li>angle futures</li>
+<li>reputation derivatives</li>
+<li>goodness swaps</li>
+<li>popularity swaps</li>
+<li>sanctions insurance</li>
+<li>boycott insurance</li>
+<li>political risk hedging</li>
+</ul>
+<p>A simple angle exchange:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>with:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>and:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>The greater the angular distance, the more expensive the
+conversion.</p>
+<p>This creates a new industry: <strong>angle market
+makers</strong>.</p>
+<p>They buy difficult angles and sell more acceptable angles. But this
+is dangerous because it can become moral money laundering.</p>
+<p>Therefore you need:</p>
+<ul>
+<li>inspection bodies</li>
+<li>audits</li>
+<li>origin certificates</li>
+<li>reputation penalties</li>
+<li>fraud detection</li>
+<li>transparency rules</li>
+<li>limitation periods</li>
+<li>appeal procedures</li>
+</ul>
+<hr />
+<h2 id="property-contracts-and-courts">14. Property, contracts, and
+courts</h2>
+<p>Without a legal system, there is no stable economy.</p>
+<p>You need:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">property rights</mtext><annotation encoding="application/x-tex">
+\text{property rights}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">contract law</mtext><annotation encoding="application/x-tex">
+\text{contract law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">liability</mtext><annotation encoding="application/x-tex">
+\text{liability}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">insolvency law</mtext><annotation encoding="application/x-tex">
+\text{insolvency law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">labor law</mtext><annotation encoding="application/x-tex">
+\text{labor law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">antitrust law</mtext><annotation encoding="application/x-tex">
+\text{antitrust law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">tax law</mtext><annotation encoding="application/x-tex">
+\text{tax law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">data protection law</mtext><annotation encoding="application/x-tex">
+\text{data protection law}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">sanctions law</mtext><annotation encoding="application/x-tex">
+\text{sanctions law}
+</annotation></semantics></math></p>
+<p>Your currency adds a new legal problem:</p>
+<p><strong>Who may change an angle?</strong></p>
+<p>May a court say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>because a firm has been rehabilitated?</p>
+<p>May a government say:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>because an organization has been banned?</p>
+<p>May a people worsen an angle through a boycott?</p>
+<p>These questions must become rules in the simulation.</p>
+<hr />
+<h2 id="taxes-and-public-spending">15. Taxes and public spending</h2>
+<p>States must have revenue and expenditure.</p>
+<p>Taxes can be angle-dependent in your model:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>For example:</p>
+<ul>
+<li>good and popular money is taxed less</li>
+<li>evil money is taxed more</li>
+<li>uncertain money is inspected</li>
+<li>toxic money is frozen</li>
+<li>state-desired investments are subsidized</li>
+</ul>
+<p>Public spending also has angles:</p>
+<ul>
+<li>social spending</li>
+<li>military</li>
+<li>infrastructure</li>
+<li>education</li>
+<li>health</li>
+<li>subsidies</li>
+<li>bailouts</li>
+<li>police apparatus</li>
+<li>propaganda</li>
+<li>research</li>
+</ul>
+<p>A government can therefore not only spend money, but also create or
+destroy angles.</p>
+<hr />
+<h2 id="international-economy">16. International economy</h2>
+<p>As soon as multiple countries exist, you need:</p>
+<ul>
+<li>exchange rates</li>
+<li>capital flows</li>
+<li>trade agreements</li>
+<li>tariffs</li>
+<li>sanctions</li>
+<li>embargoes</li>
+<li>migration</li>
+<li>multinational corporations</li>
+<li>tax havens</li>
+<li>development aid</li>
+<li>geopolitical blocs</li>
+<li>reserve currencies</li>
+<li>raw-material dependencies</li>
+<li>cross-border supply chains</li>
+</ul>
+<p>In your model this is added:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle translation</mtext><annotation encoding="application/x-tex">
+\text{angle translation}
+</annotation></semantics></math></p>
+<p>An angle in country A is not automatically the same in country B.</p>
+<p>So you need a transformation matrix:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>Example:</p>
+<p>A product is considered good and popular in country A. In country B
+it is considered immoral but still desired.</p>
+<p>This creates arbitrage:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">buy in a good angle space</mtext><annotation encoding="application/x-tex">
+\text{buy in a good angle space}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">sell in a popular angle space</mtext><annotation encoding="application/x-tex">
+\text{sell in a popular angle space}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="media-and-information-system">17. Media and information
+system</h2>
+<p>This is absolutely central. Angles arise not only from facts, but
+from perception.</p>
+<p>You need:</p>
+<ul>
+<li>news media</li>
+<li>social networks</li>
+<li>influencers</li>
+<li>state media</li>
+<li>investigative journalists</li>
+<li>platform algorithms</li>
+<li>censorship</li>
+<li>leaks</li>
+<li>whistleblowers</li>
+<li>propaganda</li>
+<li>scandals</li>
+<li>rumors</li>
+<li>counter-publics</li>
+</ul>
+<p>A scandal can abruptly change a firm’s angle:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>That is an angle crash.</p>
+<p>A successful PR campaign can increase popularity without increasing
+goodness:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">same</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{same}
+</annotation></semantics></math></p>
+<p>That is a realistic and dangerous dynamic.</p>
+<hr />
+<h2 id="education-culture-and-ideology">18. Education, culture, and
+ideology</h2>
+<p>Peoples do not evaluate in a vacuum. Their popularity scale depends
+on culture.</p>
+<p>You need:</p>
+<ul>
+<li>education systems</li>
+<li>religions</li>
+<li>political ideologies</li>
+<li>historical traumas</li>
+<li>national myths</li>
+<li>class consciousness</li>
+<li>moral taboos</li>
+<li>generational conflicts</li>
+<li>value change</li>
+</ul>
+<p>Otherwise all peoples react the same way. That would be boring and
+wrong.</p>
+<p>A conservative people, a technocratic people, an egalitarian people,
+and a consumerist people will evaluate the same firm differently.</p>
+<hr />
+<h2 id="supply-chains-and-origin">19. Supply chains and origin</h2>
+<p>This is extremely important for angle money.</p>
+<p>A product has not only a seller angle, but an entire origin
+chain:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">Product</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">raw materials</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">labor</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">transport</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">firm</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">energy</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{Product}} =
+F(\theta_{\text{raw materials}},\theta_{\text{labor}},\theta_{\text{transport}},\theta_{\text{firm}},\theta_{\text{energy}})
+</annotation></semantics></math></p>
+<p>Example:</p>
+<p>A smartphone has angle shares from:</p>
+<ul>
+<li>raw-material extraction</li>
+<li>working conditions</li>
+<li>energy use</li>
+<li>patents</li>
+<li>data policy</li>
+<li>marketing</li>
+<li>repairability</li>
+<li>geopolitical origin</li>
+<li>consumer utility</li>
+</ul>
+<p>The final angle is therefore a weighted mixture.</p>
+<p>Without a supply-chain model, angle money is easy to manipulate.</p>
+<hr />
+<h2 id="environment-and-external-effects">20. Environment and external
+effects</h2>
+<p>A complete simulation needs external effects:</p>
+<ul>
+<li>CO₂</li>
+<li>water consumption</li>
+<li>species extinction</li>
+<li>air pollution</li>
+<li>health costs</li>
+<li>noise</li>
+<li>waste</li>
+<li>resource depletion</li>
+<li>land use</li>
+<li>social harms</li>
+<li>crime</li>
+<li>public safety</li>
+</ul>
+<p>These effects influence the good/evil axis.</p>
+<p>A product can be profitable and popular but harmful in the long run.
+Then this arises:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>that is: evil but popular.</p>
+<p>This is one of the most important cases in your model.</p>
+<hr />
+<h2 id="innovation-and-technology">21. Innovation and technology</h2>
+<p>The economy changes through technology.</p>
+<p>You need:</p>
+<ul>
+<li>research and development</li>
+<li>patents</li>
+<li>automation</li>
+<li>productivity growth</li>
+<li>AI systems</li>
+<li>platform effects</li>
+<li>network effects</li>
+<li>monopolization</li>
+<li>creative destruction</li>
+<li>new industries</li>
+<li>obsolete industries</li>
+</ul>
+<p>Technology can shift angles.</p>
+<p>A new technology may first be unpopular but later count as good:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>Or it may first be popular and later be recognized as harmful:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="crime-fraud-and-shadow-economy">22. Crime, fraud, and shadow
+economy</h2>
+<p>You must not leave this out. A system with moral-social currency
+immediately creates new forms of fraud.</p>
+<p>You need:</p>
+<ul>
+<li>money laundering</li>
+<li>angle laundering</li>
+<li>bribery</li>
+<li>fake popularity</li>
+<li>bot networks</li>
+<li>sham firms</li>
+<li>front men</li>
+<li>forged supply chains</li>
+<li>manipulated audits</li>
+<li>insider trading</li>
+<li>market manipulation</li>
+<li>cartels</li>
+<li>smuggling</li>
+<li>undeclared labor</li>
+<li>sanctions evasion</li>
+<li>political blackmail</li>
+</ul>
+<p>New specific crime:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle manipulation</mtext><annotation encoding="application/x-tex">
+\text{angle manipulation}
+</annotation></semantics></math></p>
+<p>For example: a firm buys artificial popularity so that its money
+receives a better angle.</p>
+<p>Or: a government declares opponents evil in order to devalue their
+assets.</p>
+<p>Without an adversarial model, the simulation becomes morally
+naive.</p>
+<hr />
+<h2 id="military-security-and-coercion">23. Military, security, and
+coercion</h2>
+<p>States consist not only of rules, but also of enforcement.</p>
+<p>You need:</p>
+<ul>
+<li>police</li>
+<li>intelligence services</li>
+<li>military</li>
+<li>border protection</li>
+<li>sanctions units</li>
+<li>cyber defense</li>
+<li>courts</li>
+<li>prisons</li>
+<li>emergency apparatuses</li>
+</ul>
+<p>Why? Because currencies only work when claims are enforceable.</p>
+<p>In your system, states can also use angles as weapons:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">hostile firm</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">evil/unpopular</mtext></mrow><annotation encoding="application/x-tex">
+\text{hostile firm} \rightarrow \theta = \text{evil/unpopular}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">sanctioned country</mtext><mo>→</mo><mtext mathvariant="normal">angle blockade</mtext></mrow><annotation encoding="application/x-tex">
+\text{sanctioned country} \rightarrow \text{angle blockade}
+</annotation></semantics></math></p>
+<p>This is geopolitically very important.</p>
+<hr />
+<h2 id="time-expectations-and-memory">24. Time, expectations, and
+memory</h2>
+<p>An economic simulation needs time.</p>
+<p>Not everything happens immediately. There are:</p>
+<ul>
+<li>production times</li>
+<li>delivery delays</li>
+<li>contract durations</li>
+<li>loan maturities</li>
+<li>election cycles</li>
+<li>investment cycles</li>
+<li>reputation delays</li>
+<li>information delays</li>
+<li>court proceedings</li>
+<li>political inertia</li>
+</ul>
+<p>The angle should also have memory:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">new</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{new}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>Otherwise every scandal would instantly destroy everything and every
+PR campaign would instantly repair everything.</p>
+<p>So you need inertia:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">reaction speed</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{reaction speed}
+</annotation></semantics></math></p>
+<p>A high
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+society reacts quickly.<br />
+A low
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>:
+society forgets slowly and judges more stably.</p>
+<hr />
+<h2 id="shocks-and-crises">25. Shocks and crises</h2>
+<p>A good simulation needs disturbances.</p>
+<p>Possible shocks:</p>
+<ul>
+<li>financial crisis</li>
+<li>bank run</li>
+<li>war</li>
+<li>pandemic</li>
+<li>natural disaster</li>
+<li>energy shock</li>
+<li>supply-chain rupture</li>
+<li>corruption scandal</li>
+<li>leak</li>
+<li>electoral upheaval</li>
+<li>revolution</li>
+<li>hyperinflation</li>
+<li>currency flight</li>
+<li>boycott wave</li>
+<li>technological rupture</li>
+<li>cyberattack</li>
+<li>sovereign default</li>
+<li>corporate bankruptcy</li>
+</ul>
+<p>Additional shocks in your system:</p>
+<ul>
+<li>angle crash</li>
+<li>trust crash</li>
+<li>good/evil revaluation</li>
+<li>popularity wave</li>
+<li>moral panic</li>
+<li>international angle split</li>
+<li>oracle corruption</li>
+<li>mass boycott</li>
+<li>reputational bankruptcy</li>
+</ul>
+<hr />
+<h2 id="markets-in-detail">26. Markets in detail</h2>
+<p>You named products, services, and the labor market. Add:</p>
+<h3 id="goods-markets">Goods markets</h3>
+<p>Food, energy, raw materials, consumer goods.</p>
+<h3 id="service-markets">Service markets</h3>
+<p>Health, education, consulting, care, entertainment.</p>
+<h3 id="labor-markets">Labor markets</h3>
+<p>Wages, qualifications, migration, unemployment.</p>
+<h3 id="capital-markets">Capital markets</h3>
+<p>Stocks, bonds, loans, equity stakes.</p>
+<h3 id="real-estate-markets">Real-estate markets</h3>
+<p>Housing, land, commercial property.</p>
+<h3 id="commodity-markets">Commodity markets</h3>
+<p>Oil, gas, metals, water, rare earths.</p>
+<h3 id="energy-markets">Energy markets</h3>
+<p>Electricity, storage, grids, generation.</p>
+<h3 id="data-markets">Data markets</h3>
+<p>User data, training data, surveillance, privacy.</p>
+<h3 id="technology-markets">Technology markets</h3>
+<p>Software, AI, patents, compute.</p>
+<h3 id="insurance-markets">Insurance markets</h3>
+<p>Risk hedging, catastrophes, illness, political risks.</p>
+<h3 id="angle-markets-1">Angle markets</h3>
+<p>Rotation, hedging, confidence, reputation.</p>
+<h3 id="black-and-gray-markets">Black and gray markets</h3>
+<p>Everything that is officially blocked but still demanded.</p>
+<hr />
+<h2 id="price-formation">27. Price formation</h2>
+<p>Every trade needs at least:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">quantity</mtext><mo>,</mo><mtext mathvariant="normal">numerical price</mtext><mo>,</mo><mtext mathvariant="normal">buying angle</mtext><mo>,</mo><mtext mathvariant="normal">selling angle</mtext><mo>,</mo><mtext mathvariant="normal">confidence</mtext><mo>,</mo><mtext mathvariant="normal">jurisdiction</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{quantity}, \text{numerical price}, \text{buying angle}, \text{selling angle}, \text{confidence}, \text{jurisdiction})
+</annotation></semantics></math></p>
+<p>A bid:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>An ask:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>Trade occurs if:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>and:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>Or if the angular distance is compensated by a fee:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>Then the effective trading value becomes:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>for example:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>That means: identical angle and high confidence provide full
+purchasing power. Large angular distance or low confidence reduces
+effective purchasing power.</p>
+<hr />
+<h2 id="utility-functions-of-the-actors">28. Utility functions of the
+actors</h2>
+<p>Every actor needs decision rules.</p>
+<p>A household maximizes not only consumption:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">consumption</mtext><mo>,</mo><mtext mathvariant="normal">price</mtext><mo>,</mo><mtext mathvariant="normal">angle</mtext><mo>,</mo><mtext mathvariant="normal">status</mtext><mo>,</mo><mtext mathvariant="normal">risk</mtext><mo>,</mo><mtext mathvariant="normal">values</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{consumption}, \text{price}, \text{angle}, \text{status}, \text{risk}, \text{values})
+</annotation></semantics></math></p>
+<p>A firm maximizes not only profit:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">profit</mtext><mo>−</mo><mtext mathvariant="normal">angle costs</mtext><mo>−</mo><mtext mathvariant="normal">regulatory risk</mtext><mo>−</mo><mtext mathvariant="normal">reputation risk</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{profit} - \text{angle costs} - \text{regulatory risk} - \text{reputation risk}
+</annotation></semantics></math></p>
+<p>A government might maximize:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">stability</mtext><mo>,</mo><mtext mathvariant="normal">power</mtext><mo>,</mo><mtext mathvariant="normal">prosperity</mtext><mo>,</mo><mtext mathvariant="normal">ideology</mtext><mo>,</mo><mtext mathvariant="normal">security</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{stability}, \text{power}, \text{prosperity}, \text{ideology}, \text{security})
+</annotation></semantics></math></p>
+<p>A people or group might maximize:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">standard of living</mtext><mo>,</mo><mtext mathvariant="normal">identity</mtext><mo>,</mo><mtext mathvariant="normal">justice</mtext><mo>,</mo><mtext mathvariant="normal">security</mtext><mo>,</mo><mtext mathvariant="normal">status</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{standard of living}, \text{identity}, \text{justice}, \text{security}, \text{status})
+</annotation></semantics></math></p>
+<p>This matters: not all actors pursue the same goal.</p>
+<hr />
+<h2 id="power-and-inequality">29. Power and inequality</h2>
+<p>A complete simulation needs power relations.</p>
+<p>Not every actor has the same effect on angles.</p>
+<p>A large corporation can influence popularity through
+advertising.<br />
+A government can define goodness through law.<br />
+A platform can control visibility.<br />
+A bank can withdraw financing.<br />
+A wealthy individual can buy media outlets.</p>
+<p>So you need:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">wealth distribution</mtext><annotation encoding="application/x-tex">
+\text{wealth distribution}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">market power</mtext><annotation encoding="application/x-tex">
+\text{market power}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">political power</mtext><annotation encoding="application/x-tex">
+\text{political power}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">media power</mtext><annotation encoding="application/x-tex">
+\text{media power}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">network power</mtext><annotation encoding="application/x-tex">
+\text{network power}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">coercive power</mtext><annotation encoding="application/x-tex">
+\text{coercive power}
+</annotation></semantics></math></p>
+<p>Without a power model, the simulation looks too democratic and too
+harmless.</p>
+<hr />
+<h2 id="moral-constitution-of-the-system">30. Moral constitution of the
+system</h2>
+<p>This is the most important political safeguard.</p>
+<p>Because your currency prices in good/evil and popular/unpopular, it
+can easily become totalitarian. Therefore you need a constitutional
+layer:</p>
+<ul>
+<li>minority protection</li>
+<li>basic rights</li>
+<li>appeal procedures</li>
+<li>transparency obligations</li>
+<li>separation of powers</li>
+<li>independent courts</li>
+<li>protection against retroactive devaluation</li>
+<li>protection against mass hysteria</li>
+<li>protection against government arbitrariness</li>
+<li>protection against corporate manipulation</li>
+<li>right to rehabilitation</li>
+<li>right to explanation</li>
+<li>right to alternative oracles</li>
+</ul>
+<p>Otherwise angle money quickly becomes obedience money.</p>
+<hr />
+<h2 id="metrics-of-the-simulation">31. Metrics of the simulation</h2>
+<p>You need outputs so you can judge whether the system works.</p>
+<p>Normal indicators:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">GDP</mtext><annotation encoding="application/x-tex">
+\text{GDP}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">inflation</mtext><annotation encoding="application/x-tex">
+\text{inflation}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">unemployment</mtext><annotation encoding="application/x-tex">
+\text{unemployment}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">productivity</mtext><annotation encoding="application/x-tex">
+\text{productivity}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">wages</mtext><annotation encoding="application/x-tex">
+\text{wages}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">wealth distribution</mtext><annotation encoding="application/x-tex">
+\text{wealth distribution}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">trade balance</mtext><annotation encoding="application/x-tex">
+\text{trade balance}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">public debt</mtext><annotation encoding="application/x-tex">
+\text{public debt}
+</annotation></semantics></math></p>
+<p>New indicators for your system:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle distribution of money</mtext><annotation encoding="application/x-tex">
+\text{angle distribution of money}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">average goodness</mtext><annotation encoding="application/x-tex">
+\text{average goodness}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">average popularity</mtext><annotation encoding="application/x-tex">
+\text{average popularity}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle volatility</mtext><annotation encoding="application/x-tex">
+\text{angle volatility}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle liquidity</mtext><annotation encoding="application/x-tex">
+\text{angle liquidity}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle spread</mtext><annotation encoding="application/x-tex">
+\text{angle spread}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle inflation</mtext><annotation encoding="application/x-tex">
+\text{angle inflation}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">angle laundering index</mtext><annotation encoding="application/x-tex">
+\text{angle laundering index}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">confidence index</mtext><annotation encoding="application/x-tex">
+\text{confidence index}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">legitimacy index</mtext><annotation encoding="application/x-tex">
+\text{legitimacy index}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">polarization index</mtext><annotation encoding="application/x-tex">
+\text{polarization index}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">oracle trust index</mtext><annotation encoding="application/x-tex">
+\text{oracle trust index}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">government-people divergence</mtext><annotation encoding="application/x-tex">
+\text{government-people divergence}
+</annotation></semantics></math></p>
+<p>Especially important:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">government</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">people</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{government}}, \theta_{\text{people}})
+</annotation></semantics></math></p>
+<p>If this distance becomes large, a legitimacy crisis emerges.</p>
+<hr />
+<h2 id="technical-simulation-architecture">32. Technical simulation
+architecture</h2>
+<p>For a serious simulation, I would build it as a hybrid:</p>
+<h3 id="agent-based-part">Agent-based part</h3>
+<p>For households, firms, banks, governments, and population groups.</p>
+<h3 id="stock-flow-consistent-part">Stock-flow consistent part</h3>
+<p>For balance sheets, money flows, credit, debt, and taxes.</p>
+<h3 id="network-model">Network model</h3>
+<p>For supply chains, ownership, media, influence, and trade.</p>
+<h3 id="market-microstructure">Market microstructure</h3>
+<p>For order books, price formation, angle spreads, and liquidity.</p>
+<h3 id="event-system">Event system</h3>
+<p>For shocks, scandals, wars, crises, and elections.</p>
+<p>Formally:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">overall state of the world at time </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">
+S_t = \text{overall state of the world at time }t
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">actions of all actors</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{actions of all actors}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">external events</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{external events}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>That is the basic form.</p>
+<hr />
+<h2 id="minimal-version-of-a-first-simulation">33. Minimal version of a
+first simulation</h2>
+<p>For a first working version, I would not build everything at once. I
+would start with this core:</p>
+<ul>
+<li>3 countries</li>
+<li>3 governments</li>
+<li>3 peoples with 3 groups each</li>
+<li>1000 households</li>
+<li>100 firms</li>
+<li>5 banks</li>
+<li>1 central bank per country</li>
+<li>5 classes of goods</li>
+<li>1 labor market</li>
+<li>1 credit market</li>
+<li>1 angle market</li>
+<li>1 international trade market</li>
+<li>simple supply chains</li>
+<li>simple taxes</li>
+<li>simple elections</li>
+<li>simple media events</li>
+<li>shock system</li>
+<li>vector currency with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math></li>
+</ul>
+<p>Then you observe:</p>
+<ul>
+<li>prices</li>
+<li>wages</li>
+<li>unemployment</li>
+<li>firm bankruptcies</li>
+<li>angle distribution</li>
+<li>angle spreads</li>
+<li>trade volume</li>
+<li>international conflicts</li>
+<li>manipulation</li>
+<li>inequality</li>
+<li>political instability</li>
+</ul>
+<p>That would already be rich enough to generate interesting
+dynamics.</p>
+<hr />
+<h2 id="the-hardest-short-summary">34. The hardest short summary</h2>
+<p>The missing blocks that most need to be added to your list are:</p>
+<ol type="1">
+<li><p><strong>Households and individuals</strong><br />
+Without them there is no demand, labor, elections, or
+popularity.</p></li>
+<li><p><strong>Banks, central banks, and credit</strong><br />
+Without credit there is no modern economy.</p></li>
+<li><p><strong>Balance sheets and accounting</strong><br />
+Without vector balance sheets nobody knows who is truly rich, solvent,
+or toxic.</p></li>
+<li><p><strong>Legal system and property</strong><br />
+Without contracts, courts, and insolvency rules, the market
+collapses.</p></li>
+<li><p><strong>Media and information flows</strong><br />
+Without them good/evil and popular/unpopular do not arise
+realistically.</p></li>
+<li><p><strong>Supply chains and provenance proofs</strong><br />
+Without them angle money becomes instantly washable.</p></li>
+<li><p><strong>Taxes, subsidies, and public spending</strong><br />
+States must not only evaluate; they must act.</p></li>
+<li><p><strong>International exchange rates and angle
+translation</strong><br />
+Multiple countries mean multiple moral coordinate systems.</p></li>
+<li><p><strong>Fraud, manipulation, and shadow markets</strong><br />
+Every powerful rating system produces attacks.</p></li>
+<li><p><strong>Uncertainty and confidence</strong><br />
+Because neither governments nor peoples are infallible.</p></li>
+<li><p><strong>Time, memory, and delay</strong><br />
+Otherwise angles jump unrealistically fast.</p></li>
+<li><p><strong>Crises and shocks</strong><br />
+Without crises you are not testing the system.</p></li>
+</ol>
+<p>The complete simulation is therefore not a mere economic simulation.
+It is a <strong>political-economic civilization simulation with vector
+currency</strong>.</p>
+<p>The decisive sentence is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">Every amount has direction, every direction has uncertainty, and every uncertainty is politically attackable.</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{Every amount has direction, every direction has uncertainty, and every uncertainty is politically attackable.}
+}
+</annotation></semantics></math></p>
+<p>If you model that, the simulation becomes seriously interesting.</p>
+</body>
+</html>

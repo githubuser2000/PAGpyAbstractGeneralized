@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wirtschaftssimulation_ja</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="数値角度通貨の完全な経済シミュレーション">数値‐角度通貨の完全な経済シミュレーション</h1>
+<p>あなたの<strong>数値‐角度通貨</strong>を基礎にした完全な経済シミュレーションには、国、政府、国民、市場、企業だけでは足りない。それらは目に見える主体にすぎない。さらに決定的なのは、<strong>貸借対照表、ルール、情報の流れ、不確実性、権力濫用、信用、所有権、時間、制裁</strong>である。</p>
+<p>中核はこうなる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">経済</mtext><mo>=</mo><mtext mathvariant="normal">主体</mtext><mo>+</mo><mtext mathvariant="normal">市場</mtext><mo>+</mo><mtext mathvariant="normal">貸借対照表</mtext><mo>+</mo><mtext mathvariant="normal">ルール</mtext><mo>+</mo><mtext mathvariant="normal">期待</mtext><mo>+</mo><mtext mathvariant="normal">ショック</mtext></mrow><annotation encoding="application/x-tex">
+\text{経済} = \text{主体} + \text{市場} + \text{貸借対照表} + \text{ルール} + \text{期待} + \text{ショック}
+</annotation></semantics></math></p>
+<p>そしてあなたの通貨は単なる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">
+m
+</annotation></semantics></math></p>
+<p>ではなく：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,h)
+</annotation></semantics></math></p>
+<p>である。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">数値額</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{数値額}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">角度方向：善/悪 + 人気/不人気</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{角度方向：善/悪 + 人気/不人気}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">角度の安全性 / 信頼度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{角度の安全性 / 信頼度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">由来の履歴 / 取引履歴</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{由来の履歴 / 取引履歴}
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+と
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+がなければ、誰でも自分の角度が客観的で清潔だと装えるため、システムは単純すぎるものになる。</p>
+<hr />
+<h2 id="国と管轄権">1. 国と管轄権</h2>
+<p>複数の国が必要だが、単なる名前としてではない。各国には独自の制度が必要である：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">政府</mtext><mo>,</mo><mtext mathvariant="normal">国民</mtext><mo>,</mo><mtext mathvariant="normal">裁判所</mtext><mo>,</mo><mtext mathvariant="normal">中央銀行</mtext><mo>,</mo><mtext mathvariant="normal">税制</mtext><mo>,</mo><mtext mathvariant="normal">規制当局</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L_i = (\text{政府}, \text{国民}, \text{裁判所}, \text{中央銀行}, \text{税制}, \text{規制当局})
+</annotation></semantics></math></p>
+<p>各国は次を独自に定義できる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">善/悪</mtext><annotation encoding="application/x-tex">
+\text{善/悪}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">合法/違法</mtext><annotation encoding="application/x-tex">
+\text{合法/違法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">補助/処罰</mtext><annotation encoding="application/x-tex">
+\text{補助/処罰}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">承認/非承認</mtext><annotation encoding="application/x-tex">
+\text{承認/非承認}
+</annotation></semantics></math></p>
+<p>これは重要だ。同じ対象が A 国では善で、B
+国では悪になり得るからだ。</p>
+<p>例：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_A = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_B = 150^\circ
+</annotation></semantics></math></p>
+<p>そこから国際的な角度対立が生まれる。まさにそこから、貿易摩擦、制裁、裁定取引、ブラックマーケット、外交的な権力ゲームが発生する。</p>
+<hr />
+<h2 id="善悪のオラクルとしての政府">2. 善/悪のオラクルとしての政府</h2>
+<p>複数の政府が <strong>善 vs. 悪</strong>
+の軸を定める。しかしシミュレーション内で政府を完全な真実機械として扱ってはいけない。</p>
+<p>各政府には属性が必要である：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">能力</mtext><mo>,</mo><mtext mathvariant="normal">腐敗</mtext><mo>,</mo><mtext mathvariant="normal">イデオロギー</mtext><mo>,</mo><mtext mathvariant="normal">利害</mtext><mo>,</mo><mtext mathvariant="normal">情報品質</mtext><mo>,</mo><mtext mathvariant="normal">権力</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G_i = (\text{能力}, \text{腐敗}, \text{イデオロギー}, \text{利害}, \text{情報品質}, \text{権力})
+</annotation></semantics></math></p>
+<p>それにより企業、製品、産業、行為、資金の流れを評価する。</p>
+<p>例えば：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+g_i(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大限に悪</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{最大限に悪}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大限に善</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{最大限に善}
+</annotation></semantics></math></p>
+<p>常に不確実性も必要である：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\sigma_i(x)
+</annotation></semantics></math></p>
+<p>政府はこう言える：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">企業 A</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn><mo>±</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+g_i(\text{企業 A}) = 0{,}7 \pm 0{,}2
+</annotation></semantics></math></p>
+<p>つまり、企業 A
+をどちらかといえば善だと見ているが、絶対確実ではない。</p>
+<p>さらに必要なのは：</p>
+<ul>
+<li>国際的な政府連合</li>
+<li>拒否権</li>
+<li>制裁</li>
+<li>腐敗リスク</li>
+<li>政治的誤判断</li>
+<li>プロパガンダ</li>
+<li>ロビー活動</li>
+<li>司法による修正</li>
+<li>政権交代</li>
+<li>革命またはクーデター</li>
+<li>非常権限</li>
+</ul>
+<p>これらがなければ、善/悪軸は滑らかすぎる。</p>
+<hr />
+<h2 id="人気不人気のオラクルとしての国民">3.
+人気/不人気のオラクルとしての国民</h2>
+<p>複数の国民が <strong>人気 vs. 不人気</strong> の軸を定める。</p>
+<p>しかし国民も均質ではない。国民は複数の集団から成る：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>v</mi><mrow><mi>i</mi><mn>3</mn></mrow></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+V_i = \{v_{i1}, v_{i2}, v_{i3}, ...\}
+</annotation></semantics></math></p>
+<p>例えば：</p>
+<ul>
+<li>労働者</li>
+<li>起業家</li>
+<li>年金生活者</li>
+<li>学生</li>
+<li>宗教集団</li>
+<li>都市住民</li>
+<li>農村住民</li>
+<li>少数派</li>
+<li>政治陣営</li>
+<li>メディア圏</li>
+<li>消費者階層</li>
+</ul>
+<p>各集団には固有の選好がある：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+p_{ij}(x) \in [-1,1]
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大限に不人気</mtext></mrow><annotation encoding="application/x-tex">
+-1 = \text{最大限に不人気}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn><mo>=</mo><mtext mathvariant="normal">最大限に人気</mtext></mrow><annotation encoding="application/x-tex">
++1 = \text{最大限に人気}
+</annotation></semantics></math></p>
+<p>全体の人気はおおよそ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p_i(x)=\sum_j w_{ij}p_{ij}(x)
+</annotation></semantics></math></p>
+<p>しかしここにも不確実性と操作が必要である：</p>
+<ul>
+<li>世論調査</li>
+<li>選挙</li>
+<li>国民投票</li>
+<li>ストライキ</li>
+<li>ボイコット</li>
+<li>抗議活動</li>
+<li>ソーシャルメディア</li>
+<li>メディアキャンペーン</li>
+<li>検閲</li>
+<li>偽情報</li>
+<li>集団ヒステリー</li>
+<li>ゆっくりした文化変化</li>
+<li>短期トレンド</li>
+</ul>
+<p>人気軸は真実ではない。それは共鳴、承認、反感、社会的エネルギーである。</p>
+<hr />
+<h2 id="角度への集約">4. 角度への集約</h2>
+<p>政府による善性と国民による人気から角度が生まれる。</p>
+<p>単純な形：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mtext mathvariant="normal">善性</mtext></mrow><annotation encoding="application/x-tex">
+x = \text{善性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mtext mathvariant="normal">人気</mtext></mrow><annotation encoding="application/x-tex">
+y = \text{人気}
+</annotation></semantics></math></p>
+<p>すると：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta = \operatorname{atan2}(y,x)
+</annotation></semantics></math></p>
+<p>規範的な力の大きさ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>θ</mi></msub><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+r_\theta = \sqrt{x^2+y^2}
+</annotation></semantics></math></p>
+<p>信頼度：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">政府と国民の合意度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{政府と国民の合意度}
+</annotation></semantics></math></p>
+<p>政府と国民が強く一致すれば
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+は高い。互いに矛盾すれば
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+は低い。</p>
+<p>例：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = 0{,}7
+</annotation></semantics></math></p>
+<p>これは善かつ人気。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>8</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">
+x = 0{,}8,\quad y = -0{,}6
+</annotation></semantics></math></p>
+<p>これは善だが不人気。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>0</mn><mo>,</mo><mn>7</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+x = -0{,}7,\quad y = 0{,}9
+</annotation></semantics></math></p>
+<p>これは悪だが人気。</p>
+<p>特に三番目は政治的に爆発的である。シミュレーションはこうしたケースを生成できなければならない。</p>
+<hr />
+<h2 id="通貨そのもの">5. 通貨そのもの</h2>
+<p>各貨幣単位には複数の属性が必要である：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>o</mi><mo>,</mo><mi>t</mi><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+M = (m,\theta,\rho,o,t,h)
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mtext mathvariant="normal">数値額</mtext></mrow><annotation encoding="application/x-tex">
+m = \text{数値額}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta = \text{角度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mtext mathvariant="normal">信頼度</mtext></mrow><annotation encoding="application/x-tex">
+\rho = \text{信頼度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mo>=</mo><mtext mathvariant="normal">由来</mtext></mrow><annotation encoding="application/x-tex">
+o = \text{由来}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mtext mathvariant="normal">時点</mtext></mrow><annotation encoding="application/x-tex">
+t = \text{時点}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mtext mathvariant="normal">履歴</mtext></mrow><annotation encoding="application/x-tex">
+h = \text{履歴}
+</annotation></semantics></math></p>
+<p>履歴は重要である。なければすぐに角度ロンダリングが生じる。</p>
+<p>例：</p>
+<p>ある企業が搾取によって金を稼ぐ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mi>∠</mi><msup><mn>160</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+1000 \angle 160^\circ
+</annotation></semantics></math></p>
+<p>その後、その 10%
+を人気のある目的に寄付し、全体を善に見せようとする。履歴がなければ角度を操作できる。履歴があれば次が見える：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">由来：有毒</mtext><annotation encoding="application/x-tex">
+\text{由来：有毒}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">後からの改善：部分的</mtext><annotation encoding="application/x-tex">
+\text{後からの改善：部分的}
+</annotation></semantics></math></p>
+<p>したがってシミュレーションには、<strong>由来追跡付きのベクトル会計</strong>が必要である。</p>
+<hr />
+<h2 id="角度会計">6. 角度会計</h2>
+<p>通常の会計では足りない。企業、銀行、国家にはベクトル付きの貸借対照表が必要である。</p>
+<p>通常の貸借対照表：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">資産</mtext><mo>=</mo><mtext mathvariant="normal">負債</mtext><mo>+</mo><mtext mathvariant="normal">自己資本</mtext></mrow><annotation encoding="application/x-tex">
+\text{資産} = \text{負債} + \text{自己資本}
+</annotation></semantics></math></p>
+<p>ベクトル貸借対照表：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">→</mo></mover><mo>=</mo><mover><mi>L</mi><mo accent="true">→</mo></mover><mo>+</mo><mover><mi>E</mi><mo accent="true">→</mo></mover></mrow><annotation encoding="application/x-tex">
+\vec{A} = \vec{L} + \vec{E}
+</annotation></semantics></math></p>
+<p>しかしこれは単純ではない。反対方向の角度は部分的に打ち消し合うからだ。</p>
+<p>企業は数値的には豊かでも、規範的には有毒であり得る：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">高い数値資産</mtext><annotation encoding="application/x-tex">
+\text{高い数値資産}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">悪い角度</mtext><annotation encoding="application/x-tex">
+\text{悪い角度}
+</annotation></semantics></math></p>
+<p>または人気があり善でも、流動性がほとんどない場合もある。</p>
+<p>だから別々の指標が必要になる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">流動性</mtext><annotation encoding="application/x-tex">
+\text{流動性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">支払能力</mtext><annotation encoding="application/x-tex">
+\text{支払能力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度品質</mtext><annotation encoding="application/x-tex">
+\text{角度品質}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度リスク</mtext><annotation encoding="application/x-tex">
+\text{角度リスク}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">評判資本</mtext><annotation encoding="application/x-tex">
+\text{評判資本}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治リスク</mtext><annotation encoding="application/x-tex">
+\text{政治リスク}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="家計と個人">7. 家計と個人</h2>
+<p>あなたのリストにはこれが明らかに足りない。家計がなければ、本当の需要も、労働も、選挙も、消費者心理もない。</p>
+<p>各個人または家計には次が必要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">所得</mtext><mo>,</mo><mtext mathvariant="normal">資産</mtext><mo>,</mo><mtext mathvariant="normal">欲求</mtext><mo>,</mo><mtext mathvariant="normal">価値観</mtext><mo>,</mo><mtext mathvariant="normal">職業</mtext><mo>,</mo><mtext mathvariant="normal">教育</mtext><mo>,</mo><mtext mathvariant="normal">政治的意見</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+H_i = (\text{所得}, \text{資産}, \text{欲求}, \text{価値観}, \text{職業}, \text{教育}, \text{政治的意見})
+</annotation></semantics></math></p>
+<p>家計は決める：</p>
+<ul>
+<li>何を買うか</li>
+<li>どこで働くか</li>
+<li>誰に投票するか</li>
+<li>どの企業をボイコットするか</li>
+<li>どの角度を受け入れるか</li>
+<li>どれだけリスクを負うか</li>
+<li>貯蓄・消費・投資のどれを選ぶか</li>
+</ul>
+<p>各家計には固有の角度選好もある：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>K</mi></msubsup><mo>=</mo><mtext mathvariant="normal">購入角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^K = \text{購入角度}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mi>V</mi></msubsup><mo>=</mo><mtext mathvariant="normal">販売角度</mtext></mrow><annotation encoding="application/x-tex">
+\theta_i^V = \text{販売角度}
+</annotation></semantics></math></p>
+<p>購入時にはこう問う：</p>
+<p>「この商品をこの価格、この角度で受け入れるか？」</p>
+<p>働く時にはこう問う：</p>
+<p>「この企業から、この角度品質の賃金を受け入れるか？」</p>
+<p>これは強い。労働は単なる時間と賃金の交換ではなく、道徳的な適合性でもあるからだ。</p>
+<hr />
+<h2 id="企業企業グループ所有構造">8. 企業、企業グループ、所有構造</h2>
+<p>企業は単なる生産者ではない。内部構造を持つ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">資本</mtext><mo>,</mo><mtext mathvariant="normal">労働力</mtext><mo>,</mo><mtext mathvariant="normal">技術</mtext><mo>,</mo><mtext mathvariant="normal">サプライチェーン</mtext><mo>,</mo><mtext mathvariant="normal">経営陣</mtext><mo>,</mo><mtext mathvariant="normal">所有者</mtext><mo>,</mo><mtext mathvariant="normal">債務</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+F_i = (\text{資本}, \text{労働力}, \text{技術}, \text{サプライチェーン}, \text{経営陣}, \text{所有者}, \text{債務})
+</annotation></semantics></math></p>
+<p>重要なのは：</p>
+<ul>
+<li>小企業</li>
+<li>中堅企業</li>
+<li>大企業グループ</li>
+<li>独占企業</li>
+<li>カルテル</li>
+<li>プラットフォーム企業</li>
+<li>銀行</li>
+<li>保険会社</li>
+<li>物流会社</li>
+<li>防衛企業</li>
+<li>メディア企業</li>
+<li>エネルギー企業</li>
+<li>原材料企業</li>
+<li>テクノロジー企業</li>
+<li>影の企業</li>
+<li>ペーパーカンパニー</li>
+</ul>
+<p>大企業グループにはさらに必要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">子会社</mtext><annotation encoding="application/x-tex">
+\text{子会社}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">持株構造</mtext><annotation encoding="application/x-tex">
+\text{持株構造}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">租税回避</mtext><annotation encoding="application/x-tex">
+\text{租税回避}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">管轄権裁定</mtext><annotation encoding="application/x-tex">
+\text{管轄権裁定}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ロビー活動</mtext><annotation encoding="application/x-tex">
+\text{ロビー活動}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">市場支配力</mtext><annotation encoding="application/x-tex">
+\text{市場支配力}
+</annotation></semantics></math></p>
+<p>大企業はあなたのシミュレーションで特に面白い。広告、ロビー活動、雇用支配、寄付、メディア支配、国際的な立地選択によって角度を動かせるからだ。</p>
+<hr />
+<h2 id="製品サービス財の種類">9. 製品、サービス、財の種類</h2>
+<p>各財には価格と数量だけでなく、角度プロファイルも必要である。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">価格</mtext><mo>,</mo><mtext mathvariant="normal">品質</mtext><mo>,</mo><mtext mathvariant="normal">数量</mtext><mo>,</mo><mtext mathvariant="normal">効用</mtext><mo>,</mo><mtext mathvariant="normal">生産角度</mtext><mo>,</mo><mtext mathvariant="normal">消費角度</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+X = (\text{価格}, \text{品質}, \text{数量}, \text{効用}, \text{生産角度}, \text{消費角度})
+</annotation></semantics></math></p>
+<p>製品は良く作られても悪く使われ得る。あるいは悪く作られても人気をもって消費され得る。</p>
+<p>例：</p>
+<p>安い製品は非常に人気があるが、生産履歴が悪いかもしれない。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">高い人気</mtext><annotation encoding="application/x-tex">
+\text{高い人気}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">低い善性</mtext><annotation encoding="application/x-tex">
+\text{低い善性}
+</annotation></semantics></math></p>
+<p>各製品には少なくとも次が必要：</p>
+<ul>
+<li>使用価値</li>
+<li>市場価格</li>
+<li>生産コスト</li>
+<li>サプライチェーン角度</li>
+<li>消費角度</li>
+<li>環境影響</li>
+<li>社会的影響</li>
+<li>法的地位</li>
+<li>耐久性</li>
+<li>代替可能性</li>
+</ul>
+<p>財の種類：</p>
+<ul>
+<li>食料</li>
+<li>エネルギー</li>
+<li>住宅</li>
+<li>衣服</li>
+<li>医療</li>
+<li>教育</li>
+<li>交通</li>
+<li>娯楽</li>
+<li>高級品</li>
+<li>武器 / 安全財</li>
+<li>データ</li>
+<li>ソフトウェア</li>
+<li>原材料</li>
+<li>機械</li>
+<li>インフラ</li>
+<li>金融商品</li>
+</ul>
+<hr />
+<h2 id="労働市場">10. 労働市場</h2>
+<p>労働市場は単なる別の市場ではない。金、尊厳、権力、時間、政治を結びつける。</p>
+<p>各職には：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mi>o</mi><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">賃金</mtext><mo>,</mo><mtext mathvariant="normal">労働時間</mtext><mo>,</mo><mtext mathvariant="normal">リスク</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo>,</mo><mtext mathvariant="normal">企業の角度</mtext><mo>,</mo><mtext mathvariant="normal">活動の角度</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Job = (\text{賃金}, \text{労働時間}, \text{リスク}, \text{地位}, \text{企業の角度}, \text{活動の角度})
+</annotation></semantics></math></p>
+<p>人々は賃金だけで仕事を受けるのではない。次も見る：</p>
+<ul>
+<li>道徳的適合性</li>
+<li>雇用者の人気</li>
+<li>キャリア機会</li>
+<li>雇用安定性</li>
+<li>社会的地位</li>
+<li>政治リスク</li>
+<li>家族からの圧力</li>
+<li>資格</li>
+<li>地理的位置</li>
+</ul>
+<p>すると次のような現象が生まれる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">高賃金、悪い角度</mtext><annotation encoding="application/x-tex">
+\text{高賃金、悪い角度}
+</annotation></semantics></math></p>
+<p>または：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">低賃金、良い角度</mtext><annotation encoding="application/x-tex">
+\text{低賃金、良い角度}
+</annotation></semantics></math></p>
+<p>これは現実的である。多くの人は労働だけでなく、社会的アイデンティティの一部も売っている。</p>
+<hr />
+<h2 id="金融システム">11. 金融システム</h2>
+<p>これは最も重要な欠落ブロックの一つである。</p>
+<p>必要なのは：</p>
+<ul>
+<li>銀行</li>
+<li>中央銀行</li>
+<li>信用市場</li>
+<li>債券</li>
+<li>株式市場</li>
+<li>保険会社</li>
+<li>投資ファンド</li>
+<li>年金基金</li>
+<li>シャドーバンク</li>
+<li>取引所</li>
+<li>マーケットメーカー</li>
+<li>格付け機関</li>
+<li>決済ネットワーク</li>
+</ul>
+<p>あなたのモデルでは、利子だけでなく角度利子も存在する。</p>
+<p>融資はこうなる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>i</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K = (m,\theta,\rho,i,T)
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mtext mathvariant="normal">利子率</mtext></mrow><annotation encoding="application/x-tex">
+i = \text{利子率}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mtext mathvariant="normal">満期</mtext></mrow><annotation encoding="application/x-tex">
+T = \text{満期}
+</annotation></semantics></math></p>
+<p>利子率は次に依存する：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">デフォルトリスク</mtext><annotation encoding="application/x-tex">
+\text{デフォルトリスク}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度リスク</mtext><annotation encoding="application/x-tex">
+\text{角度リスク}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治リスク</mtext><annotation encoding="application/x-tex">
+\text{政治リスク}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">人気リスク</mtext><annotation encoding="application/x-tex">
+\text{人気リスク}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">流動性リスク</mtext><annotation encoding="application/x-tex">
+\text{流動性リスク}
+</annotation></semantics></math></p>
+<p>角度の悪い企業は高い利子を払うか、有毒な資金調達しか見つけられない。</p>
+<hr />
+<h2 id="中央銀行と貨幣創造">12. 中央銀行と貨幣創造</h2>
+<p>すべての通貨には発行ルールが必要である。</p>
+<p>あなたのシステムでは中央銀行は量だけでなく：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">
+M
+</annotation></semantics></math></p>
+<p>流通中の角度品質も制御しなければならない：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">
+\Theta
+</annotation></semantics></math></p>
+<p>中央銀行は次を観測できる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">インフレ</mtext><annotation encoding="application/x-tex">
+\text{インフレ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">失業</mtext><annotation encoding="application/x-tex">
+\text{失業}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">貨幣の角度分布</mtext><annotation encoding="application/x-tex">
+\text{貨幣の角度分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度ゾーンごとの流動性</mtext><annotation encoding="application/x-tex">
+\text{角度ゾーンごとの流動性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">信頼危機</mtext><annotation encoding="application/x-tex">
+\text{信頼危機}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度パニック</mtext><annotation encoding="application/x-tex">
+\text{角度パニック}
+</annotation></semantics></math></p>
+<p>新しい概念も可能である：</p>
+<h3 id="数値インフレ">数値インフレ</h3>
+<p>通常の価格上昇。</p>
+<h3 id="角度インフレ">角度インフレ</h3>
+<p>全員が自分は善だと主張するが、信頼度が下がる。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>↓</mo></mrow><annotation encoding="application/x-tex">
+\rho \downarrow
+</annotation></semantics></math></p>
+<h3 id="角度デフレ">角度デフレ</h3>
+<p>極端に「清潔」な金だけが受け入れられ、取引が凍結する。</p>
+<h3 id="角度パニック">角度パニック</h3>
+<p>ある角度領域が突然、悪または不人気と見なされ、主体が逃げ出す。</p>
+<hr />
+<h2 id="角度市場">13. 角度市場</h2>
+<p>これはあなたのアイデアに固有の部分である。</p>
+<p>通常の市場に加えて、角度そのものの市場が必要である：</p>
+<ul>
+<li>角度交換</li>
+<li>角度ヘッジ</li>
+<li>角度オプション</li>
+<li>角度先物</li>
+<li>評判デリバティブ</li>
+<li>善性スワップ</li>
+<li>人気スワップ</li>
+<li>制裁保険</li>
+<li>ボイコット保険</li>
+<li>政治リスクヘッジ</li>
+</ul>
+<p>単純な角度交換：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>∠</mi><msub><mi>θ</mi><mn>1</mn></msub><mo>→</mo><msup><mi>m</mi><mo>′</mo></msup><mi>∠</mi><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+m \angle \theta_1 \rightarrow m&#39; \angle \theta_2
+</annotation></semantics></math></p>
+<p>ここで：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>m</mi><mo>′</mo></msup><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m&#39; = m \cdot q(d)
+</annotation></semantics></math></p>
+<p>かつ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+d = d(\theta_1,\theta_2)
+</annotation></semantics></math></p>
+<p>角度距離が大きいほど、変換は高価になる。</p>
+<p>これにより新しい産業、<strong>角度マーケットメーカー</strong>が生まれる。</p>
+<p>彼らは扱いにくい角度を買い、より受け入れやすい角度を売る。しかしこれは危険だ。道徳的な資金洗浄になり得るからだ。</p>
+<p>だから必要なのは：</p>
+<ul>
+<li>検査機関</li>
+<li>監査</li>
+<li>由来証明</li>
+<li>評判罰</li>
+<li>不正検出</li>
+<li>透明性ルール</li>
+<li>時効ルール</li>
+<li>異議申し立て手続き</li>
+</ul>
+<hr />
+<h2 id="所有契約裁判所">14. 所有、契約、裁判所</h2>
+<p>法制度なしに安定した経済はない。</p>
+<p>必要なのは：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">所有権</mtext><annotation encoding="application/x-tex">
+\text{所有権}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">契約法</mtext><annotation encoding="application/x-tex">
+\text{契約法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">責任</mtext><annotation encoding="application/x-tex">
+\text{責任}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">倒産法</mtext><annotation encoding="application/x-tex">
+\text{倒産法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">労働法</mtext><annotation encoding="application/x-tex">
+\text{労働法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">独占禁止法</mtext><annotation encoding="application/x-tex">
+\text{独占禁止法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">税法</mtext><annotation encoding="application/x-tex">
+\text{税法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">データ保護法</mtext><annotation encoding="application/x-tex">
+\text{データ保護法}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">制裁法</mtext><annotation encoding="application/x-tex">
+\text{制裁法}
+</annotation></semantics></math></p>
+<p>あなたの通貨では新しい法的問題が生じる：</p>
+<p><strong>誰が角度を変更できるのか？</strong></p>
+<p>裁判所はこう言えるのか：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>80</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 140^\circ \rightarrow 80^\circ
+</annotation></semantics></math></p>
+<p>企業が更生したから？</p>
+<p>政府はこう言えるのか：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>→</mo><msup><mn>170</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta = 40^\circ \rightarrow 170^\circ
+</annotation></semantics></math></p>
+<p>組織が禁止されたから？</p>
+<p>国民はボイコットによって角度を悪化させられるのか？</p>
+<p>これらの問いはシミュレーション内のルールにしなければならない。</p>
+<hr />
+<h2 id="税と政府支出">15. 税と政府支出</h2>
+<p>国家には収入と支出が必要である。</p>
+<p>あなたのモデルでは税は角度依存にできる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Tax = f(m,\theta,\rho)
+</annotation></semantics></math></p>
+<p>例えば：</p>
+<ul>
+<li>善で人気のある金は低く課税される</li>
+<li>悪い金は高く課税される</li>
+<li>不確実な金は検査される</li>
+<li>有毒な金は凍結される</li>
+<li>国家が望む投資は補助される</li>
+</ul>
+<p>政府支出にも角度がある：</p>
+<ul>
+<li>社会支出</li>
+<li>軍事</li>
+<li>インフラ</li>
+<li>教育</li>
+<li>医療</li>
+<li>補助金</li>
+<li>救済パッケージ</li>
+<li>警察機構</li>
+<li>プロパガンダ</li>
+<li>研究</li>
+</ul>
+<p>政府は金を使うだけではない。角度を作り、また破壊する。</p>
+<hr />
+<h2 id="国際経済">16. 国際経済</h2>
+<p>複数の国が存在すれば、次が必要である：</p>
+<ul>
+<li>為替レート</li>
+<li>資本移動</li>
+<li>貿易協定</li>
+<li>関税</li>
+<li>制裁</li>
+<li>禁輸</li>
+<li>移民</li>
+<li>多国籍企業</li>
+<li>タックスヘイブン</li>
+<li>開発援助</li>
+<li>地政学的ブロック</li>
+<li>準備通貨</li>
+<li>原材料依存</li>
+<li>国境を越えるサプライチェーン</li>
+</ul>
+<p>あなたのモデルではさらに：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度翻訳</mtext><annotation encoding="application/x-tex">
+\text{角度翻訳}
+</annotation></semantics></math></p>
+<p>A 国の角度は B 国で自動的に同じではない。</p>
+<p>したがって変換行列が必要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>B</mi></msub><mo>=</mo><msub><mi>T</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_B = T_{A \rightarrow B}(\theta_A)
+</annotation></semantics></math></p>
+<p>例：</p>
+<p>ある製品は A 国では善で人気とされる。B
+国では不道徳とされるが、それでも欲しがられる。</p>
+<p>これは裁定取引を生む：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">善の角度空間で買う</mtext><annotation encoding="application/x-tex">
+\text{善の角度空間で買う}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">人気の角度空間で売る</mtext><annotation encoding="application/x-tex">
+\text{人気の角度空間で売る}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="メディアと情報システム">17. メディアと情報システム</h2>
+<p>これは絶対に中心的である。角度は事実だけでなく、認知からも生まれる。</p>
+<p>必要なのは：</p>
+<ul>
+<li>ニュースメディア</li>
+<li>ソーシャルネットワーク</li>
+<li>インフルエンサー</li>
+<li>国営メディア</li>
+<li>調査報道記者</li>
+<li>プラットフォームアルゴリズム</li>
+<li>検閲</li>
+<li>リーク</li>
+<li>内部告発者</li>
+<li>プロパガンダ</li>
+<li>スキャンダル</li>
+<li>噂</li>
+<li>対抗的公共圏</li>
+</ul>
+<p>スキャンダルは企業の角度を急変させる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_t = 30^\circ
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mn>150</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">
+\theta_{t+1} = 150^\circ
+</annotation></semantics></math></p>
+<p>これは角度クラッシュである。</p>
+<p>成功した PR キャンペーンは善性を高めずに人気を上げる：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>↑</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mtext mathvariant="normal">同じ</mtext></mrow><annotation encoding="application/x-tex">
+y \uparrow,\quad x = \text{同じ}
+</annotation></semantics></math></p>
+<p>これは現実的で危険な動態である。</p>
+<hr />
+<h2 id="教育文化イデオロギー">18. 教育、文化、イデオロギー</h2>
+<p>国民は真空の中で評価しない。人気の尺度は文化に依存する。</p>
+<p>必要なのは：</p>
+<ul>
+<li>教育制度</li>
+<li>宗教</li>
+<li>政治イデオロギー</li>
+<li>歴史的トラウマ</li>
+<li>国民神話</li>
+<li>階級意識</li>
+<li>道徳的タブー</li>
+<li>世代間対立</li>
+<li>価値観の変化</li>
+</ul>
+<p>そうでなければ、すべての国民が同じ反応をする。それは退屈で誤っている。</p>
+<p>保守的な国民、技術官僚的な国民、平等主義的な国民、消費主義的な国民は、同じ企業を異なって評価する。</p>
+<hr />
+<h2 id="サプライチェーンと由来">19. サプライチェーンと由来</h2>
+<p>これは角度貨幣では極めて重要である。</p>
+<p>製品には販売者の角度だけでなく、由来の連鎖全体がある：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mtext mathvariant="normal">製品</mtext></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">原材料</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">労働</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">輸送</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">企業</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">エネルギー</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\theta_{\text{製品}} =
+F(\theta_{\text{原材料}},\theta_{\text{労働}},\theta_{\text{輸送}},\theta_{\text{企業}},\theta_{\text{エネルギー}})
+</annotation></semantics></math></p>
+<p>例：</p>
+<p>スマートフォンの角度要素は次から来る：</p>
+<ul>
+<li>原材料採掘</li>
+<li>労働条件</li>
+<li>エネルギー消費</li>
+<li>特許</li>
+<li>データポリシー</li>
+<li>マーケティング</li>
+<li>修理可能性</li>
+<li>地政学的由来</li>
+<li>消費者効用</li>
+</ul>
+<p>最終角度は加重混合である。</p>
+<p>サプライチェーンモデルがなければ、角度貨幣は簡単に操作される。</p>
+<hr />
+<h2 id="環境と外部効果">20. 環境と外部効果</h2>
+<p>完全なシミュレーションには外部効果が必要である：</p>
+<ul>
+<li>CO₂</li>
+<li>水使用量</li>
+<li>種の絶滅</li>
+<li>大気汚染</li>
+<li>医療コスト</li>
+<li>騒音</li>
+<li>ごみ</li>
+<li>資源枯渇</li>
+<li>土地利用</li>
+<li>社会的損害</li>
+<li>犯罪</li>
+<li>公共安全</li>
+</ul>
+<p>これらの効果は善/悪軸に影響する。</p>
+<p>製品は利益があり人気でも、長期的には有害かもしれない。その場合：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+x &lt; 0,\quad y &gt; 0
+</annotation></semantics></math></p>
+<p>つまり、悪だが人気。</p>
+<p>これはあなたのモデルで最重要ケースの一つである。</p>
+<hr />
+<h2 id="イノベーションと技術">21. イノベーションと技術</h2>
+<p>経済は技術によって変化する。</p>
+<p>必要なのは：</p>
+<ul>
+<li>研究開発</li>
+<li>特許</li>
+<li>自動化</li>
+<li>生産性成長</li>
+<li>AI システム</li>
+<li>プラットフォーム効果</li>
+<li>ネットワーク効果</li>
+<li>独占化</li>
+<li>創造的破壊</li>
+<li>新産業</li>
+<li>旧式化した産業</li>
+</ul>
+<p>技術は角度を動かし得る。</p>
+<p>新技術は最初不人気でも、後に善と見なされるかもしれない：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>+</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(+,-) \rightarrow (+,+)
+</annotation></semantics></math></p>
+<p>または最初は人気で、後に有害と認識されるかもしれない：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mo>,</mo><mi>−</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(-,+) \rightarrow (-,-)
+</annotation></semantics></math></p>
+<hr />
+<h2 id="犯罪不正影の経済">22. 犯罪、不正、影の経済</h2>
+<p>これは外してはいけない。道徳的・社会的通貨システムは即座に新しい不正を生む。</p>
+<p>必要なのは：</p>
+<ul>
+<li>資金洗浄</li>
+<li>角度ロンダリング</li>
+<li>賄賂</li>
+<li>偽の人気</li>
+<li>ボットネット</li>
+<li>架空企業</li>
+<li>名義人</li>
+<li>偽造サプライチェーン</li>
+<li>操作された監査</li>
+<li>インサイダー取引</li>
+<li>市場操作</li>
+<li>カルテル</li>
+<li>密輸</li>
+<li>闇労働</li>
+<li>制裁回避</li>
+<li>政治的脅迫</li>
+</ul>
+<p>新しい固有の犯罪：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度操作</mtext><annotation encoding="application/x-tex">
+\text{角度操作}
+</annotation></semantics></math></p>
+<p>例えば、企業が人工的な人気を買い、自社の金に良い角度を得させる。</p>
+<p>または政府が反対派を悪と宣言し、その資産価値を落とす。</p>
+<p>敵対的モデルがなければ、シミュレーションは道徳的に単純すぎる。</p>
+<hr />
+<h2 id="軍事安全強制">23. 軍事、安全、強制</h2>
+<p>国家はルールだけでなく、執行力からも成る。</p>
+<p>必要なのは：</p>
+<ul>
+<li>警察</li>
+<li>情報機関</li>
+<li>軍隊</li>
+<li>国境警備</li>
+<li>制裁執行部隊</li>
+<li>サイバー防衛</li>
+<li>裁判所</li>
+<li>刑務所</li>
+<li>非常体制</li>
+</ul>
+<p>なぜか。通貨は請求権が執行可能なときだけ機能するからだ。</p>
+<p>あなたのシステムでは、国家は角度を武器としても使える：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">敵対企業</mtext><mo>→</mo><mi>θ</mi><mo>=</mo><mtext mathvariant="normal">悪/不人気</mtext></mrow><annotation encoding="application/x-tex">
+\text{敵対企業} \rightarrow \theta = \text{悪/不人気}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">制裁対象国</mtext><mo>→</mo><mtext mathvariant="normal">角度封鎖</mtext></mrow><annotation encoding="application/x-tex">
+\text{制裁対象国} \rightarrow \text{角度封鎖}
+</annotation></semantics></math></p>
+<p>これは地政学的に非常に重要である。</p>
+<hr />
+<h2 id="時間期待記憶">24. 時間、期待、記憶</h2>
+<p>経済シミュレーションには時間が必要である。</p>
+<p>すべては即時には起こらない。存在するのは：</p>
+<ul>
+<li>生産時間</li>
+<li>配送遅延</li>
+<li>契約期間</li>
+<li>融資期間</li>
+<li>選挙周期</li>
+<li>投資周期</li>
+<li>評判の遅延</li>
+<li>情報の遅延</li>
+<li>裁判手続き</li>
+<li>政治的慣性</li>
+</ul>
+<p>角度にも記憶があるべきだ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>θ</mi><mtext mathvariant="normal">新</mtext></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>θ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\theta_t = \alpha \theta_{\text{新}} + (1-\alpha)\theta_{t-1}
+</annotation></semantics></math></p>
+<p>そうでなければ、すべてのスキャンダルが即座にすべてを破壊し、すべての
+PR キャンペーンが即座にすべてを修復してしまう。</p>
+<p>したがって慣性が必要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mtext mathvariant="normal">反応速度</mtext></mrow><annotation encoding="application/x-tex">
+\alpha = \text{反応速度}
+</annotation></semantics></math></p>
+<p>高い
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>：社会は素早く反応する。<br />
+低い
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>：社会はゆっくり忘れ、より安定して判断する。</p>
+<hr />
+<h2 id="ショックと危機">25. ショックと危機</h2>
+<p>良いシミュレーションには撹乱が必要である。</p>
+<p>可能なショック：</p>
+<ul>
+<li>金融危機</li>
+<li>銀行取り付け</li>
+<li>戦争</li>
+<li>パンデミック</li>
+<li>自然災害</li>
+<li>エネルギーショック</li>
+<li>サプライチェーン断裂</li>
+<li>腐敗スキャンダル</li>
+<li>リーク</li>
+<li>選挙の激変</li>
+<li>革命</li>
+<li>ハイパーインフレ</li>
+<li>通貨逃避</li>
+<li>ボイコットの波</li>
+<li>技術的断裂</li>
+<li>サイバー攻撃</li>
+<li>国家債務不履行</li>
+<li>大企業倒産</li>
+</ul>
+<p>あなたのシステムではさらに：</p>
+<ul>
+<li>角度クラッシュ</li>
+<li>信頼クラッシュ</li>
+<li>善/悪の再評価</li>
+<li>人気の波</li>
+<li>道徳的パニック</li>
+<li>国際的な角度分裂</li>
+<li>オラクル腐敗</li>
+<li>大規模ボイコット</li>
+<li>評判破産</li>
+</ul>
+<hr />
+<h2 id="市場の詳細">26. 市場の詳細</h2>
+<p>あなたは製品、サービス、労働市場を挙げた。さらに必要なのは：</p>
+<h3 id="財市場">財市場</h3>
+<p>食料、エネルギー、原材料、消費財。</p>
+<h3 id="サービス市場">サービス市場</h3>
+<p>医療、教育、コンサル、介護、娯楽。</p>
+<h3 id="労働市場-1">労働市場</h3>
+<p>賃金、資格、移民、失業。</p>
+<h3 id="資本市場">資本市場</h3>
+<p>株式、債券、融資、持分。</p>
+<h3 id="不動産市場">不動産市場</h3>
+<p>住宅、土地、商業不動産。</p>
+<h3 id="商品市場">商品市場</h3>
+<p>石油、ガス、金属、水、レアアース。</p>
+<h3 id="エネルギー市場">エネルギー市場</h3>
+<p>電力、蓄電、送電網、発電。</p>
+<h3 id="データ市場">データ市場</h3>
+<p>ユーザーデータ、訓練データ、監視、プライバシー。</p>
+<h3 id="技術市場">技術市場</h3>
+<p>ソフトウェア、AI、特許、計算資源。</p>
+<h3 id="保険市場">保険市場</h3>
+<p>リスクヘッジ、災害、病気、政治リスク。</p>
+<h3 id="角度市場-1">角度市場</h3>
+<p>回転、ヘッジ、信頼度、評判。</p>
+<h3
+id="ブラックマーケットとグレーマーケット">ブラックマーケットとグレーマーケット</h3>
+<p>公式には遮断されているが、需要が残るすべて。</p>
+<hr />
+<h2 id="価格形成">27. 価格形成</h2>
+<p>各取引には少なくとも次が必要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">数量</mtext><mo>,</mo><mtext mathvariant="normal">数値価格</mtext><mo>,</mo><mtext mathvariant="normal">購入角度</mtext><mo>,</mo><mtext mathvariant="normal">販売角度</mtext><mo>,</mo><mtext mathvariant="normal">信頼度</mtext><mo>,</mo><mtext mathvariant="normal">管轄</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(\text{数量}, \text{数値価格}, \text{購入角度}, \text{販売角度}, \text{信頼度}, \text{管轄})
+</annotation></semantics></math></p>
+<p>買い注文：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>i</mi><mi>d</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>B</mi></msub><mo>,</mo><msub><mi>q</mi><mi>B</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Bid = (p_B, q_B, \theta_B^K, r_B)
+</annotation></semantics></math></p>
+<p>売り注文：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>s</mi><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>A</mi></msub><mo>,</mo><msub><mi>q</mi><mi>A</mi></msub><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo>,</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+Ask = (p_A, q_A, \theta_A^V, r_A)
+</annotation></semantics></math></p>
+<p>取引が成立するのは：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>B</mi></msub><mo>≥</mo><msub><mi>p</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">
+p_B \geq p_A
+</annotation></semantics></math></p>
+<p>かつ：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>θ</mi><mi>B</mi><mi>K</mi></msubsup><mo>,</mo><msubsup><mi>θ</mi><mi>A</mi><mi>V</mi></msubsup><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+d(\theta_B^K,\theta_A^V) \leq \varepsilon
+</annotation></semantics></math></p>
+<p>または角度距離が手数料で補正される場合：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>λ</mi><mi>m</mi><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+C = \lambda m \tan^2\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>そのとき有効取引価値は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mtext mathvariant="normal">eff</mtext></msub><mo>=</mo><mi>m</mi><mo>⋅</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+m_{\text{eff}} = m \cdot q(d,\rho)
+</annotation></semantics></math></p>
+<p>例えば：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>d</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+q(d,\rho)=\rho \cos\left(\frac{d}{2}\right)
+</annotation></semantics></math></p>
+<p>つまり、同じ角度と高い信頼度は完全な購買力を与える。大きな角度距離や低い信頼度は有効購買力を下げる。</p>
+<hr />
+<h2 id="主体の効用関数">28. 主体の効用関数</h2>
+<p>各主体には意思決定ルールが必要である。</p>
+<p>家計は消費だけを最大化するのではない：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">消費</mtext><mo>,</mo><mtext mathvariant="normal">価格</mtext><mo>,</mo><mtext mathvariant="normal">角度</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo>,</mo><mtext mathvariant="normal">リスク</mtext><mo>,</mo><mtext mathvariant="normal">価値観</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+U = f(\text{消費}, \text{価格}, \text{角度}, \text{地位}, \text{リスク}, \text{価値観})
+</annotation></semantics></math></p>
+<p>企業は利益だけを最大化するのではない：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mtext mathvariant="normal">利益</mtext><mo>−</mo><mtext mathvariant="normal">角度コスト</mtext><mo>−</mo><mtext mathvariant="normal">規制リスク</mtext><mo>−</mo><mtext mathvariant="normal">評判リスク</mtext></mrow><annotation encoding="application/x-tex">
+\Pi = \text{利益} - \text{角度コスト} - \text{規制リスク} - \text{評判リスク}
+</annotation></semantics></math></p>
+<p>政府はおそらく次を最大化する：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">安定</mtext><mo>,</mo><mtext mathvariant="normal">権力</mtext><mo>,</mo><mtext mathvariant="normal">繁栄</mtext><mo>,</mo><mtext mathvariant="normal">イデオロギー</mtext><mo>,</mo><mtext mathvariant="normal">安全保障</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+G = f(\text{安定}, \text{権力}, \text{繁栄}, \text{イデオロギー}, \text{安全保障})
+</annotation></semantics></math></p>
+<p>国民または集団はおそらく次を最大化する：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">生活水準</mtext><mo>,</mo><mtext mathvariant="normal">アイデンティティ</mtext><mo>,</mo><mtext mathvariant="normal">正義</mtext><mo>,</mo><mtext mathvariant="normal">安全</mtext><mo>,</mo><mtext mathvariant="normal">地位</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+V = f(\text{生活水準}, \text{アイデンティティ}, \text{正義}, \text{安全}, \text{地位})
+</annotation></semantics></math></p>
+<p>重要なのは、すべての主体が同じ目標を追うわけではないということだ。</p>
+<hr />
+<h2 id="権力と不平等">29. 権力と不平等</h2>
+<p>完全なシミュレーションには権力関係が必要である。</p>
+<p>すべての主体が角度に同じ影響を持つわけではない。</p>
+<p>大企業は広告で人気を動かせる。<br />
+政府は法律で善性を定義できる。<br />
+プラットフォームは可視性を支配できる。<br />
+銀行は資金を引き揚げられる。<br />
+富裕個人はメディアを買える。</p>
+<p>したがって必要なのは：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">富の分布</mtext><annotation encoding="application/x-tex">
+\text{富の分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">市場支配力</mtext><annotation encoding="application/x-tex">
+\text{市場支配力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政治権力</mtext><annotation encoding="application/x-tex">
+\text{政治権力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">メディア権力</mtext><annotation encoding="application/x-tex">
+\text{メディア権力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">ネットワーク権力</mtext><annotation encoding="application/x-tex">
+\text{ネットワーク権力}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">強制力</mtext><annotation encoding="application/x-tex">
+\text{強制力}
+</annotation></semantics></math></p>
+<p>権力モデルがなければ、シミュレーションは民主的すぎ、無害すぎる。</p>
+<hr />
+<h2 id="システムの道徳的憲法">30. システムの道徳的憲法</h2>
+<p>これは最重要の政治的安全装置である。</p>
+<p>あなたの通貨は善/悪と人気/不人気を価格に織り込むため、容易に全体主義的になり得る。だから憲法レイヤーが必要である：</p>
+<ul>
+<li>少数派保護</li>
+<li>基本権</li>
+<li>異議申し立て手続き</li>
+<li>透明性義務</li>
+<li>権力分立</li>
+<li>独立裁判所</li>
+<li>遡及的価値切り下げからの保護</li>
+<li>集団ヒステリーからの保護</li>
+<li>政府の恣意性からの保護</li>
+<li>企業操作からの保護</li>
+<li>名誉回復の権利</li>
+<li>説明を受ける権利</li>
+<li>代替オラクルへの権利</li>
+</ul>
+<p>そうでなければ、角度貨幣はすぐに服従貨幣になる。</p>
+<hr />
+<h2 id="シミュレーションの指標">31. シミュレーションの指標</h2>
+<p>システムが機能しているか判断するには出力指標が必要である。</p>
+<p>通常の指標：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">GDP</mtext><annotation encoding="application/x-tex">
+\text{GDP}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">インフレ</mtext><annotation encoding="application/x-tex">
+\text{インフレ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">失業</mtext><annotation encoding="application/x-tex">
+\text{失業}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">生産性</mtext><annotation encoding="application/x-tex">
+\text{生産性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">賃金</mtext><annotation encoding="application/x-tex">
+\text{賃金}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">富の分布</mtext><annotation encoding="application/x-tex">
+\text{富の分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">貿易収支</mtext><annotation encoding="application/x-tex">
+\text{貿易収支}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政府債務</mtext><annotation encoding="application/x-tex">
+\text{政府債務}
+</annotation></semantics></math></p>
+<p>あなたのシステムの新指標：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">貨幣の角度分布</mtext><annotation encoding="application/x-tex">
+\text{貨幣の角度分布}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">平均善性</mtext><annotation encoding="application/x-tex">
+\text{平均善性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">平均人気</mtext><annotation encoding="application/x-tex">
+\text{平均人気}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度ボラティリティ</mtext><annotation encoding="application/x-tex">
+\text{角度ボラティリティ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度流動性</mtext><annotation encoding="application/x-tex">
+\text{角度流動性}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度スプレッド</mtext><annotation encoding="application/x-tex">
+\text{角度スプレッド}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度インフレ</mtext><annotation encoding="application/x-tex">
+\text{角度インフレ}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">角度ロンダリング指数</mtext><annotation encoding="application/x-tex">
+\text{角度ロンダリング指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">信頼度指数</mtext><annotation encoding="application/x-tex">
+\text{信頼度指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">正統性指数</mtext><annotation encoding="application/x-tex">
+\text{正統性指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">分極化指数</mtext><annotation encoding="application/x-tex">
+\text{分極化指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">オラクル信頼指数</mtext><annotation encoding="application/x-tex">
+\text{オラクル信頼指数}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">政府‐国民乖離</mtext><annotation encoding="application/x-tex">
+\text{政府‐国民乖離}
+</annotation></semantics></math></p>
+<p>特に重要：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>d</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mtext mathvariant="normal">政府</mtext></msub><mo>,</mo><msub><mi>θ</mi><mtext mathvariant="normal">国民</mtext></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+D = d(\theta_{\text{政府}}, \theta_{\text{国民}})
+</annotation></semantics></math></p>
+<p>この距離が大きくなれば、正統性危機が生じる。</p>
+<hr />
+<h2 id="技術的シミュレーション構造">32. 技術的シミュレーション構造</h2>
+<p>本格的なシミュレーションなら、私はハイブリッドとして作る。</p>
+<h3 id="エージェントベース部分">エージェントベース部分</h3>
+<p>家計、企業、銀行、政府、国民集団のため。</p>
+<h3 id="stock-flow-consistent-部分">Stock-flow consistent 部分</h3>
+<p>貸借対照表、資金フロー、信用、債務、税のため。</p>
+<h3 id="ネットワークモデル">ネットワークモデル</h3>
+<p>サプライチェーン、所有、メディア、影響、貿易のため。</p>
+<h3 id="市場ミクロ構造">市場ミクロ構造</h3>
+<p>注文板、価格形成、角度スプレッド、流動性のため。</p>
+<h3 id="イベントシステム">イベントシステム</h3>
+<p>ショック、スキャンダル、戦争、危機、選挙のため。</p>
+<p>形式的には：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mtext mathvariant="normal">時点 </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> における世界全体の状態</mtext></mrow></mrow><annotation encoding="application/x-tex">
+S_t = \text{時点 }t\text{ における世界全体の状態}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">すべての主体の行動</mtext></mrow><annotation encoding="application/x-tex">
+A_t = \text{すべての主体の行動}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>=</mo><mtext mathvariant="normal">外部イベント</mtext></mrow><annotation encoding="application/x-tex">
+E_t = \text{外部イベント}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>A</mi><mi>t</mi></msub><mo>,</mo><msub><mi>E</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+S_{t+1} = F(S_t,A_t,E_t)
+</annotation></semantics></math></p>
+<p>これが基本形である。</p>
+<hr />
+<h2 id="最初のシミュレーションの最小版">33.
+最初のシミュレーションの最小版</h2>
+<p>最初の動くバージョンでは、すべてを一度に作らない。私はこの中核から始める：</p>
+<ul>
+<li>3 国</li>
+<li>3 政府</li>
+<li>それぞれ 3 集団を持つ 3 国民</li>
+<li>1000 家計</li>
+<li>100 企業</li>
+<li>5 銀行</li>
+<li>各国 1 中央銀行</li>
+<li>5 種類の財</li>
+<li>1 労働市場</li>
+<li>1 信用市場</li>
+<li>1 角度市場</li>
+<li>1 国際貿易市場</li>
+<li>単純なサプライチェーン</li>
+<li>単純な税</li>
+<li>単純な選挙</li>
+<li>単純なメディアイベント</li>
+<li>ショックシステム</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>θ</mi><mo>,</mo><mi>ρ</mi><mo>,</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m,\theta,\rho,h</annotation></semantics></math>
+を持つベクトル通貨</li>
+</ul>
+<p>そして観察する：</p>
+<ul>
+<li>価格</li>
+<li>賃金</li>
+<li>失業</li>
+<li>企業倒産</li>
+<li>角度分布</li>
+<li>角度スプレッド</li>
+<li>貿易量</li>
+<li>国際対立</li>
+<li>操作</li>
+<li>不平等</li>
+<li>政治的不安定</li>
+</ul>
+<p>これだけでも興味深い動態を生むには十分豊かである。</p>
+<hr />
+<h2 id="最も厳しい要約">34. 最も厳しい要約</h2>
+<p>あなたのリストに特に追加すべき欠落ブロックは次である：</p>
+<ol type="1">
+<li><p><strong>家計と個人</strong><br />
+彼らなしに需要、労働、選挙、人気はない。</p></li>
+<li><p><strong>銀行、中央銀行、信用</strong><br />
+信用なしに現代経済はない。</p></li>
+<li><p><strong>貸借対照表と会計</strong><br />
+ベクトル貸借対照表なしに、誰が本当に豊かで、支払能力があり、有毒か分からない。</p></li>
+<li><p><strong>法制度と所有権</strong><br />
+契約、裁判所、倒産ルールなしに市場は崩壊する。</p></li>
+<li><p><strong>メディアと情報の流れ</strong><br />
+それなしに善/悪、人気/不人気は現実的に生まれない。</p></li>
+<li><p><strong>サプライチェーンと由来証明</strong><br />
+それなしに角度貨幣はすぐ洗えるものになる。</p></li>
+<li><p><strong>税、補助金、政府支出</strong><br />
+国家は評価するだけでなく、行動しなければならない。</p></li>
+<li><p><strong>国際為替レートと角度翻訳</strong><br />
+複数の国は、複数の道徳的座標系を意味する。</p></li>
+<li><p><strong>不正、操作、影の市場</strong><br />
+強力な評価システムは必ず攻撃を生む。</p></li>
+<li><p><strong>不確実性と信頼度</strong><br />
+政府も国民も無謬ではないからだ。</p></li>
+<li><p><strong>時間、記憶、遅延</strong><br />
+そうでなければ角度は非現実的に即座に跳ねる。</p></li>
+<li><p><strong>危機とショック</strong><br />
+危機なしにはシステムを検証していない。</p></li>
+</ol>
+<p>したがって完全なシミュレーションは単なる経済シミュレーションではない。これは<strong>ベクトル通貨を持つ政治経済的な文明シミュレーション</strong>である。</p>
+<p>決定的な一文は：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">すべての金額には方向があり、すべての方向には不確実性があり、すべての不確実性は政治的に攻撃可能である。</mtext></menclose><annotation encoding="application/x-tex">
+\boxed{
+\text{すべての金額には方向があり、すべての方向には不確実性があり、すべての不確実性は政治的に攻撃可能である。}
+}
+</annotation></semantics></math></p>
+<p>これをモデル化すれば、シミュレーションは本当に面白くなる。</p>
+</body>
+</html>
