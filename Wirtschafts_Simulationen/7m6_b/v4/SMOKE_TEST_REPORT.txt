@@ -1,0 +1,18 @@
+# Smoke Test Report V4
+
+CPython compile: OK
+Demo run with --art: OK
+Demo run with --art --no-color: OK
+
+| COLUMNS | safe width | max observed width | lines |
+|---:|---:|---:|---:|
+| 80 | 75 | 75 | 215 |
+| 50 | 45 | 45 | 354 |
+| 30 | 25 | 25 | 559 |
+| 20 | 15 | 15 | 968 |
+| 10 | 5 | 5 | 8597 |
+
+demo_art_plain max visible width: 75
+demo_art_ansi max visible width: 75
+
+Note: pypy3 was not installed in this environment; the code uses only the Python standard library and compiled/runs under CPython.

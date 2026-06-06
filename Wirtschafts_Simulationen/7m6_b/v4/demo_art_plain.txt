@@ -1,0 +1,717 @@
+═ V4 UTF-8/ANSI Dashboard — Vektorwährung: Wert × Gutartigkeit × Beliebt… ═
+╭──────────────────────────────────────────────────────────────────╮
+│ Makro-Cockpit: Wert, Richtung, Sicherheit                        │
+├──────────────────────────────────────────────────────────────────┤
+│ t=   1  BIP=10.70K  Geldmenge=1.17M  Inflation=+1.1%             │
+│ Arbeitslosigkeit=0.8%                                            │
+│ Konfidenz    ███████████████████░░░░░░░░░ 0.688                  │
+│ Gutartigkeit  ░░░░░░░░███████┊░░░░░░░░░░░░░░░ -0.439             │
+│ Beliebtheit   ░░░░░░░░░░░░░░░┊██████░░░░░░░░░ +0.375             │
+│ Legitimität   ████████████████░░░░░░░░░░░░ 0.575                 │
+│ Legitimitätslücke=0.144                                          │
+│ Ungleichheit  Haushalte=0.412 Firmen=0.240  Winkelspread Ø=22.4° │
+│ GDP   ▄                                                          │
+│ Geld  ▄                                                          │
+│ Conf  ▄                                                          │
+│ Gut   ▄                                                          │
+│ Pop   ▄                                                          │
+╰──────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────╮
+│ Vektor-Kompass der Währung                                          │
+├─────────────────────────────────────────────────────────────────────┤
+│ Weltgeldwinkel θ= 139.5° böse + beliebt   Konzentration R=0.577     │
+│ repräsentativ: Cash= 139.5°  Kauf= 138.1°  Verkauf= 137.1°  K↔V     │
+│ Distanz=  1.0°                                                      │
+│                  beliebt +                                          │
+│                      │                                              │
+│                · ·· ·│· ·· ·                                        │
+│            · ··      │      · ··                                    │
+│         ◆V·          │          ··                                  │
+│        ··            │            ··                                │
+│       ·              │              ·                               │
+│      ·               │               ·                              │
+│     ·                │                ·                             │
+│  böse -──────────────┼──────────────gut +                           │
+│     ·                │                ·                             │
+│      ·               │               ·                              │
+│       ·              │              ·                               │
+│        ··            │            ···                               │
+│          ··          │          ··                                  │
+│            ·· ·      │      · ··                                    │
+│                · ·· ·│· ·· ·                                        │
+│                      │                                              │
+│                 unbeliebt -                                         │
+│ Legende: ◎ Weltwinkel  ¤ Cashwinkel  K Kaufwinkel  V Verkaufswinkel │
+│ Achsen: x=Gut/Böse durch Regierungen+Gerichte, y=Beliebt/Unbeliebt  │
+│ durch Völker+Medien.                                                │
+╰─────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Dreifachhandel: Wert ↔ Gutartigkeit ↔ Beliebtheit                    │
+├──────────────────────────────────────────────────────────────────────┤
+│ 💰 Wert          ─━━━━━━━━━━━━━░░░░░░░░░░░░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 107.04   Compliance, Audits, Umwelt, Arbeitsschutz                   │
+│ 💰 Wert          ─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━▶ ♥ Beliebtheit    │
+│ 255.78   Werbung, Service, Community, Medien                         │
+│ ♥ Beliebtheit    ─░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 0.00   soziales Mandat senkt Reformkosten                            │
+│ ⚖ Gutartigkeit   ─━━░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ♥ Beliebtheit    │
+│ 13.03   glaubwürdiges Verhalten wird sichtbar                        │
+│                                                                      │
+│ Dreifachbörsen-Gebühren / Reibung: 20.32   Trades: 3                 │
+│ Winkelwäscheindex: 0.1794                                            │
+│ Kernaussage: Gutartigkeit ist kaufbar nur über nachprüfbare Kosten + │
+│ soziale Glaubwürdigkeit; reine Beliebtheit ohne Substanz senkt       │
+│ Konfidenz.                                                           │
+│ Live-Formel: M = m·e^(iθ), θ=atan2(Beliebtheit, Gutartigkeit),       │
+│ Kaufkraft≈m·ρ·cos(Δθ/2)                                              │
+╰──────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Marktfluss-Diagramm der simulierten Abschnitte                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Haushalte ═Konsum═▶ Firmen ═Löhne═▶ Haushalte   │                       │
+│ Steuern/Subventionen   │   Banken/Kredit                                │
+│ Firmen ═B2B/Lieferketten═▶ Firmen ═Handel═▶ Ausland ═FX═▶               │
+│ Reserve/Zentralbank                                                     │
+│ Alle Akteure ═Kaufwinkel/Verkaufswinkel═▶ Winkelmarkt                   │
+│ ═Rotation/Reibung═▶ neuer Cashwinkel                                    │
+│                                                                         │
+│ Haushalte → Firmen     ██████████████████████████████░░░░░░░░░░░░       │
+│ 10.57K                                                                  │
+│ Firmen → Firmen        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       │
+│ 133.14                                                                  │
+│ Firmen → Arbeit        ██████████████████████████████████████████       │
+│ 14.61K                                                                  │
+│ Privat → Staat         █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4.52K │
+│ Staat → Wirtschaft     ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3.64K │
+│ Banken → Kredit        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.00  │
+│ International          ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4.91K │
+│ Winkelrotation         ████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░ 5.55K │
+│ Schwarzmarkt           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 49.98 │
+│ Kapitalfluss/FX        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 59.55 │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Kreis-Orderbuch: Handel der Winkel                                     │
+├────────────────────────────────────────────────────────────────────────┤
+│ Jeder Akteur quotiert zwei Richtungen: Kaufwinkel K und Verkaufswinkel │
+│ V. Der Betrag/Geldbestand gewichtet die Ordertiefe.                    │
+│          Kauf-Bid-Tiefe                         Winkelzone             │
+│             Verkauf-Ask-Tiefe                                          │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 000°-030° gut + beliebt                   │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 030°-060° gut + beliebt                   │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ████████████████████████████ 060°-090° gut + beliebt                   │
+│ ████████████████████░░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 090°-120° böse + beliebt                  │
+│ █████░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██████████████████████░░░░░░ 120°-150° böse + beliebt                  │
+│ ███████████████████░░░░░░░░░                                           │
+│ ██████░░░░░░░░░░░░░░░░░░░░░░ 150°-180° böse + beliebt                  │
+│ █████████░░░░░░░░░░░░░░░░░░░                                           │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░ 180°-210° böse + unbeliebt                │
+│ █████░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ███████████████████░░░░░░░░░ 210°-240° böse + unbeliebt                │
+│ ████████████████░░░░░░░░░░░░                                           │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░ 240°-270° böse + unbeliebt                │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 270°-300° gut + unbeliebt                 │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 300°-330° gut + unbeliebt                 │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 330°-360° gut + unbeliebt                 │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ Ø Winkelspread: 22.4°   Rotationskosten: 48.67   Rotationsvolumen:     │
+│ 5.55K                                                                  │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Akteure mit zwei Winkeln: Kaufen und Verkaufen                         │
+├────────────────────────────────────────────────────────────────────────┤
+│ Typ  Name                           Wert    Cashθ    Kaufθ  Verkaufθ   │
+│ Spread     ρ  Richtung                                                 │
+│ CB   CentralBank-Aster           120.00K   219.1°   219.1°    219.1°   │
+│   0.0°  0.85  böse + unbeliebt                                         │
+│ CB   CentralBank-Boreal          120.00K    82.4°    82.4°     82.4°   │
+│   0.0°  0.85  gut + beliebt                                            │
+│ CB   CentralBank-Civitas         120.00K   135.8°   135.8°    135.8°   │
+│   0.0°  0.85  böse + beliebt                                           │
+│ B    Bank-Boreal-1                51.87K    70.2°    74.5°     68.0°   │
+│   6.5°  0.82  gut + beliebt                                            │
+│ GOV  Government-Boreal            43.70K    81.8°    86.0°     89.0°   │
+│   3.0°  0.70  gut + beliebt                                            │
+│ FND  Fund-Civitas-0               42.77K   147.6°   142.4°    147.7°   │
+│   5.4°  0.83  böse + beliebt                                           │
+│ GOV  Government-Civitas           42.39K   135.0°   145.1°    153.2°   │
+│   8.0°  0.70  böse + beliebt                                           │
+│ FND  Fund-Civitas-1               42.37K   126.8°   130.9°    126.8°   │
+│   4.0°  0.78  böse + beliebt                                           │
+│ B    Bank-Aster-0                 36.99K   216.3°   216.7°    214.7°   │
+│   2.0°  0.67  böse + unbeliebt                                         │
+│ FND  Fund-Boreal-0                35.24K    94.9°    89.3°     94.9°   │
+│   5.6°  0.88  böse + beliebt                                           │
+│ FND  Fund-Boreal-1                34.65K    92.9°    88.2°     92.8°   │
+│   4.7°  0.61  böse + beliebt                                           │
+│ GOV  Government-Aster             32.94K   219.3°   222.4°    225.2°   │
+│   2.8°  0.71  böse + unbeliebt                                         │
+│ FND  Fund-Aster-0                 32.39K   207.3°   212.6°    207.3°   │
+│   5.3°  0.73  böse + unbeliebt                                         │
+│ B    Bank-Civitas-2               26.46K   145.1°   142.0°    147.0°   │
+│   5.0°  0.73  böse + beliebt                                           │
+│ K=was dieser Akteur akzeptiert/kaufen will; V=welche Winkelqualität er │
+│ beim Verkaufen verlangt.                                               │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────╮
+│ Länder/Jurisdiktionen: Makro, Legitimität, Währungswinkel          │
+├────────────────────────────────────────────────────────────────────┤
+│ Aster                BIP █████████████████░    4.39K  FX=0.874  θ= │
+│ 219.1° böse + unbeliebt                                            │
+│     Legitimität ███████░░░░░░░ 0.47  Unemp=0.0%  Infl=+1.3%        │
+│ Protest=0.01  Infra=0.72  Bio=0.94  Crime=0.08  Courts=0.84        │
+│ Boreal               BIP ██████░░░░░░░░░░░░    1.65K  FX=1.179  θ= │
+│ 82.4° gut + beliebt                                                │
+│     Legitimität ███████░░░░░░░ 0.51  Unemp=2.5%  Infl=+1.4%        │
+│ Protest=0.02  Infra=0.69  Bio=0.77  Crime=0.19  Courts=0.84        │
+│ Civitas              BIP ██████████████████    4.66K  FX=1.271  θ= │
+│ 135.8° böse + beliebt                                              │
+│     Legitimität ███████████░░░ 0.75  Unemp=0.0%  Infl=+0.5%        │
+│ Protest=0.02  Infra=0.72  Bio=0.73  Crime=0.04  Courts=0.47        │
+╰────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Firmenkarte: Gutartigkeit × Beliebtheit, gewichtet durch Wert          │
+├────────────────────────────────────────────────────────────────────────┤
+│ ╭───────────────────────────────────────────────╮                      │
+│ │ böse + beliebt        │      gut + beliebt    │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │            ●     ◆    │ ◆                    ◆│                      │
+│ │               ◆       │◆                      │                      │
+│ │                ◆      │       ◆    ◆◆◆    ◆  ✦│                      │
+│ │               ◆    ◆◆ │   ◆   ◆  ◆◆          ◆│                      │
+│ │───────────────────────┼────────✦─────────────◆│                      │
+│ │               ◆       │     ◆                 │                      │
+│ │                       │              ◆        │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │ böse + unbeliebt      │    gut + unbeliebt    │                      │
+│ ╰───────────────────────────────────────────────╯                      │
+│ x-Achse: Regierung/Gerichte Gutartigkeit ← böse | gut →   y-Achse:     │
+│ Volks-/Medien-Beliebtheit ↑ beliebt | unbeliebt ↓                      │
+│ Punkte sind Firmen; Größe/Symbol ≈ Wertgewicht. Genau hier kollidieren │
+│ Profit, Moral und Popularität.                                         │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────╮
+│ Externe Effekte und politische Sicherheitsventile              │
+├────────────────────────────────────────────────────────────────┤
+│ Verschmutzung      ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.2235 │
+│ Health burden      █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0552 │
+│ Biodiversität      █████████████████████████████░░░░░░░ 0.8110 │
+│ Crime index        ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.1059 │
+│ Privacy damage     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0001 │
+│ Infraqualität      ██████████████████████████░░░░░░░░░░ 0.7101 │
+│ Minority harm      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0000 │
+│ Schocks: Scandals=0, Strikes=1, Defaults=0, Overrides=0        │
+╰────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Ereignisband: Schocks, Skandale, Gerichte, Politik                   │
+├──────────────────────────────────────────────────────────────────────┤
+│ t=   1 C0    audit_fine                sev=0.15 target=130    Audit  │
+│ fine for F-ener-3                                                    │
+│ t=   1 C1    audit_fine                sev=0.11 target=140    Audit  │
+│ fine for F-educ-13                                                   │
+│ t=   1 C2    audit_fine                sev=0.10 target=150    Audit  │
+│ fine for F-ente-23                                                   │
+│ t=   1 C0    audit_fine                sev=0.10 target=148    Audit  │
+│ fine for F-ente-21                                                   │
+│ t=   1 C2    patent_grant              sev=0.02 target=144    Patent │
+│ granted to F-tran-17                                                 │
+╰──────────────────────────────────────────────────────────────────────╯
+═ Ende Dashboard — CSV/JSON enthalten dieselben Messgrößen maschinenlesb… ═
+═ V4 UTF-8/ANSI Dashboard — Vektorwährung: Wert × Gutartigkeit × Beliebt… ═
+╭──────────────────────────────────────────────────────────────────╮
+│ Makro-Cockpit: Wert, Richtung, Sicherheit                        │
+├──────────────────────────────────────────────────────────────────┤
+│ t=   3  BIP=3.07K  Geldmenge=1.18M  Inflation=+4.8%              │
+│ Arbeitslosigkeit=3.3%                                            │
+│ Konfidenz    █████████████████░░░░░░░░░░░ 0.616                  │
+│ Gutartigkeit  ░░░░░░░░███████┊░░░░░░░░░░░░░░░ -0.439             │
+│ Beliebtheit   ░░░░░░░░░░░░░░░┊██████░░░░░░░░░ +0.384             │
+│ Legitimität   ███████████████░░░░░░░░░░░░░ 0.536                 │
+│ Legitimitätslücke=0.173                                          │
+│ Ungleichheit  Haushalte=0.504 Firmen=0.304  Winkelspread Ø=23.7° │
+│ GDP   █▂▁                                                        │
+│ Geld  ▁▅█                                                        │
+│ Conf  █▄▁                                                        │
+│ Gut   █▁▂                                                        │
+│ Pop   ▁▅█                                                        │
+╰──────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────╮
+│ Vektor-Kompass der Währung                                          │
+├─────────────────────────────────────────────────────────────────────┤
+│ Weltgeldwinkel θ= 138.8° böse + beliebt   Konzentration R=0.584     │
+│ repräsentativ: Cash= 138.8°  Kauf= 137.3°  Verkauf= 135.8°  K↔V     │
+│ Distanz=  1.4°                                                      │
+│                  beliebt +                                          │
+│                      │                                              │
+│                · ·· ·│· ·· ·                                        │
+│            · ··      │      · ··                                    │
+│         ◆◆·          │          ··                                  │
+│        ··            │            ··                                │
+│       ·              │              ·                               │
+│      ·               │               ·                              │
+│     ·                │                ·                             │
+│  böse -──────────────┼──────────────gut +                           │
+│     ·                │                ·                             │
+│      ·               │               ·                              │
+│       ·              │              ·                               │
+│        ··            │            ···                               │
+│          ··          │          ··                                  │
+│            ·· ·      │      · ··                                    │
+│                · ·· ·│· ·· ·                                        │
+│                      │                                              │
+│                 unbeliebt -                                         │
+│ Legende: ◎ Weltwinkel  ¤ Cashwinkel  K Kaufwinkel  V Verkaufswinkel │
+│ Achsen: x=Gut/Böse durch Regierungen+Gerichte, y=Beliebt/Unbeliebt  │
+│ durch Völker+Medien.                                                │
+╰─────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Dreifachhandel: Wert ↔ Gutartigkeit ↔ Beliebtheit                    │
+├──────────────────────────────────────────────────────────────────────┤
+│ 💰 Wert          ─━━━━━━━━━━━━━━░░░░░░░░░░░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 126.58   Compliance, Audits, Umwelt, Arbeitsschutz                   │
+│ 💰 Wert          ─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━▶ ♥ Beliebtheit    │
+│ 294.18   Werbung, Service, Community, Medien                         │
+│ ♥ Beliebtheit    ─░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 0.17   soziales Mandat senkt Reformkosten                            │
+│ ⚖ Gutartigkeit   ─░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ♥ Beliebtheit    │
+│ 0.00   glaubwürdiges Verhalten wird sichtbar                         │
+│                                                                      │
+│ Dreifachbörsen-Gebühren / Reibung: 20.50   Trades: 4                 │
+│ Winkelwäscheindex: 0.0000                                            │
+│ Kernaussage: Gutartigkeit ist kaufbar nur über nachprüfbare Kosten + │
+│ soziale Glaubwürdigkeit; reine Beliebtheit ohne Substanz senkt       │
+│ Konfidenz.                                                           │
+│ Live-Formel: M = m·e^(iθ), θ=atan2(Beliebtheit, Gutartigkeit),       │
+│ Kaufkraft≈m·ρ·cos(Δθ/2)                                              │
+╰──────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Marktfluss-Diagramm der simulierten Abschnitte                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Haushalte ═Konsum═▶ Firmen ═Löhne═▶ Haushalte   │                       │
+│ Steuern/Subventionen   │   Banken/Kredit                                │
+│ Firmen ═B2B/Lieferketten═▶ Firmen ═Handel═▶ Ausland ═FX═▶               │
+│ Reserve/Zentralbank                                                     │
+│ Alle Akteure ═Kaufwinkel/Verkaufswinkel═▶ Winkelmarkt                   │
+│ ═Rotation/Reibung═▶ neuer Cashwinkel                                    │
+│                                                                         │
+│ Haushalte → Firmen     █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3.06K │
+│ Firmen → Firmen        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 11.37 │
+│ Firmen → Arbeit        ██████████████████████████████████████████       │
+│ 14.16K                                                                  │
+│ Privat → Staat         ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3.21K │
+│ Staat → Wirtschaft     █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 2.99K │
+│ Banken → Kredit        █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4.41K │
+│ International          ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 2.08K │
+│ Winkelrotation         ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       │
+│ 540.58                                                                  │
+│ Schwarzmarkt           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.57  │
+│ Kapitalfluss/FX        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 42.58 │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Kreis-Orderbuch: Handel der Winkel                                     │
+├────────────────────────────────────────────────────────────────────────┤
+│ Jeder Akteur quotiert zwei Richtungen: Kaufwinkel K und Verkaufswinkel │
+│ V. Der Betrag/Geldbestand gewichtet die Ordertiefe.                    │
+│          Kauf-Bid-Tiefe                         Winkelzone             │
+│             Verkauf-Ask-Tiefe                                          │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 000°-030° gut + beliebt                   │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░ 030°-060° gut + beliebt                   │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ████████████████████████████ 060°-090° gut + beliebt                   │
+│ ████████████████████░░░░░░░░                                           │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░ 090°-120° böse + beliebt                  │
+│ █████░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██████████████████████░░░░░░ 120°-150° böse + beliebt                  │
+│ ███████████████████░░░░░░░░░                                           │
+│ ████░░░░░░░░░░░░░░░░░░░░░░░░ 150°-180° böse + beliebt                  │
+│ ████████░░░░░░░░░░░░░░░░░░░░                                           │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░ 180°-210° böse + unbeliebt                │
+│ ████░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ███████████████████░░░░░░░░░ 210°-240° böse + unbeliebt                │
+│ █████████████████░░░░░░░░░░░                                           │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░ 240°-270° böse + unbeliebt                │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 270°-300° gut + unbeliebt                 │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 300°-330° gut + unbeliebt                 │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 330°-360° gut + unbeliebt                 │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ Ø Winkelspread: 23.7°   Rotationskosten: 2.58   Rotationsvolumen:      │
+│ 540.58                                                                 │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Akteure mit zwei Winkeln: Kaufen und Verkaufen                         │
+├────────────────────────────────────────────────────────────────────────┤
+│ Typ  Name                           Wert    Cashθ    Kaufθ  Verkaufθ   │
+│ Spread     ρ  Richtung                                                 │
+│ CB   CentralBank-Aster           120.00K   219.1°   219.1°    219.1°   │
+│   0.0°  0.85  böse + unbeliebt                                         │
+│ CB   CentralBank-Boreal          120.00K    82.4°    82.4°     82.4°   │
+│   0.0°  0.85  gut + beliebt                                            │
+│ CB   CentralBank-Civitas         120.00K   135.8°   135.8°    135.8°   │
+│   0.0°  0.85  böse + beliebt                                           │
+│ B    Bank-Boreal-1                64.12K    71.6°    74.5°     68.0°   │
+│   6.5°  0.76  gut + beliebt                                            │
+│ GOV  Government-Boreal            52.94K    80.7°    86.0°     89.0°   │
+│   3.0°  0.65  gut + beliebt                                            │
+│ B    Bank-Aster-0                 50.48K   217.5°   216.7°    214.7°   │
+│   2.0°  0.63  böse + unbeliebt                                         │
+│ GOV  Government-Civitas           49.41K   133.9°   145.1°    153.2°   │
+│   8.0°  0.65  böse + beliebt                                           │
+│ FND  Fund-Civitas-1               42.88K   126.6°   130.9°    126.8°   │
+│   4.0°  0.77  böse + beliebt                                           │
+│ FND  Fund-Civitas-0               42.77K   147.6°   142.4°    147.7°   │
+│   5.4°  0.83  böse + beliebt                                           │
+│ B    Bank-Civitas-2               36.23K   142.9°   142.0°    147.0°   │
+│   5.0°  0.67  böse + beliebt                                           │
+│ FND  Fund-Boreal-0                35.25K    94.9°    89.3°     94.9°   │
+│   5.6°  0.88  böse + beliebt                                           │
+│ FND  Fund-Boreal-1                34.77K    93.0°    88.2°     92.8°   │
+│   4.7°  0.61  böse + beliebt                                           │
+│ GOV  Government-Aster             34.53K   219.6°   222.4°    225.2°   │
+│   2.8°  0.68  böse + unbeliebt                                         │
+│ FND  Fund-Aster-0                 32.57K   207.4°   212.6°    207.3°   │
+│   5.3°  0.73  böse + unbeliebt                                         │
+│ K=was dieser Akteur akzeptiert/kaufen will; V=welche Winkelqualität er │
+│ beim Verkaufen verlangt.                                               │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────╮
+│ Länder/Jurisdiktionen: Makro, Legitimität, Währungswinkel          │
+├────────────────────────────────────────────────────────────────────┤
+│ Aster                BIP ██████████████████    1.66K  FX=0.865  θ= │
+│ 219.0° böse + unbeliebt                                            │
+│     Legitimität ██████░░░░░░░░ 0.44  Unemp=0.0%  Infl=+5.5%        │
+│ Protest=0.03  Infra=0.74  Bio=0.93  Crime=0.08  Courts=0.84        │
+│ Boreal               BIP █████████░░░░░░░░░   831.35  FX=1.195  θ= │
+│ 82.3° gut + beliebt                                                │
+│     Legitimität ███████░░░░░░░ 0.47  Unemp=0.0%  Infl=+5.6%        │
+│ Protest=0.09  Infra=0.73  Bio=0.77  Crime=0.19  Courts=0.84        │
+│ Civitas              BIP ██████░░░░░░░░░░░░   572.22  FX=1.292  θ= │
+│ 135.6° böse + beliebt                                              │
+│     Legitimität ██████████░░░░ 0.69  Unemp=10.0%  Infl=+3.3%       │
+│ Protest=0.05  Infra=0.76  Bio=0.73  Crime=0.04  Courts=0.47        │
+╰────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Firmenkarte: Gutartigkeit × Beliebtheit, gewichtet durch Wert          │
+├────────────────────────────────────────────────────────────────────────┤
+│ ╭───────────────────────────────────────────────╮                      │
+│ │ böse + beliebt        │      gut + beliebt    │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                ◆      │       ◆               │                      │
+│ │            ●          │ ◆                    ◆│                      │
+│ │               ◆       │◆      ◆  ◆  ◆         │                      │
+│ │               ◆       │   ●       ◆ ◆◆    ◆  ✦│                      │
+│ │                 ◆  ◆  │●         ◆           ◆│                      │
+│ │─────────────────────◆─┼────────✦──────────────│                      │
+│ │                       │     ◆        ◆       ◆│                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │ böse + unbeliebt      │    gut + unbeliebt    │                      │
+│ ╰───────────────────────────────────────────────╯                      │
+│ x-Achse: Regierung/Gerichte Gutartigkeit ← böse | gut →   y-Achse:     │
+│ Volks-/Medien-Beliebtheit ↑ beliebt | unbeliebt ↓                      │
+│ Punkte sind Firmen; Größe/Symbol ≈ Wertgewicht. Genau hier kollidieren │
+│ Profit, Moral und Popularität.                                         │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────╮
+│ Externe Effekte und politische Sicherheitsventile              │
+├────────────────────────────────────────────────────────────────┤
+│ Verschmutzung      ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.2221 │
+│ Health burden      █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0559 │
+│ Biodiversität      █████████████████████████████░░░░░░░ 0.8109 │
+│ Crime index        ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.1017 │
+│ Privacy damage     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0002 │
+│ Infraqualität      ███████████████████████████░░░░░░░░░ 0.7442 │
+│ Minority harm      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0000 │
+│ Schocks: Scandals=0, Strikes=1, Defaults=0, Overrides=0        │
+╰────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Ereignisband: Schocks, Skandale, Gerichte, Politik                   │
+├──────────────────────────────────────────────────────────────────────┤
+│ t=   3 C0    audit_fine                sev=0.19 target=142    Audit  │
+│ fine for F-tran-15                                                   │
+│ t=   3 C2    audit_fine                sev=0.10 target=144    Audit  │
+│ fine for F-tran-17                                                   │
+│ t=   2 C2    audit_fine                sev=0.10 target=150    Audit  │
+│ fine for F-ente-23                                                   │
+│ t=   2 C0    patent_grant              sev=0.02 target=136    Patent │
+│ granted to F-heal-9                                                  │
+│ t=   2 C0    patent_grant              sev=0.02 target=148    Patent │
+│ granted to F-ente-21                                                 │
+│ t=   1 C0    audit_fine                sev=0.15 target=130    Audit  │
+│ fine for F-ener-3                                                    │
+│ t=   1 C1    audit_fine                sev=0.11 target=140    Audit  │
+│ fine for F-educ-13                                                   │
+│ t=   1 C2    audit_fine                sev=0.10 target=150    Audit  │
+│ fine for F-ente-23                                                   │
+│ t=   1 C0    audit_fine                sev=0.10 target=148    Audit  │
+│ fine for F-ente-21                                                   │
+│ t=   1 C2    patent_grant              sev=0.02 target=144    Patent │
+│ granted to F-tran-17                                                 │
+╰──────────────────────────────────────────────────────────────────────╯
+═ Ende Dashboard — CSV/JSON enthalten dieselben Messgrößen maschinenlesb… ═
+═ V4 UTF-8/ANSI Dashboard — Vektorwährung: Wert × Gutartigkeit × Beliebt… ═
+FINALER SNAPSHOT
+╭──────────────────────────────────────────────────────────────────╮
+│ Makro-Cockpit: Wert, Richtung, Sicherheit                        │
+├──────────────────────────────────────────────────────────────────┤
+│ t=   6  BIP=2.81K  Geldmenge=1.18M  Inflation=+10.2%             │
+│ Arbeitslosigkeit=11.7%                                           │
+│ Konfidenz    ███████████████░░░░░░░░░░░░░ 0.524                  │
+│ Gutartigkeit  ░░░░░░░░░██████┊░░░░░░░░░░░░░░░ -0.430             │
+│ Beliebtheit   ░░░░░░░░░░░░░░░┊██████░░░░░░░░░ +0.386             │
+│ Legitimität   █████████████░░░░░░░░░░░░░░░ 0.473                 │
+│ Legitimitätslücke=0.154                                          │
+│ Ungleichheit  Haushalte=0.553 Firmen=0.357  Winkelspread Ø=23.7° │
+│ GDP   █▃▁▁▁▁                                                     │
+│ Geld  ▁▂▃▅▇█                                                     │
+│ Conf  █▆▅▃▂▁                                                     │
+│ Gut   ▂▁▁▂█▇                                                     │
+│ Pop   ▁▅▇▇██                                                     │
+╰──────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────╮
+│ Vektor-Kompass der Währung                                          │
+├─────────────────────────────────────────────────────────────────────┤
+│ Weltgeldwinkel θ= 138.1° böse + beliebt   Konzentration R=0.578     │
+│ repräsentativ: Cash= 138.1°  Kauf= 137.4°  Verkauf= 135.7°  K↔V     │
+│ Distanz=  1.7°                                                      │
+│                  beliebt +                                          │
+│                      │                                              │
+│                · ·· ·│· ·· ·                                        │
+│            · ··      │      · ··                                    │
+│         ◆V·          │          ··                                  │
+│        ··            │            ··                                │
+│       ·              │              ·                               │
+│      ·               │               ·                              │
+│     ·                │                ·                             │
+│  böse -──────────────┼──────────────gut +                           │
+│     ·                │                ·                             │
+│      ·               │               ·                              │
+│       ·              │              ·                               │
+│        ··            │            ···                               │
+│          ··          │          ··                                  │
+│            ·· ·      │      · ··                                    │
+│                · ·· ·│· ·· ·                                        │
+│                      │                                              │
+│                 unbeliebt -                                         │
+│ Legende: ◎ Weltwinkel  ¤ Cashwinkel  K Kaufwinkel  V Verkaufswinkel │
+│ Achsen: x=Gut/Böse durch Regierungen+Gerichte, y=Beliebt/Unbeliebt  │
+│ durch Völker+Medien.                                                │
+╰─────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Dreifachhandel: Wert ↔ Gutartigkeit ↔ Beliebtheit                    │
+├──────────────────────────────────────────────────────────────────────┤
+│ 💰 Wert          ─━━━━━━━━━━━━━━━━━━━━━━━━░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 112.19   Compliance, Audits, Umwelt, Arbeitsschutz                   │
+│ 💰 Wert          ─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━▶ ♥ Beliebtheit    │
+│ 149.44   Werbung, Service, Community, Medien                         │
+│ ♥ Beliebtheit    ─░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ⚖ Gutartigkeit   │
+│ 0.20   soziales Mandat senkt Reformkosten                            │
+│ ⚖ Gutartigkeit   ─░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▶ ♥ Beliebtheit    │
+│ 0.00   glaubwürdiges Verhalten wird sichtbar                         │
+│                                                                      │
+│ Dreifachbörsen-Gebühren / Reibung: 15.61   Trades: 4                 │
+│ Winkelwäscheindex: 0.0206                                            │
+│ Kernaussage: Gutartigkeit ist kaufbar nur über nachprüfbare Kosten + │
+│ soziale Glaubwürdigkeit; reine Beliebtheit ohne Substanz senkt       │
+│ Konfidenz.                                                           │
+│ Live-Formel: M = m·e^(iθ), θ=atan2(Beliebtheit, Gutartigkeit),       │
+│ Kaufkraft≈m·ρ·cos(Δθ/2)                                              │
+╰──────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Marktfluss-Diagramm der simulierten Abschnitte                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Haushalte ═Konsum═▶ Firmen ═Löhne═▶ Haushalte   │                       │
+│ Steuern/Subventionen   │   Banken/Kredit                                │
+│ Firmen ═B2B/Lieferketten═▶ Firmen ═Handel═▶ Ausland ═FX═▶               │
+│ Reserve/Zentralbank                                                     │
+│ Alle Akteure ═Kaufwinkel/Verkaufswinkel═▶ Winkelmarkt                   │
+│ ═Rotation/Reibung═▶ neuer Cashwinkel                                    │
+│                                                                         │
+│ Haushalte → Firmen     ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 2.80K │
+│ Firmen → Firmen        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 11.54 │
+│ Firmen → Arbeit        ██████████████████████████████████████████       │
+│ 11.27K                                                                  │
+│ Privat → Staat         █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 2.50K │
+│ Staat → Wirtschaft     ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3.06K │
+│ Banken → Kredit        ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░ 4.14K │
+│ International          ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 1.72K │
+│ Winkelrotation         ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░ 3.90K │
+│ Schwarzmarkt           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 6.20  │
+│ Kapitalfluss/FX        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 45.41 │
+╰─────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Kreis-Orderbuch: Handel der Winkel                                     │
+├────────────────────────────────────────────────────────────────────────┤
+│ Jeder Akteur quotiert zwei Richtungen: Kaufwinkel K und Verkaufswinkel │
+│ V. Der Betrag/Geldbestand gewichtet die Ordertiefe.                    │
+│          Kauf-Bid-Tiefe                         Winkelzone             │
+│             Verkauf-Ask-Tiefe                                          │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 000°-030° gut + beliebt                   │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░ 030°-060° gut + beliebt                   │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ████████████████████████████ 060°-090° gut + beliebt                   │
+│ █████████████████████░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 090°-120° böse + beliebt                  │
+│ █████░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ████████████████████████░░░░ 120°-150° böse + beliebt                  │
+│ █████████████████████░░░░░░░                                           │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░ 150°-180° böse + beliebt                  │
+│ ███████░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░ 180°-210° böse + unbeliebt                │
+│ ████░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ████████████████████░░░░░░░░ 210°-240° böse + unbeliebt                │
+│ ██████████████████░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 240°-270° böse + unbeliebt                │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ██░░░░░░░░░░░░░░░░░░░░░░░░░░ 270°-300° gut + unbeliebt                 │
+│ █░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 300°-330° gut + unbeliebt                 │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 330°-360° gut + unbeliebt                 │
+│ ███░░░░░░░░░░░░░░░░░░░░░░░░░                                           │
+│ Ø Winkelspread: 23.7°   Rotationskosten: 22.73   Rotationsvolumen:     │
+│ 3.90K                                                                  │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Akteure mit zwei Winkeln: Kaufen und Verkaufen                         │
+├────────────────────────────────────────────────────────────────────────┤
+│ Typ  Name                           Wert    Cashθ    Kaufθ  Verkaufθ   │
+│ Spread     ρ  Richtung                                                 │
+│ CB   CentralBank-Aster           120.00K   219.1°   219.1°    219.1°   │
+│   0.0°  0.85  böse + unbeliebt                                         │
+│ CB   CentralBank-Boreal          120.00K    82.4°    82.4°     82.4°   │
+│   0.0°  0.85  gut + beliebt                                            │
+│ CB   CentralBank-Civitas         120.00K   135.8°   135.8°    135.8°   │
+│   0.0°  0.85  böse + beliebt                                           │
+│ B    Bank-Boreal-1                73.43K    72.5°    74.5°     68.0°   │
+│   6.5°  0.72  gut + beliebt                                            │
+│ B    Bank-Aster-0                 62.45K   218.8°   216.7°    214.7°   │
+│   2.0°  0.59  böse + unbeliebt                                         │
+│ GOV  Government-Boreal            55.82K    79.1°    86.0°     89.0°   │
+│   3.0°  0.63  gut + beliebt                                            │
+│ GOV  Government-Civitas           54.00K   132.4°   145.1°    153.2°   │
+│   8.0°  0.61  böse + beliebt                                           │
+│ B    Bank-Civitas-2               53.72K   141.4°   142.0°    147.0°   │
+│   5.0°  0.60  böse + beliebt                                           │
+│ FND  Fund-Civitas-1               43.64K   126.5°   130.9°    126.8°   │
+│   4.0°  0.77  böse + beliebt                                           │
+│ FND  Fund-Civitas-0               39.98K   147.6°   142.4°    147.7°   │
+│   5.4°  0.83  böse + beliebt                                           │
+│ FND  Fund-Boreal-0                35.25K    94.9°    89.3°     94.9°   │
+│   5.6°  0.88  böse + beliebt                                           │
+│ FND  Fund-Boreal-1                34.95K    93.1°    88.2°     92.8°   │
+│   4.7°  0.61  böse + beliebt                                           │
+│ GOV  Government-Aster             33.53K   220.2°   222.4°    225.2°   │
+│   2.8°  0.64  böse + unbeliebt                                         │
+│ FND  Fund-Aster-0                 32.74K   207.4°   212.6°    207.3°   │
+│   5.3°  0.72  böse + unbeliebt                                         │
+│ K=was dieser Akteur akzeptiert/kaufen will; V=welche Winkelqualität er │
+│ beim Verkaufen verlangt.                                               │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────╮
+│ Länder/Jurisdiktionen: Makro, Legitimität, Währungswinkel          │
+├────────────────────────────────────────────────────────────────────┤
+│ Aster                BIP ██████████████████    1.21K  FX=0.846  θ= │
+│ 218.7° böse + unbeliebt                                            │
+│     Legitimität ██████░░░░░░░░ 0.40  Unemp=0.0%  Infl=+11.5%       │
+│ Protest=0.07  Infra=0.79  Bio=0.93  Crime=0.08  Courts=0.84        │
+│ Boreal               BIP █████████████░░░░░   863.45  FX=1.207  θ= │
+│ 81.9° gut + beliebt                                                │
+│     Legitimität ██████░░░░░░░░ 0.41  Unemp=2.5%  Infl=+10.9%       │
+│ Protest=0.21  Infra=0.79  Bio=0.77  Crime=0.18  Courts=0.84        │
+│ Civitas              BIP ███████████░░░░░░░   743.27  FX=1.319  θ= │
+│ 135.0° böse + beliebt                                              │
+│     Legitimität ████████░░░░░░ 0.60  Unemp=32.5%  Infl=+8.2%       │
+│ Protest=0.11  Infra=0.83  Bio=0.73  Crime=0.04  Courts=0.47        │
+╰────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────╮
+│ Firmenkarte: Gutartigkeit × Beliebtheit, gewichtet durch Wert          │
+├────────────────────────────────────────────────────────────────────────┤
+│ ╭───────────────────────────────────────────────╮                      │
+│ │ böse + beliebt        │      gut + beliebt    │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │               ●       │        ◆              │                      │
+│ │              •        │    ◆                  │                      │
+│ │                ◆      │ ◆   ●  ◆ ◆ ◆ ◆       ●│                      │
+│ │                ◆      │           ◆ ◆      ◆ ✦│                      │
+│ │                 ◆  ◆  │             ◆●  ◆    ◆│                      │
+│ │───────────────────────┼•◆────◆─────◆──────────│                      │
+│ │                       │                      ◆│                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │                       │                       │                      │
+│ │ böse + unbeliebt      │    gut + unbeliebt    │                      │
+│ ╰───────────────────────────────────────────────╯                      │
+│ x-Achse: Regierung/Gerichte Gutartigkeit ← böse | gut →   y-Achse:     │
+│ Volks-/Medien-Beliebtheit ↑ beliebt | unbeliebt ↓                      │
+│ Punkte sind Firmen; Größe/Symbol ≈ Wertgewicht. Genau hier kollidieren │
+│ Profit, Moral und Popularität.                                         │
+╰────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────╮
+│ Externe Effekte und politische Sicherheitsventile              │
+├────────────────────────────────────────────────────────────────┤
+│ Verschmutzung      ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.2200 │
+│ Health burden      █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0561 │
+│ Biodiversität      █████████████████████████████░░░░░░░ 0.8111 │
+│ Crime index        ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0993 │
+│ Privacy damage     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0004 │
+│ Infraqualität      █████████████████████████████░░░░░░░ 0.8008 │
+│ Minority harm      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0000 │
+│ Schocks: Scandals=0, Strikes=0, Defaults=0, Overrides=0        │
+╰────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────╮
+│ Ereignisband: Schocks, Skandale, Gerichte, Politik                   │
+├──────────────────────────────────────────────────────────────────────┤
+│ t=   6 C0    audit_fine                sev=0.19 target=133    Audit  │
+│ fine for F-hous-6                                                    │
+│ t=   6 C2    audit_fine                sev=0.10 target=144    Audit  │
+│ fine for F-tran-17                                                   │
+│ t=   6 C0    patent_grant              sev=0.03 target=130    Patent │
+│ granted to F-ener-3                                                  │
+│ t=   6 C2    patent_grant              sev=0.02 target=156    Patent │
+│ granted to F-data-29                                                 │
+│ t=   5 C2    audit_fine                sev=0.13 target=135    Audit  │
+│ fine for F-hous-8                                                    │
+│ t=   5 C1    audit_fine                sev=0.10 target=155    Audit  │
+│ fine for F-data-28                                                   │
+│ t=   5 C0    audit_fine                sev=0.10 target=148    Audit  │
+│ fine for F-ente-21                                                   │
+│ t=   5 C2    audit_fine                sev=0.10 target=129    Audit  │
+│ fine for F-food-2                                                    │
+│ t=   4 C2    audit_fine                sev=0.10 target=156    Audit  │
+│ fine for F-data-29                                                   │
+│ t=   4 C1    audit_fine                sev=0.10 target=128    Audit  │
+│ fine for F-food-1                                                    │
+╰──────────────────────────────────────────────────────────────────────╯
+═ Ende Dashboard — CSV/JSON enthalten dieselben Messgrößen maschinenlesb… ═

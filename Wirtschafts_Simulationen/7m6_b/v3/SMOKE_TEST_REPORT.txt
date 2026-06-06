@@ -1,0 +1,20 @@
+Smoke tests performed in this environment:
+
+1. Syntax compilation:
+   python3 -m py_compile vector_currency_sim.py vector_currency_sim_v3.py
+   Result: OK
+
+2. Small functional run with dashboard:
+   python3 vector_currency_sim.py --steps 2 --countries 2 --households 40 --firms 12 --banks 2 --seed 3 --out /tmp/smoke_metrics.csv --summary /tmp/smoke_summary.json --events /tmp/smoke_events.csv --art --art-every 1 --no-color
+   Result: OK
+
+3. Metrics presence check:
+   Required V3 fields found:
+   - value_buy_goodness_volume
+   - value_buy_popularity_volume
+   - popularity_buy_goodness_volume
+   - goodness_buy_popularity_volume
+   - triadic_exchange_count
+   - avg_angle_spread
+
+Note: pypy3 was not installed in this container, so runtime tests used CPython. The code uses only the Python standard library and avoids CPython-specific dependencies.
