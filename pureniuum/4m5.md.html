@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>4m5</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-linearität-vs.-box-einheit-1">Universelle
+Eigenschaften: Linearität vs. Box (≈ Einheit / 1)</h1>
+<h2 id="grundidee">Grundidee</h2>
+<ul>
+<li><strong>Linearität</strong> beschreibt Struktur durch
+<em>Fortsetzung und Beziehung</em>.</li>
+<li><strong>Box (≈ 1)</strong> beschreibt Struktur durch
+<em>Abgeschlossenheit und Identität</em>.</li>
+</ul>
+<p>Beide sind universelle Organisationsformen von Struktur, aber auf
+entgegengesetzten Achsen:</p>
+<ul>
+<li>Linearität = Relation im Fluss</li>
+<li>Box = Stabilität im Zustand</li>
+</ul>
+<hr />
+<h2 id="vergleich-universeller-eigenschaften">Vergleich universeller
+Eigenschaften</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 22%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Linearität</th>
+<th>Box (≈ Einheit / 1)</th>
+<th>Strukturelle Differenz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strukturtyp</td>
+<td>Offen, verlaufend</td>
+<td>Geschlossen, abgegrenzt</td>
+<td>Prozess vs. Objekt</td>
+</tr>
+<tr>
+<td>Grundprinzip</td>
+<td>Beziehung / Fortsetzung</td>
+<td>Identität / Selbsthaltung</td>
+<td>Werden vs. Sein</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>Addition, Skalierung</td>
+<td>Multiplikation mit 1</td>
+<td>Transformation vs. Fixierung</td>
+</tr>
+<tr>
+<td>Geometrische Intuition</td>
+<td>Linie, Pfad, Vektorraum</td>
+<td>Punkt, Zelle, atomare Einheit</td>
+<td>Ausdehnung vs. Konzentration</td>
+</tr>
+<tr>
+<td>Dimensionale Rolle</td>
+<td>Träger von Richtung</td>
+<td>Träger von Einheit</td>
+<td>Richtung vs. Nullrichtung</td>
+</tr>
+<tr>
+<td>Informationsverhalten</td>
+<td>verteilt entlang Struktur</td>
+<td>komprimiert in einem Knoten</td>
+<td>Streuung vs. Verdichtung</td>
+</tr>
+<tr>
+<td>Zeitlogik</td>
+<td>sequenziell, prozesshaft</td>
+<td>zeitlos, zustandsbasiert</td>
+<td>Dynamik vs. Statik</td>
+</tr>
+<tr>
+<td>Abgeschlossenheit</td>
+<td>offen / erweiterbar</td>
+<td>vollständig abgeschlossen</td>
+<td>Unvollständigkeit vs. Vollständigkeit</td>
+</tr>
+<tr>
+<td>Komposition</td>
+<td>Verkettung möglich (linear)</td>
+<td>nicht reduzierbar (atomar)</td>
+<td>Kombinatorik vs. Atomizität</td>
+</tr>
+<tr>
+<td>Abhängigkeit</td>
+<td>skalen- und basisabhängig</td>
+<td>invariant als Identität</td>
+<td>Relativität vs. Absolutheit</td>
+</tr>
+<tr>
+<td>Logischer Status</td>
+<td>relationale Struktur</td>
+<td>Identitätsaxiom (x = x)</td>
+<td>Beschreibung vs. Existenz</td>
+</tr>
+<tr>
+<td>Stabilität</td>
+<td>stabil unter linearen Abbildungen</td>
+<td>stabil unter jeder Operation</td>
+<td>Transformationsstabil vs. Invariantenstabil</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="duale-invarianten">Duale Invarianten</h2>
+<h3 id="linearität">Linearität</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L(x + y) = L(x) + L(y)
+</annotation></semantics></math></p>
+<p>→ Struktur bleibt erhalten unter Zerlegung und Zusammensetzung</p>
+<hr />
+<h3 id="box-einheit">Box (Einheit)</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>⋅</mo><mi>x</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">
+1 \cdot x = x
+</annotation></semantics></math></p>
+<p>→ Struktur bleibt erhalten unter Identität und Skalierung</p>
+<hr />
+<h2 id="tiefere-strukturelle-interpretation">Tiefere strukturelle
+Interpretation</h2>
+<h3 id="linearität-1">Linearität</h3>
+<ul>
+<li>erzeugt <strong>Strukturen durch Zusammenhang</strong></li>
+<li>ist die Geometrie von <em>Pfaden, Prozessen und Operatoren</em></li>
+<li>benötigt mindestens zwei Punkte, um Bedeutung zu erzeugen</li>
+</ul>
+<h3 id="box-1">Box (≈ 1)</h3>
+<ul>
+<li>erzeugt <strong>Strukturen durch Selbstbezug</strong></li>
+<li>ist die Geometrie des <em>atomaren Seins</em></li>
+<li>benötigt keine externe Relation</li>
+</ul>
+<hr />
+<h2 id="gemeinsame-meta-invariante">Gemeinsame Meta-Invariante</h2>
+<p>Beide Systeme definieren Stabilität, aber auf unterschiedlichen
+Achsen:</p>
+<ul>
+<li>Linearität stabilisiert <strong>Relationen</strong></li>
+<li>Box stabilisiert <strong>Identität</strong></li>
+</ul>
+<hr />
+<h2 id="reduktion-auf-minimale-form">Reduktion auf minimale Form</h2>
+<ul>
+<li>Linearität = Struktur ohne Fixpunkt</li>
+<li>Box = Fixpunkt ohne Struktur</li>
+</ul>
+<hr />
+<h2 id="kurzform">Kurzform</h2>
+<ul>
+<li>Linearität: <strong>„Alles ist Verbindung“</strong></li>
+<li>Box: <strong>„Alles ist Einheit“</strong></li>
+</ul>
+</body>
+</html>
