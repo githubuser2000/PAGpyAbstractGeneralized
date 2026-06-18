@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3m4</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-existenz-haken-linearität">Universelle
+Eigenschaften: Existenz (∃ / „Haken“) ↔︎ Linearität</h1>
+<h2 id="grundidee">0. Grundidee</h2>
+<p>Wir vergleichen zwei abstrakte Strukturen:</p>
+<ul>
+<li><strong>Existenz (∃ / Haken)</strong>: selektive Aktivierung eines
+Elements („es ist da“)</li>
+<li><strong>Linearität</strong>: strukturerhaltende Abbildung entlang
+additiver und skalarer Regeln</li>
+</ul>
+<p>Zentrale Spannung:</p>
+<blockquote>
+<p>Existenz ist diskret (An/Aus), Linearität ist
+strukturerhaltend-kontinuierlich.</p>
+</blockquote>
+<hr />
+<h1 id="grundcharakter-der-objekte">1. Grundcharakter der Objekte</h1>
+<h2 id="existenz-haken">Existenz (∃ / Haken)</h2>
+<ul>
+<li>Boolesche Struktur: {0,1}</li>
+<li>Aussageform: „Es existiert mindestens ein x“</li>
+<li>Operatorcharakter: Selektor / Aktivator</li>
+<li>Wirkung: hebt ein Element aus einer Menge heraus</li>
+<li>Fokus: <strong>Detektion statt Transformation</strong></li>
+</ul>
+<h2 id="linearität">Linearität</h2>
+<ul>
+<li>Strukturform: Abbildung
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>V</mi><mo>→</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">f: V \to W</annotation></semantics></math></li>
+<li>Axiome:
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x+y)=f(x)+f(y)</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(ax)=a f(x)</annotation></semantics></math></li>
+</ul></li>
+<li>Operatorcharakter: Strukturtransformator</li>
+<li>Wirkung: erhält Form unter Operationen</li>
+<li>Fokus: <strong>Erhaltung statt Auswahl</strong></li>
+</ul>
+<hr />
+<h1 id="duale-übergänge">2. Duale Übergänge</h1>
+<h2 id="existenz-linearität">2.1 Existenz → Linearität</h2>
+<h3 id="punkt-richtung">(1) Punkt → Richtung</h3>
+<ul>
+<li>Existenz erzeugt ein „da“-Element</li>
+<li>Linearität macht daraus eine gerichtete Struktur</li>
+</ul>
+<p>→ Übergang:</p>
+<blockquote>
+<p>Punkt (Existenz) wird zu Vektor (Linearität)</p>
+</blockquote>
+<hr />
+<h3 id="aktivierung-ausbreitung">(2) Aktivierung → Ausbreitung</h3>
+<ul>
+<li>∃ aktiviert ein einzelnes Element</li>
+<li>Linearität verteilt diese Aktivierung strukturerhaltend</li>
+</ul>
+<hr />
+<h3 id="auswahl-projektion">(3) Auswahl → Projektion</h3>
+<ul>
+<li>Existenz wählt ein Element aus</li>
+<li>Lineare Abbildung projiziert dieses Element in einen Raum</li>
+</ul>
+<hr />
+<h3 id="bool-skalarraum">(4) Bool → Skalarraum</h3>
+<ul>
+<li>Existenz ist binär</li>
+<li>Linearität hebt binäre Entscheidung in kontinuierliche Struktur</li>
+</ul>
+<hr />
+<h2 id="linearität-existenz">2.2 Linearität → Existenz</h2>
+<h3 id="struktur-schwelle">(1) Struktur → Schwelle</h3>
+<ul>
+<li>Lineare Abbildung erzeugt kontinuierliche Werte</li>
+<li>Existenz entsteht durch Schwellenprüfung: &gt; „Ist Output ≠
+0?“</li>
+</ul>
+<hr />
+<h3 id="raum-aussage">(2) Raum → Aussage</h3>
+<ul>
+<li>Lineare Struktur erzeugt Vektorräume</li>
+<li>Existenz reduziert Raum auf logische Aussage</li>
+</ul>
+<hr />
+<h3 id="transformation-wahrheitswert">(3) Transformation →
+Wahrheitswert</h3>
+<ul>
+<li>Linearität transformiert</li>
+<li>Existenz bewertet Ergebnis als „da / nicht da“</li>
+</ul>
+<hr />
+<h3 id="kontinuum-diskretion">(4) Kontinuum → Diskretion</h3>
+<ul>
+<li>Linearität ist kontinuierlich</li>
+<li>Existenz extrahiert diskrete Entscheidung</li>
+</ul>
+<hr />
+<h1 id="gemeinsame-universelle-eigenschaften">3. Gemeinsame universelle
+Eigenschaften</h1>
+<h2 id="invarianz">3.1 Invarianz</h2>
+<h3 id="existenz">Existenz</h3>
+<ul>
+<li>bleibt wahr/falsch unabhängig von Darstellung</li>
+<li>invariant unter Umbenennung der Elemente</li>
+</ul>
+<h3 id="linearität-1">Linearität</h3>
+<ul>
+<li>invariant unter Basiswechsel</li>
+<li>strukturerhaltend unter Transformation</li>
+</ul>
+<hr />
+<h2 id="komposition">3.2 Komposition</h2>
+<h3 id="existenz-1">Existenz</h3>
+<ul>
+<li>∃ kann über Mengen zusammengesetzt werden</li>
+<li><ol start="26" type="a">
+<li>B. „∃x in A oder B“</li>
+</ol></li>
+</ul>
+<h3 id="linearität-2">Linearität</h3>
+<ul>
+<li>lineare Operatoren sind kompositionsstabil</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">f ∘ g</annotation></semantics></math>
+bleibt strukturerhaltend</li>
+</ul>
+<hr />
+<h2 id="reduktion-auf-minimalstruktur">3.3 Reduktion auf
+Minimalstruktur</h2>
+<ul>
+<li>Existenz: reduziert auf <strong>1 Bit (0/1)</strong></li>
+<li>Linearität: reduziert auf <strong>Axiome der Additivität +
+Homogenität</strong></li>
+</ul>
+<hr />
+<h2 id="stabilität">3.4 Stabilität</h2>
+<ul>
+<li>Existenz: stabiler Wahrheitskern</li>
+<li>Linearität: stabile Struktur unter Operationen</li>
+</ul>
+<hr />
+<h2 id="selektions--vs-erhaltungsprinzip">3.5 Selektions- vs
+Erhaltungsprinzip</h2>
+<ul>
+<li>Existenz: Auswahl eines Elements aus Menge</li>
+<li>Linearität: Erhaltung aller strukturellen Beziehungen</li>
+</ul>
+<hr />
+<h1 id="duale-invariantenstruktur">4. Duale Invariantenstruktur</h1>
+<table>
+<thead>
+<tr>
+<th>Achse</th>
+<th>Existenz (∃ / Haken)</th>
+<th>Linearität</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ontologie</td>
+<td>Sein / Nichtsein</td>
+<td>Struktur des Werdens</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>Aktivierung</td>
+<td>Transformation</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>diskret</td>
+<td>kontinuierlich</td>
+</tr>
+<tr>
+<td>Kernoperation</td>
+<td>Auswahl</td>
+<td>Erhaltung</td>
+</tr>
+<tr>
+<td>Ergebnis</td>
+<td>Wahrheitswert</td>
+<td>Abbildung</td>
+</tr>
+<tr>
+<td>Reduktion</td>
+<td>1 Bit</td>
+<td>2 Axiome</td>
+</tr>
+<tr>
+<td>Wirkung</td>
+<td>Punkt</td>
+<td>Richtung</td>
+</tr>
+<tr>
+<td>Stabilität</td>
+<td>Wahrheit</td>
+<td>Struktur</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="tiefere-gemeinsame-struktur">5. Tiefere gemeinsame Struktur</h1>
+<h2 id="minimale-stabilitätsinformation">5.1 Minimale
+Stabilitätsinformation</h2>
+<p>Beide sind Formen minimaler Stabilisierung:</p>
+<ul>
+<li>Existenz: stabilisiert Realität als „es gibt etwas“</li>
+<li>Linearität: stabilisiert Veränderung als „es bleibt konsistent“</li>
+</ul>
+<hr />
+<h2 id="operatorische-gemeinsamkeit">5.2 Operatorische
+Gemeinsamkeit</h2>
+<p>Beide sind keine Objekte, sondern <strong>Operatoren auf
+Struktur</strong>:</p>
+<ul>
+<li>Existenz: Operator auf Mengen → Wahrheitswert</li>
+<li>Linearität: Operator auf Vektoren → strukturtreue Abbildung</li>
+</ul>
+<hr />
+<h2 id="informationskompression">5.3 Informationskompression</h2>
+<ul>
+<li>Existenz: maximale Kompression → 1 Bit</li>
+<li>Linearität: maximale Strukturkompression → 2 Regeln</li>
+</ul>
+<hr />
+<h1 id="verdichtete-essenz">6. Verdichtete Essenz</h1>
+<ul>
+<li>Existenz sagt: <strong>„Etwas ist aktiviert.“</strong></li>
+<li>Linearität sagt: <strong>„Wenn es aktiviert ist, bleibt es
+konsistent transformierbar.“</strong></li>
+</ul>
+<hr />
+<h2 id="kurzform">7. Kurzform</h2>
+<blockquote>
+<p>Existenz ist die minimale Aktivierung von Realität.<br />
+Linearität ist die minimale Struktur, die diese Aktivierung stabil über
+Transformationen erhält.</p>
+</blockquote>
+</body>
+</html>

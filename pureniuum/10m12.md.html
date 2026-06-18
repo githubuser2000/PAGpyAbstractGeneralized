@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>10m12</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-zwischen-menge-tupel-hierarchie-und-wahrheitswert-0-stelligem-prädikat">Universelle
+Eigenschaften zwischen Menge, Tupel, Hierarchie und Wahrheitswert /
+0-stelligem Prädikat</h1>
+<h2 id="ausgangsobjekte">Ausgangsobjekte</h2>
+<ul>
+<li>Menge (Set)</li>
+<li>Tupel (Tuple)</li>
+<li>Hierarchie (Tree / Ordnung)</li>
+<li>Wahrheitswert (Boolean)</li>
+<li>0-stelliges Logikprädikat (Aussage ohne Argumente)</li>
+</ul>
+<hr />
+<h1 id="zwei-fundamentale-richtungen">1. Zwei fundamentale
+Richtungen</h1>
+<h2 id="a-struktur-bewertung-interpretation-semantik">A) Struktur →
+Bewertung (Interpretation / Semantik)</h2>
+<p>Hier wird eine gegebene Struktur auf ihren Wahrheits- oder
+Gültigkeitswert abgebildet.</p>
+<h3 id="beispiele">Beispiele:</h3>
+<ul>
+<li>Menge → Existenzprüfung → wahr/falsch</li>
+<li>Tupel → Erfüllung einer Bedingung über geordnete Elemente</li>
+<li>Hierarchie → Aktivität / Gültigkeit eines Knotens oder Pfads</li>
+<li>0-stelliges Prädikat → direkter Wahrheitswert</li>
+</ul>
+<h3 id="formale-sicht">Formale Sicht:</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mtext mathvariant="normal">Struktur</mtext><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+f : \text{Struktur} \rightarrow \{\text{wahr}, \text{falsch}\}
+</annotation></semantics></math></p>
+<h3 id="bedeutung">Bedeutung:</h3>
+<ul>
+<li>Logische Auswertung</li>
+<li>Semantische Interpretation</li>
+<li>Modellprüfung</li>
+</ul>
+<hr />
+<h2 id="b-bewertung-struktur-konstruktion-generierung">B) Bewertung →
+Struktur (Konstruktion / Generierung)</h2>
+<p>Hier erzeugt ein Wahrheits- oder Geltungswert eine Struktur oder
+beschränkt sie.</p>
+<h3 id="beispiele-1">Beispiele:</h3>
+<ul>
+<li>wahr → gültige Struktur / erlaubter Zustand</li>
+<li>falsch → leere oder ausgeschlossene Struktur</li>
+<li>Tupel → Auswahl gültiger Komponenten</li>
+<li>Hierarchie → Aktivierung von Teilbäumen</li>
+<li>0-stelliges Prädikat → atomarer Ausgangspunkt (Axiom / Fakt)</li>
+</ul>
+<h3 id="formale-sicht-1">Formale Sicht:</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo><mo>→</mo><mtext mathvariant="normal">Struktur</mtext></mrow><annotation encoding="application/x-tex">
+g : \{\text{wahr}, \text{falsch}\} \rightarrow \text{Struktur}
+</annotation></semantics></math></p>
+<h3 id="bedeutung-1">Bedeutung:</h3>
+<ul>
+<li>Konstruktion von Systemen</li>
+<li>Regelbasierte Generierung</li>
+<li>Constraint-Propagation</li>
+</ul>
+<hr />
+<h1 id="universelle-gemeinsame-eigenschaften">2. Universelle gemeinsame
+Eigenschaften</h1>
+<h2 id="diskrete-strukturierung-von-information">(1) Diskrete
+Strukturierung von Information</h2>
+<p>Alle Objekte zerlegen Information in diskrete Einheiten:</p>
+<ul>
+<li>Menge → Elemente</li>
+<li>Tupel → geordnete Slots</li>
+<li>Hierarchie → Knoten</li>
+<li>Wahrheitswert → binär (0/1)</li>
+<li>0-stelliges Prädikat → atomare Aussage</li>
+</ul>
+<hr />
+<h2 id="funktionale-interpretierbarkeit">(2) Funktionale
+Interpretierbarkeit</h2>
+<p>Alle Strukturen lassen sich funktional beschreiben:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">x \in M</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_1, ..., x_n)</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">parent(x)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>h</mi><mi>i</mi><mi>l</mi><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">child(x)</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">P() \in \{0,1\}</annotation></semantics></math></li>
+</ul>
+<p>→ Alles ist als Funktion oder Relation modellierbar.</p>
+<hr />
+<h2 id="trennung-von-syntax-und-semantik">(3) Trennung von Syntax und
+Semantik</h2>
+<ul>
+<li>Syntax: Struktur (Menge, Tupel, Baum)</li>
+<li>Semantik: Wahrheit / Gültigkeit</li>
+</ul>
+<p>→ Wahrheitswert ist der semantische Endpunkt.</p>
+<hr />
+<h2 id="rekursive-zerlegbarkeit">(4) Rekursive Zerlegbarkeit</h2>
+<ul>
+<li>Mengen → Teilmengen</li>
+<li>Tupel → Komponenten</li>
+<li>Hierarchien → Unterbäume</li>
+<li>Prädikate → Teilbedingungen</li>
+</ul>
+<p>→ alle Systeme sind selbstähnlich.</p>
+<hr />
+<h2 id="reduktion-auf-binäre-entscheidung">(5) Reduktion auf binäre
+Entscheidung</h2>
+<p>Alle Systeme lassen sich auf Ja/Nein reduzieren:</p>
+<ul>
+<li>in Menge / nicht in Menge</li>
+<li>aktiv / inaktiv</li>
+<li>wahr / falsch</li>
+<li>erfüllt / nicht erfüllt</li>
+</ul>
+<p>→ Logik als Grenzform aller Strukturen.</p>
+<hr />
+<h2 id="relationale-existenz">(6) Relationale Existenz</h2>
+<p>Keines der Objekte existiert isoliert:</p>
+<ul>
+<li>Menge → durch Zugehörigkeit</li>
+<li>Tupel → durch Position</li>
+<li>Hierarchie → durch Relation</li>
+<li>Logik → durch Gültigkeit</li>
+</ul>
+<p>→ Grundstruktur: Relation statt Substanz</p>
+<hr />
+<h1 id="zwei-universelle-kategorien">3. Zwei universelle Kategorien</h1>
+<h2 id="kategorie-1-strukturierte-entfaltung-komplexität">Kategorie 1:
+Strukturierte Entfaltung (Komplexität)</h2>
+<ul>
+<li>Menge (ungeordnet)</li>
+<li>Tupel (geordnet)</li>
+<li>Hierarchie (gerichtet)</li>
+</ul>
+<p>→ Ziel: Organisation von Vielfalt</p>
+<hr />
+<h2 id="kategorie-2-reduktion-auf-gültigkeit-abstraktion">Kategorie 2:
+Reduktion auf Gültigkeit (Abstraktion)</h2>
+<ul>
+<li>Wahrheitswert</li>
+<li>0-stelliges Prädikat</li>
+</ul>
+<p>→ Ziel: Entscheidung / Bewertung</p>
+<hr />
+<h1 id="verdichtete-dualität">4. Verdichtete Dualität</h1>
+<h1 id="verdichtete-dualität-fortsetzung-erweiterung">Verdichtete
+Dualität (Fortsetzung + Erweiterung)</h1>
+<h2 id="verdichtete-dualität-erweitert">4. Verdichtete Dualität
+(erweitert)</h2>
+<p>Die gesamte Struktur lässt sich als eine einzige bidirektionale
+Spannung verstehen:</p>
+<hr />
+<h2 id="symmetrische-interpretation-der-beiden-richtungen">4.1
+Symmetrische Interpretation der beiden Richtungen</h2>
+<h3
+id="richtung-a-struktur-wahrheit-reduktion-durch-beobachtung">Richtung
+A: Struktur → Wahrheit (Reduktion durch Beobachtung)</h3>
+<ul>
+<li>Eine komplexe Organisation wird auf einen Wahrheitswert
+projiziert</li>
+<li>Fokus: <em>Was gilt unter dieser Struktur?</em></li>
+</ul>
+<p>Typische Operationen:</p>
+<ul>
+<li>Membership-Test (∈)</li>
+<li>Constraint-Satisfaction</li>
+<li>Modellprüfung</li>
+<li>Pfad-/Baumvalidierung</li>
+</ul>
+<p>👉 Ergebnis: <strong>Boolesche Kompression von
+Komplexität</strong></p>
+<hr />
+<h3 id="richtung-b-wahrheit-struktur-generierung-durch-geltung">Richtung
+B: Wahrheit → Struktur (Generierung durch Geltung)</h3>
+<ul>
+<li>Ein Wahrheitswert erzeugt oder begrenzt eine Struktur</li>
+<li>Fokus: <em>Welche Struktur ist mit diesem Wahrheitszustand
+kompatibel?</em></li>
+</ul>
+<p>Typische Operationen:</p>
+<ul>
+<li>Lösungsmengenbildung</li>
+<li>Axiom → Modell</li>
+<li>Constraint → Raum</li>
+<li>True → nicht-leere Strukturklasse</li>
+</ul>
+<p>👉 Ergebnis: <strong>Strukturelle Expansion aus einem
+Gültigkeitskern</strong></p>
+<hr />
+<h2 id="gemeinsame-invariante-beider-richtungen">4.2 Gemeinsame
+Invariante beider Richtungen</h2>
+<p>Unabhängig von der Richtung bleibt konstant:</p>
+<h3 id="i-relationale-basis">(I) Relationale Basis</h3>
+<p>Alles basiert auf Relationen, nicht auf Objekten.</p>
+<ul>
+<li>Menge = Zugehörigkeit</li>
+<li>Tupel = Position</li>
+<li>Hierarchie = Parent/Child</li>
+<li>Prädikat = Gültigkeitsrelation</li>
+</ul>
+<hr />
+<h3 id="ii-informationshaltung">(II) Informationshaltung</h3>
+<p>Alle Systeme konservieren Information entweder als:</p>
+<ul>
+<li>Struktur (explizit verteilt)</li>
+<li>Wahrheit (komprimiert konzentriert)</li>
+</ul>
+<p>👉 Struktur und Wahrheit sind zwei Speicherformen derselben
+Information</p>
+<hr />
+<h3 id="iii-projektionsprinzip">(III) Projektionsprinzip</h3>
+<p>Jede Struktur besitzt eine kanonische Projektion:</p>
+<ul>
+<li>Menge → Existenz</li>
+<li>Tupel → Vergleichbarkeit / Ordnung</li>
+<li>Hierarchie → Erreichbarkeit / Dominanz</li>
+<li>Prädikat → Gültigkeit</li>
+<li>Wahrheit → Nullinformation (Fixpunkt)</li>
+</ul>
+<hr />
+<h3 id="iv-rekursiver-selbstbezug">(IV) Rekursiver Selbstbezug</h3>
+<p>Jede Struktur kann auf sich selbst angewendet werden:</p>
+<ul>
+<li>Mengen enthalten Mengen</li>
+<li>Tupel enthalten Tupel</li>
+<li>Bäume enthalten Teilbäume</li>
+<li>Prädikate über Prädikate (Meta-Logik)</li>
+<li>Wahrheitswerte stabilisieren sich durch Fixpunkte</li>
+</ul>
+<hr />
+<h2 id="kern-dualität-in-minimalform">4.3 Kern-Dualität in
+Minimalform</h2>
+<ul>
+<li>Struktur (explizit verteilt)</li>
+<li>Wahrheit (komprimiert konzentriert)</li>
+</ul>
+<h2
+id="struktur-und-wahrheit-sind-zwei-speicherformen-derselben-information">👉
+Struktur und Wahrheit sind zwei Speicherformen derselben
+Information</h2>
+<h2 id="universelle-gleichung-der-beziehung">4.4 Universelle Gleichung
+der Beziehung</h2>
+<p>Alle betrachteten Objekte lassen sich auf eine einzige Abstraktion
+reduzieren:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Struktur</mtext><mspace width="0.278em"></mspace><mo>↔</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">Interpretation</mtext><mspace width="0.278em"></mspace><mo>↔</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">Fixpunktbewertung</mtext></mrow><annotation encoding="application/x-tex">
+\text{Struktur} \;\leftrightarrow\; \text{Interpretation} \;\leftrightarrow\; \text{Fixpunktbewertung}
+</annotation></semantics></math></p>
+<p>oder kompakter:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mspace width="0.278em"></mspace><mo>⇄</mo><mspace width="0.278em"></mspace><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+S \;\rightleftarrows\; \{0,1\}
+</annotation></semantics></math></p>
+<p>wobei:</p>
+<ul>
+<li>S = beliebige relationale Struktur (Menge, Tupel, Hierarchie)</li>
+<li>{0,1} = Geltungsraum (Wahr/Falsch)</li>
+</ul>
+<hr />
+<h2 id="finale-verdichtung">4.5 Finale Verdichtung</h2>
+<p>(Expansion) Wahrheit ───────────────→ Struktur ↑ ↓ │ │ │ │ └──────
+Reduktion ────────┘</p>
+<pre><code> Differenz ↔ Fixierung
+ Vielfalt   ↔ Entscheidung
+ Raum       ↔ Punkt</code></pre>
+<hr />
+<h2 id="kernaussage">4.6 Kernaussage</h2>
+<p>Alle untersuchten Objekte sind keine getrennten Datentypen,
+sondern:</p>
+<blockquote>
+<p><strong>verschiedene Stabilitätszustände zwischen Struktur
+(Komplexität) und Wahrheit (Kompression)</strong></p>
+</blockquote>
+<hr />
+<h1 id="erweiterte-universelle-eigenschaften">Erweiterte universelle
+Eigenschaften</h1>
+<h2 id="menge-tupel-hierarchie-wahrheitswert-0-stelliges-prädikat">Menge
+– Tupel – Hierarchie – Wahrheitswert – 0-stelliges Prädikat</h2>
+<hr />
+<h1 id="erweiterte-universelle-eigenschaften-1">1. Erweiterte
+universelle Eigenschaften</h1>
+<h2 id="kompositionalität-zusammensetzbarkeit">(7) Kompositionalität
+(Zusammensetzbarkeit)</h2>
+<p>Alle Systeme sind aus kleineren Einheiten zusammensetzbar:</p>
+<ul>
+<li>Menge → Vereinigung / Schnitt</li>
+<li>Tupel → Erweiterung / Projektion</li>
+<li>Hierarchie → Subtree-Merge / Subtree-Split</li>
+<li>Prädikate → logische Kombination (AND/OR)</li>
+<li>Wahrheitswert → Boolesche Operationen</li>
+</ul>
+<p>👉 Prinzip: <strong>Ganzes entsteht aus Teilen durch
+Regelkomposition</strong></p>
+<hr />
+<h2 id="invarianz-unter-repräsentation">(8) Invarianz unter
+Repräsentation</h2>
+<p>Die gleiche Struktur kann unterschiedlich dargestellt werden, bleibt
+aber identisch:</p>
+<ul>
+<li>Menge = {a,b} = {b,a}</li>
+<li>Tupel ≠ Permutation (teilweise invariant, teilweise nicht)</li>
+<li>Hierarchie = umkodierbar (Adjazenzliste, Baum, Pfadmenge)</li>
+<li>Wahrheitswert bleibt stabil unter Syntaxwechsel</li>
+<li>0-stelliges Prädikat bleibt invariant unter Umformung</li>
+</ul>
+<p>👉 Prinzip: <strong>Identität ist unabhängig von
+Darstellung</strong></p>
+<hr />
+<h2 id="typisierung-sortierung-von-entitäten">(9) Typisierung /
+Sortierung von Entitäten</h2>
+<p>Alle Systeme unterscheiden zwischen gültigen und ungültigen
+Formen:</p>
+<ul>
+<li>Menge → Elementtyp</li>
+<li>Tupel → Positions-Typen</li>
+<li>Hierarchie → Knotentypen / Ebenen</li>
+<li>Prädikat → Signatur (arity 0)</li>
+<li>Wahrheitswert → Typ Bool</li>
+</ul>
+<p>👉 Prinzip: <strong>Struktur impliziert Typbeschränkung</strong></p>
+<hr />
+<h2 id="abbildung-zwischen-kategorien-morphismus-prinzip">(10) Abbildung
+zwischen Kategorien (Morphismus-Prinzip)</h2>
+<p>Alle Systeme lassen sich als Abbildungen zwischen Strukturen
+verstehen:</p>
+<ul>
+<li>Menge → Funktion auf Teilmengen</li>
+<li>Tupel → Projektionen / Einbettungen</li>
+<li>Hierarchie → Parent/Child-Morphismen</li>
+<li>Prädikate → Interpretation in Modellen</li>
+<li>Wahrheitswert → Terminalobjekt (Endpunkt)</li>
+</ul>
+<p>👉 Prinzip: <strong>Alles ist Beziehung zwischen Objekten, nicht
+Objekt selbst</strong></p>
+<hr />
+<h2 id="fixpunkt--und-stabilitätsstruktur">(11) Fixpunkt- und
+Stabilitätsstruktur</h2>
+<p>Viele dieser Systeme besitzen stabile Zustände:</p>
+<ul>
+<li>Menge → fixierte Abschlüsse (Closure)</li>
+<li>Tupel → stabile Konfigurationen</li>
+<li>Hierarchie → stabile Baumstruktur</li>
+<li>Prädikat → Wahr/Falsch als Fixpunkt</li>
+<li>Boolesche Systeme → Konvergenz</li>
+</ul>
+<p>👉 Prinzip: <strong>Stabilität = unveränderte Struktur unter
+Anwendung der Regeln</strong></p>
+<hr />
+<h2 id="dualität-von-expansion-und-reduktion">(12) Dualität von
+Expansion und Reduktion</h2>
+<p>Jedes System kann wachsen oder schrumpfen:</p>
+<ul>
+<li>Menge → Erweiterung / Reduktion</li>
+<li>Tupel → Verlängerung / Projektion</li>
+<li>Hierarchie → Wachstum / Pruning</li>
+<li>Logik → Ableitung / Eliminierung</li>
+</ul>
+<p>👉 Prinzip: <strong>Struktur ist dynamisch skalierbar</strong></p>
+<hr />
+<h2 id="teil-ganzes-identität-mereologische-struktur">(13)
+Teil-Ganzes-Identität (mereologische Struktur)</h2>
+<p>Alle Objekte stehen in Teil-Ganzes-Beziehungen:</p>
+<ul>
+<li>Elemente ⊂ Mengen</li>
+<li>Komponenten ⊂ Tupel</li>
+<li>Knoten ⊂ Baum</li>
+<li>Aussagen ⊂ Theorie</li>
+<li>Wahrheitswert ⊂ Interpretation</li>
+</ul>
+<p>👉 Prinzip: <strong>Alles ist gleichzeitig Teil und
+Ganzes</strong></p>
+<hr />
+<h2 id="informationsäquivalenz-durch-encoding">(14)
+Informationsäquivalenz durch Encoding</h2>
+<p>Alle Strukturen können ineinander codiert werden:</p>
+<ul>
+<li>Menge → Liste → Tupel</li>
+<li>Tupel → Graph → Hierarchie</li>
+<li>Hierarchie → Relation → Menge von Kanten</li>
+<li>Prädikate → Boolesche Funktionen</li>
+<li>Wahrheitswert → Ein-Bit-Information</li>
+</ul>
+<p>👉 Prinzip: <strong>Unterschiede sind Repräsentationswahl, nicht
+Substanz</strong></p>
+<hr />
+<h2 id="lokale-vs-globale-sicht">(15) Lokale vs globale Sicht</h2>
+<p>Alle Systeme besitzen zwei Perspektiven:</p>
+<ul>
+<li>lokal: Element / Knoten / Variable</li>
+<li>global: Struktur / Baum / Menge</li>
+</ul>
+<p>👉 Prinzip: <strong>Globalität entsteht aus lokalen
+Relationen</strong></p>
+<hr />
+<h2 id="komplexitätsreduktion-durch-projektion">(16)
+Komplexitätsreduktion durch Projektion</h2>
+<p>Komplexe Strukturen lassen sich auf einfache Werte projizieren:</p>
+<ul>
+<li>Menge → Kardinalität / Existenz</li>
+<li>Tupel → einzelne Komponenten</li>
+<li>Hierarchie → Höhe / Tiefe</li>
+<li>Prädikat → Wahrheitswert</li>
+<li>System → 0/1 Entscheidung</li>
+</ul>
+<p>👉 Prinzip: <strong>Reduktion ist Informationsprojektion</strong></p>
+<hr />
+<h1 id="erweiterte-dualitätsstruktur">2. Erweiterte
+Dualitätsstruktur</h1>
+<h2 id="kategorie-a-struktur-expansion-generativ">Kategorie A:
+Struktur-Expansion (Generativ)</h2>
+<ul>
+<li>Komposition</li>
+<li>Typisierung</li>
+<li>Morphismen</li>
+<li>Teil-Ganzes-Struktur</li>
+<li>lokale → globale Konstruktion</li>
+</ul>
+<p>👉 Ziel: <strong>Aufbau von Komplexität</strong></p>
+<hr />
+<h2 id="kategorie-b-struktur-reduktion-evaluativ">Kategorie B:
+Struktur-Reduktion (Evaluativ)</h2>
+<ul>
+<li>Invarianz</li>
+<li>Fixpunkte</li>
+<li>Projektion</li>
+<li>Boolesche Reduktion</li>
+<li>Wahrheitsbewertung</li>
+</ul>
+<p>👉 Ziel: <strong>Kompression auf Bedeutung / Gültigkeit</strong></p>
+</body>
+</html>

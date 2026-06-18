@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2m4</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-konkretes-festes-harten-linearität">Universelle
+Eigenschaften: „Konkretes Festes Harten“ ↔︎ Linearität</h1>
+<p>Wir betrachten hier zwei abstrakte Pole:</p>
+<ul>
+<li><p><strong>Konkretes Festes Harten (KFH)</strong>:<br />
+Ein Zustand von maximaler struktureller Stabilität, Diskretheit,
+Unverformbarkeit, hoher Widerständigkeit gegen Transformation.</p></li>
+<li><p><strong>Linearität (LIN)</strong>:<br />
+Eine Struktur-Eigenschaft, in der Veränderungen proportional, additiv
+und richtungserhaltend ablaufen.</p></li>
+</ul>
+<hr />
+<h1 id="grundspannung-starrheit-vs.-strukturierte-veränderung">1.
+Grundspannung: Starrheit vs. strukturierte Veränderung</h1>
+<h2 id="kfh-lin-starrheit-in-richtung-linearität">KFH → LIN (Starrheit
+in Richtung Linearität)</h2>
+<ul>
+<li><strong>Diskrete Fixierung erzeugt lokale Linearisierung</strong>
+<ul>
+<li>Wenn ein System stark fixiert ist, erscheinen kleine Variationen oft
+<em>linear approximierbar</em>.</li>
+</ul></li>
+<li><strong>Segmentierung von Nichtlinearität</strong>
+<ul>
+<li>Harte Strukturen zerlegen komplexe Dynamik in lineare Teilstücke
+(stückweise Linearität).</li>
+</ul></li>
+<li><strong>Invarianz als lineare Referenzachse</strong>
+<ul>
+<li>Feste Eigenschaften erzeugen stabile Koordinatensysteme, in denen
+Linearität definierbar wird.</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="lin-kfh-linearität-in-richtung-festigkeit">LIN → KFH (Linearität
+in Richtung Festigkeit)</h2>
+<ul>
+<li><strong>Akkumulation linearer Schritte erzeugt „harte“
+Strukturen</strong>
+<ul>
+<li>Wiederholte lineare Transformationen führen zu stabilen Fixpunkten
+oder festen Mustern.</li>
+</ul></li>
+<li><strong>Stabilisierung durch Proportionalität</strong>
+<ul>
+<li>Linearität verhindert Explodieren der Struktur → erzeugt „festen
+Kern“.</li>
+</ul></li>
+<li><strong>Konvergenz durch Iteration</strong>
+<ul>
+<li>Lineare Prozesse können in Grenzwerten harte, stabile Zustände
+bilden.</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="strukturelle-invarianten">2. Strukturelle Invarianten</h1>
+<h2 id="gemeinsame-eigenschaften">Gemeinsame Eigenschaften</h2>
+<ul>
+<li><strong>Invarianz unter bestimmten Transformationen</strong>
+<ul>
+<li>KFH: invariabel durch Widerstand</li>
+<li>LIN: invariabel durch Proportionalität</li>
+</ul></li>
+<li><strong>Reduktion von Freiheitsgraden</strong>
+<ul>
+<li>KFH: physisch/strukturell reduziert</li>
+<li>LIN: mathematisch durch Constraints (Additivität)</li>
+</ul></li>
+<li><strong>Determinierte Zustände</strong>
+<ul>
+<li>Beide eliminieren „chaotische Freiheitsbewegung“ auf
+unterschiedliche Weise.</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="repräsentationsdualität">3. Repräsentationsdualität</h1>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 37%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>KFH (Fest)</th>
+<th>LIN (Linear)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strukturtyp</td>
+<td>diskret / blockartig</td>
+<td>kontinuierlich / proportional</td>
+</tr>
+<tr>
+<td>Veränderung</td>
+<td>Widerstand gegen Veränderung</td>
+<td>kontrollierte Veränderung</td>
+</tr>
+<tr>
+<td>Informationsfluss</td>
+<td>blockiert / gedämpft</td>
+<td>gleichmäßig übertragen</td>
+</tr>
+<tr>
+<td>Modellierung</td>
+<td>atomar / segmentiert</td>
+<td>funktional / analytisch</td>
+</tr>
+<tr>
+<td>Komplexität</td>
+<td>reduziert durch Fixierung</td>
+<td>reduziert durch Linearität</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="übergangsoperatoren">4. Übergangsoperatoren</h1>
+<h2 id="von-kfh-lin">Von KFH → LIN</h2>
+<ul>
+<li>Approximation durch Ableitung</li>
+<li>Lokale Linearisierung (Tangentenraum)</li>
+<li>Glättung diskreter Strukturen</li>
+</ul>
+<h2 id="von-lin-kfh">Von LIN → KFH</h2>
+<ul>
+<li>Iteration + Fixpunktbildung</li>
+<li>Quantisierung kontinuierlicher Räume</li>
+<li>Stabilisierung durch Grenzen (Limitprozesse)</li>
+</ul>
+<hr />
+<h1 id="tiefere-universelle-struktur">5. Tiefere universelle
+Struktur</h1>
+<h2 id="gemeinsamer-kern">Gemeinsamer Kern</h2>
+<p>Beide sind <strong>Komplexitätsreduktionsmechanismen</strong>, aber
+mit unterschiedlicher Strategie:</p>
+<ul>
+<li><strong>KFH</strong>: Reduktion durch <em>Fixierung von
+Zustand</em></li>
+<li><strong>LIN</strong>: Reduktion durch <em>Regelmäßigkeit von
+Veränderung</em></li>
+</ul>
+<hr />
+<h1 id="meta-interpretation">6. Meta-Interpretation</h1>
+<ul>
+<li>KFH ist „Struktur ohne Bewegung“</li>
+<li>LIN ist „Bewegung ohne Verzerrung“</li>
+</ul>
+<p>Die universelle Verbindung:</p>
+<blockquote>
+<p>Beide erzeugen berechenbare Welten, indem sie entweder die Freiheit
+des Zustands oder die Freiheit der Transformation begrenzen.</p>
+</blockquote>
+<hr />
+<h1 id="verdichtete-dualform">7. Verdichtete Dualform</h1>
+<ul>
+<li><strong>KFH:</strong> maximale Zustandsinvarianz bei minimaler
+Transformierbarkeit</li>
+<li><strong>LIN:</strong> maximale Transformationsregelmäßigkeit bei
+kontrollierter Zustandsfreiheit</li>
+</ul>
+<hr />
+</body>
+</html>

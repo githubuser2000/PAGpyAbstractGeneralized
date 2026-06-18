@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>4m6</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-zwischen-zahl-und-linearität">Universelle
+Eigenschaften zwischen Zahl und Linearität</h1>
+<p>Zahl und Linearität wirken auf den ersten Blick unterschiedlich:</p>
+<ul>
+<li><strong>Zahl</strong> = diskrete/strukturierte Einheit</li>
+<li><strong>Linearität</strong> = Eigenschaft von
+Abbildungen/Strukturen, die Additivität und Skalarmultiplikation
+respektieren</li>
+</ul>
+<p>Tatsächlich treffen sich beide in einem gemeinsamen Kern:
+<strong>Skalierung, Ordnung und Struktur-Erhaltung</strong>.</p>
+<hr />
+<h1 id="grundperspektiven">1. Grundperspektiven</h1>
+<h2 id="zahl-linearität">Zahl → Linearität</h2>
+<ul>
+<li>Zahlen erzeugen lineare Strukturen (z. B. ℝ als linearer Raum über
+sich selbst)</li>
+<li>Zahlen definieren Skalare für lineare Abbildungen</li>
+<li>Addition und Multiplikation sind die Basis linearer Algebra</li>
+</ul>
+<h2 id="linearität-zahl">Linearität → Zahl</h2>
+<ul>
+<li>Lineare Strukturen reduzieren komplexe Objekte auf numerische
+Parameter</li>
+<li>Lineare Abbildungen werden durch Zahlen (Matrizen) kodiert</li>
+<li>Vektoren werden auf Zahlenräume abgebildet</li>
+</ul>
+<hr />
+<h1 id="universelle-eigenschaften-gemeinsam">2. Universelle
+Eigenschaften (gemeinsam)</h1>
+<h2 id="additive-struktur">2.1 Additive Struktur</h2>
+<ul>
+<li>Zahl:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a + b</annotation></semantics></math></li>
+<li>Linearität:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x + y) = f(x) + f(y)</annotation></semantics></math></li>
+<li>Gemeinsamer Kern: <strong>Zerlegbarkeit in Summen</strong></li>
+</ul>
+<hr />
+<h2 id="skalierung-homogenität">2.2 Skalierung / Homogenität</h2>
+<ul>
+<li>Zahl:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>⋅</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\lambda \cdot a</annotation></semantics></math></li>
+<li>Linearität:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(\lambda x) = \lambda f(x)</annotation></semantics></math></li>
+<li>Gemeinsamer Kern: <strong>Proportionalität bleibt
+erhalten</strong></li>
+</ul>
+<hr />
+<h2 id="komposition">2.3 Komposition</h2>
+<ul>
+<li>Zahl: Multiplikation als wiederholte Skalierung</li>
+<li>Linearität: Komposition linearer Abbildungen bleibt linear</li>
+<li>Gemeinsamer Kern: <strong>Struktur bleibt unter Verkettung
+stabil</strong></li>
+</ul>
+<hr />
+<h2 id="neutralitätselemente">2.4 Neutralitätselemente</h2>
+<ul>
+<li>Zahl: 0 (additiv), 1 (multiplikativ)</li>
+<li>Linearität: Nullabbildung, Identität</li>
+<li>Gemeinsamer Kern: <strong>Fixpunkte von Operationen</strong></li>
+</ul>
+<hr />
+<h2 id="invertierbarkeit">2.5 Invertierbarkeit</h2>
+<ul>
+<li>Zahl: additive/multiplikative Inverse</li>
+<li>Linearität: invertierbare lineare Transformationen</li>
+<li>Gemeinsamer Kern: <strong>Rückführbarkeit von
+Transformationen</strong></li>
+</ul>
+<hr />
+<h2 id="abstraktion-von-struktur">2.6 Abstraktion von Struktur</h2>
+<ul>
+<li>Zahl: abstrahiert Menge → Quantität</li>
+<li>Linearität: abstrahiert Funktion → Strukturverhalten</li>
+<li>Gemeinsamer Kern: <strong>Reduktion auf invariantes
+Verhalten</strong></li>
+</ul>
+<hr />
+<h2 id="homomorphismus-prinzip">2.7 Homomorphismus-Prinzip</h2>
+<ul>
+<li>Zahl: Einbettung in algebraische Strukturen</li>
+<li>Linearität: strukturerhaltende Abbildungen</li>
+<li>Gemeinsamer Kern: <strong>Strukturerhaltende
+Transformation</strong></li>
+</ul>
+<hr />
+<h2 id="dimensionalität">2.8 Dimensionalität</h2>
+<ul>
+<li>Zahl: 1D-Größe (Skalar)</li>
+<li>Linearität: Vektorräume mit beliebiger Dimension</li>
+<li>Gemeinsamer Kern: <strong>Erweiterung von Einheiten zu
+Räumen</strong></li>
+</ul>
+<hr />
+<h1 id="verdichtete-dualität">3. Verdichtete Dualität</h1>
+<h2 id="zahl-linearität-1">Zahl → Linearität</h2>
+<ul>
+<li>erzeugt Struktur durch Wiederholung</li>
+<li>macht Skalierung möglich</li>
+<li>baut Räume aus Einheiten</li>
+</ul>
+<h2 id="linearität-zahl-1">Linearität → Zahl</h2>
+<ul>
+<li>reduziert Struktur auf Parameter</li>
+<li>kodiert Verhalten in Skalaren</li>
+<li>projiziert Räume auf messbare Größen</li>
+</ul>
+<hr />
+<h1 id="tiefere-invarianz">4. Tiefere Invarianz</h1>
+<p>Der gemeinsame Kern kann als ein einziges Prinzip formuliert
+werden:</p>
+<blockquote>
+<p><strong>„Erhalt von Struktur unter Transformation“</strong></p>
+</blockquote>
+<ul>
+<li>Zahl: Struktur im Kleinen (arithmetisch)</li>
+<li>Linearität: Struktur im Großen (funktional)</li>
+</ul>
+<hr />
+<h1 id="meta-zusammenhang">5. Meta-Zusammenhang</h1>
+<p>Zahl ist die <strong>atomare Einheit der Linearität</strong><br />
+Linearität ist die <strong>organisierte Fortsetzung der
+Zahl</strong></p>
+<p>Oder kompakter:</p>
+<blockquote>
+<p>Zahl = statische Struktur<br />
+Linearität = dynamische Struktur der Zahl</p>
+</blockquote>
+</body>
+</html>

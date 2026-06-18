@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-wahrheitswert-0-stelliges-prädikat-existenz-haken-operator">Universelle
+Eigenschaften: Logikprädikat, Wahrheitswert (0-stelliges Prädikat),
+Existenz (Haken-Operator)</h1>
+<p>Wir betrachten drei eng verwandte logische/strukturelle Objekte:</p>
+<ul>
+<li><strong>Logikprädikat</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1, \dots, x_n)</annotation></semantics></math></li>
+<li><strong>Nullstelliges Logikprädikat / Wahrheitswert</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">P()\in\{\text{wahr},\text{falsch}\}</annotation></semantics></math></li>
+<li><strong>Existenzoperator / Haken</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mspace width="0.167em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\exists x\, P(x)</annotation></semantics></math>
+oder als „Bestätigungs-Haken“
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>✓</mi><annotation encoding="application/x-tex">\checkmark</annotation></semantics></math></li>
+</ul>
+<hr />
+<h1 id="grundidee-der-transformationen">1. Grundidee der
+Transformationen</h1>
+<h2 id="a-abstraktionsrichtung-prädikat-wahrheitswert-existenz">(A)
+Abstraktionsrichtung: Prädikat → Wahrheitswert → Existenz</h2>
+<ul>
+<li>Ein <strong>Prädikat</strong> ist eine strukturierte Aussage über
+Objekte.</li>
+<li>Durch <strong>Fixierung aller Variablen</strong> entsteht ein
+<strong>0-stelliges Prädikat</strong>:
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(a,b,c)</annotation></semantics></math>
+→
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P()</annotation></semantics></math>
+= Wahr/Falsch</li>
+</ul></li>
+<li>Durch <strong>Quantifizierung</strong> entsteht ein Existenzwert:
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mspace width="0.167em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\exists x\, P(x)</annotation></semantics></math>
+→ Wahr, falls mindestens ein „Hakenpunkt“ existiert</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="b-konkretisierungsrichtung-existenz-wahrheitswert-prädikat">(B)
+Konkretisierungsrichtung: Existenz → Wahrheitswert → Prädikat</h2>
+<ul>
+<li>Existenz ist ein globaler Wahrheitsindikator:
+<ul>
+<li>„Es gibt mindestens ein x“</li>
+</ul></li>
+<li>Daraus kann man rückwärts rekonstruieren:
+<ul>
+<li>Wahrheitswert = Spezialfall eines Prädikats ohne Argumente</li>
+<li>Prädikat = „entfalteter Wahrheitsraum“</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="universelle-eigenschaften-beidseitig-gültig">2. Universelle
+Eigenschaften (beidseitig gültig)</h1>
+<h2 id="strukturierte-wahrheit">2.1 Strukturierte Wahrheit</h2>
+<table>
+<thead>
+<tr>
+<th>Objekt</th>
+<th>Eigenschaft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>Wahrheit abhängig von Argumentstruktur</td>
+</tr>
+<tr>
+<td>0-stelliges Prädikat</td>
+<td>reine Wahrheit ohne Struktur</td>
+</tr>
+<tr>
+<td>Existenz</td>
+<td>aggregierte Wahrheit über Struktur</td>
+</tr>
+</tbody>
+</table>
+<p>➡ Gemeinsame Eigenschaft:</p>
+<ul>
+<li>Alle drücken <strong>Wahrheitsbedingungen</strong> aus, nur auf
+unterschiedlicher Auflösungsebene.</li>
+</ul>
+<hr />
+<h2 id="reduktion-auf-binärwertigkeit">2.2 Reduktion auf
+Binärwertigkeit</h2>
+<ul>
+<li>Prädikat → viele Werte → Reduktion durch Fixierung</li>
+<li>Wahrheitswert → bereits reduziert (0-dimensional)</li>
+<li>Existenz → OR-Reduktion über Menge</li>
+</ul>
+<p>➡ Einheitliche Form:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Wahrheit</mtext><mo>=</mo><mrow><mtext mathvariant="normal">Reduktion einer Struktur auf </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+\text{Wahrheit} = \text{Reduktion einer Struktur auf } \{0,1\}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="projektion-vs.-expansion">2.3 Projektion vs. Expansion</h2>
+<h3 id="projektion-kompression">Projektion (Kompression)</h3>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1,\dots,x_n) \rightarrow P()</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mspace width="0.167em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\exists x\, P(x)</annotation></semantics></math></li>
+</ul>
+<h3 id="expansion-rekonstruktion">Expansion (Rekonstruktion)</h3>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P()\rightarrow P(x)</annotation></semantics></math>
+(implizit durch Kontext)</li>
+<li>Existenz → mögliche Modellräume</li>
+</ul>
+<hr />
+<h2 id="lokale-vs.-globale-wahrheit">2.4 Lokale vs. globale
+Wahrheit</h2>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>lokal (punktweise)</td>
+</tr>
+<tr>
+<td>Wahrheitswert</td>
+<td>lokal vollständig</td>
+</tr>
+<tr>
+<td>Existenz</td>
+<td>global über Raum</td>
+</tr>
+</tbody>
+</table>
+<p>➡ Einheit:</p>
+<ul>
+<li>Wahrheit wird nur <strong>skaliert in der Domäne</strong></li>
+</ul>
+<hr />
+<h2 id="abhängigkeit-von-variablenstruktur">2.5 Abhängigkeit von
+Variablenstruktur</h2>
+<ul>
+<li>Prädikat: variablenabhängig</li>
+<li>Wahrheitswert: variablenfrei</li>
+<li>Existenz: variableneliminiert durch Quantifikation</li>
+</ul>
+<p>➡ Gemeinsames Prinzip:</p>
+<ul>
+<li><strong>Variablen sind Kontrollachsen der Wahrheit</strong></li>
+</ul>
+<hr />
+<h2 id="boolesche-projektion">2.6 Boolesche Projektion</h2>
+<p>Alle drei lassen sich als Boolesche Operation interpretieren:</p>
+<ul>
+<li>Prädikat: Funktion → Bool</li>
+<li>Wahrheitswert: Konstante Bool</li>
+<li>Existenz:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mspace width="0.167em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>⋁</mo><mi>_</mi><mrow><mi>x</mi><mo>∈</mo><mi>D</mi></mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\exists x\, P(x) = \bigvee\_{x \in D} P(x)
+</annotation></semantics></math></li>
+</ul>
+<p>➡ Einheitliche Struktur:</p>
+<ul>
+<li>AND/OR/Projection als gleiche Logikfamilie</li>
+</ul>
+<hr />
+<h2 id="informationsgehalt">2.7 Informationsgehalt</h2>
+<table>
+<thead>
+<tr>
+<th>Objekt</th>
+<th>Informationsdichte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>hoch</td>
+</tr>
+<tr>
+<td>Existenz</td>
+<td>mittel (reduziert über Raum)</td>
+</tr>
+<tr>
+<td>Wahrheitswert</td>
+<td>minimal</td>
+</tr>
+</tbody>
+</table>
+<p>➡ Prinzip:</p>
+<ul>
+<li>Reduktion von Struktur → Existenz → Wahrheit</li>
+</ul>
+<hr />
+<h2 id="haken-interpretation-existenz-als-markierung">2.8
+Haken-Interpretation (Existenz als Markierung)</h2>
+<ul>
+<li>Existenz = „mindestens ein gültiger Punkt markiert“</li>
+<li>Haken
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>✓</mi><annotation encoding="application/x-tex">\checkmark</annotation></semantics></math>
+= komprimierte Zeugenstruktur</li>
+</ul>
+<p>Formal:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mspace width="0.167em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≡</mo><mrow><mtext mathvariant="normal">Setze Haken auf </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>∣</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+\exists x\, P(x) \equiv \text{Setze Haken auf } \{x \mid P(x)\}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="stabilität-unter-transformationen">2.9 Stabilität unter
+Transformationen</h2>
+<p>Alle drei sind invariant unter:</p>
+<ul>
+<li>Umbenennung von Variablen</li>
+<li>Reparametrisierung der Domäne</li>
+<li>Isomorphismen der Struktur</li>
+</ul>
+<p>➡ Wahrheit ist <strong>struktur-invariant</strong>, nicht
+symbolabhängig.</p>
+<hr />
+<h1 id="verdichtete-dualität">3. Verdichtete Dualität</h1>
+<h2 id="richtung-1-struktur-wahrheit">Richtung 1: Struktur →
+Wahrheit</h2>
+<ul>
+<li>Prädikat → Bewertung aller Instanzen</li>
+<li>Aggregation → Existenz</li>
+<li>Final → Wahrheitswert</li>
+</ul>
+<h2 id="richtung-2-wahrheit-struktur">Richtung 2: Wahrheit →
+Struktur</h2>
+<ul>
+<li>Wahrheitswert → triviale Struktur</li>
+<li>Existenz → rekonstruiertes Suchproblem</li>
+<li>Prädikat → vollständiger Raum der Bedingungen</li>
+</ul>
+<hr />
+<h1 id="kerngesetz-kompakt">4. Kerngesetz (kompakt)</h1>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Prädikat</mtext><mspace width="0.278em"></mspace><mover><mo>→</mo><mtext mathvariant="normal">Fixierung</mtext></mover><mspace width="0.278em"></mspace><mtext mathvariant="normal">Wahrheitswert</mtext><mspace width="0.278em"></mspace><mover><mo>→</mo><mtext mathvariant="normal">Quantifizierung</mtext></mover><mspace width="0.278em"></mspace><mtext mathvariant="normal">Existenz</mtext></mrow><annotation encoding="application/x-tex">
+\text{Prädikat}
+\;\xrightarrow{\text{Fixierung}}\;
+\text{Wahrheitswert}
+\;\xrightarrow{\text{Quantifizierung}}\;
+\text{Existenz}
+</annotation></semantics></math></p>
+<p>und zurück:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Existenz</mtext><mspace width="0.278em"></mspace><mo>≡</mo><mspace width="0.278em"></mspace><mo>⋁</mo><mtext mathvariant="normal">Prädikatsraum</mtext><mspace width="0.278em"></mspace><mo>⇒</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">reduzierter Wahrheitskern</mtext></mrow><annotation encoding="application/x-tex">
+\text{Existenz}
+\;\equiv\;
+\bigvee \text{Prädikatsraum}
+\;\Rightarrow\;
+\text{reduzierter Wahrheitskern}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="intuition-in-einem-satz">5. Intuition in einem Satz</h1>
+<ul>
+<li><strong>Prädikat</strong> = strukturierte Welt</li>
+<li><strong>Wahrheitswert</strong> = Punktentscheidung</li>
+<li><strong>Existenz (Haken)</strong> = komprimierter Nachweis, dass
+irgendwo Wahrheit liegt</li>
+</ul>
+</body>
+</html>

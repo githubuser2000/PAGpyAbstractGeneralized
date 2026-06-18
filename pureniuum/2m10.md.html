@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-wahrheitswert-0-stellig-konkretes-festes-hartes">Universelle
+Eigenschaften: Logikprädikat ↔︎ Wahrheitswert (0-stellig) ↔︎ Konkretes /
+Festes / Hartes</h1>
+<p>Wir betrachten drei Ebenen:</p>
+<ul>
+<li><strong>Prädikat</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1, \dots, x_n)</annotation></semantics></math>
+— relationale Struktur</li>
+<li><strong>0-stelliges Prädikat</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">P() \in \{\text{wahr}, \text{falsch}\}</annotation></semantics></math>
+— reiner Wahrheitswert</li>
+<li><strong>Konkretes/Festes/Hartes</strong>: ein „objektartiger
+Zustand“ ohne Variabilität (statisch, determiniert,
+nicht-relational)</li>
+</ul>
+<hr />
+<h1 id="richtung-abstraktion-konkretion">1. Richtung: Abstraktion →
+Konkretion</h1>
+<h2 id="a-prädikat-wahrheitswert-konkretheit">(A) Prädikat →
+Wahrheitswert / Konkretheit</h2>
+<ul>
+<li><strong>Reduktion von Struktur auf Zustand</strong>
+<ul>
+<li>(Prädikat → Wahrheitswert): Entfernung aller Argumente → Boolescher
+Zustand</li>
+<li>(Prädikat → Konkretes): Entfernung aller Variabilität → Fixierung
+auf einen stabilen Zustand</li>
+</ul></li>
+<li><strong>Informationskompression</strong>
+<ul>
+<li>Viele mögliche Relationen → ein einzelner Wahrheitswert</li>
+<li>Viele mögliche Belegungen → ein „hartes Faktum“</li>
+</ul></li>
+<li><strong>Entkopplung von Variablen</strong>
+<ul>
+<li>Freiheitsgrade werden eliminiert</li>
+<li>Ergebnis ist invariant unter weiteren Eingaben</li>
+</ul></li>
+<li><strong>Stabilisierung</strong>
+<ul>
+<li>Dynamisches wird statisch</li>
+<li>Relationales wird objektartig</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="b-0-stelliges-prädikat-konkretes-hartes">(B) 0-stelliges
+Prädikat → Konkretes / Hartes</h2>
+<ul>
+<li><strong>Identifikation von Wahrheit = Faktizität</strong>
+<ul>
+<li>„wahr“ wird zu einem festen Zustand der Realität</li>
+<li>keine interne Struktur mehr sichtbar</li>
+</ul></li>
+<li><strong>Ontologische Verdichtung</strong>
+<ul>
+<li>Logischer Wert wird als „Objekt“ behandelt</li>
+<li>Wahrheit ≈ existierender Zustand</li>
+</ul></li>
+<li><strong>Nicht-Kompositionalität</strong>
+<ul>
+<li>keine Zerlegung mehr möglich</li>
+<li>atomarer Charakter</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="richtung-konkretion-abstraktion">2. Richtung: Konkretion →
+Abstraktion</h1>
+<h2 id="a-konkretes-festes-wahrheitswert-prädikat">(A) Konkretes /
+Festes → Wahrheitswert / Prädikat</h2>
+<ul>
+<li><strong>Abstraktion eines Zustands</strong>
+<ul>
+<li>Festes Objekt → kann als Aussage modelliert werden</li>
+<li>„ist gegeben“ → wird zu Wahr/Falsch-Struktur</li>
+</ul></li>
+<li><strong>Prädikatisierung</strong>
+<ul>
+<li>Konkretes wird zu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math>:
+„x hat Eigenschaft Festigkeit/Härte“</li>
+<li>Objekt wird zu Argument einer Relation</li>
+</ul></li>
+<li><strong>Modalisierung</strong>
+<ul>
+<li>Festigkeit wird interpretierbar als notwendige Eigenschaft</li>
+<li>Konkretheit wird logisch ausdrückbar</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="b-wahrheitswert-prädikat">(B) Wahrheitswert → Prädikat</h2>
+<ul>
+<li><strong>Re-Expansion von Binärwerten</strong>
+<ul>
+<li>wahr/falsch → Ausdruck einer zugrunde liegenden Struktur</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">wahr</mtext><mo>⇒</mo><mo>∃</mo><mi>x</mi><mo>:</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\text{wahr} \Rightarrow \exists x: P(x)</annotation></semantics></math></li>
+</ul></li>
+<li><strong>Rekonstruktion von Struktur</strong>
+<ul>
+<li>ein Bit wird als Schatten eines relationalen Systems
+interpretiert</li>
+<li>Minimalinformation verweist auf komplexe Generierungsstruktur</li>
+</ul></li>
+<li><strong>Potenzialisierung</strong>
+<ul>
+<li>Wahrheitswert wird als Endpunkt einer Auswertung gesehen</li>
+<li>dahinter liegende Variablen werden wieder eingeführt</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="gemeinsame-universelle-eigenschaften">3. Gemeinsame universelle
+Eigenschaften</h1>
+<h2 id="a-diskretheit-vs.-kontinuität-der-struktur">(A) Diskretheit
+vs. Kontinuität der Struktur</h2>
+<ul>
+<li>Prädikat: potentiell kontinuierlich/hochdimensional</li>
+<li>Wahrheitswert: diskret (0/1)</li>
+<li>Konkretes: diskret im Sinne von „fixiert“</li>
+</ul>
+<hr />
+<h2 id="b-reduktion-von-freiheit">(B) Reduktion von Freiheit</h2>
+<ul>
+<li>Prädikat: viele Freiheitsgrade (Variablen)</li>
+<li>Wahrheitswert: keine Freiheitsgrade</li>
+<li>Konkretes: eingefrorene Freiheitsgrade</li>
+</ul>
+<hr />
+<h2 id="c-invarianz">(C) Invarianz</h2>
+<ul>
+<li>Alle drei können als invariant unter bestimmten Transformationen
+interpretiert werden:
+<ul>
+<li>Prädikat → unter Variablenbelegung</li>
+<li>Wahrheitswert → unter Strukturänderung (keine Struktur mehr
+vorhanden)</li>
+<li>Konkretes → unter Kontextänderung (stabiler Zustand)</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="d-ontologische-verschiebung">(D) Ontologische Verschiebung</h2>
+<ul>
+<li>Prädikat: „Beziehung“</li>
+<li>Wahrheitswert: „Zustand der Gültigkeit“</li>
+<li>Konkretes: „Seiendes Objekt“</li>
+</ul>
+<p>Alle drei sind unterschiedliche Projektionen desselben
+Informationskerns.</p>
+<hr />
+<h1 id="kurzform-der-dualität">4. Kurzform der Dualität</h1>
+<ul>
+<li><strong>Abstraktion:</strong> Struktur → Zustand → Objekt</li>
+<li><strong>Rekonstruktion:</strong> Objekt → Zustand → Struktur</li>
+</ul>
+<hr />
+<h1 id="kernaussage">Kernaussage</h1>
+<p>Ein Logikprädikat ist ein <strong>Raum möglicher
+Strukturen</strong>.<br />
+Der Wahrheitswert ist die <strong>komprimierte Entscheidung über diesen
+Raum</strong>.<br />
+Das Konkrete/Feste/Harte ist die <strong>ontologische Fixierung dieses
+Entscheids als Objektzustand</strong>.</p>
+</body>
+</html>

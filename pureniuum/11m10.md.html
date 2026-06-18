@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>11m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-nullstelliges-prädikat-wahrheitswert-δ-differenzoperator-über-strukturen">Universelle
+Eigenschaften: Logikprädikat ↔︎ nullstelliges Prädikat (Wahrheitswert) ↔︎
+Δ (Differenzoperator über Strukturen)</h1>
+<p>Wir betrachten drei Ebenen:</p>
+<ul>
+<li><strong>Prädikat</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1, \dots, x_n)</annotation></semantics></math></li>
+<li><strong>Nullstelliges Prädikat (Wahrheitswert)</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">true</mtext><mo>,</mo><mtext mathvariant="normal">false</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">P() \in \{\text{true}, \text{false}\}</annotation></semantics></math></li>
+<li><strong>Δ-Operator (allgemeine Differenz / Veränderung zwischen
+Strukturen)</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>,</mo><mi>Q</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Delta(P, Q)</annotation></semantics></math>
+oder
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">\Delta P</annotation></semantics></math></li>
+</ul>
+<hr />
+<h1 id="abstraktionsrichtung-prädikat-wahrheitswert-δ">1.
+Abstraktionsrichtung (Prädikat → Wahrheitswert + Δ)</h1>
+<h2 id="reduktion-durch-nullstelligkeit-evaluation-als-grenzfall">1.1
+Reduktion durch Nullstelligkeit (Evaluation als Grenzfall)</h2>
+<ul>
+<li><p>Ein Prädikat ist eine <strong>strukturierte Funktion über einem
+Raum</strong>:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><msup><mi>D</mi><mi>n</mi></msup><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P: D^n \to \{0,1\}
+</annotation></semantics></math></p></li>
+<li><p>Ein nullstelliges Prädikat ist:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P() \in \{0,1\}
+</annotation></semantics></math> → vollständige <strong>Entkopplung von
+Variablenstruktur</strong></p></li>
+</ul>
+<h3 id="universelle-eigenschaft">Universelle Eigenschaft:</h3>
+<ul>
+<li><p><strong>Arity-Reduktion</strong>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mover><mo>→</mo><mtext mathvariant="normal">Fixierung aller Argumente</mtext></mover><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P(x_1,\dots,x_n) \xrightarrow{\text{Fixierung aller Argumente}} P()
+</annotation></semantics></math></p></li>
+<li><p><strong>Struktur → Punkt</strong></p>
+<ul>
+<li>Mehrdimensionales Objekt wird zu einem Skalar (Wahrheitswert)</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="wahrheitswert-als-fixpunkt-des-prädikats">1.2 Wahrheitswert als
+Fixpunkt des Prädikats</h2>
+<ul>
+<li>Wahrheitswert ist der <strong>Fixpunkt der Evaluation</strong>
+<ul>
+<li>kein Kontext mehr notwendig</li>
+<li>keine Variablenbindung</li>
+</ul></li>
+</ul>
+<h3 id="universelle-eigenschaft-1">Universelle Eigenschaft:</h3>
+<ul>
+<li><p><strong>Kontextfreiheit durch vollständige Bindung</strong>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>⇒</mo><mtext mathvariant="normal">Boolean</mtext></mrow><annotation encoding="application/x-tex">
+P(\bar{x}) \Rightarrow \text{Boolean}
+</annotation></semantics></math></p></li>
+<li><p>Verlust aller internen Freiheitsgrade → maximale
+Verdichtung</p></li>
+</ul>
+<hr />
+<h2 id="δ-als-strukturvergleich-statt-zahlenoperation">1.3 Δ als
+Strukturvergleich statt Zahlenoperation</h2>
+<ul>
+<li>Δ ist nicht nur numerisch:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>,</mo><mi>Q</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mtext mathvariant="normal">Unterschied zweier Prädikatsstrukturen</mtext></mrow><annotation encoding="application/x-tex">
+\Delta(P, Q) := \text{Unterschied zweier Prädikatsstrukturen}
+</annotation></semantics></math></li>
+</ul>
+<h3 id="allgemeine-formen">Allgemeine Formen:</h3>
+<ul>
+<li>Punktweise:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>,</mo><mi>Q</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>⊕</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\Delta(P,Q)(x) = P(x) \oplus Q(x)
+</annotation></semantics></math></li>
+<li>Strukturvergleich:
+<ul>
+<li>Unterschied der Wahrheitsräume</li>
+<li>Unterschied der Definitionsdomänen</li>
+<li>Unterschied der Abhängigkeiten</li>
+</ul></li>
+</ul>
+<h3 id="universelle-eigenschaft-2">Universelle Eigenschaft:</h3>
+<ul>
+<li><strong>Relationalisierung von Differenz</strong> → Δ ist keine
+Zahl, sondern eine <em>Relation über Strukturen</em></li>
+</ul>
+<hr />
+<h1 id="rekonstruktionsrichtung-wahrheitswert-δ-prädikat">2.
+Rekonstruktionsrichtung (Wahrheitswert + Δ → Prädikat)</h1>
+<h2 id="expansion-aus-nullstelligkeit">2.1 Expansion aus
+Nullstelligkeit</h2>
+<ul>
+<li>Ein Wahrheitswert ist ein <strong>degeneriertes Prädikat</strong>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>⇒</mo><mo>∃</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P() = 1 \Rightarrow \exists P(x)
+</annotation></semantics></math></li>
+</ul>
+<h3 id="universelle-eigenschaft-3">Universelle Eigenschaft:</h3>
+<ul>
+<li><strong>Degeneration → Erweiterbarkeit</strong>
+<ul>
+<li>aus einem Punkt kann eine ganze Struktur erzeugt werden</li>
+<li>aber nur unter zusätzlicher Informationsannahme</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="re-parametrisierung">2.2 Re-Parametrisierung</h2>
+<ul>
+<li>Nullstelliges Prädikat ist ein <strong>Projektionsbild</strong></li>
+<li>Umkehrung:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">nur durch Einbettung</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P() \rightarrow P(x) \quad (\text{nur durch Einbettung})
+</annotation></semantics></math></li>
+</ul>
+<h3 id="universelle-eigenschaft-4">Universelle Eigenschaft:</h3>
+<ul>
+<li><strong>Informationsverlust ist nicht eindeutig
+invertierbar</strong>
+<ul>
+<li>mehrere Prädikate können denselben Wahrheitswert besitzen</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="δ-als-generator-von-strukturdynamik">2.3 Δ als Generator von
+Strukturdynamik</h2>
+<ul>
+<li>Δ kann Struktur rekonstruieren als:
+<ul>
+<li>Differenzfolge</li>
+<li>Änderungsoperator</li>
+<li>Übergangsrelation</li>
+</ul></li>
+</ul>
+<h3 id="beispiele">Beispiele:</h3>
+<ul>
+<li><p>Zeitliche Struktur:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>_</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mo>=</mo><msub><mi>P</mi><mi>t</mi></msub><mo>+</mo><mi mathvariant="normal">Δ</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">
+P\_{t+1} = P_t + \Delta P
+</annotation></semantics></math></p></li>
+<li><p>Logische Struktur:</p>
+<ul>
+<li>Δ erzeugt neue Prädikate aus alten</li>
+<li>nicht nur Vergleich, sondern <strong>Generationsregel</strong></li>
+</ul></li>
+</ul>
+<h3 id="universelle-eigenschaft-5">Universelle Eigenschaft:</h3>
+<ul>
+<li><strong>Δ ist dynamisch, nicht statisch</strong> → es beschreibt
+<em>Transformation von Logikräumen</em></li>
+</ul>
+<hr />
+<h1 id="gemeinsame-universelle-eigenschaften-kernmuster">3. Gemeinsame
+universelle Eigenschaften (Kernmuster)</h1>
+<h2 id="verdichtung-vs-expansion">3.1 Verdichtung vs Expansion</h2>
+<table>
+<thead>
+<tr>
+<th>Richtung</th>
+<th>Eigenschaft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat → Wahrheitswert</td>
+<td>Verdichtung (Informationsverlust)</td>
+</tr>
+<tr>
+<td>Wahrheitswert → Prädikat</td>
+<td>Expansion (Informationsbedarf)</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>Strukturverschiebung</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="struktur-vs-skalar">3.2 Struktur vs Skalar</h2>
+<ul>
+<li>Prädikat = Strukturraum</li>
+<li>Wahrheitswert = Skalarpunkt</li>
+<li>Δ = Operator zwischen Strukturen</li>
+</ul>
+<hr />
+<h2 id="invarianzprinzip">3.3 Invarianzprinzip</h2>
+<ul>
+<li>Wahrheitswert bleibt invariant unter allen Variablenbindungen</li>
+<li>Δ bleibt invariant unter Umbenennung der Variablen
+(α-Äquivalenz)</li>
+<li>Prädikat ist variabel unter Substitution</li>
+</ul>
+<hr />
+<h2 id="dualität-von-sein-und-unterschied">3.4 Dualität von Sein und
+Unterschied</h2>
+<ul>
+<li>Wahrheitswert → Sein / Nicht-Sein</li>
+<li>Prädikat → Raum möglicher Seinszustände</li>
+<li>Δ → Grenze zwischen Seinszuständen</li>
+</ul>
+<hr />
+<h1 id="zentrale-erkenntnis">4. Zentrale Erkenntnis</h1>
+<p>Die drei Objekte bilden keine lineare Kette, sondern ein System:</p>
+<ul>
+<li><strong>Prädikat = Raum</strong></li>
+<li><strong>Wahrheitswert = Punktprojektion dieses Raums</strong></li>
+<li><strong>Δ = Operator der Differenz zwischen Räumen</strong></li>
+</ul>
+<p>👉 Damit ist Δ nicht „zwischen Zahlen“, sondern allgemein:</p>
+<blockquote>
+<p>ein Operator auf Strukturräumen, der Veränderung als Relation
+definiert.</p>
+</blockquote>
+</body>
+</html>

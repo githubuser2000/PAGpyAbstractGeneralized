@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>4m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-vs.-nullstelliges-prädikat-wahrheitswert-vs.-linearität">Universelle
+Eigenschaften: Logikprädikat vs. nullstelliges Prädikat (Wahrheitswert)
+vs. Linearität</h1>
+<p>Wir betrachten drei Strukturen:</p>
+<ul>
+<li><strong>Prädikat</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1, \dots, x_n)</annotation></semantics></math>:
+eine Aussagefunktion über einer Domäne</li>
+<li><strong>Nullstelliges Prädikat</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>≡</mo><mi>⊤</mi><mi>/</mi><mi>⊥</mi></mrow><annotation encoding="application/x-tex">P() \equiv \top / \bot</annotation></semantics></math>:
+ein reiner Wahrheitswert</li>
+<li><strong>Linearität</strong>: eine strukturelle Eigenschaft einer
+Abbildung oder Relation (Additivität + Homogenität)</li>
+</ul>
+<hr />
+<h1 id="abstrakte-gemeinsame-struktur">1. Abstrakte gemeinsame
+Struktur</h1>
+<h2 id="a-von-struktur-zu-reduktion">(A) Von Struktur zu Reduktion</h2>
+<h3 id="prädikat-wahrheitswert-nullstelligkeit">Prädikat → Wahrheitswert
+(Nullstelligkeit)</h3>
+<ul>
+<li>Reduktion durch Fixierung aller Argumente:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">true</mtext><mo>,</mo><mtext mathvariant="normal">false</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P(x_1,\dots,x_n) \rightarrow P() \in \{\text{true}, \text{false}\}
+</annotation></semantics></math></li>
+<li>Verlust von Freiheitsgraden</li>
+<li>Collapse der Struktur in einen binären Zustand</li>
+<li>Interpretation als <strong>Auswertungspunkt im Raum der
+Möglichkeiten</strong></li>
+</ul>
+<h3 id="prädikat-linearität">Prädikat → Linearität</h3>
+<ul>
+<li>Interpretation als Funktion:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><msup><mi>X</mi><mi>n</mi></msup><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mi>⊤</mi><mo>,</mo><mi>⊥</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P: X^n \to \{\top,\bot\}
+</annotation></semantics></math></li>
+<li>Vergleich mit linearen Strukturen:
+<ul>
+<li>Stabilität unter Kombination von Inputs</li>
+<li>Frage: „Erhält die Struktur Zusammensetzbarkeit?“</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="b-von-punktstruktur-zur-erweiterung">(B) Von Punktstruktur zur
+Erweiterung</h2>
+<h3 id="wahrheitswert-prädikat">Wahrheitswert → Prädikat</h3>
+<ul>
+<li>Erweiterung eines Punktes zu einer Funktion:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>⊤</mi><mo>,</mo><mi>⊥</mi><mo stretchy="false" form="postfix">}</mo><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\{\top,\bot\} \rightarrow P(x_1,\dots,x_n)
+</annotation></semantics></math></li>
+<li>Einführung von:
+<ul>
+<li>Variabilität</li>
+<li>Parametrisierung</li>
+<li>Kontextabhängigkeit</li>
+</ul></li>
+</ul>
+<h3 id="linearität-prädikat">Linearität → Prädikat</h3>
+<ul>
+<li>Verallgemeinerung linearer Funktion zu nichtlinearer
+Aussagefunktion</li>
+<li>Linearität als Spezialfall von Prädikat mit Erhaltungsgesetz:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>b</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+f(ax + by) = af(x) + bf(y)
+</annotation></semantics></math></li>
+<li>Prädikat erlaubt „Bruch“ dieser Struktur (boolesche Klassifikation
+statt Wertfluss)</li>
+</ul>
+<hr />
+<h1 id="universelle-invarianten">2. Universelle Invarianten</h1>
+<h2 id="diskretisierung-klassifikation">(1) Diskretisierung /
+Klassifikation</h2>
+<ul>
+<li>Prädikat: klassifiziert Raum</li>
+<li>Wahrheitswert: maximale Klassifikation (1 Punkt)</li>
+<li>Linearität: strukturierte Klassifikation (Erhaltungsregel)</li>
+</ul>
+<hr />
+<h2 id="struktur-erhalt-vs-struktur-zerfall">(2) Struktur-Erhalt vs
+Struktur-Zerfall</h2>
+<table>
+<thead>
+<tr>
+<th>Objekt</th>
+<th>Verhalten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>kann Struktur codieren oder zerstören</td>
+</tr>
+<tr>
+<td>Wahrheitswert</td>
+<td>Struktur vollständig kollabiert</td>
+</tr>
+<tr>
+<td>Linearität</td>
+<td>Struktur vollständig erhalten</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="abbildungscharakter">(3) Abbildungscharakter</h2>
+<ul>
+<li>Prädikat:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mi>n</mi></msup><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">X^n \to \{0,1\}</annotation></semantics></math></li>
+<li>Wahrheitswert:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∅</mi><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\emptyset \to \{0,1\}</annotation></semantics></math></li>
+<li>Linearität:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>→</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">V \to W</annotation></semantics></math>
+mit Erhalt von Operationen</li>
+</ul>
+<p>Gemeinsame Idee:</p>
+<blockquote>
+<p>Alle drei sind Abbildungen, unterscheiden sich aber im Grad der
+Struktur-Erhaltung.</p>
+</blockquote>
+<hr />
+<h2 id="kompositionsfähigkeit">(4) Kompositionsfähigkeit</h2>
+<ul>
+<li>Prädikat: kombinierbar via logische Operatoren</li>
+<li>Wahrheitswert: keine interne Komposition möglich</li>
+<li>Linearität: starke Kompositionsregel (Funktor-ähnlich stabil)</li>
+</ul>
+<hr />
+<h1 id="duale-richtungen-der-betrachtung">3. Duale Richtungen der
+Betrachtung</h1>
+<h2 id="richtung-i-reduktion-informationsverlust">Richtung I: Reduktion
+(Informationsverlust)</h2>
+<ul>
+<li>Prädikat → Wahrheitswert</li>
+<li>Linearität → Wahrheitswert (über Evaluierung)</li>
+<li>Prädikat → „linearer Test“ (boolesche Projektion)</li>
+</ul>
+<p>Eigenschaft:</p>
+<blockquote>
+<p>Komplexität wird auf Entscheidbarkeit reduziert.</p>
+</blockquote>
+<hr />
+<h2 id="richtung-ii-rekonstruktion-strukturerweiterung">Richtung II:
+Rekonstruktion (Strukturerweiterung)</h2>
+<ul>
+<li>Wahrheitswert → Prädikat (Einbettung in Kontext)</li>
+<li>Linearität → Prädikat (Erweiterung zu nichtlinearer Logik)</li>
+<li>Wahrheitswert → lineare Struktur (Trivialisierung als
+Skalarraum)</li>
+</ul>
+<p>Eigenschaft:</p>
+<blockquote>
+<p>Einfache Struktur wird in Raum von Möglichkeiten eingebettet.</p>
+</blockquote>
+<hr />
+<h1 id="kerninvariante-gemeinsamer-kern">4. Kerninvariante (gemeinsamer
+Kern)</h1>
+<p>Alle drei Konzepte teilen:</p>
+<ul>
+<li><strong>Abbildungscharakter</strong></li>
+<li><strong>Binäre oder skalare Auswertung</strong></li>
+<li><strong>Struktur vs. Nicht-Struktur-Differenz</strong></li>
+<li><strong>Komplexitätsgradient (hoch → niedrig → strukturiert
+stabil)</strong></li>
+</ul>
+<hr />
+<h1 id="verdichtete-interpretation">5. Verdichtete Interpretation</h1>
+<ul>
+<li><strong>Prädikat</strong> = strukturierte Entscheidungsmaschine</li>
+<li><strong>Wahrheitswert</strong> = kollabierte Entscheidung</li>
+<li><strong>Linearität</strong> = strukturtreue Transformation</li>
+</ul>
+<hr />
+<h1 id="kurzform-der-universellen-beziehung">6. Kurzform der
+universellen Beziehung</h1>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Prädikat</mtext><mspace width="0.278em"></mspace><mo>→</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">Wahrheitswert</mtext><mspace width="0.278em"></mspace><mo>⊂</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">Linearität als Strukturprinzip</mtext></mrow><annotation encoding="application/x-tex">
+\text{Prädikat} \;\longrightarrow\; \text{Wahrheitswert} \;\subset\; \text{Linearität als Strukturprinzip}
+</annotation></semantics></math></p>
+<p>oder anders:</p>
+<ul>
+<li>Prädikat = Raum der Möglichkeiten</li>
+<li>Wahrheitswert = Punkt im Raum</li>
+<li>Linearität = Regel des Raums</li>
+</ul>
+</body>
+</html>

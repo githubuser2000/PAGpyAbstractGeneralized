@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>8m11</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-zwischen-raum-und-δ-delta">Universelle
+Eigenschaften zwischen Raum und Δ (Delta)</h1>
+<h2 id="grundbegriffe-abstrakt">1. Grundbegriffe (abstrakt)</h2>
+<h3 id="raum-r">Raum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math></h3>
+<p>Ein Raum ist eine Struktur aus:</p>
+<ul>
+<li>Elementen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">x \in R</annotation></semantics></math></li>
+<li>Relationen zwischen diesen Elementen (Distanz, Ordnung,
+Nachbarschaft, Topologie)</li>
+</ul>
+<p>👉 Raum = <strong>Struktur der möglichen Zustände</strong></p>
+<hr />
+<h3 id="delta-delta">Delta
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math></h3>
+<p>Delta beschreibt:</p>
+<ul>
+<li>Differenz zwischen Zuständen</li>
+<li>Transformation von einem Zustand in einen anderen</li>
+<li>lokale oder globale Veränderung</li>
+</ul>
+<p>👉 Delta = <strong>Struktur der Veränderung</strong></p>
+<hr />
+<h2 id="grunddualität">2. Grunddualität</h2>
+<table>
+<thead>
+<tr>
+<th>Raum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math></th>
+<th>Delta
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zustandsraum</td>
+<td>Veränderungsraum</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>Differenz</td>
+</tr>
+<tr>
+<td>Struktur der Punkte</td>
+<td>Struktur der Übergänge</td>
+</tr>
+<tr>
+<td>„Was existiert?“</td>
+<td>„Wie ändert es sich?“</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="universelle-beziehung">3. Universelle Beziehung</h2>
+<h3 id="raum-erzeugt-delta">(1) Raum erzeugt Delta</h3>
+<p>Ein Raum definiert, was Veränderung bedeutet:</p>
+<ul>
+<li>Ohne Raum keine Vergleichsbasis</li>
+<li>Ohne Struktur keine Richtung</li>
+<li>Ohne Metrik kein messbares Δ</li>
+</ul>
+<p>Formal:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> ist nur definiert in </mtext><mspace width="0.333em"></mspace></mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">
+\Delta(x, y) \text{ ist nur definiert in } R
+</annotation></semantics></math></p>
+<p>👉 Raum ist die Bedingung für Delta</p>
+<hr />
+<h3 id="delta-erzeugt-raum">(2) Delta erzeugt Raum</h3>
+<p>Umgekehrt kann Raum aus Veränderungen rekonstruiert werden:</p>
+<ul>
+<li>Wenn alle Differenzen bekannt sind, entsteht Struktur</li>
+<li>Lokale Änderungen definieren globale Geometrie</li>
+<li>Beziehungen erzeugen Raum</li>
+</ul>
+<p>Formal intuitiv:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∼</mo><mtext mathvariant="normal">Closure</mtext><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+R \sim \text{Closure}(\Delta)
+</annotation></semantics></math></p>
+<p>👉 Delta ist die Generationsregel des Raumes</p>
+<hr />
+<h2 id="invariante-eigenschaften">4. Invariante Eigenschaften</h2>
+<h3 id="relationalität">4.1 Relationalität</h3>
+<ul>
+<li>Raum existiert nur durch Beziehungen zwischen Punkten</li>
+<li>Delta existiert nur durch Beziehungen zwischen Zuständen</li>
+</ul>
+<p>👉 Beide sind <strong>nicht absolut</strong>, sondern relational</p>
+<hr />
+<h3 id="koordinatenfreiheit">4.2 Koordinatenfreiheit</h3>
+<ul>
+<li>Raum kann unabhängig von Koordinaten beschrieben werden</li>
+<li>Delta kann unabhängig vom Ursprung definiert werden</li>
+</ul>
+<p>👉 Beide sind <strong>translationsinvariant</strong></p>
+<hr />
+<h3 id="lokal-vs.-global">4.3 Lokal vs. Global</h3>
+<table>
+<thead>
+<tr>
+<th>Raum</th>
+<th>Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>global strukturiert</td>
+<td>lokal definiert</td>
+</tr>
+<tr>
+<td>statische Ordnung</td>
+<td>dynamische Änderung</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Dualität von Struktur und Prozess</p>
+<hr />
+<h3 id="kompositionsprinzip">4.4 Kompositionsprinzip</h3>
+<ul>
+<li>Raum: Zusammensetzung von Teilräumen</li>
+<li>Delta: Summe lokaler Veränderungen</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>*</mo><mtext mathvariant="normal">gesamt</mtext><mo>=</mo><mo>∑</mo><mi mathvariant="normal">Δ</mi><mo>*</mo><mtext mathvariant="normal">lokal</mtext></mrow><annotation encoding="application/x-tex">
+\Delta*{\text{gesamt}} = \sum \Delta*{\text{lokal}}
+</annotation></semantics></math></p>
+<p>👉 Beide sind aggregierbar</p>
+<hr />
+<h2 id="zustandveränderung-dualität">5.
+Zustand–Veränderung-Dualität</h2>
+<p>Ein tiefes Prinzip:</p>
+<table>
+<thead>
+<tr>
+<th>Raum</th>
+<th>Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zustand</td>
+<td>Veränderung</td>
+</tr>
+<tr>
+<td>Sein</td>
+<td>Werden</td>
+</tr>
+<tr>
+<td>Stabilität</td>
+<td>Dynamik</td>
+</tr>
+<tr>
+<td>Geometrie</td>
+<td>Fluss</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Jeder Raum impliziert mögliche Deltas<br />
+👉 Jedes Delta impliziert mindestens zwei Räume (vorher/nachher)</p>
+<hr />
+<h2 id="minimalstruktur">6. Minimalstruktur</h2>
+<p>Die gemeinsame abstrakte Struktur:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mo>,</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+(R, \Delta)
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>:
+Menge von Zuständen</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>:</mo><mi>R</mi><mo>×</mo><mi>R</mi><mo>→</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">\Delta: R \times R \rightarrow T</annotation></semantics></math>
+(Transformationsraum)</li>
+</ul>
+<p>👉 Das ergibt ein <strong>Transformationssystem</strong></p>
+<hr />
+<h2 id="symmetrieprinzip">7. Symmetrieprinzip</h2>
+<p>Beide Konzepte sind invariant unter Transformationen:</p>
+<ul>
+<li>Raum bleibt strukturell unter Umformungen erhalten</li>
+<li>Delta bleibt unter Verschiebung des Referenzsystems erhalten</li>
+</ul>
+<p>👉 Beide sind <strong>strukturinvariant</strong></p>
+<hr />
+<h2 id="komplementarität">8. Komplementarität</h2>
+<ul>
+<li>Raum beantwortet: „Was ist möglich?“</li>
+<li>Delta beantwortet: „Wie geht es von einem zum anderen?“</li>
+</ul>
+<p>👉 Raum = Möglichkeit<br />
+👉 Delta = Übergang</p>
+<hr />
+<h2 id="zentrale-universelle-aussage">9. Zentrale universelle
+Aussage</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="bold">𝐑𝐚𝐮𝐦</mtext><mo>=</mo><mtext mathvariant="normal">Struktur der Zustände</mtext></mrow><annotation encoding="application/x-tex">
+\textbf{Raum} = \text{Struktur der Zustände}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="bold">𝐃𝐞𝐥𝐭𝐚</mtext><mo>=</mo><mtext mathvariant="normal">Struktur der Übergänge zwischen Zuständen</mtext></mrow><annotation encoding="application/x-tex">
+\textbf{Delta} = \text{Struktur der Übergänge zwischen Zuständen}
+</annotation></semantics></math></p>
+<hr />
+<h2 id="tiefste-gemeinsame-form">10. Tiefste gemeinsame Form</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Wirklichkeit</mtext><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Zustände</mtext><mo>,</mo><mtext mathvariant="normal">Differenzen</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\text{Wirklichkeit} = (\text{Zustände}, \text{Differenzen})
+</annotation></semantics></math></p>
+<p>👉 Alles was existiert, ist entweder:</p>
+<ul>
+<li>ein Punkt im Raum</li>
+<li>oder ein Δ zwischen Punkten</li>
+</ul>
+</body>
+</html>

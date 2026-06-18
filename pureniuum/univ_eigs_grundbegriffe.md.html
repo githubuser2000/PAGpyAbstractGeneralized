@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>univ_eigs_grundbegriffe</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-zwischen-mathematischen-objekten-mit-strukturellen-bezeichnungsabwandlungen">Universelle
+Eigenschaften zwischen mathematischen Objekten (mit strukturellen
+Bezeichnungsabwandlungen)</h1>
+<h2 id="grundidee-meta-prinzip">0. Grundidee (Meta-Prinzip)</h2>
+<p>Ein mathematisches Objekt lässt sich allgemein beschreiben als:</p>
+<blockquote>
+<p><strong>Objekt = Träger + Relationen + Operationen +
+Invarianten</strong></p>
+</blockquote>
+<p>Universelle Eigenschaften sind solche, die unabhängig vom konkreten
+Träger auftreten.<br />
+Die Unterschiede zwischen mathematischen Objekten liegen primär in der
+<strong>Benennung und Interpretation derselben
+Strukturrollen</strong>.</p>
+<hr />
+<h1 id="universelle-eigenschaften-meta-kern">1. Universelle
+Eigenschaften (Meta-Kern)</h1>
+<p>Diese Eigenschaften treten in nahezu allen mathematischen Strukturen
+auf:</p>
+<ul>
+<li>Elementhaftigkeit</li>
+<li>Zugehörigkeit</li>
+<li>Relationiertheit</li>
+<li>Komposition</li>
+<li>Identität (Neutralität)</li>
+<li>Invertierbarkeit</li>
+<li>Abgeschlossenheit</li>
+<li>Ordnung / Vergleich</li>
+<li>Invarianz unter Transformation</li>
+<li>Struktur-Erhaltung (Morphismus-Idee)</li>
+<li>Symmetrie</li>
+<li>Reduktion / Quotientbildung</li>
+<li>Lokal–Global-Prinzip</li>
+</ul>
+<hr />
+<h1 id="universelle-strukturrollen-mit-bezeichnungsabwandlungen">2.
+Universelle Strukturrollen mit Bezeichnungsabwandlungen</h1>
+<h2 id="element-einheit-objekt">2.1 Element / Einheit / Objekt</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 25%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Menge</th>
+<th>Vektorraum</th>
+<th>Graph</th>
+<th>Kategorie</th>
+<th>Logik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Element</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">x \in A</annotation></semantics></math></td>
+<td>Vektor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math></td>
+<td>Knoten</td>
+<td>Objekt</td>
+<td>Term</td>
+</tr>
+<tr>
+<td>Zugehörigkeit</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">x \in A</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v \in V</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>∈</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">v \in V(G)</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∈</mo><mi>O</mi><mi>b</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="script">𝒞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X \in Ob(\mathcal{C})</annotation></semantics></math></td>
+<td>Interpretierbarkeit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Ein unterscheidbares Atom innerhalb einer Struktur.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Menge → Element</li>
+<li>Vektorraum → Vektor</li>
+<li>Graph → Knoten</li>
+<li>Kategorie → Objekt</li>
+<li>Logik → Term / Variable</li>
+</ul>
+<hr />
+<h2 id="relation-verbindung">2.2 Relation / Verbindung</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 26%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 19%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Menge</th>
+<th>Ordnung</th>
+<th>Graph</th>
+<th>Logik</th>
+<th>Algebra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relation</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>⊆</mo><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">R \subseteq A \times B</annotation></semantics></math></td>
+<td>≤</td>
+<td>Kante</td>
+<td>Prädikat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x,y)</annotation></semantics></math></td>
+<td>Relation in Struktur</td>
+</tr>
+<tr>
+<td>Ausdruck</td>
+<td>(x,y) ∈ R</td>
+<td>x ≤ y</td>
+<td>edge(x,y)</td>
+<td>P(x,y)=true</td>
+<td>a ~ b</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Verknüpfung von zwei oder mehr Entitäten.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Menge → Relation</li>
+<li>Ordnung → Vergleichsrelation</li>
+<li>Graph → Kante</li>
+<li>Logik → Prädikat</li>
+<li>Algebra → Äquivalenzrelation / Strukturrelation</li>
+</ul>
+<hr />
+<h2 id="operation-transformation">2.3 Operation / Transformation</h2>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Algebra</th>
+<th>Funktion</th>
+<th>Kategorie</th>
+<th>Programmierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operation</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>⋆</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a ⋆ b</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></td>
+<td>Morphismus</td>
+<td>Funktion</td>
+</tr>
+<tr>
+<td>Ergebnis</td>
+<td>a⋆b</td>
+<td>f(x)</td>
+<td>f ∘ g</td>
+<td>output</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Etwas wird in etwas anderes überführt.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Algebra → binäre Operation</li>
+<li>Analysis → Funktion</li>
+<li>Kategorie → Morphismus</li>
+<li>Informatik → Funktion / Call</li>
+</ul>
+<hr />
+<h2 id="komposition-verkettung">2.4 Komposition / Verkettung</h2>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 27%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Funktion</th>
+<th>Gruppe</th>
+<th>Kategorie</th>
+<th>Programmierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Komposition</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∘</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">f ∘ g</annotation></semantics></math></td>
+<td>Multiplikation</td>
+<td>Morphismus-Komposition</td>
+<td>function chaining</td>
+</tr>
+<tr>
+<td>Neutralität</td>
+<td>id</td>
+<td>e</td>
+<td>id_X</td>
+<td>identity</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Sequenz von Transformationen als neue Transformation.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Funktion → Funktionskomposition</li>
+<li>Gruppe → Verknüpfung</li>
+<li>Kategorie → Morphismus-Komposition</li>
+<li>Code → Pipeline</li>
+</ul>
+<hr />
+<h2 id="identität-neutralität">2.5 Identität / Neutralität</h2>
+<table>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Gruppe</th>
+<th>Ring</th>
+<th>Vektorraum</th>
+<th>Kategorie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identität</td>
+<td>e</td>
+<td>0 / 1</td>
+<td>0</td>
+<td>id</td>
+</tr>
+<tr>
+<td>Wirkung</td>
+<td>a⋆e = a</td>
+<td>a+0=a</td>
+<td>v+0=v</td>
+<td>f∘id=f</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Ein Element, das Struktur nicht verändert.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Gruppe → neutrales Element</li>
+<li>Ring → additive/multiplikative Identität</li>
+<li>Vektorraum → Nullvektor</li>
+<li>Kategorie → Identitätsmorphismus</li>
+</ul>
+<hr />
+<h2 id="invertierbarkeit">2.6 Invertierbarkeit</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Gruppe</th>
+<th>Funktion</th>
+<th>Matrix</th>
+<th>Kategorie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inverse</td>
+<td>a⁻¹</td>
+<td>f⁻¹</td>
+<td>A⁻¹</td>
+<td>Isomorphismus</td>
+</tr>
+<tr>
+<td>Bedingung</td>
+<td>a⋆a⁻¹=e</td>
+<td>f∘f⁻¹=id</td>
+<td>AA⁻¹=I</td>
+<td>invertierbarer Morphismus</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Rückgängig machen einer Transformation.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Gruppe → inverses Element</li>
+<li>Analysis → Umkehrfunktion</li>
+<li>Lineare Algebra → inverse Matrix</li>
+<li>Kategorie → Isomorphismus</li>
+</ul>
+<hr />
+<h2 id="abgeschlossenheit">2.7 Abgeschlossenheit</h2>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 21%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Menge</th>
+<th>Gruppe</th>
+<th>Ring</th>
+<th>Vektorraum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Closure</td>
+<td>a,b ∈ A ⇒ a⋆b ∈ A</td>
+<td>+ abgeschlossen</td>
+<td>+,· abgeschlossen</td>
+<td>lineare Komb.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Operation verlässt die Struktur nicht.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Menge → abgeschlossen unter Operation</li>
+<li>Algebra → Gruppenaxiom</li>
+<li>Ring → Strukturaxiom</li>
+<li>Vektorraum → Linearität</li>
+</ul>
+<hr />
+<h2 id="ordnung-vergleich">2.8 Ordnung / Vergleich</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Menge</th>
+<th>Ordnung</th>
+<th>Graph</th>
+<th>Logik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ordnung</td>
+<td>≤</td>
+<td>total/partiell</td>
+<td>gerichtete Kante</td>
+<td>Implikation</td>
+</tr>
+<tr>
+<td>Vergleich</td>
+<td>x ≤ y</td>
+<td>Vergleich</td>
+<td>Reachability</td>
+<td>P ⇒ Q</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Strukturierte Rangordnung von Elementen.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Menge → Ordnung</li>
+<li>Graph → gerichteter Graph</li>
+<li>Logik → Implikation</li>
+<li>Algebra → Halbordnung</li>
+</ul>
+<hr />
+<h2 id="invarianz">2.9 Invarianz</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 17%" />
+<col style="width: 22%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Geometrie</th>
+<th>Algebra</th>
+<th>Topologie</th>
+<th>Kategorie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invarianz</td>
+<td>Distanz</td>
+<td>Struktur</td>
+<td>Offenheit</td>
+<td>Funktor</td>
+</tr>
+<tr>
+<td>Erhaltung</td>
+<td>isometrisch</td>
+<td>Homomorphismus</td>
+<td>stetig</td>
+<td>funktoriell</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Etwas bleibt unter Transformation unverändert.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Geometrie → Isometrie</li>
+<li>Algebra → Homomorphismus</li>
+<li>Topologie → Stetigkeit</li>
+<li>Kategorie → Funktor</li>
+</ul>
+<hr />
+<h2 id="symmetrie">2.10 Symmetrie</h2>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 29%" />
+<col style="width: 12%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Geometrie</th>
+<th>Algebra</th>
+<th>Physik</th>
+<th>Graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symmetrie</td>
+<td>Rotation</td>
+<td>Gruppenautomorphismus</td>
+<td>Invarianz</td>
+<td>Automorphismus</td>
+</tr>
+<tr>
+<td>Struktur</td>
+<td>unverändert</td>
+<td>erhalten</td>
+<td>invariant</td>
+<td>isomorph</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Transformation ohne Veränderung der Struktur.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Geometrie → Rotation/Spiegelung</li>
+<li>Algebra → Automorphismus</li>
+<li>Physik → Symmetriegesetz</li>
+<li>Graph → Graph-Automorphismus</li>
+</ul>
+<hr />
+<h2 id="reduktion-quotient">2.11 Reduktion / Quotient</h2>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 16%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>universelle Rolle</th>
+<th>Menge</th>
+<th>Algebra</th>
+<th>Topologie</th>
+<th>Logik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reduktion</td>
+<td>Klassenbildung</td>
+<td>Quotientgruppe</td>
+<td>Quotientraum</td>
+<td>Modellreduktion</td>
+</tr>
+<tr>
+<td>Effekt</td>
+<td>Identifikation</td>
+<td>Faktorstruktur</td>
+<td>Kollaps</td>
+<td>Vereinfachung</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong><br />
+Zusammenfassen von Elementen zu Äquivalenzklassen.</p>
+<p><strong>Bezeichnungsabwandlung:</strong></p>
+<ul>
+<li>Menge → Partition</li>
+<li>Algebra → Quotientgruppe/Ring</li>
+<li>Topologie → Quotientenraum</li>
+<li>Logik → Modellvereinfachung</li>
+</ul>
+<hr />
+<h1 id="duale-struktur-jeder-eigenschaft">3. Duale Struktur jeder
+Eigenschaft</h1>
+<p>Jede universelle Eigenschaft besitzt zwei Richtungen:</p>
+<h2 id="bottom-up-konstruktion">3.1 Bottom-Up (Konstruktion)</h2>
+<ul>
+<li>Elemente → Struktur entsteht</li>
+<li>lokale Regeln → globales Verhalten</li>
+<li>Mikro → Makro</li>
+</ul>
+<h2 id="top-down-constraint">3.2 Top-Down (Constraint)</h2>
+<ul>
+<li>Struktur → beschränkt Elemente</li>
+<li>globale Regeln → lokale Einschränkungen</li>
+<li>Makro → Mikro</li>
+</ul>
+<hr />
+<h1 id="gesamtstruktur-komprimierte-sicht">4. Gesamtstruktur
+(komprimierte Sicht)</h1>
+<p>Alle mathematischen Objekte lassen sich auf folgende Rollen
+reduzieren:</p>
+<ul>
+<li><strong>Träger (Elementsystem)</strong></li>
+<li><strong>Relationen (Verbindungen)</strong></li>
+<li><strong>Operationen (Transformationen)</strong></li>
+<li><strong>Komposition (Verkettung)</strong></li>
+<li><strong>Identität (Neutralität)</strong></li>
+<li><strong>Invertierbarkeit (Rückgängigmachung)</strong></li>
+<li><strong>Abgeschlossenheit (Stabilität)</strong></li>
+<li><strong>Ordnung (Vergleich)</strong></li>
+<li><strong>Invarianz (Strukturerhalt)</strong></li>
+<li><strong>Symmetrie (Selbstabbildung)</strong></li>
+<li><strong>Reduktion (Quotientbildung)</strong></li>
+</ul>
+<hr />
+<h1 id="schlussformel-meta-abstraktion">5. Schlussformel
+(Meta-Abstraktion)</h1>
+<blockquote>
+<p>Mathematik ist die Untersuchung dessen,<br />
+welche Transformationen auf welchen Trägern<br />
+welche Invarianten erzeugen oder erhalten.</p>
+</blockquote>
+<p>Oder kompakter:</p>
+<blockquote>
+<p><strong>Objekte unterscheiden sich nur in der Benennung ihrer
+Strukturrollen, nicht in der Art der Rollen selbst.</strong></p>
+</blockquote>
+</body>
+</html>

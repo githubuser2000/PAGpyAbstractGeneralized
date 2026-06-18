@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>7m11</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-zwischen-winkel-und-δ-delta">Universelle
+Eigenschaften zwischen <strong>Winkel</strong> und <strong>Δ
+(Delta)</strong></h1>
+<h2 id="grundidee-beide-sind-differenz-strukturen">1. Grundidee: beide
+sind <em>Differenz-Strukturen</em></h2>
+<p>Sowohl der Winkel als auch Δ beschreiben keine absolute Größe,
+sondern eine <strong>Relation zwischen zwei Zuständen</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Struktur</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Winkel (∠)</td>
+<td>Differenz zweier Richtungen im Raum</td>
+</tr>
+<tr>
+<td>Δ (Delta)</td>
+<td>Differenz zweier Zustände / Werte / Strukturen</td>
+</tr>
+</tbody>
+</table>
+<p>➡️ Beide sind <strong>Operatoren auf Paare</strong>, nicht isolierte
+Objekte.</p>
+<hr />
+<h2 id="relationalität-kein-absoluter-wert">2. Relationalität (kein
+absoluter Wert)</h2>
+<ul>
+<li>Winkel: entsteht nur durch zwei Vektoren oder Linien</li>
+<li>Δ: entsteht nur durch Vergleich zweier Größen</li>
+</ul>
+<p><strong>Gemeinsame Eigenschaft:</strong></p>
+<blockquote>
+<p>Ohne Referenzpaar existiert weder Winkel noch Delta sinnvoll.</p>
+</blockquote>
+<hr />
+<h2 id="richtung-statt-nur-betrag">3. Richtung statt nur Betrag</h2>
+<p>Beide enthalten strukturell <em>Richtung</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Konzept</th>
+<th>Richtungstyp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Winkel</td>
+<td>gerichtete Rotation (CW / CCW, Orientierung im Raum)</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>gerichtete Veränderung (Zunahme / Abnahme)</td>
+</tr>
+</tbody>
+</table>
+<p>➡️ Beide kodieren eine <strong>gerichtete
+Differenzstruktur</strong>.</p>
+<hr />
+<h2 id="symmetriebruch-als-ursprung">4. Symmetriebruch als Ursprung</h2>
+<ul>
+<li>Winkel entsteht durch Abweichung von Parallelität (0° als
+Symmetriezustand)</li>
+<li>Δ entsteht durch Abweichung von Gleichheit (0 als
+Symmetriezustand)</li>
+</ul>
+<p><strong>Gemeinsames Prinzip:</strong></p>
+<blockquote>
+<p>Beide messen den Bruch einer idealen Gleichstruktur.</p>
+</blockquote>
+<hr />
+<h2 id="skalierung-und-invarianz">5. Skalierung und Invarianz</h2>
+<ul>
+<li>Winkel bleibt invariant unter Translation im Raum</li>
+<li>Δ bleibt invariant unter Umbenennung der Zustände
+(Labelwechsel)</li>
+</ul>
+<p>➡️ Beide sind <strong>strukturinvariant, aber nicht
+wertinvariant</strong>.</p>
+<hr />
+<h2 id="kompositionsfähigkeit">6. Kompositionsfähigkeit</h2>
+<p>Beide lassen sich additiv kombinieren:</p>
+<ul>
+<li><p>Winkel:<br />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mi>_</mi><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>m</mi><mi>t</mi></mrow><mo>=</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+\theta\_{gesamt} = \theta_1 + \theta_2
+</annotation></semantics></math></p></li>
+<li><p>Delta:<br />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>_</mi><mrow><mi>g</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>m</mi><mi>t</mi></mrow><mo>=</mo><msub><mi mathvariant="normal">Δ</mi><mn>1</mn></msub><mo>+</mo><msub><mi mathvariant="normal">Δ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+\Delta\_{gesamt} = \Delta_1 + \Delta_2
+</annotation></semantics></math></p></li>
+</ul>
+<p>➡️ Beide bilden <strong>lineare Akkumulationsstrukturen</strong>.</p>
+<hr />
+<h2 id="lokale-vs.-globale-interpretation">7. Lokale vs. globale
+Interpretation</h2>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Winkel</th>
+<th>Δ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lokal</td>
+<td>zwischen zwei Richtungen</td>
+<td>zwischen zwei Punkten</td>
+</tr>
+<tr>
+<td>global</td>
+<td>Gesamtrotation</td>
+<td>Gesamtänderung</td>
+</tr>
+</tbody>
+</table>
+<p>➡️ Beide haben <strong>lokale Differenzen, die zu globalen Strukturen
+integrieren</strong>.</p>
+<hr />
+<h2 id="duale-interpretation-geometrie-algebra">8. Duale Interpretation:
+Geometrie ↔︎ Algebra</h2>
+<ul>
+<li>Winkel → geometrische Differenz (Rotation im Raum)</li>
+<li>Δ → algebraische Differenz (Wertänderung)</li>
+</ul>
+<p><strong>Tiefe Gleichheit:</strong></p>
+<blockquote>
+<p>Geometrie = strukturierte Differenz im Raum<br />
+Algebra = strukturierte Differenz in Werten</p>
+</blockquote>
+<hr />
+<h2 id="nullstruktur-als-identitätspunkt">9. Nullstruktur als
+Identitätspunkt</h2>
+<ul>
+<li>Winkel 0° → keine Richtungsänderung</li>
+<li>Δ = 0 → keine Zustandsänderung</li>
+</ul>
+<p>➡️ Beide besitzen eine <strong>Identitätsreferenz als degenerierten
+Fall der Differenz</strong>.</p>
+<hr />
+<h2 id="abstrakte-generalisierung">10. Abstrakte Generalisierung</h2>
+<p>Beide sind Spezialfälle eines allgemeinen Operators:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mtext mathvariant="normal">Differenz zwischen zwei Zuständen</mtext></mrow><annotation encoding="application/x-tex">
+D(x,y) = \text{Differenz zwischen zwei Zuständen}
+</annotation></semantics></math></p>
+<ul>
+<li>Winkel =
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Vektor</mtext><mi>_</mi><mn>1</mn><mo>,</mo><mtext mathvariant="normal">Vektor</mtext><mi>_</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">D(\text{Vektor}\_1, \text{Vektor}\_2)</annotation></semantics></math></li>
+<li>Delta =
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">D(x_1, x_2)</annotation></semantics></math></li>
+</ul>
+<hr />
+<h2 id="kernaussage">Kernaussage</h2>
+<blockquote>
+<p>Winkel und Δ sind zwei unterschiedliche Kodierungen desselben
+universellen Prinzips:<br />
+<strong>Struktur entsteht aus gerichteter Differenz zwischen zwei
+Referenzen.</strong></p>
+</blockquote>
+</body>
+</html>

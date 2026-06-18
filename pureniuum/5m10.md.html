@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>5m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-wahrheitswert-0-stellig-box-einheit-1">Universelle
+Eigenschaften: Logikprädikat ↔︎ Wahrheitswert (0-stellig) ↔︎ Box / Einheit
+(≈ 1)</h1>
+<p>Wir betrachten drei Konzepte auf einer gemeinsamen Strukturachse:</p>
+<ul>
+<li><strong>Logikprädikat</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x_1, \dots, x_n)</annotation></semantics></math></li>
+<li><strong>Nullstelliges Prädikat (Aussage)</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">true</mtext><mo>,</mo><mtext mathvariant="normal">false</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">P() \in \{\text{true}, \text{false}\}</annotation></semantics></math></li>
+<li><strong>Box / Einheit</strong>: ein strukturtragendes Objekt, das
+„Inhalt halten“ kann (analog zur Zahl 1 als neutraler Träger von
+Skalierung und Identität)</li>
+</ul>
+<hr />
+<h1 id="verdichtete-interpretation-der-drei-objekte">1. Verdichtete
+Interpretation der drei Objekte</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 23%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>Objekt</th>
+<th>Typische Rolle</th>
+<th>Abstrakte Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></td>
+<td>Relation / Funktion</td>
+<td>Struktur über Inputs</td>
+</tr>
+<tr>
+<td>Nullstelliges Prädikat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P()</annotation></semantics></math></td>
+<td>Wahrheitswert</td>
+<td>Struktur ohne Input → reine Gültigkeit</td>
+</tr>
+<tr>
+<td>Box / Einheit (≈ 1)</td>
+<td>Container / Identität</td>
+<td>Struktur ohne Differenz → reiner Träger</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="universelle-eigenschaften-beide-richtungen">2. Universelle
+Eigenschaften (beide Richtungen)</h1>
+<h2 id="a.-von-logikprädikat-wahrheitswert-box">A. Von Logikprädikat →
+Wahrheitswert / Box</h2>
+<ul>
+<li><strong>Reduktion durch Bindung</strong>
+<ul>
+<li>Variablen werden „geschlossen“ → Ergebnis wird konstant</li>
+</ul></li>
+<li><strong>Skalarisierung</strong>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mtext mathvariant="normal">Wahrheitswert</mtext></mrow><annotation encoding="application/x-tex">P(x_1,\dots,x_n) \rightarrow \text{Wahrheitswert}</annotation></semantics></math></li>
+</ul></li>
+<li><strong>Kontextverlust</strong>
+<ul>
+<li>interne Struktur wird irrelevant, nur Stabilität bleibt</li>
+</ul></li>
+<li><strong>Fixpunktbildung</strong>
+<ul>
+<li>Ein Zustand wird ausgewählt, der invariant ist</li>
+</ul></li>
+<li><strong>Typwechsel</strong>
+<ul>
+<li>Funktion → Objekt (höherer Strukturgrad → Element)</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="b.-von-wahrheitswert-box-logikprädikat">B. Von Wahrheitswert /
+Box → Logikprädikat</h2>
+<ul>
+<li><strong>Expansion durch Parametrisierung</strong>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">true</mtext><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\text{true} \rightarrow P(x)</annotation></semantics></math>
+mit trivialer Struktur</li>
+</ul></li>
+<li><strong>Strukturaufbau</strong>
+<ul>
+<li>aus statischem Wert wird relationale Form</li>
+</ul></li>
+<li><strong>Generalisierung</strong>
+<ul>
+<li>Einzelzustand → Familie von Zuständen</li>
+</ul></li>
+<li><strong>Einbettung</strong>
+<ul>
+<li>Wahrheitswert wird als Spezialfall einer Funktion interpretiert</li>
+</ul></li>
+<li><strong>Funktionalisierung</strong>
+<ul>
+<li>Objekt → Abbildung auf Raum von Inputs</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="nullstelligkeit-als-grenzform">3. Nullstelligkeit als
+Grenzform</h1>
+<h2 id="nullstelliges-prädikat">Nullstelliges Prädikat:</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">true</mtext><mo>,</mo><mtext mathvariant="normal">false</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P() \in \{\text{true}, \text{false}\}
+</annotation></semantics></math></p>
+<p>Eigenschaften:</p>
+<ul>
+<li><strong>keine Freiheitsgrade</strong></li>
+<li><strong>vollständige Kompression einer Struktur</strong></li>
+<li><strong>reine Zustandsaussage</strong></li>
+<li>entspricht: <em>„die Welt wurde vollständig ausgewertet“</em></li>
+</ul>
+<hr />
+<h1 id="box-zahl-1-als-strukturelle-identität">4. Box ≈ Zahl 1 als
+strukturelle Identität</h1>
+<p>Die Box (oder Einheit 1) ist hier keine Zahl im klassischen Sinn,
+sondern:</p>
+<ul>
+<li><strong>Identitätsträger</strong></li>
+<li><strong>neutraler Strukturcontainer</strong></li>
+<li><strong>Multiplikatives Neutralelement</strong>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋅</mo><mn>1</mn><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">x \cdot 1 = x</annotation></semantics></math></li>
+</ul></li>
+</ul>
+<h2 id="universelle-eigenschaften">Universelle Eigenschaften:</h2>
+<ul>
+<li><strong>Neutralität</strong>
+<ul>
+<li>verändert nichts, aber hält alles</li>
+</ul></li>
+<li><strong>Transportfähigkeit</strong>
+<ul>
+<li>kann Struktur aufnehmen ohne sie zu verändern</li>
+</ul></li>
+<li><strong>Selbstgleichheit</strong>
+<ul>
+<li>Box bleibt Box unabhängig vom Inhalt</li>
+</ul></li>
+<li><strong>Skalierungsinvarianz</strong>
+<ul>
+<li>wirkt als Referenzpunkt für Vergleich</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="gemeinsame-strukturachse-kernidee">5. Gemeinsame Strukturachse
+(Kernidee)</h1>
+<p>Alle drei Objekte liegen auf einer Achse:</p>
+</body>
+</html>

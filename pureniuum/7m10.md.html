@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>7m10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-logikprädikat-nullstelliges-prädikat-wahrheitswert-und-winkel">Universelle
+Eigenschaften: Logikprädikat, nullstelliges Prädikat (Wahrheitswert) und
+Winkel</h1>
+<p>Wir betrachten drei Objekte:</p>
+<ul>
+<li><strong>Prädikat</strong>: P(x_1, , x_n)</li>
+<li><strong>Nullstelliges Prädikat (Aussage)</strong>: P() {, }</li>
+<li><strong>Winkel</strong>: /2</li>
+</ul>
+<hr />
+<h1 id="grundstruktur-funktion-vs.-zustand-vs.-orientierung">1.
+Grundstruktur: Funktion vs. Zustand vs. Orientierung</h1>
+<h2 id="a-logikprädikat">(A) Logikprädikat</h2>
+<ul>
+<li>Abbildung:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><msup><mi>X</mi><mi>n</mi></msup><mo>→</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P : X^n \rightarrow \{\text{wahr}, \text{falsch}\}
+</annotation></semantics></math></li>
+<li>Struktur: <strong>Relation über Raum von Argumenten</strong></li>
+<li>Ergebnis: binär (diskret)</li>
+</ul>
+<h2 id="b-nullstelliges-prädikat">(B) Nullstelliges Prädikat</h2>
+<ul>
+<li>Abbildung:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">wahr</mtext><mo>,</mo><mtext mathvariant="normal">falsch</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+P() \in \{\text{wahr}, \text{falsch}\}
+</annotation></semantics></math></li>
+<li>Struktur: <strong>reiner Zustand ohne Argumentraum</strong></li>
+<li>Ergebnis: binärer Zustand</li>
+</ul>
+<h2 id="c-winkel">(C) Winkel</h2>
+<ul>
+<li>Abbildung:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∈</mo><msup><mi>S</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">
+\theta \in S^1
+</annotation></semantics></math></li>
+<li>Struktur: <strong>kontinuierlicher Zustand auf Kreis</strong></li>
+<li>Ergebnis: kontinuierlicher Zustand</li>
+</ul>
+<hr />
+<h1 id="universelle-eigenschaft-reduktion-auf-zustand">2. Universelle
+Eigenschaft: Reduktion auf Zustand</h1>
+<table>
+<thead>
+<tr>
+<th>Struktur</th>
+<th>Reduktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>Evaluierung unter Belegung</td>
+</tr>
+<tr>
+<td>Nullstelliges Prädikat</td>
+<td>direkter Wahrheitszustand</td>
+</tr>
+<tr>
+<td>Winkel</td>
+<td>direkter Orientierungszustand</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gemeinsame Eigenschaft:</strong></p>
+<blockquote>
+<p>Alle drei können als <em>Zustand nach Reduktion</em> interpretiert
+werden.</p>
+</blockquote>
+<hr />
+<h1 id="dualität-diskret-kontinuierlich">3. Dualität: Diskret ↔︎
+Kontinuierlich</h1>
+<h2 id="diskrete-seite-logik">Diskrete Seite (Logik)</h2>
+<ul>
+<li>Wahr / Falsch</li>
+<li>Boolescher Raum</li>
+<li>Scharfe Trennung</li>
+</ul>
+<h2 id="kontinuierliche-seite-geometrie">Kontinuierliche Seite
+(Geometrie)</h2>
+<ul>
+<li>Winkel </li>
+<li>Kreisstruktur S^1</li>
+<li>kontinuierliche Variation</li>
+</ul>
+<h3 id="universelle-abbildungsidee">Universelle Abbildungsidee:</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Logik</mtext><mo>↔</mo><mtext mathvariant="normal">Geometrie</mtext></mrow><annotation encoding="application/x-tex">
+\text{Logik} \leftrightarrow \text{Geometrie}
+</annotation></semantics></math></p>
+<hr />
+<h1 id="invarianzstrukturen">4. Invarianzstrukturen</h1>
+<h2 id="prädikat">Prädikat</h2>
+<ul>
+<li>invariant unter Umbenennung von Variablen</li>
+<li>strukturell invariant unter Isomorphien</li>
+</ul>
+<h2 id="nullstelliges-prädikat">Nullstelliges Prädikat</h2>
+<ul>
+<li>invariant unter allen Variationen (kein Input)</li>
+</ul>
+<h2 id="winkel">Winkel</h2>
+<ul>
+<li>invariant unter:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∼</mo><mi>θ</mi><mo>+</mo><mn>2</mn><mi>π</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">
+\theta \sim \theta + 2\pi k
+</annotation></semantics></math></li>
+</ul>
+<p><strong>Gemeinsame Eigenschaft:</strong></p>
+<blockquote>
+<p>Alle besitzen eine Form von <strong>Symmetrie-Reduktion auf
+Äquivalenzklassen</strong></p>
+</blockquote>
+<hr />
+<h1 id="informationsgehalt">5. Informationsgehalt</h1>
+<table>
+<thead>
+<tr>
+<th>Objekt</th>
+<th>Informationsart</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prädikat</td>
+<td>strukturelle Information über Raum</td>
+</tr>
+<tr>
+<td>Nullstelliges Prädikat</td>
+<td>1 Bit Information</td>
+</tr>
+<tr>
+<td>Winkel</td>
+<td>kontinuierliche Informationsdichte</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Universell:</strong></p>
+<blockquote>
+<p>Alle kodieren Information, aber in unterschiedlicher
+Granularität.</p>
+</blockquote>
+<hr />
+<h1 id="kompositionsprinzip">6. Kompositionsprinzip</h1>
+<h2 id="prädikat-1">Prädikat</h2>
+<ul>
+<li>kann aus anderen Prädikaten zusammengesetzt werden:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∧</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+P(x) \land Q(x)
+</annotation></semantics></math></li>
+</ul>
+<h2 id="nullstelliges-prädikat-1">Nullstelliges Prädikat</h2>
+<ul>
+<li>keine Komposition möglich außer Logikoperationen</li>
+</ul>
+<h2 id="winkel-1">Winkel</h2>
+<ul>
+<li>additive Komposition:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+\theta_1 + \theta_2
+</annotation></semantics></math></li>
+</ul>
+<p><strong>Gemeinsame Struktur:</strong></p>
+<blockquote>
+<p>Alle unterstützen eine Form von <strong>Operation auf
+Zuständen</strong>, aber mit unterschiedlicher Algebra:</p>
+</blockquote>
+<ul>
+<li>Boolesche Algebra (Logik)</li>
+<li>Triviale Algebra (nullstellig)</li>
+<li>Kreisgruppe S^1 (Geometrie)</li>
+</ul>
+<hr />
+<h1 id="tiefe-universelle-abstraktion">7. Tiefe universelle
+Abstraktion</h1>
+<p>Alle drei lassen sich auf eine gemeinsame Form bringen:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>:</mo><mi mathvariant="script">𝒳</mi><mo>→</mo><mi mathvariant="script">𝒮</mi></mrow><annotation encoding="application/x-tex">
+Z : \mathcal{X} \rightarrow \mathcal{S}
+</annotation></semantics></math></p>
+<p>mit:</p>
+<ul>
+<li>Prädikat:  = {, }</li>
+<li>Nullstellig:  = </li>
+<li>Winkel:  = S^1</li>
+</ul>
+<hr />
+<h1 id="kernaussage-universell">8. Kernaussage (universell)</h1>
+<blockquote>
+<p>Prädikate und Winkel sind zwei verschiedene Realisierungen desselben
+Prinzips:</p>
+<p><strong>Abbildung von Struktur in einen Zustandsraum</strong></p>
+<ul>
+<li>Logik → diskreter Zustandsraum</li>
+<li>Winkel → kontinuierlicher Zustandsraum</li>
+<li>nullstelliges Prädikat → degenerierter Zustandsraum (ein Punkt)</li>
+</ul>
+</blockquote>
+<hr />
+<h1 id="verdichtete-dualität">9. Verdichtete Dualität</h1>
+<ul>
+<li>Logik: <em>Entscheidung</em></li>
+<li>Winkel: <em>Orientierung</em></li>
+<li>Nullstellig: <em>Sein ohne Struktur</em></li>
+</ul>
+<hr />
+<p>Wenn du willst, kann ich daraus als nächsten Schritt eine
+<strong>gemeinsame Algebra (Logik–Geometrie-Fusion)</strong> bauen, in
+der Wahrheitswerte als Winkelpunkte auf S^1 interpretiert werden.</p>
+</body>
+</html>

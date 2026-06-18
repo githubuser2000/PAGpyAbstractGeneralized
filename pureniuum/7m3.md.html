@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>7m3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-winkel-existenz-haken">Universelle
+Eigenschaften: Winkel ↔︎ Existenz (Haken)</h1>
+<p>Wir betrachten zwei abstrakte Strukturen:</p>
+<ul>
+<li><strong>Winkel (∠)</strong>: Richtungsinformation, Differenz,
+Transformation zwischen zwei Zuständen im Raum.</li>
+<li><strong>Existenz (☑ / Haken)</strong>: Binäre Setzung, „ist
+gesetzt“, „ist realisiert“, ein Auswahl-/Aktivierungsoperator.</li>
+</ul>
+<hr />
+<h1 id="grundintuition">1. Grundintuition</h1>
+<h2 id="winkel">Winkel</h2>
+<ul>
+<li>beschreibt <strong>Relation zwischen Richtungen</strong></li>
+<li>ist kein Objekt, sondern ein <strong>Verhältnis</strong></li>
+<li>entsteht nur durch <strong>mindestens zwei Referenzen</strong></li>
+</ul>
+<h2 id="existenz-haken">Existenz (Haken)</h2>
+<ul>
+<li>beschreibt <strong>Aktivierung eines Zustands</strong></li>
+<li>ist ein <strong>Schwellwertoperator</strong></li>
+<li>reduziert Möglichkeit → Realität (oder Auswahl)</li>
+</ul>
+<hr />
+<h1 id="universelle-strukturähnlichkeiten">2. Universelle
+Strukturähnlichkeiten</h1>
+<h2 id="relationalität">2.1 Relationalität</h2>
+<ul>
+<li>Winkel: Relation zwischen zwei Vektoren</li>
+<li>Existenz: Relation zwischen Möglichkeit und Realisierung</li>
+</ul>
+<p>👉 Beide sind <strong>nicht isoliert definierbar</strong></p>
+<hr />
+<h2 id="nicht-substanzialität">2.2 Nicht-Substanzialität</h2>
+<ul>
+<li>Winkel existiert nicht „als Ding“, sondern als Differenz</li>
+<li>Existenz (Haken) ist kein Objekt, sondern ein
+<strong>Zustandsmarker</strong></li>
+</ul>
+<p>👉 Beide sind <strong>sekundäre Strukturen über etwas
+anderem</strong></p>
+<hr />
+<h2 id="binäre-voraussetzung">2.3 Binäre Voraussetzung</h2>
+<ul>
+<li>Winkel benötigt mindestens 2 Punkte/Vektoren</li>
+<li>Existenz benötigt mindestens 2 Zustände:
+<ul>
+<li>möglich</li>
+<li>realisiert</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="übergangscharakter">2.4 Übergangscharakter</h2>
+<ul>
+<li>Winkel: Übergang zwischen Richtungen</li>
+<li>Existenz: Übergang zwischen Nicht-Sein und Sein</li>
+</ul>
+<p>👉 Beide sind <strong>Operatoren der Transformation</strong></p>
+<hr />
+<h2 id="kontextabhängigkeit">2.5 Kontextabhängigkeit</h2>
+<ul>
+<li>Winkel hängt vom Koordinatensystem ab</li>
+<li>Existenz hängt vom Definitionsraum ab (Regeln, Logiksystem)</li>
+</ul>
+<hr />
+<h1 id="duale-richtungspaarung">3. Duale Richtungspaarung</h1>
+<h2 id="vom-winkel-zur-existenz">3.1 Vom Winkel zur Existenz</h2>
+<ul>
+<li>Winkel → Entscheidung über Richtung</li>
+<li>Richtung → Auswahl eines Pfades</li>
+<li>Auswahl → „gesetzt“ (Haken)</li>
+</ul>
+<p>👉 Winkel kann als <strong>prä-logischer Selektor</strong>
+interpretiert werden</p>
+<hr />
+<h2 id="von-der-existenz-zum-winkel">3.2 Von der Existenz zum
+Winkel</h2>
+<ul>
+<li>Existenz setzt zwei Zustände:
+<ul>
+<li>aktiviert / nicht aktiviert</li>
+</ul></li>
+<li>diese erzeugen eine <strong>implizite Achse</strong></li>
+<li>Achse → Möglichkeit eines Winkels</li>
+</ul>
+<p>👉 Existenz erzeugt <strong>Strukturraum für Richtung</strong></p>
+<hr />
+<h1 id="strukturelle-dualität">4. Strukturelle Dualität</h1>
+<table>
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Winkel</th>
+<th>Existenz (Haken)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typ</td>
+<td>Relation</td>
+<td>Zustand</td>
+</tr>
+<tr>
+<td>Minimalstruktur</td>
+<td>2 Vektoren</td>
+<td>2 Zustände</td>
+</tr>
+<tr>
+<td>Funktion</td>
+<td>Differenzierung</td>
+<td>Aktivierung</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>Rotation/Transformation</td>
+<td>Setzung/Collapse</td>
+</tr>
+<tr>
+<td>Ergebnis</td>
+<td>Richtung</td>
+<td>Sein / Nicht-Sein</td>
+</tr>
+<tr>
+<td>Abhängigkeit</td>
+<td>Raumstruktur</td>
+<td>Logikstruktur</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="abstrakte-gleichung-meta-modell">5. Abstrakte Gleichung
+(Meta-Modell)</h1>
+<p>Man kann beide als Operatoren eines gemeinsamen Systems sehen:</p>
+<ul>
+<li><p>Winkel:<br />
+<strong>W = f(v₁, v₂)</strong> → Relation</p></li>
+<li><p>Existenz:<br />
+<strong>E = g(s₀ → s₁)</strong> → Schaltfunktion</p></li>
+</ul>
+<p>Gemeinsame Form:</p>
+<blockquote>
+<p><strong>Ω = Transformation(Relation / Zustand)</strong></p>
+</blockquote>
+<hr />
+<h1 id="kerninvariante">6. Kerninvariante</h1>
+<p>Beide teilen eine zentrale Eigenschaft:</p>
+<blockquote>
+<p>Sie sind <strong>Reduktionsoperatoren höherdimensionaler
+Information</strong></p>
+</blockquote>
+<ul>
+<li>Winkel reduziert Raum auf Richtung</li>
+<li>Existenz reduziert Möglichkeit auf Realität</li>
+</ul>
+<hr />
+<h1 id="tiefere-interpretation-strukturgleichheit">7. Tiefere
+Interpretation (Strukturgleichheit)</h1>
+<ul>
+<li>Winkel = <strong>geometrische Differenzstruktur</strong></li>
+<li>Existenz = <strong>logische Differenzstruktur</strong></li>
+</ul>
+<p>👉 Beide sind <strong>Differenzoperatoren in unterschiedlichen
+Domänen</strong></p>
+<hr />
+<h1 id="verdichtete-aussage">8. Verdichtete Aussage</h1>
+<p>Winkel und Existenz sind isomorphe Konzepte auf zwei Ebenen:</p>
+<ul>
+<li>Winkel: Differenz im Raum</li>
+<li>Existenz: Differenz im Sein</li>
+</ul>
+<p>👉 Beide sind Mechanismen, die aus einer Mehrheit von Möglichkeiten
+eine <strong>gerichtete oder gesetzte Einheit erzeugen</strong></p>
+</body>
+</html>

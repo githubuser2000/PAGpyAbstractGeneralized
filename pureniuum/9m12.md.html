@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>9m12</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-einheit-vs.-menge-tupel-hierarchie">Universelle
+Eigenschaften: Einheit vs. Menge / Tupel / Hierarchie</h1>
+<h2 id="grundbegriffe">1. Grundbegriffe</h2>
+<h3 id="einheit-1">Einheit (1)</h3>
+<ul>
+<li>Atomare Referenzstruktur</li>
+<li>Nicht weiter intern differenziert (im Modell)</li>
+<li>Träger von Identität ohne notwendige Struktur</li>
+<li>Basiselement für Konstruktion</li>
+</ul>
+<h3 id="menge">Menge</h3>
+<ul>
+<li>Ungeordnete Sammlung von Elementen</li>
+<li>Elemente sind primär, Relation sekundär</li>
+<li>Keine inhärente Positionierung</li>
+<li>Identität über Mitgliedschaft definiert</li>
+</ul>
+<h3 id="tupel">Tupel</h3>
+<ul>
+<li>Geordnete Sequenz von Elementen</li>
+<li>Struktur durch Position definiert</li>
+<li>Relationen sind eingebaut (Indexstruktur)</li>
+<li>Starke Differenzierung trotz gleicher Elemente möglich</li>
+</ul>
+<h3 id="hierarchie">Hierarchie</h3>
+<ul>
+<li>Geschichtete Struktur (Level / Ebenen)</li>
+<li>Ordnung durch Dominanz / Abhängigkeit</li>
+<li>Reduktion von Komplexität durch Layering</li>
+<li>Lokale Regeln pro Ebene möglich</li>
+</ul>
+<hr />
+<h2 id="universelle-abbildungsachsen">2. Universelle
+Abbildungsachsen</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 19%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Achse</th>
+<th>Einheit</th>
+<th>Menge</th>
+<th>Tupel</th>
+<th>Hierarchie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identität</td>
+<td>maximal konzentriert</td>
+<td>verteilt</td>
+<td>positionsabhängig</td>
+<td>ebenenabhängig</td>
+</tr>
+<tr>
+<td>Struktur</td>
+<td>minimal implizit</td>
+<td>nicht strukturiert</td>
+<td>explizit linear</td>
+<td>rekursiv geschichtet</td>
+</tr>
+<tr>
+<td>Ordnung</td>
+<td>trivial (selbstgleich)</td>
+<td>keine</td>
+<td>strikt (Index)</td>
+<td>partiell + global</td>
+</tr>
+<tr>
+<td>Differenz</td>
+<td>nicht vorhanden</td>
+<td>elementbasiert</td>
+<td>positionsbasiert</td>
+<td>ebenenbasiert</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>implizit</td>
+<td>extern</td>
+<td>intern kodiert</td>
+<td>vertikal kodiert</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="universelle-eigenschaften">3. Universelle Eigenschaften</h2>
+<h3 id="reduktion-und-expansion">3.1 Reduktion und Expansion</h3>
+<ul>
+<li>Einheit → reduziert alle Struktur auf Identität</li>
+<li>Menge → expandiert Identität in Vielfalt ohne Ordnung</li>
+<li>Tupel → expandiert Identität mit strukturierter Differenz</li>
+<li>Hierarchie → rekursive Expansion über Ebenen</li>
+</ul>
+<hr />
+<h3 id="informationscodierung">3.2 Informationscodierung</h3>
+<ul>
+<li>Einheit: 0 Information über Struktur</li>
+<li>Menge: Information nur über Zugehörigkeit</li>
+<li>Tupel: Information über Position + Element</li>
+<li>Hierarchie: Information über Position + Ebene + Abhängigkeit</li>
+</ul>
+<hr />
+<h3 id="transformationsfähigkeit">3.3 Transformationsfähigkeit</h3>
+<ul>
+<li>Einheit → stabil unter Abbildung (fixpunktartig)</li>
+<li>Menge → invariant unter Permutation</li>
+<li>Tupel → invariant nur unter strukturerhaltenden Permutationen</li>
+<li>Hierarchie → invariant unter Ebenen-isomorphen Transformationen</li>
+</ul>
+<hr />
+<h3 id="komplexitätsentfaltung">3.4 Komplexitätsentfaltung</h3>
+<ul>
+<li>Einheit: keine interne Komplexität</li>
+<li>Menge: O(n) ohne Strukturkopplung</li>
+<li>Tupel: O(n) mit strukturierter Kopplung</li>
+<li>Hierarchie: O(n·log n) oder rekursiv wachsend</li>
+</ul>
+<hr />
+<h2 id="gemeinsame-universelle-struktur">4. Gemeinsame universelle
+Struktur</h2>
+<p>Alle vier Konzepte teilen:</p>
+<ul>
+<li><strong>Referenzierung:</strong> Etwas wird „als etwas“
+bestimmt</li>
+<li><strong>Differenzbildung:</strong> Identität entsteht durch
+Abgrenzung</li>
+<li><strong>Abstraktionsfähigkeit:</strong> Übergang zwischen Ebenen
+möglich</li>
+<li><strong>Repräsentationsprinzip:</strong> Realisierung durch formale
+Struktur</li>
+<li><strong>Komposition:</strong> Bausteine können aggregiert
+werden</li>
+</ul>
+<hr />
+<h2 id="tiefere-invarianz">5. Tiefere Invarianz</h2>
+<h3 id="invariante-idee">5.1 Invariante Idee</h3>
+<p>Alle Systeme sind Projektionen eines einzigen Prinzips:</p>
+<blockquote>
+<p><strong>„Stabilisierung von Identität unter Variation von
+Struktur“</strong></p>
+</blockquote>
+<hr />
+<h3 id="dualität">5.2 Dualität</h3>
+<ul>
+<li>Einheit ↔︎ maximale Kompression</li>
+<li>Menge ↔︎ entstrukturierte Expansion</li>
+<li>Tupel ↔︎ strukturierte Expansion</li>
+<li>Hierarchie ↔︎ rekursive Expansion</li>
+</ul>
+<hr />
+<h2 id="meta-fazit">6. Meta-Fazit</h2>
+<p>Die Einheit ist kein Sonderfall, sondern der Grenzpunkt aller
+Strukturen:</p>
+<ul>
+<li>Menge = Struktur ohne Ordnung</li>
+<li>Tupel = Struktur mit linearer Ordnung</li>
+<li>Hierarchie = Struktur mit rekursiver Ordnung</li>
+<li>Einheit = Struktur im Grenzfall 0</li>
+</ul>
+<p>➡️ Alle vier sind Transformationszustände eines einzigen universellen
+Strukturoperators.</p>
+</body>
+</html>

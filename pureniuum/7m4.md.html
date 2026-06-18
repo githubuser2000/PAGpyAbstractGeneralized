@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>7m4</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-winkel-linearität">Universelle
+Eigenschaften: Winkel ↔︎ Linearität</h1>
+<h2 id="grundinterpretation-der-beiden-objekte">1. Grundinterpretation
+der beiden Objekte</h2>
+<ul>
+<li><strong>Winkel</strong>
+<ul>
+<li>Maß für gerichtete Differenz zwischen zwei Richtungen</li>
+<li>Lokalisiert Transformation im Raum</li>
+<li>Zyklisch (Periodizität:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math>
+bzw. 360°)</li>
+</ul></li>
+<li><strong>Linearität</strong>
+<ul>
+<li>Strukturprinzip von Abbildungen oder Räumen</li>
+<li>Erhaltung von Addition und Skalarmultiplikation</li>
+<li>Global konsistente Strukturregel</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="gemeinsame-strukturelle-eigenschaften">2. Gemeinsame
+strukturelle Eigenschaften</h2>
+<h3 id="transformationscharakter">2.1 Transformationscharakter</h3>
+<ul>
+<li>Winkel: beschreibt Rotation zwischen Vektoren</li>
+<li>Linearität: beschreibt Transformationen von Vektoren selbst</li>
+<li>Gemeinsam: beide sind <strong>Operationen auf
+Raumstruktur</strong></li>
+</ul>
+<hr />
+<h3 id="erhaltungsprinzipien">2.2 Erhaltungsprinzipien</h3>
+<ul>
+<li>Winkel: oft invariant unter Drehungen (z. B.
+Skalarprodukt-Struktur)</li>
+<li>Linearität: erhält Linearkombinationen</li>
+<li>Gemeinsam:
+<ul>
+<li>beide definieren <strong>Invarianten in strukturierten
+Räumen</strong></li>
+<li>beide sind kompatibel mit Vektorraum-Struktur</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="abhängigkeit-von-struktur">2.3 Abhängigkeit von Struktur</h3>
+<ul>
+<li>Winkel benötigt:
+<ul>
+<li>Skalarprodukt oder metrische Struktur</li>
+</ul></li>
+<li>Linearität benötigt:
+<ul>
+<li>Vektorraumaxiome</li>
+</ul></li>
+<li>Gemeinsam:
+<ul>
+<li>beide existieren nur innerhalb einer <strong>vorstrukturierten
+algebraischen Umgebung</strong></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="komposition-und-zerlegung">2.4 Komposition und Zerlegung</h3>
+<ul>
+<li>Winkel:
+<ul>
+<li>additiv bei Rotationen (bis auf Modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math>)</li>
+</ul></li>
+<li>Linearität:
+<ul>
+<li>additive Zerlegung von Transformationen</li>
+</ul></li>
+<li>Gemeinsam:
+<ul>
+<li>beide erlauben <strong>Komposition durch additive
+Struktur</strong></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="duale-perspektiven">3. Duale Perspektiven</h2>
+<h3 id="geometrisch-vs.-algebraisch">3.1 Geometrisch
+vs. algebraisch</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 44%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Winkel</th>
+<th>Linearität</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Natur</td>
+<td>geometrisch</td>
+<td>algebraisch</td>
+</tr>
+<tr>
+<td>Objekt</td>
+<td>Relation zwischen Richtungen</td>
+<td>Eigenschaft von Abbildungen</td>
+</tr>
+<tr>
+<td>Ausdruck</td>
+<td>Rotation</td>
+<td>Funktionalität</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="lokal-vs.-global">3.2 Lokal vs. global</h3>
+<ul>
+<li>Winkel:
+<ul>
+<li>lokal zwischen zwei Vektoren definiert</li>
+</ul></li>
+<li>Linearität:
+<ul>
+<li>global für alle Vektoren im Raum definiert</li>
+</ul></li>
+</ul>
+<p>→ Spannung:</p>
+<ul>
+<li>Winkel = <strong>lokale Strukturinformation</strong></li>
+<li>Linearität = <strong>globale Strukturregel</strong></li>
+</ul>
+<hr />
+<h2 id="gemeinsame-abstrakte-struktur">4. Gemeinsame abstrakte
+Struktur</h2>
+<p>Beide lassen sich als Formen eines allgemeinen Prinzips sehen:</p>
+<h3 id="strukturerhalt-unter-transformation">„Strukturerhalt unter
+Transformation“</h3>
+<ul>
+<li>Winkel:
+<ul>
+<li>erhält relative geometrische Beziehung (Richtung)</li>
+</ul></li>
+<li>Linearität:
+<ul>
+<li>erhält additive Struktur</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="tieferer-zusammenhang-geometrie-algebra">5. Tieferer
+Zusammenhang (Geometrie ↔︎ Algebra)</h2>
+<ul>
+<li>Skalarprodukt erzeugt Winkel</li>
+<li>Linearität erhält Skalarprodukt-Strukturen nur unter
+Orthogonalität</li>
+</ul>
+<p>→ Verbindung:</p>
+<ul>
+<li>Winkel misst <strong>Abweichung innerhalb linearer
+Struktur</strong></li>
+<li>Linearität definiert <strong>Rahmen, in dem Winkel sinnvoll
+ist</strong></li>
+</ul>
+<hr />
+<h2 id="verdichtete-aussage">6. Verdichtete Aussage</h2>
+<ul>
+<li>Winkel = <em>lokale, zyklische Strukturrelation im linearen
+Raum</em></li>
+<li>Linearität = <em>globale Erhaltungsregel des Raums selbst</em></li>
+</ul>
+<p>→ Beide sind komplementäre Beschreibungen derselben Raumstruktur:</p>
+<ul>
+<li>Linearität definiert die Bühne</li>
+<li>Winkel beschreibt die interne Geometrie dieser Bühne</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>6m8</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="universelle-eigenschaften-zwischen-zahl-und-raum">Universelle
+Eigenschaften zwischen Zahl und Raum</h1>
+<h2 id="grundidee">Grundidee</h2>
+<p>Zwischen Zahl und Raum gibt es zwei grundlegende Richtungen:</p>
+<ol type="1">
+<li><p>Zahl → Raum<br />
+Konstruktion: Aus Zahlen werden Räume und Strukturen.</p></li>
+<li><p>Raum → Zahl<br />
+Extraktion: Aus Räumen werden Zahlen, Messungen und
+Invarianten.</p></li>
+</ol>
+<p>Die Kategorientheorie beschreibt diese Beziehungen über Objekte,
+Morphismen und universelle Eigenschaften.</p>
+<hr />
+<h1 id="zahl-raum">1. Zahl → Raum</h1>
+<h2 id="produkt">Produkt</h2>
+<p>Aus mehreren Zahlen entsteht ein Raum.</p>
+<p>Beispiel:</p>
+<p>R × R = R²</p>
+<p>Ein Punkt:</p>
+<p>(x,y)</p>
+<p>ist eine Kombination zweier Zahlen.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Ein Objekt im Produkt ist eindeutig durch seine Komponenten
+bestimmt.</p>
+<hr />
+<h2 id="potenzobjekt-funktionenraum">Potenzobjekt / Funktionenraum</h2>
+<p>Aus Zahlen entstehen Räume aller möglichen Funktionen.</p>
+<p>Beispiel:</p>
+<p>R^X</p>
+<p>Alle Funktionen:</p>
+<p>f : X → R</p>
+<p>bilden selbst einen Raum.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Ein Objekt wird durch seine möglichen Abbildungen
+charakterisiert.</p>
+<hr />
+<h2 id="freie-konstruktion">Freie Konstruktion</h2>
+<p>Aus Elementen entstehen Strukturen.</p>
+<p>Beispiel:</p>
+<p>Zahlen → Vektorraum</p>
+<p>Operationen:</p>
+<ul>
+<li></li>
+<li></li>
+</ul>
+<p>Universelle Eigenschaft:</p>
+<p>Jede erlaubte Abbildung der Grundelemente erweitert sich eindeutig
+auf die gesamte Struktur.</p>
+<hr />
+<h2 id="quotient">Quotient</h2>
+<p>Unterschiede werden entfernt.</p>
+<p>Beispiel:</p>
+<p>Zahlen modulo 5:</p>
+<p>Z / 5Z</p>
+<p>ergibt zyklische Struktur.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Elemente mit gleicher Bedeutung werden identifiziert.</p>
+<hr />
+<h2 id="vektorraum">Vektorraum</h2>
+<p>Zahlen erhalten lineare Operationen.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Lineare Abbildungen werden durch Basiswerte bestimmt.</p>
+<hr />
+<h2 id="metrischer-raum">Metrischer Raum</h2>
+<p>Eine Zahlenfunktion:</p>
+<p>d(x,y)</p>
+<p>erzeugt Geometrie.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Abstände bestimmen die Struktur des Raumes.</p>
+<hr />
+<h2 id="topologischer-raum">Topologischer Raum</h2>
+<p>Aus Beziehungen der Nähe entsteht ein Raum.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Grenzen und Stetigkeit können ohne konkrete Entfernung definiert
+werden.</p>
+<hr />
+<h2 id="graphraum">Graphraum</h2>
+<p>Zahlen werden Knoten:</p>
+<p>V = {1,2,3,…}</p>
+<p>Beziehungen werden Kanten.</p>
+<p>Universelle Eigenschaft:</p>
+<p>Struktur entsteht durch Beziehungen.</p>
+<hr />
+<h1 id="raum-zahl">2. Raum → Zahl</h1>
+<h2 id="messung">Messung</h2>
+<p>Raum wird auf Zahlen abgebildet.</p>
+<p>Beispiele:</p>
+<p>Länge Fläche Volumen</p>
+<p>Universelle Eigenschaft:</p>
+<p>Komplexe Struktur wird messbar.</p>
+<hr />
+<h2 id="abstand">Abstand</h2>
+<p>Metrik:</p>
+<p>d : X × X → R</p>
+<p>Universelle Eigenschaft:</p>
+<p>Geometrie wird durch Beziehungen zwischen Punkten beschrieben.</p>
+<hr />
+<h2 id="koordinaten">Koordinaten</h2>
+<p>Raum:</p>
+<p>Punkt</p>
+<p>wird:</p>
+<p>(x,y,z)</p>
+<p>Universelle Eigenschaft:</p>
+<p>Objekte erhalten numerische Darstellung.</p>
+<hr />
+<h2 id="dimension">Dimension</h2>
+<p>Raum → Zahl</p>
+<p>Beispiele:</p>
+<p>Linie = 1 Fläche = 2 Raum = 3</p>
+<p>Universelle Eigenschaft:</p>
+<p>Anzahl unabhängiger Richtungen.</p>
+<hr />
+<h2 id="invarianten">Invarianten</h2>
+<p>Eigenschaften bleiben unter Transformationen erhalten.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Länge</li>
+<li>Euler-Charakteristik</li>
+<li>Symmetrie</li>
+</ul>
+<p>Universelle Eigenschaft:</p>
+<p>Wesentliche Struktur bleibt trotz Veränderung erhalten.</p>
+<hr />
+<h2 id="projektion">Projektion</h2>
+<p>Komplexer Raum:</p>
+<p>(x,y,z)</p>
+<p>wird reduziert:</p>
+<p>x</p>
+<p>oder</p>
+<p>(x,y)</p>
+<p>Universelle Eigenschaft:</p>
+<p>Ein Teilaspekt kann isoliert werden.</p>
+<hr />
+<h2 id="abstandsmatrix">Abstandsmatrix</h2>
+<p>Punkte:</p>
+<p>P1,P2,…,Pn</p>
+<p>werden:</p>
+<p>Dij = d(Pi,Pj)</p>
+<p>Universelle Eigenschaft:</p>
+<p>Geometrie wird vollständig durch Beziehungen beschrieben.</p>
+<hr />
+<h2 id="algebraische-topologie">Algebraische Topologie</h2>
+<p>Raum:</p>
+<p>X</p>
+<p>wird Algebra:</p>
+<p>π1(X)</p>
+<p>Hn(X)</p>
+<p>Universelle Eigenschaft:</p>
+<p>Form wird durch algebraische Strukturen dargestellt.</p>
+<hr />
+<h1 id="gemeinsamer-kern">Gemeinsamer Kern</h1>
+<h2 id="zahl-raum-1">Zahl → Raum</h2>
+<p>Aufbau:</p>
+<p>Elemente → Beziehungen → Struktur</p>
+<hr />
+<h2 id="raum-zahl-1">Raum → Zahl</h2>
+<p>Auswertung:</p>
+<p>Struktur → Messung → Beschreibung</p>
+<hr />
+<h1 id="kategorientheoretischer-kern">Kategorientheoretischer Kern</h1>
+<p>Objekte:</p>
+<ul>
+<li>Zahlenstrukturen</li>
+<li>Räume</li>
+</ul>
+<p>Morphismen:</p>
+<ul>
+<li>Funktionen</li>
+<li>stetige Abbildungen</li>
+<li>Struktur-erhaltende Abbildungen</li>
+</ul>
+<p>Universelle Eigenschaften:</p>
+<ul>
+<li>Produkte</li>
+<li>Koprodukte</li>
+<li>freie Objekte</li>
+<li>Quotienten</li>
+<li>Funktoren</li>
+<li>Adjungierte Konstruktionen</li>
+</ul>
+<hr />
+<h1 id="hauptidee">Hauptidee</h1>
+<p>Zahlen geben Räumen Koordinaten und Operationen.</p>
+<p>Räume geben Zahlen Bedeutung durch Beziehungen, Messungen und
+Invarianten.</p>
+<p>Die Verbindung zwischen beiden Richtungen ist eine der zentralen
+Ideen moderner Mathematik.</p>
+</body>
+</html>

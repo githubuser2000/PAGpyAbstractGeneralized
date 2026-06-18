@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>12m4</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1
+id="universelle-eigenschaften-tupel-hierarchie-linearität">Universelle
+Eigenschaften: Tupel-Hierarchie × Linearität</h1>
+<h2 id="grundbegriffe">1. Grundbegriffe</h2>
+<h3 id="tupel-hierarchie">Tupel-Hierarchie</h3>
+<p>Eine Tupel-Hierarchie ist eine geschachtelte Struktur von
+n-Tupeln:</p>
+<ul>
+<li>Ebene 0: Elemente
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in A</annotation></semantics></math></li>
+<li>Ebene 1: Tupel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><msub><mi>a</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a_1, a_2, \dots, a_n)</annotation></semantics></math></li>
+<li>Ebene k: Tupel von Tupeln der Ebene k−1</li>
+</ul>
+<p>Eigenschaften:</p>
+<ul>
+<li>Rekursive Struktur</li>
+<li>Mehrdimensionalität</li>
+<li>Lokale Ordnung innerhalb von Tupeln, aber nicht zwingend globale
+Ordnung</li>
+</ul>
+<hr />
+<h3 id="linearität">Linearität</h3>
+<p>Linearität beschreibt eine total geordnete Struktur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>L</mi><mo>,</mo><mo>≤</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(L, \le)</annotation></semantics></math>:</p>
+<ul>
+<li>Für alle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">x, y \in L</annotation></semantics></math>
+gilt:
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≤</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x \le y</annotation></semantics></math>
+oder
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>≤</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y \le x</annotation></semantics></math></li>
+</ul></li>
+<li>Keine Unvergleichbarkeit</li>
+<li>Transitivität und Antisymmetrie</li>
+</ul>
+<p>Eigenschaften:</p>
+<ul>
+<li>Eindeutige Reihenfolge</li>
+<li>Projektion auf eine Dimension</li>
+<li>Reduktion von Komplexität durch Ordnung</li>
+</ul>
+<hr />
+<h2 id="universelle-vergleichsebene">2. Universelle Vergleichsebene</h2>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 29%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Tupel-Hierarchie</th>
+<th>Linearität</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strukturtyp</td>
+<td>Mehrdimensional, rekursiv</td>
+<td>Eindimensional, total geordnet</td>
+</tr>
+<tr>
+<td>Vergleichbarkeit</td>
+<td>Teilweise lokal</td>
+<td>Global vollständig</td>
+</tr>
+<tr>
+<td>Informationsdichte</td>
+<td>Hoch (parallel kodiert)</td>
+<td>Niedrig (sequenziell kodiert)</td>
+</tr>
+<tr>
+<td>Abbildung</td>
+<td>Baum-/Graphstruktur</td>
+<td>Linie</td>
+</tr>
+<tr>
+<td>Reduktion</td>
+<td>Projektion möglich</td>
+<td>Keine Rückfaltung ohne Informationsverlust</td>
+</tr>
+<tr>
+<td>Symmetrie</td>
+<td>Kontextabhängig</td>
+<td>Ordnungssymmetrie gebrochen</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="universelle-eigenschaften-gemeinsame-strukturprinzipien">3.
+Universelle Eigenschaften (gemeinsame Strukturprinzipien)</h2>
+<h3 id="ordnungsinduktion">3.1 Ordnungsinduktion</h3>
+<p>Beide Systeme erzeugen Ordnung:</p>
+<ul>
+<li>Tupel-Hierarchie: implizite Ordnung durch Strukturierung</li>
+<li>Linearität: explizite Ordnung durch Relation</li>
+</ul>
+<p>👉 Universal: Ordnung ist ein emergentes Strukturprinzip, unabhängig
+davon ob explizit oder implizit.</p>
+<hr />
+<h3 id="vergleichsoperatoren">3.2 Vergleichsoperatoren</h3>
+<p>Beide benötigen Vergleichsregeln:</p>
+<ul>
+<li>Tupel: komponentenweise oder lexikographisch</li>
+<li>Linear: direkte Relation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\le</annotation></semantics></math></li>
+</ul>
+<p>👉 Universal: Jede strukturierte Menge benötigt eine
+Vergleichssemantik.</p>
+<hr />
+<h3 id="informationsprojektion">3.3 Informationsprojektion</h3>
+<ul>
+<li>Tupel → kann auf lineare Reihenfolge projiziert werden (z. B.
+Flattening)</li>
+<li>Linear → kann als degenerierter Spezialfall eines Tupels (1D-Tensor)
+betrachtet werden</li>
+</ul>
+<p>👉 Universal: Beide sind ineinander transformierbar durch
+Informationsverlust oder -kompression.</p>
+<hr />
+<h3 id="hierarchisierung-vs.-sequenzialisierung">3.4 Hierarchisierung
+vs. Sequenzialisierung</h3>
+<ul>
+<li>Tupel-Hierarchie: vertikale Struktur (Tiefe)</li>
+<li>Linearität: horizontale Struktur (Reihe)</li>
+</ul>
+<p>👉 Universal: Struktur kann entlang zweier Achsen organisiert
+werden:</p>
+<ul>
+<li>Tiefe (Hierarchie)</li>
+<li>Länge (Sequenz)</li>
+</ul>
+<hr />
+<h3 id="determinismus-der-struktur">3.5 Determinismus der Struktur</h3>
+<ul>
+<li>Lineare Ordnung erzwingt deterministischen Pfad</li>
+<li>Tupel-Hierarchie erlaubt verzweigte Determinismen (lokal eindeutig,
+global flexibel)</li>
+</ul>
+<p>👉 Universal: Determinismus ist eine Eigenschaft der
+Ordnungsprojektion, nicht der Daten selbst.</p>
+<hr />
+<h2 id="dualitätsprinzip">4. Dualitätsprinzip</h2>
+<p>Die beiden Strukturen sind zueinander dual:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Tupel-Hierarchie</mtext><mspace width="0.278em"></mspace><mo>↔</mo><mspace width="0.278em"></mspace><mtext mathvariant="normal">Linearität</mtext></mrow><annotation encoding="application/x-tex">
+\text{Tupel-Hierarchie} \;\leftrightarrow\; \text{Linearität}
+</annotation></semantics></math></p>
+<ul>
+<li>Tupel = Strukturraum (mehrdimensional)</li>
+<li>Linearität = Projektionsraum (1D-Schnitt)</li>
+</ul>
+<hr />
+<h2 id="grenzfälle">5. Grenzfälle</h2>
+<h3 id="tupel-linearität">5.1 Tupel → Linearität</h3>
+<p>Wenn alle Tupel nur eine valide Projektion besitzen:</p>
+<ul>
+<li>Reduktion zu Sequenz</li>
+<li>Verlust von Kontextverzweigung</li>
+</ul>
+<h3 id="linearität-tupel">5.2 Linearität → Tupel</h3>
+<p>Jede lineare Ordnung kann als:</p>
+<ul>
+<li>1-Tupel-Hierarchie interpretiert werden</li>
+<li>oder als degenerierter Baum (Tiefe 1)</li>
+</ul>
+<hr />
+<h2 id="universelles-fazit">6. Universelles Fazit</h2>
+<p>Die Beziehung zwischen Tupel-Hierarchie und Linearität ist keine
+Opposition, sondern eine
+<strong>Struktur-Transformations-Dualität</strong>:</p>
+<ul>
+<li>Tupel-Hierarchie maximiert Struktur und Kontext</li>
+<li>Linearität maximiert Vergleichbarkeit und Reduktion</li>
+</ul>
+<p>👉 Universell gilt:</p>
+<blockquote>
+<p>Jede lineare Ordnung ist eine komprimierte Projektion einer
+Tupel-Hierarchie,<br />
+und jede Tupel-Hierarchie enthält potenziell lineare Ordnungsachsen.</p>
+</blockquote>
+<hr />
+</body>
+</html>
